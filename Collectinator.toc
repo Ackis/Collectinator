@@ -1,0 +1,38 @@
+## Title: Collectinator
+
+## Notes: Provides methods for determining which mini-pets, mounts, and tabards you are missing.
+## Notes-enUS: Provides methods for determining which mini-pets, mounts, and tabards you are missing.
+
+## Author: Ackis
+## X-Author-Server: Illidan US
+## X-Author-Faction: Horde
+## eMail: ackis AT shaw DOT ca
+## X-email: ackis AT shaw DOT ca
+## X-License: MIT modified with notification clause
+## X-Donate: Send me UDE Point codes, a Murky Code, or donate a few bucks/hours at your local animal shelter.
+
+## Interface: 20400
+## Version: 0.10
+## X-Revision: $Rev$
+## X-Date: $Date$
+
+## X-credits: 
+
+## X-Category: Raid
+## X-Localizations: enUS
+## X-Website: http://www.wowwiki.com/Collectinator
+## X-Feedback: http://www.curse.com/downloads/details/
+## X-AceForum: 
+## X-RelSite-Curse: 
+## X-LoadOn-Slash: 
+
+## Dependencies:
+## X-Embeds: Ace3
+## OptionalDeps: Ace3
+## DefaultState: Enabled
+## LoadOnDemand: 0
+
+embeds.xml
+
+AboutPanel.lua
+Collectinator.lua
