@@ -69,7 +69,7 @@ function addon:ScanCompanions()
 	end
 
 	for i=1,numminipets do
-		local _,petspell,petname = GetCompanionInfo("CRITTER",i)
+		local _,petname,petspell = GetCompanionInfo("CRITTER",i)
 		if (not minipetlist[petspell]) then
 			self:Print("Unknown pet found.  Please report to the author.  Pet name: " .. petname .. " Pet spell ID: " .. petspell)
 		else
@@ -84,7 +84,7 @@ function addon:ScanCompanions()
 	end
 
 	for i=1,nummounts do
-		local _,mountspell,mountname = GetCompanionInfo("MOUNT",i)
+		local _,mountname,mountspell = GetCompanionInfo("MOUNT",i)
 	end
 
 end
@@ -169,5 +169,8 @@ function addon:AddMiniPets()
 	self:AddMiniPet(39709, "???", 0)
 	self:AddMiniPet(10703, "???", 0)
 	self:AddMiniPet(15999, "???", 0)
-
+	self:AddMiniPet(54187, "???", 0)
+	self:AddMiniPet(40614, "???", 0)
+	self:AddMiniPet(4055, "???", 0)
+	self:AddMiniPet(40613, "???", 0)
 end
