@@ -1,7 +1,7 @@
 ## Title: Collectinator
 
-## Notes: Provides methods for determining which mini-pets, mounts, and tabards you are missing.
-## Notes-enUS: Provides methods for determining which mini-pets, mounts, and tabards you are missing.
+## Notes: A Wrath of the Lich King addon which will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
+## Notes-enUS: A Wrath of the Lich King addon which will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
 
 ## Author: Ackis
 ## X-Author-Server: Illidan US
