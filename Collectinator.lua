@@ -1,5 +1,25 @@
+--[[
+****************************************************************************************
+Collectinator
+$Date$
+$Rev$
 
-Collectinator = LibStub("AceAddon-3.0"):NewAddon("Collectinator", "AceConsole-3.0")
+Author: Ackis on Illidan US Horde
+
+****************************************************************************************
+
+Still in development
+
+Please see Wowace.com for more information.
+
+****************************************************************************************
+]]--
+
+Collectinator 	= LibStub("AceAddon-3.0"):NewAddon("Collectinator", "AceConsole-3.0")
+
+local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local BZONE		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+local BBOSS		= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 local addon = Collectinator
 local GetNumCompanions = GetNumCompanions
@@ -11,6 +31,7 @@ local AceConfig = LibStub("AceConfig-3.0")
 
 
 -- Returns configuration options
+
 local function giveOptions()
 
 	local command_options = {
@@ -29,7 +50,15 @@ local function giveOptions()
 				type = "description",
 				name = "Version: 0.10\n",
 			},
-			run = 
+			showchecklist = 
+			{
+				type = "execute",
+				name = "Show Checklist",
+				desc = "Displays the checklist showing which collectable items you are missing.",
+				func = function(info) addon:ShowChecklist() end,
+				order = 40,
+			},
+			scancompanions = 
 			{
 				type = "execute",
 				name = "Scan Companions",
@@ -44,6 +73,8 @@ local function giveOptions()
 
 end
 
+-- Loaded at startup, sets configuration options, the GUI configuration options and registers slash commands
+
 function addon:OnInitialize()
 
 	local AceConfigReg = LibStub("AceConfigRegistry-3.0")
@@ -57,6 +88,9 @@ function addon:OnInitialize()
 end
 --/script Collectinator:ScanCompanions()
 --/script Collectinator:Print(GetCompanionInfo("CRITTER",1))
+
+-- Scans the companions, add their spell IDs to a table.
+
 function addon:ScanCompanions()
 
 	local numminipets = GetNumCompanions("CRITTER")
@@ -89,14 +123,30 @@ function addon:ScanCompanions()
 
 end
 
-function addon:AddMiniPet(spellid, aquire, faction)
+-- Adds a mini pet (based off of spell ID) to the database.  Also will add aquisition, faction, reputation, location, and filtering flags.
+
+function addon:AddMiniPet(spellid, aquire, faction, reputation, location, ...)
 
 	--[[
 		Faction info:
 		0 = neutral
 		1 = Horde
 		2 = Alliance
-	--]]
+
+		Filter flags:
+		Flags are different flags which allow me to filter out the companions.  These flags are defined as:
+			-- 1 = Vendor
+			-- 2 = BoE Pet
+			-- 3 = BoP Pet
+			-- 4 = Instance
+			-- 5= Raid
+			-- 6 = Seasonal
+			-- 7 = Quest
+			-- 8 = PVP
+			-- 9 = World Drop
+			-- 10 = Specific mob drop
+
+	]]--
 
 	-- Create an entry for this minipet
 	minipetlist[spellid] = {}
@@ -106,6 +156,8 @@ function addon:AddMiniPet(spellid, aquire, faction)
 	minipetlist[spellid]["Owned"] = false
 
 end
+
+-- Adds all mini-pets, by spell ID to the local database.
 
 function addon:AddMiniPets()
 
@@ -173,4 +225,11 @@ function addon:AddMiniPets()
 	self:AddMiniPet(40614, "???", 0)
 	self:AddMiniPet(4055, "???", 0)
 	self:AddMiniPet(40613, "???", 0)
+
+end
+
+function addon:ShowChecklist()
+
+	self:Print("NYI")
+
 end
