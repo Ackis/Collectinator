@@ -12,13 +12,13 @@
 ## X-Donate: Send me UDE Point codes, a Murky Code, or donate a few bucks/hours at your local animal shelter.
 
 ## Interface: 20400
-## Version: 0.10
+## Version: 0.11
 ## X-Revision: $Rev$
 ## X-Date: $Date$
 
 ## X-credits: 
 
-## X-Category: Raid
+## X-Category: Tradeskill
 ## X-Localizations: enUS
 ## X-Website: http://www.wowwiki.com/Collectinator
 ## X-Feedback: http://www.curse.com/downloads/details/
@@ -27,12 +27,11 @@
 ## X-LoadOn-Slash: 
 
 ## Dependencies:
-## X-Embeds: Ace3
-## OptionalDeps: Ace3
+## X-Embeds: Ace3, LibStub, CallbackHandler-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibAboutPanel
+## OptionalDeps: Ace3, LibStub, CallbackHandler-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibAboutPanel
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 
 embeds.xml
 
-AboutPanel.lua
 Collectinator.lua
