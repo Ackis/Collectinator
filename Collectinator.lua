@@ -225,7 +225,14 @@ function addon:AddMiniPets()
 	self:AddMiniPet(40614, "???", 0)
 	self:AddMiniPet(4055, "???", 0)
 	self:AddMiniPet(40613, "???", 0)
-
+	self:AddMiniPet(10696, "???", 0)
+	self:AddMiniPet(35907, "???", 0)
+	self:AddMiniPet(49964, "???", 0)
+	self:AddMiniPet(35909, "???", 0)
+	self:AddMiniPet(40990, "???", 0)
+	self:AddMiniPet(48406, "???", 0)
+	self:AddMiniPet(35911, "???", 0)
+	self:AddMiniPet(35910, "???", 0)
 end
 
 function addon:ShowChecklist()
