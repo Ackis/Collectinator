@@ -76,6 +76,7 @@ local function giveOptions()
 end
 
 -- Returns configuration options for profiling
+
 local function giveProfiles()
 
 	local profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(addon.db)
@@ -108,6 +109,10 @@ function addon:OnInitialize()
 	self.db:RegisterDefaults(
 		{ profile =
 			{
+
+			-- Exclusion lists
+			petexclusions = {},
+			mountexclusions = {}
 			}
 		}
 	)
@@ -262,6 +267,34 @@ function addon:AddMiniPet(spellid, aquire, faction, reputation, location, coords
 	for i=1,numvars,1 do
 		local temp = select(i,...)
 		tinsert(minipetlist[spellid]["Speciality"],temp)
+	end
+
+end
+
+-- Adds an item from a specific collection to the exclusion list
+-- Arguments: Collection type (MOUNT, PET), spell ID or itemID of what has to be excluded
+-- Return Values: none
+
+function addon:ExcludeCollection(collection,ID)
+
+	if (collection == "MOUNT") then
+		tinsert(self.db.profile.mountexclusionls,ID)	
+	elseif (collection == "PET") then
+		tinsert(self.db.profile.petexclusions,ID)
+	end
+
+end
+
+-- Removes an item from a specific collection to the exclusion list
+-- Arguments: Collection type (MOUNT, PET), spell ID or itemID of what has to be removed from exlcusion list
+-- Return Values: none
+
+function addon:AddtoCollection(collection,ID)
+
+	if (collection == "MOUNT") then
+		tremove(self.db.profile.mountexclusionls,ID)	
+	elseif (collection == "PET") then
+		tremove(self.db.profile.petexclusions,ID)
 	end
 
 end
