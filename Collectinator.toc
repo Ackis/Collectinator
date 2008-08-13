@@ -12,7 +12,7 @@
 ## X-Donate: Send me UDE Point codes, a Murky Code, or donate a few bucks/hours at your local animal shelter.
 
 ## Interface: 20400
-## Version: 0.11
+## Version: 0.12
 ## X-Revision: $Rev$
 ## X-Date: $Date$
 
