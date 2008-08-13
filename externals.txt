@@ -11,4 +11,4 @@ libs/AceGUI-3.0 http://svn.wowace.com/wowace/branches/Ace3/WotLK/AceGUI-3.0/
 libs/LibBabble-Faction-3.0/ http://svn.wowace.com/wowace/trunk/LibBabble-Faction-3.0/
 libs/LibBabble-Zone-3.0/ http://svn.wowace.com/wowace/trunk/LibBabble-Zone-3.0/
 libs/LibBabble-Boss-3.0/ http://svn.wowace.com/wowace/trunk/LibBabble-Boss-3.0/
-libs/LibAboutPanel/ svn://svn.curseforge.net/wow/libaboutpanel/mainline/tags/1.0/
+libs/LibAboutPanel/ svn://svn.curseforge.net/wow/libaboutpanel/mainline/trunk/

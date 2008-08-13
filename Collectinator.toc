@@ -1,4 +1,4 @@
-## Title: Collectinator
+﻿## Title: Collectinator
 
 ## Notes: A Wrath of the Lich King addon which will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
 ## Notes-enUS: A Wrath of the Lich King addon which will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
@@ -35,3 +35,6 @@
 embeds.xml
 
 Collectinator.lua
+
+PetDatabase.lua
+MountDatabase.lua

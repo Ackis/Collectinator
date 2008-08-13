@@ -1,4 +1,4 @@
---[[
+﻿--[[
 ****************************************************************************************
 Collectinator
 $Date$
@@ -15,14 +15,16 @@ Please see Wowace.com for more information.
 ****************************************************************************************
 ]]--
 
+--local L			= LibStub("AceLocale-3.0"):GetLocale("Collectinator")
+
 Collectinator 	= LibStub("AceAddon-3.0"):NewAddon("Collectinator", "AceConsole-3.0")
 
-local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local BZONE		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
-local BBOSS		= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
-
 local addon = Collectinator
+
+-- Make functions local to speed things up
 local GetNumCompanions = GetNumCompanions
+local select = select
+
 
 local minipetlist = nil
 local mountlist = nil
@@ -73,6 +75,14 @@ local function giveOptions()
 
 end
 
+-- Returns configuration options for profiling
+local function giveProfiles()
+
+	local profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(addon.db)
+	return profiles
+
+end
+
 -- Loaded at startup, sets configuration options, the GUI configuration options and registers slash commands
 
 function addon:OnInitialize()
@@ -80,52 +90,139 @@ function addon:OnInitialize()
 	local AceConfigReg = LibStub("AceConfigRegistry-3.0")
 	local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 
-	AceConfig:RegisterOptionsTable("Collectinator", giveOptions, {"Collectinator"})
+	self.db = LibStub("AceDB-3.0"):New("CollectinatorDB", defaults, "char")
 
+	-- Create the options with Ace3
+	AceConfig:RegisterOptionsTable("Collectinator",giveOptions,"Collectinator")
+	AceConfigReg:RegisterOptionsTable("Collectinator Profile",giveProfiles)
+
+	-- Add the options to blizzard frame
 	self.optionsFrame = AceConfigDialog:AddToBlizOptions("Collectinator","Collectinator")
 	self.optionsFrame["About"] = LibStub("LibAboutPanel").new("Collectinator", "Collectinator")
+	self.optionsFrame["Profile"] = AceConfigDialog:AddToBlizOptions("Collectinator Profile", "Profile", "Collectinator")
+
+	-- Register slash commands
+	self:RegisterChatCommand("collectinator", "ChatCommand")
+
+	-- Set default options, which are to include everything in the scan
+	self.db:RegisterDefaults(
+		{ profile =
+			{
+			}
+		}
+	)
 
 end
---/script Collectinator:ScanCompanions()
---/script Collectinator:Print(GetCompanionInfo("CRITTER",1))
+
+function addon:OnEnable()
+
+end
+
+function addon:OnDisable()
+
+end
+
+function addon:ChatCommand(input)
+
+	if (not input) or (input and input:trim() == "") or (string.lower(input) == string.lower("About")) then
+		-- Open About panel if there's no parameters or if the parameter is About
+		InterfaceOptionsFrame_OpenToFrame(self.optionsFrame["About"])
+	end
+
+end
 
 -- Scans the companions, add their spell IDs to a table.
+-- Arguments: None
+-- Return values: Your mini-pets, Total mini-pets, Your mounts, Total mounts
 
 function addon:ScanCompanions()
 
+	-- Create the master list of all mini-pets
+	if (minipetlist == nil) then
+		addon:MakeMiniPetTable(minipetlist)
+	end
+
+	-- Create the master list of all mounts
+	if (mountlist == nil) then
+		addon:MakeMountTable(mountlist)
+	end
+
 	local numminipets = GetNumCompanions("CRITTER")
 	local nummounts = GetNumCompanions("MOUNT")
+	local totalminipets = #minipetlist
+	local totalmounts = #mountlist
 
 	self:Print("You have " .. numminipets .. " mini-pets and " .. nummounts .. " mounts.")
+	self:Print("There are a total of " .. totalminipets .. " mini-pets and " .. totalmounts .. " mounts in the database currently.")
 
-	if (minipetlist == nil) then
-		addon:AddMiniPets()
-	end
-
+	-- Parse all the mini-pets you currently have
 	for i=1,numminipets do
+		-- Get the pet's name and spell ID
 		local _,petname,petspell = GetCompanionInfo("CRITTER",i)
-		if (not minipetlist[petspell]) then
-			self:Print("Unknown pet found.  Please report to the author.  Pet name: " .. petname .. " Pet spell ID: " .. petspell)
-		else
+
+		-- Mark the pet as known in the database, if the pet is not in the database display an error
+		if (minipetlist[petspell]) then
 			minipetlist[petspell]["Owned"] = true
+		else
+			self:Print("Unknown pet found.  Please report to the author.  Pet name: " .. petname .. " Pet spell ID: " .. petspell)
 		end
+
 	end
+
+	for i=1,nummounts do
+		-- Get the mount name and spell ID
+		local _,mountname,mountspell = GetCompanionInfo("MOUNT",i)
+
+		-- Mark the mount as known in the database, if the mount is not in the database display an error
+		if (mountlist[mountspell]) then
+			mountlist[mountspell]["Owned"] = true
+		else
+			self:Print("Unknown pet found.  Please report to the author.  Pet name: " .. petname .. " Pet spell ID: " .. mountspell)
+		end
+
+	end
+
+	return numminipets, totalminipets, nummounts, totalmounts
+
+end
+
+-- Parse the master lists for pet and mounts and display all those which have the "Owned" flag as false.
+-- Arguments: None
+-- Return values: Total Missing mini-pets, Total missing mounts
+
+function addon:DisplayMissingCompanions()
+
+	local missingpets = 0
 
 	for i in pairs(minipetlist) do
 		if (minipetlist[i] and minipetlist[i]["Owned"] == false) then
 			self:Print("Missing pet: " .. i)
+			missingpets = missingpets + 1
 		end
 	end
 
-	for i=1,nummounts do
-		local _,mountname,mountspell = GetCompanionInfo("MOUNT",i)
+	self:Print("You are missing a total of " .. missingpets .. " mini-pets.")
+
+	local missingmounts = 0
+
+	for i in pairs(mountlist) do
+		if (mountlist[i] and mountlist[i]["Owned"] == false) then
+			self:Print("Missing mount: " .. i)
+			missingmounts = missingmounts + 1
+		end
 	end
+
+	self:Print("You are missing a total of " .. missingmounts .. " mounts.")
+
+	return missingpets, missingmounts
 
 end
 
 -- Adds a mini pet (based off of spell ID) to the database.  Also will add aquisition, faction, reputation, location, and filtering flags.
+-- Arguments: Spell ID of mini-pet, aquisition information, faction information, reputation information, location, coordinate information, arbitrary number of flags
+-- Return values: none
 
-function addon:AddMiniPet(spellid, aquire, faction, reputation, location, ...)
+function addon:AddMiniPet(spellid, aquire, faction, reputation, location, coords, ...)
 
 	--[[
 		Faction info:
@@ -153,86 +250,20 @@ function addon:AddMiniPet(spellid, aquire, faction, reputation, location, ...)
 
 	minipetlist[spellid]["Aquire"] = aquire
 	minipetlist[spellid]["Faction"] = faction
+	minipetlist[spellid]["Reputation"] = reputation
+	minipetlist[spellid]["Location"] = location
+	minipetlist[spellid]["Coords"] = coords
 	minipetlist[spellid]["Owned"] = false
 
-end
+	minipetlist[spellid]["Speciality"] = {}
 
--- Adds all mini-pets, by spell ID to the local database.
+	local numvars = select('#',...)
 
-function addon:AddMiniPets()
+	for i=1,numvars,1 do
+		local temp = select(i,...)
+		tinsert(minipetlist[spellid]["Speciality"],temp)
+	end
 
-	self:Print("Populating minipet list.")
-	minipetlist = {}
-
-	self:AddMiniPet(1, "Test pet aquire", 0)
-	self:AddMiniPet(10685, "Vendor", 0)
-	self:AddMiniPet(40549, "TCG", 0)
-	self:AddMiniPet(10675, "Drop", 0)
-	self:AddMiniPet(36031, "Vendor", 0)
-	self:AddMiniPet(10673, "???", 0)
-	self:AddMiniPet(10709, "Vendor", 1)
-	self:AddMiniPet(35239, "???", 0)
-	self:AddMiniPet(10680, "???", 0)
-	self:AddMiniPet(10688, "???", 0)
-	self:AddMiniPet(10674, "???", 0)
-	self:AddMiniPet(10697, "???", 0)
-	self:AddMiniPet(10695, "???", 0)
-	self:AddMiniPet(25162, "???", 0)
-	self:AddMiniPet(45127, "???", 0)
-	self:AddMiniPet(10698, "???", 0)
-	self:AddMiniPet(36034, "???", 0)
-	self:AddMiniPet(36027, "???", 0)
-	self:AddMiniPet(10707, "???", 0)
-	self:AddMiniPet(10683, "???", 0)
-	self:AddMiniPet(10706, "???", 0)
-	self:AddMiniPet(30156, "???", 0)
-	self:AddMiniPet(10682, "???", 0)
-	self:AddMiniPet(23811, "???", 0)
-	self:AddMiniPet(19772, "???", 0)
-	self:AddMiniPet(33050, "???", 0)
-	self:AddMiniPet(35156, "???", 0)
-	self:AddMiniPet(12243, "???", 0)
-	self:AddMiniPet(53082, "???", 0)
-	self:AddMiniPet(39181, "???", 0)
-	self:AddMiniPet(43918, "???", 0)
-	self:AddMiniPet(28739, "???", 0)
-	self:AddMiniPet(51716, "???", 0)
-	self:AddMiniPet(32298, "???", 0)
-	self:AddMiniPet(10676, "???", 0)
-	self:AddMiniPet(27570, "???", 0)
-	self:AddMiniPet(13548, "???", 0)
-	self:AddMiniPet(36028, "???", 0)
-	self:AddMiniPet(45125, "???", 0)
-	self:AddMiniPet(45890, "???", 0)
-	self:AddMiniPet(10684, "???", 0)
-	self:AddMiniPet(10677, "???", 0)
-	self:AddMiniPet(36029, "???", 0)
-	self:AddMiniPet(10678, "???", 0)
-	self:AddMiniPet(16450, "???", 0)
-	self:AddMiniPet(10711, "???", 0)
-	self:AddMiniPet(28738, "???", 0)
-	self:AddMiniPet(28871, "???", 0)
-	self:AddMiniPet(45082, "???", 0)
-	self:AddMiniPet(43697, "???", 0)
-	self:AddMiniPet(26010, "???", 0)
-	self:AddMiniPet(10704, "???", 0)
-	self:AddMiniPet(28740, "???", 0)
-	self:AddMiniPet(10679, "???", 0)
-	self:AddMiniPet(39709, "???", 0)
-	self:AddMiniPet(10703, "???", 0)
-	self:AddMiniPet(15999, "???", 0)
-	self:AddMiniPet(54187, "???", 0)
-	self:AddMiniPet(40614, "???", 0)
-	self:AddMiniPet(4055, "???", 0)
-	self:AddMiniPet(40613, "???", 0)
-	self:AddMiniPet(10696, "???", 0)
-	self:AddMiniPet(35907, "???", 0)
-	self:AddMiniPet(49964, "???", 0)
-	self:AddMiniPet(35909, "???", 0)
-	self:AddMiniPet(40990, "???", 0)
-	self:AddMiniPet(48406, "???", 0)
-	self:AddMiniPet(35911, "???", 0)
-	self:AddMiniPet(35910, "???", 0)
 end
 
 function addon:ShowChecklist()
