@@ -17,10 +17,9 @@ local BBOSS		= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 -- Adds all mini-pets, by spell ID to the local database.
 
-function addon:MakeMiniPetTable(minipetlist)
+function addon:MakeMiniPetTable()
 
 	self:Print("Populating minipet list.")
-	minipetlist = {}
 
 	self:AddMiniPet(1, "Test pet aquire", 0)
 	self:AddMiniPet(10685, "Vendor", 0)
@@ -91,4 +90,5 @@ function addon:MakeMiniPetTable(minipetlist)
 	self:AddMiniPet(48406, "???", 0)
 	self:AddMiniPet(35911, "???", 0)
 	self:AddMiniPet(35910, "???", 0)
+
 end

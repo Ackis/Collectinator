@@ -144,12 +144,14 @@ function addon:ScanCompanions()
 
 	-- Create the master list of all mini-pets
 	if (minipetlist == nil) then
-		addon:MakeMiniPetTable(minipetlist)
+		minipetlist = {}
+		addon:MakeMiniPetTable()
 	end
 
 	-- Create the master list of all mounts
 	if (mountlist == nil) then
-		addon:MakeMountTable(mountlist)
+		mountlist = {}
+		addon:MakeMountTable()
 	end
 
 	local numminipets = GetNumCompanions("CRITTER")
@@ -174,7 +176,7 @@ function addon:ScanCompanions()
 
 	end
 
-	for i=1,nummounts do
+	for i=1,nummounts,1 do
 		-- Get the mount name and spell ID
 		local _,mountname,mountspell = GetCompanionInfo("MOUNT",i)
 
@@ -182,7 +184,7 @@ function addon:ScanCompanions()
 		if (mountlist[mountspell]) then
 			mountlist[mountspell]["Owned"] = true
 		else
-			self:Print("Unknown pet found.  Please report to the author.  Pet name: " .. petname .. " Pet spell ID: " .. mountspell)
+			self:Print("Unknown pet found.  Please report to the author.  Pet name: " .. mountname .. " Pet spell ID: " .. mountspell)
 		end
 
 	end

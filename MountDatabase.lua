@@ -17,9 +17,8 @@ local BBOSS		= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 -- Adds all mini-pets, by spell ID to the local database.
 
-function addon:MakeMountTable(mountlist)
+function addon:MakeMountTable()
 
 	self:Print("Populating mount list.")
-	mountlist = {}
 
 end
