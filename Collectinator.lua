@@ -25,12 +25,8 @@ local addon = Collectinator
 local GetNumCompanions = GetNumCompanions
 local select = select
 
-
 local minipetlist = nil
 local mountlist = nil
-
-local AceConfig = LibStub("AceConfig-3.0")
-
 
 -- Returns configuration options
 
@@ -94,7 +90,7 @@ function addon:OnInitialize()
 	self.db = LibStub("AceDB-3.0"):New("CollectinatorDB", defaults, "char")
 
 	-- Create the options with Ace3
-	AceConfig:RegisterOptionsTable("Collectinator",giveOptions,"Collectinator")
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("Collectinator",giveOptions)
 	AceConfigReg:RegisterOptionsTable("Collectinator Profile",giveProfiles)
 
 	-- Add the options to blizzard frame
