@@ -60,7 +60,7 @@ local function giveOptions()
 			{
 				type = "execute",
 				name = "Scan Companions",
-				desc = "Scans for companions.",
+				desc = "Scans for companions, updating the ones that you currently have.",
 				func = function(info) addon:ScanCompanions() end,
 				order = 50,
 			},
@@ -106,9 +106,14 @@ function addon:OnInitialize()
 		{ profile =
 			{
 
+			-- Have we done a scan every?
+			scanoccured = 0,
+
 			-- Exclusion lists
 			petexclusions = {},
-			mountexclusions = {}
+			mountexclusions = {},
+			petlist = {},
+			mountlist = {},
 			}
 		}
 	)
@@ -134,7 +139,7 @@ end
 
 -- Scans the companions, add their spell IDs to a table.
 -- Arguments: None
--- Return values: Your mini-pets, Total mini-pets, Your mounts, Total mounts
+-- Return values: None
 
 function addon:ScanCompanions()
 
@@ -158,6 +163,9 @@ function addon:ScanCompanions()
 	self:Print("You have " .. numminipets .. " mini-pets and " .. nummounts .. " mounts.")
 	self:Print("There are a total of " .. totalminipets .. " mini-pets and " .. totalmounts .. " mounts in the database currently.")
 
+	-- Clear the saved variables for the pet list.
+	self.db.profile.petlist = {}
+
 	-- Parse all the mini-pets you currently have
 	for i=1,numminipets do
 		-- Get the pet's name and spell ID
@@ -165,12 +173,16 @@ function addon:ScanCompanions()
 
 		-- Mark the pet as known in the database, if the pet is not in the database display an error
 		if (minipetlist[petspell]) then
-			minipetlist[petspell]["Owned"] = true
+			-- Add the mini-pet to the list of pets we save
+			tinsert(self.db.profile.petlist.petspell)
 		else
 			self:Print("Unknown pet found.  Please report to the author.  Pet name: " .. petname .. " Pet spell ID: " .. petspell)
 		end
 
 	end
+
+	-- Clear the saved variables for the mount list.
+	self.db.profile.mountlist = {}
 
 	for i=1,nummounts,1 do
 		-- Get the mount name and spell ID
@@ -178,46 +190,46 @@ function addon:ScanCompanions()
 
 		-- Mark the mount as known in the database, if the mount is not in the database display an error
 		if (mountlist[mountspell]) then
-			mountlist[mountspell]["Owned"] = true
+			-- Add the mount to the list of pets we save
+			tinsert(self.db.profile.petlist.mountspell)
 		else
-			self:Print("Unknown pet found.  Please report to the author.  Pet name: " .. mountname .. " Pet spell ID: " .. mountspell)
+			self:Print("Unknown mount found.  Please report to the author.  Pet name: " .. mountname .. " Pet spell ID: " .. mountspell)
 		end
 
 	end
-
-	return numminipets, totalminipets, nummounts, totalmounts
 
 end
 
--- Parse the master lists for pet and mounts and display all those which have the "Owned" flag as false.
+
+-- Scans through the saved variables and updates the items in the master list to known if it exists
+-- Arguments: The list to scan through, the master list which to set, and the variable to set.
+-- Return values: None, the list is updated with flags set to true
+
+function addon:UpdateIndividualList(scanlist, masterlist, variable)
+
+	-- Parse through the scanning list
+	for i,k in pairs(scanlist) do
+		-- If we have information about this item in our list
+		if (masterlist[k]) then
+			-- Set the variable to be true
+			masterlist[k][variable] = true
+		end
+	end
+
+end
+
+-- Scans through the saved variables and updates the items in the master list to known if it exists
 -- Arguments: None
--- Return values: Total Missing mini-pets, Total missing mounts
+-- Return values: None, the list is updated with flags set to true
 
-function addon:DisplayMissingCompanions()
+function addon:UpdateLits()
 
-	local missingpets = 0
-
-	for i in pairs(minipetlist) do
-		if (minipetlist[i] and minipetlist[i]["Owned"] == false) then
-			self:Print("Missing pet: " .. i)
-			missingpets = missingpets + 1
-		end
-	end
-
-	self:Print("You are missing a total of " .. missingpets .. " mini-pets.")
-
-	local missingmounts = 0
-
-	for i in pairs(mountlist) do
-		if (mountlist[i] and mountlist[i]["Owned"] == false) then
-			self:Print("Missing mount: " .. i)
-			missingmounts = missingmounts + 1
-		end
-	end
-
-	self:Print("You are missing a total of " .. missingmounts .. " mounts.")
-
-	return missingpets, missingmounts
+	-- Update update collections to see which ones are known
+	self:UpdateIndividualList(self.db.profile.petlist, petlist, "Owned")
+	self:UpdateIndividualList(self.db.profile.mountlist, mountlist, "Owned")
+	-- Update collections to flag which ones are excluded
+	self:UpdateIndividualList(self.db.profile.petexclusions, petlist, "Excluded")
+	self:UpdateIndividualList(self.db.profile.mountexclusions, mountlist, "Excluded")
 
 end
 
@@ -256,7 +268,6 @@ function addon:AddMiniPet(spellid, aquire, faction, reputation, location, coords
 	minipetlist[spellid]["Reputation"] = reputation
 	minipetlist[spellid]["Location"] = location
 	minipetlist[spellid]["Coords"] = coords
-	minipetlist[spellid]["Owned"] = false
 
 	minipetlist[spellid]["Speciality"] = {}
 
@@ -267,6 +278,9 @@ function addon:AddMiniPet(spellid, aquire, faction, reputation, location, coords
 		tinsert(minipetlist[spellid]["Speciality"],temp)
 	end
 
+	minipetlist[spellid]["Owned"] = false
+	minipetlist[spellid]["Excluded"] = false
+
 end
 
 -- Adds an item from a specific collection to the exclusion list
@@ -276,10 +290,12 @@ end
 function addon:ExcludeCollection(collection,ID)
 
 	if (collection == "MOUNT") then
-		tinsert(self.db.profile.mountexclusionls,ID)	
+		tinsert(self.db.profile.mountexclusions,ID)	
 	elseif (collection == "PET") then
 		tinsert(self.db.profile.petexclusions,ID)
 	end
+
+	self:Print("Collection ID: " .. ID .. " excluded from the " .. collection .. " list.")
 
 end
 
@@ -297,8 +313,38 @@ function addon:AddtoCollection(collection,ID)
 
 end
 
+-- Displays the checklist
+
 function addon:ShowChecklist()
 
-	self:Print("NYI")
+	local formatstring = "You have %d out of %d %s.  You are missing %d %s."
+
+	self:UpdateLists()
+
+	local missingpets = 0
+
+	-- Scan the master list and display which mini-pets are marked as missing
+	for i in pairs(petlist) do
+		if (petlist[i] and petlist[i]["Owned"] == false) then
+			self:Print("Missing pet: " .. i)
+			missingpets = missingpets + 1
+		end
+	end
+
+	self:Print(format(formatstring,#self.db.profile.petlist, #petlist, "mini-pets", missingpets, "mini-pets"))
+	self:Print(#self.db.profile.petlist - #petlist)
+
+	local missingmounts = 0
+
+	for i in pairs(mountlist) do
+		if (mountlist[i] and mountlist[i]["Owned"] == false) then
+			self:Print("Missing mount: " .. i)
+			missingmounts = missingmounts + 1
+		end
+	end
+
+	self:Print(format(formatstring,#self.db.profile.mountlist, #mountlist, "mounts", missingmounts, "mounts"))
+
+	self:Print("GUI Checklist NYI")
 
 end
