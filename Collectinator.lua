@@ -17,7 +17,7 @@ Please see Wowace.com for more information.
 
 --local L			= LibStub("AceLocale-3.0"):GetLocale("Collectinator")
 
-Collectinator 	= LibStub("AceAddon-3.0"):NewAddon("Collectinator", "AceConsole-3.0")
+Collectinator 	= LibStub("AceAddon-3.0"):NewAddon("Collectinator", "AceConsole-3.0", "AceEvent-3.0")
 
 local addon = Collectinator
 
@@ -120,13 +120,23 @@ function addon:OnInitialize()
 
 end
 
+-- Loaded when the addon is enabled
+
 function addon:OnEnable()
 
+	self:RegisterEvent("COMPANION_LEARNED")
+
 end
+
+-- Loaded when the addon is disabled. Ace3 undoes everything done on OnEnable
 
 function addon:OnDisable()
 
 end
+
+-- Function to handle slash commands.
+-- Arugments: Text passed from the command line
+-- Return values: None
 
 function addon:ChatCommand(input)
 
@@ -134,6 +144,19 @@ function addon:ChatCommand(input)
 		-- Open About panel if there's no parameters or if the parameter is About
 		InterfaceOptionsFrame_OpenToFrame(self.optionsFrame["About"])
 	end
+
+end
+
+-- Function run when the even COMPANION_LEARNED is raised.
+
+function addon:COMPANION_LEARNED(arg1, arg2, arg3, arg4, arg5)
+
+	self:Print("Learnt a new companion. yay you?")
+	self:Print(arg1)
+	self:Print(arg2)
+	self:Print(arg3)
+	self:Print(arg4)
+	self:Print(arg5)
 
 end
 
