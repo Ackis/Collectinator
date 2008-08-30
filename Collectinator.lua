@@ -157,6 +157,7 @@ function addon:COMPANION_LEARNED(arg1, arg2, arg3, arg4, arg5)
 	self:Print(arg3)
 	self:Print(arg4)
 	self:Print(arg5)
+	self:Print("Notice those 'nils'?  That means Blizz doesn't want to tell us what you learnt.")
 
 end
 
