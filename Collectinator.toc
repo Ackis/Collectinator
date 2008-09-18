@@ -33,8 +33,6 @@
 ## LoadOnDemand: 0
 
 embeds.xml
+database.xml
 
 Collectinator.lua
-
-PetDatabase.lua
-MountDatabase.lua
