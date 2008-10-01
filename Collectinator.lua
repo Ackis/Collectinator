@@ -15,18 +15,91 @@ Please see Wowace.com for more information.
 ****************************************************************************************
 ]]--
 
---local L			= LibStub("AceLocale-3.0"):GetLocale("Collectinator")
+--[[
 
-Collectinator 	= LibStub("AceAddon-3.0"):NewAddon("Collectinator", "AceConsole-3.0", "AceEvent-3.0")
+	Flags:
+	Flags are defined as:
+		-- How to obtain (flags 1 - 20 for growth):
+			-- 1 = Alliance faction only
+			-- 2 = Horde faction only
+			-- 4 = Vendor
+			-- 5 = Instance
+			-- 6 = Crafted
+			-- 7 = Seasonal
+			-- 8 = Quest
+			-- 9 = PVP
+			-- 10 = World Drop
+			-- 11 = Special Event (Blizzcon, WWI, etc)
+			-- 12 = TCG
+			-- 13 = BoE
+			-- 14 = BoP
+			-- 15 = BoA
 
-local addon = Collectinator
+		-- Profession (flags 21-40 for growth):
+			-- 21 = Alchemist
+			-- 22 = Blacksmith
+			-- 23 = Cook
+			-- 24 = Enchant
+			-- 25 = Engineer
+			-- 26 = First Aid
+			-- 27 = Inscription
+			-- 28 = Jewelcraft
+			-- 29 = Leatherwork
+			-- 30 = Smelt
+			-- 31 = Tailor
+
+		-- Reputation
+			-- Original WoW (40-44):
+				-- 40 = Argent Dawn
+				-- 41 = Cenarion Circle
+				-- 42 = Thorium Brotherhood
+				-- 43 = Timbermaw Hold
+				-- 44 = Zandalar Tribe
+			-- Burning Crusade (45-58):
+				-- 45 = The Aldor
+				-- 46 = Ashtongue Deathsworn
+				-- 47 = Cenarion Expedition
+				-- 48 = Hellfire Factions (Thrallmar/Honor Hold)
+				-- 49 = Consortium
+				-- 50 = Keepers of Time
+				-- 51 = Lower City
+				-- 52 = Nagrand Factions (Maghar/Kureni)
+				-- 53 = Scale of the Sands
+				-- 54 = The Scryer
+				-- 55 = Sha'tar
+				-- 56 = Shattered Sun
+				-- 57 = Sporeggar
+				-- 58 = Violeteye
+			-- LK (59-73):
+				-- 59 = Argent Crusade
+				-- 60 = Frenzyheart Tribe
+				-- 61 = Knights of the Ebon Blade
+				-- 62 = Kirin Tor
+				-- 63 = The Sons of Hodir
+				-- 64 = The Kalu'ak
+				-- 65 = The Oracles
+				-- 66 = The Wyrmrest Accord
+				-- 67 = The Silver Convenant
+				-- 68 = The Sunreavers
+				-- 69 = Explorer's League
+				-- 70 = Valiance Expedition
+				-- 71 = The Hand of Vengeance
+				-- 72 = The Taunka
+				-- 73 = Warsong Offensive
+
+]]--
+
+local MODNAME			= "Collectinator"
+
+Collectinator 			= LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
+
+local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+
+--local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -- Make functions local to speed things up
 local GetNumCompanions = GetNumCompanions
 local select = select
-
-local minipetlist = nil
-local mountlist = nil
 
 -- Returns configuration options
 
@@ -161,64 +234,143 @@ function addon:COMPANION_LEARNED(arg1, arg2, arg3, arg4, arg5)
 
 end
 
--- Scans the companions, add their spell IDs to a table.
--- Arguments: None
--- Return values: None
+do
 
-function addon:ScanCompanions()
+	minipetlist = nil
+	mountlist = nil
 
-	-- Create the master list of all mini-pets
-	if (minipetlist == nil) then
-		minipetlist = {}
-		addon:MakeMiniPetTable()
-	end
+	-- Will scan your companions, and update the information in the saved variables.
+	-- Arguments: None
+	-- Return values: Updates the saved variables with the IDs of all the companions you have
 
-	-- Create the master list of all mounts
-	if (mountlist == nil) then
-		mountlist = {}
-		addon:MakeMountTable()
-	end
+	function addon:ScanCompanions()
 
-	local numminipets = GetNumCompanions("CRITTER")
-	local nummounts = GetNumCompanions("MOUNT")
-	local totalminipets = #minipetlist
-	local totalmounts = #mountlist
+		-- Create the master list of all mini-pets
+		if (minipetlist == nil) then
 
-	self:Print("You have " .. numminipets .. " mini-pets and " .. nummounts .. " mounts.")
-	self:Print("There are a total of " .. totalminipets .. " mini-pets and " .. totalmounts .. " mounts in the database currently.")
+			minipetlist = {}
+			addon:MakeMiniPetTable(minipetlist)
 
-	-- Clear the saved variables for the pet list.
-	self.db.profile.petlist = {}
+		end
 
-	-- Parse all the mini-pets you currently have
-	for i=1,numminipets do
-		-- Get the pet's name and spell ID
-		local _,petname,petspell = GetCompanionInfo("CRITTER",i)
+		-- Create the master list of all mounts
+		if (mountlist == nil) then
 
-		-- Mark the pet as known in the database, if the pet is not in the database display an error
-		if (minipetlist[petspell]) then
-			-- Add the mini-pet to the list of pets we save
-			tinsert(self.db.profile.petlist.petspell)
-		else
-			self:Print("Unknown pet found.  Please report to the author.  Pet name: " .. petname .. " Pet spell ID: " .. petspell)
+			mountlist = {}
+			addon:MakeMountTable(mountlist)
+
+		end
+
+		-- Update the mini-pets
+		local numminipets = GetNumCompanions("CRITTER")
+
+		-- Clear the saved variables for the pet list.
+		self.db.profile.petlist = {}
+
+		-- Parse all the mini-pets you currently have
+		for i=1,numminipets do
+
+			-- Get the pet's name and spell ID
+			local _,petname,petspell = GetCompanionInfo("CRITTER",i)
+
+			-- Mark the pet as known in the database, if the pet is not in the database display an error
+			if (minipetlist[petspell]) then
+
+				-- Add the mini-pet to the list of pets we save
+				tinsert(self.db.profile.petlist.petspell)
+
+			else
+
+				self:Print("Unknown pet found.  Please report to the author.  Pet name: " .. petname .. " Pet spell ID: " .. petspell)
+
+			end
+
+		end
+
+		-- Update the mounts
+		local nummounts = GetNumCompanions("MOUNT")
+
+		-- Clear the saved variables for the mount list.
+		self.db.profile.mountlist = {}
+
+		for i=1,nummounts,1 do
+
+			-- Get the mount name and spell ID
+			local _,mountname,mountspell = GetCompanionInfo("MOUNT",i)
+
+			-- Mark the mount as known in the database, if the mount is not in the database display an error
+			if (mountlist[mountspell]) then
+
+				-- Add the mount to the list of pets we save
+				tinsert(self.db.profile.petlist.mountspell)
+
+			else
+
+				self:Print("Unknown mount found.  Please report to the author.  Pet name: " .. mountname .. " Pet spell ID: " .. mountspell)
+
+			end
+
 		end
 
 	end
 
-	-- Clear the saved variables for the mount list.
-	self.db.profile.mountlist = {}
+	-- Displays the checklist
 
-	for i=1,nummounts,1 do
-		-- Get the mount name and spell ID
-		local _,mountname,mountspell = GetCompanionInfo("MOUNT",i)
+	function addon:ShowChecklist()
 
-		-- Mark the mount as known in the database, if the mount is not in the database display an error
-		if (mountlist[mountspell]) then
-			-- Add the mount to the list of pets we save
-			tinsert(self.db.profile.petlist.mountspell)
-		else
-			self:Print("Unknown mount found.  Please report to the author.  Pet name: " .. mountname .. " Pet spell ID: " .. mountspell)
+		-- Create the master list of all mini-pets
+		if (minipetlist == nil) then
+
+			minipetlist = {}
+			addon:MakeMiniPetTable(minipetlist)
+
 		end
+
+		-- Create the master list of all mounts
+		if (mountlist == nil) then
+
+			mountlist = {}
+			addon:MakeMountTable(mountlist)
+
+		end
+
+		local numminipets = GetNumCompanions("CRITTER")
+		local nummounts = GetNumCompanions("MOUNT")
+		local totalminipets = #minipetlist
+		local totalmounts = #mountlist
+
+		self:Print("You have " .. numminipets .. " mini-pets and " .. nummounts .. " mounts.")
+		self:Print("There are a total of " .. totalminipets .. " mini-pets and " .. totalmounts .. " mounts in the database currently.")
+
+		local formatstring = "You have %d out of %d %s.  You are missing %d %s."
+
+		self:UpdateLists(minipetlist, mountlist)
+
+		local missingpets = 0
+
+		-- Scan the master list and display which mini-pets are marked as missing
+		for i in pairs(petlist) do
+			if (petlist[i] and petlist[i]["Owned"] == false) then
+				self:Print("Missing pet: " .. i)
+				missingpets = missingpets + 1
+			end
+		end
+
+		self:Print(format(formatstring,#self.db.profile.petlist, #petlist, "mini-pets", missingpets, "mini-pets"))
+		self:Print(#self.db.profile.petlist - #petlist)
+
+		local missingmounts = 0
+
+		for i in pairs(mountlist) do
+			if (mountlist[i] and mountlist[i]["Owned"] == false) then
+				self:Print("Missing mount: " .. i)
+				missingmounts = missingmounts + 1
+			end
+		end
+
+		self:Print(format(formatstring,#self.db.profile.mountlist, #mountlist, "mounts", missingmounts, "mounts"))
+
+		self:Print("GUI Checklist NYI")
 
 	end
 
@@ -231,13 +383,17 @@ end
 
 function addon:UpdateIndividualList(scanlist, masterlist, variable)
 
-	-- Parse through the scanning list
+	-- Parse through the scanning list (local database)
 	for i,k in pairs(scanlist) do
-		-- If we have information about this item in our list
+
+		-- If we have information about this item in our list (resident list)
 		if (masterlist[k]) then
+
 			-- Set the variable to be true
 			masterlist[k][variable] = true
+
 		end
+
 	end
 
 end
@@ -246,64 +402,52 @@ end
 -- Arguments: None
 -- Return values: None, the list is updated with flags set to true
 
-function addon:UpdateLits()
+function addon:UpdateLists(petlist, mountlist)
 
 	-- Update update collections to see which ones are known
 	self:UpdateIndividualList(self.db.profile.petlist, petlist, "Owned")
 	self:UpdateIndividualList(self.db.profile.mountlist, mountlist, "Owned")
+
 	-- Update collections to flag which ones are excluded
 	self:UpdateIndividualList(self.db.profile.petexclusions, petlist, "Excluded")
 	self:UpdateIndividualList(self.db.profile.mountexclusions, mountlist, "Excluded")
 
 end
 
--- Adds a mini pet (based off of spell ID) to the database.  Also will add aquisition, faction, reputation, location, and filtering flags.
+-- Adds a companion (based off of spell ID) to the database.  Also will add aquisition, faction, reputation, location, and filtering flags.
 -- Arguments: Spell ID of mini-pet, aquisition information, faction information, reputation information, location, coordinate information, arbitrary number of flags
 -- Return values: none
 
-function addon:AddMiniPet(spellid, aquire, faction, reputation, location, coords, ...)
-
-	--[[
-		Faction info:
-		0 = neutral
-		1 = Horde
-		2 = Alliance
-
-		Filter flags:
-		Flags are different flags which allow me to filter out the companions.  These flags are defined as:
-			-- 1 = Vendor
-			-- 2 = BoE Pet
-			-- 3 = BoP Pet
-			-- 4 = Instance
-			-- 5= Raid
-			-- 6 = Seasonal
-			-- 7 = Quest
-			-- 8 = PVP
-			-- 9 = World Drop
-			-- 10 = Specific mob drop
-
-	]]--
+function addon:AddCompanion(DB, SpellID, ItemID, Rarity)
 
 	-- Create an entry for this minipet
-	minipetlist[spellid] = {}
+	DB[SpellID] = {}
 
-	minipetlist[spellid]["Aquire"] = aquire
-	minipetlist[spellid]["Faction"] = faction
-	minipetlist[spellid]["Reputation"] = reputation
-	minipetlist[spellid]["Location"] = location
-	minipetlist[spellid]["Coords"] = coords
+	DB[SpellID]["Rarity"] = Rarity
+	DB[SpellID]["Name"] = GetSpellInfo(SpellID) or nil
+	DB[SpellID]["ItemID"] = ItemID
 
-	minipetlist[spellid]["Speciality"] = {}
+	DB[SpellID]["Owned"] = false
+	DB[SpellID]["Excluded"] = false
 
-	local numvars = select('#',...)
+	DB[SpellID]["Flags"] = {}
+	DB[SpellID]["Acquire"] = {}
 
-	for i=1,numvars,1 do
-		local temp = select(i,...)
-		tinsert(minipetlist[spellid]["Speciality"],temp)
-	end
+end
 
-	minipetlist[spellid]["Owned"] = false
-	minipetlist[spellid]["Excluded"] = false
+-- Adds obtain flags for the companion
+-- Arguments: Spell ID in the database, and a link to the database itself, along with all the flags
+-- Return values: None
+
+function addon:AddCompanionFlags(DB, SpellID, ...)
+
+end
+
+-- Adds acquire flags for the companion
+-- Arguments: Spell ID in the database, and a link to the database itself, along with all the flags
+-- Return values: None
+
+function addon:AddCompanionAcquire(DB, SpellID, ...)
 
 end
 
@@ -314,9 +458,13 @@ end
 function addon:ExcludeCollection(collection,ID)
 
 	if (collection == "MOUNT") then
-		tinsert(self.db.profile.mountexclusions,ID)	
+
+		tinsert(self.db.profile.mountexclusions,ID)
+
 	elseif (collection == "PET") then
+
 		tinsert(self.db.profile.petexclusions,ID)
+
 	end
 
 	self:Print("Collection ID: " .. ID .. " excluded from the " .. collection .. " list.")
@@ -330,45 +478,15 @@ end
 function addon:AddtoCollection(collection,ID)
 
 	if (collection == "MOUNT") then
-		tremove(self.db.profile.mountexclusionls,ID)	
+
+		tremove(self.db.profile.mountexclusionls,ID)
+
 	elseif (collection == "PET") then
+
 		tremove(self.db.profile.petexclusions,ID)
+
 	end
 
-end
-
--- Displays the checklist
-
-function addon:ShowChecklist()
-
-	local formatstring = "You have %d out of %d %s.  You are missing %d %s."
-
-	self:UpdateLists()
-
-	local missingpets = 0
-
-	-- Scan the master list and display which mini-pets are marked as missing
-	for i in pairs(petlist) do
-		if (petlist[i] and petlist[i]["Owned"] == false) then
-			self:Print("Missing pet: " .. i)
-			missingpets = missingpets + 1
-		end
-	end
-
-	self:Print(format(formatstring,#self.db.profile.petlist, #petlist, "mini-pets", missingpets, "mini-pets"))
-	self:Print(#self.db.profile.petlist - #petlist)
-
-	local missingmounts = 0
-
-	for i in pairs(mountlist) do
-		if (mountlist[i] and mountlist[i]["Owned"] == false) then
-			self:Print("Missing mount: " .. i)
-			missingmounts = missingmounts + 1
-		end
-	end
-
-	self:Print(format(formatstring,#self.db.profile.mountlist, #mountlist, "mounts", missingmounts, "mounts"))
-
-	self:Print("GUI Checklist NYI")
+	self:Print("Collection ID: " .. ID .. " added to the " .. collection .. " list.")
 
 end
