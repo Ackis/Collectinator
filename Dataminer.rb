@@ -144,7 +144,7 @@ EOF
 end
 
 
-def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist,mapping)
+def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist)
 
 	puts "Generating #{type} file .. #{list.length} entries to process"
 	companion_lua = File.open(file, "w")
@@ -191,8 +191,7 @@ EOF
 
 	count = 0
 
-	# Get the detailed information for each pet
-	list.each_pair do |k,v|
+	ordered_list = list.keys.sort_by do |name|
 
 		if count == 50
 
@@ -202,22 +201,13 @@ EOF
 		end
 
 		print "."
+
 		count = count + 1
 		STDOUT.flush
 
-		petsandmounts.add_item_details(v)
+		petsandmounts.add_item_details(list[name])
 
-		# Add spell ID into the mix
-		list[k][:spellid] = mapping[v[:id]]
-
-	end
-
-	print "\nSorting #{type} data..."
-
-	# Sort by the item ID
-	ordered_list = list.keys.sort_by do |name|
-
-		id = list[name][:spellid]
+		list[name][:spell_id]
 
 	end
 
@@ -269,7 +259,7 @@ EOF
 
 		end
 
-		if ignorelist.include?(companiondetail[:spellid])
+		if ignorelist.include?(companiondetail[:spell_id])
 
 			companion_lua.print("\t--")
 
@@ -279,7 +269,7 @@ EOF
 
 		end
 
-		companion_lua.puts "self:AddCompanion(PetDB, #{companiondetail[:spellid]}, #{companiondetail[:id]}, #{companiondetail[:rarity]})"
+		companion_lua.puts "self:AddCompanion(PetDB, #{companiondetail[:spell_id]}, #{companiondetail[:id]}, #{companiondetail[:rarity]})"
 		companion_lua.puts ""
 
 	end
@@ -301,106 +291,11 @@ create_faction_db()
 
 pets = petsandmounts.get_pet_list
 
-petmapping = {
-				4401 => 3928,
-				8485 => 10673,
-				8486 => 10674,
-				8487 => 10676,
-				8488 => 10678,
-				8489 => 10679,
-				8490 => 10677,
-				8491 => 10675,
-				8492 => 10683,
-				8494 => 10682,
-				8495 => 10684,
-				8496 => 10680,
-				8497 => 10711,
-				8498 => 10698,
-				8499 => 10697,
-				8500 => 10707,
-				8501 => 10706,
-				10360 => 10714,
-				10361 => 10716,
-				10392 => 10717,
-				10393 => 10688,
-				10394 => 10709,
-				10398 => 12243,
-				10822 => 10695,
-				11023 => 10685,
-				11026 => 10704,
-				11027 => 10703,
-				11110 => 13548,
-				11474 => 15067,
-				11825 => 15048,
-				11826 => 15049,
-				12185 => 17567,
-				12264 => 15999,
-				12529 => 16450,
-				13582 => 17709,
-				13583 => 17707,
-				13584 => 17708,
-				15996 => 19772,
-				19450 => 23811,
-				20371 => 24696,
-				20769 => 25162,
-				21168 => 25849,
-				21277 => 26010,
-				21301 => 26532,
-				21305 => 26541,
-				21308 => 26528,
-				21309 => 26469,
-				22114 => 27241,
-				22235 => 27570,
-				22781 => 28505,
-				23002 => 28738,
-				23007 => 28739,
-				23015 => 28740,
-				23713 => 30156,
-				25535 => 32298,
-				27445 => 33050,
-				29363 => 35156,
-				29364 => 35239,
-				29901 => 35907,
-				29902 => 35909,
-				29903 => 35910,
-				29904 => 35911,
-				29953 => 36027,
-				29956 => 36028,
-				29957 => 36029,
-				29958 => 36031,
-				29960 => 36034,
-				30360 => 24988,
-				31760 => 39181,
-				32233 => 39709,
-				32498 => 40405,
-				32588 => 40549,
-				32616 => 40614,
-				32617 => 40613,
-				32622 => 40634,
-				33154 => 42609,
-				33816 => 43697,
-				33818 => 43698,
-				33993 => 43923,
-				34425 => 45048,
-				34478 => 45082,
-				34492 => 45125,
-				34493 => 45128,
-				34535 => 10696,
-				34955 => 45890,
-				35349 => 46425,
-				35350 => 46426,
-				35504 => 46599,
-				38050 => 49964,
-				38628 => 51716,
-				39656 => 53082,
-				40653 => 40990,
-				18597 => 23012,
-				18598 => 23013,
-				31880 => 39478,
-				31881 => 39479
-		}
+create_companion_db("./DB/PetDatabase.lua","Pet Database","PetDB","MakeMiniPetTable",pets,maps,petsandmounts,[25849,23012,23013,39478,39479])
 
-create_companion_db("./DB/PetDatabase.lua","Pet Database","PetDB","MakeMiniPetTable",pets,maps,petsandmounts,[25849,23012,23013,39478,39479],petmapping)
+mounts = petsandmounts.get_mount_list
+
+create_companion_db("./DB/MountDatabase.lua","Mount Database","MountDB","MakeMountTable",mounts,maps,petsandmounts,[])
 
 puts ""
 puts "Finished processing run time was #{((Time.now).to_i-generator_start.to_i)} seconds"
