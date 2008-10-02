@@ -33,481 +33,552 @@ local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 function addon:MakeMiniPetTable(PetDB)
 
-	-- Mechanical Squirrel Box - 
-	-- type15.2spell_id4055source4method_crafted3928level15methodcraftedrarity1id4401
+	-- Mechanical Squirrel Box - 4055
+	-- type15.2method_crafted3928source4rarity1level15methodcraftedid4401spell_id4055
 	-- Crafted
 	self:AddCompanion(PetDB, 4055, 4401, 1)
 
-	-- Cat Carrier (Bombay) - 
-	-- method_vendorstype7price400000react13minlevel5descCrazy Cat LadynameDonni Anthanialocs12id6367type15.2spell_id10673source2level20methodsold-byrarity1id8485
+	-- Cat Carrier (Bombay) - 10673
+	-- type15.2source2rarity1level20method_vendorstype7locs12price400000descCrazy Cat Ladyminlevel5nameDonni Anthaniareact13id6367methodsold-byid8485spell_id10673
+	-- Instance: 12 - type5category3expansion1minlevel66maxlevel68nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
 	-- Vendor
 	self:AddCompanion(PetDB, 10673, 8485, 1)
+	self:addTradeFlags(RecipeDB, 10673, 1,4,5)
+	self:addTradeAcquire(RecipeDB, 10673, 2, 6367)
 
-	-- Cat Carrier (Cornish Rex) - 
-	-- method_vendorstype7price400000react13minlevel5descCrazy Cat LadynameDonni Anthanialocs12id6367type15.2spell_id10674source2level20methodsold-byrarity1id8486
+	-- Cat Carrier (Cornish Rex) - 10674
+	-- type15.2source2rarity1level20method_vendorstype7locs12price400000descCrazy Cat Ladyminlevel5nameDonni Anthaniareact13id6367methodsold-byid8486spell_id10674
+	-- Instance: 12 - type5category3expansion1minlevel66maxlevel68nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
 	-- Vendor
 	self:AddCompanion(PetDB, 10674, 8486, 1)
+	self:addTradeFlags(RecipeDB, 10674, 1,4,5)
+	self:addTradeAcquire(RecipeDB, 10674, 2, 6367)
 
-	-- Cat Carrier (Black Tabby) - 
-	-- type15.2spell_id10675source1level20method_dropstotalLootCount24111type7react13minlevel31maxlevel32nameDalaran Shield GuardlootCount40locs36267id2271totalLootCount306type7classification4react13minlevel21nameDalaran SpellscribelootCount33locs130id1920totalLootCount13900type7react13minlevel34maxlevel35nameDalaran SummonerlootCount14locs36id2358totalLootCount10307type7react13minlevel32maxlevel33nameDalaran TheurgistlootCount22locs36267id2272methoddropped-byrarity1id8491
+	-- Cat Carrier (Black Tabby) - 10675
+	-- type15.2source1rarity1level20method_dropstype7locs36267minlevel31maxlevel32lootCount40nameDalaran Shield Guardreact13id2271totalLootCount24111type7locs130classification4minlevel21lootCount33nameDalaran Spellscribereact13id1920totalLootCount306type7locs36minlevel34maxlevel35lootCount14nameDalaran Summonerreact13id2358totalLootCount13900type7locs36267minlevel32maxlevel33lootCount22nameDalaran Theurgistreact13id2272totalLootCount10307methoddropped-byid8491spell_id10675
 	-- Mob Drop
 	self:AddCompanion(PetDB, 10675, 8491, 1)
 
-	-- Cat Carrier (Orange Tabby) - 
-	-- method_vendorstype7price400000react13minlevel5descCrazy Cat LadynameDonni Anthanialocs12id6367type15.2spell_id10676source2level20methodsold-byrarity1id8487
+	-- Cat Carrier (Orange Tabby) - 10676
+	-- type15.2source2rarity1level20method_vendorstype7locs12price400000descCrazy Cat Ladyminlevel5nameDonni Anthaniareact13id6367methodsold-byid8487spell_id10676
+	-- Instance: 12 - type5category3expansion1minlevel66maxlevel68nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
 	-- Vendor
 	self:AddCompanion(PetDB, 10676, 8487, 1)
+	self:addTradeFlags(RecipeDB, 10676, 1,4,5)
+	self:addTradeAcquire(RecipeDB, 10676, 2, 6367)
 
-	-- Cat Carrier (Siamese) - 
-	-- method_vendorstype7price600000react11minlevel60descExotic Creaturesdisp20988nameDealer Rashaadlocs352385id20980type15.2spell_id10677source12level20method_dropstotalLootCount28314type7classification1react33minlevel20descThe Ship's Cookdisp1305nameCookielootCount1590locs1581id645methoddropped-by,sold-byrarity1id8490
+	-- Cat Carrier (Siamese) - 10677
+	-- type15.2source12rarity1level20method_vendorstype7locs352385price600000descExotic Creaturesminlevel60disp20988nameDealer Rashaadreact11id20980method_dropstype7locs1581classification1descThe Ship's Cookminlevel20disp1305lootCount1590nameCookiereact33id645totalLootCount28314methoddropped-by,sold-byid8490spell_id10677
 	-- Mob Drop
 	-- Vendor
 	self:AddCompanion(PetDB, 10677, 8490, 1)
+	self:addTradeFlags(RecipeDB, 10677, 1,2,4)
+	self:addTradeAcquire(RecipeDB, 10677, 2, 20980)
 
-	-- Cat Carrier (Silver Tabby) - 
-	-- method_vendorstype7price400000react13minlevel5descCrazy Cat LadynameDonni Anthanialocs12id6367type15.2spell_id10678source2level20methodsold-byrarity1id8488
+	-- Cat Carrier (Silver Tabby) - 10678
+	-- type15.2source2rarity1level20method_vendorstype7locs12price400000descCrazy Cat Ladyminlevel5nameDonni Anthaniareact13id6367methodsold-byid8488spell_id10678
+	-- Instance: 12 - type5category3expansion1minlevel66maxlevel68nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
 	-- Vendor
 	self:AddCompanion(PetDB, 10678, 8488, 1)
+	self:addTradeFlags(RecipeDB, 10678, 1,4,5)
+	self:addTradeAcquire(RecipeDB, 10678, 2, 6367)
 
-	-- Cat Carrier (White Kitten) - 
-	-- method_vendorstype7price600000react13minlevel5descBoy with kittensdisp7935nameLil Timmylocs1519id8666type15.2spell_id10679source2level20methodsold-byrarity1id8489
+	-- Cat Carrier (White Kitten) - 10679
+	-- type15.2source2rarity1level20method_vendorstype7locs1519price600000descBoy with kittensminlevel5disp7935nameLil Timmyreact13id8666methodsold-byid8489spell_id10679
 	-- Vendor
 	self:AddCompanion(PetDB, 10679, 8489, 1)
+	self:addTradeFlags(RecipeDB, 10679, 1,4)
+	self:addTradeAcquire(RecipeDB, 10679, 2, 8666)
 
-	-- Parrot Cage (Cockatiel) - 
-	-- method_vendorstype7price400000react13minlevel42descPirate SuppliesnameNarkklocs33id2663type15.2spell_id10680source2level20methodsold-byrarity1id8496
+	-- Parrot Cage (Cockatiel) - 10680
+	-- type15.2source2rarity1level20method_vendorstype7locs33price400000descPirate Suppliesminlevel42nameNarkkreact13id2663methodsold-byid8496spell_id10680
+	-- Instance: 33 - type1category3minlevel24maxlevel32nameThe Stockadeterritory2id717
 	-- Vendor
 	self:AddCompanion(PetDB, 10680, 8496, 1)
+	self:addTradeFlags(RecipeDB, 10680, 1,4,5)
+	self:addTradeAcquire(RecipeDB, 10680, 2, 2663)
 
-	-- Parrot Cage (Hyacinth Macaw) - 
-	-- type15.2spell_id10682source13level20method_dropstotalLootCount5699type7react33minlevel39name\"Pretty Boy\" DuncanlootCount1locs33id2545totalLootCount10436type7react33minlevel42nameBloodsail DeckhandlootCount4locs33id4505totalLootCount35020type7react33minlevel39maxlevel41nameBloodsail MagelootCount6locs33id1562totalLootCount35811type7react33minlevel39maxlevel41disp793nameBloodsail RaiderlootCount9locs33id1561totalLootCount10895type7react33minlevel41maxlevel42disp796nameBloodsail Sea DoglootCount4locs33id1565totalLootCount16140type7react33minlevel40disp1902nameBloodsail SwabbylootCount1locs33id4506totalLootCount66557type7react33minlevel40maxlevel41disp796nameBloodsail SwashbucklerlootCount5locs33id1563totalLootCount64146type7react33minlevel40maxlevel41nameBloodsail WarlocklootCount4locs33id1564methoddropped-byrarity1id8494
+	-- Parrot Cage (Hyacinth Macaw) - 10682
+	-- type15.2source13rarity1level20method_dropstype7locs33minlevel39lootCount1name\"Pretty Boy\" Duncanreact33id2545totalLootCount5699type7locs33minlevel42lootCount4nameBloodsail Deckhandreact33id4505totalLootCount10436type7locs33minlevel39maxlevel41lootCount6nameBloodsail Magereact33id1562totalLootCount35020type7locs33minlevel39disp793maxlevel41lootCount9nameBloodsail Raiderreact33id1561totalLootCount35811type7locs33minlevel41disp796maxlevel42lootCount4nameBloodsail Sea Dogreact33id1565totalLootCount10895type7locs33minlevel40disp1902lootCount1nameBloodsail Swabbyreact33id4506totalLootCount16140type7locs33minlevel40disp796maxlevel41lootCount5nameBloodsail Swashbucklerreact33id1563totalLootCount66557type7locs33minlevel40maxlevel41lootCount4nameBloodsail Warlockreact33id1564totalLootCount64146methoddropped-byid8494spell_id10682
 	-- Mob Drop
 	self:AddCompanion(PetDB, 10682, 8494, 1)
 
-	-- Parrot Cage (Green Wing Macaw) - 
-	-- type15.2spell_id10683source1level20method_dropstotalLootCount104503type7classification1react33minlevel19maxlevel20nameDefias PiratelootCount3042locs1581id657methoddropped-byrarity1id8492
+	-- Parrot Cage (Green Wing Macaw) - 10683
+	-- type15.2source1rarity1level20method_dropstype7locs1581classification1minlevel19maxlevel20lootCount3042nameDefias Piratereact33id657totalLootCount104503methoddropped-byid8492spell_id10683
 	-- Mob Drop
 	self:AddCompanion(PetDB, 10683, 8492, 1)
 
-	-- Parrot Cage (Senegal) - 
-	-- method_vendorstype7price400000react11minlevel60descExotic Creaturesdisp20988nameDealer Rashaadlocs352385id20980type7price400000react13minlevel42descPirate SuppliesnameNarkklocs33id2663type15.2spell_id10684source2level20methodsold-byrarity1id8495
+	-- Parrot Cage (Senegal) - 10684
+	-- type15.2source2rarity1level20method_vendorstype7locs352385price400000descExotic Creaturesminlevel60disp20988nameDealer Rashaadreact11id20980type7locs33price400000descPirate Suppliesminlevel42nameNarkkreact13id2663methodsold-byid8495spell_id10684
+	-- Instance: 33 - type1category3minlevel24maxlevel32nameThe Stockadeterritory2id717
 	-- Vendor
 	self:AddCompanion(PetDB, 10684, 8495, 1)
+	self:addTradeFlags(RecipeDB, 10684, 1,2,4,5)
+	self:addTradeAcquire(RecipeDB, 10684, 2, 20980, 2, 2663)
 
-	-- Ancona Chicken - 
-	-- method_vendorstype7price1000000react11minlevel51nameMagus Tirthlocs400id6548type15.2spell_id10685source2level35methodsold-byrarity1id11023
+	-- Ancona Chicken - 10685
+	-- type15.2source2rarity1level35method_vendorstype7locs400price1000000minlevel51nameMagus Tirthreact11id6548methodsold-byid11023spell_id10685
 	-- Vendor
 	self:AddCompanion(PetDB, 10685, 11023, 1)
+	self:addTradeFlags(RecipeDB, 10685, 1,2,4)
+	self:addTradeAcquire(RecipeDB, 10685, 2, 6548)
 
-	-- Cockroach - 
-	-- method_vendorstype7price500000react11minlevel60descExotic Creaturesdisp20988nameDealer Rashaadlocs352385id20980type7price500000react31minlevel30descCockroach VendornameJeremiah Paysonlocs1497id8403type15.2spell_id10688source2level30methodsold-byrarity1id10393
+	-- Cockroach - 10688
+	-- type15.2source2rarity1level30method_vendorstype7locs352385price500000descExotic Creaturesminlevel60disp20988nameDealer Rashaadreact11id20980type7locs1497price500000descCockroach Vendorminlevel30nameJeremiah Paysonreact31id8403methodsold-byid10393spell_id10688
 	-- Vendor
 	self:AddCompanion(PetDB, 10688, 10393, 1)
+	self:addTradeFlags(RecipeDB, 10688, 1,2,4)
+	self:addTradeAcquire(RecipeDB, 10688, 2, 20980, 2, 8403)
 
-	-- Dark Whelpling - 
-	-- type15.2spell_id10695source1level30method_dropstotalLootCount71023type2react33minlevel41maxlevel43disp715nameScalding WhelplootCount78locs3id2725totalLootCount34544type2react33minlevel39maxlevel40disp397nameSearing WhelplootCount32locs152159id4324methoddropped-byrarity1id10822
+	-- Dark Whelpling - 10695
+	-- type15.2source1rarity1level30method_dropstype2locs3minlevel41disp715maxlevel43lootCount78nameScalding Whelpreact33id2725totalLootCount71023type2locs152159minlevel39disp397maxlevel40lootCount32nameSearing Whelpreact33id4324totalLootCount34544methoddropped-byid10822spell_id10695
 	-- Mob Drop
 	self:AddCompanion(PetDB, 10695, 10822, 1)
 
-	-- Azure Whelpling - 
-	-- type15.2spell_id10696source1level30method_dropstotalLootCount3824type2classification1react33minlevel50maxlevel51disp196nameBlue DragonspawnlootCount2locs16id193totalLootCount1451type2classification1react33minlevel52maxlevel53disp6760nameBlue ScalebanelootCount3locs16id6130totalLootCount5095type2classification1react33minlevel51maxlevel52disp6761nameDraconic MageweaverlootCount8locs16id6131methoddropped-byrarity1id34535
+	-- Azure Whelpling - 10696
+	-- type15.2source1rarity1level30method_dropstype2locs16classification1minlevel50disp196maxlevel51lootCount2nameBlue Dragonspawnreact33id193totalLootCount3824type2locs16classification1minlevel52disp6760maxlevel53lootCount3nameBlue Scalebanereact33id6130totalLootCount1451type2locs16classification1minlevel51disp6761maxlevel52lootCount8nameDraconic Mageweaverreact33id6131totalLootCount5095methoddropped-byid34535spell_id10696
 	-- Mob Drop
 	self:AddCompanion(PetDB, 10696, 34535, 1)
 
-	-- Tiny Crimson Whelpling - 
-	-- type15.2spell_id10697source1level30method_dropstotalLootCount4347type2react33minlevel25maxlevel26disp505nameCrimson WhelplootCount13locs11id1069totalLootCount1398type2react33minlevel26maxlevel27disp8712nameFlamesnorting WhelplootCount7locs11id1044totalLootCount3731type2react33minlevel23maxlevel24disp9583nameRed WhelplootCount11locs11id1042methoddropped-byrarity1id8499
+	-- Tiny Crimson Whelpling - 10697
+	-- type15.2source1rarity1level30method_dropstype2locs11minlevel25disp505maxlevel26lootCount13nameCrimson Whelpreact33id1069totalLootCount4347type2locs11minlevel26disp8712maxlevel27lootCount7nameFlamesnorting Whelpreact33id1044totalLootCount1398type2locs11minlevel23disp9583maxlevel24lootCount11nameRed Whelpreact33id1042totalLootCount3731methoddropped-byid8499spell_id10697
 	-- Mob Drop
 	self:AddCompanion(PetDB, 10697, 8499, 1)
 
-	-- Tiny Emerald Whelpling - 
-	-- type15.2spell_id10698source1level30method_dropstotalLootCount16719type2react33minlevel35maxlevel36disp621nameDreaming WhelplootCount38locs8id741methoddropped-byrarity1id8498
+	-- Tiny Emerald Whelpling - 10698
+	-- type15.2source1rarity1level30method_dropstype2locs8minlevel35disp621maxlevel36lootCount38nameDreaming Whelpreact33id741totalLootCount16719methoddropped-byid8498spell_id10698
 	-- Mob Drop
 	self:AddCompanion(PetDB, 10698, 8498, 1)
 
-	-- Wood Frog Box - 
-	-- method_vendorstype7price1000000react21minlevel4maxlevel70disp14589nameFliklocs122153519id14860type15.2spell_id10703source2level35methodsold-byrarity1id11027
+	-- Wood Frog Box - 10703
+	-- type15.2source2rarity1level35method_vendorstype7locs122153519price1000000minlevel4disp14589maxlevel70nameFlikreact21id14860methodsold-byid11027spell_id10703
+	-- Instance: 12 - type5category3expansion1minlevel66maxlevel68nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
 	-- Vendor
 	self:AddCompanion(PetDB, 10703, 11027, 1)
+	self:addTradeFlags(RecipeDB, 10703, 1,2,4,5)
+	self:addTradeAcquire(RecipeDB, 10703, 2, 14860)
 
-	-- Tree Frog Box - 
-	-- method_vendorstype7price1000000react21minlevel4maxlevel70disp14589nameFliklocs122153519id14860type15.2spell_id10704source2level35methodsold-byrarity1id11026
+	-- Tree Frog Box - 10704
+	-- type15.2source2rarity1level35method_vendorstype7locs122153519price1000000minlevel4disp14589maxlevel70nameFlikreact21id14860methodsold-byid11026spell_id10704
+	-- Instance: 12 - type5category3expansion1minlevel66maxlevel68nameCaverns of Time: Old Hillsbrad Foothillsterritory1id2367
 	-- Vendor
 	self:AddCompanion(PetDB, 10704, 11026, 1)
+	self:addTradeFlags(RecipeDB, 10704, 1,2,4,5)
+	self:addTradeAcquire(RecipeDB, 10704, 2, 14860)
 
-	-- Hawk Owl - 
-	-- method_vendorstype7price500000react13minlevel30descOwl TrainernameShylenailocs1657id8665type15.2spell_id10706source2level30methodsold-byrarity1id8501
+	-- Hawk Owl - 10706
+	-- type15.2source2rarity1level30method_vendorstype7locs1657price500000descOwl Trainerminlevel30nameShylenaireact13id8665methodsold-byid8501spell_id10706
 	-- Vendor
 	self:AddCompanion(PetDB, 10706, 8501, 1)
+	self:addTradeFlags(RecipeDB, 10706, 1,4)
+	self:addTradeAcquire(RecipeDB, 10706, 2, 8665)
 
-	-- Great Horned Owl - 
-	-- method_vendorstype7price500000react13minlevel30descOwl TrainernameShylenailocs1657id8665type15.2spell_id10707source2level30methodsold-byrarity1id8500
+	-- Great Horned Owl - 10707
+	-- type15.2source2rarity1level30method_vendorstype7locs1657price500000descOwl Trainerminlevel30nameShylenaireact13id8665methodsold-byid8500spell_id10707
 	-- Vendor
 	self:AddCompanion(PetDB, 10707, 8500, 1)
+	self:addTradeFlags(RecipeDB, 10707, 1,4)
+	self:addTradeAcquire(RecipeDB, 10707, 2, 8665)
 
-	-- Prairie Dog Whistle - 
-	-- method_vendorstype7price500000react31minlevel30descPrairie Dog VendornameHalpalocs1638id8401type15.2spell_id10709source2level30methodsold-byrarity1id10394
+	-- Prairie Dog Whistle - 10709
+	-- type15.2source2rarity1level30method_vendorstype7locs1638price500000descPrairie Dog Vendorminlevel30nameHalpareact31id8401methodsold-byid10394spell_id10709
 	-- Vendor
 	self:AddCompanion(PetDB, 10709, 10394, 1)
+	self:addTradeFlags(RecipeDB, 10709, 2,4)
+	self:addTradeAcquire(RecipeDB, 10709, 2, 8401)
 
-	-- Rabbit Crate (Snowshoe) - 
-	-- method_vendorstype7price200000react13minlevel1nameYarlyn Amberstilllocs1id1263type15.2spell_id10711source23level20methodsold-byrarity1id8497
+	-- Rabbit Crate (Snowshoe) - 10711
+	-- type15.2source23rarity1level20method_vendorstype7locs1price200000minlevel1nameYarlyn Amberstillreact13id1263methodsold-byid8497spell_id10711
+	-- Instance: 1 - type1category3minlevel20maxlevel27nameBlackfathom Deepsterritory1id719
 	-- Vendor
 	self:AddCompanion(PetDB, 10711, 8497, 1)
+	self:addTradeFlags(RecipeDB, 10711, 1,4,5)
+	self:addTradeAcquire(RecipeDB, 10711, 2, 1263)
 
-	-- Black Kingsnake - 
-	-- method_vendorstype7price500000react31minlevel30descSnake VendornameXan'tishlocs1637id8404type15.2spell_id10714source2level30methodsold-byrarity1id10360
+	-- Black Kingsnake - 10714
+	-- type15.2source2rarity1level30method_vendorstype7locs1637price500000descSnake Vendorminlevel30nameXan'tishreact31id8404methodsold-byid10360spell_id10714
 	-- Vendor
 	self:AddCompanion(PetDB, 10714, 10360, 1)
+	self:addTradeFlags(RecipeDB, 10714, 2,4)
+	self:addTradeAcquire(RecipeDB, 10714, 2, 8404)
 
-	-- Brown Snake - 
-	-- method_vendorstype7price500000react31minlevel30descSnake VendornameXan'tishlocs1637id8404type15.2spell_id10716source2level30methodsold-byrarity1id10361
+	-- Brown Snake - 10716
+	-- type15.2source2rarity1level30method_vendorstype7locs1637price500000descSnake Vendorminlevel30nameXan'tishreact31id8404methodsold-byid10361spell_id10716
 	-- Vendor
 	self:AddCompanion(PetDB, 10716, 10361, 1)
+	self:addTradeFlags(RecipeDB, 10716, 2,4)
+	self:addTradeAcquire(RecipeDB, 10716, 2, 8404)
 
-	-- Crimson Snake - 
-	-- method_vendorstype7price500000react11minlevel60descExotic Creaturesdisp20988nameDealer Rashaadlocs352385id20980type7price500000react31minlevel30descSnake VendornameXan'tishlocs1637id8404type15.2spell_id10717source2level30methodsold-byrarity1id10392
+	-- Crimson Snake - 10717
+	-- type15.2source2rarity1level30method_vendorstype7locs352385price500000descExotic Creaturesminlevel60disp20988nameDealer Rashaadreact11id20980type7locs1637price500000descSnake Vendorminlevel30nameXan'tishreact31id8404methodsold-byid10392spell_id10717
 	-- Vendor
 	self:AddCompanion(PetDB, 10717, 10392, 1)
+	self:addTradeFlags(RecipeDB, 10717, 1,2,4)
+	self:addTradeAcquire(RecipeDB, 10717, 2, 20980, 2, 8404)
 
-	-- Mechanical Chicken - 
-	-- type15.2spell_id12243source3method_queststype0coin6000givenitems103981xp7100side1level50nameAn OOX of Your Ownid3721category035level40methodrewardfromrarity1id10398
+	-- Mechanical Chicken - 12243
+	-- method_queststype0category035givenitems103981coin6000level50xp7100side1nameAn OOX of Your Ownid3721type15.2source3rarity1level40methodrewardfromid10398spell_id12243
 	-- Quest Reward
 	self:AddCompanion(PetDB, 12243, 10398, 1)
 
-	-- Chicken Egg - 
-	-- type15.0spell_id13548source1level1method_dropstotalLootCount856type3nameFarm Chicken EgglootCount842locs40id161513methoddropped-by,contained-in-objectrarity1id11110
+	-- Chicken Egg - 13548
+	-- type15.0source1rarity1level1method_dropstype3locs40lootCount842nameFarm Chicken Eggid161513totalLootCount856methoddropped-by,contained-in-objectid11110spell_id13548
 	-- Mob Drop
 	-- Unknown
 	self:AddCompanion(PetDB, 13548, 11110, 1)
 
-	-- Pet Bombling - 
-	-- type7.3spell_id15048source4method_crafted15628level41methodcraftedrarity1id11825
+	-- Pet Bombling - 15048
+	-- type7.3method_crafted15628source4rarity1level41methodcraftedid11825spell_id15048
 	-- Crafted
 	self:AddCompanion(PetDB, 15048, 11825, 1)
 
-	-- Lil' Smoky - 
-	-- type7.3spell_id15049source4method_crafted15633level41methodcraftedrarity1id11826
+	-- Lil' Smoky - 15049
+	-- type7.3method_crafted15633source4rarity1level41methodcraftedid11826spell_id15049
 	-- Crafted
 	self:AddCompanion(PetDB, 15049, 11826, 1)
 
-	-- Sprite Darter Egg - 
-	-- type15.0spell_id15067source3method_queststype0coin360givenitems114741xp625side2level48nameBecoming a Parentid4298category1357level47methodrewardfromrarity1id11474
+	-- Sprite Darter Egg - 15067
+	-- method_queststype0category1357givenitems114741coin360level48xp625side2nameBecoming a Parentid4298type15.0source3rarity1level47methodrewardfromid11474spell_id15067
 	-- Quest Reward
 	self:AddCompanion(PetDB, 15067, 11474, 1)
 
-	-- Worg Carrier - 
-	-- type15.0spell_id15999source3method_queststype81coin9000givenitems122641xp13950side1level59nameKibler's Exotic Petsid4729category31583level59methodrewardfromrarity1id12264
+	-- Worg Carrier - 15999
+	-- method_queststype81category31583givenitems122641coin9000level59xp13950side1nameKibler's Exotic Petsid4729type15.0source3rarity1level59methodrewardfromid12264spell_id15999
 	-- Quest Reward
 	self:AddCompanion(PetDB, 15999, 12264, 1)
 
-	-- Smolderweb Carrier - 
-	-- type15.0spell_id16450source3method_queststype81coin9000givenitems125291xp13950side1level59nameEn-Ay-Es-Tee-Whyid4862category31583level59methodrewardfromrarity1id12529
+	-- Smolderweb Carrier - 16450
+	-- method_queststype81category31583givenitems125291coin9000level59xp13950side1nameEn-Ay-Es-Tee-Whyid4862type15.0source3rarity1level59methodrewardfromid12529spell_id16450
 	-- Quest Reward
 	self:AddCompanion(PetDB, 16450, 12529, 1)
 
-	-- Bloodsail Admiral's Hat - 
-	-- type4.1spell_id17567source3method_queststype0coin8700givenitems121851side1level60nameAvast Ye, Admiral!id4621category033level60armor63methodrewardfromrarity2id12185
+	-- Bloodsail Admiral's Hat - 17567
+	-- method_queststype0category033givenitems121851coin8700level60side1nameAvast Ye, Admiral!id4621type4.1source3rarity2level60methodrewardfromarmor63id12185spell_id17567
 	-- Quest Reward
 	self:AddCompanion(PetDB, 17567, 12185, 2)
 
-	-- Panda Collar - 
-	-- type15.0spell_id17707source3method_queststype0choiceitems135841135831135821coin0level1nameWelcome!id5805category024type0choiceitems135841135831135821coin0level1nameWelcome!id5841category0132type0choiceitems135841135831135821coin0level1nameWelcome!id5842category1188type0choiceitems135841135831135821coin0level1nameWelcome!id5843category1363type0choiceitems135841135831135821coin0level1nameWelcome!id5844category1221type0choiceitems135841135831135821coin0level1nameWelcome!id5847category0154type0choiceitems135841135831135821coin0side4level1nameWelcome!id8547category03431type0choiceitems135841135831135821coin0side2level1nameWelcome!id9278category13526type0choiceitems135841135831135821coin0level1nameWelcome!id12781category00level20methodrewardfromrarity3id13583
+	-- Panda Collar - 17707
+	-- method_queststype0category024choiceitems135841135831135821coin0level1nameWelcome!id5805type0category0132choiceitems135841135831135821coin0level1nameWelcome!id5841type0category1188choiceitems135841135831135821coin0level1nameWelcome!id5842type0category1363choiceitems135841135831135821coin0level1nameWelcome!id5843type0category1221choiceitems135841135831135821coin0level1nameWelcome!id5844type0category0154choiceitems135841135831135821coin0level1nameWelcome!id5847type0category03431choiceitems135841135831135821coin0level1side4nameWelcome!id8547type0category13526choiceitems135841135831135821coin0level1side2nameWelcome!id9278type0category00choiceitems135841135831135821coin0level1nameWelcome!id12781type15.0source3rarity3level20methodrewardfromid13583spell_id17707
 	-- Quest Reward
 	self:AddCompanion(PetDB, 17707, 13583, 3)
 
-	-- Diablo Stone - 
-	-- type15.0spell_id17708source3method_queststype0choiceitems135841135831135821coin0level1nameWelcome!id5805category024type0choiceitems135841135831135821coin0level1nameWelcome!id5841category0132type0choiceitems135841135831135821coin0level1nameWelcome!id5842category1188type0choiceitems135841135831135821coin0level1nameWelcome!id5843category1363type0choiceitems135841135831135821coin0level1nameWelcome!id5844category1221type0choiceitems135841135831135821coin0level1nameWelcome!id5847category0154type0choiceitems135841135831135821coin0side4level1nameWelcome!id8547category03431type0choiceitems135841135831135821coin0side2level1nameWelcome!id9278category13526type0choiceitems135841135831135821coin0level1nameWelcome!id12781category00level20methodrewardfromrarity3id13584
+	-- Diablo Stone - 17708
+	-- method_queststype0category024choiceitems135841135831135821coin0level1nameWelcome!id5805type0category0132choiceitems135841135831135821coin0level1nameWelcome!id5841type0category1188choiceitems135841135831135821coin0level1nameWelcome!id5842type0category1363choiceitems135841135831135821coin0level1nameWelcome!id5843type0category1221choiceitems135841135831135821coin0level1nameWelcome!id5844type0category0154choiceitems135841135831135821coin0level1nameWelcome!id5847type0category03431choiceitems135841135831135821coin0level1side4nameWelcome!id8547type0category13526choiceitems135841135831135821coin0level1side2nameWelcome!id9278type0category00choiceitems135841135831135821coin0level1nameWelcome!id12781type15.0source3rarity3level20methodrewardfromid13584spell_id17708
 	-- Quest Reward
 	self:AddCompanion(PetDB, 17708, 13584, 3)
 
-	-- Zergling Leash - 
-	-- type15.0spell_id17709source3method_queststype0choiceitems135841135831135821coin0level1nameWelcome!id5805category024type0choiceitems135841135831135821coin0level1nameWelcome!id5841category0132type0choiceitems135841135831135821coin0level1nameWelcome!id5842category1188type0choiceitems135841135831135821coin0level1nameWelcome!id5843category1363type0choiceitems135841135831135821coin0level1nameWelcome!id5844category1221type0choiceitems135841135831135821coin0level1nameWelcome!id5847category0154type0choiceitems135841135831135821coin0side4level1nameWelcome!id8547category03431type0choiceitems135841135831135821coin0side2level1nameWelcome!id9278category13526type0choiceitems135841135831135821coin0level1nameWelcome!id12781category00level20methodrewardfromrarity3id13582
+	-- Zergling Leash - 17709
+	-- method_queststype0category024choiceitems135841135831135821coin0level1nameWelcome!id5805type0category0132choiceitems135841135831135821coin0level1nameWelcome!id5841type0category1188choiceitems135841135831135821coin0level1nameWelcome!id5842type0category1363choiceitems135841135831135821coin0level1nameWelcome!id5843type0category1221choiceitems135841135831135821coin0level1nameWelcome!id5844type0category0154choiceitems135841135831135821coin0level1nameWelcome!id5847type0category03431choiceitems135841135831135821coin0level1side4nameWelcome!id8547type0category13526choiceitems135841135831135821coin0level1side2nameWelcome!id9278type0category00choiceitems135841135831135821coin0level1nameWelcome!id12781type15.0source3rarity3level20methodrewardfromid13582spell_id17709
 	-- Quest Reward
 	self:AddCompanion(PetDB, 17709, 13582, 3)
 
-	-- Lifelike Mechanical Toad - 
-	-- type15.2spell_id19772source4method_crafted19793level53methodcraftedrarity1id15996
+	-- Lifelike Mechanical Toad - 19772
+	-- type15.2method_crafted19793source4rarity1level53methodcraftedid15996spell_id19772
 	-- Crafted
 	self:AddCompanion(PetDB, 19772, 15996, 1)
 
-	-- Orcish Orphan Whistle - 
-	-- type15.0spell_id23012source3method_crafted23125level10methodcraftedrarity1id18597
+	-- Orcish Orphan Whistle - 23012
+	-- type15.0method_crafted23125source3rarity1level10methodcraftedid18597spell_id23012
 	-- Crafted
 	--self:AddCompanion(PetDB, 23012, 18597, 1)
 
-	-- Human Orphan Whistle - 
-	-- type15.0spell_id23013source3method_crafted23124level10methodcraftedrarity1id18598
+	-- Human Orphan Whistle - 23013
+	-- type15.0method_crafted23124source3rarity1level10methodcraftedid18598spell_id23013
 	-- Crafted
 	--self:AddCompanion(PetDB, 23013, 18598, 1)
 
-	-- A Jubling's Tiny Home - 
-	-- type15.2spell_id23811method_crafted23851level35methodcraftedrarity1id19450
+	-- A Jubling's Tiny Home - 23811
+	-- type15.2method_crafted23851rarity1level35methodcraftedid19450spell_id23811
 	-- Crafted
 	self:AddCompanion(PetDB, 23811, 19450, 1)
 
-	-- Blue Murloc Egg - 
-	-- type15.0spell_id24696level20methodrarity3id20371
+	-- Blue Murloc Egg - 24696
+	-- type15.0rarity3level20methodid20371spell_id24696
 	self:AddCompanion(PetDB, 24696, 20371, 3)
 
-	-- Lurky's Egg - 
-	-- type15.0spell_id24988level1methodrarity3id30360
+	-- Lurky's Egg - 24988
+	-- type15.0rarity3level1methodid30360spell_id24988
 	self:AddCompanion(PetDB, 24988, 30360, 3)
 
-	-- Disgusting Oozeling - 
-	-- type15.2spell_id25162level55method_dropstotalLootCount951type15.0source1level50rarity1nameOozing BaglootCount17id20768methodcontained-in-itemrarity1id20769
+	-- Disgusting Oozeling - 25162
+	-- type15.2rarity1level55method_dropstype15.0source1rarity1level50lootCount17nameOozing Bagid20768totalLootCount951methodcontained-in-itemid20769spell_id25162
 	-- Unknown
 	self:AddCompanion(PetDB, 25162, 20769, 1)
 
-	-- Baby Shark - 
-	-- type15.2spell_id25849level20methodrarity1id21168
+	-- Baby Shark - 25849
+	-- type15.2rarity1level20methodid21168spell_id25849
 	--self:AddCompanion(PetDB, 25849, 21168, 1)
 
-	-- Tranquil Mechanical Yeti - 
-	-- type15.2spell_id26010source4method_crafted26011level60methodcraftedrarity1id21277
+	-- Tranquil Mechanical Yeti - 26010
+	-- type15.2method_crafted26011source4rarity1level60methodcraftedid21277spell_id26010
 	-- Crafted
 	self:AddCompanion(PetDB, 26010, 21277, 1)
 
-	-- Snowman Kit - 
-	-- type15.3spell_id26469source1level1method_dropstotalLootCount31type15.0rlevel1level1rarity1nameGaily Wrapped PresentlootCount4id21310methoddropped-by,contained-in-itemrarity1id21309
+	-- Snowman Kit - 26469
+	-- type15.3source1rarity1level1method_dropstype15.0rlevel1rarity1level1lootCount4nameGaily Wrapped Presentid21310totalLootCount31methoddropped-by,contained-in-itemid21309spell_id26469
 	-- Mob Drop
 	-- Unknown
 	self:AddCompanion(PetDB, 26469, 21309, 1)
 
-	-- Jingling Bell - 
-	-- type15.3spell_id26528source1level1method_dropstotalLootCount31type15.0rlevel1level1rarity1nameGaily Wrapped PresentlootCount6id21310methoddropped-by,contained-in-itemrarity1id21308
+	-- Jingling Bell - 26528
+	-- type15.3source1rarity1level1method_dropstype15.0rlevel1rarity1level1lootCount6nameGaily Wrapped Presentid21310totalLootCount31methoddropped-by,contained-in-itemid21308spell_id26528
 	-- Mob Drop
 	-- Unknown
 	self:AddCompanion(PetDB, 26528, 21308, 1)
 
-	-- Green Helper Box - 
-	-- type15.3spell_id26532source1level1method_dropstotalLootCount31type15.0rlevel1level1rarity1nameGaily Wrapped PresentlootCount6id21310methoddropped-by,contained-in-itemrarity1id21301
+	-- Green Helper Box - 26532
+	-- type15.3source1rarity1level1method_dropstype15.0rlevel1rarity1level1lootCount6nameGaily Wrapped Presentid21310totalLootCount31methoddropped-by,contained-in-itemid21301spell_id26532
 	-- Mob Drop
 	-- Unknown
 	self:AddCompanion(PetDB, 26532, 21301, 1)
 
-	-- Red Helper Box - 
-	-- type15.3spell_id26541source1level1method_dropstotalLootCount31type15.0rlevel1level1rarity1nameGaily Wrapped PresentlootCount15id21310methoddropped-by,contained-in-itemrarity1id21305
+	-- Red Helper Box - 26541
+	-- type15.3source1rarity1level1method_dropstype15.0rlevel1rarity1level1lootCount15nameGaily Wrapped Presentid21310totalLootCount31methoddropped-by,contained-in-itemid21305spell_id26541
 	-- Mob Drop
 	-- Unknown
 	self:AddCompanion(PetDB, 26541, 21305, 1)
 
-	-- Pink Murloc Egg - 
-	-- type15.0spell_id27241level20methodrarity3id22114
+	-- Pink Murloc Egg - 27241
+	-- type15.0rarity3level20methodid22114spell_id27241
 	self:AddCompanion(PetDB, 27241, 22114, 3)
 
-	-- Truesilver Shafted Arrow - 
-	-- type15.0spell_id27570level1method_dropstotalLootCount18type15.3level1rarity1nameGift of Adoration: StormwindlootCount1id21981totalLootCount12type15.3level1rarity1namePledge of Adoration: IronforgelootCount1id22154methodcontained-in-itemrarity1id22235
+	-- Truesilver Shafted Arrow - 27570
+	-- type15.0rarity1level1method_dropstype15.3rarity1level1lootCount1nameGift of Adoration: Stormwindid21981totalLootCount18type15.3rarity1level1lootCount1namePledge of Adoration: Ironforgeid22154totalLootCount12methodcontained-in-itemid22235spell_id27570
 	-- Unknown
 	self:AddCompanion(PetDB, 27570, 22235, 1)
 
-	-- Polar Bear Collar - 
-	-- type15.0spell_id28505level1methodrarity1id22781
+	-- Polar Bear Collar - 28505
+	-- type15.0rarity1level1methodid22781spell_id28505
 	self:AddCompanion(PetDB, 28505, 22781, 1)
 
-	-- Turtle Box - 
-	-- type15.0spell_id28738source3method_queststype0choiceitems230071230151230021230221coin1020xp3100side2level60nameA Warden of the Allianceid171category-3284type0choiceitems230071230151230021230221coin0xp3100side4level60nameA Warden of the Hordeid5502category-3284level1methodrewardfromrarity1id23002
+	-- Turtle Box - 28738
+	-- method_queststype0category-3284choiceitems230071230151230021230221coin1020level60xp3100side2nameA Warden of the Allianceid171type0category-3284choiceitems230071230151230021230221coin0level60xp3100side4nameA Warden of the Hordeid5502type15.0source3rarity1level1methodrewardfromid23002spell_id28738
 	-- Quest Reward
 	self:AddCompanion(PetDB, 28738, 23002, 1)
 
-	-- Piglet's Collar - 
-	-- type15.0spell_id28739source3method_queststype0choiceitems230071230151230021230221coin1020xp3100side2level60nameA Warden of the Allianceid171category-3284type0choiceitems230071230151230021230221coin0xp3100side4level60nameA Warden of the Hordeid5502category-3284level1methodrewardfromrarity1id23007
+	-- Piglet's Collar - 28739
+	-- method_queststype0category-3284choiceitems230071230151230021230221coin1020level60xp3100side2nameA Warden of the Allianceid171type0category-3284choiceitems230071230151230021230221coin0level60xp3100side4nameA Warden of the Hordeid5502type15.0source3rarity1level1methodrewardfromid23007spell_id28739
 	-- Quest Reward
 	self:AddCompanion(PetDB, 28739, 23007, 1)
 
-	-- Rat Cage - 
-	-- type15.0spell_id28740source3method_queststype0choiceitems230071230151230021230221coin1020xp3100side2level60nameA Warden of the Allianceid171category-3284type0choiceitems230071230151230021230221coin0xp3100side4level60nameA Warden of the Hordeid5502category-3284level1methodrewardfromrarity1id23015
+	-- Rat Cage - 28740
+	-- method_queststype0category-3284choiceitems230071230151230021230221coin1020level60xp3100side2nameA Warden of the Allianceid171type0category-3284choiceitems230071230151230021230221coin0level60xp3100side4nameA Warden of the Hordeid5502type15.0source3rarity1level1methodrewardfromid23015spell_id28740
 	-- Quest Reward
 	self:AddCompanion(PetDB, 28740, 23015, 1)
 
-	-- Hippogryph Hatchling - 
-	-- type15.0spell_id30156level1methodrarity4id23713
+	-- Hippogryph Hatchling - 30156
+	-- type15.0rarity4level1methodid23713spell_id30156
 	self:AddCompanion(PetDB, 30156, 23713, 4)
 
-	-- Netherwhelp's Collar - 
-	-- type15.0spell_id32298source3method_crafted42426level20methodcraftedrarity3id25535
+	-- Netherwhelp's Collar - 32298
+	-- type15.0method_crafted42426source3rarity3level20methodcraftedid25535spell_id32298
 	-- Crafted
 	self:AddCompanion(PetDB, 32298, 25535, 3)
 
-	-- Magical Crawdad Box - 
-	-- type15.0spell_id33050method_crafted33062level70methodcraftedrarity1id27445
+	-- Magical Crawdad Box - 33050
+	-- type15.0method_crafted33062rarity1level70methodcraftedid27445spell_id33050
 	-- Crafted
 	self:AddCompanion(PetDB, 33050, 27445, 1)
 
-	-- Mana Wyrmling - 
-	-- method_vendorstype7price40000000react11minlevel60descExotic Creaturesdisp20988nameDealer Rashaadlocs352385id20980type15.2spell_id35156source2level70methodsold-byrarity1id29363
+	-- Mana Wyrmling - 35156
+	-- type15.2source2rarity1level70method_vendorstype7locs352385price40000000descExotic Creaturesminlevel60disp20988nameDealer Rashaadreact11id20980methodsold-byid29363spell_id35156
 	-- Vendor
 	self:AddCompanion(PetDB, 35156, 29363, 1)
+	self:addTradeFlags(RecipeDB, 35156, 1,2,4)
+	self:addTradeAcquire(RecipeDB, 35156, 2, 20980)
 
-	-- Brown Rabbit Crate - 
-	-- method_vendorstype7price10000000react11minlevel60descExotic Creaturesdisp20988nameDealer Rashaadlocs352385id20980type15.2spell_id35239source2level70methodsold-byrarity1id29364
+	-- Brown Rabbit Crate - 35239
+	-- type15.2source2rarity1level70method_vendorstype7locs352385price10000000descExotic Creaturesminlevel60disp20988nameDealer Rashaadreact11id20980methodsold-byid29364spell_id35239
 	-- Vendor
 	self:AddCompanion(PetDB, 35239, 29364, 1)
+	self:addTradeFlags(RecipeDB, 35239, 1,2,4)
+	self:addTradeAcquire(RecipeDB, 35239, 2, 20980)
 
-	-- Blue Moth Egg - 
-	-- method_vendorstype7price500000react13minlevel30descMoth KeepernameSixxlocs3557id21019type15.2spell_id35907source2level20methodsold-byrarity1id29901
+	-- Blue Moth Egg - 35907
+	-- type15.2source2rarity1level20method_vendorstype7locs3557price500000descMoth Keeperminlevel30nameSixxreact13id21019methodsold-byid29901spell_id35907
 	-- Vendor
 	self:AddCompanion(PetDB, 35907, 29901, 1)
+	self:addTradeFlags(RecipeDB, 35907, 1,4)
+	self:addTradeAcquire(RecipeDB, 35907, 2, 21019)
 
-	-- Red Moth Egg - 
-	-- method_vendorstype7price10000000react11minlevel60descExotic Creaturesdisp20988nameDealer Rashaadlocs352385id20980type15.2spell_id35909source2level70methodsold-byrarity1id29902
+	-- Red Moth Egg - 35909
+	-- type15.2source2rarity1level70method_vendorstype7locs352385price10000000descExotic Creaturesminlevel60disp20988nameDealer Rashaadreact11id20980methodsold-byid29902spell_id35909
 	-- Vendor
 	self:AddCompanion(PetDB, 35909, 29902, 1)
+	self:addTradeFlags(RecipeDB, 35909, 1,2,4)
+	self:addTradeAcquire(RecipeDB, 35909, 2, 20980)
 
-	-- Yellow Moth Egg - 
-	-- method_vendorstype7price500000react13minlevel30descMoth KeepernameSixxlocs3557id21019type15.2spell_id35910source2level20methodsold-byrarity1id29903
+	-- Yellow Moth Egg - 35910
+	-- type15.2source2rarity1level20method_vendorstype7locs3557price500000descMoth Keeperminlevel30nameSixxreact13id21019methodsold-byid29903spell_id35910
 	-- Vendor
 	self:AddCompanion(PetDB, 35910, 29903, 1)
+	self:addTradeFlags(RecipeDB, 35910, 1,4)
+	self:addTradeAcquire(RecipeDB, 35910, 2, 21019)
 
-	-- White Moth Egg - 
-	-- method_vendorstype7price500000react13minlevel30descMoth KeepernameSixxlocs3557id21019type15.2spell_id35911source2level20methodsold-byrarity1id29904
+	-- White Moth Egg - 35911
+	-- type15.2source2rarity1level20method_vendorstype7locs3557price500000descMoth Keeperminlevel30nameSixxreact13id21019methodsold-byid29904spell_id35911
 	-- Vendor
 	self:AddCompanion(PetDB, 35911, 29904, 1)
+	self:addTradeFlags(RecipeDB, 35911, 1,4)
+	self:addTradeAcquire(RecipeDB, 35911, 2, 21019)
 
-	-- Golden Dragonhawk Hatchling - 
-	-- method_vendorstype7price500000react31minlevel9nameJilannelocs3430id16860type15.2spell_id36027source2level20methodsold-byrarity1id29953
+	-- Golden Dragonhawk Hatchling - 36027
+	-- type15.2source2rarity1level20method_vendorstype7locs3430price500000minlevel9nameJilannereact31id16860methodsold-byid29953spell_id36027
 	-- Vendor
 	self:AddCompanion(PetDB, 36027, 29953, 1)
+	self:addTradeFlags(RecipeDB, 36027, 2,4)
+	self:addTradeAcquire(RecipeDB, 36027, 2, 16860)
 
-	-- Red Dragonhawk Hatchling - 
-	-- method_vendorstype7price500000react31minlevel9nameJilannelocs3430id16860type15.2spell_id36028source2level20methodsold-byrarity1id29956
+	-- Red Dragonhawk Hatchling - 36028
+	-- type15.2source2rarity1level20method_vendorstype7locs3430price500000minlevel9nameJilannereact31id16860methodsold-byid29956spell_id36028
 	-- Vendor
 	self:AddCompanion(PetDB, 36028, 29956, 1)
+	self:addTradeFlags(RecipeDB, 36028, 2,4)
+	self:addTradeAcquire(RecipeDB, 36028, 2, 16860)
 
-	-- Silver Dragonhawk Hatchling - 
-	-- method_vendorstype7price500000react31minlevel9nameJilannelocs3430id16860type15.2spell_id36029source2level20methodsold-byrarity1id29957
+	-- Silver Dragonhawk Hatchling - 36029
+	-- type15.2source2rarity1level20method_vendorstype7locs3430price500000minlevel9nameJilannereact31id16860methodsold-byid29957spell_id36029
 	-- Vendor
 	self:AddCompanion(PetDB, 36029, 29957, 1)
+	self:addTradeFlags(RecipeDB, 36029, 2,4)
+	self:addTradeAcquire(RecipeDB, 36029, 2, 16860)
 
-	-- Blue Dragonhawk Hatchling - 
-	-- method_vendorstype7price10000000react11minlevel60descExotic Creaturesdisp20988nameDealer Rashaadlocs352385id20980type15.2spell_id36031source2level70methodsold-byrarity1id29958
+	-- Blue Dragonhawk Hatchling - 36031
+	-- type15.2source2rarity1level70method_vendorstype7locs352385price10000000descExotic Creaturesminlevel60disp20988nameDealer Rashaadreact11id20980methodsold-byid29958spell_id36031
 	-- Vendor
 	self:AddCompanion(PetDB, 36031, 29958, 1)
+	self:addTradeFlags(RecipeDB, 36031, 1,2,4)
+	self:addTradeAcquire(RecipeDB, 36031, 2, 20980)
 
-	-- Captured Firefly - 
-	-- type15.2spell_id36034source1level20method_dropstotalLootCount151282type10react33minlevel62disp18723nameBogflare NeedlerlootCount77locs3521id20197methoddropped-byrarity1id29960
+	-- Captured Firefly - 36034
+	-- type15.2source1rarity1level20method_dropstype10locs3521minlevel62disp18723lootCount77nameBogflare Needlerreact33id20197totalLootCount151282methoddropped-byid29960spell_id36034
 	-- Mob Drop
 	self:AddCompanion(PetDB, 36034, 29960, 1)
 
-	-- Miniwing - 
-	-- type15.0spell_id39181source3method_queststype1choiceitems317661317651317641coin66000givenitems317601xp13750side1level65nameSkywingid10898category23519level96methodrewardfromrarity1id31760
+	-- Miniwing - 39181
+	-- method_queststype1category23519choiceitems317661317651317641givenitems317601coin66000level65xp13750side1nameSkywingid10898type15.0source3rarity1level96methodrewardfromid31760spell_id39181
 	-- Quest Reward
 	self:AddCompanion(PetDB, 39181, 31760, 1)
 
-	-- Blood Elf Orphan Whistle - 
-	-- type15.0spell_id39478source3method_crafted39512level1methodcraftedrarity1id31880
+	-- Blood Elf Orphan Whistle - 39478
+	-- type15.0method_crafted39512source3rarity1level1methodcraftedid31880spell_id39478
 	-- Crafted
 	--self:AddCompanion(PetDB, 39478, 31880, 1)
 
-	-- Draenei Orphan Whistle - 
-	-- type15.0spell_id39479source3method_crafted39513level1methodcraftedrarity1id31881
+	-- Draenei Orphan Whistle - 39479
+	-- type15.0method_crafted39513source3rarity1level1methodcraftedid31881spell_id39479
 	-- Crafted
 	--self:AddCompanion(PetDB, 39479, 31881, 1)
 
-	-- Wolpertinger's Tankard - 
-	-- type15.0spell_id39709source3method_queststype0coin0givenitems322331nameCatch the Wild Wolpertinger!id11117category-3370type0coin0givenitems322331nameCatch the Wild Wolpertinger!id11431category-3370level20methodrewardfromrarity3id32233
+	-- Wolpertinger's Tankard - 39709
+	-- method_queststype0category-3370givenitems322331coin0nameCatch the Wild Wolpertinger!id11117type0category-3370givenitems322331coin0nameCatch the Wild Wolpertinger!id11431type15.0source3rarity3level20methodrewardfromid32233spell_id39709
 	-- Quest Reward
 	self:AddCompanion(PetDB, 39709, 32233, 3)
 
-	-- Fortune Coin - 
-	-- type15.0spell_id40405method_crafted40406level1methodcraftedrarity3id32498
+	-- Fortune Coin - 40405
+	-- type15.0method_crafted40406rarity3level1methodcraftedid32498spell_id40405
 	-- Crafted
 	self:AddCompanion(PetDB, 40405, 32498, 3)
 
-	-- Banana Charm - 
-	-- type15.0spell_id40549method_crafted40550level1methodcraftedrarity3id32588
+	-- Banana Charm - 40549
+	-- type15.0method_crafted40550rarity3level1methodcraftedid32588spell_id40549
 	-- Crafted
 	self:AddCompanion(PetDB, 40549, 32588, 3)
 
-	-- Sleepy Willy - 
-	-- type15.0spell_id40613source3method_queststype0choiceitems326221326161326171coin0xp12300side2level70nameBack to the Orphanageid10966category-3284type0choiceitems326161326221326171coin0xp12300side4level70nameBack to the Orphanageid10967category-3284level20methodrewardfromrarity3id32617
+	-- Sleepy Willy - 40613
+	-- method_queststype0category-3284choiceitems326221326161326171coin0level70xp12300side2nameBack to the Orphanageid10966type0category-3284choiceitems326161326221326171coin0level70xp12300side4nameBack to the Orphanageid10967type15.0source3rarity3level20methodrewardfromid32617spell_id40613
 	-- Quest Reward
 	self:AddCompanion(PetDB, 40613, 32617, 3)
 
-	-- Egbert's Egg - 
-	-- type15.0spell_id40614source3method_queststype0choiceitems326221326161326171coin0xp12300side2level70nameBack to the Orphanageid10966category-3284type0choiceitems326161326221326171coin0xp12300side4level70nameBack to the Orphanageid10967category-3284level20methodrewardfromrarity3id32616
+	-- Egbert's Egg - 40614
+	-- method_queststype0category-3284choiceitems326221326161326171coin0level70xp12300side2nameBack to the Orphanageid10966type0category-3284choiceitems326161326221326171coin0level70xp12300side4nameBack to the Orphanageid10967type15.0source3rarity3level20methodrewardfromid32616spell_id40614
 	-- Quest Reward
 	self:AddCompanion(PetDB, 40614, 32616, 3)
 
-	-- Elekk Training Collar - 
-	-- type15.0spell_id40634source3method_queststype0choiceitems326221326161326171coin0xp12300side2level70nameBack to the Orphanageid10966category-3284type0choiceitems326161326221326171coin0xp12300side4level70nameBack to the Orphanageid10967category-3284level20methodrewardfromrarity3id32622
+	-- Elekk Training Collar - 40634
+	-- method_queststype0category-3284choiceitems326221326161326171coin0level70xp12300side2nameBack to the Orphanageid10966type0category-3284choiceitems326161326221326171coin0level70xp12300side4nameBack to the Orphanageid10967type15.0source3rarity3level20methodrewardfromid32622spell_id40634
 	-- Quest Reward
 	self:AddCompanion(PetDB, 40634, 32622, 3)
 
-	-- Reeking Pet Carrier - 
-	-- type15.2spell_id40990level1methodrarity3id40653
+	-- Reeking Pet Carrier - 40990
+	-- type15.2rarity3level1methodid40653spell_id40990
 	self:AddCompanion(PetDB, 40990, 40653, 3)
 
-	-- Sinister Squashling - 
-	-- type15.0spell_id42609level20methodrarity3id33154
+	-- Sinister Squashling - 42609
+	-- type15.0rarity3level20methodid33154spell_id42609
 	self:AddCompanion(PetDB, 42609, 33154, 3)
 
-	-- Toothy's Bucket - 
-	-- type15.2spell_id43697level20method_dropstotalLootCount7879type15.0source3level70rarity1nameBag of Fishing TreasureslootCount45id35348methodcontained-in-itemrarity3id33816
+	-- Toothy's Bucket - 43697
+	-- type15.2rarity3level20method_dropstype15.0source3rarity1level70lootCount45nameBag of Fishing Treasuresid35348totalLootCount7879methodcontained-in-itemid33816spell_id43697
 	-- Unknown
 	self:AddCompanion(PetDB, 43697, 33816, 3)
 
-	-- Muckbreath's Bucket - 
-	-- type15.2spell_id43698level20method_dropstotalLootCount7879type15.0source3level70rarity1nameBag of Fishing TreasureslootCount49id35348methodcontained-in-itemrarity3id33818
+	-- Muckbreath's Bucket - 43698
+	-- type15.2rarity3level20method_dropstype15.0source3rarity1level70lootCount49nameBag of Fishing Treasuresid35348totalLootCount7879methodcontained-in-itemid33818spell_id43698
 	-- Unknown
 	self:AddCompanion(PetDB, 43698, 33818, 3)
 
-	-- Mojo - 
-	-- type15.0spell_id43918method_crafted43923level20methodcraftedrarity3id33993
+	-- Mojo - 43918
+	-- type15.0method_crafted43923rarity3level20methodcraftedid33993spell_id43918
 	-- Crafted
 	self:AddCompanion(PetDB, 43918, 33993, 3)
 
-	-- Clockwork Rocket Bot - 
-	-- type15.3spell_id45048source1level1method_dropstotalLootCount33type15.0rlevel1level1rarity1nameWinter Veil GiftlootCount33id34426methoddropped-by,contained-in-itemrarity3id34425
+	-- Clockwork Rocket Bot - 45048
+	-- type15.3source1rarity3level1method_dropstype15.0rlevel1rarity1level1lootCount33nameWinter Veil Giftid34426totalLootCount33methoddropped-by,contained-in-itemid34425spell_id45048
 	-- Mob Drop
 	-- Unknown
 	self:AddCompanion(PetDB, 45048, 34425, 3)
 
-	-- Tiny Sporebat - 
-	-- method_vendorstype7price000242453000000000react11minlevel64descSporeggar Quartermasterdisp17626nameMycahlocs3521id18382type15.2spell_id45082source2level70methodsold-byrarity3id34478
+	-- Tiny Sporebat - 45082
+	-- type15.2source2rarity3level70method_vendorstype7locs3521price000242453000000000descSporeggar Quartermasterminlevel64disp17626nameMycahreact11id18382methodsold-byid34478spell_id45082
 	-- Vendor
 	self:AddCompanion(PetDB, 45082, 34478, 3)
+	self:addTradeFlags(RecipeDB, 45082, 1,2,4)
+	self:addTradeAcquire(RecipeDB, 45082, 2, 18382)
 
-	-- Rocket Chicken - 
-	-- type15.2spell_id45125method_crafted45126level1methodcraftedrarity3id34492
+	-- Rocket Chicken - 45125
+	-- type15.2method_crafted45126rarity3level1methodcraftedid34492spell_id45125
 	-- Crafted
 	self:AddCompanion(PetDB, 45125, 34492, 3)
 
-	-- Dragon Kite - 
-	-- type15.2spell_id45127method_crafted45128level1methodcraftedrarity4id34493
+	-- Dragon Kite - 45127
+	-- type15.2method_crafted45128rarity4level1methodcraftedid34493spell_id45127
 	-- Crafted
 	self:AddCompanion(PetDB, 45127, 34493, 4)
 
-	-- Scorched Stone - 
-	-- type15.0spell_id45890level20methodrarity3id34955
+	-- Scorched Stone - 45890
+	-- type15.0rarity3level20methodid34955spell_id45890
 	self:AddCompanion(PetDB, 45890, 34955, 3)
 
-	-- Snarly's Bucket - 
-	-- type15.2spell_id46425level20method_dropstotalLootCount7879type15.0source3level70rarity1nameBag of Fishing TreasureslootCount33id35348methodcontained-in-itemrarity3id35349
+	-- Snarly's Bucket - 46425
+	-- type15.2rarity3level20method_dropstype15.0source3rarity1level70lootCount33nameBag of Fishing Treasuresid35348totalLootCount7879methodcontained-in-itemid35349spell_id46425
 	-- Unknown
 	self:AddCompanion(PetDB, 46425, 35349, 3)
 
-	-- Chuck's Bucket - 
-	-- type15.2spell_id46426level20method_dropstotalLootCount7879type15.0source3level70rarity1nameBag of Fishing TreasureslootCount59id35348methodcontained-in-itemrarity3id35350
+	-- Chuck's Bucket - 46426
+	-- type15.2rarity3level20method_dropstype15.0source3rarity1level70lootCount59nameBag of Fishing Treasuresid35348totalLootCount7879methodcontained-in-itemid35350spell_id46426
 	-- Unknown
 	self:AddCompanion(PetDB, 46426, 35350, 3)
 
-	-- Phoenix Hatchling - 
-	-- type15.2spell_id46599source1level70method_dropstotalLootCount9689type7classification3react33minlevel72descLord of the Blood Elvesdisp20023nameKael'thas SunstriderlootCount153locs409537033845id23054totalLootCount6321type7classification1react33minlevel72descLord of the Blood Elvesdisp22906nameKael'thas SunstriderlootCount89locs4095id24664methoddropped-byrarity3id35504
+	-- Phoenix Hatchling - 46599
+	-- type15.2source1rarity3level70method_dropstype7locs409537033845classification3descLord of the Blood Elvesminlevel72disp20023lootCount153nameKael'thas Sunstriderreact33id23054totalLootCount9689type7locs4095classification1descLord of the Blood Elvesminlevel72disp22906lootCount89nameKael'thas Sunstriderreact33id24664totalLootCount6321methoddropped-byid35504spell_id46599
 	-- Mob Drop
 	self:AddCompanion(PetDB, 46599, 35504, 3)
 
-	-- Soul-Trader Beacon - 
-	-- type15.2spell_id49964method_crafted50211level20methodcraftedrarity3id38050
+	-- Soul-Trader Beacon - 49964
+	-- type15.2method_crafted50211rarity3level20methodcraftedid38050spell_id49964
 	-- Crafted
 	self:AddCompanion(PetDB, 49964, 38050, 3)
 
-	-- Nether Ray Fry - 
-	-- method_vendorstype7price00000000react11minlevel70descSkyguard QuartermasternameGrellalocs3519id23367type15.2spell_id51716source2level70methodsold-byrarity3id38628
+	-- Nether Ray Fry - 51716
+	-- type15.2source2rarity3level70method_vendorstype7locs3519price00000000descSkyguard Quartermasterminlevel70nameGrellareact11id23367methodsold-byid38628spell_id51716
 	-- Vendor
 	self:AddCompanion(PetDB, 51716, 38628, 3)
+	self:addTradeFlags(RecipeDB, 51716, 1,2,4)
+	self:addTradeAcquire(RecipeDB, 51716, 2, 23367)
 
-	-- Tyrael's Hilt - 
-	-- type15.0spell_id53082method_crafted53085level20methodcraftedrarity3id39656
+	-- Tyrael's Hilt - 53082
+	-- type15.0method_crafted53085rarity3level20methodcraftedid39656spell_id53082
 	-- Crafted
 	self:AddCompanion(PetDB, 53082, 39656, 3)
 
