@@ -213,7 +213,7 @@ EOF
 	puts "\nProcessing #{type} data..."
 
 	flags = Array.new
-	aquire = Array.new
+	acquire = Array.new
 
 	# Parse the ordered list and print out the detailed information into the file
 	ordered_list.each do |name|
@@ -243,7 +243,7 @@ EOF
 
 						unless npc[:id] == 0
 
-							aquire << {"type" => 6, "id" => npc[:id], "faction" => $reps[companiondetail[:faction]][:id],"factionlevel" => (factionlevels.has_key?(companiondetail[:faction_level]) ? factionlevels[companiondetail[:faction_level]] : companiondetail[:faction_level])}
+							acquire << {"type" => 6, "id" => npc[:id], "faction" => $reps[companiondetail[:faction]][:id],"factionlevel" => (factionlevels.has_key?(companiondetail[:faction_level]) ? factionlevels[companiondetail[:faction_level]] : companiondetail[:faction_level])}
 							$vendors[npc[:id]] = {:name => npc[:name]}
 							react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
 							react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
@@ -294,7 +294,7 @@ EOF
 
 						unless npc[:id] == 0
 
-							aquire << {"type" => 2, "id" => npc[:id]}
+							acquire << {"type" => 2, "id" => npc[:id]}
 							$vendors[npc[:id]] = {:name => npc[:name]}
 							react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
 							react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
@@ -349,19 +349,129 @@ EOF
 			# Mob drops
 			when 'dropped-by'
 
-				data = companiondetail[:method_dropped_by]
-				companion_lua.puts "\t-- Mob Drop"
+				data = companiondetail[:method_drops]
+
+				# Instance, mob, or raid drop
+				unless data.length > 10
+
+					flags << 5 #instance = 5, raid = 6
+
+					data.each do |npc|
+
+						unless npc[:id] == 0
+
+							acquire << {"type" => 3, "id" => npc[:id]}
+							$monsters[npc[:id]] = {:name => npc[:name]}
+
+							if npc[:locs]
+
+								npc[:locs].each do |loc|
+
+									if $dungeons[loc]
+
+										flags << 5
+										companion_lua.puts "\t-- Instance: #{loc} - #{$dungeons[loc]}"
+
+									end
+
+									if $raids[loc]
+
+										flags << 6
+										companion_lua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
+
+									end
+
+								end
+
+							else
+
+								companion_lua.puts "\t-- No location information"
+
+							end
+
+						end
+
+					end
+
+					companion_lua.puts "\t-- Mob Drop"
+
+				# World drop
+				else
+
+					flags << 10
+					companion_lua.puts "\t-- World Drop"
+					acquire << {"type" => 7, "id" => companiondetail[:rarity]}
+
+				end
 
 			# Quest reward
 			when 'rewardfrom'
 
 				data = companiondetail[:method_quests]
+				flags << 8
+
+				data.each do |quest|
+
+					acquire << {"type" => 4, "id" => quest[:id]}
+					$quests[quest[:id]] = {:name => quest[:name]}
+
+					if quest[:side] == 1
+						flags << 1 << 2
+						$quests[quest[:id]][:faction] = 0
+
+					elsif quest[:side] == 2
+
+						flags << 1
+						$quests[quest[:id]][:faction] = 1
+
+					elsif quest[:side] == 4
+
+						flags << 2
+						$quests[quest[:id]][:faction] = 2
+
+					end
+
+					quest[:questinfo] = maps.get_quest_map_info(quest[:id])
+
+					if quest[:questinfo]
+
+						quest[:questinfo][:quest_zones].values do |loc|
+
+							if $dungeons[loc]
+
+								flags << 5
+								companion_lua.puts "\t-- Instance: #{loc} - #{$dungeons[loc][:name]}"
+
+							end
+
+							if $raids[loc]
+
+								flags << 6
+								companion_lua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
+
+							end
+
+						end
+
+					else
+
+						companion_lua.puts "\t-- No location information"
+
+					end
+
+				end
+
 				companion_lua.puts "\t-- Quest Reward"
 
 			when 'crafted'
 
 				data = companiondetail[:method_crafted]
 				companion_lua.puts "\t-- Crafted"
+
+			when 'redemption'
+
+				data = companiondetail[:method_crafted]
+				companion_lua.puts "\t-- Redemption"
 
 			else
 
@@ -370,11 +480,6 @@ EOF
 			end
 
 		end
-
-		# Compress, remove duplicates and sort the list of flags
-		flags.compact!
-		flags.uniq!
-		flags.sort!
 
 		if ignorelist.include?(companiondetail[:spell_id])
 
@@ -388,9 +493,18 @@ EOF
 
 		companion_lua.puts "self:AddCompanion(PetDB, #{companiondetail[:spell_id]}, #{companiondetail[:id]}, #{companiondetail[:rarity]})"
 
-		if flags.length != 0 then
+		# Compress, remove duplicates and sort the list of flags
+		flags.compact!
+		flags.uniq!
+		flags.sort!
 
-			if ignorelist.include?(companiondetail[:spell_id])
+		if flags.length == 0
+
+			companion_lua.puts "\t-- No filter flags"
+
+		else
+
+			if ignorelist.include?(companiondetail[:spellid])
 
 				companion_lua.print("\t--")
 
@@ -400,25 +514,36 @@ EOF
 
 			end
 
-			companion_lua.puts "self:addTradeFlags(RecipeDB, #{companiondetail[:spell_id]}, #{flags.join(",")})"
+			companion_lua.puts "self:addTradeFlags(RecipeDB, #{companiondetail[:spellid]}, #{flags.join(",")})"
 
 		end
 
 		flags.clear
 
-		# aquire info
-		unless aquire.length == 0
+        # acquire info  
+		if acquire.length == 0 
+
+			companion_lua.puts "\t-- No acquire information"
+
+		else
+
+			acquiredordered = acquire.sort_by { |entry| entry["id"] }
 
 			temp = []
-			aquire.each do |entry|
 
-				temp << [entry["type"],entry["faction"],entry["factionlevel"],entry["id"]].compact
+			for id in %w(5 7 3 4 1 2 6)
 
-			end
+				for entry in acquiredordered.select { |entry| entry["type"] == id.to_i }
+
+					temp << [entry["type"],entry["faction"],entry["factionlevel"],entry["id"]].compact
+
+				end
+
+			end 
 
 			temp.flatten!
 
-			if ignorelist.include?(companiondetail[:spell_id])
+			if ignorelist.include?(companiondetail[:spellid])
 
 				companion_lua.print("\t--")
 
@@ -429,11 +554,11 @@ EOF
 			end
 
 
-			companion_lua.puts "self:addTradeAcquire(RecipeDB, #{companiondetail[:spell_id]}, #{temp.join(", ")})"
+			companion_lua.puts "self:addTradeAcquire(RecipeDB, #{companiondetail[:spellid]}, #{temp.join(", ")})"
 
 		end
-
-		aquire.clear
+	 
+		acquire.clear  
 
 		companion_lua.puts ""
 
@@ -459,9 +584,9 @@ pets = petsandmounts.get_pet_list
 
 create_companion_db("./DB/PetDatabase.lua","Pet Database","PetDB","MakeMiniPetTable",pets,maps,petsandmounts,[25849,23012,23013,39478,39479])
 
-#mounts = petsandmounts.get_mount_list
+mounts = petsandmounts.get_mount_list
 
-#create_companion_db("./DB/MountDatabase.lua","Mount Database","MountDB","MakeMountTable",mounts,maps,petsandmounts,[])
+create_companion_db("./DB/MountDatabase.lua","Mount Database","MountDB","MakeMountTable",mounts,maps,petsandmounts,[])
 
 puts ""
 puts "Finished processing run time was #{((Time.now).to_i-generator_start.to_i)} seconds"
