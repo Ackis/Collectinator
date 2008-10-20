@@ -69,7 +69,7 @@ Format:
 local MODNAME			= "Collectinator"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+--local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local BFAC				= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 function addon:InitReputation(RepDB)
@@ -203,7 +203,7 @@ Format:
 local MODNAME			= "Collectinator"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+--local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 function addon:#{funcstub}(#{db})
 

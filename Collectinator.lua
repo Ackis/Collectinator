@@ -225,7 +225,7 @@ function addon:ChatCommand(input)
 
 	if (not input) or (input and input:trim() == "") or (string.lower(input) == string.lower("About")) then
 		-- Open About panel if there's no parameters or if the parameter is About
-		InterfaceOptionsFrame_OpenToFrame(self.optionsFrame["About"])
+		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
 	end
 
 end
