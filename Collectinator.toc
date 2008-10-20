@@ -1,7 +1,7 @@
 ﻿## Title: Collectinator
 
-## Notes: A Wrath of the Lich King addon which will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
-## Notes-enUS: A Wrath of the Lich King addon which will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
+## Notes: Will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
+## Notes-enUS: Will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
 
 ## Author: Ackis
 ## X-Author-Server: Illidan US
@@ -12,7 +12,7 @@
 ## X-Donate: Donate a few bucks/hours at your local animal shelter, or send me UDE Point codes, a Murky Code, or an account upgrade certificate.
 
 ## Interface: 20400
-## Version: 0.13
+## Version: Alpha 1
 ## X-Revision: $Rev$
 ## X-Date: $Date$
 
@@ -22,7 +22,6 @@
 ## X-Localizations: enUS
 ## X-Website: http://www.wowwiki.com/Collectinator
 ## X-Feedback: http://www.curse.com/downloads/details/
-## X-AceForum: 
 ## X-RelSite-Curse: 
 ## X-LoadOn-Slash: 
 

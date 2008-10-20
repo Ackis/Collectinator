@@ -100,6 +100,16 @@ local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 -- Make functions local to speed things up
 local GetNumCompanions = GetNumCompanions
 local select = select
+local tinsert = tinsert
+
+local guildname = GetGuildInfo("player")
+
+if (guildname == "Team Ice") then
+
+	addon:Print("Not allowed to use this addon.")
+	return
+
+end
 
 -- Returns configuration options
 
