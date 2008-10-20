@@ -146,6 +146,29 @@ end
 def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist)
 
 	puts "Generating #{type} file .. #{list.length} entries to process"
+
+	count = 0
+
+	ordered_list = list.keys.sort_by do |name|
+
+		if count == 50
+
+			print "\n"
+			count = 0
+
+		end
+
+		print "."
+
+		count = count + 1
+		STDOUT.flush
+
+		petsandmounts.add_item_details(list[name])
+
+		list[name][:spellid]
+
+	end
+
 	companion_lua = File.open(file, "w")
 
 	header =<<EOF
@@ -187,28 +210,6 @@ function addon:#{funcstub}(#{db})
 EOF
 
 	companion_lua.puts header
-
-	count = 0
-
-	ordered_list = list.keys.sort_by do |name|
-
-		if count == 50
-
-			print "\n"
-			count = 0
-
-		end
-
-		print "."
-
-		count = count + 1
-		STDOUT.flush
-
-		petsandmounts.add_item_details(list[name])
-
-		list[name][:spell_id]
-
-	end
 
 	puts "\nProcessing #{type} data..."
 
@@ -491,7 +492,7 @@ EOF
 
 		end
 
-		companion_lua.puts "self:AddCompanion(PetDB, #{companiondetail[:spell_id]}, #{companiondetail[:id]}, #{companiondetail[:rarity]})"
+		companion_lua.puts "self:AddCompanion(PetDB, #{companiondetail[:spellid]}, #{companiondetail[:id]}, #{companiondetail[:rarity]})"
 
 		# Compress, remove duplicates and sort the list of flags
 		flags.compact!
