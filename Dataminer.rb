@@ -246,8 +246,18 @@ EOF
 
 							acquire << {"type" => 6, "id" => npc[:id], "faction" => $reps[companiondetail[:faction]][:id],"factionlevel" => (factionlevels.has_key?(companiondetail[:faction_level]) ? factionlevels[companiondetail[:faction_level]] : companiondetail[:faction_level])}
 							$vendors[npc[:id]] = {:name => npc[:name]}
-							react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
-							react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
+
+							unless npc[:react].nil?
+
+								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
+								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
+
+							else
+
+								flags << 1 << 2
+
+							end
+
 							$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
 
 							if react_a < 3
@@ -297,19 +307,29 @@ EOF
 
 							acquire << {"type" => 2, "id" => npc[:id]}
 							$vendors[npc[:id]] = {:name => npc[:name]}
-							react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
-							react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
-							$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
 
-							if react_a < 3
+							unless npc[:react].nil?
 
-								flags << 1
+								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
+								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
-							end
+								if react_a < 3
 
-							if react_h < 3
+									flags << 1
 
-								flags << 2
+								end
+
+								if react_h < 3
+
+									flags << 2
+
+								end
+
+								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
+
+							else
+
+								flags << 1 << 2
 
 							end
 
