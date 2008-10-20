@@ -221,7 +221,7 @@ EOF
 
 		companiondetail = list[name]
 
-		companion_lua.puts "\t-- #{name} - #{companiondetail[:spell_id]}"
+		companion_lua.puts "\t-- #{name} - #{companiondetail[:spellid]}"
 		companion_lua.puts "\t-- #{companiondetail}"
 
 		companiondetail[:method].split(",").each do |method|
@@ -252,20 +252,24 @@ EOF
 								react_a = npc[:react][0].nil? ? 0 : npc[:react][0]
 								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
+								if react_a < 3
+
+									flags << 1
+
+								end
+
+								if react_h < 3
+
+									flags << 2
+
+								end
+
+								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
+
 							else
 
 								flags << 1 << 2
 
-							end
-
-							$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
-
-							if react_a < 3
-								flags << 1
-							end
-
-							if react_h < 3
-								flags << 2
 							end
 
 							if npc[:locs]
@@ -491,7 +495,7 @@ EOF
 
 			when 'redemption'
 
-				data = companiondetail[:method_crafted]
+				data = companiondetail[:method_redemption]
 				companion_lua.puts "\t-- Redemption"
 
 			else

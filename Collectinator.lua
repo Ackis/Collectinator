@@ -277,7 +277,7 @@ do
 			if (minipetlist[petspell]) then
 
 				-- Add the mini-pet to the list of pets we save
-				tinsert(self.db.profile.petlist.petspell)
+				tinsert(self.db.profile.petlist,petspell)
 
 			else
 
@@ -302,7 +302,7 @@ do
 			if (mountlist[mountspell]) then
 
 				-- Add the mount to the list of pets we save
-				tinsert(self.db.profile.petlist.mountspell)
+				tinsert(self.db.profile.petlist,mountspell)
 
 			else
 
