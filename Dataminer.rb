@@ -143,7 +143,7 @@ EOF
 end
 
 
-def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist,seasonallist,wrathignore)
+def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist,seasonallist,tcg,wrathignore)
 
 	puts "Generating #{type} file .. #{list.length} entries to process"
 
@@ -183,7 +183,9 @@ def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist
 Auto-generated using Dataminer.rb
 Entries to this file will be overwritten
 
-#{list.length} found from data mining.  #{ignorelist.length} ignored.
+#{list.length} found from data mining.
+#{ignorelist.length} ignored.
+#{wrathignore.length} WotLK ignored.
 
 ************************************************************************
 
@@ -231,7 +233,7 @@ EOF
 			# vendors
 			when 'sold-by'
 
-				flags << 4
+				flags << 3
 				data = companiondetail[:method_vendors]
 			
 				# Reputation vendor
@@ -274,14 +276,14 @@ EOF
 
 									if $dungeons[loc]
 
-										flags << 5
+										flags << 6
 										companion_lua.puts "\t-- Instance: #{loc} - #{$dungeons[loc]}"
 
 									end
 
 									if $raids[loc]
 
-										flags << 6
+										flags << 7
 										companion_lua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
 
 									end
@@ -305,7 +307,7 @@ EOF
 
 						unless npc[:id] == 0
 
-							acquire << {"type" => 2, "id" => npc[:id]}
+							acquire << {"type" => 1, "id" => npc[:id]}
 							$vendors[npc[:id]] = {:name => npc[:name]}
 
 							unless npc[:react].nil?
@@ -335,14 +337,14 @@ EOF
 
 									if $dungeons[loc]
 
-										flags << 5
+										flags << 6
 										companion_lua.puts "\t-- Instance: #{loc} - #{$dungeons[loc]}"
 
 									end
 
 									if $raids[loc]
 
-										flags << 6
+										flags << 7
 										companion_lua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
 
 									end
@@ -375,7 +377,7 @@ EOF
 
 						unless npc[:id] == 0
 
-							acquire << {"type" => 3, "id" => npc[:id]}
+							acquire << {"type" => 4, "id" => npc[:id]}
 							$monsters[npc[:id]] = {:name => npc[:name]}
 
 							if npc[:locs]
@@ -384,17 +386,17 @@ EOF
 
 									if $dungeons[loc]
 
-										flags << 5
+										flags << 6
 										companion_lua.puts "\t-- Instance: #{loc} - #{$dungeons[loc]}"
 
 									elsif $raids[loc]
 
-										flags << 6
+										flags << 7
 										companion_lua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
 
 									else
 
-										flags << 11
+										flags << 15
 
 									end
 
@@ -415,9 +417,9 @@ EOF
 				# World drop
 				else
 
-					flags << 10
+					flags << 9
 					companion_lua.puts "\t-- World Drop"
-					acquire << {"type" => 7, "id" => companiondetail[:rarity]}
+					acquire << {"type" => 5, "id" => companiondetail[:rarity]}
 
 				end
 
@@ -425,11 +427,11 @@ EOF
 			when 'rewardfrom'
 
 				data = companiondetail[:method_quests]
-				flags << 8
+				flags << 4
 
 				data.each do |quest|
 
-					acquire << {"type" => 4, "id" => quest[:id]}
+					acquire << {"type" => 2, "id" => quest[:id]}
 					$quests[quest[:id]] = {:name => quest[:name]}
 
 					if quest[:side] == 1
@@ -456,14 +458,14 @@ EOF
 
 							if $dungeons[loc]
 
-								flags << 5
+								flags << 6
 								companion_lua.puts "\t-- Instance: #{loc} - #{$dungeons[loc][:name]}"
 
 							end
 
 							if $raids[loc]
 
-								flags << 6
+								flags << 7
 								companion_lua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
 
 							end
@@ -482,12 +484,17 @@ EOF
 
 			when 'crafted'
 
-				data = companiondetail[:method_crafted]
+				craft = companiondetail[:method_crafted]
+				flags << 5
+
+				acquire << {"type" => 3, "id" => craft[:id]}
+
 				companion_lua.puts "\t-- Crafted"
 
 			when 'redemption'
 
 				data = companiondetail[:method_redemption]
+				flags << 10
 				companion_lua.puts "\t-- Redemption"
 
 			else
@@ -597,13 +604,15 @@ $raids = maps.get_raid_maps
 
 create_faction_db()
 
+# def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist,seasonallist,tcg,wrathignore)
+
 pets = petsandmounts.get_pet_list
 
-create_companion_db("./DB/PetDatabase.lua","Pet Database","PetDB","MakeMiniPetTable",pets,maps,petsandmounts,[25849,23012,23013,39478,39479],[],[])
+create_companion_db("./DB/PetDatabase.lua","Pet Database","PetDB","MakeMiniPetTable",pets,maps,petsandmounts,[25849,23012,23013,39478,39479],[],[],[])
 
 mounts = petsandmounts.get_mount_list
 
-create_companion_db("./DB/MountDatabase.lua","Mount Database","MountDB","MakeMountTable",mounts,maps,petsandmounts,[],[],[])
+create_companion_db("./DB/MountDatabase.lua","Mount Database","MountDB","MakeMountTable",mounts,maps,petsandmounts,[],[],[],[])
 
 puts ""
 puts "Finished processing run time was #{((Time.now).to_i-generator_start.to_i)} seconds"
