@@ -178,9 +178,9 @@ def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist
 
 #{file}
 
-#{type} data for all of Ackis Recipe List
+#{type} data for all of Collectinator
 
-Auto-generated using ARLDataminer.rb
+Auto-generated using Dataminer.rb
 Entries to this file will be overwritten
 
 #{list.length} found from data mining.  #{ignorelist.length} ignored.
@@ -194,7 +194,7 @@ Entries to this file will be overwritten
 
 Format:
 
-	self:AddCompanion(PetDB, SpellID, Item ID, Rarity)
+	self:AddCompanion(#{db}, SpellID, Item ID, Rarity)
 
 ************************************************************************
 
@@ -516,7 +516,7 @@ EOF
 
 		end
 
-		companion_lua.puts "self:AddCompanion(PetDB, #{companiondetail[:spellid]}, #{companiondetail[:id]}, #{companiondetail[:rarity]})"
+		companion_lua.puts "self:AddCompanion(#{db}, #{companiondetail[:spellid]}, #{companiondetail[:id]}, #{companiondetail[:rarity]})"
 
 		# Compress, remove duplicates and sort the list of flags
 		flags.compact!
@@ -539,7 +539,7 @@ EOF
 
 			end
 
-			companion_lua.puts "self:addTradeFlags(RecipeDB, #{companiondetail[:spellid]}, #{flags.join(",")})"
+			companion_lua.puts "self:addTradeFlags(#{db}, #{companiondetail[:spellid]}, #{flags.join(",")})"
 
 		end
 
@@ -579,7 +579,7 @@ EOF
 			end
 
 
-			companion_lua.puts "self:addTradeAcquire(RecipeDB, #{companiondetail[:spellid]}, #{temp.join(", ")})"
+			companion_lua.puts "self:addTradeAcquire(#{db}, #{companiondetail[:spellid]}, #{temp.join(", ")})"
 
 		end
 	 

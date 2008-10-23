@@ -433,9 +433,9 @@ function addon:AddCompanion(DB, SpellID, ItemID, Rarity)
 	-- Create an entry for this minipet
 	DB[SpellID] = {}
 
-	DB[SpellID]["Rarity"] = Rarity
 	DB[SpellID]["Name"] = GetSpellInfo(SpellID) or nil
 	DB[SpellID]["ItemID"] = ItemID
+	DB[SpellID]["Rarity"] = Rarity
 
 	DB[SpellID]["Owned"] = false
 	DB[SpellID]["Excluded"] = false
