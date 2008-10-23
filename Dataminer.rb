@@ -143,7 +143,7 @@ EOF
 end
 
 
-def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist)
+def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist,seasonallist,wrathignore)
 
 	puts "Generating #{type} file .. #{list.length} entries to process"
 
@@ -233,7 +233,7 @@ EOF
 
 				flags << 4
 				data = companiondetail[:method_vendors]
-
+			
 				# Reputation vendor
 				unless companiondetail[:faction].nil?
 
@@ -253,18 +253,14 @@ EOF
 								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
 								if react_a < 3
-
 									flags << 1
-
 								end
 
 								if react_h < 3
-
 									flags << 2
-
 								end
 
-								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
+								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
 
 							else
 
@@ -318,18 +314,14 @@ EOF
 								react_h = npc[:react][1].nil? ? 0 : npc[:react][1]
 
 								if react_a < 3
-
 									flags << 1
-
 								end
 
 								if react_h < 3
-
 									flags << 2
-
 								end
 
-								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 4
+								$vendors[npc[:id]][:faction] = react_h < 3 && react_a < 3 ? 0 : react_h == 3 && react_a < 3 ? 1 : react_a == 3 && react_h < 3 ? 2 : 0
 
 							else
 
@@ -379,8 +371,6 @@ EOF
 				# Instance, mob, or raid drop
 				unless data.length > 10
 
-					flags << 5 #instance = 5, raid = 6
-
 					data.each do |npc|
 
 						unless npc[:id] == 0
@@ -397,12 +387,14 @@ EOF
 										flags << 5
 										companion_lua.puts "\t-- Instance: #{loc} - #{$dungeons[loc]}"
 
-									end
-
-									if $raids[loc]
+									elsif $raids[loc]
 
 										flags << 6
 										companion_lua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
+
+									else
+
+										flags << 11
 
 									end
 
@@ -506,7 +498,7 @@ EOF
 
 		end
 
-		if ignorelist.include?(companiondetail[:spell_id])
+		if ignorelist.include?(companiondetail[:spellid]) or wrathignore.include?(companiondetail[:spellid])
 
 			companion_lua.print("\t--")
 
@@ -529,7 +521,7 @@ EOF
 
 		else
 
-			if ignorelist.include?(companiondetail[:spellid])
+			if ignorelist.include?(companiondetail[:spellid]) or wrathignore.include?(companiondetail[:spellid])
 
 				companion_lua.print("\t--")
 
@@ -539,7 +531,7 @@ EOF
 
 			end
 
-			companion_lua.puts "self:addTradeFlags(#{db}, #{companiondetail[:spellid]}, #{flags.join(",")})"
+			companion_lua.puts "self:AddCompanionFlags(#{db}, #{companiondetail[:spellid]}, #{flags.join(",")})"
 
 		end
 
@@ -568,7 +560,7 @@ EOF
 
 			temp.flatten!
 
-			if ignorelist.include?(companiondetail[:spellid])
+			if ignorelist.include?(companiondetail[:spellid]) or wrathignore.include?(companiondetail[:spellid])
 
 				companion_lua.print("\t--")
 
@@ -579,7 +571,7 @@ EOF
 			end
 
 
-			companion_lua.puts "self:addTradeAcquire(#{db}, #{companiondetail[:spellid]}, #{temp.join(", ")})"
+			companion_lua.puts "self:AddCompanionAcquire(#{db}, #{companiondetail[:spellid]}, #{temp.join(", ")})"
 
 		end
 	 
@@ -607,11 +599,11 @@ create_faction_db()
 
 pets = petsandmounts.get_pet_list
 
-create_companion_db("./DB/PetDatabase.lua","Pet Database","PetDB","MakeMiniPetTable",pets,maps,petsandmounts,[25849,23012,23013,39478,39479])
+create_companion_db("./DB/PetDatabase.lua","Pet Database","PetDB","MakeMiniPetTable",pets,maps,petsandmounts,[25849,23012,23013,39478,39479],[],[])
 
 mounts = petsandmounts.get_mount_list
 
-create_companion_db("./DB/MountDatabase.lua","Mount Database","MountDB","MakeMountTable",mounts,maps,petsandmounts,[])
+create_companion_db("./DB/MountDatabase.lua","Mount Database","MountDB","MakeMountTable",mounts,maps,petsandmounts,[],[],[])
 
 puts ""
 puts "Finished processing run time was #{((Time.now).to_i-generator_start.to_i)} seconds"
