@@ -285,15 +285,19 @@ do
 		local missingpets = 0
 
 		-- Scan the master list and display which mini-pets are marked as missing
-		for i in pairs(petlist) do
-			if (petlist[i] and petlist[i]["Owned"] == false) then
+		for i in pairs(minipetlist) do
+
+			if (minipetlist[i] and minipetlist[i]["Owned"] == false) then
+
 				self:Print("Missing pet: " .. i)
 				missingpets = missingpets + 1
+
 			end
+
 		end
 
-		self:Print(format(formatstring,#self.db.profile.petlist, #petlist, "mini-pets", missingpets, "mini-pets"))
-		self:Print(#self.db.profile.petlist - #petlist)
+		self:Print(format(formatstring,#self.db.profile.minipetlist, #minipetlist, "mini-pets", missingpets, "mini-pets"))
+		self:Print(#self.db.profile.minipetlist - #minipetlist)
 
 		local missingmounts = 0
 
