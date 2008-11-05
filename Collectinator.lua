@@ -1,8 +1,13 @@
 ﻿--[[
+
 ****************************************************************************************
+
 Collectinator
-$Date$
-$Rev$
+
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
 
 Author: Ackis on Illidan US Horde
 
@@ -13,6 +18,7 @@ Still in development
 Please see Wowace.com for more information.
 
 ****************************************************************************************
+
 ]]--
 
 local MODNAME			= "Collectinator"

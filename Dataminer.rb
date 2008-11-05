@@ -6,8 +6,10 @@ Dataminer.rb
 
 Datamining for all of Collectinator
 
-$Date: 2008-09-24 16:03:03 -0600 (Wed, 24 Sep 2008) $
-$Rev: 82026 $
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
 
 ****************************************************************************************
 
@@ -53,8 +55,10 @@ Entries to this file will be overwritten
 
 ************************************************************************
 
-\$Date: \$
-\$Rev: \$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
 
 ************************************************************************
 
@@ -188,8 +192,10 @@ Entries to this file will be overwritten
 
 ************************************************************************
 
-\$Date: \$
-\$Rev: \$
+File date: @file-date-iso@ 
+File revision: @file-revision@ 
+Project revision: @project-revision@
+Project version: @project-version@
 
 ************************************************************************
 
