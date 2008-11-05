@@ -408,80 +408,7 @@ end
 
 function addon:AddCompanionFlags(DB, SpellID, ...)
 
---[[
 
-	Flags:
-	Flags are defined as:
-		-- How to obtain (flags 1 - 20 for growth):
-			-- 1 = Alliance faction only
-			-- 2 = Horde faction only
-			-- 3 = Vendor
-			-- 4 = Quest
-			-- 5 = Crafted
-			-- 6 = Instance
-			-- 7 = Raid
-			-- 8 = Seasonal
-			-- 9 = World Drop
-			-- 10 = Special Event (Blizzcon, WWI, etc)
-			-- 11 = TCG
-			-- 12 = Mob Drop
-			-- 13 = BoE
-			-- 14 = BoP
-			-- 15 = BoA
-
-		-- Profession (flags 21-40 for growth):
-			-- 21 = Alchemist
-			-- 22 = Blacksmith
-			-- 23 = Cook
-			-- 24 = Enchant
-			-- 25 = Engineer
-			-- 26 = First Aid
-			-- 27 = Inscription
-			-- 28 = Jewelcraft
-			-- 29 = Leatherwork
-			-- 30 = Smelt
-			-- 31 = Tailor
-
-		-- Reputation
-			-- Original WoW (40-44):
-				-- 40 = Argent Dawn
-				-- 41 = Cenarion Circle
-				-- 42 = Thorium Brotherhood
-				-- 43 = Timbermaw Hold
-				-- 44 = Zandalar Tribe
-			-- Burning Crusade (45-58):
-				-- 45 = The Aldor
-				-- 46 = Ashtongue Deathsworn
-				-- 47 = Cenarion Expedition
-				-- 48 = Hellfire Factions (Thrallmar/Honor Hold)
-				-- 49 = Consortium
-				-- 50 = Keepers of Time
-				-- 51 = Lower City
-				-- 52 = Nagrand Factions (Maghar/Kureni)
-				-- 53 = Scale of the Sands
-				-- 54 = The Scryer
-				-- 55 = Sha'tar
-				-- 56 = Shattered Sun
-				-- 57 = Sporeggar
-				-- 58 = Violeteye
-			-- LK (59-73):
-				-- 59 = Argent Crusade
-				-- 60 = Frenzyheart Tribe
-				-- 61 = Knights of the Ebon Blade
-				-- 62 = Kirin Tor
-				-- 63 = The Sons of Hodir
-				-- 64 = The Kalu'ak
-				-- 65 = The Oracles
-				-- 66 = The Wyrmrest Accord
-				-- 67 = The Silver Convenant
-				-- 68 = The Sunreavers
-				-- 69 = Explorer's League
-				-- 70 = Valiance Expedition
-				-- 71 = The Hand of Vengeance
-				-- 72 = The Taunka
-				-- 73 = Warsong Offensive
-
-]]--
 
 end
 
@@ -491,21 +418,7 @@ end
 
 function addon:AddCompanionAcquire(DB, SpellID, ...)
 
---[[
 
-	Acquire information defined as:
-
-		-- 1 = Vendor
-		-- 2 = Quest
-		-- 3 = Crafted
-		-- 4 = Mob Drop
-		-- 5 = World Drop
-		-- 6 = Reputation
-		-- 7 = Seasonal
-		-- 8 = Special Event (Blizzcon, WWI, etc)
-		-- 9 = TCG
-
-]]--
 
 end
 
