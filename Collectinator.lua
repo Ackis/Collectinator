@@ -21,6 +21,39 @@ Collectinator 			= LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "
 
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
+-- Lets check to see if we have the needed libraries loaded (these are manditory to run)
+if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
+
+	self:Print("LibBabble-Faction-3.0 not loaded.  Addon cannot run.")
+	return
+
+end
+
+--[[
+
+if (not LibStub:GetLibrary("LibBabble-Zone-3.0", true)) then
+
+	self:Print("LibBabble-Zone-3.0 not loaded.  Addon cannot run.")
+	return
+
+end
+
+if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
+
+	self:Print("LibBabble-Boss-3.0 not loaded.  Addon cannot run.")
+	return
+
+end
+
+if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
+
+	self:Print("AceLocale-3.0 not loaded.  Addon cannot run.")
+	return
+
+end
+
+--]]
+
 --local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -- Make functions local to speed things up
@@ -104,7 +137,18 @@ function addon:OnInitialize()
 
 	-- Add the options to blizzard frame
 	self.optionsFrame = AceConfigDialog:AddToBlizOptions("Collectinator","Collectinator")
-	self.optionsFrame["About"] = LibStub("LibAboutPanel").new("Collectinator", "Collectinator")
+
+	-- Add in the about panel to the Bliz options (but not the ace3 config)
+	if LibStub:GetLibrary("LibAboutPanel", true) then
+
+		self.optionsFrame["About"] = LibStub:GetLibrary("LibAboutPanel").new(MODNAME, MODNAME)
+
+	else
+
+		self:Print("Lib About Panel not loaded.")
+
+	end
+
 	self.optionsFrame["Profile"] = AceConfigDialog:AddToBlizOptions("Collectinator Profile", "Profile", "Collectinator")
 
 	-- Register slash commands
@@ -158,44 +202,62 @@ end
 
 -- Function run when the even COMPANION_LEARNED is raised.
 
-function addon:COMPANION_LEARNED(arg1, arg2, arg3, arg4, arg5)
+function addon:COMPANION_LEARNED()
 
-	self:Print("Learnt a new companion. yay you?")
-	self:Print(arg1)
-	self:Print(arg2)
-	self:Print(arg3)
-	self:Print(arg4)
-	self:Print(arg5)
-	self:Print("Notice those 'nils'?  That means Blizz doesn't want to tell us what you learnt.")
+	self:Print("Learnt a new companion.  Auotmatic scan updating.")
+	self:ScanCompanions()
 
 end
 
 do
 
-	minipetlist = nil
-	mountlist = nil
+	-- Master database of mini-pets
+	local minipetlist = nil
+	local totalminipets = 0
 
-	-- Will scan your companions, and update the information in the saved variables.
-	-- Arguments: None
-	-- Return values: Updates the saved variables with the IDs of all the companions you have
+	-- Master database of mounts
+	local mountlist = nil
+	local totalmounts = 0
+
+	-- Description: Loads all information about mini-pets into the database
+	-- Expected result: Listing of companions updated with information.
+	-- Input: None
+	-- Output: Database pased as reference.
+
+	function addon:CreateMiniPetList(db)
+
+		db = {}
+		addon:MakeMiniPetTable(db)
+
+	end
+
+	-- Description: Loads all information about mounts into the database
+	-- Expected result: Listing of companions updated with information.
+	-- Input: None
+	-- Output: Database pased as reference.
+
+	function addon:CreateMountList(db)
+
+		db = {}
+		addon:MakeMountTable(db)
+
+	end
+
+	-- Description: Will scan your companions (mini-pets and mounts) and determine which ones you have
+	-- Expected result: Listing of companions updated with information.
+	-- Input: None
+	-- Output: Updates the saved variables with the IDs of all the companions you have
 
 	function addon:ScanCompanions()
 
 		-- Create the master list of all mini-pets
 		if (minipetlist == nil) then
 
-			minipetlist = {}
-			addon:MakeMiniPetTable(minipetlist)
+			totalminipets = addon:CreateMiniPetList(minipetlist)
 
 		end
 
-		-- Create the master list of all mounts
-		if (mountlist == nil) then
-
-			mountlist = {}
-			addon:MakeMountTable(mountlist)
-
-		end
+		self:Print("DEBUG: Total minipets in database: " .. totalminipets)
 
 		-- Update the mini-pets
 		local numminipets = GetNumCompanions("CRITTER")
@@ -212,6 +274,9 @@ do
 			-- Mark the pet as known in the database, if the pet is not in the database display an error
 			if (minipetlist[petspell]) then
 
+				-- Mark the mini-pet as being known
+				minipetlist[petspell]["Owned"] = true
+
 				-- Add the mini-pet to the list of pets we save
 				tinsert(self.db.profile.petlist,petspell)
 
@@ -223,63 +288,30 @@ do
 
 		end
 
-		-- Update the mounts
-		local nummounts = GetNumCompanions("MOUNT")
-
-		-- Clear the saved variables for the mount list.
-		self.db.profile.mountlist = {}
-
-		for i=1,nummounts,1 do
-
-			-- Get the mount name and spell ID
-			local _,mountname,mountspell = GetCompanionInfo("MOUNT",i)
-
-			-- Mark the mount as known in the database, if the mount is not in the database display an error
-			if (mountlist[mountspell]) then
-
-				-- Add the mount to the list of pets we save
-				tinsert(self.db.profile.petlist,mountspell)
-
-			else
-
-				self:Print("Unknown mount found.  Please report to the author.  Pet name: " .. mountname .. " Pet spell ID: " .. mountspell)
-
-			end
-
-		end
+		self:Print("DEBUG: Total minipets known: " .. numminipets)
 
 	end
 
-	-- Displays the checklist
+	-- Description: Parses the savedvariables to display which companions you are missing
+	-- Expected result: Provides a list which companions you know/don't know
+	-- Input: None
+	-- Output: Graphical output only
 
 	function addon:ShowChecklist()
 
 		-- Create the master list of all mini-pets
 		if (minipetlist == nil) then
 
-			minipetlist = {}
-			addon:MakeMiniPetTable(minipetlist)
+			totalminipets = addon:CreateMiniPetList(minipetlist)
 
 		end
 
-		-- Create the master list of all mounts
-		if (mountlist == nil) then
-
-			mountlist = {}
-			addon:MakeMountTable(mountlist)
-
-		end
 
 		local numminipets = GetNumCompanions("CRITTER")
-		local nummounts = GetNumCompanions("MOUNT")
-		local totalminipets = #minipetlist
-		local totalmounts = #mountlist
-
-		self:Print("You have " .. numminipets .. " mini-pets and " .. nummounts .. " mounts.")
-		self:Print("There are a total of " .. totalminipets .. " mini-pets and " .. totalmounts .. " mounts in the database currently.")
 
 		local formatstring = "You have %d out of %d %s.  You are missing %d %s."
 
+		-- Load the items from the internal SV into our memory
 		self:UpdateLists(minipetlist, mountlist)
 
 		local missingpets = 0
@@ -296,19 +328,8 @@ do
 
 		end
 
-		self:Print(format(formatstring,#self.db.profile.minipetlist, #minipetlist, "mini-pets", missingpets, "mini-pets"))
-		self:Print(#self.db.profile.minipetlist - #minipetlist)
-
-		local missingmounts = 0
-
-		for i in pairs(mountlist) do
-			if (mountlist[i] and mountlist[i]["Owned"] == false) then
-				self:Print("Missing mount: " .. i)
-				missingmounts = missingmounts + 1
-			end
-		end
-
-		self:Print(format(formatstring,#self.db.profile.mountlist, #mountlist, "mounts", missingmounts, "mounts"))
+		self:Print(format(formatstring,#self.db.profile.minipetlist, totalminipets, "mini-pets", missingpets, "mini-pets"))
+		self:Print(#self.db.profile.minipetlist - totalminipets)
 
 		self:Print("GUI Checklist NYI")
 
@@ -346,11 +367,11 @@ function addon:UpdateLists(petlist, mountlist)
 
 	-- Update update collections to see which ones are known
 	self:UpdateIndividualList(self.db.profile.petlist, petlist, "Owned")
-	self:UpdateIndividualList(self.db.profile.mountlist, mountlist, "Owned")
+	--self:UpdateIndividualList(self.db.profile.mountlist, mountlist, "Owned")
 
 	-- Update collections to flag which ones are excluded
 	self:UpdateIndividualList(self.db.profile.petexclusions, petlist, "Excluded")
-	self:UpdateIndividualList(self.db.profile.mountexclusions, mountlist, "Excluded")
+	--self:UpdateIndividualList(self.db.profile.mountexclusions, mountlist, "Excluded")
 
 end
 

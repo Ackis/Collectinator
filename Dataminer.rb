@@ -142,7 +142,6 @@ EOF
 
 end
 
-
 def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist,seasonallist,tcg,wrathignore)
 
 	puts "Generating #{type} file .. #{list.length} entries to process"
@@ -208,6 +207,8 @@ local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 --local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 function addon:#{funcstub}(#{db})
+
+	local companioncount = 0
 
 EOF
 
@@ -369,6 +370,8 @@ EOF
 			when 'dropped-by'
 
 				data = companiondetail[:method_drops]
+				# Cheat and say that it's both horde/alliance
+				flags << 1 << 2
 
 				# Instance, mob, or raid drop
 				unless data.length > 10
@@ -417,6 +420,8 @@ EOF
 				# World drop
 				else
 
+					# Cheat and say that it's both horde/alliance
+					flags << 1 << 2
 					flags << 9
 					companion_lua.puts "\t-- World Drop"
 					acquire << {"type" => 5, "id" => companiondetail[:rarity]}
@@ -484,6 +489,8 @@ EOF
 
 			when 'crafted'
 
+				# Cheat and say that it's both horde/alliance
+				flags << 1 << 2
 				craft = companiondetail[:method_crafted]
 				flags << 5
 
@@ -493,12 +500,16 @@ EOF
 
 			when 'redemption'
 
+				# Cheat and say that it's both horde/alliance
+				flags << 1 << 2
 				data = companiondetail[:method_redemption]
 				flags << 10
 				companion_lua.puts "\t-- Redemption"
 
 			else
 
+				# Cheat and say that it's both horde/alliance
+				flags << 1 << 2
 				companion_lua.puts "\t-- Unknown"
 
 			end
@@ -507,10 +518,12 @@ EOF
 
 		if ignorelist.include?(companiondetail[:spellid]) or wrathignore.include?(companiondetail[:spellid])
 
+			companion_lua.print("\t-- companioncount = companioncount + 1")
 			companion_lua.print("\t--")
 
 		else
 
+			companion_lua.print("\t companioncount = companioncount + 1")
 			companion_lua.print("\t")
 
 		end
@@ -588,6 +601,8 @@ EOF
 
 	end
 
+	companion_lua.puts "\treturn companioncount"
+	companion_lua.puts ""
 	companion_lua.puts "end"
 	companion_lua.close
 
@@ -603,6 +618,8 @@ $dungeons = maps.get_dungeon_maps
 $raids = maps.get_raid_maps
 
 create_faction_db()
+
+$debug = false
 
 # def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist,seasonallist,tcg,wrathignore)
 
