@@ -183,7 +183,7 @@ end
 
 function addon:OnEnable()
 
-	self:RegisterEvent("COMPANION_LEARNED")
+	--self:RegisterEvent("COMPANION_LEARNED")
 
 end
 
