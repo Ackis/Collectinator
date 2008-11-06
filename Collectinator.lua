@@ -210,7 +210,6 @@ end
 
 function addon:COMPANION_LEARNED()
 
-	self:Print("Learnt a new companion.  Auotmatic scan updating.")
 	self:ScanCompanions()
 
 end
