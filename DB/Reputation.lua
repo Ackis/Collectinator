@@ -44,7 +44,7 @@ function addon:InitReputation(RepDB)
 	self:addLookupList(RepDB, 72, BFAC["Stormwind"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 76, BFAC["Orgrimmar"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 81, BFAC["Thunder Bluff"]) -- Acquire Flag: 
-	self:addLookupList(RepDB, 87, BFAC["Bloodsail Buccaneers"]) -- Acquire Flag: 
+	self:addLookupList(RepDB, 87, BFAC["Bloodsail Buccaneers"]) -- Acquire Flag: 40
 	self:addLookupList(RepDB, 92, BFAC["Gelkis Clan Centaur"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 93, BFAC["Magram Clan Centaur"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 270, BFAC["Zandalar Tribe"]) -- Acquire Flag: 

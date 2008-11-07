@@ -83,6 +83,8 @@ function addon:InitTCG(TCGDB)
 	self:addLookupList(TCGDB, 5, "Servants of the Betrayer")
 	self:addLookupList(TCGDB, 6, "Hunt for Illidan")
 	self:addLookupList(TCGDB, 7, "Drums of War")
+	self:addLookupList(TCGDB, 8, "Special Event")
+	self:addLookupList(TCGDB, 9, "CE")
 
 end
 
@@ -144,6 +146,7 @@ EOF
 	replua.puts(header)
 
 	flags = {
+		"Bloodsail Buccaneers" => 40,
 		"Sporeggar" => 40,
 		"Sha'tari Skyguard" => 41,
 		"Argent Crusade" => 115,
@@ -289,8 +292,7 @@ EOF
 				# Reputation vendor
 				unless companiondetail[:faction].nil?
 
-					companion_lua.print("Reputation, ")
-					companion_lua.puts "\t-- #{companiondetail[:faction]} - #{companiondetail[:faction_level]}"
+					companion_lua.print("Reputation (#{companiondetail[:faction]} - #{companiondetail[:faction_level]}), ")
 					flags << $reps[companiondetail[:faction]][:flag]
 
 					data.each do |npc|
@@ -328,14 +330,12 @@ EOF
 									if $dungeons[loc]
 
 										flags << $flags["Instance"]
-										companion_lua.puts "\t-- Instance: #{loc} - #{$dungeons[loc]}"
+										companion_lua.print("Instance (#{loc} - #{$dungeons[loc][:name]}), ")
 
-									end
-
-									if $raids[loc]
+									elsif $raids[loc]
 
 										flags << $flags["Raid"]
-										companion_lua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
+										companion_lua.print("Raid (#{loc} - #{$raids[loc][:name]}), ")
 
 									end
 
@@ -387,14 +387,12 @@ EOF
 									if $dungeons[loc]
 
 										flags << $flags["Instance"]
-										companion_lua.puts "\t-- Instance: #{loc} - #{$dungeons[loc]}"
+										companion_lua.print("Instance (#{loc} - #{$dungeons[loc][:name]}), ")
 
-									end
-
-									if $raids[loc]
+									elsif $raids[loc]
 
 										flags << $flags["Raid"]
-										companion_lua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
+										companion_lua.print("Raid (#{loc} - #{$raids[loc][:name]}), ")
 
 									end
 
@@ -418,6 +416,7 @@ EOF
 				# Instance, mob, or raid drop
 				unless data.length > 10
 
+					companion_lua.print("Mob Drop, ")
 					data.each do |npc|
 
 						unless npc[:id] == 0
@@ -432,12 +431,12 @@ EOF
 									if $dungeons[loc]
 
 										flags << $flags["Instance"]
-										companion_lua.puts "\t-- Instance: #{loc} - #{$dungeons[loc]}"
+										companion_lua.print("Instance (#{loc} - #{$dungeons[loc][:name]}), ")
 
 									elsif $raids[loc]
 
 										flags << $flags["Raid"]
-										companion_lua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
+										companion_lua.print("Raid (#{loc} - #{$raids[loc][:name]}), ")
 
 									else
 
@@ -452,8 +451,6 @@ EOF
 						end
 
 					end
-
-					companion_lua.print("Mob Drop, ")
 
 				# World drop
 				else
@@ -502,14 +499,12 @@ EOF
 							if $dungeons[loc]
 
 								flags << $flags["Instance"]
-								companion_lua.puts "\t-- Instance: #{loc} - #{$dungeons[loc][:name]}"
+								companion_lua.print("Instance (#{loc} - #{$dungeons[loc][:name]}), ")
 
-							end
-
-							if $raids[loc]
+							elsif $raids[loc]
 
 								flags << $flags["Raid"]
-								companion_lua.puts "\t-- Raid: #{loc} - #{$raids[loc][:name]}"
+								companion_lua.print("Raid (#{loc} - #{$raids[loc][:name]}), ")
 
 							end
 
@@ -528,15 +523,42 @@ EOF
 
 				acquire << {"type" => $acquire["Crafted"], "id" => craft[:id], "factionlevel" => $proftable[craft[:skill]]}
 
-				companion_lua.print("Crafted, ")
+				# Crafted item that is BoP means that it's for that profession only
+				if companiondetail[:item_binds] == "BOP"
+
+					companion_lua.print("Crafted BoP (#{craft[:skill]}), ")
+					flags << $flags[craft[:skill]]
+
+				else
+
+					companion_lua.print("Crafted BoU, ")
+
+				end
 
 			when 'redemption'
 
-				# Cheat and say that it's both horde/alliance
-				flags << $flags["Alliance"] << $flags["Horde"]
-				data = companiondetail[:method_redemption]
-				flags << $flags["TCG"]
 				companion_lua.print("Redemption, ")
+				# Cheat and say that it's both horde/alliance
+				data = companiondetail[:method_redemption]
+				flags << $flags["Alliance"] << $flags["Horde"]
+
+				if $ce.include?(companiondetail[:spellid])
+
+					acquire << {"type" => $acquire["Special Event"], "id" => 9}
+					flags << $flags["CE"]
+
+				elsif $events.include?(companiondetail[:spellid])
+
+					acquire << {"type" => $acquire["Special Event"], "id" => 8}
+					flags << $flags["Special Event"]
+
+				elsif $tcg.include?(companiondetail[:spellid])
+
+					acquire << {"type" => $acquire["Special Event"], "id" => $tcglist[companiondetail[:spellid]]}
+					flags << $flags["TCG"]
+
+				end
+
 
 			else
 
@@ -549,6 +571,31 @@ EOF
 		end
 		companion_lua.print("\n")
 		companion_lua.print("\t-- Flags: ")
+
+		# Just add some text to identify which flags are which
+		if flags.include?($flags["Alliance"])
+
+			companion_lua.print("Alliance, ")
+
+		end
+
+		if flags.include?($flags["Horde"])
+
+			companion_lua.print("Horde, ")
+
+		end
+
+		if flags.include?($flags["Instance"])
+
+			companion_lua.print("Instance, ")
+
+		end
+
+		if flags.include?($flags["Raid"])
+
+			companion_lua.print("Raid, ")
+
+		end
 
 		if companiondetail[:item_binds] == "BOU"
 
@@ -568,6 +615,30 @@ EOF
 
 			companion_lua.print("BOA, ")
 			flags << $flags["BOA"]
+
+		end
+
+		if specialcase[companiondetail[:spellid]]
+
+			case specialcase[companiondetail[:spellid]][:id]
+
+			when $flags["CE"]
+
+				acquire << {"type" => $acquire["Special Event"], "id" => 10}
+				flags << $flags["CE"]
+
+
+			when $flags["TCG"]
+
+				acquire << {"type" => $acquire["Special Event"], "id" => $tcglist[companiondetail[:spellid]]}
+				flags << $flags["TCG"]
+
+			when $flags["Special Event"]
+
+				acquire << {"type" => $acquire["Special Event"], "id" => 8}
+				flags << $flags["Special Event"]
+
+			end
 
 		end
 
@@ -635,7 +706,7 @@ EOF
 
 			temp = []
 
-			for id in %w(5 7 3 4 1 2 6)
+			for id in %w(1 2 3 4 5 6 7 8)
 
 				for entry in acquiredordered.select { |entry| entry["type"] == id.to_i }
 
@@ -695,23 +766,36 @@ $flags = {
 	"Raid" => 7,
 	"Seasonal" => 8,
 	"World Drop" => 9,
-	"Special Event" => 10,
+	"Mob Drop" => 10,
 	"TCG" => 11,
-	"Mob Drop" => 12,
-	"BOU" => 13,
-	"BOP" => 14,
-	"BOA" => 15,
+	"Special Event" => 12,
+	"CE" => 13,
+	"BOU" => 15,
+	"BOP" => 16,
+	"BOA" => 17,
 	"Alchemist" => 21,
-	"Blacksmith" => 22,
-	"Cook" => 23,
-	"Enchant" => 24,
-	"Engineer" => 25,
+	"Blacksmithing" => 22,
+	"Cooking" => 23,
+	"Enchanting" => 24,
+	"Engineering" => 25,
 	"First Aid" => 26,
 	"Inscription" => 27,
-	"Jewelcraft" => 28,
-	"Leatherwork" => 29,
-	"Smelt" => 30,
-	"Tailor" => 31,
+	"Jewelcrafting" => 28,
+	"Leatherworking" => 29,
+	"Smelting" => 30,
+	"Tailoring" => 31,
+}
+
+$ce = [17707, 17708, 17709, 32298]
+$events = [40405, 53082]
+$tcg = [30156, 40549, 45125, 45127, 49964]
+
+$tcglist = {
+	30156 => 1,
+	40549 => 2,
+	45127 => 5,
+	45125 => 5,
+	49964 => 6,
 }
 
 $acquire = {
@@ -723,7 +807,6 @@ $acquire = {
 	"Reputational" => 6,
 	"Seasonal" => 7,
 	"Special Event" => 8,
-	"TCG" => 9,
 }
 
 $proftable = {
@@ -740,15 +823,25 @@ $proftable = {
 	"Inscription"		=> 45357,
 	"Runeforging"		=> 28481
 }
-
+# Pets that I need to manually deal with: 13548 (Chicken Egg), 17567 (Admiral's Hat -> Faction), 25162 (Oozling),  27570 (Arrow -> seasonal), 33050(Crawdad -> fishing), 39709 -> brewfest, 
+# 40990 ->achievement, 42609 -> halloween, 43697,43698,46425,46426 -> Fishing daily, 43918 -> ZA, 45048 -> Seasonal, 45082 ->Rep (Spore), 45890 -> Fire festival, 51716 -> Reputation
 create_tcg_db()
 
 create_faction_db()
 
 pets = petsandmounts.get_pet_list
 petspecial = {
+	17707 => {:id => $flags["CE"]},
+	17708 => {:id => $flags["CE"]},
+	17709 => {:id => $flags["CE"]},
+	30156 => {:id => $flags["TCG"]},
+	24696 => {:id => $flags["Special Event"]},
+	24988 => {:id => $flags["Special Event"]},
+	27241 => {:id => $flags["Special Event"]},
+	28505 => {:id => $flags["Special Event"]},
+	40405 => {:id => $flags["Special Event"]},
 }
-create_companion_db("./DB/PetDatabase.lua","Pet Database","PetDB","MakeMiniPetTable",pets,maps,petsandmounts,[25849,23012,23013,39478,39479],petspecial,[])
+create_companion_db("./DB/PetDatabase.lua","Pet Database","PetDB","MakeMiniPetTable",pets,maps,petsandmounts,[23012,23013,39478,39479],petspecial,[25849])
 
 #mounts = petsandmounts.get_mount_list
 mountspecial = {

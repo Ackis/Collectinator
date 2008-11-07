@@ -232,7 +232,7 @@ do
 	function addon:CreateMiniPetList(db)
 
 		db = {}
-		addon:MakeMiniPetTable(db)
+		return addon:MakeMiniPetTable(db)
 
 	end
 
@@ -244,7 +244,7 @@ do
 	function addon:CreateMountList(db)
 
 		db = {}
-		addon:MakeMountTable(db)
+		return addon:MakeMountTable(db)
 
 	end
 
