@@ -52,7 +52,6 @@ function addon:InitReputation(RepDB)
 	self:addLookupList(RepDB, 369, BFAC["Gadgetzan"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 470, BFAC["Ratchet"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 471, BFAC["Wildhammer Clan"]) -- Acquire Flag: 
-	self:addLookupList(RepDB, 509, BFAC["The League of Arathor"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 510, BFAC["The Defilers"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 529, BFAC["Argent Dawn"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 530, BFAC["Darkspear Trolls"]) -- Acquire Flag: 
@@ -89,6 +88,22 @@ function addon:InitReputation(RepDB)
 	self:addLookupList(RepDB, 1015, BFAC["Netherwing"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 1031, BFAC["Sha'tari Skyguard"]) -- Acquire Flag: 41
 	self:addLookupList(RepDB, 1038, BFAC["Ogri'la"]) -- Acquire Flag: 
+	self:addLookupList(RepDB, 1050, BFAC["Valiance Expedition"]) -- Acquire Flag: 126
+	self:addLookupList(RepDB, 1052, BFAC["Horde Expedition"]) -- Acquire Flag: 
+	self:addLookupList(RepDB, 1064, BFAC["The Taunka"]) -- Acquire Flag: 128
+	self:addLookupList(RepDB, 1067, BFAC["The Hand of Vengeance"]) -- Acquire Flag: 127
+	self:addLookupList(RepDB, 1068, BFAC["Explorers' League"]) -- Acquire Flag: 
+	self:addLookupList(RepDB, 1073, BFAC["The Kalu'ak"]) -- Acquire Flag: 120
 	self:addLookupList(RepDB, 1077, BFAC["Shattered Sun Offensive"]) -- Acquire Flag: 
+	self:addLookupList(RepDB, 1085, BFAC["Warsong Offensive"]) -- Acquire Flag: 129
+	self:addLookupList(RepDB, 1090, BFAC["Kirin Tor"]) -- Acquire Flag: 118
+	self:addLookupList(RepDB, 1091, BFAC["The Wyrmrest Accord"]) -- Acquire Flag: 122
+	self:addLookupList(RepDB, 1094, BFAC["The Silver Covenant"]) -- Acquire Flag: 
+	self:addLookupList(RepDB, 1098, BFAC["Knights of the Ebon Blade"]) -- Acquire Flag: 117
+	self:addLookupList(RepDB, 1104, BFAC["Frenzyheart Tribe"]) -- Acquire Flag: 116
+	self:addLookupList(RepDB, 1105, BFAC["The Oracles"]) -- Acquire Flag: 121
+	self:addLookupList(RepDB, 1106, BFAC["Argent Crusade"]) -- Acquire Flag: 115
+	self:addLookupList(RepDB, 1119, BFAC["The Sons of Hodir"]) -- Acquire Flag: 119
+	self:addLookupList(RepDB, 1126, BFAC["The Frostborn"]) -- Acquire Flag: 
 
 end
