@@ -9,7 +9,7 @@ File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 
-Author: Ackis on Illidan US Horde
+Author: Ackis
 
 ****************************************************************************************
 
@@ -60,12 +60,14 @@ end
 
 --]]
 
---local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -- Make functions local to speed things up
 local GetNumCompanions = GetNumCompanions
 local select = select
 local tinsert = tinsert
+
+local maxfilterflags = 60
 
 local guildname = GetGuildInfo("player")
 
@@ -76,118 +78,40 @@ if (guildname == "Team Ice") then
 
 end
 
--- Returns configuration options
-
-local function giveOptions()
-
-	local command_options = {
-	    type = "group",
-	    args =
-		{
-			header1 =
-			{
-				order = 5,
-				type = "header",
-				name = "",
-			},
-			version =
-			{
-				order = 5,
-				type = "description",
-				name = "Version: 0.10\n",
-			},
-			showchecklist = 
-			{
-				type = "execute",
-				name = "Show Checklist",
-				desc = "Displays the checklist showing which collectable items you are missing.",
-				func = function(info) addon:ShowChecklist() end,
-				order = 40,
-			},
-			scancompanions = 
-			{
-				type = "execute",
-				name = "Scan Companions",
-				desc = "Scans for companions, updating the ones that you currently have.",
-				func = function(info) addon:ScanCompanions() end,
-				order = 50,
-			},
-		}
-	}
-
-	return command_options
-
-end
-
--- Returns configuration options for profiling
-
-local function giveProfiles()
-
-	local profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(addon.db)
-	return profiles
-
-end
-
--- Loaded at startup, sets configuration options, the GUI configuration options and registers slash commands
-
 function addon:OnInitialize()
-
-	local AceConfigReg = LibStub("AceConfigRegistry-3.0")
-	local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 
 	self.db = LibStub("AceDB-3.0"):New("CollectinatorDB", defaults, "char")
 
-	-- Create the options with Ace3
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("Collectinator",giveOptions)
-	AceConfigReg:RegisterOptionsTable("Collectinator Profile",giveProfiles)
-
-	-- Add the options to blizzard frame
-	self.optionsFrame = AceConfigDialog:AddToBlizOptions("Collectinator","Collectinator")
-
-	-- Add in the about panel to the Bliz options (but not the ace3 config)
-	if LibStub:GetLibrary("LibAboutPanel", true) then
-
-		self.optionsFrame["About"] = LibStub:GetLibrary("LibAboutPanel").new(MODNAME, MODNAME)
-
-	else
-
-		self:Print("Lib About Panel not loaded.")
-
-	end
-
-	self.optionsFrame["Profile"] = AceConfigDialog:AddToBlizOptions("Collectinator Profile", "Profile", "Collectinator")
+	self:SetupOptions()
 
 	-- Register slash commands
 	self:RegisterChatCommand("collectinator", "ChatCommand")
 
 	-- Set default options, which are to include everything in the scan
 	self.db:RegisterDefaults(
-		{ profile =
-			{
+	{
+		profile = {
 
-			-- Have we done a scan every?
-			scanoccured = 0,
+			companionlist = {},
+			companionexclusions = {},
 
-			-- Exclusion lists
-			petexclusions = {},
-			mountexclusions = {},
-			petlist = {},
-			mountlist = {},
+			filters = {
+					general = {
+						faction = false,
+						known = true,
+						unknown = false,
+					},
 			}
 		}
-	)
+	})
 
 end
-
--- Loaded when the addon is enabled
 
 function addon:OnEnable()
 
-	--self:RegisterEvent("COMPANION_LEARNED")
+	self:RegisterEvent("COMPANION_LEARNED")
 
 end
-
--- Loaded when the addon is disabled. Ace3 undoes everything done on OnEnable
 
 function addon:OnDisable()
 
@@ -210,153 +134,195 @@ end
 
 function addon:COMPANION_LEARNED()
 
+	-- When we learn a new pet, we want to automatically scan the companions and update our saved variables
 	self:ScanCompanions()
+
+end
+
+-- Description: Loads all information about mini-pets into the database
+-- Expected result: Listing of companions updated with information.
+-- Input: Database to update
+-- Output: Database pased as reference.
+
+local function CreateCompanionList(db)
+
+	local totalminipets = 0
+	local totalmounts = 0
+
+	-- Create the master list of all mini-pets
+	if (db == nil) then
+
+		db = {}
+		totalminipets = addon:MakeMiniPetTable(db)
+		totalmounts = addon:MakeMountTable(db)
+
+	end
+
+	return totalminipets, totalmounts
 
 end
 
 do
 
-	-- Master database of mini-pets
-	local minipetlist = nil
-	local totalminipets = 0
+	-- Master database of mini-pets and mounts
+	local companiondb = nil
 
-	-- Master database of mounts
-	local mountlist = nil
+	-- Total numbers in the database
+	local totalminipets = 0
 	local totalmounts = 0
 
-	-- Description: Loads all information about mini-pets into the database
-	-- Expected result: Listing of companions updated with information.
+	-- Description: Scans your known companions, loads the database, marks which are known, and loads the display
+	-- Expected result: All functions are done in a logical order
 	-- Input: None
-	-- Output: Database pased as reference.
+	-- Output: Displays the GUI
 
-	function addon:CreateMiniPetList(db)
+	function addon:DoCompleteScan()
 
-		db = {}
-		return addon:MakeMiniPetTable(db)
+		-- Scan for what companions we know/don't know
+		addon:ScanCompanions()
+
+		-- Load the database and get the number of entries in it
+		totalminipets, totalmounts = CreateCompanionList(companiondb)
+
+		addon:CheckForKnownCompanions(companiondb)
+
+		addon:UpdateFilters(companiondb)
+
+		addon:GetExclusions(companiondb)
+
+		addon:ShowCheckList(companiondb)
 
 	end
 
-	-- Description: Loads all information about mounts into the database
-	-- Expected result: Listing of companions updated with information.
-	-- Input: None
-	-- Output: Database pased as reference.
+	function addon:GetDB()
 
-	function addon:CreateMountList(db)
-
-		db = {}
-		return addon:MakeMountTable(db)
+		return companiondb
 
 	end
 
-	-- Description: Will scan your companions (mini-pets and mounts) and determine which ones you have
-	-- Expected result: Listing of companions updated with information.
-	-- Input: None
-	-- Output: Updates the saved variables with the IDs of all the companions you have
+end
 
-	function addon:ScanCompanions()
+local function CheckFilter(spellid)
 
-		-- Create the master list of all mini-pets
-		if (minipetlist == nil) then
+	return true
 
-			totalminipets = addon:CreateMiniPetList(minipetlist)
+end
 
-		end
+function addon:UpdateFilters(db)
 
-		self:Print("DEBUG: Total minipets in database: " .. totalminipets)
+	local display = false
 
-		-- Update the mini-pets
-		local numminipets = GetNumCompanions("CRITTER")
+	-- Parse the database
+	for spellid in pairs(db) do
 
-		-- Clear the saved variables for the pet list.
-		self.db.profile.petlist = {}
+		display = CheckFilter(db[spellid])
+		db[spellid]["Display"] = display
 
-		-- Parse all the mini-pets you currently have
-		for i=1,numminipets do
+	end
 
-			-- Get the pet's name and spell ID
-			local _,petname,petspell = GetCompanionInfo("CRITTER",i)
+end
 
-			-- Mark the pet as known in the database, if the pet is not in the database display an error
-			if (minipetlist[petspell]) then
+-- Description: Marks all exclusions in the  database to not be displayed
+-- Expected result: Parses the  database marking all exlusions to not be displays
+-- Input: Companion Database
+-- Output: None, Companion Database is passed as a reference
 
-				-- Mark the mini-pet as being known
-				minipetlist[petspell]["Owned"] = true
+function addon:GetExclusions(db)
 
-				-- Add the mini-pet to the list of pets we save
-				tinsert(self.db.profile.petlist,petspell)
+	local exclusionlist = addon.db.profile.companionexclusions
+	local countknown = 0
+	local countunknown = 0
+
+	for i in pairs(exclusionlist) do
+
+		-- We may have a recipe in the exclusion list that has not been scanned yet
+		-- check if the entry exists in DB first
+		if (db[i]) then
+
+			db[i]["Display"] = false
+
+			if (db[i]["Known"] == false) then
+
+				countknown = countknown + 1
 
 			else
 
-				self:Print("Unknown pet found.  Please report to the author.  Pet name: " .. petname .. " Pet spell ID: " .. petspell)
+				countunknown = countunknown + 1
 
 			end
 
 		end
-
-		self:Print("DEBUG: Total minipets known: " .. numminipets)
 
 	end
 
-	-- Description: Parses the savedvariables to display which companions you are missing
-	-- Expected result: Provides a list which companions you know/don't know
-	-- Input: None
-	-- Output: Graphical output only
+	return countknown, countunknown
 
-	function addon:ShowChecklist()
+end
 
-		-- Create the master list of all mini-pets
-		if (minipetlist == nil) then
+-- Description: Removes or adds a recipe to the exclusion list.
+-- Expected result: The exclusion database is updated.
+-- Input: The spell IDsof the recipe
+-- Output: Exclusion database is updated
 
-			totalminipets = addon:CreateMiniPetList(minipetlist)
+function addon:ToggleExcludeRecipe(SpellID)
 
-		end
+	local exclusionlist = addon.db.profile.companionexclusions
 
+	-- Remove the Spell from the exclusion list
+	if (exclusionlist[SpellID]) then
 
-		local numminipets = GetNumCompanions("CRITTER")
+		exclusionlist[SpellID] = nil
 
-		local formatstring = "You have %d out of %d %s.  You are missing %d %s."
+	else
 
-		-- Load the items from the internal SV into our memory
-		self:UpdateLists(minipetlist, mountlist)
-
-		local missingpets = 0
-
-		-- Scan the master list and display which mini-pets are marked as missing
-		for i in pairs(minipetlist) do
-
-			if (minipetlist[i] and minipetlist[i]["Owned"] == false) then
-
-				self:Print("Missing pet: " .. i)
-				missingpets = missingpets + 1
-
-			end
-
-		end
-
-		self:Print(format(formatstring,#self.db.profile.minipetlist, totalminipets, "mini-pets", missingpets, "mini-pets"))
-		self:Print(#self.db.profile.minipetlist - totalminipets)
-
-		self:Print("GUI Checklist NYI")
+		exclusionlist[SpellID] = true
 
 	end
 
 end
 
 
--- Scans through the saved variables and updates the items in the master list to known if it exists
--- Arguments: The list to scan through, the master list which to set, and the variable to set.
--- Return values: None, the list is updated with flags set to true
+-- Description: Parses the savedvariables to display which companions you are missing
+-- Expected result: Provides a list which companions you know/don't know
+-- Input: None
+-- Output: Graphical output only
 
-function addon:UpdateIndividualList(scanlist, masterlist, variable)
+function addon:ShowCheckList(db)
 
-	-- Parse through the scanning list (local database)
-	for i,k in pairs(scanlist) do
+	self:Print("Right now this is temporary until I get the backend finished, then I'll do the GUI.")
 
-		-- If we have information about this item in our list (resident list)
-		if (masterlist[k]) then
+	-- Parse the database
+	for spellid in pairs(db) do
 
-			-- Set the variable to be true
-			masterlist[k][variable] = true
+		if db[spellid]["Known"] == false then
+			self:Print("Unkown companion: " .. spellid .. " " .. db[spellid]["Name"])
+		end
+
+	end
+
+end
+
+-- Description:  Scans the database and the local list of companions and flags which ones you know
+-- Expected result: Database is updated with flags for known companions
+-- Input: Database
+-- Output: None.
+
+function addon:CheckForKnownCompanions(db)
+
+	local companionlist = addon.db.profile.companionlist
+
+	-- Scan through all the entries we've saved
+	for i,spellid in pairs(companionlist) do
+
+		-- If the entry exists, mark it as known
+		if (db[spellid]) then
+
+			db[spellid]["Known"] = true
+
+		-- If the entry doesn't exist raise an error
+		else
+
+			self:Print("Spell ID: " .. spellid .. " not found.")
 
 		end
 
@@ -364,19 +330,47 @@ function addon:UpdateIndividualList(scanlist, masterlist, variable)
 
 end
 
--- Scans through the saved variables and updates the items in the master list to known if it exists
--- Arguments: None
--- Return values: None, the list is updated with flags set to true
+-- Description: Will scan your companions (mini-pets and mounts)
+-- Expected result: Listing of companions updated with information.
+-- Input: Database
+-- Output: None.
 
-function addon:UpdateLists(petlist, mountlist)
+function addon:ScanCompanions()
 
-	-- Update update collections to see which ones are known
-	self:UpdateIndividualList(self.db.profile.petlist, petlist, "Owned")
-	--self:UpdateIndividualList(self.db.profile.mountlist, mountlist, "Owned")
+	-- Find out how many companions we have learnt
+	local numminipets = GetNumCompanions("CRITTER")
+	local nummounts = GetNumCompanions("MOUNT")
 
-	-- Update collections to flag which ones are excluded
-	self:UpdateIndividualList(self.db.profile.petexclusions, petlist, "Excluded")
-	--self:UpdateIndividualList(self.db.profile.mountexclusions, mountlist, "Excluded")
+	local companionlist = self.db.profile.companionlist
+
+	-- Clear the saved variables for the companion list.
+	self.db.profile.companionlist = {}
+
+	-- Parse all the mini-pets you currently have
+	for i=1,numminipets do
+
+		-- Get the pet's name and spell ID
+		local _,_,petspell = GetCompanionInfo("CRITTER",i)
+
+		-- Add the mini-pet to the list of pets we save
+		tinsert(companionlist,petspell)
+
+	end
+
+	-- Parse all the mounts you currently have
+	for i=1,nummounts do
+
+		-- Get the pet's name and spell ID
+		local _,_,mountspell = GetCompanionInfo("MOUNT",i)
+
+		-- Add the mini-pet to the list of pets we save
+		tinsert(companionlist,mountspell)
+
+	end
+
+
+	self:Print("DEBUG: Total mini-pets known: " .. numminipets)
+	self:Print("DEBUG: Total mounts known: " .. nummounts)
 
 end
 
@@ -384,19 +378,31 @@ end
 -- Arguments: Spell ID of mini-pet, aquisition information, faction information, reputation information, location, coordinate information, arbitrary number of flags
 -- Return values: none
 
-function addon:AddCompanion(DB, SpellID, ItemID, Rarity)
+function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType)
 
 	-- Create an entry for this minipet
 	DB[SpellID] = {}
 
-	DB[SpellID]["Name"] = GetSpellInfo(SpellID) or nil
+	DB[SpellID]["Name"] = GetSpellInfo(SpellID) or ""
 	DB[SpellID]["ItemID"] = ItemID
 	DB[SpellID]["Rarity"] = Rarity
+	DB[SpellID]["Type"] = CompanionType
 
 	DB[SpellID]["Owned"] = false
-	DB[SpellID]["Excluded"] = false
+	DB[SpellID]["Display"] = false
+	DB[SpellID]["Search"] = false
 
 	DB[SpellID]["Flags"] = {}
+
+	local flag = DB[SpellID]["Flags"]
+
+	-- Set the filter flags to all false
+	for i=1,maxfilterflags,1 do
+
+		flag[i] = false
+
+	end
+
 	DB[SpellID]["Acquire"] = {}
 
 end
@@ -407,7 +413,19 @@ end
 
 function addon:AddCompanionFlags(DB, SpellID, ...)
 
+	local flags = DB[SpellID]["Flags"]
 
+	local numvars = select('#',...)
+
+	-- Find out how many flags we're adding
+	for i=1,numvars,1 do
+
+		-- Get the value of the current flag
+		local flag = select(i, ...)
+		-- Set the flag in the database to true
+		flags[flag] = true
+
+	end
 
 end
 
@@ -417,46 +435,5 @@ end
 
 function addon:AddCompanionAcquire(DB, SpellID, ...)
 
-
-
 end
 
--- Adds an item from a specific collection to the exclusion list
--- Arguments: Collection type (MOUNT, PET), spell ID or itemID of what has to be excluded
--- Return Values: none
-
-function addon:ExcludeCollection(collection,ID)
-
-	if (collection == "MOUNT") then
-
-		tinsert(self.db.profile.mountexclusions,ID)
-
-	elseif (collection == "PET") then
-
-		tinsert(self.db.profile.petexclusions,ID)
-
-	end
-
-	self:Print("Collection ID: " .. ID .. " excluded from the " .. collection .. " list.")
-
-end
-
--- Removes an item from a specific collection to the exclusion list
--- Arguments: Collection type (MOUNT, PET), spell ID or itemID of what has to be removed from exlcusion list
--- Return Values: none
-
-function addon:AddtoCollection(collection,ID)
-
-	if (collection == "MOUNT") then
-
-		tremove(self.db.profile.mountexclusionls,ID)
-
-	elseif (collection == "PET") then
-
-		tremove(self.db.profile.petexclusions,ID)
-
-	end
-
-	self:Print("Collection ID: " .. ID .. " added to the " .. collection .. " list.")
-
-end

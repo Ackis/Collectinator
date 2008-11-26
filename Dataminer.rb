@@ -147,23 +147,23 @@ EOF
 
 	flags = {
 		"Bloodsail Buccaneers" => 40,
-		"Sporeggar" => 40,
-		"Sha'tari Skyguard" => 41,
-		"Argent Crusade" => 115,
-		"Frenzyheart Tribe" => 116,
-		"Knights of the Ebon Blade" => 117,
-		"Kirin Tor" => 118,
-		"The Sons of Hodir" => 119,
-		"The Kalu'ak" => 120,
-		"The Oracles" => 121,
-		"The Wyrmrest Accord" => 122,
-		"The Silver Convenant" => 123,
-		"The Sunreavers" => 124,
-		"Explorer's League" => 125,
-		"Valiance Expedition" => 126,
-		"The Hand of Vengeance" => 127,
-		"The Taunka" => 128,
-		"Warsong Offensive" => 129,
+		"Sporeggar" => 41,
+		"Sha'tari Skyguard" => 42,
+		"Argent Crusade" => 45,
+		"Frenzyheart Tribe" => 46,
+		"Knights of the Ebon Blade" => 47,
+		"Kirin Tor" => 48,
+		"The Sons of Hodir" => 49,
+		"The Kalu'ak" => 50,
+		"The Oracles" => 51,
+		"The Wyrmrest Accord" => 52,
+		"The Silver Convenant" => 53,
+		"The Sunreavers" => 54,
+		"Explorer's League" => 55,
+		"Valiance Expedition" => 56,
+		"The Hand of Vengeance" => 57,
+		"The Taunka" => 58,
+		"Warsong Offensive" => 59,
 	}
 
 	# Get the list of reputations 	 
@@ -191,7 +191,11 @@ EOF
 
 end
 
+# Creates the companion list
+
 def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist,specialcase,wrathignore)
+
+	factionlevels = {"Neutral"	=> 0,"Friendly" => 1,"Honored"	=> 2,"Revered"	=> 3,"Exalted"	=> 4}
 
 	puts "Generating #{type} file .. #{list.length} entries to process"
 
@@ -217,7 +221,7 @@ def create_companion_db(file,type,db,funcstub,list,maps,petsandmounts,ignorelist
 
 	end
 
-	companion_lua = File.open(file, "w")
+	companion_lua = File.open(file, "w:utf-8")
 
 	header =<<EOF
 --[[
@@ -246,7 +250,7 @@ Project version: @project-version@
 
 Format:
 
-	self:AddCompanion(#{db}, SpellID, Item ID, Rarity)
+	self:AddCompanion(#{db}, SpellID, Item ID, Rarity, Companion Type)
 
 ************************************************************************
 
@@ -254,8 +258,6 @@ Format:
 
 local MODNAME			= "Collectinator"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-
---local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 function addon:#{funcstub}(#{db})
 
@@ -276,8 +278,7 @@ EOF
 		companiondetail = list[name]
 
 		companion_lua.puts "\t-- #{name} - #{companiondetail[:spellid]}"
-		companion_lua.puts "\t-- #{companiondetail}"
-		companion_lua.print("\t-- Obtain information: ")
+		#companion_lua.puts "\t-- #{companiondetail}"
 
 		companiondetail[:method].split(",").each do |method|
 
@@ -292,14 +293,17 @@ EOF
 				# Reputation vendor
 				unless companiondetail[:faction].nil?
 
-					companion_lua.print("Reputation (#{companiondetail[:faction]} - #{companiondetail[:faction_level]}), ")
 					flags << $reps[companiondetail[:faction]][:flag]
 
 					data.each do |npc|
 
 						unless npc[:id] == 0
 
-							acquire << {"type" => $acquire["Reputation"], "id" => npc[:id], "faction" => $reps[companiondetail[:faction]][:id],"factionlevel" => (factionlevels.has_key?(companiondetail[:faction_level]) ? factionlevels[companiondetail[:faction_level]] : companiondetail[:faction_level])}
+							acquire << {"type" => $acquire["Reputation"],
+										"id" => npc[:id],
+										"faction" => $reps[companiondetail[:faction]][:id],
+										"factionlevel" => (factionlevels.has_key?(companiondetail[:faction_level]) ? factionlevels[companiondetail[:faction_level]] : companiondetail[:faction_level])
+									}
 							$vendors[npc[:id]] = {:name => npc[:name]}
 
 							unless npc[:react].nil?
@@ -310,7 +314,6 @@ EOF
 								if react_a < 3
 									flags << $flags["Alliance"]
 								end
-
 								if react_h < 3
 									flags << $flags["Horde"]
 								end
@@ -324,23 +327,13 @@ EOF
 							end
 
 							if npc[:locs]
-
 								npc[:locs].each do |loc|
-
 									if $dungeons[loc]
-
 										flags << $flags["Instance"]
-										companion_lua.print("Instance (#{loc} - #{$dungeons[loc][:name]}), ")
-
 									elsif $raids[loc]
-
 										flags << $flags["Raid"]
-										companion_lua.print("Raid (#{loc} - #{$raids[loc][:name]}), ")
-
 									end
-
 								end
-
 							end
 
 						end
@@ -349,8 +342,6 @@ EOF
 
 				# Normal vendor
 				else
-
-					companion_lua.print("Vendor, ")
 
 					data.each do |npc|
 
@@ -367,7 +358,6 @@ EOF
 								if react_a < 3
 									flags << $flags["Alliance"]
 								end
-
 								if react_h < 3
 									flags << $flags["Horde"]
 								end
@@ -381,23 +371,13 @@ EOF
 							end
 
 							if npc[:locs]
-
 								npc[:locs].each do |loc|
-
 									if $dungeons[loc]
-
 										flags << $flags["Instance"]
-										companion_lua.print("Instance (#{loc} - #{$dungeons[loc][:name]}), ")
-
 									elsif $raids[loc]
-
 										flags << $flags["Raid"]
-										companion_lua.print("Raid (#{loc} - #{$raids[loc][:name]}), ")
-
 									end
-
 								end
-
 							end
 
 						end
@@ -416,7 +396,6 @@ EOF
 				# Instance, mob, or raid drop
 				unless data.length > 10
 
-					companion_lua.print("Mob Drop, ")
 					data.each do |npc|
 
 						unless npc[:id] == 0
@@ -425,27 +404,15 @@ EOF
 							$monsters[npc[:id]] = {:name => npc[:name]}
 
 							if npc[:locs]
-
 								npc[:locs].each do |loc|
-
 									if $dungeons[loc]
-
 										flags << $flags["Instance"]
-										companion_lua.print("Instance (#{loc} - #{$dungeons[loc][:name]}), ")
-
 									elsif $raids[loc]
-
 										flags << $flags["Raid"]
-										companion_lua.print("Raid (#{loc} - #{$raids[loc][:name]}), ")
-
 									else
-
 										flags << $flags["Mob Drop"]
-
 									end
-
 								end
-
 							end
 
 						end
@@ -457,7 +424,6 @@ EOF
 
 					# Cheat and say that it's both horde/alliance
 					flags << $flags["Alliance"] << $flags["Horde"] << $flags["World Drop"]
-					companion_lua.print("World Drop, ")
 					acquire << {"type" => $acquire["World Drop"], "id" => companiondetail[:rarity]}
 
 				end
@@ -466,7 +432,6 @@ EOF
 			when 'rewardfrom'
 
 				data = companiondetail[:method_quests]
-				companion_lua.print("Quest, ")
 				flags << $flags["Quest"]
 
 				data.each do |quest|
@@ -493,23 +458,13 @@ EOF
 					quest[:questinfo] = maps.get_quest_map_info(quest[:id])
 
 					if quest[:questinfo]
-
 						quest[:questinfo][:quest_zones].values do |loc|
-
 							if $dungeons[loc]
-
 								flags << $flags["Instance"]
-								companion_lua.print("Instance (#{loc} - #{$dungeons[loc][:name]}), ")
-
 							elsif $raids[loc]
-
 								flags << $flags["Raid"]
-								companion_lua.print("Raid (#{loc} - #{$raids[loc][:name]}), ")
-
 							end
-
 						end
-
 					end
 
 				end
@@ -525,19 +480,11 @@ EOF
 
 				# Crafted item that is BoP means that it's for that profession only
 				if companiondetail[:item_binds] == "BOP"
-
-					companion_lua.print("Crafted BoP (#{craft[:skill]}), ")
 					flags << $flags[craft[:skill]]
-
-				else
-
-					companion_lua.print("Crafted BoU, ")
-
 				end
 
 			when 'redemption'
 
-				companion_lua.print("Redemption, ")
 				# Cheat and say that it's both horde/alliance
 				data = companiondetail[:method_redemption]
 				flags << $flags["Alliance"] << $flags["Horde"]
@@ -564,58 +511,20 @@ EOF
 
 				# Cheat and say that it's both horde/alliance
 				flags << $flags["Alliance"] << $flags["Horde"]
-				companion_lua.print("Unknown, ")
+				companion_lua.print("--Unknown, ")
 
 			end
 
 		end
-		companion_lua.print("\n")
-		companion_lua.print("\t-- Flags: ")
 
-		# Just add some text to identify which flags are which
-		if flags.include?($flags["Alliance"])
-
-			companion_lua.print("Alliance, ")
-
+		if companiondetail[:item_binds] == "BOE"
+			flags << $flags["BOE"]
 		end
-
-		if flags.include?($flags["Horde"])
-
-			companion_lua.print("Horde, ")
-
-		end
-
-		if flags.include?($flags["Instance"])
-
-			companion_lua.print("Instance, ")
-
-		end
-
-		if flags.include?($flags["Raid"])
-
-			companion_lua.print("Raid, ")
-
-		end
-
-		if companiondetail[:item_binds] == "BOU"
-
-			companion_lua.print("BOU, ")
-			flags << $flags["BOU"]
-
-		end
-
 		if companiondetail[:item_binds] == "BOP"
-
-			companion_lua.print("BOP, ")
 			flags << $flags["BOP"]
-
 		end
-
 		if companiondetail[:item_binds] == "BOA"
-
-			companion_lua.print("BOA, ")
 			flags << $flags["BOA"]
-
 		end
 
 		if specialcase[companiondetail[:spellid]]
@@ -642,31 +551,25 @@ EOF
 
 		end
 
-		companion_lua.puts ""
-
 		if ignorelist.include?(companiondetail[:spellid]) or wrathignore.include?(companiondetail[:spellid])
-
 			companion_lua.print("\t--")
-
 		else
-
 			companion_lua.print("\t")
-
 		end
 
 		companion_lua.puts "companioncount = companioncount + 1"
 
 		if ignorelist.include?(companiondetail[:spellid]) or wrathignore.include?(companiondetail[:spellid])
-
 			companion_lua.print("\t--")
-
 		else
-
 			companion_lua.print("\t")
-
 		end
 
-		companion_lua.puts "self:AddCompanion(#{db}, #{companiondetail[:spellid]}, #{companiondetail[:id]}, #{companiondetail[:rarity]})"
+		if (type == "Pet Database")
+			companion_lua.puts "self:AddCompanion(#{db}, #{companiondetail[:spellid]}, #{companiondetail[:id]}, #{companiondetail[:rarity]}, \"CRITTER\")"
+		else
+			companion_lua.puts "self:AddCompanion(#{db}, #{companiondetail[:spellid]}, #{companiondetail[:id]}, #{companiondetail[:rarity]}, \"MOUNT\")"
+		end
 
 		# Compress, remove duplicates and sort the list of flags
 		flags.compact!
@@ -674,19 +577,13 @@ EOF
 		flags.sort!
 
 		if flags.length == 0
-
 			companion_lua.puts "\t-- No filter flags"
-
 		else
 
 			if ignorelist.include?(companiondetail[:spellid]) or wrathignore.include?(companiondetail[:spellid])
-
 				companion_lua.print("\t--")
-
 			else
-
 				companion_lua.print("\t")
-
 			end
 
 			companion_lua.puts "self:AddCompanionFlags(#{db}, #{companiondetail[:spellid]}, #{flags.join(",")})"
@@ -770,7 +667,7 @@ $flags = {
 	"TCG" => 11,
 	"Special Event" => 12,
 	"CE" => 13,
-	"BOU" => 15,
+	"BOE" => 15,
 	"BOP" => 16,
 	"BOA" => 17,
 	"Alchemist" => 21,
@@ -843,10 +740,10 @@ petspecial = {
 }
 create_companion_db("./DB/PetDatabase.lua","Pet Database","PetDB","MakeMiniPetTable",pets,maps,petsandmounts,[23012,23013,39478,39479],petspecial,[25849])
 
-#mounts = petsandmounts.get_mount_list
+mounts = petsandmounts.get_mount_list
 mountspecial = {
 }
-#create_companion_db("./DB/MountDatabase.lua","Mount Database","MountDB","MakeMountTable",mounts,maps,petsandmounts,[],mountspecial,[])
+create_companion_db("./DB/MountDatabase.lua","Mount Database","MountDB","MakeMountTable",mounts,maps,petsandmounts,[],mountspecial,[])
 
 puts ""
 puts "Finished processing run time was #{((Time.now).to_i-generator_start.to_i)} seconds"

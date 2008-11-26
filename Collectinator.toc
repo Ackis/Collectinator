@@ -34,5 +34,6 @@
 embeds.xml
 
 Collectinator.lua
+CollectinatorOptions.lua
 
 database.xml

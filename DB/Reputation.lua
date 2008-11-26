@@ -87,6 +87,7 @@ function addon:InitReputation(RepDB)
 	self:addLookupList(RepDB, 1012, BFAC["Ashtongue Deathsworn"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 1015, BFAC["Netherwing"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 1031, BFAC["Sha'tari Skyguard"]) -- Acquire Flag: 41
+	self:addLookupList(RepDB, 1037, BFAC["Alliance Vanguard"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 1038, BFAC["Ogri'la"]) -- Acquire Flag: 
 	self:addLookupList(RepDB, 1050, BFAC["Valiance Expedition"]) -- Acquire Flag: 126
 	self:addLookupList(RepDB, 1052, BFAC["Horde Expedition"]) -- Acquire Flag: 
