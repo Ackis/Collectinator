@@ -65,7 +65,8 @@ end
 -- Make functions local to speed things up
 local GetNumCompanions = GetNumCompanions
 local select = select
-local tinsert = tinsert
+local tinsert = table.insert
+local twipe = table.wipe
 
 local maxfilterflags = 60
 
@@ -341,10 +342,10 @@ function addon:ScanCompanions()
 	local numminipets = GetNumCompanions("CRITTER")
 	local nummounts = GetNumCompanions("MOUNT")
 
-	local clist = addon.db.profile.companionlist
+	local butt = addon.db.profile.companionlist
 
 	-- Clear the saved variables for the companion list.
-	clist = {}
+	twipe(butt)
 
 	-- Parse all the mini-pets you currently have
 	for i=1,numminipets do
@@ -353,7 +354,7 @@ function addon:ScanCompanions()
 		local _,_,petspell = GetCompanionInfo("CRITTER",i)
 
 		-- Add the mini-pet to the list of pets we save
-		tinsert(clist,petspell)
+		tinsert(butt,petspell)
 
 	end
 
@@ -364,7 +365,7 @@ function addon:ScanCompanions()
 		local _,_,mountspell = GetCompanionInfo("MOUNT",i)
 
 		-- Add the mini-pet to the list of pets we save
-		tinsert(clist,mountspell)
+		tinsert(butt,mountspell)
 
 	end
 
