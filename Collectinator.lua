@@ -21,11 +21,11 @@ Please see Wowace.com for more information.
 
 ]]--
 
-local MODNAME			= "Collectinator"
+local MODNAME	= "Collectinator"
 
-Collectinator 			= LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
+Collectinator 	= LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
 
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 -- Lets check to see if we have the needed libraries loaded (these are manditory to run)
 if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
@@ -60,7 +60,7 @@ end
 
 --]]
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+--local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -- Make functions local to speed things up
 local GetNumCompanions = GetNumCompanions
@@ -341,10 +341,10 @@ function addon:ScanCompanions()
 	local numminipets = GetNumCompanions("CRITTER")
 	local nummounts = GetNumCompanions("MOUNT")
 
-	local companionlist = self.db.profile.companionlist
+	local clist = addon.db.profile.companionlist
 
 	-- Clear the saved variables for the companion list.
-	self.db.profile.companionlist = {}
+	clist = {}
 
 	-- Parse all the mini-pets you currently have
 	for i=1,numminipets do
@@ -353,7 +353,7 @@ function addon:ScanCompanions()
 		local _,_,petspell = GetCompanionInfo("CRITTER",i)
 
 		-- Add the mini-pet to the list of pets we save
-		tinsert(companionlist,petspell)
+		tinsert(clist,petspell)
 
 	end
 
@@ -364,7 +364,7 @@ function addon:ScanCompanions()
 		local _,_,mountspell = GetCompanionInfo("MOUNT",i)
 
 		-- Add the mini-pet to the list of pets we save
-		tinsert(companionlist,mountspell)
+		tinsert(clist,mountspell)
 
 	end
 
