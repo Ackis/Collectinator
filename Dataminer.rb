@@ -84,7 +84,7 @@ function addon:InitTCG(TCGDB)
 	self:addLookupList(TCGDB, 6, "Hunt for Illidan")
 	self:addLookupList(TCGDB, 7, "Drums of War")
 	self:addLookupList(TCGDB, 8, "Special Event")
-	self:addLookupList(TCGDB, 9, "CE")
+	self:addLookupList(TCGDB, 9, "Collectors Edition")
 
 end
 

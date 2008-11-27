@@ -436,5 +436,57 @@ end
 
 function addon:AddCompanionAcquire(DB, SpellID, ...)
 
+	-- Find out how many flags we're adding
+	local numvars = select('#',...)
+
+	-- Index for the number of Acquire entries we have
+	local index = 1
+
+	-- Index for which variables we're parsing through
+	local i = 1
+
+	local acquire = RecipeDB[SpellID]["Acquire"]
+
+	while (i < numvars) do
+
+		-- Create the space for the current Acquire method
+		acquire[index] = {}
+
+		-- Get the Type and ID of the values
+		local AcquireType, AcquireID = select(i, ...)
+
+		acquire[index]["Type"] = AcquireType
+		acquire[index]["ID"] = AcquireID
+
+		i = i + 2
+
+		-- Crafted
+		if (AcquireType == 3) then
+
+			local Profession = select(i, ...)
+
+			acquire[index]["Profession"] = Profession
+			i = i + 1
+
+		end
+
+		-- Reputation
+		if (AcquireType == 6) then
+
+			local RepLevel, RepVendor = select(i, ...)
+
+			acquire[index]["RepLevel"] = RepLevel
+			acquire[index]["RepVendor"] = RepVendor
+			i = i + 2
+
+		end
+
+		index = index + 1
+
+	end
+
+	-- Populate the location field with all the data
+	--RecipeDB[SpellID]["Locations"] = self:GetRecipeLocations(SpellID)
+
 end
 
