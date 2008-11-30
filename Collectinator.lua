@@ -145,17 +145,17 @@ end
 -- Input: Database to update
 -- Output: Database pased as reference.
 
-local function CreateCompanionList(db)
+local function CreateCompanionList(PetDB)
 
 	local totalminipets = 0
 	local totalmounts = 0
 
 	-- Create the master list of all mini-pets
-	if (db == nil) then
+	if (PetDB == nil) then
 
-		db = {}
-		totalminipets = addon:MakeMiniPetTable(db)
-		totalmounts = addon:MakeMountTable(db)
+		PetDB = {}
+		totalminipets = addon:MakeMiniPetTable(PetDB)
+		totalmounts = addon:MakeMountTable(PetDB)
 
 	end
 
@@ -308,7 +308,7 @@ end
 -- Input: Database
 -- Output: None.
 
-function addon:CheckForKnownCompanions(db)
+function addon:CheckForKnownCompanions(PetDB)
 
 	local companionlist = addon.db.profile.companionlist
 
@@ -316,9 +316,9 @@ function addon:CheckForKnownCompanions(db)
 	for i,spellid in pairs(companionlist) do
 
 		-- If the entry exists, mark it as known
-		if (db[spellid]) then
+		if (PetDB[spellid]) then
 
-			db[spellid]["Known"] = true
+			PetDB[spellid]["Known"] = true
 
 		-- If the entry doesn't exist raise an error
 		else
@@ -445,7 +445,7 @@ function addon:AddCompanionAcquire(DB, SpellID, ...)
 	-- Index for which variables we're parsing through
 	local i = 1
 
-	local acquire = RecipeDB[SpellID]["Acquire"]
+	local acquire = DB[SpellID]["Acquire"]
 
 	while (i < numvars) do
 
