@@ -140,29 +140,6 @@ function addon:COMPANION_LEARNED()
 
 end
 
--- Description: Loads all information about mini-pets into the database
--- Expected result: Listing of companions updated with information.
--- Input: Database to update
--- Output: Database pased as reference.
-
-local function CreateCompanionList(PetDB)
-
-	local totalminipets = 0
-	local totalmounts = 0
-
-	-- Create the master list of all mini-pets
-	if (PetDB == nil) then
-
-		PetDB = {}
-		totalminipets = addon:MakeMiniPetTable(PetDB)
-		totalmounts = addon:MakeMountTable(PetDB)
-
-	end
-
-	return totalminipets, totalmounts
-
-end
-
 do
 
 	-- Master database of mini-pets and mounts
@@ -171,6 +148,29 @@ do
 	-- Total numbers in the database
 	local totalminipets = 0
 	local totalmounts = 0
+
+	-- Description: Loads all information about mini-pets into the database
+	-- Expected result: Listing of companions updated with information.
+	-- Input: Database to update
+	-- Output: Database pased as reference.
+
+	local function CreateCompanionList()
+
+		local totalminipets = 0
+		local totalmounts = 0
+
+		-- Create the master list of all mini-pets
+		if (companiondb == nil) then
+
+			companiondb = {}
+			totalminipets = addon:MakeMiniPetTable(companiondb)
+			totalmounts = addon:MakeMountTable(companiondb)
+
+		end
+
+		return totalminipets, totalmounts
+
+	end
 
 	-- Description: Scans your known companions, loads the database, marks which are known, and loads the display
 	-- Expected result: All functions are done in a logical order
