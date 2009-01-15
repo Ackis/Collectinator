@@ -134,11 +134,77 @@ end
 do
 
 	-- Master database of mini-pets and mounts
-	local companiondb = nil
+	local CompanionDB = nil
+
+	local CustomList = nil
+	local MobList = nil
+	local QuestList = nil
+	local ReputationList = nil
+	local SeasonalList = nil
+	local VendorList = nil
+	local RepFilters = nil
+
+	local playerData = nil
 
 	-- Total numbers in the database
 	local totalminipets = 0
 	local totalmounts = 0
+
+	-- Description: Initalizes all the recipe databases to their initial
+	-- Expected result: All internal databases are initalized to starting values (empty)
+	-- Input: None
+	-- Output: Tables are local in scope, not to the function.
+
+	local function InitDatabases()
+
+		-- Initializes the custom list
+		if (CustomList == nil) then
+			CustomList = {}
+			addon:InitCustom(CustomList)
+		end
+
+		-- Initializes the mob list
+		if (MobList == nil) then
+			MobList = {}
+			addon:InitMob(MobList)
+		end
+
+		-- Initializes the quest list
+		if (QuestList == nil) then
+			QuestList = {}
+			addon:InitQuest(QuestList)
+		end
+
+		-- Initializes the reputation list
+		if (ReputationList == nil) then
+			ReputationList = {}
+			addon:InitReputation(ReputationList)
+		end
+
+		-- Initializes the season list
+		if (SeasonalList == nil) then
+			SeasonalList = {}
+			addon:InitSeasons(SeasonalList)
+		end
+
+		-- Initializes the vendor list
+		if (VendorList == nil) then
+			VendorList = {}
+			addon:InitVendor(VendorList)
+		end
+
+		-- Initializes the reputation filters
+		-- Don't assign values no because we do a scan later on
+		if (RepFilters == nil) then
+			RepFilters = {}
+		end
+
+		-- Initializes the recipe list
+		if (CompanionDB == nil) then
+			CompanionDB = {}
+		end
+
+	end
 
 	-- Description: Loads all information about mini-pets into the database
 	-- Expected result: Listing of companions updated with information.
@@ -150,14 +216,10 @@ do
 		local totalminipets = 0
 		local totalmounts = 0
 
-		-- Create the master list of all mini-pets
-		if (companiondb == nil) then
+		InitDatabases()
 
-			companiondb = {}
-			totalminipets = addon:MakeMiniPetTable(companiondb)
-			totalmounts = addon:MakeMountTable(companiondb)
-
-		end
+		totalminipets = addon:MakeMiniPetTable(CompanionDB)
+		totalmounts = addon:MakeMountTable(CompanionDB)
 
 		return totalminipets, totalmounts
 
@@ -174,21 +236,21 @@ do
 		addon:ScanCompanions()
 
 		-- Load the database and get the number of entries in it
-		totalminipets, totalmounts = CreateCompanionList(companiondb)
+		totalminipets, totalmounts = CreateCompanionList(CompanionDB)
 
-		addon:CheckForKnownCompanions(companiondb)
+		addon:CheckForKnownCompanions(CompanionDB)
 
-		addon:UpdateFilters(companiondb)
+		addon:UpdateFilters(CompanionDB)
 
-		addon:GetExclusions(companiondb)
+		addon:GetExclusions(CompanionDB)
 
-		addon:ShowCheckList(companiondb)
+		addon:ShowCheckList(CompanionDB)
 
 	end
 
 	function addon:GetDB()
 
-		return companiondb
+		return CompanionDB
 
 	end
 
@@ -360,7 +422,7 @@ end
 -- Arguments: Spell ID of mini-pet, aquisition information, faction information, reputation information, location, coordinate information, arbitrary number of flags
 -- Return values: none
 
-function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType)
+function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType, WarcraftPetsID)
 
 	-- Create an entry for this minipet
 	DB[SpellID] = {}
@@ -369,6 +431,7 @@ function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType)
 	DB[SpellID]["ItemID"] = ItemID
 	DB[SpellID]["Rarity"] = Rarity
 	DB[SpellID]["Type"] = CompanionType
+	DB[SpellID]["WarcraftPetsID"] = WarcraftPetsID or 0
 
 	DB[SpellID]["Owned"] = false
 	DB[SpellID]["Display"] = false
@@ -439,28 +502,21 @@ function addon:AddCompanionAcquire(DB, SpellID, ...)
 
 		acquire[index]["Type"] = AcquireType
 		acquire[index]["ID"] = AcquireID
-
 		i = i + 2
 
 		-- Crafted
 		if (AcquireType == 3) then
-
 			local Profession = select(i, ...)
-
 			acquire[index]["Profession"] = Profession
 			i = i + 1
-
 		end
 
 		-- Reputation
 		if (AcquireType == 6) then
-
 			local RepLevel, RepVendor = select(i, ...)
-
 			acquire[index]["RepLevel"] = RepLevel
 			acquire[index]["RepVendor"] = RepVendor
 			i = i + 2
-
 		end
 
 		index = index + 1
