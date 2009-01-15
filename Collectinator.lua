@@ -287,6 +287,7 @@ function addon:ShowCheckList(db)
 	for spellid in pairs(db) do
 		if (db[spellid]["Known"] == false) then
 			self:Print("Unkown companion: " .. spellid .. " " .. db[spellid]["Name"])
+			--DevTools_Dump(db[spellid])
 		end
 
 	end
