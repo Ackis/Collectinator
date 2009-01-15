@@ -27,10 +27,10 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 *9 = World Drop
 *10 = Mob drop
 *11 = TCG
-*13 = Special Event
-*14 = CE
-*15 = Not in game anymore
-*16-20 = Reserved for future use
+*12 = Special Event
+*13 = CE
+*14 = Not in game anymore
+*15-20 = Reserved for future use
 ===Crafted Properties===
 *20 = Item BoE
 *21 = Item BoP
