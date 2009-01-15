@@ -6,9 +6,14 @@ Database and code documentation for Collectinator.
 
 All the localization files are located in the "Locals" sub-directory.  Feel free to edit locals in any language, make the enUS more effecient, correct typos, etc.  All I would ask is if you do edit something, check in-game first to make sure the change works.
 
+==AddCompanionAcquire==
+
+This function adds entries into the main database with exact instructions on how the items can be obtained. The details of these acquire methods are detailed further down.
+ self:AddCompanionAcquire(PetDB,4055,3,4036,3928)
+
 ==Filter Flags==
 
-A recipe can be flagged with many (or even all) of the below flags. They are defined as follows:
+A item can be flagged with many (or even all) of the below flags. They are defined as follows:
 
 ===Obtain===
 *1 = Alliance faction
@@ -84,20 +89,20 @@ A recipe can be flagged with many (or even all) of the below flags. They are def
 *75 = Horde Expedition
 *76 = Alliance Vanguard
 
-
 ==Acquire Flags==
 
 Defined below is the specification for the arguments passed back into addTradeAcquire. Each Acquire Type passes in different parameters depending on how the recipe is acquired:
 
 <pre><nowiki>
-	Acquire Type = 1								( Trainer )
-		ID				- Index into TrainerList
-	Acquire Type = 2								( Vendor )
+	Acquire Type = 1								( Vendor )
 		ID				- Index into VendorList
-	Acquire Type = 3								( Mob Drop )
-		ID				- Index into MobList
-	Acquire Type = 4								( Quest )
+	Acquire Type = 2								( Quest )
 		ID				- Index into QuestList
+	Acquire Type = 3								( Crafted )
+		ID				- Spell ID of the profession which crafts the pet
+		SpellID			- Spell ID that creates the pet
+	Acquire Type = 4								( Mob Drop )
+		ID				- Index into MobList
 	Acquire Type = 5								( Seasonal )
 		ID				- Index into SeasonList
 	Acquire Type = 6								( Reputation )
