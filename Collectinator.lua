@@ -70,15 +70,6 @@ local twipe = table.wipe
 
 local maxfilterflags = 60
 
-local guildname = GetGuildInfo("player")
-
-if (guildname == "Team Ice") then
-
-	addon:Print("Not allowed to use this addon.")
-	return
-
-end
-
 function addon:OnInitialize()
 
 	self.db = LibStub("AceDB-3.0"):New("CollectinatorDB", defaults, "char")
@@ -294,8 +285,7 @@ function addon:ShowCheckList(db)
 
 	-- Parse the database
 	for spellid in pairs(db) do
-
-		if db[spellid]["Known"] == false then
+		if (db[spellid]["Known"] == false) then
 			self:Print("Unkown companion: " .. spellid .. " " .. db[spellid]["Name"])
 		end
 
@@ -317,16 +307,11 @@ function addon:CheckForKnownCompanions(PetDB)
 
 		-- If the entry exists, mark it as known
 		if (PetDB[spellid]) then
-
 			PetDB[spellid]["Known"] = true
-
 		-- If the entry doesn't exist raise an error
 		else
-
 			self:Print("Spell ID: " .. spellid .. " not found.")
-
 		end
-
 	end
 
 end
@@ -349,29 +334,24 @@ function addon:ScanCompanions()
 
 	-- Parse all the mini-pets you currently have
 	for i=1,numminipets do
-
 		-- Get the pet's name and spell ID
 		local _,_,petspell = GetCompanionInfo("CRITTER",i)
-
 		-- Add the mini-pet to the list of pets we save
 		tinsert(butt,petspell)
-
 	end
 
 	-- Parse all the mounts you currently have
 	for i=1,nummounts do
-
 		-- Get the pet's name and spell ID
 		local _,_,mountspell = GetCompanionInfo("MOUNT",i)
-
 		-- Add the mini-pet to the list of pets we save
 		tinsert(butt,mountspell)
-
 	end
 
-
+	--@debug@
 	self:Print("DEBUG: Total mini-pets known: " .. numminipets)
 	self:Print("DEBUG: Total mounts known: " .. nummounts)
+	--@end-debug@
 
 end
 
@@ -392,6 +372,7 @@ function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType)
 	DB[SpellID]["Owned"] = false
 	DB[SpellID]["Display"] = false
 	DB[SpellID]["Search"] = false
+	DB[SpellID]["Known"] = false
 
 	DB[SpellID]["Flags"] = {}
 
