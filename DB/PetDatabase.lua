@@ -627,8 +627,6 @@ function addon:MakeMiniPetTable(PetDB)
 	self:AddCompanionAcquire(PetDB,61357,1,31916,1,32763)
 
 	-- Kirin Tor Familiar - 61472
-	-- type15.2spellid61472level1methodid44738item_bindsBOPrarity3
-
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,61472,44738,3,"CRITTER")
 	self:AddCompanionFlags(PetDB,61472,16)

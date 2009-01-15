@@ -32,21 +32,23 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 *15 = Not in game anymore
 *16-20 = Reserved for future use
 ===Crafted Properties===
-*15 = Item BoE
-*16 = Item BoP
-*17 = Item BoA
+*20 = Item BoE
+*21 = Item BoP
+*22 = Item BoA
+*23-24 = Reserved for future use
 ===Profession===
-*21 = Alchemist
-*22 = Blacksmithing
-*23 = Cooking
-*24 = Enchanting
-*25 = Engineering
-*26 = First Aid
-*27 = Inscription
-*28 = Jewelcrafting
-*29 = Leatherworking
-*30 = Smelting
-*31 = Tailoring
+*25 = Alchemist
+*26 = Blacksmithing
+*27 = Cooking
+*28 = Enchanting
+*29 = Engineering
+*30 = First Aid
+*31 = Inscription
+*32 = Jewelcrafting
+*33 = Leatherworking
+*34 = Smelting
+*35 = Tailoring
+*36-39 = Reserved for future use
 ===Reputation===
 ====Original====
 *40 = Bloodsail Buccaneers
