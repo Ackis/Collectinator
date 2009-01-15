@@ -1,0 +1,134 @@
+Documentation.txt
+
+Database and code documentation for Collectinator.
+
+==Localization==
+
+All the localization files are located in the "Locals" sub-directory.  Feel free to edit locals in any language, make the enUS more effecient, correct typos, etc.  All I would ask is if you do edit something, check in-game first to make sure the change works.
+
+==Filter Flags==
+
+A recipe can be flagged with many (or even all) of the below flags. They are defined as follows:
+
+===Obtain===
+*1 = Alliance faction
+*2 = Horde faction
+*3 = Vendor
+*4 = Quest
+*5 = Crafted
+*6 = Instance
+*7 = Raid
+*8 = Seasonal
+*9 = World Drop
+*10 = Mob drop
+*11 = TCG
+*13 = Special Event
+*14 = CE
+*15 = Not in game anymore
+*16-20 = Reserved for future use
+===Crafted Properties===
+*15 = Item BoE
+*16 = Item BoP
+*17 = Item BoA
+===Profession===
+*21 = Alchemist
+*22 = Blacksmithing
+*23 = Cooking
+*24 = Enchanting
+*25 = Engineering
+*26 = First Aid
+*27 = Inscription
+*28 = Jewelcrafting
+*29 = Leatherworking
+*30 = Smelting
+*31 = Tailoring
+===Reputation===
+====Original====
+*40 = Bloodsail Buccaneers
+*41 = Argent Dawn
+*42 = Cenarion Circle
+*43 = Thorium Brotherhood
+*44 = Timbermaw Hold
+*45 = Zandalar Tribe
+====Burning Crusade====
+*46 = The Aldor
+*47 = Ashtongue Deathsworn
+*48 = Cenarion Expedition
+*49 = Hellfire Factions (Thrallmar/Honor Hold)
+*50 = Consortium
+*51 = Keepers of Time
+*52 = Lower City
+*53 = Nagrand Factions (Maghar/Kureni)
+*54 = Scale of the Sands
+*55 = The Scryer
+*56 = Sha'tar
+*57 = Shattered Sun
+*58 = Sporeggar
+*59 = Violeteye
+====Wrath of the Lich King====
+*60 = Argent Crusade
+*61 = Frenzyheart Tribe
+*62 = Knights of the Ebon Blade
+*63 = Kirin Tor
+*64 = The Sons of Hodir
+*65 = The Kalu'ak
+*66 = The Oracles
+*67 = The Wyrmrest Accord
+*68 = The Silver Convenant
+*69 = The Sunreavers
+*70 = Explorer's League
+*71 = Valiance Expedition
+*72 = The Hand of Vengeance
+*73 = The Taunka
+*74 = Warsong Offensive
+*75 = Horde Expedition
+*76 = Alliance Vanguard
+
+
+==Acquire Flags==
+
+Defined below is the specification for the arguments passed back into addTradeAcquire. Each Acquire Type passes in different parameters depending on how the recipe is acquired:
+
+<pre><nowiki>
+	Acquire Type = 1								( Trainer )
+		ID				- Index into TrainerList
+	Acquire Type = 2								( Vendor )
+		ID				- Index into VendorList
+	Acquire Type = 3								( Mob Drop )
+		ID				- Index into MobList
+	Acquire Type = 4								( Quest )
+		ID				- Index into QuestList
+	Acquire Type = 5								( Seasonal )
+		ID				- Index into SeasonList
+	Acquire Type = 6								( Reputation )
+		ID				- Index into ReputationList
+		RepLevel		- ReputationLevel**
+		RepVendor		- Index into VendorList
+	Acquire Type = 7								( World Drop )
+		ID				- Rarity Level
+	Acquire Type = 8								( Custom )
+		ID				- Custom string
+</nowiki></pre>
+
+== Reputation ID==
+
+:0 = Neutral
+:1 = Friendly
+:2 = Honored
+:3 = Revered
+:4 = Exalted
+
+==Faction ID==
+
+:1 - Horde
+:2 - Alliance
+:3 - Neutral
+
+==Rarity colours==
+:0 - poor			#919191
+:1 - common			#ffffff
+:2 - uncommon		#00A900
+:3 - rare			#0062C3
+:4 - epic			#B343FF
+:5 - legendary		#FA9900
+:6 - artifact		#e5cc80

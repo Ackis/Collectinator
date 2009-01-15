@@ -467,8 +467,5 @@ function addon:AddCompanionAcquire(DB, SpellID, ...)
 
 	end
 
-	-- Populate the location field with all the data
-	--RecipeDB[SpellID]["Locations"] = self:GetRecipeLocations(SpellID)
-
 end
 

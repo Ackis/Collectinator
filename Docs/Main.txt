@@ -1,0 +1,32 @@
+==What it does==
+Provides methods for determining which mini-pets, mounts, and tabards you are missing. 
+
+==Where to get it==
+* [http://www.wowace.com/projects/collectinator/files/ WoW Ace] - Alpha Quality
+* [http://wow.curse.com/downloads/wow-addons/details/collectinator.aspx Curse] - Stable release
+* [http://www.wowinterface.com/downloads/info8512-AckisRecipeList.html WoWInterface] - Stable release
+
+==How to get it to work==
+
+
+===Commands===
+
+==Known Issues==
+All known issues will be kept at the [http://www.wowace.com/projects/collectinator/tickets/ WoW Ace] tracker.
+
+Please use the [http://www.wowace.com/projects/collectinator/tickets/ WoW Ace] tracker to file bug reports.
+
+==Wish List==
+Please use the [http://www.wowace.com/projects/collectinator/tickets/ WoW Ace] tracker to add suggestions and feature requests.
+
+==Integration==
+Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [http://www.wowace.com/projects/collectinator/tickets/ WoW Ace].  There is a limted API documented at [http://www.wowace.com/projects/collectinator/pages/API/] to interface with the collectinator database.  If you are a developer and would like more functions, please contact me on IRC.
+
+==Bug Reporting==
+Please use the [http://www.wowace.com/projects/collectinator/tickets/ WoW Ace] tracker to file bug reports.
+
+==Detailed Documentation==
+* Detailed documentation - [http://www.wowace.com/projects/collectinator/pages/database-documentation/]
+
+==Wiki==
+[http://www.wowwiki.com/Collectinator WoW Wiki]
