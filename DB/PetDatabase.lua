@@ -354,6 +354,12 @@ function addon:MakeMiniPetTable(PetDB)
 	self:AddCompanionFlags(PetDB,28740,1,2,4,8,21)
 	self:AddCompanionAcquire(PetDB,28740,2,171,2,5502,7,8)
 
+	-- Spirit of Summer - 28871
+	companioncount = companioncount + 1
+	self:AddCompanion(PetDB,28871,23083,3,"CRITTER")
+	self:AddCompanionFlags(PetDB,28871,1,2)
+	--self:AddCompanionAcquire(PetDB,28871)
+
 	-- Hippogryph Hatchling - 30156
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,30156,23713,4,"CRITTER")
@@ -611,6 +617,24 @@ function addon:MakeMiniPetTable(PetDB)
 	self:AddCompanion(PetDB,59250,43698,3,"CRITTER")
 	self:AddCompanionFlags(PetDB,59250,21)
 	-- No acquire information
+
+	-- Tickbird Hatchling -- 61348
+	companioncount = companioncount + 1
+	self:AddCompanion(PetDB,61348,39896,1,"CRITTER")
+	--self:AddCompanionFlags(PetDB,61348,1,2,3,21)
+	--self:AddCompanionAcquire(PetDB,61348,1,31916,1,32763)
+
+	-- White Tickbird Hatchling -- 61349
+	companioncount = companioncount + 1
+	self:AddCompanion(PetDB,61349,39899,1,"CRITTER")
+	--self:AddCompanionFlags(PetDB,61349,1,2,3,21)
+	--self:AddCompanionAcquire(PetDB,61349,1,31916,1,32763)
+
+	-- Proto-Drake Whelp -- 61350
+	companioncount = companioncount + 1
+	self:AddCompanion(PetDB,61350,44721,1,"CRITTER")
+	--self:AddCompanionFlags(PetDB,61350,1,2,3,21)
+	--self:AddCompanionAcquire(PetDB,61350,1,31916,1,32763)
 
 	-- Cobra Hatchling -- 61351
 	companioncount = companioncount + 1

@@ -21,6 +21,8 @@ Please see Wowace.com for more information.
 
 ]]--
 
+--/script Collectinator:DoCompleteScan()
+
 local MODNAME	= "Collectinator"
 
 Collectinator 	= LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
@@ -60,6 +62,7 @@ end
 
 --]]
 
+local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 --local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -- Make functions local to speed things up
@@ -166,31 +169,31 @@ do
 		-- Initializes the mob list
 		if (MobList == nil) then
 			MobList = {}
-			addon:InitMob(MobList)
+			--addon:InitMob(MobList)
 		end
 
 		-- Initializes the quest list
 		if (QuestList == nil) then
 			QuestList = {}
-			addon:InitQuest(QuestList)
+			--addon:InitQuest(QuestList)
 		end
 
 		-- Initializes the reputation list
 		if (ReputationList == nil) then
 			ReputationList = {}
-			addon:InitReputation(ReputationList)
+			--addon:InitReputation(ReputationList)
 		end
 
 		-- Initializes the season list
 		if (SeasonalList == nil) then
 			SeasonalList = {}
-			addon:InitSeasons(SeasonalList)
+			--addon:InitSeasons(SeasonalList)
 		end
 
 		-- Initializes the vendor list
 		if (VendorList == nil) then
 			VendorList = {}
-			addon:InitVendor(VendorList)
+			--addon:InitVendor(VendorList)
 		end
 
 		-- Initializes the reputation filters
@@ -288,25 +291,17 @@ function addon:GetExclusions(db)
 	local countunknown = 0
 
 	for i in pairs(exclusionlist) do
-
 		-- We may have a recipe in the exclusion list that has not been scanned yet
 		-- check if the entry exists in DB first
 		if (db[i]) then
-
 			db[i]["Display"] = false
 
 			if (db[i]["Known"] == false) then
-
 				countknown = countknown + 1
-
 			else
-
 				countunknown = countunknown + 1
-
 			end
-
 		end
-
 	end
 
 	return countknown, countunknown
@@ -324,13 +319,9 @@ function addon:ToggleExcludeRecipe(SpellID)
 
 	-- Remove the Spell from the exclusion list
 	if (exclusionlist[SpellID]) then
-
 		exclusionlist[SpellID] = nil
-
 	else
-
 		exclusionlist[SpellID] = true
-
 	end
 
 end
@@ -373,7 +364,8 @@ function addon:CheckForKnownCompanions(PetDB)
 			PetDB[spellid]["Known"] = true
 		-- If the entry doesn't exist raise an error
 		else
-			self:Print("Spell ID: " .. spellid .. " not found.")
+			local name = GetSpellInfo(spellid)
+			self:Print("Companion: " .. name .. " (" .. spellid .. ") not found in database.")
 		end
 	end
 
@@ -525,3 +517,39 @@ function addon:AddCompanionAcquire(DB, SpellID, ...)
 
 end
 
+-- Description: Adds a specific entry (ie: vendor, mob, etc) to the lookup list
+-- Expected result: Look up list will have an entry added to it
+-- Input: List to add to, ID of entry, Name, Faction Location and Coordinates (X and Y)
+-- Output: None, array is passed as a reference
+
+function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
+
+	--[[
+		For individual database structures, see Documentation.lua
+	]]--
+
+	DB[ID] = {}
+	DB[ID]["Name"] = Name
+
+	if (Loc) then
+		DB[ID]["Location"] = Loc
+	else
+		DB[ID]["Location"] = "Unknown Zone"
+	end
+
+	if (Coordx) and (Coordy) then
+		DB[ID]["Coordx"] = Coordx
+		DB[ID]["Coordy"] = Coordy
+	end
+
+	if (Faction) then
+		if (Faction == 0) then
+			DB[ID]["Faction"] = BFAC["Neutral"]
+		elseif (Faction == 1) then
+			DB[ID]["Faction"] = BFAC["Alliance"]
+		elseif (Faction == 2) then
+			DB[ID]["Faction"] = BFAC["Horde"]
+		end
+	end
+
+end

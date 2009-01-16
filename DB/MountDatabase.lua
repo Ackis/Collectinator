@@ -38,16 +38,12 @@ function addon:MakeMountTable(MountDB)
 	local companioncount = 0
 
 	-- Brown Horse Bridle - 458
-	-- type15.-1rlevel30source2slevel75spellid458level30method_vendorsprice10000000locs12type7react13descHorse BreedernameKatie Hunterminlevel10id384price10000000locs11type7react13descHorse BreedernameUnger Statforthid1460price10000000locs267type7react13descHorse BreedernameMerideth Carlsonminlevel32id2357price10000000locs15type7react13descHorse BreedernameGregor MacVinceminlevel35id4885methodsold-byid5656item_bindsBOPrarity3
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 458, 5656, 3, "MOUNT")
 	self:AddCompanionFlags(MountDB, 458, 1,3,16)
 	self:AddCompanionAcquire(MountDB, 458, 1, 384, 1, 1460, 1, 2357, 1, 4885)
 
 	-- Black Stallion Bridle - 470
-	-- type15.-1rlevel30source12slevel75spellid470level30method_vendorsprice10000000locs11type7react13descHorse BreedernameUnger Statforthid1460methodsold-byid2411item_bindsBOPrarity3
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 470, 2411, 3, "MOUNT")
 	self:AddCompanionFlags(MountDB, 470, 1,3,16)
@@ -638,32 +634,53 @@ function addon:MakeMountTable(MountDB)
 	self:AddCompanionAcquire(MountDB, 23510, 1, 13216, 1, 13217)
 
 	-- Swift Razzashi Raptor - 24242
-	-- type15.-1rlevel60source1slevel150spellid24242level60method_dropslocs1977type7react33classification3lootCount20nameBloodlord Mandokirid11382totalLootCount15708methoddropped-byid19872item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 24242, 19872, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 24242, 1,2,7,16)
 	self:AddCompanionAcquire(MountDB, 24242, 4, 11382)
 
 	-- Swift Zulian Tiger - 24252
-	-- type15.-1rlevel60source1slevel150spellid24252level60method_dropslocs1977type7react33classification3lootCount14nameHigh Priest Thekalid14509totalLootCount12002methoddropped-byid19902item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 24252, 19902, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 24252, 1,2,7,16)
 	self:AddCompanionAcquire(MountDB, 24252, 4, 14509)
 
-	-- Black Qiraji Resonating Crystal - 26656
-	-- type15.-1method_queststype82category11377level60coin0givenitems211761nameBang a Gong!id8743rlevel60source3slevel150spellid26656level60methodrewardfromid21176item_bindsBOPrarity5
+	-- Blue Qiraji Battle Tank -- 25953
+	companioncount = companioncount + 1
+	self:AddCompanion(MountDB,25953,21218,2,"MOUNT")
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
 
+	-- Red Qiraji Battle Tank -- 26054
+	companioncount = companioncount + 1
+	self:AddCompanion(MountDB,26054,21321,2,"MOUNT")
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Yellow Qiraji Battle Tank -- 26055
+	companioncount = companioncount + 1
+	self:AddCompanion(MountDB,26055,21324,2,"MOUNT")
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Green Qiraji Battle Tank -- 26056
+	companioncount = companioncount + 1
+	self:AddCompanion(MountDB,26056,21323,2,"MOUNT")
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Black Qiraji Resonating Crystal - 26656
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 26656, 21176, 5, "MOUNT")
 	self:AddCompanionFlags(MountDB, 26656, 4,16)
 	self:AddCompanionAcquire(MountDB, 26656, 2, 8743)
 
-	-- Golden Gryphon - 32235
-	-- type15.-1rlevel70source2slevel225spellid32235level70method_vendorsprice100000000locs3520type7react1descGryphon KeepernameBrunn Flamebeardminlevel70id20510methodsold-byid25470item_bindsBOPrarity3
+	-- Riding Tutle - 30174
+	companioncount = companioncount + 1
+	self:AddCompanion(MountDB, 30174, 23720, 4, "MOUNT")
+	self:AddCompanionFlags(MountDB,30174,21) 
 
+	-- Golden Gryphon - 32235
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 32235, 25470, 3, "MOUNT")
 	self:AddCompanionFlags(MountDB, 32235, 1,2,3,16)
@@ -790,120 +807,90 @@ function addon:MakeMountTable(MountDB)
 	self:AddCompanionAcquire(MountDB, 34406, 1, 17584)
 
 	-- Reins of the Dark War Talbuk - 34790
-	-- type15.-1rlevel60source2slevel150spellid34790level60method_vendorsprice000260451002604426044locs3518type7react31classification1descBlade MerchantnameCoreielminlevel70id21474price000260451002604426044locs3518type7react13classification1descBlade MerchantnameAldraanminlevel70id21485methodsold-byid29228item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 34790, 29228, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 34790, 1,2,3,16)
 	self:AddCompanionAcquire(MountDB, 34790, 1, 21474, 1, 21485)
 
 	-- Red Hawkstrider - 34795
-	-- type15.-1rlevel30source2slevel75spellid34795level30method_vendorsprice10000000locs3430type7react31descHawkstrider BreedernameWinaestraminlevel15id16264methodsold-byid28927item_bindsBOPrarity3
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 34795, 28927, 3, "MOUNT")
 	self:AddCompanionFlags(MountDB, 34795, 2,3,16)
 	self:AddCompanionAcquire(MountDB, 34795, 1, 16264)
 
 	-- Reins of the Cobalt War Talbuk - 34896
-	-- type15.-1rlevel60source2slevel150spellid34896level60method_vendorsprice100000000locs3518type7react1descMag'har QuartermasternameProvisioner Naselaminlevel65id20241methodsold-byid29102item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 34896, 29102, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 34896, 1,2,3,16)
 	self:AddCompanionAcquire(MountDB, 34896, 1, 20241)
 
 	-- Reins of the White War Talbuk - 34897
-	-- type15.-1rlevel60source2slevel150spellid34897level60method_vendorsprice100000000locs3518type7react1descMag'har QuartermasternameProvisioner Naselaminlevel65id20241methodsold-byid29103item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 34897, 29103, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 34897, 1,2,3,16)
 	self:AddCompanionAcquire(MountDB, 34897, 1, 20241)
 
 	-- Reins of the Silver War Talbuk - 34898
-	-- type15.-1rlevel60source2slevel150spellid34898level60method_vendorsprice100000000locs3518type7react1descMag'har QuartermasternameProvisioner Naselaminlevel65id20241methodsold-byid29104item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 34898, 29104, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 34898, 1,2,3,16)
 	self:AddCompanionAcquire(MountDB, 34898, 1, 20241)
 
 	-- Reins of the Tan War Talbuk - 34899
-	-- type15.-1rlevel60source2slevel150spellid34899level60method_vendorsprice100000000locs3518type7react1descMag'har QuartermasternameProvisioner Naselaminlevel65id20241methodsold-byid29105item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 34899, 29105, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 34899, 1,2,3,16)
 	self:AddCompanionAcquire(MountDB, 34899, 1, 20241)
 
 	-- Purple Hawkstrider - 35018
-	-- type15.-1rlevel30source2slevel75spellid35018level30method_vendorsprice10000000locs3430type7react31descHawkstrider BreedernameWinaestraminlevel15id16264methodsold-byid29222item_bindsBOPrarity3
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 35018, 29222, 3, "MOUNT")
 	self:AddCompanionFlags(MountDB, 35018, 2,3,16)
 	self:AddCompanionAcquire(MountDB, 35018, 1, 16264)
 
 	-- Blue Hawkstrider - 35020
-	-- type15.-1rlevel30source2slevel75spellid35020level30method_vendorsprice10000000locs3430type7react31descHawkstrider BreedernameWinaestraminlevel15id16264methodsold-byid29220item_bindsBOPrarity3
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 35020, 29220, 3, "MOUNT")
 	self:AddCompanionFlags(MountDB, 35020, 2,3,16)
 	self:AddCompanionAcquire(MountDB, 35020, 1, 16264)
 
 	-- Black Hawkstrider - 35022
-	-- type15.-1rlevel30source23slevel75spellid35022level30method_vendorsprice10000000locs3430type7react31descHawkstrider BreedernameWinaestraminlevel15id16264methodsold-byid29221item_bindsBOPrarity3
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 35022, 29221, 3, "MOUNT")
 	self:AddCompanionFlags(MountDB, 35022, 2,3,16)
 	self:AddCompanionAcquire(MountDB, 35022, 1, 16264)
 
 	-- Swift Green Hawkstrider - 35025
-	-- type15.-1rlevel60source2slevel150spellid35025level60method_vendorsprice100000000locs3430type7react31descHawkstrider BreedernameWinaestraminlevel15id16264methodsold-byid29223item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 35025, 29223, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 35025, 2,3,16)
 	self:AddCompanionAcquire(MountDB, 35025, 1, 16264)
 
 	-- Swift Purple Hawkstrider - 35027
-	-- type15.-1rlevel60source2slevel150spellid35027level60method_vendorsprice100000000locs3430type7react31descHawkstrider BreedernameWinaestraminlevel15id16264methodsold-byid29224item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 35027, 29224, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 35027, 2,3,16)
 	self:AddCompanionAcquire(MountDB, 35027, 1, 16264)
 
 	-- Swift Warstrider - 35028
-	-- type15.-1rlevel60source28slevel150spellid35028level60methodid34129item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 35028, 34129, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 35028, 16)
 	-- No acquire information
 
 	-- Gray Elekk - 35710
-	-- type15.-1rlevel30source2slevel75spellid35710level30method_vendorsprice10000000locs35243557type7react1descElekk BreedernameTorallius the Pack Handlerminlevel14id17584methodsold-byid29744item_bindsBOPrarity3
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 35710, 29744, 3, "MOUNT")
 	self:AddCompanionFlags(MountDB, 35710, 1,2,3,16)
 	self:AddCompanionAcquire(MountDB, 35710, 1, 17584)
 
 	-- Purple Elekk - 35711
-	-- type15.-1rlevel30source2slevel75spellid35711level30method_vendorsprice10000000locs35243557type7react1descElekk BreedernameTorallius the Pack Handlerminlevel14id17584methodsold-byid29743item_bindsBOPrarity3
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 35711, 29743, 3, "MOUNT")
 	self:AddCompanionFlags(MountDB, 35711, 1,2,3,16)
 	self:AddCompanionAcquire(MountDB, 35711, 1, 17584)
 
 	-- Great Green Elekk - 35712
-	-- type15.-1method_queststype0choiceitems187671187761187871187741category-3284level60coin0nameStarting Mountid27717rlevel60source23slevel150spellid35712level60method_vendorsprice100000000locs35243557type7react1descElekk BreedernameTorallius the Pack Handlerminlevel14id17584methodsold-by,rewardfromid29746item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 35712, 29746, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 35712, 1,2,3,4,16)
@@ -1102,64 +1089,50 @@ function addon:MakeMountTable(MountDB)
 	-- No acquire information
 
 	-- Amani War Bear - 43688
-	-- type15.-1method_queststype0choiceitems338091category00coin0nameEpic GM Prize Token.id27704rlevel70source13slevel150spellid43688level70method_dropslocs3805type-3lootCount477nameAshli's Bagid186672totalLootCount1078methodcontained-in-object,rewardfromid33809item_bindsBOPrarity4
---Unknown, 
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 43688, 33809, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 43688, 1,2,4,16)
 	self:AddCompanionAcquire(MountDB, 43688, 2, 27704)
 
 	-- Brewfest Ram - 43899
-	-- type15.-1rlevel30source2slevel75spellid43899level30method_vendorsprice10000000locs1type7disp22455react1descRam Racing ApprenticenamePol Amberstillminlevel30id24468price10000000locs141637type7disp22498react1descRam Racing ApprenticenameDriz Tumblequickminlevel30id24510methodsold-byid33976item_bindsBOPrarity3
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 43899, 33976, 3, "MOUNT")
 	self:AddCompanionFlags(MountDB, 43899, 1,2,3,16)
 	self:AddCompanionAcquire(MountDB, 43899, 1, 24468, 1, 24510)
 
 	-- Swift Brewfest Ram - 43900
-	-- type15.-1rlevel60source2slevel150spellid43900level60method_vendorsprice100000000locs1type7disp22455react1descRam Racing ApprenticenamePol Amberstillminlevel30id24468price100000000locs141637type7disp22498react1descRam Racing ApprenticenameDriz Tumblequickminlevel30id24510method_dropslocs11451-1maxlevel70type7react13lootCount2nameDark Iron Antagonistminlevel65id23795totalLootCount206locs11451-1maxlevel73type7react11classification1lootCount3038nameCoren Direbrewminlevel70id23872totalLootCount235614methoddropped-by,sold-byid33977item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 43900, 33977, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 43900, 1,2,3,10,16)
 	self:AddCompanionAcquire(MountDB, 43900, 1, 24468, 1, 24510, 4, 23795, 4, 23872)
 
 	-- Cenarion War Hippogryph - 43927
-	-- type15.-1rlevel70source2slevel300spellid43927level70method_vendorsprice2000000000locs3521type7react11classification1descCenarion Expedition QuartermasternameFedryen Swiftspearminlevel60id17904methodsold-byid33999item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 43927, 33999, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 43927, 1,2,3,16)
 	self:AddCompanionAcquire(MountDB, 43927, 1, 17904)
 
 	-- Merciless Nether Drake - 44744
-	-- type15.-1rlevel70slevel300spellid44744level70methodid34092item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 44744, 34092, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 44744, 16)
 	-- No acquire information
 
-	-- Swift White Hawkstrider - 46628
-	-- type15.-1rlevel60source1slevel150spellid46628level60method_dropslocs4080type7react33classification1descLord of the Blood ElveslootCount988nameKael'thas Sunstriderminlevel72id24664totalLootCount209517methoddropped-byid35513item_bindsBOPrarity4
-
+	-- X-51 Nether-Rocket - 46197
 	companioncount = companioncount + 1
-	self:AddCompanion(MountDB, 46628, 35513, 4, "MOUNT")
+	self:AddCompanion(MountDB,46197,35225,4,"MOUNT")
+
+	-- X-51 Nether-Rocket X-TREME-- 46199
+	companioncount = companioncount + 1
+	self:AddCompanion(MountDB,46199,35226,4,"MOUNT")
+
+	-- Swift White Hawkstrider - 46628
+	companioncount = companioncount + 1
+	self:AddCompanion(MountDB,46628,35513,4,"MOUNT")
 	self:AddCompanionFlags(MountDB, 46628, 1,2,10,16)
 	self:AddCompanionAcquire(MountDB, 46628, 4, 24664)
 
-	-- Magic Broom - 47977
-	-- type15.-1rlevel30slevel75spellid47977level1speed0.5methodid37011item_bindsBOPrarity3
-
-	companioncount = companioncount + 1
-	self:AddCompanion(MountDB, 47977, 37011, 3, "MOUNT")
-	self:AddCompanionFlags(MountDB, 47977, 16)
-	-- No acquire information
-
 	-- The Horseman's Reins - 48025
-	-- type15.-1rlevel60slevel75spellid48025level60methodid37012item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 48025, 37012, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 48025, 16)
@@ -1285,33 +1258,43 @@ function addon:MakeMountTable(MountDB)
 	self:AddCompanionFlags(MountDB, 59791, 16)
 	-- No acquire information
 
-	-- Reins of the Ice Mammoth - 59799
-	-- type15.-1rlevel60slevel150spellid59799level60methodid43958item_bindsBOPrarity4
+	-- Reins of the Ice Mammoth - 59797
+	companioncount = companioncount + 1
+	self:AddCompanion(MountDB, 59797, 44080, 4, "MOUNT")
+	--self:AddCompanionFlags(MountDB, 59797, 16)
+	-- No acquire information
 
+	-- Reins of the Ice Mammoth - 59799
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 59799, 43958, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 59799, 16)
 	-- No acquire information
 
-	-- Reins of the Red Proto-Drake - 59961
-	-- type15.-1rlevel70slevel300spellid59961level70methodid44160item_bindsBOPrarity4
+	-- Reins of the Grand Ice Mammoth - 61469
+	companioncount = companioncount + 1
+	self:AddCompanion(MountDB, 61469, 44086, 4, "MOUNT")
+	--self:AddCompanionFlags(MountDB, 59799, 16)
+	-- No acquire information
 
+	-- Reins of the Grand Ice Mammoth - 61470
+	companioncount = companioncount + 1
+	self:AddCompanion(MountDB, 61469, 43961, 4, "MOUNT")
+	--self:AddCompanionFlags(MountDB, 59799, 16)
+	-- No acquire information
+
+	-- Reins of the Red Proto-Drake - 59961
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 59961, 44160, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 59961, 16)
 	-- No acquire information
 
 	-- Reins of the Blue Proto-Drake - 59996
-	-- type15.-1rlevel80source1slevel300spellid59996level80method_dropslocs495type6react33classification1lootCount31nameSkadi the Ruthlessminlevel80id26693totalLootCount12452methoddropped-byid44151item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 59996, 44151, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 59996, 1,2,10,16)
 	self:AddCompanionAcquire(MountDB, 59996, 4, 26693)
 
 	-- Reins of the Time-Lost Proto-Drake - 60002
-	-- type15.-1rlevel80slevel300spellid60002level80method_dropslocs67type2react33classification2lootCount1nameTime-Lost Proto Drakeminlevel80id32491totalLootCount3methoddropped-byid44168item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 60002, 44168, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 60002, 1,2,10,16)
@@ -1326,32 +1309,30 @@ function addon:MakeMountTable(MountDB)
 	-- No acquire information
 
 	-- Reins of the Armored Brown Bear - 60114
-	-- type15.-1rlevel60source2slevel150spellid60114level60methodid44225item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 60114, 44225, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 60114, 16)
 	-- No acquire information
 
-	-- Reins of the Black War Bear - 60118
-	-- type15.-1rlevel60slevel150spellid60118level60methodid44223item_bindsBOPrarity4
-
+	-- Reins of the Armored Brown Bear - 60116
 	companioncount = companioncount + 1
-	self:AddCompanion(MountDB, 60118, 44223, 4, "MOUNT")
+	self:AddCompanion(MountDB, 60116, 44225, 4, "MOUNT")
+	self:AddCompanionFlags(MountDB, 60116, 16)
+	-- No acquire information
+
+	-- Reins of the Black War Bear - 60118
+	companioncount = companioncount + 1
+	self:AddCompanion(MountDB, 60118, 44226, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 60118, 16)
 	-- No acquire information
 
 	-- Armored Snowy Gryphon - 61229
-	-- type15.-1rlevel70source2slevel300spellid61229level70methodid44689item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 61229, 44689, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 61229, 16)
 	-- No acquire information
 
 	-- Armored Blue Wind Rider - 61230
-	-- type15.-1rlevel70source2slevel300spellid61230level70method_vendorsprice2000000000locs6566394-1type7react11descExotic MountsnameMei Francisminlevel75id32216methodsold-byid44690item_bindsBOPrarity4
-
 	companioncount = companioncount + 1
 	self:AddCompanion(MountDB, 61230, 44690, 4, "MOUNT")
 	self:AddCompanionFlags(MountDB, 61230, 1,2,3,16)
