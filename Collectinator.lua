@@ -100,7 +100,6 @@ function addon:OnInitialize()
 			includeexcluded = false,
 			closeguionskillclose = false,
 			ignoreexclusionlist = false,
-			scanbuttonlocation = L["Right"],
 
 			-- Recipe Exclusion
 			exclusionlist = {},

@@ -38,13 +38,11 @@ local L = LibStub("AceLocale-3.0"):NewLocale("Collectinator", "enUS", true, fals
 
 if not L then return end
 
---[[
-
 -- General strings
 L["Filters"]				= true
-L["All"]					= true
-L["None"]					= true
-L["Ok"]						= true
+--L["All"]					= true
+--L["None"]					= true
+--L["Ok"]						= true
 
 -- Command line options
 L["Profile"]				= true
@@ -57,7 +55,6 @@ L["General Settings"]		= true
 L["Display Settings"]		= true
 L["Sorting Settings"]		= true
 L["Profile Options"]		= true
-L["ARL Documentation"]		= true
 
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
@@ -66,20 +63,10 @@ L["SCAN_RECIPES_DESC"]		= "Scans an open tradeskill for missing recipes.  Press 
 L["Text Dump"]				= true
 L["TEXT_DUMP_DESC"]			= "Displays all recipes in a comma separated value format which can be copied and pasted into another client."
 L["View Exclusion List"]	= true
-L["Scan Button Position"]	= true
 L["SCANBUTTONPOSITION_DESC"] = "Allows you to customize where the scan button is placed on the tradeskill frame."
 L["VIEW_EXCLUSION_LIST_DESC"] = "Prints out a list of all recipes on the exclusion list."
 L["DISPLAY_SETTINGS_DESC"]	= "Allows you to customize how the GUI behaves."
 L["SORTING_SETTINGS_DESC"]	= "Allows you to customize the way displayed recipes are sorted."
-L["ARL_DOC_DESC"]			= "Documentation for Ackis Recipe List"
-
--- UI Documentation
-L["Using Filters"]			= true
-L["USING_FILTERS_DESC"]		= "Filters may be toggled on or off.  There are two types of filters: one which will prevent the recipe from showing up at all, and one which will prevent a specific type of acquire information from showing up.\nWith the first type of filter, these match the proprieties of the recipe (ie: binding).  If you toggle ARL to not show BoP recipes, no recipes that are BoP will show up in the scan.  The second type of filter deals with acquire information.  If a recipe is available as a mob drop, or from a vendor and you toggle to not show vendor recipes, the recipe will still show up but vendor information will be hidden for it.  The reason is that there is still another way to acquire this recipe (mob drop) so it should still be included in the scan."
-L["Reporting Bugs"]			= true
-L["REPORTING_BUGS_DESC"]	= "When reporting a bug, please make sure you do the following:\n\n1) Download the latest version, available from http://www.wowace.com/projects/arl/files/\n\n2) Make sure there is not a bug report filed for your issue already.  You can check these at http://www.wowace.com/projects/arl/tickets/\n\n2a) Disable addons such as Skillet or ATSW.\n\n3) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.\n\n4) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/projects/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.\n\nWhen posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily."
-L["Common Issues"]			= true
-L["COMMON_ISSUES_DESC"]		= "Please refer to these common issues before submitting a bug report.\n\n1) Recipe X does not show up! - Check your filter settings to make sure that the recipe is not being filtered.\n\n2) Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glpyhs are not usable by your class.\n\n3) I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report."
 
 -- Config UI Elements and their associated descriptions
 L["Include Filtered"]		= true
@@ -170,8 +157,8 @@ L["Quest"]					= true
 L["QUEST_DESC"]				= "Recipes obtained as quest rewards should be included in the scan."
 L["Seasonal"]				= true
 L["SEASONAL_DESC"]			= "Recipes obtained in seasonal events should be included in the scan."
-L["Trainer"]				= true
-L["TRAINER_DESC"]			= "Recipes learned from trainers should be included in the scan."
+L["Profession"]				= true
+L["PROFESSION_DESC"]		= "Recipes learned from professions should be included in the scan."
 L["Vendor"]					= true
 L["VENDOR_DESC"]			= "Recipes purchased from vendors should be included in the scan."
 L["PVP"]					= true
@@ -196,66 +183,6 @@ L["RecipeBOPFilter"]		= "Recipe Bind on Pickup"
 L["RECIPE_BOP_DESC"]		= "Recipes that are Bind on Pickup should be included in the scan."
 L["RecipeBOAFilter"]		= "Recipe Bind to Account"
 L["RECIPE_BOA_DESC"]		= "Recipes that are Bind to Account should be included in the scan."
-
--- Item - Armor UI Elements and their associated descriptions
-L["Cloth"]					= true
-L["CLOTH_DESC"]				= "Recipes that make cloth items should be included in the scan."
-L["Leather"]				= true
-L["LEATHER_DESC"]			= "Recipes that make leather items should be included in the scan."
-L["Mail"]					= true
-L["MAIL_DESC"]				= "Recipes that make mail items should be included in the scan."
-L["Plate"]					= true
-L["PLATE_DESC"]				= "Recipes that make plate items should be included in the scan."
-L["Cloak"]					= true
-L["CLOAK_DESC"]				= "Recipes that make cloaks should be included in the scan."
-L["Ring"]					= true
-L["RING_DESC"]				= "Recipes that make rings should be included in the scan."
-L["Trinket"]				= true
-L["TRINKET_DESC"]			= "Recipes that make trinkets should be included in the scan."
-L["Necklace"]				= true
-L["NECKLACE_DESC"]			= "Recipes that make necklaces should be included in the scan."
-L["Shield"]					= true
-L["SHIELD_DESC"]			= "Recipes that make shields should be included in the scan."
-
--- Item - Weapon UI Elements and their associated descriptions
-L["One Hand"]				= true
-L["ONEHAND_DESC"]			= "Recipes that make one handed items should be included in the scan."
-L["Two Hand"]				= true
-L["TWOHAND_DESC"]			= "Recipes that make two handed items should be included in the scan."
-L["Axe"]					= true
-L["AXE_DESC"]				= "Recipes that make axes should be included in the scan."
-L["Sword"]					= true
-L["SWORD_DESC"]				= "Recipes that make swords should be included in the scan."
-L["Mace"]					= true
-L["MACE_DESC"]				= "Recipes that make maces should be included in the scan."
-L["Polearm"]				= true
-L["POLEARM_DESC"]			= "Recipes that make polearms should be included in the scan."
-L["Dagger"]					= true
-L["DAGGER_DESC"]			= "Recipes that make daggers should be included in the scan."
-L["Fist"]					= true
-L["FIST_DESC"]				= "Recipes that make fist weapons should be included in the scan."
-L["Staff"]					= true
-L["STAFF_DESC"]				= "Recipes that make stave's should be included in the scan."
-L["Wand"]					= true
-L["WAND_DESC"]				= "Recipes that make wands should be included in the scan."
-L["Thrown"]					= true
-L["THROWN_DESC"]			= "Recipes that make thrown weapons should be included in the scan."
-L["Bow"]					= true
-L["BOW_DESC"]				= "Recipes that make bows should be included in the scan."
-L["Crossbow"]				= true
-L["CROSSBOW_DESC"]			= "Recipes that make crossbows should be included in the scan."
-L["Ammo"]					= true
-L["AMMO_DESC"]				= "Recipes that make ammunition should be included in the scan."
-
--- Player Type Filtering UI Elements and their associated descriptions
-L["Melee DPS"]				= true
-L["MELEE_DPS_DESC"]			= "Recipes that are used by melee dps players should be included in the scan."
-L["Tanks"]					= true
-L["TANKS_DESC"]				= "Recipes that are used by tank players should be included in the scan."
-L["Caster DPS"]				= true
-L["CASTER_DPS_DESC"]		= "Recipes that are used by casting dps players should be included in the scan."
-L["Healers"]				= true
-L["HEALERS_DESC"]			= "Recipes that are used by healer players should be included in the scan."
 
 -- Reputation Filtering UI Elements and their associated description
 L["SPECIFIC_REP_DESC"]		= "Include %s faction."
@@ -294,5 +221,3 @@ L["Feast of Winters Veil"] = true
 L["Lunar Festival"] = true
 L["Darkmoon Faire"] = true
 L["Seasonal"] = true
-
-]]--
