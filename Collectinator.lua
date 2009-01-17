@@ -63,7 +63,7 @@ end
 --]]
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
---local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -- Make functions local to speed things up
 local GetNumCompanions = GetNumCompanions
@@ -75,30 +75,120 @@ local maxfilterflags = 60
 
 function addon:OnInitialize()
 
-	self.db = LibStub("AceDB-3.0"):New("CollectinatorDB", defaults, "char")
-
-	self:SetupOptions()
-
-	-- Register slash commands
-	self:RegisterChatCommand("collectinator", "ChatCommand")
-
 	-- Set default options, which are to include everything in the scan
-	self.db:RegisterDefaults(
-	{
+	local defaults = {
 		profile = {
 
 			companionlist = {},
 			companionexclusions = {},
 
+			-- Frame options
+			frameopts = {
+				offsetx = 0,
+				offsety = 0,
+				anchorTo = "",
+				anchorFrom = "",
+				uiscale = 1,
+				tooltipscale = .9,
+			},
+
+			-- Sorting Options
+			sorting = L["Skill"],
+
+			-- Display Options
+			includefiltered = false,
+			includeexcluded = false,
+			closeguionskillclose = false,
+			ignoreexclusionlist = false,
+			scanbuttonlocation = L["Right"],
+
+			-- Recipe Exclusion
+			exclusionlist = {},
+
+			-- Filter Options
 			filters = {
-					general = {
-						faction = false,
-						known = true,
-						unknown = false,
-					},
+				-- General Filters
+				general = {
+				    faction = true,
+					class = false,
+					specialty = false,
+					skill = true,
+					known = false,
+					unknown = true,
+				},
+				-- Obtain Options
+				obtain = {
+					trainer = true,
+					vendor = true,
+					instance = true,
+					raid = true,
+					seasonal = true,
+					quest = true,
+					pvp = true,
+					discovery = true,
+					worlddrop = true,
+					mobdrop = true,
+				},
+				binding = {
+					itemboe = true,
+					itembop = true,
+					recipebop = true,
+					recipeboe = true,
+				},
+				-- Reputation Options
+				rep = {
+					aldor = true,
+					scryer = true,
+					argentdawn = true,
+					ashtonguedeathsworn = true,
+					cenarioncircle = true,
+					cenarionexpedition = true,
+					consortium = true,
+					hellfire = true,
+					keepersoftime = true,
+					nagrand = true,
+					lowercity = true,
+					scaleofthesands = true,
+					shatar = true,
+					shatteredsun = true,
+					sporeggar = true,
+					thoriumbrotherhood = true,
+					timbermaw = true,
+					violeteye = true,
+					zandalar = true,
+					argentcrusade = true,
+					frenzyheart = true,
+					ebonblade = true,
+					kirintor = true,
+					sonsofhodir = true,
+					kaluak = true,
+					oracles = true,
+					wyrmrest = true,
+					silvercovenant = true,
+					sunreavers = true,
+					explorersleague = true,
+					valiance = true,
+					handofvengeance = true,
+					taunka = true,
+					warsongoffensive = true,
+					hordeexpedition = true,
+					alliancevanguard = true,
+				}
 			}
 		}
-	})
+	}
+
+	addon.db = LibStub("AceDB-3.0"):New("CollectinatorDB",defaults)
+
+	if (not addon.db) then
+		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the Collectinator database file (Collectinator.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
+		return
+	end
+
+	self:SetupOptions()
+
+	-- Register slash commands
+	self:RegisterChatCommand("collectinator", "ChatCommand")
 
 end
 
@@ -118,9 +208,23 @@ end
 
 function addon:ChatCommand(input)
 
-	if (not input) or (input and input:trim() == "") or (string.lower(input) == string.lower("About")) then
-		-- Open About panel if there's no parameters or if the parameter is About
-		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
+	if (not input) or (input and input:trim() == "") or (input == tolower(L["About"]))then
+		if (self.optionsFrame["About"]) then
+			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
+		else
+			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+		end
+	elseif (input == tolower(L["Sorting"])) or (input == tolower(L["Sort"]))  or (input == tolower(L["Display"])) then
+		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+	elseif (input == tolower(L["Profile"])) then
+		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
+	elseif (input == tolower(L["Filter"])) then
+		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Filters"])
+	elseif (input == tolower(L["Scan"])) then
+		self:AckisRecipeList_Command(false)
+	else
+		-- What happens when we get here?
+		LibStub("AceConfigCmd-3.0"):HandleCommand("collectinator", "Collectinator", input)
 	end
 
 end

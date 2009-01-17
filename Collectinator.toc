@@ -12,7 +12,7 @@
 ## X-Donate: Donate a few bucks/hours at your local animal shelter, or send me UDE Point codes, a Murky Code, or an account upgrade certificate.
 
 ## Interface: 30000
-## Version: Alpha 2 @project-revision@
+## Version: Alpha 3 @project-revision@
 ## X-Revision: @project-revision@
 ## X-Date: @file-date-iso@
 
@@ -31,7 +31,13 @@
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 
+#@no-lib-strip@
+# Libraries
 embeds.xml
+#@end-no-lib-strip@
+
+# Localization files
+local.xml
 
 Collectinator.lua
 CollectinatorOptions.lua
