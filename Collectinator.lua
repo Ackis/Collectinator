@@ -40,24 +40,18 @@ end
 --[[
 
 if (not LibStub:GetLibrary("LibBabble-Zone-3.0", true)) then
-
 	self:Print("LibBabble-Zone-3.0 not loaded.  Addon cannot run.")
 	return
-
 end
 
 if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
-
 	self:Print("LibBabble-Boss-3.0 not loaded.  Addon cannot run.")
 	return
-
 end
 
 if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
-
 	self:Print("AceLocale-3.0 not loaded.  Addon cannot run.")
 	return
-
 end
 
 --]]
@@ -109,69 +103,34 @@ function addon:OnInitialize()
 				-- General Filters
 				general = {
 				    faction = true,
-					class = false,
-					specialty = false,
-					skill = true,
+					profession = false,
 					known = false,
 					unknown = true,
 				},
 				-- Obtain Options
 				obtain = {
-					trainer = true,
 					vendor = true,
+					quest = true,
+					crafted = true,
 					instance = true,
 					raid = true,
 					seasonal = true,
-					quest = true,
-					pvp = true,
-					discovery = true,
 					worlddrop = true,
 					mobdrop = true,
+					tcg = true,
+					specialevent = true,
+					ce = true,
+					removed = true,
 				},
 				binding = {
-					itemboe = true,
-					itembop = true,
-					recipebop = true,
-					recipeboe = true,
+					boe = true,
+					bop = true,
+					boa = true,
+
 				},
 				-- Reputation Options
 				rep = {
-					aldor = true,
-					scryer = true,
-					argentdawn = true,
-					ashtonguedeathsworn = true,
-					cenarioncircle = true,
-					cenarionexpedition = true,
-					consortium = true,
-					hellfire = true,
-					keepersoftime = true,
-					nagrand = true,
-					lowercity = true,
-					scaleofthesands = true,
-					shatar = true,
-					shatteredsun = true,
-					sporeggar = true,
-					thoriumbrotherhood = true,
-					timbermaw = true,
-					violeteye = true,
-					zandalar = true,
-					argentcrusade = true,
-					frenzyheart = true,
-					ebonblade = true,
-					kirintor = true,
-					sonsofhodir = true,
-					kaluak = true,
-					oracles = true,
-					wyrmrest = true,
-					silvercovenant = true,
-					sunreavers = true,
-					explorersleague = true,
-					valiance = true,
-					handofvengeance = true,
-					taunka = true,
-					warsongoffensive = true,
-					hordeexpedition = true,
-					alliancevanguard = true,
+					bloodsail = true,
 				}
 			}
 		}
@@ -234,6 +193,25 @@ function addon:COMPANION_LEARNED()
 
 	-- When we learn a new pet, we want to automatically scan the companions and update our saved variables
 	self:ScanCompanions()
+
+end
+
+-- Description: Loads all information about mini-pets into the database
+-- Expected result: Listing of companions updated with information.
+-- Input: Database to update
+-- Output: Database pased as reference.
+
+local function CreateCompanionList(CompanionDB)
+
+	local totalminipets = 0
+	local totalmounts = 0
+
+	InitDatabases()
+
+	totalminipets = addon:MakeMiniPetTable(CompanionDB)
+	totalmounts = addon:MakeMountTable(CompanionDB)
+
+	return totalminipets, totalmounts
 
 end
 
@@ -312,25 +290,6 @@ do
 
 	end
 
-	-- Description: Loads all information about mini-pets into the database
-	-- Expected result: Listing of companions updated with information.
-	-- Input: Database to update
-	-- Output: Database pased as reference.
-
-	local function CreateCompanionList()
-
-		local totalminipets = 0
-		local totalmounts = 0
-
-		InitDatabases()
-
-		totalminipets = addon:MakeMiniPetTable(CompanionDB)
-		totalmounts = addon:MakeMountTable(CompanionDB)
-
-		return totalminipets, totalmounts
-
-	end
-
 	-- Description: Scans your known companions, loads the database, marks which are known, and loads the display
 	-- Expected result: All functions are done in a logical order
 	-- Input: None
@@ -362,21 +321,168 @@ do
 
 end
 
-local function CheckFilter(spellid)
+do
 
-	return true
+	local profmap = {
+		["ALCHEMY"] = 25,
+		["BLACKSMITH"] = 26,
+		["COOKING"] = 27,
+		["ENCHANT"] = 28,
+		["ENGINEER"] = 29,
+		["FIRST AID"] = 30,
+		["INSCRIPTION"] = 31,
+		["JEWELCRAFTING"] = 32,
+		["LEATHERWORKING"] = 33,
+		["SMELTING"] = 34,
+		["TAILORING"] = 45,
+	}
+
+	local reptable = nil
+
+	local function CreateRepTable()
+
+		local repdb = addon.db.profile.filters.rep
+
+		reptable = {
+			[40] = repdb.bloodsail,
+		}
+
+	end
+
+	function addon:ClearRepTable()
+
+		reptable = nil
+
+	end
+
+	local function CheckReputationDisplay(flags)
+
+		if (not reptable) then
+			CreateRepTable()
+		end
+
+		local display = true
+
+		for i in pairs(reptable) do
+			if (flags[i]) then
+				if (reptable[i]) then
+					display = true
+				else
+					display = false
+				end
+			end
+		end
+
+		return display
+
+	end
+
+
+	local function CheckFilter(Spell,playerFaction,playerProf)
+
+		-- For flag info see comments at start of file in comments
+		local filterdb = addon.db.profile.filters
+		local flags = Spell["Flags"]
+
+		local generaldb = filterdb.general
+
+		-- Display both horde and alliance factions?
+		if (generaldb.faction == false) then
+			-- We want to filter out all the Horde only recipes
+			if (playerFaction == BFAC["Alliance"]) then
+				-- Filter out Horde only
+				if (flags[1] == false) and (flags[2] == true) then
+					return false
+				end
+			-- We want to filter out all the Alliance only recipes
+			else
+				-- Filter out Alliance only
+				if (flags[2] == false) and (flags[1] == true) then
+					return false
+				end
+			end
+		end
+
+		if (generaldb.profession == false) and (flags[profmap[playerProf]] == false) then
+			return false
+		end
+
+		local bindingdb = filterdb.binding
+
+		if (bindingdb.boe == false) and (flags[20] == true) then
+			return false
+		end
+		if (bindingdb.bop == false) and (flags[21] == true) then
+			return false
+		end
+		if (bindingdb.boa == false) and (flags[22] == true) then
+			return false
+		end
+
+		if (not CheckReputationDisplay(flags)) then
+			return false
+		end
+
+		-- Stage 2
+		-- loop through nonexclusive (soft filters) flags until one is true
+		-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
+
+		local obtaindb = filterdb.obtain
+
+		if (obtaindb.vendor == true) and (flags[3] == true) then
+			return true
+		end
+		if (obtaindb.quest == true) and (flags[4] == true) then
+			return true
+		end
+		if (obtaindb.crafted == true) and (flags[5] == true) then
+			return true
+		end
+		if (obtaindb.instance == true) and (flags[6] == true) then
+			return true
+		end
+		if (obtaindb.raid == true) and (flags[7] == true) then
+			return true
+		end
+		if (obtaindb.seasonal == true) and (flags[8] == true) then
+			return true
+		end
+		if (obtaindb.worlddrop == true) and (flags[9] == true) then
+			return true
+		end
+		if (obtaindb.mobdrop == true) and (flags[10] == true) then
+			return true
+		end
+		if (obtaindb.tcg == true) and (flags[11] == true) then
+			return true
+		end
+		if (obtaindb.specialevent == true) and (flags[12] == true) then
+			return true
+		end
+		if (obtaindb.ce == true) and (flags[13] == true) then
+			return true
+		end
+		if (obtaindb.removed == true) and (flags[14] == true) then
+			return true
+		end
+
+		-- If we get here it means that no flags matched our values
+		return false
+
+	end
 
 end
 
 function addon:UpdateFilters(db)
 
 	local display = false
+	local playerFaction = UnitFactionGroup("player")
 
 	-- Parse the database
-	for spellid in pairs(db) do
+	for SpellID in pairs(db) do
 
-		display = CheckFilter(db[spellid])
-		db[spellid]["Display"] = display
+		display = CheckFilter(db[SpellID],playerFaction)
+		db[SpellID]["Display"] = display
 
 	end
 
@@ -435,15 +541,17 @@ end
 -- Input: None
 -- Output: Graphical output only
 
-function addon:ShowCheckList(db)
+function addon:ShowCheckList(DB)
 
 	self:Print("Right now this is temporary until I get the backend finished, then I'll do the GUI.")
 
 	-- Parse the database
-	for spellid in pairs(db) do
-		if (db[spellid]["Known"] == false) then
-			self:Print("Unkown companion: " .. spellid .. " " .. db[spellid]["Name"])
-			--DevTools_Dump(db[spellid])
+	for SpellID in pairs(DB) do
+		if (DB[SpellID]["Known"] == false) and (DB[SpellID]["Display"] == true) then
+			self:Print("Unkown companion: " .. SpellID .. " " .. DB[SpellID]["Name"])
+			local acquire = DB[SpellID]["Acquire"]
+			for i in pairs(acquire) do self:Print(i) end
+			--DevTools_Dump(DB[SpellID])
 		end
 
 	end
@@ -460,15 +568,14 @@ function addon:CheckForKnownCompanions(PetDB)
 	local companionlist = addon.db.profile.companionlist
 
 	-- Scan through all the entries we've saved
-	for i,spellid in pairs(companionlist) do
-
+	for i,SpellID in pairs(companionlist) do
 		-- If the entry exists, mark it as known
-		if (PetDB[spellid]) then
-			PetDB[spellid]["Known"] = true
+		if (PetDB[SpellID]) then
+			PetDB[SpellID]["Known"] = true
 		-- If the entry doesn't exist raise an error
 		else
-			local name = GetSpellInfo(spellid)
-			self:Print("Companion: " .. name .. " (" .. spellid .. ") not found in database.")
+			local name = GetSpellInfo(SpellID)
+			self:Print("Companion: " .. name .. " (" .. SpellID .. ") not found in database.")
 		end
 	end
 
