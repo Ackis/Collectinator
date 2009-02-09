@@ -4,10 +4,7 @@
 ## Notes-enUS: Will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
 
 ## Author: Ackis
-## X-Author-Server: Illidan US
-## X-Author-Faction: Horde
 ## eMail: ackis AT shaw DOT ca
-## X-email: ackis AT shaw DOT ca
 ## X-Donate: Donate a few bucks/hours at your local animal shelter, or send me UDE Point codes, a Murky Code, or an account upgrade certificate.
 
 ## Interface: 30000
@@ -15,14 +12,10 @@
 ## X-Revision: @project-revision@
 ## X-Date: @file-date-iso@
 
-## X-credits: 
-
 ## X-Category: Tradeskill
 ## X-Localizations: enUS
 ## X-Website: http://www.wowwiki.com/Collectinator
 ## X-Feedback: http://www.curse.com/downloads/details/
-## X-RelSite-Curse: 
-## X-LoadOn-Slash: 
 
 ## Dependencies:
 ## X-Embeds: Ace3, LibStub, CallbackHandler-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibAboutPanel
