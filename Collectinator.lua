@@ -550,8 +550,11 @@ function addon:ShowCheckList(DB)
 		if (DB[SpellID]["Known"] == false) and (DB[SpellID]["Display"] == true) then
 			self:Print("Unkown companion: " .. SpellID .. " " .. DB[SpellID]["Name"])
 			local acquire = DB[SpellID]["Acquire"]
+			self:Print("Acquire methods:")
 			for i in pairs(acquire) do self:Print(i) end
-			--DevTools_Dump(DB[SpellID])
+			self:Print("Filter flags:")
+			local flags = DB[SpellID]["Flags"]
+			for i in pairs(flags) do self:Print(i) end
 		end
 
 	end
