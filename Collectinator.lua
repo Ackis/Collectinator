@@ -551,7 +551,9 @@ function addon:ShowCheckList(DB)
 			self:Print("Unkown companion: " .. SpellID .. " " .. DB[SpellID]["Name"])
 			local acquire = DB[SpellID]["Acquire"]
 			self:Print("Acquire methods:")
-			for i in pairs(acquire) do self:Print(i) end
+			for i in pairs(acquire) do
+				self:Print("Acquire type: " .. i["Type"] .. " ID: " .. i["ID"])
+			end
 			self:Print("Filter flags:")
 			local flags = DB[SpellID]["Flags"]
 			for i in pairs(flags) do self:Print(i) end
