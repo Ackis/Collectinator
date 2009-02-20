@@ -543,9 +543,14 @@ end
 
 function addon:ShowCheckList(DB)
 
-	self:Print("Right now this is temporary until I get the backend finished, then I'll do the GUI.")
+	--@non-debug@
+	self:Print("DEBUG: This command is only availible for testing purposes.")
+	--@end-non-debug@
+
+	--@debug@
 
 	-- Parse the database
+	self:Print("DEBUG: Dumping the database.")
 	for SpellID in pairs(DB) do
 		if (DB[SpellID]["Known"] == false) and (DB[SpellID]["Display"] == true) then
 			self:Print("Unkown companion: " .. SpellID .. " " .. DB[SpellID]["Name"])
@@ -558,8 +563,18 @@ function addon:ShowCheckList(DB)
 			local flags = DB[SpellID]["Flags"]
 			for i in pairs(flags) do self:Print(i) end
 		end
-
 	end
+	--@end-debug@
+
+	--@debug@
+	-- Parse the exclusion list
+	local exclusionlist = addon.db.profile.companionexclusions
+
+	self:Print("DEDBUG: Exclusion list by spell ID:")
+	for i in pairs(exclusionlist) do
+		self:Print(i)
+	end
+	--@end-debug@
 
 end
 
@@ -651,9 +666,7 @@ function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType, Warcraft
 
 	-- Set the filter flags to all false
 	for i=1,maxfilterflags,1 do
-
 		flag[i] = false
-
 	end
 
 	DB[SpellID]["Acquire"] = {}
@@ -672,12 +685,10 @@ function addon:AddCompanionFlags(DB, SpellID, ...)
 
 	-- Find out how many flags we're adding
 	for i=1,numvars,1 do
-
 		-- Get the value of the current flag
 		local flag = select(i, ...)
 		-- Set the flag in the database to true
 		flags[flag] = true
-
 	end
 
 end
