@@ -32,25 +32,25 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Mechanical Squirrel Box - 4055
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,4055,4401,1,"CRITTER")
-	self:AddCompanionFlags(PetDB,4055,1,2,5,20)
+	self:AddCompanion(PetDB,4055,4401,1,"CRITTER",10)
+	self:AddCompanionFlags(PetDB,4055,1,2,5,20,29)
 	self:AddCompanionAcquire(PetDB,4055,3,4036,3928)
 
 	-- Cat Carrier (Bombay) - 10673
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10673,8485,1,"CRITTER")
+	self:AddCompanion(PetDB,10673,8485,1,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,10673,1,3,20)
 	self:AddCompanionAcquire(PetDB,10673,1,6367)
 
 	-- Cat Carrier (Cornish Rex) - 10674
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10674,8486,1,"CRITTER")
+	self:AddCompanion(PetDB,10674,8486,1,"CRITTER",3)
 	self:AddCompanionFlags(PetDB,10674,1,3,20)
 	self:AddCompanionAcquire(PetDB,10674,1,6367)
 
 	-- Cat Carrier (Black Tabby) - 10675
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10675,8491,1,"CRITTER")
+	self:AddCompanion(PetDB,10675,8491,1,"CRITTER",1)
 	self:AddCompanionFlags(PetDB,10675,1,10,20)
 	self:AddCompanionAcquire(PetDB,10675,4,1920,4,2271,4,2272,4,2358)
 
