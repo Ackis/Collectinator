@@ -1,6 +1,10 @@
 # Package file as:
 package-as: Collectinator
 
+license-output: LICENSE.txt
+
+# manual-changelog: Docs/CHANGES.txt
+
 # File list to ignore:
 ignore:
  - .pkgmeta
