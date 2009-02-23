@@ -660,6 +660,12 @@ function addon:MakeMiniPetTable(PetDB)
 	self:AddCompanionFlags(PetDB,61855,21)
 	-- No acquire information
 
+	-- Little Fawn - 61991
+	companioncount = companioncount + 1
+	self:AddCompanion(PetDB,61991,44841,1,"CRITTER")
+	self:AddCompanionFlags(PetDB,61991,21)
+	-- No acquire information	
+
 	return companioncount
 
 end
