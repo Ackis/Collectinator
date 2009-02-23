@@ -196,25 +196,6 @@ function addon:COMPANION_LEARNED()
 
 end
 
--- Description: Loads all information about mini-pets into the database
--- Expected result: Listing of companions updated with information.
--- Input: Database to update
--- Output: Database pased as reference.
-
-local function CreateCompanionList(CompanionDB)
-
-	local totalminipets = 0
-	local totalmounts = 0
-
-	InitDatabases()
-
-	totalminipets = addon:MakeMiniPetTable(CompanionDB)
-	totalmounts = addon:MakeMountTable(CompanionDB)
-
-	return totalminipets, totalmounts
-
-end
-
 do
 
 	-- Master database of mini-pets and mounts
@@ -290,6 +271,25 @@ do
 
 	end
 
+	-- Description: Loads all information about mini-pets into the database
+	-- Expected result: Listing of companions updated with information.
+	-- Input: Database to update
+	-- Output: Database pased as reference.
+
+	local function CreateCompanionList()
+
+		local totalminipets = 0
+		local totalmounts = 0
+
+		InitDatabases()
+
+		totalminipets = addon:MakeMiniPetTable(CompanionDB)
+		totalmounts = addon:MakeMountTable(CompanionDB)
+
+		return totalminipets, totalmounts
+
+	end
+
 	-- Description: Scans your known companions, loads the database, marks which are known, and loads the display
 	-- Expected result: All functions are done in a logical order
 	-- Input: None
@@ -301,7 +301,7 @@ do
 		addon:ScanCompanions()
 
 		-- Load the database and get the number of entries in it
-		totalminipets, totalmounts = CreateCompanionList(CompanionDB)
+		totalminipets, totalmounts = CreateCompanionList()
 
 		addon:CheckForKnownCompanions(CompanionDB)
 
@@ -378,7 +378,7 @@ do
 	end
 
 
-	local function CheckFilter(Spell,playerFaction,playerProf)
+	function addon:CheckFilter(Spell,playerFaction,playerProf)
 
 		-- For flag info see comments at start of file in comments
 		local filterdb = addon.db.profile.filters
@@ -480,10 +480,8 @@ function addon:UpdateFilters(db)
 
 	-- Parse the database
 	for SpellID in pairs(db) do
-
 		display = CheckFilter(db[SpellID],playerFaction)
 		db[SpellID]["Display"] = display
-
 	end
 
 end
