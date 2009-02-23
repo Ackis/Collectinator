@@ -480,7 +480,7 @@ function addon:UpdateFilters(db)
 
 	-- Parse the database
 	for SpellID in pairs(db) do
-		display = CheckFilter(db[SpellID],playerFaction)
+		display = addon:CheckFilter(db[SpellID],playerFaction)
 		db[SpellID]["Display"] = display
 	end
 
@@ -555,11 +555,15 @@ function addon:ShowCheckList(DB)
 			local acquire = DB[SpellID]["Acquire"]
 			self:Print("Acquire methods:")
 			for i in pairs(acquire) do
-				self:Print("Acquire type: " .. i["Type"] .. " ID: " .. i["ID"])
+				self:Print("Acquire type: " .. acquire[i]["Type"] .. " ID: " .. acquire[i]["ID"])
 			end
 			self:Print("Filter flags:")
 			local flags = DB[SpellID]["Flags"]
-			for i in pairs(flags) do self:Print(i) end
+			for i in pairs(flags) do
+				if (flags[i] == true) then
+					self:Print(i)
+				end
+			end
 		end
 	end
 	--@end-debug@
