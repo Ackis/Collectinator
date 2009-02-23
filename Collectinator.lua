@@ -552,6 +552,7 @@ function addon:ShowCheckList(DB)
 	for SpellID in pairs(DB) do
 		if (DB[SpellID]["Known"] == false) and (DB[SpellID]["Display"] == true) then
 			self:Print("Unkown companion: " .. SpellID .. " " .. DB[SpellID]["Name"])
+			--[[
 			local acquire = DB[SpellID]["Acquire"]
 			self:Print("Acquire methods:")
 			for i in pairs(acquire) do
@@ -564,6 +565,7 @@ function addon:ShowCheckList(DB)
 					self:Print(i)
 				end
 			end
+			]]--
 		end
 	end
 	--@end-debug@
