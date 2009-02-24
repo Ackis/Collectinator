@@ -196,6 +196,20 @@ function addon:COMPANION_LEARNED()
 
 end
 
+local function InitPlayerData(playerData)
+
+	-- Total numbers in the database
+	playerData.totalminipets = 0
+	playerData.totalmounts = 0
+
+	-- Number of filtered items
+	playerData.filteredcomapnions = 0
+
+	-- Get the players faction
+	playerData.playerFaction = UnitFactionGroup("player")
+
+end
+
 do
 
 	-- Master database of mini-pets and mounts
@@ -210,10 +224,6 @@ do
 	local RepFilters = nil
 
 	local playerData = nil
-
-	-- Total numbers in the database
-	local totalminipets = 0
-	local totalmounts = 0
 
 	-- Description: Initalizes all the recipe databases to their initial
 	-- Expected result: All internal databases are initalized to starting values (empty)
@@ -269,6 +279,10 @@ do
 			CompanionDB = {}
 		end
 
+		if (playerData == nil) then
+			InitPlayerData(playerData)
+		end
+
 	end
 
 	-- Description: Loads all information about mini-pets into the database
@@ -278,15 +292,10 @@ do
 
 	local function CreateCompanionList()
 
-		local totalminipets = 0
-		local totalmounts = 0
-
 		InitDatabases()
 
-		totalminipets = addon:MakeMiniPetTable(CompanionDB)
-		totalmounts = addon:MakeMountTable(CompanionDB)
-
-		return totalminipets, totalmounts
+		playerData.totalminipets = addon:MakeMiniPetTable(CompanionDB)
+		playerData.totalmounts = addon:MakeMountTable(CompanionDB)
 
 	end
 
@@ -301,15 +310,15 @@ do
 		addon:ScanCompanions()
 
 		-- Load the database and get the number of entries in it
-		totalminipets, totalmounts = CreateCompanionList()
+		CreateCompanionList()
 
-		addon:CheckForKnownCompanions(CompanionDB)
+		addon:CheckForKnownCompanions(CompanionDB, playerData)
 
-		addon:UpdateFilters(CompanionDB)
+		addon:UpdateFilters(CompanionDB,playerData)
 
 		addon:GetExclusions(CompanionDB)
 
-		addon:ShowCheckList(CompanionDB)
+		addon:ShowCheckList(CompanionDB, playerData)
 
 	end
 
@@ -472,15 +481,20 @@ do
 
 end
 
-function addon:UpdateFilters(db)
+function addon:UpdateFilters(db,playerData)
 
 	local display = false
-	local playerFaction = UnitFactionGroup("player")
+	local playerFaction = playerData.playerFaction
+	playerData.filteredcomapnions = 0
 
 	-- Parse the database
 	for SpellID in pairs(db) do
 		local spell = db[SpellID]
-		spell["Display"] = addon:CheckFilter(spell,playerFaction)
+		local display = addon:CheckFilter(spell,playerFaction)
+		spell["Display"] = display
+		if (display == false) then
+			playerData.filteredcomapnions = playerData.filteredcomapnions + 1
+		end
 	end
 
 end
@@ -538,7 +552,7 @@ end
 -- Input: None
 -- Output: Graphical output only
 
-function addon:ShowCheckList(DB)
+function addon:ShowCheckList(DB, playerData)
 
 	--@non-debug@
 	self:Print("DEBUG: This command is only availible for testing purposes.")
@@ -601,6 +615,14 @@ function addon:ShowCheckList(DB)
 	end
 	--@end-debug@
 
+	--@debug@
+	self:Print("DEBUG: Total mini-pets in db: " .. playerData.totalminipets)
+	self:Print("DEBUG: Total mounts in db: " .. playerData.totalmounts)
+	self:Print("DEBUG: Total mini-pets known: " .. playerData.totalknownpets)
+	self:Print("DEBUG: Total mounts known: " .. playerData.totalknownmounts)
+	self:Print("DEBUG: Total filtered items: ")
+	--@end-debug@
+
 end
 
 -- Description:  Scans the database and the local list of companions and flags which ones you know
@@ -608,21 +630,31 @@ end
 -- Input: Database
 -- Output: None.
 
-function addon:CheckForKnownCompanions(PetDB)
+function addon:CheckForKnownCompanions(PetDB, playerData)
 
 	local companionlist = addon.db.profile.companionlist
+	local mount = 0
+	local pet = 0
 
 	-- Scan through all the entries we've saved
 	for i,SpellID in pairs(companionlist) do
 		-- If the entry exists, mark it as known
 		if (PetDB[SpellID]) then
 			PetDB[SpellID]["Known"] = true
+			if (PetDB[SpellID]["Type"] == "CRITTER") then
+				pet = pet + 1
+			elseif (PetDB[SpellID]["Type"] == "MOUNT") then
+				mount = mount + 1
+			end
 		-- If the entry doesn't exist raise an error
 		else
 			local name = GetSpellInfo(SpellID)
 			self:Print("Companion: " .. name .. " (" .. SpellID .. ") not found in database.")
 		end
 	end
+
+	playerData.totalknownpets = pet
+	playerData.totalknownmounts = mount
 
 end
 
@@ -657,11 +689,6 @@ function addon:ScanCompanions()
 		-- Add the mini-pet to the list of pets we save
 		tinsert(butt,mountspell)
 	end
-
-	--@debug@
-	self:Print("DEBUG: Total mini-pets known: " .. numminipets)
-	self:Print("DEBUG: Total mounts known: " .. nummounts)
-	--@end-debug@
 
 end
 
