@@ -93,29 +93,27 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 
 ==Acquire Flags==
 
-Defined below is the specification for the arguments passed back into addTradeAcquire. Each Acquire Type passes in different parameters depending on how the recipe is acquired:
+Defined below is the specification for the arguments passed back into addon:AddCompanionAcquire(DB, SpellID, ...). Each Acquire Type passes in different parameters depending on how the recipe is acquired:
 
-<pre><nowiki>
-	Acquire Type = 1								( Vendor )
-		ID				- Index into VendorList
-	Acquire Type = 2								( Quest )
-		ID				- Index into QuestList
-	Acquire Type = 3								( Crafted )
-		ID				- Spell ID of the profession which crafts the pet
-		SpellID			- Spell ID that creates the pet
-	Acquire Type = 4								( Mob Drop )
-		ID				- Index into MobList
-	Acquire Type = 5								( Seasonal )
-		ID				- Index into SeasonList
-	Acquire Type = 6								( Reputation )
-		ID				- Index into ReputationList
-		RepLevel		- ReputationLevel**
-		RepVendor		- Index into VendorList
-	Acquire Type = 7								( World Drop )
-		ID				- Rarity Level
-	Acquire Type = 8								( Custom )
-		ID				- Custom string
-</nowiki></pre>
+:Acquire Type = 1								( Vendor )
+::ID				- Index into VendorList
+:Acquire Type = 2								( Quest )
+::ID				- Index into QuestList
+:Acquire Type = 3								( Crafted )
+::ID				- Spell ID of the profession which crafts the pet
+::SpellID			- Spell ID that creates the pet
+:Acquire Type = 4								( Mob Drop )
+::ID				- Index into MobList
+:Acquire Type = 5								( Seasonal )
+::ID				- Index into SeasonList
+:Acquire Type = 6								( Reputation )
+::ID				- Index into ReputationList
+::RepLevel			- ReputationLevel**
+::RepVendor			- Index into VendorList
+:Acquire Type = 7								( World Drop )
+::ID				- Rarity Level
+:Acquire Type = 8								( Custom )
+::ID				- Custom string
 
 == Reputation ID==
 
@@ -132,10 +130,10 @@ Defined below is the specification for the arguments passed back into addTradeAc
 :3 - Neutral
 
 ==Rarity colours==
-:0 - poor			#919191
-:1 - common			#ffffff
-:2 - uncommon		#00A900
-:3 - rare			#0062C3
-:4 - epic			#B343FF
-:5 - legendary		#FA9900
-:6 - artifact		#e5cc80
+ 0 - poor			#919191
+ 1 - common			#ffffff
+ 2 - uncommon		#00A900
+ 3 - rare			#0062C3
+ 4 - epic			#B343FF
+ 5 - legendary		#FA9900
+ 6 - artifact		#e5cc80
