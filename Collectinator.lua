@@ -377,7 +377,6 @@ do
 
 	end
 
-
 	function addon:CheckFilter(Spell,playerFaction,playerProf)
 
 		-- For flag info see comments at start of file in comments
@@ -551,13 +550,33 @@ function addon:ShowCheckList(DB)
 	self:Print("DEBUG: Dumping the database.")
 	for SpellID in pairs(DB) do
 		if (DB[SpellID]["Known"] == false) and (DB[SpellID]["Display"] == true) then
-			self:Print("Unkown companion: " .. SpellID .. " " .. DB[SpellID]["Name"])
-			--[[
+			self:Print("Missing companion: " .. SpellID .. " " .. DB[SpellID]["Name"])
 			local acquire = DB[SpellID]["Acquire"]
 			self:Print("Acquire methods:")
 			for i in pairs(acquire) do
-				self:Print("Acquire type: " .. acquire[i]["Type"] .. " ID: " .. acquire[i]["ID"])
+				local acquiretype = acquire[i]["Type"]
+				if (acquiretype == 1) then
+					self:Print("Vendor: " .. acquire[i]["ID"])
+				elseif (acquiretype == 2) then
+					self:Print("Quest: " .. acquire[i]["ID"])
+				elseif (acquiretype == 3) then
+					self:Print("Crafted: " .. GetSpellInfo(acquire[i]["ID"]))
+					self:Print("Created by: " .. GetSpellInfo(acquire[i]["Crafted"]))
+				elseif (acquiretype == 4) then
+					self:Print("Mob: " .. acquire[i]["ID"])
+				elseif (acquiretype == 5) then
+					self:Print("Seasonal: " .. acquire[i]["ID"])
+				elseif (acquiretype == 6) then
+					self:Print("Reputation: " .. acquire[i]["ID"])
+				elseif (acquiretype == 7) then
+					self:Print("World Drop: " .. acquire[i]["ID"])
+				elseif (acquiretype == 8) then
+					self:Print("Custom: " .. acquire[i]["ID"])
+				else
+					self:Print("Acquire type: " .. acquire[i]["Type"] .. " ID: " .. acquire[i]["ID"])
+				end
 			end
+			--[[
 			self:Print("Filter flags:")
 			local flags = DB[SpellID]["Flags"]
 			for i in pairs(flags) do
@@ -728,8 +747,8 @@ function addon:AddCompanionAcquire(DB, SpellID, ...)
 
 		-- Crafted
 		if (AcquireType == 3) then
-			local Profession = select(i, ...)
-			acquire[index]["Profession"] = Profession
+			local craftedby = select(i, ...)
+			acquire[index]["Crafted"] = craftedby
 			i = i + 1
 		end
 
