@@ -568,6 +568,8 @@ function addon:ShowCheckList(DB)
 					self:Print("Seasonal: " .. acquire[i]["ID"])
 				elseif (acquiretype == 6) then
 					self:Print("Reputation: " .. acquire[i]["ID"])
+					self:Print("Rep Level: " .. acquire[i]["RepLevel"])
+					self:Print("Rep Vendor: " .. acquire[i]["RepVendor"])
 				elseif (acquiretype == 7) then
 					self:Print("World Drop: " .. acquire[i]["ID"])
 				elseif (acquiretype == 8) then
