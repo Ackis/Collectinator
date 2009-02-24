@@ -479,8 +479,8 @@ function addon:UpdateFilters(db)
 
 	-- Parse the database
 	for SpellID in pairs(db) do
-		display = addon:CheckFilter(db[SpellID],playerFaction)
-		db[SpellID]["Display"] = display
+		local spell = db[SpellID]
+		spell["Display"] = addon:CheckFilter(spell,playerFaction)
 	end
 
 end
