@@ -334,7 +334,7 @@ do
 		["JEWELCRAFTING"] = 32,
 		["LEATHERWORKING"] = 33,
 		["SMELTING"] = 34,
-		["TAILORING"] = 45,
+		["TAILORING"] = 35,
 	}
 
 	local reptable = nil
