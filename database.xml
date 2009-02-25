@@ -6,5 +6,6 @@
 <Include file="DB\MountDatabase.lua"/>
 <Include file="DB\PetDatabase.lua"/>
 <Include file="DB\Custom.lua"/>
+<Include file="DB\Vendor.lua"/>
 
 </Ui>
