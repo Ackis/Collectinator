@@ -457,9 +457,15 @@ do
 
 		if (generaldb.profession == false) then
 			local profdisplay = false
+			-- Scan all the player professions
 			for i in pairs(playerProfs) do
+				-- If the profession is flagged as known
 				if (playerProfs[i] == true) then
-					profdisplay = flags[profmap[i]]
+					-- Check to see if the companion flag is set to be true
+					if (flags[profmap[i]] == true) then
+						-- If it's true, it means that the companion is for that specific profession
+						profdisplay = true
+					end
 				end
 			end
 			if (profdisplay == false) then
