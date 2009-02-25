@@ -196,7 +196,34 @@ function addon:COMPANION_LEARNED()
 
 end
 
-local function InitPlayerData(playerData)
+local function GetPlayerProfessions(ProfTable)
+
+	-- Reset the table, they may have unlearnt a profession
+	for i in pairs(ProfTable) do
+		ProfTable[i] = false
+	end
+
+	-- Scan through the spell book getting the spell names
+	for index=1,25,1 do
+
+		local spellName = GetSpellName(index, BOOKTYPE_SPELL)
+
+		if (not spellName) or (index == 25) then
+			-- Nothing found
+			break
+		end
+		if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
+            if spellName == GetSpellInfo(2656) then
+                ProfTable[GetSpellInfo(2575)] = true
+            else
+                ProfTable[spellName] = true
+            end
+		end
+	end
+
+end
+
+local function InitPlayerData(playerData, ProfTable)
 
 	-- Total numbers in the database
 	playerData.totalminipets = 0
@@ -207,6 +234,8 @@ local function InitPlayerData(playerData)
 
 	-- Get the players faction
 	playerData.playerFaction = UnitFactionGroup("player")
+
+	playerData.playerProfs = GetPlayerProfessions(ProfTable)
 
 end
 
@@ -281,7 +310,23 @@ do
 
 		if (playerData == nil) then
 			playerData = {}
-			InitPlayerData(playerData)
+			playerData["Professions"] = {
+				[GetSpellInfo(2259)] = false, -- Alchemy
+				[GetSpellInfo(2018)] = false, -- Blacksmithing
+				[GetSpellInfo(2550)] = false, -- Cooking
+				[GetSpellInfo(7411)] = false, -- Enchanting
+				[GetSpellInfo(4036)] = false, -- Engineering
+				[GetSpellInfo(746)] = false, -- First Aid
+				--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
+				[GetSpellInfo(2108)] = false, -- Leatherworking
+				[GetSpellInfo(2575)] = false, -- Mining
+				--[GetSpellInfo(2656)] = false, -- Smelting
+				[GetSpellInfo(3908)] = false, -- Tailoring
+				[GetSpellInfo(25229)] = false, -- Jewelcrafting
+				[GetSpellInfo(45357)] = false, -- Inscription
+				[GetSpellInfo(53428)] = false, -- Runeforging
+			}
+			InitPlayerData(playerData, playerData["Professions"])
 		end
 
 	end
@@ -315,7 +360,7 @@ do
 
 		addon:CheckForKnownCompanions(CompanionDB, playerData)
 
-		addon:f(CompanionDB,playerData)
+		addon:UpdateFilters(CompanionDB,playerData)
 
 		addon:GetExclusions(CompanionDB)
 
@@ -334,14 +379,14 @@ end
 do
 
 	local profmap = {
-		["ALCHEMY"] = 25,
-		["BLACKSMITH"] = 26,
-		["COOKING"] = 27,
-		["ENCHANT"] = 28,
-		["ENGINEER"] = 29,
-		["FIRST AID"] = 30,
-		["INSCRIPTION"] = 31,
-		["JEWELCRAFTING"] = 32,
+		["Alchemy"] = 25,
+		["Blacksmithing"] = 26,
+		["Cooking"] = 27,
+		["Enchanting"] = 28,
+		["Engineering"] = 29,
+		["Fist Aid"] = 30,
+		["Inscription"] = 31,
+		["Jewelcrafting"] = 32,
 		["LEATHERWORKING"] = 33,
 		["SMELTING"] = 34,
 		["TAILORING"] = 35,
@@ -387,8 +432,10 @@ do
 
 	end
 
-	function addon:CheckFilter(Spell,playerFaction,playerProf)
+	function addon:CheckFilter(Spell,playerData)
 
+		local playerFaction = playerData.playerFaction
+		local playerProfs = playerData["Professions"]
 		-- For flag info see comments at start of file in comments
 		local filterdb = addon.db.profile.filters
 		local flags = Spell["Flags"]
@@ -412,8 +459,16 @@ do
 			end
 		end
 
-		if (generaldb.profession == false) and (flags[profmap[playerProf]] == false) then
-			return false
+		if (generaldb.profession == false) then
+			local profdisplay = false
+			for i in pairs(playerProfs) do
+				if (playerProfs[i] == true) then
+					profdisplay = flags[profmap[i]]
+				end
+			end
+			if (profdisplay == false) then
+				return false
+			end
 		end
 
 		local bindingdb = filterdb.binding
@@ -485,13 +540,12 @@ end
 function addon:UpdateFilters(db,playerData)
 
 	local display = false
-	local playerFaction = playerData.playerFaction
 	playerData.filteredcomapnions = 0
 
 	-- Parse the database
 	for SpellID in pairs(db) do
 		local spell = db[SpellID]
-		local display = addon:CheckFilter(spell,playerFaction)
+		local display = addon:CheckFilter(spell,playerData)
 		spell["Display"] = display
 		if (display == false) then
 			playerData.filteredcomapnions = playerData.filteredcomapnions + 1
