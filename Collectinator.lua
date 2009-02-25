@@ -315,7 +315,7 @@ do
 
 		addon:CheckForKnownCompanions(CompanionDB, playerData)
 
-		addon:UpdateFilters(CompanionDB,playerData)
+		addon:f(CompanionDB,playerData)
 
 		addon:GetExclusions(CompanionDB)
 
@@ -621,7 +621,7 @@ function addon:ShowCheckList(DB, playerData)
 	self:Print("DEBUG: Total mounts in db: " .. playerData.totalmounts)
 	self:Print("DEBUG: Total mini-pets known: " .. playerData.totalknownpets)
 	--self:Print("DEBUG: Total mounts known: " .. playerData.totalknownmounts)
-	self:Print("DEBUG: Total filtered items: ")
+	self:Print("DEBUG: Total filtered items: " .. playerData.filteredcomapnions)
 	--@end-debug@
 
 end
