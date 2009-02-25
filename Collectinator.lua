@@ -320,7 +320,7 @@ do
 				[GetSpellInfo(3908)] = false, -- Tailoring
 				[GetSpellInfo(25229)] = false, -- Jewelcrafting
 				[GetSpellInfo(45357)] = false, -- Inscription
-				[GetSpellInfo(53428)] = false, -- Runeforging
+				--[GetSpellInfo(53428)] = false, -- Runeforging
 			}
 			InitPlayerData(playerData, playerData["Professions"])
 		end
@@ -375,17 +375,19 @@ end
 do
 
 	local profmap = {
-		["Alchemy"] = 25,
-		["Blacksmithing"] = 26,
-		["Cooking"] = 27,
-		["Enchanting"] = 28,
-		["Engineering"] = 29,
-		["Fist Aid"] = 30,
-		["Inscription"] = 31,
-		["Jewelcrafting"] = 32,
-		["LEATHERWORKING"] = 33,
-		["SMELTING"] = 34,
-		["TAILORING"] = 35,
+		[GetSpellInfo(2259)] = 25, -- Alchemy
+		[GetSpellInfo(2018)] = 26, -- Blacksmithing
+		[GetSpellInfo(2550)] = 27, -- Cooking
+		[GetSpellInfo(7411)] = 28, -- Enchanting
+		[GetSpellInfo(4036)] = 29, -- Engineering
+		[GetSpellInfo(746)] = 30, -- First Aid
+		--["Premiers soins"] = 30, -- First Aid (Hack for frFR local)
+		[GetSpellInfo(2108)] = 33, -- Leatherworking
+		[GetSpellInfo(2575)] = 34, -- Mining
+		--[GetSpellInfo(2656)] = 34, -- Smelting
+		[GetSpellInfo(3908)] = 35, -- Tailoring
+		[GetSpellInfo(25229)] = 32, -- Jewelcrafting
+		[GetSpellInfo(45357)] = 31, -- Inscription
 	}
 
 	local reptable = nil
