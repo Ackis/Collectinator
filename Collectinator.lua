@@ -296,7 +296,7 @@ do
 		InitDatabases()
 
 		playerData.totalminipets = addon:MakeMiniPetTable(CompanionDB)
-		playerData.totalmounts = addon:MakeMountTable(CompanionDB)
+		--playerData.totalmounts = addon:MakeMountTable(CompanionDB)
 
 	end
 
@@ -620,7 +620,7 @@ function addon:ShowCheckList(DB, playerData)
 	self:Print("DEBUG: Total mini-pets in db: " .. playerData.totalminipets)
 	self:Print("DEBUG: Total mounts in db: " .. playerData.totalmounts)
 	self:Print("DEBUG: Total mini-pets known: " .. playerData.totalknownpets)
-	self:Print("DEBUG: Total mounts known: " .. playerData.totalknownmounts)
+	--self:Print("DEBUG: Total mounts known: " .. playerData.totalknownmounts)
 	self:Print("DEBUG: Total filtered items: ")
 	--@end-debug@
 
@@ -634,7 +634,7 @@ end
 function addon:CheckForKnownCompanions(PetDB, playerData)
 
 	local companionlist = addon.db.profile.companionlist
-	local mount = 0
+	--local mount = 0
 	local pet = 0
 
 	-- Scan through all the entries we've saved
@@ -668,7 +668,7 @@ function addon:ScanCompanions()
 
 	-- Find out how many companions we have learnt
 	local numminipets = GetNumCompanions("CRITTER")
-	local nummounts = GetNumCompanions("MOUNT")
+	--local nummounts = GetNumCompanions("MOUNT")
 
 	local butt = addon.db.profile.companionlist
 
@@ -682,7 +682,7 @@ function addon:ScanCompanions()
 		-- Add the mini-pet to the list of pets we save
 		tinsert(butt,petspell)
 	end
-
+--[[
 	-- Parse all the mounts you currently have
 	for i=1,nummounts do
 		-- Get the pet's name and spell ID
@@ -690,7 +690,7 @@ function addon:ScanCompanions()
 		-- Add the mini-pet to the list of pets we save
 		tinsert(butt,mountspell)
 	end
-
+]]--
 end
 
 -- Adds a companion (based off of spell ID) to the database.  Also will add aquisition, faction, reputation, location, and filtering flags.
