@@ -31,13 +31,10 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 -- Lets check to see if we have the needed libraries loaded (these are manditory to run)
 if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
-
 	self:Print("LibBabble-Faction-3.0 not loaded.  Addon cannot run.")
 	return
-
 end
 
---[[
 
 if (not LibStub:GetLibrary("LibBabble-Zone-3.0", true)) then
 	self:Print("LibBabble-Zone-3.0 not loaded.  Addon cannot run.")
@@ -54,10 +51,9 @@ if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
 	return
 end
 
---]]
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 -- Make functions local to speed things up
 local GetNumCompanions = GetNumCompanions
@@ -294,7 +290,7 @@ do
 		-- Initializes the vendor list
 		if (VendorList == nil) then
 			VendorList = {}
-			--addon:InitVendor(VendorList)
+			addon:InitVendor(VendorList)
 		end
 
 		-- Initializes the reputation filters
@@ -364,7 +360,7 @@ do
 
 		addon:GetExclusions(CompanionDB)
 
-		addon:ShowCheckList(CompanionDB, playerData)
+		addon:ShowCheckList(CompanionDB, playerData, VendorList)
 
 	end
 
@@ -607,7 +603,7 @@ end
 -- Input: None
 -- Output: Graphical output only
 
-function addon:ShowCheckList(DB, playerData)
+function addon:ShowCheckList(DB, playerData, VendorList)
 
 	--@non-debug@
 	self:Print("DEBUG: This command is only availible for testing purposes.")
@@ -626,6 +622,9 @@ function addon:ShowCheckList(DB, playerData)
 				local acquiretype = acquire[i]["Type"]
 				if (acquiretype == 1) then
 					self:Print("Vendor: " .. acquire[i]["ID"])
+					if (VendorList[i]) then
+						self:Print(VendorList[i]["Name"])
+					end
 				elseif (acquiretype == 2) then
 					self:Print("Quest: " .. acquire[i]["ID"])
 				elseif (acquiretype == 3) then
