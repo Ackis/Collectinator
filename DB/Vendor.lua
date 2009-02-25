@@ -26,13 +26,13 @@ Format:
 local MODNAME			= "Collectinator"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
---local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 --local BFAC				= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
---local BZONE				= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
---local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
+local BZONE				= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 function addon:InitVendor(VendorDB)
 
-	--self:addLookupList(VendorDB,66,L["Tharynn Bouden"],BZONE["Elwynn Forest"],42.20,67.21,1)
+	self:addLookupList(VendorDB,6367,L["Donni Anthania"],BZONE["Elwynn Forest"],44.2,53.4,1)
 
 end
