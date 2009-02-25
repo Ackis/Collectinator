@@ -360,7 +360,7 @@ do
 
 		addon:GetExclusions(CompanionDB)
 
-		addon:DumbDatabase(CompanionDB, playerData, VendorList)
+		addon:DumpDatabase(CompanionDB, playerData, VendorList)
 
 	end
 
@@ -611,7 +611,7 @@ end
 -- Input: None
 -- Output: Graphical output only
 
-function addon:DumbDatabase(DB, playerData, VendorList)
+function addon:DumpDatabase(DB, playerData, VendorList)
 
 	--@non-debug@
 	self:Print("DEBUG: This command is only availible for testing purposes.")
