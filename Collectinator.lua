@@ -280,6 +280,7 @@ do
 		end
 
 		if (playerData == nil) then
+			playerData = {}
 			InitPlayerData(playerData)
 		end
 
