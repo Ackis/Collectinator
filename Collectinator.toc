@@ -1,4 +1,4 @@
-﻿## Title: Collectinator
+﻿## Title: Collectinator @project-version@
 
 ## Notes: Will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
 ## Notes-enUS: Will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
@@ -8,8 +8,8 @@
 ## X-Donate: Donate a few bucks/hours at your local animal shelter, or send me UDE Point codes, a Murky Code, or an account upgrade certificate.
 
 ## Interface: 30000
-## Version: Alpha 3 @project-revision@
-## X-Revision: @project-revision@
+## Version: Alpha 3 @project-version@
+## X-Revision: @project-version@
 ## X-Date: @file-date-iso@
 
 ## X-Category: Tradeskill
