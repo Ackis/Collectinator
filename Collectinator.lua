@@ -13,15 +13,7 @@ Author: Ackis
 
 ****************************************************************************************
 
-Still in development
-
-Please see Wowace.com for more information.
-
-****************************************************************************************
-
 ]]--
-
---/script Collectinator:DoCompleteScan()
 
 local MODNAME	= "Collectinator"
 
@@ -117,12 +109,14 @@ function addon:OnInitialize()
 					specialevent = true,
 					ce = true,
 					removed = true,
+					achievement = true,
+					pvp = true,
 				},
+				-- Item Biding Options
 				binding = {
 					boe = true,
 					bop = true,
 					boa = true,
-
 				},
 				-- Reputation Options
 				rep = {
@@ -529,6 +523,12 @@ do
 			return true
 		end
 		if (obtaindb.removed == true) and (flags[14] == true) then
+			return true
+		end
+		if (obtaindb.achievement == true) and (flags[15] == true) then
+			return true
+		end
+		if (obtaindb.pvp == true) and (flags[16] == true) then
 			return true
 		end
 

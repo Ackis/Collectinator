@@ -31,7 +31,8 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 *13 = CE
 *14 = Not in game anymore
 *15 = Achievement
-*16-19 = Reserved for future use
+*16 = PVP
+*17-19 = Reserved for future use
 ===Crafted Properties===
 *20 = Item BoE
 *21 = Item BoP
