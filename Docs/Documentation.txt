@@ -98,25 +98,29 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 
 Defined below is the specification for the arguments passed back into addon:AddCompanionAcquire(DB, SpellID, ...). Each Acquire Type passes in different parameters depending on how the recipe is acquired:
 
-:Acquire Type = 1								( Vendor )
-::ID				- Index into VendorList
-:Acquire Type = 2								( Quest )
-::ID				- Index into QuestList
-:Acquire Type = 3								( Crafted )
-::ID				- Spell ID of the profession which crafts the pet
-::SpellID			- Spell ID that creates the pet
-:Acquire Type = 4								( Mob Drop )
-::ID				- Index into MobList
-:Acquire Type = 5								( Seasonal )
-::ID				- Index into SeasonList
-:Acquire Type = 6								( Reputation )
-::ID				- Index into ReputationList
-::RepLevel			- ReputationLevel**
-::RepVendor			- Index into VendorList
-:Acquire Type = 7								( World Drop )
-::ID				- Rarity Level
-:Acquire Type = 8								( Custom )
-::ID				- Custom string
+<pre><nowiki>
+	Acquire Type = 1								( Vendor )
+		ID				- Index into VendorList
+	Acquire Type = 2								( Quest )
+		ID				- Index into QuestList
+	Acquire Type = 3								( Crafted )
+		ID				- Spell ID of the profession which crafts the pet
+		SpellID			- Spell ID that creates the pet
+	Acquire Type = 4								( Mob Drop )
+		ID				- Index into MobList
+	Acquire Type = 5								( Seasonal )
+		ID				- Index into SeasonList
+	Acquire Type = 6								( Reputation )
+		ID				- Index into ReputationList
+		RepLevel			- ReputationLevel
+		RepVendor			- Index into VendorList
+	Acquire Type = 7								( World Drop )
+		ID				- Rarity Level
+	Acquire Type = 8								( Custom )
+		ID				- Custom string
+	Acquire Type = 9								( Achievement )
+		ID				- Achievement ID
+</nowiki></pre>
 
 == Reputation ID==
 
