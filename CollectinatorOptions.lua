@@ -85,15 +85,15 @@ local function giveFilter()
 							name	= L["FILTERING_GENERAL_DESC"] .. "\n",
 						},
 						factions = {
-							order	= 3,
+							order	= 10,
 							type	= "toggle",
 							name	= L["Faction"],
 							desc	= L["FACTION_DESC"],
 							get		= function() return addon.db.profile.filters.general.faction end,
 							set		= function() addon.db.profile.filters.general.faction = not addon.db.profile.filters.general.faction end,
 						},
-						classes = {
-							order	= 4,
+						prof = {
+							order	= 11,
 							type	= "toggle",
 							name	= L["Profession"],
 							desc	= L["PROFESSION_DESC"],
@@ -101,7 +101,7 @@ local function giveFilter()
 							set		= function() addon.db.profile.filters.general.prof = not addon.db.profile.filters.general.prof end,
 						},
 						known = {
-							order	= 7,
+							order	= 12,
 							type	= "toggle",
 							name	= L["Known"],
 							desc	= L["KNOWN_DESC"],
@@ -109,7 +109,7 @@ local function giveFilter()
 							set		= function() addon.db.profile.filters.general.known = not addon.db.profile.filters.general.known end,
 						},
 						unknown = {
-							order	= 8,
+							order	= 13,
 							type	= "toggle",
 							name	= L["Unknown"],
 							desc	= L["UNKNOWN_DESC"],
@@ -118,6 +118,7 @@ local function giveFilter()
 						},
 					},
 				},
+--[[
 				obtain = {
 					order	= 4,
 					type	= "group",
@@ -474,7 +475,6 @@ local function giveFilter()
 								},
 							},
 						},
--- Below this is WotLK stuff. May need to be changed post beta
 						WotLK = {
 							order	= 5,
 							type	= "group",
@@ -636,6 +636,7 @@ local function giveFilter()
 						},
 					},
 				},
+]]--
 			},
 		}
 
@@ -683,6 +684,7 @@ local function fullOptions()
 							desc	= L["SCAN_RECIPES_DESC"],
 							func	= function(info) addon:DoCompleteScan() end,
 						},
+--[[
 						spacer1 = {
 							order	= 19,
 							type	= "description",
@@ -740,6 +742,7 @@ local function fullOptions()
 							set		= function(info,name) addon.db.profile.sorting = name end,
 							values	= function() return {Name = L["Name"], Skill = L["Skill"], Acquisition = L["Acquisition"], Location = L["Location"]} end,
 						},
+]]--
 					},
 				},
 			},
