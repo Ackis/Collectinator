@@ -547,7 +547,6 @@ function addon:UpdateFilters(db,playerData)
 	for SpellID in pairs(db) do
 		local spell = db[SpellID]
 		local display = addon:CheckFilter(spell,playerData)
-		if (display == false) then self:Print(SpellID) end
 		spell["Display"] = display
 		if (display == false) then
 			playerData.filteredcomapnions = playerData.filteredcomapnions + 1
