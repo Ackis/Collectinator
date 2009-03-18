@@ -654,11 +654,13 @@ function addon:DumpDatabase(DB, playerData, VendorList)
 			end
 			self:Print("Filter flags:")
 			local flags = DB[SpellID]["Flags"]
+			local filterstring = ""
 			for i in pairs(flags) do
 				if (flags[i] == true) then
-					self:Print(i)
+					filterstring = filterstring .. i .. ","
 				end
 			end
+			self:Print(filterstring)
 		end
 	end
 	--@end-debug@
