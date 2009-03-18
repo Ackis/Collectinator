@@ -48,7 +48,8 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 *33 = Leatherworking
 *34 = Smelting
 *35 = Tailoring
-*36-39 = Reserved for future use
+*36 = Fishing
+*37-39 = Reserved for future use
 ===Reputation===
 ====Original====
 *40 = Bloodsail Buccaneers

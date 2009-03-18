@@ -321,6 +321,7 @@ do
 				[GetSpellInfo(25229)] = false, -- Jewelcrafting
 				[GetSpellInfo(45357)] = false, -- Inscription
 				--[GetSpellInfo(53428)] = false, -- Runeforging
+				[GetSpellInfo(13615)] = false, -- Fishing
 			}
 			InitPlayerData(playerData, playerData["Professions"])
 		end
@@ -386,6 +387,7 @@ do
 		[GetSpellInfo(3908)] = 35, -- Tailoring
 		[GetSpellInfo(25229)] = 32, -- Jewelcrafting
 		[GetSpellInfo(45357)] = 31, -- Inscription
+		[GetSpellInfo(13615)] = 36, -- Fishing
 	}
 
 	local reptable = nil
