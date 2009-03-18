@@ -33,6 +33,6 @@ local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 function addon:InitVendor(VendorDB)
 
-	self:addLookupList(VendorDB,6367,L["Donni Anthania"],BZONE["Elwynn Forest"],44.2,53.4,1)
+	self:addLookupList(VendorDB,6367,"Donni Anthania",BZONE["Elwynn Forest"],44.2,53.4,1)
 
 end

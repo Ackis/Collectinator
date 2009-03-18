@@ -365,9 +365,7 @@ do
 	end
 
 	function addon:GetDB()
-
 		return CompanionDB
-
 	end
 
 end
@@ -403,9 +401,7 @@ do
 	end
 
 	function addon:ClearRepTable()
-
 		reptable = nil
-
 	end
 
 	local function CheckReputationDisplay(flags)
@@ -456,7 +452,6 @@ do
 				end
 			end
 		end
-
 		if (generaldb.profession == false) then
 			local profdisplay = false
 			-- Scan all the player professions
@@ -467,6 +462,7 @@ do
 					if (flags[profmap[i]] == true) then
 						-- If it's true, it means that the companion is for that specific profession
 						profdisplay = true
+						break
 					end
 				end
 			end
@@ -534,6 +530,7 @@ do
 			return true
 		end
 
+		
 		-- If we get here it means that no flags matched our values
 		return false
 
@@ -550,6 +547,7 @@ function addon:UpdateFilters(db,playerData)
 	for SpellID in pairs(db) do
 		local spell = db[SpellID]
 		local display = addon:CheckFilter(spell,playerData)
+		if (display == false) then self:Print(SpellID) end
 		spell["Display"] = display
 		if (display == false) then
 			playerData.filteredcomapnions = playerData.filteredcomapnions + 1
@@ -623,6 +621,7 @@ function addon:DumpDatabase(DB, playerData, VendorList)
 	self:Print("DEBUG: Dumping the database.")
 	for SpellID in pairs(DB) do
 		if (DB[SpellID]["Known"] == false) and (DB[SpellID]["Display"] == true) then
+		--if (DB[SpellID]["Known"] == false) then
 			self:Print("Missing companion: " .. SpellID .. " " .. DB[SpellID]["Name"])
 			local acquire = DB[SpellID]["Acquire"]
 			self:Print("Acquire methods:")
@@ -770,7 +769,7 @@ function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType, Warcraft
 	DB[SpellID]["WarcraftPetsID"] = WarcraftPetsID or 0
 
 	DB[SpellID]["Owned"] = false
-	DB[SpellID]["Display"] = false
+	DB[SpellID]["Display"] = true
 	DB[SpellID]["Search"] = false
 	DB[SpellID]["Known"] = false
 
