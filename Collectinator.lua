@@ -99,7 +99,7 @@ function addon:OnInitialize()
 				-- General Filters
 				general = {
 				    faction = true,
-					profession = false,
+					prof = false,
 					known = false,
 					unknown = true,
 				},
@@ -452,7 +452,7 @@ do
 				end
 			end
 		end
-		if (generaldb.profession == false) then
+		if (generaldb.prof == false) then
 			local profdisplay = false
 			-- Scan all the player professions
 			for i in pairs(playerProfs) do
