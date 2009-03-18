@@ -652,7 +652,6 @@ function addon:DumpDatabase(DB, playerData, VendorList)
 					self:Print("Acquire type: " .. acquire[i]["Type"] .. " ID: " .. acquire[i]["ID"])
 				end
 			end
-			--[[
 			self:Print("Filter flags:")
 			local flags = DB[SpellID]["Flags"]
 			for i in pairs(flags) do
@@ -660,7 +659,6 @@ function addon:DumpDatabase(DB, playerData, VendorList)
 					self:Print(i)
 				end
 			end
-			]]--
 		end
 	end
 	--@end-debug@
