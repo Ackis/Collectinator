@@ -199,7 +199,7 @@ local function giveFilter()
 							set		= function() addon.db.profile.filters.obtain.mobdrop = not addon.db.profile.filters.obtain.mobdrop end,
 						},
 						tcg = {
-							order	= ,
+							order	= 25,
 							type	= "toggle",
 							name	= L["TCG"],
 							desc	= L["TCG_DESC"],
