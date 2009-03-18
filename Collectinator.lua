@@ -650,6 +650,8 @@ function addon:DumpDatabase(DB, playerData, VendorList)
 					self:Print("World Drop: " .. acquire[i]["ID"])
 				elseif (acquiretype == 8) then
 					self:Print("Custom: " .. acquire[i]["ID"])
+				elseif (acquiretype == 9) then
+					self:Print("Achievement: " .. acquire[i]["ID"])
 				else
 					self:Print("Acquire type: " .. acquire[i]["Type"] .. " ID: " .. acquire[i]["ID"])
 				end
