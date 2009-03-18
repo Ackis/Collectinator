@@ -12,7 +12,7 @@
 ## X-Revision: @project-version@
 ## X-Date: @file-date-iso@
 
-## X-Category: Tradeskill
+## X-Category: Interface
 ## X-Localizations: enUS
 ## X-Website: http://www.wowwiki.com/Collectinator
 ## X-Feedback: http://www.curse.com/downloads/details/
@@ -22,6 +22,8 @@
 ## OptionalDeps: Ace3, LibStub, CallbackHandler-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibAboutPanel
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
+
+## SavedVariables: CollectinatorDB
 
 #@no-lib-strip@
 # Libraries
