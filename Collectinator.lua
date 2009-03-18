@@ -661,7 +661,17 @@ function addon:DumpDatabase(DB, playerData, VendorList)
 			local filterstring = ""
 			for i in pairs(flags) do
 				if (flags[i] == true) then
-					filterstring = filterstring .. i .. ","
+					local text = i
+					if (i == 1) then
+						text = "Ally"
+					elseif (i == 2) then
+						text = "Horde"
+					elseif (i == 3) then
+						text = "Vendor"
+					elseif (i == 4) then
+						text = "Quest"
+					end
+					filterstring = filterstring .. text .. ","
 				end
 			end
 			self:Print(filterstring)
