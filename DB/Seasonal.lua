@@ -26,7 +26,7 @@ Format:
 local MODNAME			= "Collectinator"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
---local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 function addon:InitSeasons(SeasonDB)
 
