@@ -30,7 +30,6 @@
 embeds.xml
 #@end-no-lib-strip@
 
-# Localization files
 local.xml
 
 Collectinator.lua
