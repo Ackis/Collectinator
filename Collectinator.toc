@@ -5,7 +5,7 @@
 
 ## Author: Ackis
 ## eMail: ackis AT shaw DOT ca
-## X-Donate: Donate a few bucks/hours at your local animal shelter, or send me UDE Point codes, a Murky Code, or an account upgrade certificate.
+## X-Donate: http://www.wowace.com/projects/collectinator/#w_donations
 
 ## Interface: 30100
 ## Version: Alpha 3 @project-version@
@@ -30,7 +30,6 @@
 embeds.xml
 #@end-no-lib-strip@
 
-# Localization files
 local.xml
 
 Collectinator.lua
