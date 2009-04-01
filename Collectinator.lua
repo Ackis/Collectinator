@@ -255,7 +255,7 @@ do
 	function addon:GetMasterTable()
 
 		if (CompanionDB) then
-			return RecipeList
+			return CompanionDB
 		else
 			return nil
 		end
@@ -634,8 +634,6 @@ function addon:DumpDatabase(DB, playerData, VendorList)
 	self:Print("DEBUG: This command is only availible for testing purposes.")
 	--@end-non-debug@
 
-	--@debug@
-
 	-- Parse the database
 	self:Print("DEBUG: Dumping the database.")
 	for SpellID in pairs(DB) do
@@ -643,9 +641,7 @@ function addon:DumpDatabase(DB, playerData, VendorList)
 			self:DumpSpell(SpellID)
 		end
 	end
-	--@end-debug@
 
-	--@debug@
 	-- Parse the exclusion list
 	local exclusionlist = addon.db.profile.companionexclusions
 
@@ -887,7 +883,11 @@ function addon:DumpSpell(SpellID)
 		self:Print("Rarity: " .. x["Rarity"])
 		if (x["ItemID"]) then
 			local _,linky = GetItemInfo(x["ItemID"])
-			self:Print("Creates: " .. linky .. "(" .. x["ItemID"] .. ")")
+			if (linky) then
+				self:Print("Creates: " .. linky .. "(" .. x["ItemID"] .. ")")
+			else
+				self:Print("Creates: (" .. x["ItemID"] .. ")")
+			end
 		end
 --[[
 		if (x["Locations"]) then
@@ -895,7 +895,7 @@ function addon:DumpSpell(SpellID)
 		end
 ]]--
 
-		local acquire = DB[SpellID]["Acquire"]
+		local acquire = clist[SpellID]["Acquire"]
 
 		self:Print("Acquire methods:")
 		for i in pairs(acquire) do
