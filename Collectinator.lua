@@ -144,6 +144,8 @@ function addon:OnEnable()
 
 	self:RegisterEvent("COMPANION_LEARNED")
 
+	self:CreateScanButton()
+
 end
 
 function addon:OnDisable()
@@ -1244,3 +1246,62 @@ function addon:DumpSpell(SpellID)
 	end
 
 end
+
+-- Description: Creates the scan button
+-- Expected result: Scan button is created with all functions associated with it.
+-- Input: None.
+-- Output: Button is created and hidden.
+
+function addon:CreateScanButton()
+
+	-- Create the scan button
+	if (not addon.ScanButton) then
+		addon.ScanButton = CreateFrame("Button","addon.ScanButton",UIParent,"UIPanelButtonTemplate")
+	end
+
+	-- Set some of the common button properties
+	addon.ScanButton:SetHeight(20)
+	addon.ScanButton:RegisterForClicks("LeftButtonUp")
+	addon.ScanButton:SetScript("OnClick",
+			function()
+				addon:DoCompleteScan()
+				--addon:ToggleFrame()
+			end
+		)
+
+	addon.ScanButton:SetScript("OnEnter",
+			function(this)
+				GameTooltip_SetDefaultAnchor(GameTooltip, this)
+				GameTooltip:SetText(L["SCAN_COMPANIONS_DESC"])
+				GameTooltip:Show()
+			end
+		)
+
+	addon.ScanButton:SetScript("OnLeave",
+			function()
+				GameTooltip:Hide()
+			end
+		)
+
+	addon.ScanButton:SetText(L["Scan"])
+
+	local buttonparent = addon.ScanButton:GetParent()
+	local framelevel = buttonparent:GetFrameLevel()
+	local framestrata = buttonparent:GetFrameStrata()
+
+	-- Set the frame level of the button to be 1 deeper than its parent
+	addon.ScanButton:SetFrameLevel(framelevel + 1)
+	addon.ScanButton:SetFrameStrata(framestrata)
+
+	addon.ScanButton:Enable()
+
+	addon.ScanButton:SetParent(PetPaperDollFrameCompanionFrame)
+	addon.ScanButton:ClearAllPoints()
+
+	addon.ScanButton:SetPoint("LEFT",CompanionNextPageButton,"RIGHT",0,-5)
+	addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)
+
+	addon.ScanButton:Show()
+
+end
+
