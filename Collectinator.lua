@@ -146,6 +146,8 @@ function addon:OnEnable()
 
 	self:CreateScanButton()
 
+	self:AddTabTotals()
+
 end
 
 function addon:OnDisable()
@@ -1114,10 +1116,38 @@ function addon:CreateScanButton()
 	addon.ScanButton:SetParent(PetPaperDollFrameCompanionFrame)
 	addon.ScanButton:ClearAllPoints()
 
-	addon.ScanButton:SetPoint("LEFT",CompanionNextPageButton,"RIGHT",0,-5)
+	addon.ScanButton:SetPoint("LEFT",CompanionNextPageButton,"RIGHT",0,0)
 	addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)
 
 	addon.ScanButton:Show()
 
 end
 
+function addon:AddTabTotals()
+
+	PetPaperDollFrameTab2:SetScript("OnEnter",
+			function(this)
+				GameTooltip_SetDefaultAnchor(GameTooltip, this)
+				GameTooltip:SetText(GetNumCompanions("CRITTER") .. " companions known.")
+				GameTooltip:Show()
+			end
+		)
+	PetPaperDollFrameTab2:SetScript("OnLeave",
+			function()
+				GameTooltip:Hide()
+			end
+		)
+
+	PetPaperDollFrameTab3:SetScript("OnEnter",
+			function(this)
+				GameTooltip_SetDefaultAnchor(GameTooltip, this)
+				GameTooltip:SetText(GetNumCompanions("MOUNT") .. " mounts known.")
+				GameTooltip:Show()
+			end
+		)
+	PetPaperDollFrameTab3:SetScript("OnLeave",
+			function()
+				GameTooltip:Hide()
+			end
+		)
+end
