@@ -36,11 +36,15 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 4, "Blue Murloc") -- Blizzcon 2005
 	self:addLookupList(CustomDB, 5, "Lurky") -- EU BC CE
 	self:addLookupList(CustomDB, 6, "Pink Murloc") -- EU Contest
-	self:addLookupList(CustomDB, 7, "Polar Bear Collar")
+	self:addLookupList(CustomDB, 7, "Polar Bear Collar") -- Asian Coke Promotion
 	self:addLookupList(CustomDB, 8, "Original CE")
 	self:addLookupList(CustomDB, 9, "Crawdad")
 	self:addLookupList(CustomDB, 10, "BC CE")
 	self:addLookupList(CustomDB, 11, "Wrath CE")
+	self:addLookupList(CustomDB, 12, "WWI Korea") -- Lucky Golden Pig
+	self:addLookupList(CustomDB, 13, "China Olypmics")
+	self:addLookupList(CustomDB, 14, "WWI France")
+	self:addLookupList(CustomDB, 15, "4th Year Anniversary")
 
 end
 
