@@ -264,17 +264,17 @@ function addon:MakeMiniPetTable(PetDB)
 	self:AddCompanionFlags(PetDB,23811,1,2,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,23811,7,3)
 
-	-- Blue Murloc Egg - 24696
+	-- Blue Murloc Egg - 24696 (Murky)
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,24696,20371,3,"CRITTER")
-	self:AddCompanionFlags(PetDB,24696,1,2,12,20,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionFlags(PetDB,24696,1,2,12,22,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,24696,8,4)
 
 	-- Lurky's Egg - 24988
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,24988,30360,3,"CRITTER")
-	self:AddCompanionFlags(PetDB,24988,12,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	self:AddCompanionAcquire(PetDB,24988,8,5)
+	self:AddCompanionFlags(PetDB,24988,1,2,13,22,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,24988,8,10)
 
 	-- Disgusting Oozeling - 25162
 	companioncount = companioncount + 1
@@ -312,10 +312,10 @@ function addon:MakeMiniPetTable(PetDB)
 	self:AddCompanionFlags(PetDB,26541,1,2,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,26541,7,1)
 
-	-- Pink Murloc Egg - 27241
+	-- Pink Murloc Egg - 27241 (Gurky)
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,27241,22114,3,"CRITTER")
-	self:AddCompanionFlags(PetDB,27241,12,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionFlags(PetDB,27241,1,2,12,22,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,27241,8,6)
 
 	-- Truesilver Shafted Arrow - 27570
