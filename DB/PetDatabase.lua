@@ -170,7 +170,7 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Rabbit Crate (Snowshoe) - 10711
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10711,8497,1,"CRITTER")
+	self:AddCompanion(PetDB,10711,8497,1,"CRITTER",9)
 	self:AddCompanionFlags(PetDB,10711,1,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10711,1,1263)
 
