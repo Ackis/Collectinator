@@ -356,9 +356,9 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Hippogryph Hatchling - 30156
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,30156,23713,4,"CRITTER")
-	--self:AddCompanionFlags(PetDB,30156,1,2,11,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,30156,8,1)
+	self:AddCompanion(PetDB,30156,23713,4,"CRITTER",65)
+	self:AddCompanionFlags(PetDB,30156,1,2,11,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,30156,8,1)
 
 	-- Netherwhelp's Collar - 32298
 	companioncount = companioncount + 1
@@ -458,9 +458,9 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Banana Charm - 40549
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,40549,32588,3,"CRITTER")
-	--self:AddCompanionFlags(PetDB,40549,1,2,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,40549
+	self:AddCompanion(PetDB,40549,32588,3,"CRITTER",68)
+	self:AddCompanionFlags(PetDB,40549,1,2,11,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,40549,8,1)
 
 	-- Sleepy Willy - 40613
 	companioncount = companioncount + 1
@@ -518,15 +518,15 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Rocket Chicken - 45125
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,45125,34492,3,"CRITTER")
-	--self:AddCompanionFlags(PetDB,45125,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,45125
+	self:AddCompanion(PetDB,45125,34492,3,"CRITTER",79)
+	self:AddCompanionFlags(PetDB,45125,1,2,11,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,45125,8,1)
 
 	-- Dragon Kite - 45127
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,45127,34493,4,"CRITTER")
-	--self:AddCompanionFlags(PetDB,45127,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,45127
+	self:AddCompanion(PetDB,45127,34493,4,"CRITTER",80)
+	self:AddCompanionFlags(PetDB,45127,1,2,11,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,45127,8,1)
 
 	-- Scorched Stone - 45890
 	companioncount = companioncount + 1
@@ -566,9 +566,9 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Soul-Trader Beacon - 49964
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,49964,38050,3,"CRITTER")
-	--self:AddCompanionFlags(PetDB,49964,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,49964,
+	self:AddCompanion(PetDB,49964,38050,3,"CRITTER",105)
+	self:AddCompanionFlags(PetDB,49964,1,2,11,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,49964,8,1)
 
 	-- Nether Ray Fry - 51716
 	companioncount = companioncount + 1
