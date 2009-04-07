@@ -332,25 +332,25 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Turtle Box - 28738
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,28738,23002,1,"CRITTER")
-	--self:AddCompanionFlags(PetDB,28738,1,2,4,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,28738,2,171,2,5502,7,8)
+	self:AddCompanion(PetDB,28738,23002,1,"CRITTER",33)
+	self:AddCompanionFlags(PetDB,28738,1,2,4,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,28738,2,171,2,5502,7,8)
 
 	-- Piglet's Collar - 28739
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,28739,23007,1,"CRITTER")
-	--self:AddCompanionFlags(PetDB,28739,1,2,4,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,28739,2,171,2,5502,7,8)
+	self:AddCompanion(PetDB,28739,23007,1,"CRITTER",13)
+	self:AddCompanionFlags(PetDB,28739,1,2,4,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,28739,2,171,2,5502,7,8)
 
 	-- Rat Cage - 28740
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,28740,23015,1,"CRITTER")
-	--self:AddCompanionFlags(PetDB,28740,1,2,4,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,28740,2,171,2,5502,7,8)
+	self:AddCompanion(PetDB,28740,23015,1,"CRITTER",12)
+	self:AddCompanionFlags(PetDB,28740,1,2,4,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,28740,2,171,2,5502,7,8)
 
 	-- Spirit of Summer - 28871
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,28871,23083,3,"CRITTER")
+	self:AddCompanion(PetDB,28871,23083,3,"CRITTER",64)
 	--self:AddCompanionFlags(PetDB,28871,1,2,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,28871,7,4)
 
@@ -459,30 +459,30 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Banana Charm - 40549
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,40549,32588,3,"CRITTER")
-	--self:AddCompanionFlags(PetDB,40549,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	--self:AddCompanionFlags(PetDB,40549,1,2,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,40549
 
 	-- Sleepy Willy - 40613
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,40613,32617,3,"CRITTER")
-	--self:AddCompanionFlags(PetDB,40613,4,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,40613,2,10966,2,10967)
+	self:AddCompanion(PetDB,40613,32617,3,"CRITTER",71)
+	self:AddCompanionFlags(PetDB,40613,1,2,4,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,40613,2,10966,2,10967,5,8)
 
 	-- Egbert's Egg - 40614
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,40614,32616,3,"CRITTER")
-	--self:AddCompanionFlags(PetDB,40614,4,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,40614,2,10966,2,10967)
+	self:AddCompanion(PetDB,40614,32616,3,"CRITTER",69)
+	self:AddCompanionFlags(PetDB,40614,1,2,4,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,40614,2,10966,2,10967,5,8)
 
 	-- Elekk Training Collar - 40634
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,40634,32622,3,"CRITTER")
-	--self:AddCompanionFlags(PetDB,40634,4,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,40634,2,10966,2,10967)
+	self:AddCompanion(PetDB,40634,32622,3,"CRITTER",70)
+	self:AddCompanionFlags(PetDB,40634,1,2,4,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,40634,2,10966,2,10967,5,8)
 
 	-- Reeking Pet Carrier - 40990
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,40990,40653,3,"CRITTER")
+	self:AddCompanion(PetDB,40990,40653,3,"CRITTER",117)
 	--self:AddCompanionFlags(PetDB,40990,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,40990
 
