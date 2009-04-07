@@ -164,7 +164,7 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Prairie Dog Whistle - 10709
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10709,10394,1,"CRITTER")
+	self:AddCompanion(PetDB,10709,10394,1,"CRITTER",11)
 	self:AddCompanionFlags(PetDB,10709,2,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10709,1,8401)
 
@@ -237,20 +237,20 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Panda Collar - 17707
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,17707,13583,3,"CRITTER")
-	self:AddCompanionFlags(PetDB,17707,1,2,4,13,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	self:AddCompanionAcquire(PetDB,17707,2,5805,2,5841,2,5842,2,5843,2,5844,2,5847,2,8547,2,9278,2,12781,8,10)
+	self:AddCompanionFlags(PetDB,17707,1,2,13,22,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,17707,8,8)
 
 	-- Diablo Stone - 17708
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,17708,13584,3,"CRITTER")
-	self:AddCompanionFlags(PetDB,17708,1,2,4,13,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	self:AddCompanionAcquire(PetDB,17708,2,5805,2,5841,2,5842,2,5843,2,5844,2,5847,2,8547,2,9278,2,12781,8,10)
+	self:AddCompanionFlags(PetDB,17708,1,2,13,22,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,17708,8,8)
 
 	-- Zergling Leash - 17709
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,17709,13582,3,"CRITTER")
-	self:AddCompanionFlags(PetDB,17709,1,2,4,13,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	self:AddCompanionAcquire(PetDB,17709,2,5805,2,5841,2,5842,2,5843,2,5844,2,5847,2,8547,2,9278,2,12781,8,10)
+	self:AddCompanionFlags(PetDB,17709,1,2,13,22,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,17709,8,8)
 
 	-- Lifelike Mechanical Toad - 19772
 	companioncount = companioncount + 1
@@ -363,8 +363,8 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Netherwhelp's Collar - 32298
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,32298,25535,3,"CRITTER")
-	self:AddCompanionFlags(PetDB,32298,1,2,14,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	self:AddCompanionAcquire(PetDB,32298,8,1)
+	self:AddCompanionFlags(PetDB,32298,1,2,13,22,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,32298,8,10)
 
 	-- Magical Crawdad Box - 33050
 	companioncount = companioncount + 1
@@ -546,13 +546,11 @@ function addon:MakeMiniPetTable(PetDB)
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,48406,37297,2,"CRITTER")
 	--self:AddCompanionFlags(PetDB,48406,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	-- No acquire information
 
 	-- Soul-Trader Beacon - 49964
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,49964,38050,3,"CRITTER")
 	self:AddCompanionFlags(PetDB,49964,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	-- No acquire information
 
 	-- Nether Ray Fry - 51716
 	companioncount = companioncount + 1
@@ -569,8 +567,8 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Frosty's Collar - 52615
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,52615,39286,3,"CRITTER")
-	self:AddCompanionFlags(PetDB,52615,21,25,26,27,28,29,30,31,32,33,34,35,36)
-	-- No acquire information
+	self:AddCompanionFlags(PetDB,52615,1,2,13,22,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,52615,8,11)
 
 	-- Tyrael's Hilt - 53082
 	companioncount = companioncount + 1

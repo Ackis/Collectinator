@@ -37,8 +37,10 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 5, "Lurky")
 	self:addLookupList(CustomDB, 6, "Pink Murloc")
 	self:addLookupList(CustomDB, 7, "Polar Bear Collar")
-	self:addLookupList(CustomDB, 8, "CE")
+	self:addLookupList(CustomDB, 8, "Original CE")
 	self:addLookupList(CustomDB, 9, "Crawdad")
+	self:addLookupList(CustomDB, 10, "BC CE")
+	self:addLookupList(CustomDB, 11, "Wrath CE")
 
 end
 
