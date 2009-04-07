@@ -45,6 +45,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 13, "China Olypmics")
 	self:addLookupList(CustomDB, 14, "WWI France")
 	self:addLookupList(CustomDB, 15, "4th Year Anniversary")
+	self:addLookupList(CustomDB, 16, "Random drop from the egg")
 
 end
 
