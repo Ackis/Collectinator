@@ -18,7 +18,7 @@ Project version: @project-version@
 Format:
 
 	self:AddCompanion(PetDB,SpellID,Item ID,Rarity,Companion Type,Warcraftpets Pet ID)
-
+	http://www.warcraftpets.com/go.asp?pet=
 ************************************************************************
 
 ]]--
@@ -381,8 +381,8 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Brown Rabbit Crate - 35239
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,35239,29364,1,"CRITTER",8)
-	self:AddCompanionFlags(PetDB,35239,1,2,3,4,20,25,26,27,28,29,30,31,32,33,34,35,36)
-	self:AddCompanionAcquire(PetDB,35239,1,20980,2,13303)
+	self:AddCompanionFlags(PetDB,35239,1,2,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,35239,1,20980)
 
 	-- Blue Moth Egg - 35907
 	companioncount = companioncount + 1
