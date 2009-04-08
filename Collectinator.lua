@@ -253,7 +253,7 @@ do
 	-- Input: None
 	-- Output: A table containing all its information
 
-	--- API for external addons to get the database
+	--- API for external addons to get the master database
 	-- @name Collectinator:GetMasterTable
 	-- @return Table containing all recipe information or nil if it's not found.
 	function addon:GetMasterTable()
@@ -263,6 +263,15 @@ do
 		else
 			return nil
 		end
+
+	end
+
+	--- API for external addons to get the database
+	-- @name Collectinator:GetSubTable
+	-- @return Table containing all recipe information or nil if it's not found.
+	function addon:GetSubTable()
+
+		return MobList, QuestList, ReputationList, SeasonalList, VendorList, CustomList
 
 	end
 
@@ -377,12 +386,8 @@ do
 
 		addon:GetExclusions(CompanionDB)
 
-		addon:DumpDatabase(CompanionDB, playerData, VendorList)
+		addon:DumpDatabase(playerData)
 
-	end
-
-	function addon:GetDB()
-		return CompanionDB
 	end
 
 end
@@ -632,11 +637,17 @@ end
 -- Input: None
 -- Output: Graphical output only
 
-function addon:DumpDatabase(DB, playerData, VendorList)
+function addon:DumpDatabase(playerData)
 
 	--@non-debug@
 	self:Print("DEBUG: This command is only availible for testing purposes.")
 	--@end-non-debug@
+
+	local DB = self:GetMasterTable()
+
+	if (not DB) then
+		return
+	end
 
 	-- Parse the database
 	self:Print("DEBUG: Dumping the database.")
@@ -874,11 +885,13 @@ end
 
 function addon:DumpSpell(SpellID)
 
-	local clist = addon:GetMasterTable()
+	local clist = self:GetMasterTable()
 
 	if (not clist) then
 		return
 	end
+
+	local mlist, qlist, replist, seasonlist, vlist, custlist = self:GetSubTable()
 
 	if (clist[SpellID]) then
 
@@ -906,26 +919,43 @@ function addon:DumpSpell(SpellID)
 			local acquiretype = acquire[i]["Type"]
 			if (acquiretype == 1) then
 				self:Print("Vendor: " .. acquire[i]["ID"])
-				if (VendorList[i]) then
-					self:Print(VendorList[i]["Name"])
+				if (vlist[i]) then
+					self:Print(vlist[i]["Name"])
 				end
 			elseif (acquiretype == 2) then
 				self:Print("Quest: " .. acquire[i]["ID"])
+				if (qlist[i]) then
+					self:Print(qlist[i]["Name"])
+				end
 			elseif (acquiretype == 3) then
 				self:Print("Crafted: " .. GetSpellInfo(acquire[i]["ID"]))
 				self:Print("Created by: " .. GetSpellInfo(acquire[i]["Crafted"]))
 			elseif (acquiretype == 4) then
 				self:Print("Mob: " .. acquire[i]["ID"])
+				if (mlist[i]) then
+					self:Print(mlist[i]["Name"])
+				end
 			elseif (acquiretype == 5) then
 				self:Print("Seasonal: " .. acquire[i]["ID"])
+				if (seasonlist[i]) then
+					self:Print(seasonlist[i]["Name"])
+				end
 			elseif (acquiretype == 6) then
 				self:Print("Reputation: " .. acquire[i]["ID"])
 				self:Print("Rep Level: " .. acquire[i]["RepLevel"])
-				self:Print("Rep Vendor: " .. acquire[i]["RepVendor"])
+				if (replist[acquire[i]["ID"]]) then
+					self:Print(replist[acquire[i]["ID"]]["Name"])
+				end
+				if (vlist[acquire[i]["RepVendor"]]) then
+					self:Print("Rep Vendor: " .. vlist[acquire[i]["RepVendor"]]["Name"] .. " (" .. acquire[i]["RepVendor"] .. ")")
+				end
 			elseif (acquiretype == 7) then
 				self:Print("World Drop: " .. acquire[i]["ID"])
 			elseif (acquiretype == 8) then
 				self:Print("Custom: " .. acquire[i]["ID"])
+				if (custlist[i]) then
+					self:Print(custlist[i]["Name"])
+				end
 			elseif (acquiretype == 9) then
 				self:Print("Achievement: " .. acquire[i]["ID"])
 			else
