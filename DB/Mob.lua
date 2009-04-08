@@ -28,11 +28,11 @@ local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 --local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 --local BFAC				= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
---local BZONE				= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+local BZONE				= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 --local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 function addon:InitMob(MobDB)
 
-	--self:addLookupList(MobDB,3320,L["Soran"],BZONE["Orgrimmar"],49.32,70.13)
+	self:addLookupList(MobDB,1561,L["Bloodsail Raider"],BZONE["Hyacinth Macaw"],27.0,70.0)
 
 end

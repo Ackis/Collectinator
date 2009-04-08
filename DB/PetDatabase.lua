@@ -80,31 +80,31 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Parrot Cage (Cockatiel) - 10680
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10680,8496,1,"CRITTER")
-	--self:AddCompanionFlags(PetDB,10680,1,2,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,10680,1,2663)
+	self:AddCompanion(PetDB,10680,8496,1,"CRITTER",22)
+	self:AddCompanionFlags(PetDB,10680,1,2,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,10680,1,2663)
 
 	-- Parrot Cage (Hyacinth Macaw) - 10682
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10682,8494,1,"CRITTER")
-	--self:AddCompanionFlags(PetDB,10682,1,2,10,20,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,10682,4,1561,4,1562,4,1563,4,1564,4,1565,4,2545,4,4505,4,4506)
+	self:AddCompanion(PetDB,10682,8494,1,"CRITTER",24)
+	self:AddCompanionFlags(PetDB,10682,1,2,10,20,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,10682,4,1561,4,1562,4,1563,4,1564,4,1565,4,1653,4,2545,4,4505,4,4506)
 
 	-- Parrot Cage (Green Wing Macaw) - 10683
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10683,8492,1,"CRITTER")
-	--self:AddCompanionFlags(PetDB,10683,1,2,6,20,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,10683,4,657)
+	self:AddCompanion(PetDB,10683,8492,1,"CRITTER",23)
+	self:AddCompanionFlags(PetDB,10683,1,2,6,10,20,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,10683,4,657)
 
 	-- Parrot Cage (Senegal) - 10684
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10684,8495,1,"CRITTER")
-	--self:AddCompanionFlags(PetDB,10684,1,2,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
-	--self:AddCompanionAcquire(PetDB,10684,1,2663,1,20980)
+	self:AddCompanion(PetDB,10684,8495,1,"CRITTER",25)
+	self:AddCompanionFlags(PetDB,10684,1,2,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionAcquire(PetDB,10684,1,2663,1,20980)
 
 	-- Ancona Chicken - 10685
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10685,11023,1,"CRITTER")
+	self:AddCompanion(PetDB,10685,11023,1,"CRITTER",16)
 	--self:AddCompanionFlags(PetDB,10685,1,2,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,10685,1,6548)
 
@@ -116,25 +116,25 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Dark Whelpling - 10695
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10695,10822,1,"CRITTER")
+	self:AddCompanion(PetDB,10695,10822,1,"CRITTER",34)
 	--self:AddCompanionFlags(PetDB,10695,1,2,10,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,10695,4,2725,4,4324)
 
 	-- Azure Whelpling - 10696
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10696,34535,1,"CRITTER")
+	self:AddCompanion(PetDB,10696,34535,1,"CRITTER",78)
 	--self:AddCompanionFlags(PetDB,10696,1,2,10,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,10696,4,193,4,6129,4,6130,4,6131)
 
 	-- Tiny Crimson Whelpling - 10697
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10697,8499,1,"CRITTER")
+	self:AddCompanion(PetDB,10697,8499,1,"CRITTER",35)
 	--self:AddCompanionFlags(PetDB,10697,1,2,10,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,10697,4,1042,4,1044,4,1069)
 
 	-- Tiny Emerald Whelpling - 10698
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10698,8498,1,"CRITTER")
+	self:AddCompanion(PetDB,10698,8498,1,"CRITTER",36)
 	--self:AddCompanionFlags(PetDB,10698,1,2,10,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,10698,4,741)
 
@@ -152,13 +152,13 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Hawk Owl - 10706
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10706,8501,1,"CRITTER")
+	self:AddCompanion(PetDB,10706,8501,1,"CRITTER",20)
 	--self:AddCompanionFlags(PetDB,10706,1,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,10706,1,8665)
 
 	-- Great Horned Owl - 10707
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10707,8500,1,"CRITTER")
+	self:AddCompanion(PetDB,10707,8500,1,"CRITTER",19)
 	--self:AddCompanionFlags(PetDB,10707,1,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,10707,1,8665)
 
@@ -194,25 +194,25 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Mechanical Chicken - 12243
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,12243,10398,1,"CRITTER")
+	self:AddCompanion(PetDB,12243,10398,1,"CRITTER",17)
 	--self:AddCompanionFlags(PetDB,12243,1,2,4,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,12243,2,3721,25,26,27,28,29,30,31,32,33,34,35,36)
 
 	-- Chicken Egg - 13548
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,13548,11110,1,"CRITTER")
+	self:AddCompanion(PetDB,13548,11110,1,"CRITTER",18)
 	--self:AddCompanionFlags(PetDB,13548,1,2,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,13548,8,2)
 
 	-- Pet Bombling - 15048
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,15048,11825,1,"CRITTER")
+	self:AddCompanion(PetDB,15048,11825,1,"CRITTER",57)
 	--self:AddCompanionFlags(PetDB,15048,1,2,5,21,29)
 	--self:AddCompanionAcquire(PetDB,15048,3,4036,15628)
 
 	-- Lil' Smoky - 15049
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,15049,11826,1,"CRITTER")
+	self:AddCompanion(PetDB,15049,11826,1,"CRITTER",56)
 	--self:AddCompanionFlags(PetDB,15049,1,2,5,21,29)
 	--self:AddCompanionAcquire(PetDB,15049,3,4036,15633)
 
