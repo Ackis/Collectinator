@@ -369,8 +369,8 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Magical Crawdad Box - 33050
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,33050,27445,1,"CRITTER")
-	--self:AddCompanionFlags(PetDB,33050,1,2,21,36)
-	--self:AddCompanionAcquire(PetDB,33050,8,9)
+	self:AddCompanionFlags(PetDB,33050,1,2,21,36)
+	self:AddCompanionAcquire(PetDB,33050,8,9)
 
 	-- Mana Wyrmling - 35156
 	companioncount = companioncount + 1
@@ -495,14 +495,14 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Toothy's Bucket - 43697
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,43697,33816,3,"CRITTER")
-	--self:AddCompanionFlags(PetDB,43697,1,2,21,36)
-	--self:AddCompanionAcquire(PetDB,43697
+	self:AddCompanionFlags(PetDB,43697,1,2,4,21,36)
+	self:AddCompanionAcquire(PetDB,43697,2,11665,8,18)
 
 	-- Muckbreath's Bucket - 43698
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,43698,33818,3,"CRITTER")
-	--self:AddCompanionFlags(PetDB,43698,1,2,21,36)
-	--self:AddCompanionAcquire(PetDB,43698
+	self:AddCompanionFlags(PetDB,43698,1,2,4,21,36)
+	self:AddCompanionAcquire(PetDB,43698,2,11665,8,18)
 
 	-- Mojo - 43918
 	companioncount = companioncount + 1
@@ -537,14 +537,14 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Snarly's Bucket - 46425
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,46425,35349,3,"CRITTER")
-	--self:AddCompanionFlags(PetDB,46425,1,2,21,36)
-	--self:AddCompanionAcquire(PetDB,46425
+	self:AddCompanionFlags(PetDB,46425,1,2,4,21,36)
+	self:AddCompanionAcquire(PetDB,46425,2,11665,8,18)
 
 	-- Chuck's Bucket - 46426
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,46426,35350,3,"CRITTER")
-	--self:AddCompanionFlags(PetDB,46426,1,2,21,36)
-	--self:AddCompanionAcquire(PetDB,46426
+	self:AddCompanionFlags(PetDB,46426,1,2,4,21,36)
+	self:AddCompanionAcquire(PetDB,46426,2,11665,8,18)
 
 	-- Phoenix Hatchling - 46599
 	companioncount = companioncount + 1
@@ -615,7 +615,7 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Giant Sewer Rat - 59250
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,59250,43698,3,"CRITTER")
-	self:AddCompanionFlags(PetDB,59250,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionFlags(PetDB,59250,1,2,21,36)
 	--self:AddCompanionAcquire(PetDB,
 
 	-- Tickbird Hatchling -- 61348
