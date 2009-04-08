@@ -48,6 +48,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 16, "Random drop from the egg")
 	self:addLookupList(CustomDB, 17, "Giant Rat")
 	self:addLookupList(CustomDB, 18, "BC Fishing Daily")
+	self:addLookupList(CustomDB, 19, "Mojo ZA")
 
 end
 
