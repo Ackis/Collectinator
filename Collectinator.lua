@@ -393,6 +393,8 @@ do
 
 		addon:DumpDatabase(playerData)
 
+		--addon:CreateFrame(CompanionDB,sortedRI,playerData,nil,nil,VendorList,QuestList,ReputationList,SeasonalList,MobList,CustomList)
+
 	end
 
 end
