@@ -18,8 +18,7 @@
 ## X-Feedback: http://www.curse.com/downloads/details/
 
 ## Dependencies:
-## X-Embeds: Ace3, LibStub, CallbackHandler-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibAboutPanel
-## OptionalDeps: Ace3, LibStub, CallbackHandler-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibAboutPanel
+## OptionalDeps: Ace3, LibAboutPanel, LibBetterBlizzOptions-1.0, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibBabble-Class-3.0, LibSharedMedia-3.0, LibQTip-1.0, TipTac
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 
@@ -34,5 +33,6 @@ local.xml
 
 Collectinator.lua
 CollectinatorOptions.lua
+CollectinatorFrame.lua
 
 database.xml
