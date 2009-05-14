@@ -160,23 +160,28 @@ end
 
 function addon:ChatCommand(input)
 
-	if (not input) or (input and input:trim() == "") or (input == tolower(L["About"]))then
+	-- Open About panel if there's no parameters or if we do /arl about
+	if (not input) or (input and input:trim() == "") or (input == strlower(L["Sorting"])) or (input == strlower(L["Sort"]))  or (input == strlower(L["Display"])) then
+		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+	elseif (input == strlower(L["About"])) then
 		if (self.optionsFrame["About"]) then
 			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
 		else
 			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 		end
-	elseif (input == tolower(L["Sorting"])) or (input == tolower(L["Sort"]))  or (input == tolower(L["Display"])) then
-		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-	elseif (input == tolower(L["Profile"])) then
+	elseif (input == strlower(L["Profile"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
-	elseif (input == tolower(L["Filter"])) then
+	elseif (input == strlower(L["Filter"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Filters"])
-	elseif (input == tolower(L["Scan"])) then
-		self:AckisRecipeList_Command(false)
+	elseif (input == strlower(L["Documentation"])) then
+		--InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
+	elseif (input == strlower(L["Scan"])) then
+		self:DoCompleteScan()
+	elseif (input == strlower("scandata")) then
+		--self:ScanSkillLevelData()
 	else
 		-- What happens when we get here?
-		LibStub("AceConfigCmd-3.0"):HandleCommand("collectinator", "Collectinator", input)
+		LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", input)
 	end
 
 end
