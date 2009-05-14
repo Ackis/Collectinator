@@ -642,9 +642,6 @@ end
 
 
 -- Description: Parses the savedvariables to display which companions you are missing
--- Expected result: Provides a list which companions you know/don't know
--- Input: None
--- Output: Graphical output only
 
 function addon:DumpDatabase(playerData,sortedindex)
 
