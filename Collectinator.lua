@@ -391,9 +391,9 @@ do
 
 		addon:GetExclusions(CompanionDB)
 
-		addon:DumpDatabase(playerData)
-
 		local sortedindex = self:SortMissingRecipes(CompanionDB)
+
+		addon:DumpDatabase(playerData,sortedindex)
 
 		--addon:CreateFrame(CompanionDB,sortedindex,playerData,nil,nil,VendorList,QuestList,ReputationList,SeasonalList,MobList,CustomList)
 
@@ -646,7 +646,7 @@ end
 -- Input: None
 -- Output: Graphical output only
 
-function addon:DumpDatabase(playerData)
+function addon:DumpDatabase(playerData,sortedindex)
 
 	--@non-debug@
 	self:Print("DEBUG: This command is only availible for testing purposes.")
@@ -660,7 +660,7 @@ function addon:DumpDatabase(playerData)
 
 	-- Parse the database
 	self:Print("DEBUG: Dumping the database.")
-	for SpellID in pairs(DB) do
+	for SpellID in pairs(sortedindex) do
 		if (DB[SpellID]["Known"] == false) and (DB[SpellID]["Display"] == true) then
 			self:DumpSpell(SpellID)
 		end
