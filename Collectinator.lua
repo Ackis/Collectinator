@@ -75,7 +75,7 @@ function addon:OnInitialize()
 			},
 
 			-- Sorting Options
-			sorting = L["Skill"],
+			sorting = L["Name"],
 
 			-- Display Options
 			includefiltered = false,
@@ -387,13 +387,15 @@ do
 
 		addon:CheckForKnownCompanions(CompanionDB, playerData)
 
-		addon:UpdateFilters(CompanionDB,playerData)
+		addon:UpdateFilters(CompanionDB, playerData)
 
 		addon:GetExclusions(CompanionDB)
 
 		addon:DumpDatabase(playerData)
 
-		--addon:CreateFrame(CompanionDB,sortedRI,playerData,nil,nil,VendorList,QuestList,ReputationList,SeasonalList,MobList,CustomList)
+		local sortedindex = self:SortMissingRecipes(CompanionDB)
+
+		--addon:CreateFrame(CompanionDB,sortedindex,playerData,nil,nil,VendorList,QuestList,ReputationList,SeasonalList,MobList,CustomList)
 
 	end
 
@@ -886,6 +888,93 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 		elseif (Faction == 2) then
 			DB[ID]["Faction"] = BFAC["Horde"]
 		end
+	end
+
+end
+
+--[[
+
+	Sorting Functions
+
+]]--
+
+do
+
+	-- Sorting functions
+
+	local sortFuncs = nil
+
+	-- Description: Sorts the recipe Database depending on the settings defined in the database.
+
+	function addon:SortMissingRecipes(DB)
+
+		if (not sortFuncs) then
+
+			sortFuncs = {}
+
+			sortFuncs["SkillAsc"] = function(a, b)
+				if (DB[a]["Level"] == DB[b]["Level"]) then
+					return DB[a]["Name"] < DB[b]["Name"]
+				else
+					return DB[a]["Level"] < DB[b]["Level"]
+				end
+			end
+
+			sortFuncs["SkillDesc"] = function(a, b) 
+				if (DB[a]["Level"] == DB[b]["Level"]) then
+					return DB[a]["Name"] < DB[b]["Name"]
+				else
+					return DB[b]["Level"] < DB[a]["Level"]
+				end
+			end
+
+			sortFuncs["Name"] = function(a, b)
+				return DB[a]["Name"] < DB[b]["Name"]
+			end
+
+			-- Will only sort based off of the first acquire type
+			sortFuncs["Acquisition"] = function (a, b)
+				local reca = DB[a]["Acquire"][1]
+				local recb = DB[b]["Acquire"][1]
+				if (reca and recb) then
+					if (reca["Type"] == recb["Type"]) then
+						return DB[a]["Name"] < DB[b]["Name"]
+					else
+						return reca["Type"] < recb["Type"]
+					end
+				else
+					return not not reca
+				end
+			end
+
+			-- Will only sort based off of the first acquire type
+			sortFuncs["Location"] = function (a, b)
+				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
+				local reca = DB[a]["Locations"] or ""
+				local recb = DB[b]["Locations"] or ""
+				reca = smatch(reca,"(%w+),") or ""
+				recb = smatch(recb,"(%w+),") or ""
+				if (reca == recb) then
+					return DB[a]["Name"] < DB[b]["Name"]
+				else
+					return (reca < recb)
+				end
+			end
+
+		end
+
+		-- Create a new array for the sorted index
+		local SortedRecipeIndex = {}
+
+		-- Get all the indexes of the DB
+		for n, v in pairs(DB) do
+			tinsert(SortedRecipeIndex, n)
+		end
+
+		tsort(SortedRecipeIndex, sortFuncs[addon.db.profile.sorting])
+
+		return SortedRecipeIndex
+
 	end
 
 end
