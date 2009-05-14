@@ -98,14 +98,12 @@ local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
 
 -- local versions of the databases storing the recipe information, trainers, vendors, etc
 local recipeDB = {}
-local trainerDB = {}
 local vendorDB = {}
 local questDB = {}
 local repDB = {}
 local seasonDB = {}
 local customDB = {}
 local mobDB = {}
-local allSpecTable = {}
 local playerData = {}
 
 local arlTooltip = _G["arlTooltip"]
@@ -335,191 +333,6 @@ local function CheckDisplayFaction(filterDB, faction)
 		end
 	else
 		return true
-	end
-
-end
-
-do
-
-	local function LoadZones(c,y, ...)
-		-- Fill up the list for normal lookup
-		for i=1,select('#', ...),1 do
-			c[i] = select(i,...)
-		end
-		-- Reverse lookup to make work easier later on
-		for i in pairs(c) do
-			y[c[i]] = i
-		end
-	end
-
-	local C1 = {}
-	local C2 = {}
-	local C3 = {}
-	local C4 = {}
-	local c1 = {}
-	local c2 = {}
-	local c3 = {}
-	local c4 = {}
-
-	LoadZones(C1,c1,GetMapZones(1))
-	LoadZones(C2,c2,GetMapZones(2))
-	LoadZones(C3,c3,GetMapZones(3))
-	LoadZones(C4,c4,GetMapZones(4))
-
-	local iconlist = {}
-
-	-- Description: Clears all the icons from the map.
-	-- Expected result: All icons are removed from the world map and the mini-map
-	-- Input: None
-	-- Output: All icons are removed.
-
-	function addon:ClearMap()
-
-		-- Make sure we have TomTom installed
-		if (TomTom) then
-			-- Remove all the waypoints from TomTom
-			for i in pairs(iconlist) do
-				TomTom:RemoveWaypoint(iconlist[i])
-			end
-			-- Nuke our own internal table
-			iconlist = twipe(iconlist)
-		end
-
-	end
-
-	local function CheckMapDisplay(v, filters)
-
-		local display = false
-
-		-- If it's a trainer check to see if we're displaying it on the map.
-		if (v["Type"] == 1) then
-			display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
-		-- If it's a vendor check to see if we're displaying it on the map
-		elseif (v["Type"] == 2) then
-			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
-		-- If it's a quest check to see if we're displaying it on the map
-		elseif (v["Type"] == 4) then
-			display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
-		end
-
-		return display
-
-	end
-
-	-- Description: Adds mini-map and world map icons with tomtom.
-	-- Expected result: Icons are added to the world map and mini-map.
-	-- Input: An optional recipe ID
-	-- Output: Points are added to the maps
-
-	function addon:SetupMap(singlerecipe)
-
-		if (not TomTom) then
-			--@debug@
-			self:Print("TomTom not loaded, integration with the world map and mini-map disabled.")
-			--@end-debug@
-			return
-		end
-
-		local worldmap = addon.db.profile.worldmap
-		local minimap = addon.db.profile.minimap
-		local filters = addon.db.profile.filters
-		local autoscanmap = addon.db.profile.autoscanmap
-
-		if ((worldmap == true) or (minimap == true)) then
-
-			local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
-
-			-- Get the proper icon to put on the mini-map
-			for i,k in pairs(SortedProfessions) do
-				if (k["name"] == playerData.playerProfession) then
-					icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
-					break
-				end
-			end
-
-			local maplist = {}
-
-			-- We're only getting a single recipe, not a bunch
-			if (singlerecipe) then
-				-- loop through acquire methods, display each
-				for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
-					if (CheckMapDisplay(v,filters)) then
-						maplist[v["ID"]] = v["Type"]
-					end
-				end
-			elseif (autoscanmap == true) then
-				-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
-				for i = 1, #sortedRecipeIndex do
-					local recipeIndex = sortedRecipeIndex[i]
-					if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
-						-- loop through acquire methods, display each
-						for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-							if (CheckMapDisplay(v,filters)) then
-								maplist[v["ID"]] = v["Type"]
-							end
-						end
-					end
-				end
-			end
-
-			--[[
-			local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapDetailFrame)
-			ARLWorldMap:ClearAllPoints()
-			ARLWorldMap:SetWidth(8)
-			ARLWorldMap:SetHeight(8)
-			ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK") 
-			ARLWorldMap.icon:SetTexture(icontext)
-			ARLWorldMap.icon:SetAllPoints()
-
-			local ARLMiniMap = CreateFrame("Button","ARLMiniMap",MiniMap)
-			ARLMiniMap:ClearAllPoints()
-			ARLMiniMap:SetWidth(8)
-			ARLMiniMap:SetHeight(8)
-			ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
-			ARLMiniMap.icon:SetTexture(icontext)
-			ARLMiniMap.icon:SetAllPoints()
-			]]--
-
-			for k, j in pairs(maplist) do
-
-				local continent, zone
-				local loc = nil
-
-				if (maplist[k] == 2) then
-					loc = vendorDB[k]
-				elseif (maplist[k] == 3) then
-					loc = mobDB[k]
-				elseif (maplist[k] == 4) then
-					loc = questDB[k]
-				end
-
-				if (c1[loc["Location"]]) then
-					continent = 1
-					zone = c1[loc["Location"]]
-				elseif (c2[loc["Location"]]) then
-					continent = 2
-					zone = c2[loc["Location"]]
-				elseif (c3[loc["Location"]]) then
-					continent = 3
-					zone = c3[loc["Location"]]
-				elseif (c4[loc["Location"]]) then
-					continent = 4
-					zone = c4[loc["Location"]]
-				else
-					--@debug@
-					addon:Print("DEBUG: No continent/zone map match for ID " .. k .. ".")
-					--@end-debug@
-				end
-		
-				if ((zone) and (continent)) then
-					local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
-					tinsert(iconlist,iconuid)
-				end
-
-			end
-
-		end
-
 	end
 
 end
@@ -775,45 +588,8 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		-- loop through acquire methods, display each
 		for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
 
-			-- Trainer
-			if (v["Type"] == 1) then
-				-- Trainer:				TrainerName
-				-- TrainerZone			TrainerCoords
-				local trnr = trainerDB[v["ID"]]
-				local cStr = ""
-
-				clr1 = addon:hexcolor("TRAINER")
-				-- Don't display trainers if it's opposite faction
-				local displaytt = false
-				if (trnr["Faction"] == BFAC["Horde"]) then
-					clr2 = addon:hexcolor("HORDE")
-					if (playerFaction == BFAC["Horde"]) then
-						displaytt = true
-					end
-				elseif (trnr["Faction"] == BFAC["Alliance"]) then
-					clr2 = addon:hexcolor("ALLIANCE")
-					if (playerFaction == BFAC["Alliance"]) then
-						displaytt = true
-					end
-				else
-					clr2 = addon:hexcolor("NEUTRAL")
-					displaytt = true
-				end
-
-				if (displaytt) then
-					-- Add the trainer information to the tooltip
-					ttAdd(0, -2, 0, 0, L["Trainer"], clr1, trnr["Name"], clr2)
-					-- If we have a coordinate, add the coordinates to the tooltop
-					if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
-						cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
-					end
-					clr1 = addon:hexcolor("NORMAL")
-					clr2 = addon:hexcolor("HIGH")
-					ttAdd(1, -2, 1, 0, trnr["Location"], clr1, cStr, clr2)
-				end
-
 			-- Vendor
-			elseif (v["Type"] == 2) then
+			if (v["Type"] == 2) then
 
 				-- Vendor:					VendorName
 				-- VendorZone				VendorCoords
@@ -1264,7 +1040,7 @@ end
 
 local function ReDisplay()
 
-	addon:UpdateFilters(recipeDB, allSpecTable, playerData)
+	addon:UpdateFilters(recipeDB, playerData)
 	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
 
 	playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(recipeDB,playerData.playerProfession)
@@ -1871,7 +1647,6 @@ do
 			-- If we have a different profession open we do a scan
 			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
 				self:DoCompleteScan(false)
-				self:SetupMap()
 				currentProfession = cprof
 			end
 		-- Frame is hidden
@@ -1886,7 +1661,6 @@ do
 			-- No modification
 			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
 				self:DoCompleteScan(false)
-				self:SetupMap()
 			end
 		end
 
@@ -2061,52 +1835,8 @@ local function expandEntry(dsIndex)
 		local pad = "  "
 		local t
 
-		-- Trainer Type
-		if (v["Type"] == 1) then
-
-			local trnr = trainerDB[v["ID"]]
-
-			if ((CheckDisplayFaction(filterDB, trnr["Faction"]) == true) and (obtainDB.trainer == true)) then
-
-				local tStr = addon:Trainer(L["Trainer"] .. " : ")
-				local nStr = ""
-				local cStr = ""
-
-				if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")")
-				end
-
-				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
-
-				if (trnr["Faction"] == BFAC["Horde"]) then
-					nStr = addon:Horde(trnr["Name"])
-				elseif (trnr["Faction"] == BFAC["Alliance"]) then
-					nStr = addon:Alliance(trnr["Name"])
-				else
-					nStr = addon:Neutral(trnr["Name"])
-				end
-
-				t.String = pad .. tStr .. nStr
-
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
-
-				t.String = pad .. pad .. trnr["Location"] .. " " .. cStr
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-			end
-
 		-- Vendor
-		elseif (v["Type"] == 2) then
+		if (v["Type"] == 2) then
 
 			local vndr = vendorDB[v["ID"]]
 
@@ -2391,11 +2121,8 @@ function addon.RecipeItem_OnClick(button)
 
 		-- First, check if this is a "modified" click, and react appropriately
 		if (IsModifierKeyDown()) then
-			-- CTRL-SHIFT
-			if (IsControlKeyDown() and IsShiftKeyDown()) then
-				addon:SetupMap(clickedSpellIndex)
 			-- SHIFT
-			elseif (IsShiftKeyDown()) then
+			if (IsShiftKeyDown()) then
 				local itemID = recipeDB[clickedSpellIndex]["ItemID"]
 				if (itemID) then
 					local _,itemLink = GetItemInfo(itemID)
@@ -3249,10 +2976,8 @@ function addon:CreateFrame(
 
 	sortedRecipeIndex = sortedRI
 	recipeDB = rDB
-	allSpecTable = asTable
 	playerData = cPlayer
 	currentProfession = playerData.playerProfession
-	trainerDB = trList
 	vendorDB = vList
 	questDB = qList
 	repDB = rList
