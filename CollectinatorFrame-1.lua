@@ -2,9 +2,9 @@
 
 ****************************************************************************************
 
-ARLFrame.lua
+CollectinatorFrame.lua
 
-Frame functions for all of AckisRecipeList
+Frame functions for all of Collectinator
 
 File date: @file-date-iso@ 
 File revision: @file-revision@ 
@@ -15,14 +15,13 @@ Project version: @project-version@
 
 ]]--
 
-local MODNAME	= "Ackis Recipe List"
+local MODNAME	= "Collectinator"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BC		= LibStub("LibBabble-Class-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip		= LibStub("LibQTip-1.0")
-local QTipClick		= LibStub("LibQTipClick-1.1")
 
 local string = string
 local ipairs = ipairs
@@ -99,20 +98,18 @@ local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
 
 -- local versions of the databases storing the recipe information, trainers, vendors, etc
 local recipeDB = {}
-local trainerDB = {}
 local vendorDB = {}
 local questDB = {}
 local repDB = {}
 local seasonDB = {}
 local customDB = {}
 local mobDB = {}
-local allSpecTable = {}
 local playerData = {}
 
 local arlTooltip = _G["arlTooltip"]
 local arlSpellTooltip = _G["arlSpellTooltip"]
 
-local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
+local addonversion = GetAddOnMetadata("Collectinator", "Version")
 addonversion = string.gsub(addonversion,"@project.revision@","SVN")
 
 local ARL_SearchText,ARL_LastSearchedText
@@ -336,191 +333,6 @@ local function CheckDisplayFaction(filterDB, faction)
 		end
 	else
 		return true
-	end
-
-end
-
-do
-
-	local function LoadZones(c,y, ...)
-		-- Fill up the list for normal lookup
-		for i=1,select('#', ...),1 do
-			c[i] = select(i,...)
-		end
-		-- Reverse lookup to make work easier later on
-		for i in pairs(c) do
-			y[c[i]] = i
-		end
-	end
-
-	local C1 = {}
-	local C2 = {}
-	local C3 = {}
-	local C4 = {}
-	local c1 = {}
-	local c2 = {}
-	local c3 = {}
-	local c4 = {}
-
-	LoadZones(C1,c1,GetMapZones(1))
-	LoadZones(C2,c2,GetMapZones(2))
-	LoadZones(C3,c3,GetMapZones(3))
-	LoadZones(C4,c4,GetMapZones(4))
-
-	local iconlist = {}
-
-	-- Description: Clears all the icons from the map.
-	-- Expected result: All icons are removed from the world map and the mini-map
-	-- Input: None
-	-- Output: All icons are removed.
-
-	function addon:ClearMap()
-
-		-- Make sure we have TomTom installed
-		if (TomTom) then
-			-- Remove all the waypoints from TomTom
-			for i in pairs(iconlist) do
-				TomTom:RemoveWaypoint(iconlist[i])
-			end
-			-- Nuke our own internal table
-			iconlist = twipe(iconlist)
-		end
-
-	end
-
-	local function CheckMapDisplay(v, filters)
-
-		local display = false
-
-		-- If it's a trainer check to see if we're displaying it on the map.
-		if (v["Type"] == 1) then
-			display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
-		-- If it's a vendor check to see if we're displaying it on the map
-		elseif (v["Type"] == 2) then
-			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
-		-- If it's a quest check to see if we're displaying it on the map
-		elseif (v["Type"] == 4) then
-			display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
-		end
-
-		return display
-
-	end
-
-	-- Description: Adds mini-map and world map icons with tomtom.
-	-- Expected result: Icons are added to the world map and mini-map.
-	-- Input: An optional recipe ID
-	-- Output: Points are added to the maps
-
-	function addon:SetupMap(singlerecipe)
-
-		if (not TomTom) then
-			--@debug@
-			self:Print("TomTom not loaded, integration with the world map and mini-map disabled.")
-			--@end-debug@
-			return
-		end
-
-		local worldmap = addon.db.profile.worldmap
-		local minimap = addon.db.profile.minimap
-		local filters = addon.db.profile.filters
-		local autoscanmap = addon.db.profile.autoscanmap
-
-		if ((worldmap == true) or (minimap == true)) then
-
-			local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
-
-			-- Get the proper icon to put on the mini-map
-			for i,k in pairs(SortedProfessions) do
-				if (k["name"] == playerData.playerProfession) then
-					icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
-					break
-				end
-			end
-
-			local maplist = {}
-
-			-- We're only getting a single recipe, not a bunch
-			if (singlerecipe) then
-				-- loop through acquire methods, display each
-				for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
-					if (CheckMapDisplay(v,filters)) then
-						maplist[v["ID"]] = v["Type"]
-					end
-				end
-			elseif (autoscanmap == true) then
-				-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
-				for i = 1, #sortedRecipeIndex do
-					local recipeIndex = sortedRecipeIndex[i]
-					if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
-						-- loop through acquire methods, display each
-						for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
-							if (CheckMapDisplay(v,filters)) then
-								maplist[v["ID"]] = v["Type"]
-							end
-						end
-					end
-				end
-			end
-
-			--[[
-			local ARLWorldMap = CreateFrame("Button","ARLWorldMap",WorldMapDetailFrame)
-			ARLWorldMap:ClearAllPoints()
-			ARLWorldMap:SetWidth(8)
-			ARLWorldMap:SetHeight(8)
-			ARLWorldMap.icon = ARLWorldMap:CreateTexture("ARTWORK") 
-			ARLWorldMap.icon:SetTexture(icontext)
-			ARLWorldMap.icon:SetAllPoints()
-
-			local ARLMiniMap = CreateFrame("Button","ARLMiniMap",MiniMap)
-			ARLMiniMap:ClearAllPoints()
-			ARLMiniMap:SetWidth(8)
-			ARLMiniMap:SetHeight(8)
-			ARLMiniMap.icon = ARLMiniMap:CreateTexture("ARTWORK") 
-			ARLMiniMap.icon:SetTexture(icontext)
-			ARLMiniMap.icon:SetAllPoints()
-			]]--
-
-			for k, j in pairs(maplist) do
-
-				local continent, zone
-				local loc = nil
-
-				if (maplist[k] == 2) then
-					loc = vendorDB[k]
-				elseif (maplist[k] == 3) then
-					loc = mobDB[k]
-				elseif (maplist[k] == 4) then
-					loc = questDB[k]
-				end
-
-				if (c1[loc["Location"]]) then
-					continent = 1
-					zone = c1[loc["Location"]]
-				elseif (c2[loc["Location"]]) then
-					continent = 2
-					zone = c2[loc["Location"]]
-				elseif (c3[loc["Location"]]) then
-					continent = 3
-					zone = c3[loc["Location"]]
-				elseif (c4[loc["Location"]]) then
-					continent = 4
-					zone = c4[loc["Location"]]
-				else
-					--@debug@
-					addon:Print("DEBUG: No continent/zone map match for ID " .. k .. ".")
-					--@end-debug@
-				end
-		
-				if ((zone) and (continent)) then
-					local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
-					tinsert(iconlist,iconuid)
-				end
-
-			end
-
-		end
-
 	end
 
 end
@@ -776,45 +588,8 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		-- loop through acquire methods, display each
 		for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
 
-			-- Trainer
-			if (v["Type"] == 1) then
-				-- Trainer:				TrainerName
-				-- TrainerZone			TrainerCoords
-				local trnr = trainerDB[v["ID"]]
-				local cStr = ""
-
-				clr1 = addon:hexcolor("TRAINER")
-				-- Don't display trainers if it's opposite faction
-				local displaytt = false
-				if (trnr["Faction"] == BFAC["Horde"]) then
-					clr2 = addon:hexcolor("HORDE")
-					if (playerFaction == BFAC["Horde"]) then
-						displaytt = true
-					end
-				elseif (trnr["Faction"] == BFAC["Alliance"]) then
-					clr2 = addon:hexcolor("ALLIANCE")
-					if (playerFaction == BFAC["Alliance"]) then
-						displaytt = true
-					end
-				else
-					clr2 = addon:hexcolor("NEUTRAL")
-					displaytt = true
-				end
-
-				if (displaytt) then
-					-- Add the trainer information to the tooltip
-					ttAdd(0, -2, 0, 0, L["Trainer"], clr1, trnr["Name"], clr2)
-					-- If we have a coordinate, add the coordinates to the tooltop
-					if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
-						cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
-					end
-					clr1 = addon:hexcolor("NORMAL")
-					clr2 = addon:hexcolor("HIGH")
-					ttAdd(1, -2, 1, 0, trnr["Location"], clr1, cStr, clr2)
-				end
-
 			-- Vendor
-			elseif (v["Type"] == 2) then
+			if (v["Type"] == 2) then
 
 				-- Vendor:					VendorName
 				-- VendorZone				VendorCoords
@@ -1265,7 +1040,7 @@ end
 
 local function ReDisplay()
 
-	addon:UpdateFilters(recipeDB, allSpecTable, playerData)
+	addon:UpdateFilters(recipeDB, playerData)
 	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
 
 	playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(recipeDB,playerData.playerProfession)
@@ -1862,7 +1637,7 @@ do
 		if (addon.Frame and addon.Frame:IsVisible()) then
 			-- Shift only (Text dump)
 			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(true)
+				self:DoCompleteScan(true)
 			-- Alt only (Wipe icons from map)
 			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
 				self:ClearMap()
@@ -1871,8 +1646,7 @@ do
 				addon.Frame:Hide()
 			-- If we have a different profession open we do a scan
 			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(false)
-				self:SetupMap()
+				self:DoCompleteScan(false)
 				currentProfession = cprof
 			end
 		-- Frame is hidden
@@ -1880,14 +1654,13 @@ do
 			currentProfession = cprof
 			-- Shift only (Text dump)
 			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(true)
+				self:DoCompleteScan(true)
 			-- Alt only (Wipe icons from map)
 			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
 				self:ClearMap()
 			-- No modification
 			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(false)
-				self:SetupMap()
+				self:DoCompleteScan(false)
 			end
 		end
 
@@ -2062,52 +1835,8 @@ local function expandEntry(dsIndex)
 		local pad = "  "
 		local t
 
-		-- Trainer Type
-		if (v["Type"] == 1) then
-
-			local trnr = trainerDB[v["ID"]]
-
-			if ((CheckDisplayFaction(filterDB, trnr["Faction"]) == true) and (obtainDB.trainer == true)) then
-
-				local tStr = addon:Trainer(L["Trainer"] .. " : ")
-				local nStr = ""
-				local cStr = ""
-
-				if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")")
-				end
-
-				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
-
-				if (trnr["Faction"] == BFAC["Horde"]) then
-					nStr = addon:Horde(trnr["Name"])
-				elseif (trnr["Faction"] == BFAC["Alliance"]) then
-					nStr = addon:Alliance(trnr["Name"])
-				else
-					nStr = addon:Neutral(trnr["Name"])
-				end
-
-				t.String = pad .. tStr .. nStr
-
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
-				t.IsExpanded = true
-
-				t.String = pad .. pad .. trnr["Location"] .. " " .. cStr
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-			end
-
 		-- Vendor
-		elseif (v["Type"] == 2) then
+		if (v["Type"] == 2) then
 
 			local vndr = vendorDB[v["ID"]]
 
@@ -2392,11 +2121,8 @@ function addon.RecipeItem_OnClick(button)
 
 		-- First, check if this is a "modified" click, and react appropriately
 		if (IsModifierKeyDown()) then
-			-- CTRL-SHIFT
-			if (IsControlKeyDown() and IsShiftKeyDown()) then
-				addon:SetupMap(clickedSpellIndex)
 			-- SHIFT
-			elseif (IsShiftKeyDown()) then
+			if (IsShiftKeyDown()) then
 				local itemID = recipeDB[clickedSpellIndex]["ItemID"]
 				if (itemID) then
 					local _,itemLink = GetItemInfo(itemID)
@@ -2574,6 +2300,9 @@ function addon.setFlyawayState()
 	ARL_FactionCB:SetChecked(filterdb.general.faction)
 	ARL_KnownCB:SetChecked(filterdb.general.known)
 	ARL_UnknownCB:SetChecked(filterdb.general.unknown)
+	ARL_OriginalWoWCB:SetChecked(filterdb.general.originalwow)
+	ARL_BCCB:SetChecked(filterdb.general.bc)
+	ARL_WrathCB:SetChecked(filterdb.general.wrath)
 	-- Classes
 	ARL_DeathKnightCB:SetChecked(filterdb.classes.deathknight)
 	ARL_DruidCB:SetChecked(filterdb.classes.druid)
@@ -2596,9 +2325,6 @@ function addon.setFlyawayState()
 	ARL_DiscoveryCB:SetChecked(filterdb.obtain.discovery)
 	ARL_WorldDropCB:SetChecked(filterdb.obtain.worlddrop)
 	ARL_MobDropCB:SetChecked(filterdb.obtain.mobdrop)
-	ARL_OriginalWoWCB:SetChecked(filterdb.obtain.originalwow)
-	ARL_BCCB:SetChecked(filterdb.obtain.bc)
-	ARL_WrathCB:SetChecked(filterdb.obtain.wrath)
 	-- Binding Options
 	ARL_iBoECB:SetChecked(filterdb.binding.itemboe)
 	ARL_iBoPCB:SetChecked(filterdb.binding.itembop)
@@ -3203,136 +2929,10 @@ local function SetFramePosition()
 
 end
 
--------------------------------------------------------------------------------
--- Alt-Tradeskills tooltip
--------------------------------------------------------------------------------
-local clicktip = QTipClick:Acquire("ARL_Clickable", 1, "CENTER")
-
--------------------------------------------------------------------------------
--- Data used in HandleTTClick() and GenerateClickableTT()
--------------------------------------------------------------------------------
-local click_info = {
-	anchor = nil,
-	change_realm = nil,
-	target_realm = nil,
-	modified = nil,
-	name = nil,
-	realm = nil,
-}
-
--- Description: Creates a list of names/alts/etc in a tooltip which you can click on
-
-local function GenerateClickableTT(anchor)
-	local tskl_list = addon.db.global.tradeskill
-	local tip = clicktip
-	local y, x
-	local prealm = GetRealmName()
-	local target_realm
-
-	if click_info.change_realm then
-		target_realm = click_info.target_realm
-		click_info.change_realm = nil
-	else
-		target_realm = prealm
-	end
-	tip:Clear()
-
-	if not click_info.realm then
-		local other_realms = nil
-		for realm in pairs(tskl_list) do
-			if target_realm and (realm ~= target_realm) then
-				other_realms = true
-			end
-
-			if not target_realm and (realm ~= prealm) then
-				y, x = tip:AddLine()
-				tip:SetCell(y, x, realm, realm)
-			elseif realm == target_realm then
-				y, x = tip:AddNormalLine(realm)
-				y, x = tip:AddNormalLine(" ")
-
-				click_info.realm = realm
-				for name in pairs(tskl_list[click_info.realm]) do
-					y, x = tip:AddLine()
-					tip:SetCell(y, x, name, name)
-				end
-			end
-		end
-		if other_realms then
-			tip:AddNormalLine(" ")
-			y, x = tip:AddLine()
-			tip:SetCell(y, x, L["Other Realms"], "change realm")
-		end
-	elseif not click_info.name then
-		local realm_list = tskl_list[click_info.realm]
-
-		if realm_list then
-			for name in pairs(realm_list) do
-				y, x = tip:AddLine()
-				tip:SetCell(y, x, name, name)
-			end
-		end
-	else
-		tip:AddNormalLine(click_info.name)
-		tip:AddNormalLine(" ")
-		for prof in pairs(tskl_list[click_info.realm][click_info.name]) do
-			y, x = tip:AddLine()
-			tip:SetCell(y, x, prof, prof)
-		end
-	end
-	if anchor then
-		click_info.anchor = anchor
-		tip:SetPoint("TOP", anchor, "BOTTOM")
-	else
-		tip:SetPoint("TOP", click_info.anchor, "BOTTOM")
-	end
-	tip:Show()
-end
-
--- Description: Function called when tool tip is clicked for alt trade skills
-
-local function HandleTTClick(event, cell, arg, button)
-	click_info.modified = true
-
-	if arg == "change realm" then
-		click_info.realm = nil
-		click_info.change_realm = true
-		click_info.target_realm = nil
-		GenerateClickableTT()
-		return
-	end
-	local tskl_list = addon.db.global.tradeskill
-
-	if not click_info.realm then
-		if click_info.change_realm then
-			click_info.target_realm = arg
-		end
-		click_info.realm = arg
-		GenerateClickableTT()
-	elseif not click_info.name then
-		click_info.name = arg
-
-		-- Wipe tradeskill information for the selected toon. -Torhal
-		if IsAltKeyDown() and button == "LeftButton" then
-			tskl_list[click_info.realm][click_info.name] = nil
-			local anchor = click_info.anchor
-			twipe(click_info)
-			click_info.anchor = anchor
-			GenerateClickableTT()
-			return
-		end
-		GenerateClickableTT()
-	else
-		-- Print link to chat frame, then reset tip data
-		addon:Print(click_info.name .. " - " .. click_info.realm .. ": " .. tskl_list[click_info.realm][click_info.name][arg])
-	end
-end
-
-clicktip:SetCallback("OnMouseDown", HandleTTClick)
-
 -- Description: Creates the initial frame to display recipes into
 
 function addon:CreateFrame(
+
 	rDB,		-- RecipeList
 	sortedRI,	-- sortedindex
 	cPlayer,	-- playerdata
@@ -3376,10 +2976,8 @@ function addon:CreateFrame(
 
 	sortedRecipeIndex = sortedRI
 	recipeDB = rDB
-	allSpecTable = asTable
 	playerData = cPlayer
 	currentProfession = playerData.playerProfession
-	trainerDB = trList
 	vendorDB = vList
 	questDB = qList
 	repDB = rList
@@ -3425,16 +3023,16 @@ function addon:CreateFrame(
 	if (not addon.Frame) then
 
 		-- Create the main frame
-		addon.Frame = CreateFrame("Frame", "AckisRecipeList.Frame", UIParent)
+		addon.Frame = CreateFrame("Frame", "Collectinator.Frame", UIParent)
 
 		--Allows ARL to be closed with the Escape key
-		tinsert(UISpecialFrames, "AckisRecipeList.Frame")
+		tinsert(UISpecialFrames, "Collectinator.Frame")
 
 		addon.Frame:SetWidth(293)
 		addon.Frame:SetHeight(447)
 
-		addon.bgTexture = addon.Frame:CreateTexture("AckisRecipeList.bgTexture", "ARTWORK")
-		addon.bgTexture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
+		addon.bgTexture = addon.Frame:CreateTexture("Collectinator.bgTexture", "ARTWORK")
+		addon.bgTexture:SetTexture([[Interface\\Addons\\AckisRecipeList\\img\\main]])
 		addon.bgTexture:SetAllPoints(addon.Frame)
 		addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
 		addon.Frame:SetFrameStrata("DIALOG")
@@ -3765,7 +3363,7 @@ function addon:CreateFrame(
 			addon.Flyaway:SetWidth(234)
 			addon.Flyaway:SetHeight(312)
 
-			addon.flyTexture = addon.Flyaway:CreateTexture("AckisRecipeList.flyTexture", "ARTWORK")
+			addon.flyTexture = addon.Flyaway:CreateTexture("Collectinator.flyTexture", "ARTWORK")
 			addon.flyTexture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\fly_2col")
 			addon.flyTexture:SetAllPoints(addon.Flyaway)
 			addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
@@ -3957,7 +3555,7 @@ function addon:CreateFrame(
 				ARL_BCCBText:SetText(L["Burning Crusade"])
 			local ARL_WrathCB = CreateFrame("CheckButton", "ARL_WrathCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], 91, 14, 1, 0)
-				ARL_WrathCBText:SetText(L["Lich King"])
+				ARL_WrathCBText:SetText(L["Wrath of the Lich King"])
 
 		addon.Fly_Binding = CreateFrame("Frame", "addon.Fly_Binding", addon.Flyaway)
 			addon.Fly_Binding:SetWidth(210)
@@ -4555,40 +4153,24 @@ function addon:CreateFrame(
 				ARL_IgnoreCBText:SetText(L["Display Exclusions"])
 			local ARL_MiscAltText = addon.Fly_Misc:CreateFontString("ARL_MiscAltBtn", "OVERLAY", "GameFontNormal")
 				ARL_MiscAltText:SetText(L["Alt-Tradeskills"] .. ":")
+				ARL_MiscAltText:SetText(addon:Grey("Alt-Tradeskills" .. ":")) -- disabled for now
 				ARL_MiscAltText:SetPoint("TOPLEFT", ARL_IgnoreCB, "BOTTOMLEFT", 4, 0)
 				ARL_MiscAltText:SetHeight(14)
-				ARL_MiscAltText:SetWidth(95)
+				ARL_MiscAltText:SetWidth(120)
 				ARL_MiscAltText:SetJustifyH("LEFT")
 			local ARL_MiscAltBtn = CreateFrame("Button", "ARL_IgnoreCB", addon.Fly_Misc)
-				ARL_MiscAltBtn:SetPoint("LEFT", ARL_MiscAltText, "RIGHT")
+				ARL_MiscAltBtn:SetPoint("TOPLEFT", ARL_IgnoreCB, "BOTTOMLEFT", 90, 4)
 				ARL_MiscAltBtn:SetHeight(22)
 				ARL_MiscAltBtn:SetWidth(22)
 				ARL_MiscAltBtn:SetNormalTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Up")
 				ARL_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
 				ARL_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
 				ARL_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
-				addon:TooltipDisplay(ARL_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
+				ARL_MiscAltBtn:Disable()  -- disabled for now
 				ARL_MiscAltBtn:RegisterForClicks("LeftButtonUp")
 				ARL_MiscAltBtn:SetScript("OnClick",
-					function(this, button)
-						clicktip:SetParent(this)
-						if clicktip:IsShown() then
-							if not click_info.modified then
-								clicktip:Hide()
-								twipe(click_info)
-							else
-								twipe(click_info)
-								GenerateClickableTT(this)
-							end
-						else
-							twipe(click_info)
-							GenerateClickableTT(this)
-						end
-					end)
-				ARL_MiscAltBtn:SetScript("OnHide",
-					function(this, button)
-						clicktip:Hide()
-						twipe(click_info)
+					function(self,button)
+					--open tooltip (qtipclick?) with all alts
 					end)
 
 		-- Now that everything exists, populate the global filter table
@@ -4601,6 +4183,9 @@ function addon:CreateFrame(
 			[4]  = { cb = ARL_FactionCB,				svroot = filterdb.general,		svval = "faction" },
 			[5]  = { cb = ARL_KnownCB,					svroot = filterdb.general,		svval = "known" },
 			[6]  = { cb = ARL_UnknownCB,				svroot = filterdb.general,		svval = "unknown" },
+			[89]  = { cb = ARL_OriginalWoWCB,			svroot = filterdb.general,		svval = "originalwow" },
+			[90]  = { cb = ARL_BCCB,					svroot = filterdb.general,		svval = "bc" },
+			[91]  = { cb = ARL_WrathCB,					svroot = filterdb.general,		svval = "wrath" },
 		-- Classes
 			[87] = { cb = ARL_DeathKnightCB,			svroot = filterdb.classes,		svval = "deathknight" },
 			[88] = { cb = ARL_DruidCB,					svroot = filterdb.classes,		svval = "druid" },
@@ -4623,9 +4208,6 @@ function addon:CreateFrame(
 			[14] = { cb = ARL_DiscoveryCB,				svroot = filterdb.obtain,		svval = "discovery" },
 			[39] = { cb = ARL_WorldDropCB,				svroot = filterdb.obtain,		svval = "worlddrop" },
 			[40] = { cb = ARL_MobDropCB,				svroot = filterdb.obtain,		svval = "mobdrop" },
-			[89]  = { cb = ARL_OriginalWoWCB,			svroot = filterdb.obtain,		svval = "originalwow" },
-			[90]  = { cb = ARL_BCCB,					svroot = filterdb.obtain,		svval = "bc" },
-			[91]  = { cb = ARL_WrathCB,					svroot = filterdb.obtain,		svval = "wrath" },
 		-- Binding Options
 			[15] = { cb = ARL_iBoECB,					svroot = filterdb.binding,		svval = "itemboe" },
 			[16] = { cb = ARL_iBoPCB,					svroot = filterdb.binding,		svval = "itembop" },
@@ -4785,7 +4367,7 @@ function addon:DisplayTextDump(RecipeDB, profession, text)
 		addon.ARLCopyFrame.editBox:SetMultiLine(true)
 		addon.ARLCopyFrame.editBox:SetMaxLetters(99999)
 		addon.ARLCopyFrame.editBox:EnableMouse(true)
-		addon.ARLCopyFrame.editBox:SetAutoFocus(true)
+		addon.ARLCopyFrame.editBox:SetAutoFocus(false)
 		addon.ARLCopyFrame.editBox:SetFontObject(ChatFontNormal)
 		addon.ARLCopyFrame.editBox:SetWidth(650)
 		addon.ARLCopyFrame.editBox:SetHeight(270)
