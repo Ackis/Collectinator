@@ -1,14 +1,13 @@
-﻿## Title: Collectinator @project-version@
+﻿## Title: Collectinator
 
 ## Notes: Will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
-## Notes-enUS: Will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
 
 ## Author: Ackis
 ## eMail: ackis AT shaw DOT ca
 ## X-Donate: http://www.wowace.com/projects/collectinator/#w_donations
 
 ## Interface: 30100
-## Version: Alpha 3 @project-version@
+## Version: Alpha 3
 ## X-Revision: @project-version@
 ## X-Date: @file-date-iso@
 
@@ -25,14 +24,14 @@
 ## SavedVariables: CollectinatorDB
 
 #@no-lib-strip@
-# Libraries
 embeds.xml
 #@end-no-lib-strip@
 
 local.xml
 
 Collectinator.lua
-CollectinatorOptions.lua
+CollectinatorConfig.lua
 CollectinatorFrame.lua
+CollectinatorColour.lua
 
 database.xml
