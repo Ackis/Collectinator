@@ -1,49 +1,37 @@
 --[[
 
-************************************************************************
+****************************************************************************************
 
-AckisRecipeList.lua
+Collectinator
 
-File date: @file-date-iso@
-File revision: @file-revision@
-Project revision: @project-revision@
+File date: @file-date-iso@ 
 Project version: @project-version@
 
-Author: Ackis, Zhinjio, Jim-Bim
+Author: Ackis
 
-************************************************************************
+****************************************************************************************
 
-Please see http://www.wowace.com/projects/arl/for more information.
+]]--
 
-License:
-	Please see LICENSE.txt
+local MODNAME	= "Collectinator"
 
-Documentation:
-	Please see Docs\Documentation.txt for comprehensive documentation.
+Collectinator 	= LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
 
-************************************************************************
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
---]]
-
---- **AckisRecipeList** provides an interface for scanning professions for missing recipes.
--- There are a set of functions which allow you make use of the ARL database outside of ARL.\\
--- ARL supports all professions currently in World of Warcraft 3.1.
+--- **Collectinator** provides an interface for scanning companions and moutns to find what is missing.
+-- There are a set of functions which allow you make use of the Collectinator database outside of Collectinator.\\
+-- Collectinator supports all mounts/pets currently in World of Warcraft 3.1.
 -- @class file
--- @name AckisRecipeList.lua
+-- @name Collectinator.lua
 -- @release @file-revision@
-
-local MODNAME	= "Ackis Recipe List"
-
-AckisRecipeList = LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
-
-local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
 	addon:Print(format("%s is missing.  Addon cannot run.","AceLocale-3.0"))
 	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	addon:Print("You are using a svn version of Collectinator.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
 	--@end-debug@
-	AckisRecipeList = nil
+	Collectinator = nil
 	return
 end
 
@@ -53,36 +41,36 @@ local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
 	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Faction-3.0"))
 	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	addon:Print("You are using a svn version of Collectinator.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
 	--@end-debug@
-	AckisRecipeList = nil
+	Collectinator = nil
 	return
 end
 
 if (not LibStub:GetLibrary("LibBabble-Zone-3.0", true)) then
 	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Zone-3.0"))
 	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	addon:Print("You are using a svn version of Collectinator.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
 	--@end-debug@
-	AckisRecipeList = nil
+	Collectinator = nil
 	return
 end
 
 if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
 	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Boss-3.0"))
 	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	addon:Print("You are using a svn version of Collectinator.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
 	--@end-debug@
-	AckisRecipeList = nil
+	Collectinator = nil
 	return
 end
 
 if (not LibStub:GetLibrary("LibBabble-Class-3.0", true)) then
 	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Class-3.0"))
 	--@debug@
-	addon:Print("You are using a svn version of ARL.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
+	addon:Print("You are using a svn version of Collectinator.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
 	--@end-debug@
-	AckisRecipeList = nil
+	Collectinator = nil
 	return
 end
 
@@ -92,9 +80,9 @@ local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 addon.optionsFrame = {}
 addon.ScanButton = nil
 addon.Frame = nil
-addon.ARLCopyFrame = nil
-_G["arlTooltip"] = nil
-_G["arlSpellTooltip"] = nil
+addon.CollectinatorCopyFrame = nil
+_G["CollectinatorTooltip"] = nil
+_G["CollectinatorSpellTooltip"] = nil
 
 -- Make global API calls local to speed things up
 local GetNumTradeSkills = GetNumTradeSkills
@@ -289,60 +277,23 @@ function addon:OnInitialize()
 		}
 	}
 
-	addon.db = LibStub("AceDB-3.0"):New("ARLDB2",defaults)
+	addon.db = LibStub("AceDB-3.0"):New("CollectinatorDB2",defaults)
 
 	if (not addon.db) then
-		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the ARL database file (AckisRecipeList.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
+		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the Collectinator database file (Collectinator.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
 		return
 	end
 
 	self:SetupOptions()
 
 	-- Register slash commands
-	self:RegisterChatCommand("arl", "ChatCommand")
-	self:RegisterChatCommand("ackisrecipelist", "ChatCommand")
+	self:RegisterChatCommand("collectinator", "ChatCommand")
 
 end
 
 -- Description: Function run when the addon is enabled.  Registers events and pre-loads certain variables.
 
 function addon:OnEnable()
-
-	-- Make addon respond to the tradeskill windows being shown
-	self:RegisterEvent("TRADE_SKILL_SHOW")
-
-	-- Addon responds to tradeskill windows being closed.
-	self:RegisterEvent("TRADE_SKILL_CLOSE")
-
-	if (addon.db.profile.scantrainers) then
-		self:RegisterEvent("TRAINER_SHOW")
-	end
-
-	-- Add an option so that ARL will work with Manufac
-	if (Manufac) then
-		--@debug@
-		self:Print("Enabling Manufac integration.")
-		--@end-debug@
-		Manufac.options.args.ARLScan = {
-			type = 'execute',
-			name = L["Scan"],
-			desc = L["SCAN_RECIPES_DESC"],
-			func = function() addon:AckisRecipeList_Command(false) end,
-			order = 550,
-		}
-	end
-
-	-- If we're using Skillet, use Skillet's API to work with getting tradeskills
-	if (Skillet) and (Skillet.GetNumTradeSkills) and
-	(Skillet.GetTradeSkillLine) and (Skillet.GetTradeSkillInfo) and
-	(Skillet.GetTradeSkillRecipeLink) and (Skillet.ExpandTradeSkillSubClass) then
-		self:Print("Enabling Skillet advanced features.")
-		GetNumTradeSkills = function(...) return Skillet:GetNumTradeSkills(...) end
-		GetTradeSkillLine = function(...) return Skillet:GetTradeSkillLine(...) end
-		GetTradeSkillInfo = function(...) return Skillet:GetTradeSkillInfo(...) end
-		GetTradeSkillRecipeLink = function(...) return Skillet:GetTradeSkillRecipeLink(...) end
-		ExpandTradeSkillSubClass = function(...) return Skillet:ExpandTradeSkillSubClass(...) end
-	end
 
 	-- Populate the repuatation level
 	self:GetFactionLevels()
@@ -361,11 +312,6 @@ function addon:OnDisable()
 		addon.Frame:Hide()
 	end
 
-	-- Remove the option from Manufac
-	if Manufac then
-		Manufac.options.args.ARLScan = nil
-	end
-
 end
 
 -- Description: Shows the scan button when the trade skill window is open.
@@ -376,81 +322,6 @@ end
 
 ]]--
 
-function addon:TRAINER_SHOW()
-
-	self:ScanTrainerData(true)
-	self:ScanSkillLevelData(true)
-
-end
-
-do
-
-	local GetTradeSkillListLink = GetTradeSkillListLink
-	local UnitName = UnitName
-	local GetRealmName = GetRealmName
-	local IsTradeSkillLinked = IsTradeSkillLinked
-
-	function addon:TRADE_SKILL_SHOW()
-		local ownskill = IsTradeSkillLinked()
-
-		-- If this is our own skill, save it, if not don't save it
-		if (not ownskill) then
-			-- Create an entry in the db to track alt trade skills
-			local pname = UnitName("player")
-			local prealm = GetRealmName()
-			local tradelink = GetTradeSkillListLink()
-			local tradename = GetTradeSkillLine()
-
-			if (tradelink) then
-				-- Actual alt information saved here. -Torhal
-				if (not addon.db.global.tradeskill) then
-					addon.db.global.tradeskill = {}
-				end
-				if (not addon.db.global.tradeskill[prealm]) then
-					addon.db.global.tradeskill[prealm] = {}
-				end
-				if (not addon.db.global.tradeskill[prealm][pname]) then
-					addon.db.global.tradeskill[prealm][pname] = {}
-				end
-				addon.db.global.tradeskill[prealm][pname][tradename] = tradelink
-			end
-		end
-		addon:OpenTradeWindow()
-
-		if (addon.ScanButton and not Skillet) then
-			self:ShowScanButton()
-		end
-
-	end
-
-end
-
--- Description: Hides the scan button when the trade skill window is closed.
-
-function addon:TRADE_SKILL_CLOSE()
-
-	addon:CloseTradeWindow()
-
-	if (addon.db.profile.closeguionskillclose and addon.Frame) then
-		self:CloseWindow()
-	end
-
-	if (addon.ScanButton and not Skillet) then
-		addon.ScanButton:Hide()
-	end
-
-end
-
--- Description: Will update the internal list of faction tables when a players faction changes
-
---[[
-
-function addon:UPDATE_FACTION()
-	-- Reputation has changed so lets update the table
-	self:SetRepDB()
-end
-
-]]--
 
 --[[
 
@@ -517,64 +388,6 @@ do
 
 end
 
-do
-
-	local GetSpellName = GetSpellName
-	local BOOKTYPE_SPELL = BOOKTYPE_SPELL
-
-	-- Description: Scans first 25 spellbook slots to identify all applicable professions
-
-	function addon:GetKnownProfessions(ProfTable)
-
-		-- Reset the table, they may have unlearnt a profession
-		for i in pairs(ProfTable) do
-			ProfTable[i] = false
-		end
-
-		-- Scan through the spell book getting the spell names
-		for index=1,25,1 do
-
-			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
-
-			if (not spellName) or (index == 25) then
-				-- Nothing found
-				break
-			end
-			if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
-				if spellName == GetSpellInfo(2656) then
-					ProfTable[GetSpellInfo(32606)] = true
-				else
-					ProfTable[spellName] = true
-				end
-			end
-		end
-
-	end
-
-	-- Description: Scans first 25 spellbook slots to identify which trade skill Specialty we have
-
-	function addon:GetTradeSpecialty(SpecialtyTable, playerData)
-
-		--Scan the first 25 entries
-		for index=1,25,1 do
-
-			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
-
-			-- Nothing found, return nothing
-			if (not spellName) or (index == 25) then
-				return ""
-			-- We have a match, return that spell name
-			elseif (SpecialtyTable[playerData.playerProfession]) and (SpecialtyTable[playerData.playerProfession][spellName]) then
-				local ID = smatch(GetSpellLink(spellName), "^|c%x%x%x%x%x%x%x%x|Hspell:(%d+)")
-				return ID
-			end
-
-		end
-
-	end
-
-end
-
 --[[
 	Tradeskill functions
 --]]
@@ -582,141 +395,58 @@ end
 -- Description: Adds a specific recipe, along with it's info to an array
 
 --- Adds a tradeskill recipe into the specified recipe database.
--- @name AckisRecipeList:addTradeSkill
--- @usage AckisRecipeList:addTradeSkill(RecipeDB,2329,1,2454,1,2259,0,1,55,75,95)
--- @param RecipeDB The database (array) which you wish to add data too.
--- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being added to the database.
--- @param SkillLevel The skill level at which the recipe may be learned.
--- @param ItemID The [http://www.wowwiki.com/ItemLink Item ID] that is created by the recipe, or nil
--- @param Rarity The rarity of the recipe.
--- @param Profession The profession ID that uses the recipe.  See [[database-documentation]] for a listing of profession IDs.
--- @param Specialty The specialty that uses the recipe (ie: goblin engineering) or nil or blank
+-- @name Collectinator:AddCompanion
+-- @usage Collectinator:AddCompanion(DB)
+-- @param DB The database (array) which you wish to add data too.
+-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being entry to the database.
+-- @param ItemID The [http://www.wowwiki.com/ItemLink Item ID] of the item, or nil
+-- @param Rarity The rarity of the item.
+-- @param CompanionType Type of entry added to the database.
 -- @param Game Game version recipe was found in, for example, Original, BC, or Wrath.
--- @param Orange Level at which recipe is considered orange.
--- @param Yellow Level at which recipe is considered yellow.
--- @param Green Level at which recipe is considered green.
--- @param Grey Level at which recipe is considered greay.
 -- @return None, array is passed as a reference.
-function addon:addTradeSkill(RecipeDB, SpellID, SkillLevel, ItemID, Rarity, Profession, Specialty, Game, Orange, Yellow, Green, Grey)
+function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType, Game)
 
-	--[[ 
-		Recipe DB Structures are defined in Documentation.lua
-	--]]
-	
-	-- Creates a table in the RecipeListing table storing all information about a recipe
-	RecipeDB[SpellID] = {}
+	-- Create an entry for this minipet
+	DB[SpellID] = {}
 
-	local recipeentry = RecipeDB[SpellID]
+	DB[SpellID]["Name"] = GetSpellInfo(SpellID) or ""
+	DB[SpellID]["ItemID"] = ItemID
+	DB[SpellID]["Rarity"] = Rarity
+	DB[SpellID]["Type"] = CompanionType
 
-	-- Set the information passed
-	recipeentry["Level"] = SkillLevel
-	recipeentry["ItemID"] = ItemID or nil
-	recipeentry["Rarity"] = Rarity
-	recipeentry["Profession"] = GetSpellInfo(Profession)
-	recipeentry["Locations"] = nil
+	DB[SpellID]["Owned"] = false
+	DB[SpellID]["Display"] = true
+	DB[SpellID]["Search"] = false
+	DB[SpellID]["Known"] = false
 
-	-- Get the recipe link from the spell ID
-	local spellLink = GetSpellLink(SpellID)
+	DB[SpellID]["Flags"] = {}
 
-	if (spellLink ~= nil) then
-		--recipeentry["RecipeLink"] = string.gsub(spellLink, "spell", "enchant")
-		recipeentry["RecipeLink"] = spellLink
-	else
-		recipeentry["RecipeLink"] = nil
+	local flag = DB[SpellID]["Flags"]
+
+	-- Set the filter flags to all false
+	for i=1,maxfilterflags,1 do
+		flag[i] = false
 	end
 
-	-- Get the recipe name now
-	recipeentry["Name"] = GetSpellInfo(SpellID) or nil
-
-	if (recipeentry["Name"] == nil) then
-		self:Print(format(L["SpellIDCache"],SpellID))
-	end
-
-	-- All recipes are unknown until scan occurs
-	recipeentry["Known"] = false
-
-	-- All recipes are set to be displayed until the filtering occurs
-	recipeentry["Display"] = true
-
-	-- All recipes are set to be showing in the search results
-	recipeentry["Search"] = true
-
-	-- Create the flag space in the RecipeDB
-	recipeentry["Flags"] = {}
-
-	-- Set all the flags to be false, will also set the padding spaces to false as well.
-	for i=1,127,1 do
-		recipeentry["Flags"][i] = false
-	end
-
-	-- Create the Acquire space in the RecipeDB
-	recipeentry["Acquire"] = {}
-
-	-- Assumption that there will only be 1 speciality for a trade skill
-	recipeentry["Specialty"] = Specialty or nil
-
-	-- Get the expansion that the recipe was added
-	if (Game) then
-		recipeentry["Game"] = Game
-	-- We don't have a game flag set, so we'll just make an assumption based on skill levels
-	-- Eventually once all these are added we won't need this code
-	elseif (SkillLevel <= 300) then
-		recipeentry["Game"] = 0
-	elseif (SkillLevel <= 375) then
-		recipeentry["Game"] = 1
-	elseif (SkillLevel <= 450) then
-		recipeentry["Game"] = 2
-	end
-
-	-- Assign an orange value for the recipe
-	if (Orange) then
-		recipeentry["Orange"] = Orange
-	-- If we don't have one in the db, just assume it's the skill level
-	else
-		recipeentry["Orange"] = SkillLevel
-	end
-
-	-- Assign a yellow value for the recipe
-	if (Yellow) then
-		recipeentry["Yellow"] = Yellow
-	-- If we don't have one in the db, just assume it's the skill level + 10
-	else
-		recipeentry["Yellow"] = SkillLevel + 10
-	end
-
-	-- Assign a green value for the recipe
-	if (Green) then
-		recipeentry["Green"] = Green
-	-- If we don't have one in the db, just assume it's the skill level + 15
-	else
-		recipeentry["Green"] = SkillLevel + 15
-	end
-
-	-- Assign a grey value for the recipe
-	if (Grey) then
-		recipeentry["Grey"] = Grey
-	-- If we don't have one in the db, just assume it's the skill level + 20
-	else
-		recipeentry["Grey"] = SkillLevel + 20
-	end
+	DB[SpellID]["Acquire"] = {}
 
 end
 
--- Description: Adds all flag related information to the RecipeDB associated with the spell ID
+-- Description: Adds all flag related information to the DB associated with the spell ID
 
---- Adds filtering flags to a specific tradeskill.
--- @name AckisRecipeList:addTradeFlags
--- @usage AckisRecipeList:addTradeFlags(RecipeDB,2329,1,2,3,21,22,23,24,25,26,27,28,29,30,36,41,51,52)
--- @param RecipeDB The database (array) which you wish to add flags too.
--- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe which flags are being added to.
+--- Adds filtering flags to a specific entry.
+-- @name Collectinator:AddCompanionFlags
+-- @usage Collectinator:AddCompanionFlags(DB)
+-- @param DB The database (array) which you wish to add flags too.
+-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being entry to the database.
 -- @param ... A listing of filtering flags.  See [[database-documentation]] for a listing of filtering flags.
 -- @return None, array is passed as a reference.
-function addon:addTradeFlags(RecipeDB, SpellID, ...)
+function addon:AddCompanionFlags(DB, SpellID, ...)
 
 	-- flags are defined in Documentation.lua
 
 	local numvars = select('#',...)
-	local flags = RecipeDB[SpellID]["Flags"]
+	local flags = DB[SpellID]["Flags"]
 
 	-- Find out how many flags we're adding
 	for i=1,numvars,1 do
@@ -728,16 +458,16 @@ function addon:addTradeFlags(RecipeDB, SpellID, ...)
 
 end
 
--- Description: Adds all Acquire related information to the RecipeDB associated with the spell ID
+-- Description: Adds all Acquire related information to the DB associated with the spell ID
 
 --- Adds acquire methods to a specific tradeskill.
--- @name AckisRecipeList:addTradeAcquire
--- @usage AckisRecipeList:addTradeAcquire:(RecipeDB,2329,8,8)
--- @param RecipeDB The database (array) which you wish to add acquire methods too.
--- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe which acquire methods are being added to.
+-- @name Collectinator:addTradeAcquire
+-- @usage Collectinator:addTradeAcquire:(DB,2329,8,8)
+-- @param DB The database (array) which you wish to add acquire methods too.
+-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being entry to the database.
 -- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
 -- @return None, array is passed as a reference.
-function addon:addTradeAcquire(RecipeDB, SpellID, ...)
+function addon:addTradeAcquire(DB, SpellID, ...)
 
 	-- Find out how many flags we're adding
 	local numvars = select('#',...)
@@ -748,7 +478,7 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 	-- Index for which variables we're parsing through
 	local i = 1
 
-	local acquire = RecipeDB[SpellID]["Acquire"]
+	local acquire = DB[SpellID]["Acquire"]
 
 	while (i < numvars) do
 
@@ -760,12 +490,18 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 
 		acquire[index]["Type"] = AcquireType
 		acquire[index]["ID"] = AcquireID
-
 		i = i + 2
 
+		-- Crafted
+		if (AcquireType == 3) then
+			local craftedby = select(i, ...)
+			acquire[index]["Crafted"] = craftedby
+			i = i + 1
+		end
+
+		-- Reputation
 		if (AcquireType == 6) then
 			local RepLevel, RepVendor = select(i, ...)
-
 			acquire[index]["RepLevel"] = RepLevel
 			acquire[index]["RepVendor"] = RepVendor
 			i = i + 2
@@ -775,14 +511,11 @@ function addon:addTradeAcquire(RecipeDB, SpellID, ...)
 
 	end
 
-	-- Populate the location field with all the data
-	RecipeDB[SpellID]["Locations"] = self:GetRecipeLocations(SpellID)
-
 end
 
 --- Adds an item to a specific database listing (ie: vendor, mob, etc)
--- @name AckisRecipeList:addLookupList
--- @usage AckisRecipeList:addLookupList:(VendorDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+-- @name Collectinator:addLookupList
+-- @usage Collectinator:addLookupList:(VendorDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
 -- @param DB Database which the entry will be stored.
 -- @param ID Unique identified for the entry.
 -- @param Name Name of the entry.
@@ -794,7 +527,7 @@ end
 function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 
 	--[[
-		For individual database structures, see Documentation.lua
+		For individual database structures, see Documentation
 	]]--
 
 	DB[ID] = {}
@@ -842,71 +575,35 @@ end
 
 do
 
-	-- Description: Scans the recipe listing and marks known recipes as true in the database
+	-- Description:  Scans the database and the local list of companions and flags which ones you know
 
-	local GetTradeSkillInfo = GetTradeSkillInfo
-	local GetTradeSkillRecipeLink = GetTradeSkillRecipeLink
-	local ExpandTradeSkillSubClass = ExpandTradeSkillSubClass
+	function addon:CheckForKnownCompanions(PetDB, playerData)
 
-	function addon:ScanForKnownRecipes(RecipeDB, playerData)
+		local companionlist = addon.db.profile.companionlist
+		--local mount = 0
+		local pet = 0
 
-		-- Clear the "Have Materials" check box
-		if (not Skillet) and TradeSkillFrameAvailableFilterCheckButton:GetChecked() then
-			TradeSkillFrameAvailableFilterCheckButton:SetChecked(false)
-			TradeSkillOnlyShowMakeable(false)
-		end
-
-		-- Clear the inventory slot filter
-		UIDropDownMenu_Initialize(TradeSkillInvSlotDropDown, TradeSkillInvSlotDropDown_Initialize)
-		UIDropDownMenu_SetSelectedID(TradeSkillInvSlotDropDown, 1)
-		SetTradeSkillInvSlotFilter(0, 1, 1)
-
-		-- Clear the sub-classes filters
-		UIDropDownMenu_Initialize(TradeSkillSubClassDropDown, TradeSkillSubClassDropDown_Initialize)
-		UIDropDownMenu_SetSelectedID(TradeSkillSubClassDropDown, 1)
-		SetTradeSkillSubClassFilter(0, 1, 1)
-
-		-- Expand all headers so we can see all the recipes there are
-		for i = GetNumTradeSkills(), 1, -1 do
-			local _, tradeType = GetTradeSkillInfo(i)
-			if tradeType == "header" then
-				ExpandTradeSkillSubClass(i)
-			end
-		end
-
-		local foundRecipes = 0
-
-		-- Scan through all recipes
-		for i = 1, GetNumTradeSkills() do
-			local tradeName, tradeType = GetTradeSkillInfo(i)
-
-			-- Ignore all trade skill headers
-			if (tradeType ~= "header") then
-				-- Get the trade skill link for the specified recipe
-				local SpellLink = GetTradeSkillRecipeLink(i)
-
-				local SpellString = GetIDFromLink(SpellLink)
-
-				-- Get the SpellID from the spell link or enchant link (to account for Skillet)
-				local SpellID = tonumber(SpellString)
-
-				-- Spell ID is in RecipeDB so lets flag it as known
-				if (RecipeDB[SpellID]) then
-					-- Update array that recipe was found
-					RecipeDB[SpellID]["Known"] = true
-					foundRecipes = foundRecipes + 1
-				-- We didn't find it in our database, lets notify people that we don't have it
-				else
-					self:Print(self:Red(tradeName .. " " .. SpellString) .. self:White(L["MissingFromDB"]))	
+		-- Scan through all the entries we've saved
+		for i,SpellID in pairs(companionlist) do
+			-- If the entry exists, mark it as known
+			if (PetDB[SpellID]) then
+				PetDB[SpellID]["Known"] = true
+				if (PetDB[SpellID]["Type"] == "CRITTER") then
+					pet = pet + 1
+				elseif (PetDB[SpellID]["Type"] == "MOUNT") then
+					mount = mount + 1
 				end
+			-- If the entry doesn't exist raise an error
+			else
+				local name = GetSpellInfo(SpellID)
+				self:Print("Companion: " .. name .. " (" .. SpellID .. ") not found in database.")
 			end
-
 		end
 
-		playerData.foundRecipes = foundRecipes
+		playerData.totalknownpets = pet
+		playerData.totalknownmounts = mount
 
 	end
-
 end
 
 do
@@ -1591,7 +1288,7 @@ function addon:ChatCommand(input)
 	elseif (input == strlower(L["Documentation"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
 	elseif (input == strlower(L["Scan"])) then
-		self:AckisRecipeList_Command(false)
+		self:Collectinator_Command(false)
 	elseif (input == strlower("scandata")) then
 		self:ScanSkillLevelData()
 	else
@@ -1901,11 +1598,11 @@ do
 	-- Description: Function called when the scan button is clicked.   Parses recipes and displays output
 
 	--- Causes a scan of the tradeskill to be conducted.
-	-- @name AckisRecipeList:AckisRecipeList_Command
-	-- @usage AckisRecipeList:AckisRecipeList_Command(true)
+	-- @name Collectinator:Collectinator_Command
+	-- @usage Collectinator:Collectinator_Command(true)
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
 	-- @return A frame with either the text dump, or the ARL frame.
-	function addon:AckisRecipeList_Command(textdump)
+	function addon:Collectinator_Command(textdump)
 
 		-- If we don't have a trade skill window open, lets return out of here
 		if (not tradewindowopened) then
@@ -1954,8 +1651,8 @@ do
 	-- Description: API for external addons to initialize the recipe database with a specific profession
 
 	--- Initialize the recipe database with a specific profession.
-	-- @name AckisRecipeList:AddRecipeData
-	-- @usage AckisRecipeList:AddRecipeData(GetSpellInfo(51304))
+	-- @name Collectinator:AddRecipeData
+	-- @usage Collectinator:AddRecipeData(GetSpellInfo(51304))
 	-- @param profession Spell ID of the profession which you want to populate the database with.
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	function addon:AddRecipeData(profession)
@@ -1972,8 +1669,8 @@ do
 	-- Description: API for external addons to initialize the recipe database
 
 	--- Initialize the recipe database
-	-- @name AckisRecipeList:InitRecipeData
-	-- @usage AckisRecipeList:InitRecipeData()
+	-- @name Collectinator:InitRecipeData
+	-- @usage Collectinator:InitRecipeData()
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	-- @return Arrays containing the RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList.
 	function addon:InitRecipeData()
@@ -1990,7 +1687,7 @@ do
 	-- Description: API for external addons to get recipe information from ARL
 
 	--- API for external addons to get recipe information from ARL
-	-- @name AckisRecipeList:GetRecipeData
+	-- @name Collectinator:GetRecipeData
 	-- @param spellID The spell ID of the recipe you want information about.
 	-- @return Table containing all spell ID information or nil if it's not found.
 	function addon:GetRecipeData(spellID)
@@ -2010,7 +1707,7 @@ do
 	-- Description: API for external addons to get recipe database from ARL
 
 	--- API for external addons to get recipe database from ARL
-	-- @name AckisRecipeList:GetRecipeTable
+	-- @name Collectinator:GetRecipeTable
 	-- @return Table containing all recipe information or nil if it's not found.
 	function addon:GetRecipeTable()
 
@@ -2688,12 +2385,3 @@ do
 
 end
 
---Description: Clears all saved tradeskills
-function addon:ClearSavedSkills()
-	twipe(addon.db.global.tradeskill)
-
-	if addon.db.profile.tradeskill then
-		addon.db.profile.tradeskill = nil
-	end
-
-end

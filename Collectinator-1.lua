@@ -5,8 +5,6 @@
 Collectinator
 
 File date: @file-date-iso@ 
-File revision: @file-revision@ 
-Project revision: @project-revision@
 Project version: @project-version@
 
 Author: Ackis
@@ -860,7 +858,7 @@ end
 function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 
 	--[[
-		For individual database structures, see Documentation.lua
+		For individual database structures, see Documentation
 	]]--
 
 	DB[ID] = {}
