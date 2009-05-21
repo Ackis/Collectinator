@@ -604,6 +604,7 @@ do
 		playerData.totalknownmounts = mount
 
 	end
+
 end
 
 do
@@ -1303,22 +1304,17 @@ do
 	local UnitClass = UnitClass
 	local UnitFactionGroup = UnitFactionGroup
 
-	local RecipeList = nil
+	local CompanionDB = nil
 
 	local CustomList = nil
 	local MobList = nil
 	local QuestList = nil
 	local ReputationList = nil
-	local TrainerList = nil
 	local SeasonalList = nil
 	local VendorList = nil
 	local RepFilters = nil
-	local AllSpecialtiesTable = nil
-	local SpecialtyTable = nil
 
 	local playerData = nil
-
-	local tradewindowopened = false
 
 	-- Variables for getting the locations
 	local locationlist = nil
@@ -1328,12 +1324,12 @@ do
 
 	function addon:GetRecipeLocations(SpellID)
 
-		if (RecipeList) and (RecipeList[SpellID]) then
+		if (CompanionDB) and (CompanionDB[SpellID]) then
 
 			locationlist = {}
 			locationchecklist = {}
 
-			local recipeacquire = RecipeList[SpellID]["Acquire"]
+			local recipeacquire = CompanionDB[SpellID]["Acquire"]
 
 			for i in pairs(recipeacquire) do
 
@@ -1424,18 +1420,6 @@ do
 
 	end
 
-	-- Description: Toggles the flag that a trade window is opened
-
-	function addon:OpenTradeWindow()
-		tradewindowopened = true
-	end
-
-	-- Description: Toggles the flag that a trade window is opened
-
-	function addon:CloseTradeWindow()
-		tradewindowopened = false
-	end
-
 	-- Description: Updates the reputation table.  This only happens seldomly so I'm not worried about effeciency
 
 	function addon:SetRepDB()
@@ -1459,78 +1443,6 @@ do
 		pData["Reputation"] = {}
 
 		addon:GetFactionLevels(pData["Reputation"])
-
-		pData["Professions"] = {
-			[GetSpellInfo(51304)] = false, -- Alchemy
-			[GetSpellInfo(51300)] = false, -- Blacksmithing
-			[GetSpellInfo(51296)] = false, -- Cooking
-			[GetSpellInfo(51313)] = false, -- Enchanting
-			[GetSpellInfo(51306)] = false, -- Engineering
-			[GetSpellInfo(45542)] = false, -- First Aid
-			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
-			[GetSpellInfo(51302)] = false, -- Leatherworking
-			[GetSpellInfo(32606)] = false, -- Mining
-			[GetSpellInfo(51309)] = false, -- Tailoring
-			[GetSpellInfo(51311)] = false, -- Jewelcrafting
-			[GetSpellInfo(45363)] = false, -- Inscription
-			[GetSpellInfo(53428)] = false, -- Runeforging
-		}
-
-		addon:GetKnownProfessions(pData["Professions"])
-
-		-- All Alchemy Specialties
-		local AlchemySpec = {
-			[GetSpellInfo(28674)] = true,
-			[GetSpellInfo(28678)] = true,
-			[GetSpellInfo(28676)] = true,
-		}
-
-		-- All Blacksmithing Specialties
-		local BlacksmithSpec = {
-			[GetSpellInfo(9788)] = true, -- Armorsmith
-			[GetSpellInfo(17041)] = true, -- Master Axesmith
-			[GetSpellInfo(17040)] = true, -- Master Hammersmith
-			[GetSpellInfo(17039)] = true, -- Master Swordsmith
-			[GetSpellInfo(9787)] = true, -- Weaponsmith
-		}
-
-		-- All Engineering Specialties
-		local EngineeringSpec = {
-			[GetSpellInfo(20219)] = true, -- Gnomish
-			[GetSpellInfo(20222)] = true, -- Goblin
-		}
-
-		-- All Leatherworking Specialties
-		local LeatherworkSpec = {
-			[GetSpellInfo(10657)] = true, -- Dragonscale
-			[GetSpellInfo(10659)] = true, -- Elemental
-			[GetSpellInfo(10661)] = true, -- Tribal
-		}
-
-		-- All Tailoring Specialties
-		local TailorSpec = {
-			[GetSpellInfo(26797)] = true, -- Spellfire
-			[GetSpellInfo(26801)] = true, -- Shadoweave
-			[GetSpellInfo(26798)] = true, -- Primal Mooncloth
-		}
-
-		-- List of classes which have Specialties
-		SpecialtyTable = {
-			[GetSpellInfo(51304)] = AlchemySpec,
-			[GetSpellInfo(51300)] = BlacksmithSpec,
-			[GetSpellInfo(51306)] = EngineeringSpec,
-			[GetSpellInfo(51302)] = LeatherworkSpec,
-			[GetSpellInfo(51309)] = TailorSpec,
-		}
-
-		-- List containing all possible Specialties
-		AllSpecialtiesTable = {}
-
-		-- Populate the Specialty table with all Specialties, not adding alchemy because no recipes have alchemy filters
-		for i in pairs(BlacksmithSpec) do AllSpecialtiesTable[i] = true end
-		for i in pairs(EngineeringSpec) do AllSpecialtiesTable[i] = true end
-		for i in pairs(LeatherworkSpec) do AllSpecialtiesTable[i] = true end
-		for i in pairs(TailorSpec) do AllSpecialtiesTable[i] = true end
 
 		return pData
 
@@ -1564,12 +1476,6 @@ do
 			addon:InitReputation(ReputationList)
 		end
 
-		-- Initializes the trainer list
-		if (TrainerList == nil) then
-			TrainerList = {}
-			addon:InitTrainer(TrainerList)
-		end
-
 		-- Initializes the season list
 		if (SeasonalList == nil) then
 			SeasonalList = {}
@@ -1589,8 +1495,8 @@ do
 		end
 
 		-- Initializes the recipe list
-		if (RecipeList == nil) then
-			RecipeList = {}
+		if (CompanionDB == nil) then
+			CompanionDB = {}
 		end
 
 	end
@@ -1615,7 +1521,7 @@ do
 				playerData = InitPlayerData()
 			end
 			-- Lets create all the databases needed if this is the first time everything has been run.
-			if (RecipeList == nil) then
+			if (CompanionDB == nil) then
 				InitDatabases()
 			end
 			-- Get the name of the current trade skill opened, along with the current level of the skill.
@@ -1625,23 +1531,23 @@ do
 			playerData.playerSpecialty = self:GetTradeSpecialty(SpecialtyTable, playerData)
 
 			-- Add the recipes to the database
-			playerData.totalRecipes = InitializeRecipes(RecipeList, playerData.playerProfession)
+			playerData.totalRecipes = InitializeRecipes(CompanionDB, playerData.playerProfession)
 			-- Scan all recipes and mark the ones which ones we know
-			self:ScanForKnownRecipes(RecipeList, playerData)
+			self:ScanForKnownRecipes(CompanionDB, playerData)
 			-- Update the table containing which reps to display
 			self:PopulateRepFilters(RepFilters)
 			-- Add filtering flags to the recipes
-			self:UpdateFilters(RecipeList, AllSpecialtiesTable, playerData)
+			self:UpdateFilters(CompanionDB, AllSpecialtiesTable, playerData)
 			-- Mark excluded recipes
-			playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(RecipeList,playerData.playerProfession)
+			playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(CompanionDB,playerData.playerProfession)
 		end
 
 		if (textdump == true) then
-			self:DisplayTextDump(RecipeList, playerData.playerProfession)
+			self:DisplayTextDump(CompanionDB, playerData.playerProfession)
 		else
 			-- Sort the recipe list now
-			local sortedindex = self:SortMissingRecipes(RecipeList)
-			self:CreateFrame(RecipeList, sortedindex, playerData, AllSpecialtiesTable,
+			local sortedindex = self:SortMissingRecipes(CompanionDB)
+			self:CreateFrame(CompanionDB, sortedindex, playerData, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,
 								SeasonalList, MobList, CustomList)
 		end
@@ -1657,8 +1563,8 @@ do
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
 	function addon:AddRecipeData(profession)
 
-		if (RecipeList) then
-			InitializeRecipes(RecipeList, profession)
+		if (CompanionDB) then
+			InitializeRecipes(CompanionDB, profession)
 			return true
 		else
 			return false
@@ -1672,14 +1578,14 @@ do
 	-- @name Collectinator:InitRecipeData
 	-- @usage Collectinator:InitRecipeData()
 	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
-	-- @return Arrays containing the RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList.
+	-- @return Arrays containing the CompanionDB, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList.
 	function addon:InitRecipeData()
 
-		if (RecipeList) then
-			return false, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
+		if (CompanionDB) then
+			return false, CompanionDB, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
 		else
 			InitDatabases()
-			return true, RecipeList, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
+			return true, CompanionDB, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
 		end
 
 	end
@@ -1692,9 +1598,9 @@ do
 	-- @return Table containing all spell ID information or nil if it's not found.
 	function addon:GetRecipeData(spellID)
 
-		if (RecipeList) then
-			if (RecipeList[spellID]) then
-				return RecipeList[spellID]
+		if (CompanionDB) then
+			if (CompanionDB[spellID]) then
+				return CompanionDB[spellID]
 			else
 				return nil
 			end
@@ -1711,8 +1617,8 @@ do
 	-- @return Table containing all recipe information or nil if it's not found.
 	function addon:GetRecipeTable()
 
-		if (RecipeList) then
-			return RecipeList
+		if (CompanionDB) then
+			return CompanionDB
 		else
 			return nil
 		end
@@ -1795,7 +1701,7 @@ do
 		-- Create a new array for the sorted index
 		local SortedRecipeIndex = {}
 
-		-- Get all the indexes of the RecipeListing
+		-- Get all the indexes of the CompanionDBing
 		for n, v in pairs(RecipeDB) do
 			tinsert(SortedRecipeIndex, n)
 		end
@@ -2052,15 +1958,15 @@ do
 
 	function addon:DumpRecipe(SpellID)
 
-		local recipelist = addon:GetRecipeTable()
+		local CompanionDB = addon:GetRecipeTable()
 
-		if (not recipelist) then
+		if (not CompanionDB) then
 			return
 		end
 
-		if (recipelist[SpellID]) then
+		if (CompanionDB[SpellID]) then
 
-			local x = recipelist[SpellID]
+			local x = CompanionDB[SpellID]
 			self:Print(x["Name"] .. "(" .. x["Level"] .. ") -- " .. SpellID)
 			self:Print("Rarity: " .. x["Rarity"])
 			if (x["Specialty"]) then
