@@ -7,7 +7,6 @@ license-output: LICENSE.txt
 ignore:
  - .pkgmeta
  - .docmeta
- - Dataminer.rb
  - Docs
 
 tools-used:
