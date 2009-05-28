@@ -1283,8 +1283,6 @@ local function ReDisplay()
 
 end
 
--- Description: Creates the scan button for ARL. 
-
 function addon:CreateScanButton()
 
 	-- Create the scan button
@@ -1292,27 +1290,20 @@ function addon:CreateScanButton()
 		addon.ScanButton = CreateFrame("Button","addon.ScanButton",UIParent,"UIPanelButtonTemplate")
 	end
 
-	-- Add to Skillet interface
-	if (Skillet and Skillet:IsActive()) then
-		addon.ScanButton:SetParent(SkilletFrame)
-		addon.ScanButton:Show()
-		Skillet:AddButtonToTradeskillWindow(addon.ScanButton)
-		addon.ScanButton:SetWidth(80)
-	end
-
 	-- Set some of the common button properties
 	addon.ScanButton:SetHeight(20)
 	addon.ScanButton:RegisterForClicks("LeftButtonUp")
 	addon.ScanButton:SetScript("OnClick",
 			function()
-				addon:ToggleFrame()
+				addon:DoCompleteScan()
+				--addon:ToggleFrame()
 			end
 		)
 
 	addon.ScanButton:SetScript("OnEnter",
 			function(this)
 				GameTooltip_SetDefaultAnchor(GameTooltip, this)
-				GameTooltip:SetText(L["SCAN_RECIPES_DESC"])
+				GameTooltip:SetText(L["SCAN_COMPANIONS_DESC"])
 				GameTooltip:Show()
 			end
 		)
@@ -1335,6 +1326,43 @@ function addon:CreateScanButton()
 
 	addon.ScanButton:Enable()
 
+	addon.ScanButton:SetParent(PetPaperDollFrameCompanionFrame)
+	addon.ScanButton:ClearAllPoints()
+
+	addon.ScanButton:SetPoint("LEFT",CompanionNextPageButton,"RIGHT",0,0)
+	addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)
+
+	addon.ScanButton:Show()
+
+end
+
+function addon:AddTabTotals()
+
+	PetPaperDollFrameTab2:SetScript("OnEnter",
+			function(this)
+				GameTooltip_SetDefaultAnchor(GameTooltip, this)
+				GameTooltip:SetText(GetNumCompanions("CRITTER") .. " companions known.")
+				GameTooltip:Show()
+			end
+		)
+	PetPaperDollFrameTab2:SetScript("OnLeave",
+			function()
+				GameTooltip:Hide()
+			end
+		)
+
+	PetPaperDollFrameTab3:SetScript("OnEnter",
+			function(this)
+				GameTooltip_SetDefaultAnchor(GameTooltip, this)
+				GameTooltip:SetText(GetNumCompanions("MOUNT") .. " mounts known.")
+				GameTooltip:Show()
+			end
+		)
+	PetPaperDollFrameTab3:SetScript("OnLeave",
+			function()
+				GameTooltip:Hide()
+			end
+		)
 end
 
 -- Description: 

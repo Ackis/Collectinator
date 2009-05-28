@@ -22,22 +22,60 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 -- Lets check to see if we have the needed libraries loaded (these are manditory to run)
 if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
 	self:Print("LibBabble-Faction-3.0 not loaded.  Addon cannot run.")
+
+
+
+
+
+
+
+
+
+
+
+
+
 	return
 end
 
 
+
+
+
+
+
+
+
+
+
+
+
 if (not LibStub:GetLibrary("LibBabble-Zone-3.0", true)) then
 	self:Print("LibBabble-Zone-3.0 not loaded.  Addon cannot run.")
+
+
+
+
 	return
 end
 
 if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
 	self:Print("LibBabble-Boss-3.0 not loaded.  Addon cannot run.")
+
+
+
+
 	return
 end
 
 if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
 	self:Print("AceLocale-3.0 not loaded.  Addon cannot run.")
+
+
+
+
+
+
 	return
 end
 

@@ -85,9 +85,7 @@ _G["CollectinatorTooltip"] = nil
 _G["CollectinatorSpellTooltip"] = nil
 
 -- Make global API calls local to speed things up
-local GetNumTradeSkills = GetNumTradeSkills
 local GetSpellInfo = GetSpellInfo
-local GetTradeSkillLine = GetTradeSkillLine
 
 local tostring = tostring
 local tonumber = tonumber
@@ -120,10 +118,6 @@ function addon:OnInitialize()
 
 	-- Set default options, which are to include everything in the scan
 	local defaults = {
-		global = {
-			-- Saving alts tradeskills (needs to be global so all profiles can access it)
-			tradeskill = {},
-		},
 		profile = {
 			-- Frame options
 			frameopts = {
@@ -260,19 +254,6 @@ function addon:OnInitialize()
 					wrathcommon4 = true,
 					wrathcommon5 = true,
 				},
-				-- Classes
-				classes = {
-					deathknight = true,
-					druid = true,
-					hunter = true,
-					mage = true,
-					paladin = true,
-					priest = true,
-					rogue = true,
-					shaman = true,
-					warlock = true,
-					warrior = true,
-				},
 			}
 		}
 	}
@@ -295,11 +276,17 @@ end
 
 function addon:OnEnable()
 
+	-- Watch for Companion Learned events
+	self:RegisterEvent("COMPANION_LEARNED")
+
 	-- Populate the repuatation level
 	self:GetFactionLevels()
 
 	--Create the button now for later use
 	self:CreateScanButton()
+
+	-- Add mini-pet/mount totals to the tab
+	self:AddTabTotals()
 
 end
 
@@ -314,20 +301,30 @@ function addon:OnDisable()
 
 end
 
--- Description: Shows the scan button when the trade skill window is open.
-
 --[[
 
 	Event handling functions
 
 ]]--
 
+function addon:COMPANION_LEARNED()
+
+	-- When we learn a new pet, we want to automatically scan the companions and update our saved variables
+	self:ScanCompanions()
+
+end
 
 --[[
 
 	Player Data Acquisition Functions
 
 ]]--
+
+--- Data which is stored regarding a players statistics
+-- @class table
+-- @name playerData
+-- @field totalknownpets Total number of known mini-pets.
+-- @field totalknownmounts Total number of known mounts.
 
 do
 
@@ -389,12 +386,12 @@ do
 end
 
 --[[
-	Tradeskill functions
+
+	Companion DB functions
+
 --]]
 
--- Description: Adds a specific recipe, along with it's info to an array
-
---- Adds a tradeskill recipe into the specified recipe database.
+--- Adds a companion into the database.
 -- @name Collectinator:AddCompanion
 -- @usage Collectinator:AddCompanion(DB)
 -- @param DB The database (array) which you wish to add data too.
@@ -458,16 +455,14 @@ function addon:AddCompanionFlags(DB, SpellID, ...)
 
 end
 
--- Description: Adds all Acquire related information to the DB associated with the spell ID
-
---- Adds acquire methods to a specific tradeskill.
--- @name Collectinator:addTradeAcquire
--- @usage Collectinator:addTradeAcquire:(DB,2329,8,8)
+--- Adds acquire methods to a specific companion.
+-- @name Collectinator:AddCompanionAcquire
+-- @usage Collectinator:AddCompanionAcquire:(DB,2329,8,8)
 -- @param DB The database (array) which you wish to add acquire methods too.
 -- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being entry to the database.
 -- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
 -- @return None, array is passed as a reference.
-function addon:addTradeAcquire(DB, SpellID, ...)
+function addon:AddCompanionAcquire(DB, SpellID, ...)
 
 	-- Find out how many flags we're adding
 	local numvars = select('#',...)
@@ -561,10 +556,15 @@ end
 
 --[[
 
-	Recipe Scanning Functions
+	Scanning Functions
 
 ]]--
 
+--- Gets a spell ID from a spell link.
+-- @name GetIDFromLink
+-- @usage Collectinator:GetIDFromLink:(SpellLink)
+-- @param SpellLink The [http://www.wowwiki.com/SpellLink SpellLink] which you wish to get the Spell ID from.
+-- @return The spell ID of the passed [http://www.wowwiki.com/SpellLink SpellLink].
 local function GetIDFromLink(SpellLink)
 
 	--return smatch(SpellLink, "|H%w+:(%d+)")
@@ -575,12 +575,12 @@ end
 
 do
 
-	-- Description:  Scans the database and the local list of companions and flags which ones you know
+	--- Scans the database and the local list of companions and flags which ones you know
 
 	function addon:CheckForKnownCompanions(PetDB, playerData)
 
 		local companionlist = addon.db.profile.companionlist
-		--local mount = 0
+		local mount = 0
 		local pet = 0
 
 		-- Scan through all the entries we've saved
@@ -588,6 +588,7 @@ do
 			-- If the entry exists, mark it as known
 			if (PetDB[SpellID]) then
 				PetDB[SpellID]["Known"] = true
+				-- Increase the companion type count
 				if (PetDB[SpellID]["Type"] == "CRITTER") then
 					pet = pet + 1
 				elseif (PetDB[SpellID]["Type"] == "MOUNT") then
@@ -653,9 +654,7 @@ do
 	end
 
 	function addon:ClearRepTable()
-
 		reptable = nil
-
 	end
 
 	local function CheckReputationDisplay(flags)
@@ -682,11 +681,12 @@ do
 
 	-- Description: Scans a specific recpie to determine if it is to be displayed or not.
 
-	function addon:CheckDisplayRecipe(Recipe, AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
+	function addon:CheckDisplayRecipe(Entry, playerFaction, playerClass)
 
+	--[[
 		-- For flag info see comments at start of file in comments
 		local filterdb = addon.db.profile.filters
-		local flags = Recipe["Flags"]
+		local flags = Entry["Flags"]
 
 		-- See Documentation file for logic explanation
 		-- Stage 1
@@ -698,7 +698,7 @@ do
 		local obtaindb = filterdb.obtain
 
 		-- Is this recipe in my currently selected profession?
-		if (Recipe["Profession"] ~= playerProfession) then
+		if (Entry["Profession"] ~= playerProfession) then
 			return false
 		end
 
@@ -720,26 +720,26 @@ do
 		end
 
 		-- Display all skill levels?
-		if (generaldb.skill == false) and (Recipe["Level"] > playerProfessionLevel) then
+		if (generaldb.skill == false) and (Entry["Level"] > playerProfessionLevel) then
 			return false
 		end
 
 		-- Display all specialities?
 		if (generaldb.specialty == false) then
-			if (Recipe["Specialty"]) and (Recipe["Specialty"] ~= playerSpecialty) then
+			if (Entry["Specialty"]) and (Entry["Specialty"] ~= playerSpecialty) then
 				return false
 			end
 		end
 
 		-- Filter out "era" recipes
 
-		if ((obtaindb.originalwow == false) and (Recipe["Game"] == 0)) then
+		if ((obtaindb.originalwow == false) and (Entry["Game"] == 0)) then
 			return false
 		end
-		if ((obtaindb.bc == false) and (Recipe["Game"] == 1)) then
+		if ((obtaindb.bc == false) and (Entry["Game"] == 1)) then
 			return false
 		end
-		if ((obtaindb.wrath == false) and (Recipe["Game"] == 2)) then
+		if ((obtaindb.wrath == false) and (Entry["Game"] == 2)) then
 			return false
 		end
 
@@ -897,168 +897,6 @@ do
 			return false
 		end
 
-		local classesdb = filterdb.classes
-
-			if (classesdb.deathknight == false) and (flags[21] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.druid == false) and (flags[22] == true) then
-				if (classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.hunter == false) and (flags[23] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.mage == false) and (flags[24] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.paladin == false) and (flags[25] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.priest == false) and (flags[26] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.shaman == false) and (flags[27] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.rogue == false) and (flags[28] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.warlock == false) and (flags[29] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) or
-				(classesdb.warrior == true) and (flags[30] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
-			if (classesdb.warrior == false) and (flags[30] == true) then
-				if (classesdb.druid == true) and (flags[22] == true) or
-				(classesdb.hunter == true) and (flags[23] == true) or
-				(classesdb.mage == true) and (flags[24] == true) or
-				(classesdb.paladin == true) and (flags[25] == true) or
-				(classesdb.priest == true) and (flags[26] == true) or
-				(classesdb.shaman == true) and (flags[27] == true) or
-				(classesdb.rogue == true) and (flags[28] == true) or
-				(classesdb.warlock == true) and (flags[29] == true) or
-				(classesdb.deathknight == true) and (flags[21] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-
 		-- Stage 2
 		-- loop through nonexclusive (soft filters) flags until one is true
 		-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
@@ -1115,7 +953,8 @@ do
 
 		-- If we get here it means that no flags matched our values
 		return false
-
+]]--
+		return true
 	end
 
 end
@@ -1170,16 +1009,16 @@ end
 
 -- Description: Scans the recipe listing and updates the filters according to user preferences
 
-function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
+function addon:UpdateFilters(DB,  playerData)
 
-	local playerProfessionLevel = playerData.playerProfessionLevel
+--[[
 	local playerProfession = playerData.playerProfession
 	local playerSpecialty = playerData.playerSpecialty
 	local playerFaction = playerData.playerFaction
 	local playerClass = playerData.playerClass
 
-	playerData.filteredRecipes = 0
-	playerData.otherRecipes = 0
+	playerData.filteredcompanions = 0
+	playerData.othercompanions = 0
 
 	playerData.recipes_total = 0
 	playerData.recipes_known = 0
@@ -1189,7 +1028,7 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 	local displayflag = false
 
 	-- Parse through all the entries in the Recipe array
-	for RecipeID, Recipe in pairs(RecipeDB) do
+	for RecipeID, Recipe in pairs(DB) do
 
 		-- only interested in the current profession
 		if (Recipe["Profession"] == playerProfession) then
@@ -1218,12 +1057,12 @@ function addon:UpdateFilters(RecipeDB, AllSpecialtiesTable, playerData)
 		end
 
 		-- Set the display flag
-		RecipeDB[RecipeID]["Display"] = displayflag
+		DB[RecipeID]["Display"] = displayflag
 
 	end
 
 	self:ClearRepTable()
-
+]]--
 end
 
 --[[
@@ -1231,43 +1070,6 @@ end
 	ARL Logic Functions
 
 ]]--
-
--- Description: Determines which profession we are dealing with and loads up the recipe information for it.
-
-local function InitializeRecipes(RecipeDB, playerProfession)
-
-	-- Table of all possible professions with init functions
-	local professiontable =
-	{
-		[GetSpellInfo(51304)] = addon.InitAlchemy,
-		[GetSpellInfo(51300)] = addon.InitBlacksmithing,
-		[GetSpellInfo(51296)] = addon.InitCooking,
-		[GetSpellInfo(51313)] = addon.InitEnchanting,
-		[GetSpellInfo(51306)] = addon.InitEngineering,
-		[GetSpellInfo(45542)] = addon.InitFirstAid,
-		-- Hack to get first aid working on frFR since I can't seem to get a proper spell ID :P
-		["Premiers soins"] = addon.InitFirstAid,
-		[GetSpellInfo(51302)] = addon.InitLeatherworking,
-		[GetSpellInfo(32606)] = addon.InitSmelting,
-		[GetSpellInfo(51309)] = addon.InitTailoring,
-		[GetSpellInfo(51311)] = addon.InitJewelcrafting,
-		[GetSpellInfo(45363)] = addon.InitInscription,
-		[GetSpellInfo(53428)] = addon.InitRuneforging,
-	}
-
-	-- Check for player profession to fix some bugs with addons that interface with ARL
-	if (playerProfession) then
-		-- Thanks to sylvanaar/xinhuan for the code snippet
-		local a = professiontable[playerProfession]
-
-		if a then
-			return a(addon, RecipeDB)
-		else
-			addon:Print(L["UnknownTradeSkill"]:format(playerProfession))
-		end
-	end
-
-end
 
 -- Description: Determines what to do when the slash command is called.
 
@@ -1294,7 +1096,7 @@ function addon:ChatCommand(input)
 		self:ScanSkillLevelData()
 	else
 		-- What happens when we get here?
-		LibStub("AceConfigCmd-3.0"):HandleCommand("arl", "Ackis Recipe List", input)
+		LibStub("AceConfigCmd-3.0"):HandleCommand("collectinator", "Collectinator", input)
 	end
 
 end
@@ -1501,46 +1303,32 @@ do
 
 	end
 
-	-- Description: Function called when the scan button is clicked.   Parses recipes and displays output
-
-	--- Causes a scan of the tradeskill to be conducted.
+	--- Causes a scan of the companions to be conducted.
 	-- @name Collectinator:Collectinator_Command
 	-- @usage Collectinator:Collectinator_Command(true)
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
 	-- @return A frame with either the text dump, or the ARL frame.
 	function addon:Collectinator_Command(textdump)
 
-		-- If we don't have a trade skill window open, lets return out of here
-		if (not tradewindowopened) then
-			self:Print(L["OpenTradeSkillWindow"])
-			return
-		-- Trade type skills
-		else
-			-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
-			if (playerData == nil) then
-				playerData = InitPlayerData()
-			end
-			-- Lets create all the databases needed if this is the first time everything has been run.
-			if (CompanionDB == nil) then
-				InitDatabases()
-			end
-			-- Get the name of the current trade skill opened, along with the current level of the skill.
-			playerData.playerProfession, playerData.playerProfessionLevel = GetTradeSkillLine()
-
-			-- Get the current profession Specialty
-			playerData.playerSpecialty = self:GetTradeSpecialty(SpecialtyTable, playerData)
-
-			-- Add the recipes to the database
-			playerData.totalRecipes = InitializeRecipes(CompanionDB, playerData.playerProfession)
-			-- Scan all recipes and mark the ones which ones we know
-			self:ScanForKnownRecipes(CompanionDB, playerData)
-			-- Update the table containing which reps to display
-			self:PopulateRepFilters(RepFilters)
-			-- Add filtering flags to the recipes
-			self:UpdateFilters(CompanionDB, AllSpecialtiesTable, playerData)
-			-- Mark excluded recipes
-			playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(CompanionDB,playerData.playerProfession)
+		-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
+		if (playerData == nil) then
+			playerData = InitPlayerData()
 		end
+		-- Lets create all the databases needed if this is the first time everything has been run.
+		if (CompanionDB == nil) then
+			InitDatabases()
+		end
+
+		-- Add the recipes to the database
+		playerData.totalRecipes = InitializeRecipes(CompanionDB, playerData.playerProfession)
+		-- Scan all recipes and mark the ones which ones we know
+		self:ScanForKnownRecipes(CompanionDB, playerData)
+		-- Update the table containing which reps to display
+		self:PopulateRepFilters(RepFilters)
+		-- Add filtering flags to the recipes
+		self:UpdateFilters(CompanionDB, AllSpecialtiesTable, playerData)
+		-- Mark excluded recipes
+		playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(CompanionDB,playerData.playerProfession)
 
 		if (textdump == true) then
 			self:DisplayTextDump(CompanionDB, playerData.playerProfession)
@@ -1551,78 +1339,6 @@ do
 								TrainerList, VendorList, QuestList, ReputationList,
 								SeasonalList, MobList, CustomList)
 		end
-	end
-
-	
-	-- Description: API for external addons to initialize the recipe database with a specific profession
-
-	--- Initialize the recipe database with a specific profession.
-	-- @name Collectinator:AddRecipeData
-	-- @usage Collectinator:AddRecipeData(GetSpellInfo(51304))
-	-- @param profession Spell ID of the profession which you want to populate the database with.
-	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
-	function addon:AddRecipeData(profession)
-
-		if (CompanionDB) then
-			InitializeRecipes(CompanionDB, profession)
-			return true
-		else
-			return false
-		end
-
-	end
-
-	-- Description: API for external addons to initialize the recipe database
-
-	--- Initialize the recipe database
-	-- @name Collectinator:InitRecipeData
-	-- @usage Collectinator:InitRecipeData()
-	-- @return Boolean indicating if the operation was successful.  The recipe database will be populated with appropriate data.
-	-- @return Arrays containing the CompanionDB, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList.
-	function addon:InitRecipeData()
-
-		if (CompanionDB) then
-			return false, CompanionDB, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
-		else
-			InitDatabases()
-			return true, CompanionDB, MobList, TrainerList, VendorList, QuestList, ReputationList, SeasonalList
-		end
-
-	end
-
-	-- Description: API for external addons to get recipe information from ARL
-
-	--- API for external addons to get recipe information from ARL
-	-- @name Collectinator:GetRecipeData
-	-- @param spellID The spell ID of the recipe you want information about.
-	-- @return Table containing all spell ID information or nil if it's not found.
-	function addon:GetRecipeData(spellID)
-
-		if (CompanionDB) then
-			if (CompanionDB[spellID]) then
-				return CompanionDB[spellID]
-			else
-				return nil
-			end
-		else
-			return nil
-		end
-
-	end
-
-	-- Description: API for external addons to get recipe database from ARL
-
-	--- API for external addons to get recipe database from ARL
-	-- @name Collectinator:GetRecipeTable
-	-- @return Table containing all recipe information or nil if it's not found.
-	function addon:GetRecipeTable()
-
-		if (CompanionDB) then
-			return CompanionDB
-		else
-			return nil
-		end
-
 	end
 
 end
@@ -1641,39 +1357,39 @@ do
 
 	-- Description: Sorts the recipe Database depending on the settings defined in the database.
 
-	function addon:SortMissingRecipes(RecipeDB)
+	function addon:SortMissingRecipes(DB)
 
 		if (not sortFuncs) then
 
 			sortFuncs = {}
 
 			sortFuncs["SkillAsc"] = function(a, b)
-				if (RecipeDB[a]["Level"] == RecipeDB[b]["Level"]) then
-					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+				if (DB[a]["Level"] == DB[b]["Level"]) then
+					return DB[a]["Name"] < DB[b]["Name"]
 				else
-					return RecipeDB[a]["Level"] < RecipeDB[b]["Level"]
+					return DB[a]["Level"] < DB[b]["Level"]
 				end
 			end
 
 			sortFuncs["SkillDesc"] = function(a, b) 
-				if (RecipeDB[a]["Level"] == RecipeDB[b]["Level"]) then
-					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+				if (DB[a]["Level"] == DB[b]["Level"]) then
+					return DB[a]["Name"] < DB[b]["Name"]
 				else
-					return RecipeDB[b]["Level"] < RecipeDB[a]["Level"]
+					return DB[b]["Level"] < DB[a]["Level"]
 				end
 			end
 
 			sortFuncs["Name"] = function(a, b)
-				return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+				return DB[a]["Name"] < DB[b]["Name"]
 			end
 
 			-- Will only sort based off of the first acquire type
 			sortFuncs["Acquisition"] = function (a, b)
-				local reca = RecipeDB[a]["Acquire"][1]
-				local recb = RecipeDB[b]["Acquire"][1]
+				local reca = DB[a]["Acquire"][1]
+				local recb = DB[b]["Acquire"][1]
 				if (reca and recb) then
 					if (reca["Type"] == recb["Type"]) then
-						return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+						return DB[a]["Name"] < DB[b]["Name"]
 					else
 						return reca["Type"] < recb["Type"]
 					end
@@ -1685,12 +1401,12 @@ do
 			-- Will only sort based off of the first acquire type
 			sortFuncs["Location"] = function (a, b)
 				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
-				local reca = RecipeDB[a]["Locations"] or ""
-				local recb = RecipeDB[b]["Locations"] or ""
+				local reca = DB[a]["Locations"] or ""
+				local recb = DB[b]["Locations"] or ""
 				reca = smatch(reca,"(%w+),") or ""
 				recb = smatch(recb,"(%w+),") or ""
 				if (reca == recb) then
-					return RecipeDB[a]["Name"] < RecipeDB[b]["Name"]
+					return DB[a]["Name"] < DB[b]["Name"]
 				else
 					return (reca < recb)
 				end
@@ -1702,7 +1418,7 @@ do
 		local SortedRecipeIndex = {}
 
 		-- Get all the indexes of the CompanionDBing
-		for n, v in pairs(RecipeDB) do
+		for n, v in pairs(DB) do
 			tinsert(SortedRecipeIndex, n)
 		end
 
@@ -1722,7 +1438,7 @@ end
 
 -- Description: Marks all exclusions in the recipe database to not be displayed
 
-function addon:GetExclusions(RecipeDB,prof)
+function addon:GetExclusions(DB,prof)
 
 	local exclusionlist = addon.db.profile.exclusionlist
 	local countknown = 0
@@ -1733,14 +1449,14 @@ function addon:GetExclusions(RecipeDB,prof)
 	for i in pairs(exclusionlist) do
 
 		-- We may have a recipe in the exclusion list that has not been scanned yet
-		-- check if the entry exists in RecipeDB first
-		if (RecipeDB[i]) then
+		-- check if the entry exists in DB first
+		if (DB[i]) then
 			if (ignored) then
-				RecipeDB[i]["Display"] = false
+				DB[i]["Display"] = false
 			end
 
-			local tmpprof = GetSpellInfo(RecipeDB[i]["Profession"])
-			if (RecipeDB[i]["Known"] == false and tmpprof == prof) then
+			local tmpprof = GetSpellInfo(DB[i]["Profession"])
+			if (DB[i]["Known"] == false and tmpprof == prof) then
 				countknown = countknown + 1
 			elseif (tmpprof == prof) then
 				countunknown = countunknown + 1
@@ -1803,17 +1519,17 @@ end
 
 -- Description: Scans through the recipe database and toggles the flag on if the item is in the search criteria
 
-function addon:SearchRecipeDB(RecipeDB, searchstring)
+function addon:SearchDB(DB, searchstring)
 
 	if (searchstring) then
 
 		searchstring = strlower(searchstring)
 
 		-- Go through the entire database
-		for SpellID in pairs(RecipeDB) do
+		for SpellID in pairs(DB) do
 
 			-- Get the Spell object
-			local recipe = RecipeDB[SpellID]
+			local recipe = DB[SpellID]
 
 			-- Set the search as false automatically
 			recipe["Search"] = false
@@ -1851,10 +1567,10 @@ end
 
 -- Description: Goes through the recipe database and resets all the search flags
 
-function addon:ResetSearch(RecipeDB)
+function addon:ResetSearch(DB)
 
-	for SpellID in pairs(RecipeDB) do
-		RecipeDB[SpellID]["Search"] = true
+	for SpellID in pairs(DB) do
+		DB[SpellID]["Search"] = true
 	end
 
 end
@@ -1867,7 +1583,7 @@ end
 
 -- Description: Scans through the recipe database providing a string of comma seperated values for all recipe information
 
-function addon:GetTextDump(RecipeDB, profession)
+function addon:GetTextDump(DB, profession)
 
 	local texttable = {}
 
@@ -1880,22 +1596,22 @@ function addon:GetTextDump(RecipeDB, profession)
 	tinsert(texttable,"Text output of all recipes and acquire information.  Output is in the form of comma seperated values.\n")
 	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
 
-	for SpellID in pairs(RecipeDB) do
+	for SpellID in pairs(DB) do
 
-		local recipeprof = GetSpellInfo(RecipeDB[SpellID]["Profession"])
+		local recipeprof = GetSpellInfo(DB[SpellID]["Profession"])
 
 		if (recipeprof == profession) then
 
 			-- Add Spell ID, Name and Skill Level to the list
 			tinsert(texttable,SpellID)
 			tinsert(texttable,",")
-			tinsert(texttable,RecipeDB[SpellID]["Name"])
+			tinsert(texttable,DB[SpellID]["Name"])
 			tinsert(texttable,",")
-			tinsert(texttable,RecipeDB[SpellID]["Level"])
+			tinsert(texttable,DB[SpellID]["Level"])
 			tinsert(texttable,",[")
 
 			-- Add in all the filter flags
-			local flags = RecipeDB[SpellID]["Flags"]
+			local flags = DB[SpellID]["Flags"]
 
 			-- Find out which flags are marked as "true"
 			for i=1,127,1 do
@@ -1908,7 +1624,7 @@ function addon:GetTextDump(RecipeDB, profession)
 			tinsert(texttable,"],[")
 
 			-- Find out which unique acquire methods we have
-			local acquire = RecipeDB[SpellID]["Acquire"]
+			local acquire = DB[SpellID]["Acquire"]
 			local acquirelist = {}
 
 			for i in pairs(acquire) do
@@ -1937,7 +1653,7 @@ function addon:GetTextDump(RecipeDB, profession)
 				tinsert(texttable,",")
 			end
 
-			if (RecipeDB[SpellID]["Known"]) then
+			if (DB[SpellID]["Known"]) then
 				tinsert(texttable,"],true\n")
 			else
 				tinsert(texttable,"],false\n")
@@ -1949,345 +1665,3 @@ function addon:GetTextDump(RecipeDB, profession)
 	return tconcat(texttable,"")
 
 end
-
-do
-
-	local GetItemInfo = GetItemInfo
-
-	-- Description: Dumps all the info about a recipe out to chat
-
-	function addon:DumpRecipe(SpellID)
-
-		local CompanionDB = addon:GetRecipeTable()
-
-		if (not CompanionDB) then
-			return
-		end
-
-		if (CompanionDB[SpellID]) then
-
-			local x = CompanionDB[SpellID]
-			self:Print(x["Name"] .. "(" .. x["Level"] .. ") -- " .. SpellID)
-			self:Print("Rarity: " .. x["Rarity"])
-			if (x["Specialty"]) then
-				self:Print("Profession: " .. x["Profession"] .. "(" .. x["Specialty"] .. ")")
-			else
-				self:Print("Profession: " .. x["Profession"])
-			end
-			if (x["ItemID"]) then
-				local _,linky = GetItemInfo(x["ItemID"])
-				self:Print("Creates: " .. linky .. "(" .. x["ItemID"] .. ")")
-			end
-			if (x["Locations"]) then
-				self:Print("Located: " .. x["Locations"])
-			end
-
-			local flags = x["Flags"]
-			local flagstr = ""
-
-			if (flags[1] == true) then
-				flagstr = flagstr .. "Ally,"
-			end
-			if (flags[2] == true) then
-				flagstr = flagstr .. "Horde,"
-			end
-			if (flags[3] == true) then
-				flagstr = flagstr .. "Trn,"
-			end
-			if (flags[4] == true) then
-				flagstr = flagstr .. "Ven,"
-			end
-			if (flags[5] == true) then
-				flagstr = flagstr .. "Instance,"
-			end
-			if (flags[6] == true) then
-				flagstr = flagstr .. "Raid,"
-			end
-			if (flags[7] == true) then
-				flagstr = flagstr .. "Seasonal,"
-			end
-			if (flags[8] == true) then
-				flagstr = flagstr .. "Quest,"
-			end
-			if (flags[9] == true) then
-				flagstr = flagstr .. "PVP,"
-			end
-			if (flags[10] == true) then
-				flagstr = flagstr .. "World,"
-			end
-			if (flags[11] == true) then
-				flagstr = flagstr .. "Mob,"
-			end
-			if (flags[12] == true) then
-				flagstr = flagstr .. "Disc,"
-			end
-			if (flags[13] == true) then
-				flagstr = flagstr .. "13,"
-			end
-			if (flags[14] == true) then
-				flagstr = flagstr .. "14,"
-			end
-			if (flags[15] == true) then
-				flagstr = flagstr .. "15,"
-			end
-			if (flags[16] == true) then
-				flagstr = flagstr .. "16,"
-			end
-			if (flags[17] == true) then
-				flagstr = flagstr .. "17,"
-			end
-			if (flags[18] == true) then
-				flagstr = flagstr .. "18,"
-			end
-			if (flags[19] == true) then
-				flagstr = flagstr .. "19,"
-			end
-			if (flags[20] == true) then
-				flagstr = flagstr .. "20,"
-			end
-			if (flags[21] == true) then
-				flagstr = flagstr .. "DK,"
-			end
-			if (flags[22] == true) then
-				flagstr = flagstr .. "Druid,"
-			end
-			if (flags[23] == true) then
-				flagstr = flagstr .. "Huntard,"
-			end
-			if (flags[24] == true) then
-				flagstr = flagstr .. "Mage,"
-			end
-			if (flags[25] == true) then
-				flagstr = flagstr .. "Pally,"
-			end
-			if (flags[26] == true) then
-				flagstr = flagstr .. "Priest,"
-			end
-			if (flags[27] == true) then
-				flagstr = flagstr .. "Sham,"
-			end
-			if (flags[28] == true) then
-				flagstr = flagstr .. "Rogue,"
-			end
-			if (flags[29] == true) then
-				flagstr = flagstr .. "Lock,"
-			end
-			if (flags[30] == true) then
-				flagstr = flagstr .. "War,"
-			end
-			if (flags[31] == true) then
-				flagstr = flagstr .. "31,"
-			end
-			if (flags[36] == true) then
-				flagstr = flagstr .. "IBoE,"
-			end
-			if (flags[37] == true) then
-				flagstr = flagstr .. "IBoP,"
-			end
-			if (flags[38] == true) then
-				flagstr = flagstr .. "IBoA,"
-			end
-			if (flags[39] == true) then
-				flagstr = flagstr .. "39,"
-			end
-			if (flags[40] == true) then
-				flagstr = flagstr .. "RBoE,"
-			end
-			if (flags[41] == true) then
-				flagstr = flagstr .. "RBoP,"
-			end
-			if (flags[42] == true) then
-				flagstr = flagstr .. "RBoA,"
-			end
-			if (flags[51] == true) then
-				flagstr = flagstr .. "Melee,"
-			end
-			if (flags[52] == true) then
-				flagstr = flagstr .. "Tank,"
-			end
-			if (flags[53] == true) then
-				flagstr = flagstr .. "Heal,"
-			end
-			if (flags[54] == true) then
-				flagstr = flagstr .. "Caster,"
-			end
-			if (flags[56] == true) then
-				flagstr = flagstr .. "Cloth,"
-			end
-			if (flags[57] == true) then
-				flagstr = flagstr .. "Leather,"
-			end
-			if (flags[58] == true) then
-				flagstr = flagstr .. "Mail,"
-			end
-			if (flags[59] == true) then
-				flagstr = flagstr .. "Plate,"
-			end
-			if (flags[60] == true) then
-				flagstr = flagstr .. "Cloak,"
-			end
-			if (flags[61] == true) then
-				flagstr = flagstr .. "Trinket,"
-			end
-			if (flags[62] == true) then
-				flagstr = flagstr .. "Ring,"
-			end
-			if (flags[63] == true) then
-				flagstr = flagstr .. "Neck,"
-			end
-			if (flags[64] == true) then
-				flagstr = flagstr .. "Shield,"
-			end
-			if (flags[66] == true) then
-				flagstr = flagstr .. "1H,"
-			end
-			if (flags[67] == true) then
-				flagstr = flagstr .. "2H,"
-			end
-			if (flags[68] == true) then
-				flagstr = flagstr .. "Axe,"
-			end
-			if (flags[69] == true) then
-				flagstr = flagstr .. "Sword,"
-			end
-			if (flags[70] == true) then
-				flagstr = flagstr .. "Mace,"
-			end
-			if (flags[71] == true) then
-				flagstr = flagstr .. "Polearm,"
-			end
-			if (flags[72] == true) then
-				flagstr = flagstr .. "Dagger,"
-			end
-			if (flags[73] == true) then
-				flagstr = flagstr .. "Staff,"
-			end
-			if (flags[74] == true) then
-				flagstr = flagstr .. "Wand,"
-			end
-			if (flags[75] == true) then
-				flagstr = flagstr .. "Thrown,"
-			end
-			if (flags[76] == true) then
-				flagstr = flagstr .. "Bow,"
-			end
-			if (flags[77] == true) then
-				flagstr = flagstr .. "xBow,"
-			end
-			if (flags[78] == true) then
-				flagstr = flagstr .. "Ammo,"
-			end
-			if (flags[79] == true) then
-				flagstr = flagstr .. "Fist,"
-			end
-
-			self:Print("Flags: " .. flagstr)
-			flagstr = ""
-
-			if (flags[96] == true) then
-				flagstr = flagstr .. "AD,"
-			end
-			if (flags[97] == true) then
-				flagstr = flagstr .. "CC,"
-			end
-			if (flags[98] == true) then
-				flagstr = flagstr .. "TB,"
-			end
-			if (flags[99] == true) then
-				flagstr = flagstr .. "TH,"
-			end
-			if (flags[100] == true) then
-				flagstr = flagstr .. "ZH,"
-			end
-			if (flags[101] == true) then
-				flagstr = flagstr .. "Aldor,"
-			end
-			if (flags[102] == true) then
-				flagstr = flagstr .. "Ashtongue,"
-			end
-			if (flags[103] == true) then
-				flagstr = flagstr .. "CE,"
-			end
-			if (flags[104] == true) then
-				flagstr = flagstr .. "Thrall/HH,"
-			end
-			if (flags[105] == true) then
-				flagstr = flagstr .. "Consort,"
-			end
-			if (flags[106] == true) then
-				flagstr = flagstr .. "KoT,"
-			end
-			if (flags[107] == true) then
-				flagstr = flagstr .. "LC,"
-			end
-			if (flags[108] == true) then
-				flagstr = flagstr .. "Mag/Kur,"
-			end
-			if (flags[109] == true) then
-				flagstr = flagstr .. "SoS,"
-			end
-			if (flags[110] == true) then
-				flagstr = flagstr .. "Scryer,"
-			end
-			if (flags[111] == true) then
-				flagstr = flagstr .. "Sha'tar,"
-			end
-			if (flags[112] == true) then
-				flagstr = flagstr .. "Shattered Sun,"
-			end
-			if (flags[113] == true) then
-				flagstr = flagstr .. "Spore,"
-			end
-			if (flags[114] == true) then
-				flagstr = flagstr .. "VE,"
-			end
-			if (flags[115] == true) then
-				flagstr = flagstr .. "AC,"
-			end
-			if (flags[116] == true) then
-				flagstr = flagstr .. "Frenzy,"
-			end
-			if (flags[117] == true) then
-				flagstr = flagstr .. "Ebon,"
-			end
-			if (flags[118] == true) then
-				flagstr = flagstr .. "Kirin,"
-			end
-			if (flags[119] == true) then
-				flagstr = flagstr .. "Hodir,"
-			end
-			if (flags[120] == true) then
-				flagstr = flagstr .. "Kalu'ak,"
-			end
-			if (flags[121] == true) then
-				flagstr = flagstr .. "Oracles,"
-			end
-			if (flags[122] == true) then
-				flagstr = flagstr .. "Wyrm,"
-			end
-			if (flags[123] == true) then
-				flagstr = flagstr .. "Wrath Common Factions (The Silver Convenant/The Sunreavers),"
-			end
-			if (flags[124] == true) then
-				flagstr = flagstr .. "Wrath Common Factions (Explorer's League/Hand of Vengance),"
-			end
-			if (flags[125] == true) then
-				flagstr = flagstr .. "Wrath Common Factions(Explorer's League/Valiance Expedition),"
-			end
-			if (flags[126] == true) then
-				flagstr = flagstr .. "TWrath Common Factions (The Frostborn/The Taunka),"
-			end
-			if (flags[127] == true) then
-				flagstr = flagstr .. "Wrath Common Factions (Alliance Vanguard/Horde Expedition),"
-			end
-
-			self:Print("Reps: " .. flagstr)
-
-		else
-			self:Print("Spell ID not in recipe database.")
-		end
-
-	end
-
-end
-
