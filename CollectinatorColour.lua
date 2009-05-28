@@ -18,7 +18,7 @@ Code adopted from Crayon library
 ]]--
 
 
-local MODNAME			= "Ackis Recipe List"
+local MODNAME			= "Collectinator"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 --[[

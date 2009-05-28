@@ -65,15 +65,6 @@ if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
 	return
 end
 
-if (not LibStub:GetLibrary("LibBabble-Class-3.0", true)) then
-	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Class-3.0"))
-	--@debug@
-	addon:Print("You are using a svn version of Collectinator.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
-	--@end-debug@
-	Collectinator = nil
-	return
-end
-
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 -- Global Frame Variables
@@ -119,7 +110,7 @@ function addon:OnInitialize()
 	-- Set default options, which are to include everything in the scan
 	local defaults = {
 		profile = {
-			companionlist = {}
+			companionlist = {},
 			-- Frame options
 			frameopts = {
 				offsetx = 0,
@@ -1670,7 +1661,7 @@ function addon:GetTextDump(DB, profession)
 	--@end-debug@
 
 	-- Add a header to the text table
-	tinsert(texttable,format("Ackis Recipe List Text Dump for %s",profession))
+	tinsert(texttable,format("Collectinator Text Dump for %s",profession))
 	tinsert(texttable,"Text output of all recipes and acquire information.  Output is in the form of comma seperated values.\n")
 	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
 

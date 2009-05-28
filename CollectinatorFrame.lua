@@ -15,14 +15,13 @@ Project version: @project-version@
 
 ]]--
 
-local MODNAME	= "Ackis Recipe List"
+local MODNAME	= "Collectinator"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local BC		= LibStub("LibBabble-Class-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip		= LibStub("LibQTip-1.0")
-local QTipClick		= LibStub("LibQTipClick-1.1")
+local QTipClick	= LibStub("LibQTipClick-1.1")
 
 local string = string
 local ipairs = ipairs
