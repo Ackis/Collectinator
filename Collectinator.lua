@@ -119,6 +119,7 @@ function addon:OnInitialize()
 	-- Set default options, which are to include everything in the scan
 	local defaults = {
 		profile = {
+			companionlist = {}
 			-- Frame options
 			frameopts = {
 				offsetx = 0,
@@ -148,7 +149,6 @@ function addon:OnInitialize()
 			scantrainers = false,
 			autoloaddb = false,
 
-			-- Recipe Exclusion
 			exclusionlist = {},
 
 			-- Filter Options
@@ -325,6 +325,9 @@ end
 -- @name playerData
 -- @field totalknownpets Total number of known mini-pets.
 -- @field totalknownmounts Total number of known mounts.
+-- @field playerFaction Players faction
+-- @field playerClass Players class
+-- @field ["Reputation"] Listing of players reputation levels
 
 do
 
@@ -571,6 +574,33 @@ local function GetIDFromLink(SpellLink)
 	-- Faster matching per Neffi
 	return smatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
 
+end
+
+function addon:ScanCompanions()
+
+	-- Find out how many companions we have learnt
+	local numminipets = GetNumCompanions("CRITTER")
+	local nummounts = GetNumCompanions("MOUNT")
+
+	local butt = addon.db.profile.companionlist
+
+	-- Clear the saved variables for the companion list.
+	twipe(butt)
+
+	-- Parse all the mini-pets you currently have
+	for i=1,numminipets do
+		-- Get the pet's name and spell ID
+		local _,_,petspell = GetCompanionInfo("CRITTER",i)
+		-- Add the mini-pet to the list of pets we save
+		tinsert(butt,petspell)
+	end
+	-- Parse all the mounts you currently have
+	for i=1,nummounts do
+		-- Get the pet's name and spell ID
+		local _,_,mountspell = GetCompanionInfo("MOUNT",i)
+		-- Add the mini-pet to the list of pets we save
+		tinsert(butt,mountspell)
+	end
 end
 
 do
@@ -1232,6 +1262,33 @@ do
 
 	end
 
+	local function GetPlayerProfessions(ProfTable)
+
+		-- Reset the table, they may have unlearnt a profession
+		for i in pairs(ProfTable) do
+			ProfTable[i] = false
+		end
+
+		-- Scan through the spell book getting the spell names
+		for index=1,25,1 do
+
+			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
+
+			if (not spellName) or (index == 25) then
+				-- Nothing found
+				break
+			end
+			if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
+				if spellName == GetSpellInfo(2656) then
+					ProfTable[GetSpellInfo(2575)] = true
+				else
+					ProfTable[spellName] = true
+				end
+			end
+		end
+
+	end
+
 	-- Description: Initializes and adds data relavent to the player character
 
 	local function InitPlayerData()
@@ -1246,11 +1303,29 @@ do
 
 		addon:GetFactionLevels(pData["Reputation"])
 
+		pData["Professions"] = {
+			[GetSpellInfo(51304)] = false, -- Alchemy
+			[GetSpellInfo(51300)] = false, -- Blacksmithing
+			[GetSpellInfo(51296)] = false, -- Cooking
+			[GetSpellInfo(51313)] = false, -- Enchanting
+			[GetSpellInfo(51306)] = false, -- Engineering
+			[GetSpellInfo(45542)] = false, -- First Aid
+			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
+			[GetSpellInfo(51302)] = false, -- Leatherworking
+			[GetSpellInfo(32606)] = false, -- Mining
+			[GetSpellInfo(51309)] = false, -- Tailoring
+			[GetSpellInfo(51311)] = false, -- Jewelcrafting
+			[GetSpellInfo(45363)] = false, -- Inscription
+			[GetSpellInfo(53428)] = false, -- Runeforging
+		}
+
+		addon:GetPlayerProfession(pData["Professions"])
+
 		return pData
 
 	end
 
-	-- Description: Initalizes all the recipe databases to their initial
+	-- Description: Initalizes all the databases to their initial values
 
 	local function InitDatabases()
 
@@ -1296,7 +1371,7 @@ do
 			RepFilters = {}
 		end
 
-		-- Initializes the recipe list
+		-- Initializes the companion list
 		if (CompanionDB == nil) then
 			CompanionDB = {}
 		end
@@ -1314,21 +1389,23 @@ do
 		if (playerData == nil) then
 			playerData = InitPlayerData()
 		end
+
 		-- Lets create all the databases needed if this is the first time everything has been run.
 		if (CompanionDB == nil) then
 			InitDatabases()
 		end
 
-		-- Add the recipes to the database
-		playerData.totalRecipes = InitializeRecipes(CompanionDB, playerData.playerProfession)
-		-- Scan all recipes and mark the ones which ones we know
-		self:ScanForKnownRecipes(CompanionDB, playerData)
+		-- Scan all companions, marking which ones we know.
+		self:ScanCompanions()
+
 		-- Update the table containing which reps to display
 		self:PopulateRepFilters(RepFilters)
+
 		-- Add filtering flags to the recipes
 		self:UpdateFilters(CompanionDB, AllSpecialtiesTable, playerData)
+
 		-- Mark excluded recipes
-		playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = self:GetExclusions(CompanionDB,playerData.playerProfession)
+		self:MarkExclusions(CompanionDB,playerData)
 
 		if (textdump == true) then
 			self:DisplayTextDump(CompanionDB, playerData.playerProfession)
@@ -1438,11 +1515,12 @@ end
 
 -- Description: Marks all exclusions in the recipe database to not be displayed
 
-function addon:GetExclusions(DB,prof)
+function addon:MarkExclusions(DB,playerData)
 
 	local exclusionlist = addon.db.profile.exclusionlist
 	local countknown = 0
 	local countunknown = 0
+	local prof = playerData
 
 	local ignored = not addon.db.profile.ignoreexclusionlist
 
