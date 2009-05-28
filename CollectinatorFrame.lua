@@ -1889,7 +1889,7 @@ do
 		if (addon.Frame and addon.Frame:IsVisible()) then
 			-- Shift only (Text dump)
 			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(true)
+				self:Collectinator_Command(true)
 			-- Alt only (Wipe icons from map)
 			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
 				self:ClearMap()
@@ -1898,7 +1898,7 @@ do
 				addon.Frame:Hide()
 			-- If we have a different profession open we do a scan
 			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(false)
+				self:Collectinator_Command(false)
 				self:SetupMap()
 				currentProfession = cprof
 			end
@@ -1907,13 +1907,13 @@ do
 			currentProfession = cprof
 			-- Shift only (Text dump)
 			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(true)
+				self:Collectinator_Command(true)
 			-- Alt only (Wipe icons from map)
 			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
 				self:ClearMap()
 			-- No modification
 			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(false)
+				self:Collectinator_Command(false)
 				self:SetupMap()
 			end
 		end
