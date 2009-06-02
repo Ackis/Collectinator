@@ -382,7 +382,7 @@ local maxfilterflags = 72
 -- @name Collectinator:AddCompanion
 -- @usage Collectinator:AddCompanion(DB)
 -- @param DB The database (array) which you wish to add data too.
--- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being entry to the database.
+-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the item being entered to the database.
 -- @param ItemID The [http://www.wowwiki.com/ItemLink Item ID] of the item, or nil
 -- @param Rarity The rarity of the item.
 -- @param CompanionType Type of entry added to the database.
@@ -422,7 +422,7 @@ end
 -- @name Collectinator:AddCompanionFlags
 -- @usage Collectinator:AddCompanionFlags(DB)
 -- @param DB The database (array) which you wish to add flags too.
--- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being entry to the database.
+-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the item being entered to the database.
 -- @param ... A listing of filtering flags.  See [[database-documentation]] for a listing of filtering flags.
 -- @return None, array is passed as a reference.
 function addon:AddCompanionFlags(DB, SpellID, ...)
@@ -446,7 +446,7 @@ end
 -- @name Collectinator:AddCompanionAcquire
 -- @usage Collectinator:AddCompanionAcquire:(DB,2329,8,8)
 -- @param DB The database (array) which you wish to add acquire methods too.
--- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the recipe being entry to the database.
+-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the item being entered to the database.
 -- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
 -- @return None, array is passed as a reference.
 function addon:AddCompanionAcquire(DB, SpellID, ...)
@@ -1145,7 +1145,7 @@ do
 	-- @name Collectinator:InitCompanionDB
 	-- @usage Collectinator:InitCompanionDB(CompanionDB)
 	-- @param DB Companion database
-	-- @return Database is populated with all appropiate entries for pets and mounts.  Total number of entries are returned.	
+	-- @return Database is populated with all appropiate entries for pets and mounts.  Total number of entries are returned.
 	local function InitCompanionDB(DB)
 
 		local pet = 0
@@ -1158,6 +1158,11 @@ do
 
 	end
 
+	--- Scans the acquire methods for the location and update the entry in the database with them.
+	-- @name Collectinator:GetLocations
+	-- @usage Collectinator:GetLocations([http://www.wowwiki.com/SpellLink Spell ID])
+	-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the item being entry to the database.
+	-- @return Locations are populated for the given spell.
 	function addon:GetLocations(SpellID)
 
 		if (CompanionDB) and (CompanionDB[SpellID]) then
