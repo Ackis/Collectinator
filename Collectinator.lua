@@ -560,11 +560,6 @@ local function GetIDFromLink(SpellLink)
 
 end
 
---- Scans all types of items tracked by mod
-function addon:DoCompleteScan()
-
-end
-
 --- Scans all companions you have (mounts and mini-pets) and adds them to the saved variables.
 -- @name ScanCompanions
 -- @usage Collectinator:ScanCompanions(DB, playerData["totalknownpets"], playerData["totalknownmounts"])
