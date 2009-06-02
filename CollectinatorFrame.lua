@@ -1457,16 +1457,10 @@ function addon.resetTitle()
 	local myTitle = ""
 
 	if (addon.Frame._Expanded == true) then
-
 		local aFil, tFil = addon.numFilters()
-
-		myTitle = "ARL (v." .. addonversion .. ") - " .. currentProfession ..
-			" (" .. aFil .. "/" .. tFil .. " " .. L["Filters"] .. ")"
-
+		myTitle = "ARL (v." .. addonversion .. ") - (" .. aFil .. "/" .. tFil .. " " .. L["Filters"] .. ")"
 	else
-
-		myTitle = "ARL (v." .. addonversion .. ") - " .. currentProfession
-
+		myTitle = "ARL (v." .. addonversion .. ")"
 	end
 
 	addon.Frame.HeadingText:SetText(addon:Normal(myTitle))
