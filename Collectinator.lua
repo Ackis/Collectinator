@@ -1432,7 +1432,7 @@ do
 								TrainerList, VendorList, QuestList, ReputationList,
 								SeasonalList, MobList, CustomList)
 ]]--
-			for i in pairs(CompanionDB) do DumpSpell(i) end
+			for i in pairs(CompanionDB) do addon:DumpSpell(i) end
 		end
 
 	end
