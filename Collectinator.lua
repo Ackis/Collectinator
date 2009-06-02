@@ -1328,7 +1328,7 @@ do
 			[GetSpellInfo(53428)] = false, -- Runeforging
 		}
 
-		addon:GetPlayerProfessions(pData["Professions"])
+		GetPlayerProfessions(pData["Professions"])
 
 		return pData
 
