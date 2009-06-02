@@ -123,7 +123,7 @@ function addon:OnInitialize()
 			},
 
 			-- Sorting Options
-			sorting = "SkillAsc",
+			sorting = "Name",
 
 			-- Display Options
 			includefiltered = false,
@@ -1426,9 +1426,9 @@ do
 			self:DisplayTextDump(CompanionDB, playerData.playerProfession)
 		else
 			-- Sort the recipe list now
-			local sortedindex = self:SortMissingRecipes(CompanionDB)
+			local sortedindex = self:SortDatabase(CompanionDB)
 
-			self:CreateFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
+			--self:CreateFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
 
 			for i in pairs(CompanionDB) do if (CompanionDB[i]["Known"] == false) then addon:DumpSpell(i) end end
 		end
@@ -1657,34 +1657,16 @@ end
 ]]--
 
 do
-
 	-- Sorting functions
-
 	local sortFuncs = nil
 
+	-- Create a new array for the sorted index
+	local SortedRecipeIndex = {}
+
 	-- Description: Sorts the recipe Database depending on the settings defined in the database.
-
-	function addon:SortMissingRecipes(DB)
-
+	function addon:SortDatabase(DB)
 		if (not sortFuncs) then
-
 			sortFuncs = {}
-
-			sortFuncs["SkillAsc"] = function(a, b)
-				if (DB[a]["Level"] == DB[b]["Level"]) then
-					return DB[a]["Name"] < DB[b]["Name"]
-				else
-					return DB[a]["Level"] < DB[b]["Level"]
-				end
-			end
-
-			sortFuncs["SkillDesc"] = function(a, b) 
-				if (DB[a]["Level"] == DB[b]["Level"]) then
-					return DB[a]["Name"] < DB[b]["Name"]
-				else
-					return DB[b]["Level"] < DB[a]["Level"]
-				end
-			end
 
 			sortFuncs["Name"] = function(a, b)
 				return DB[a]["Name"] < DB[b]["Name"]
@@ -1718,13 +1700,10 @@ do
 					return (reca < recb)
 				end
 			end
-
 		end
+		twipe(SortedRecipeIndex)
 
-		-- Create a new array for the sorted index
-		local SortedRecipeIndex = {}
-
-		-- Get all the indexes of the CompanionDBing
+		-- Get all the indexes of the RecipeListing
 		for n, v in pairs(DB) do
 			tinsert(SortedRecipeIndex, n)
 		end
