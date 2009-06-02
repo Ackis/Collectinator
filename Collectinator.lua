@@ -595,33 +595,25 @@ end
 do
 
 	--- Scans the database and the local list of companions and flags which ones you know
-
-	function addon:CheckForKnownCompanions(PetDB, playerData)
+	-- @name CheckForKnownCompanions
+	-- @usage Collectinator:CheckForKnownCompanions(DB)
+	-- @param DB Companion database which we are parsing.
+	-- @return Companion DB is updated by reference.
+	function addon:CheckForKnownCompanions(DB)
 
 		local companionlist = addon.db.profile.companionlist
-		local mount = 0
-		local pet = 0
 
 		-- Scan through all the entries we've saved
 		for i,SpellID in pairs(companionlist) do
 			-- If the entry exists, mark it as known
-			if (PetDB[SpellID]) then
-				PetDB[SpellID]["Known"] = true
-				-- Increase the companion type count
-				if (PetDB[SpellID]["Type"] == "CRITTER") then
-					pet = pet + 1
-				elseif (PetDB[SpellID]["Type"] == "MOUNT") then
-					mount = mount + 1
-				end
+			if (DB[SpellID]) then
+				DB[SpellID]["Known"] = true
 			-- If the entry doesn't exist raise an error
 			else
 				local name = GetSpellInfo(SpellID)
 				self:Print("Companion: " .. name .. " (" .. SpellID .. ") not found in database.")
 			end
 		end
-
-		playerData.totalknownpets = pet
-		playerData.totalknownmounts = mount
 
 	end
 
@@ -1121,19 +1113,6 @@ function addon:ChatCommand(input)
 ]]--
 end
 
---- Populates the internal companion database with all the mini-pets and mounts.
--- @name Collectinator:InitCompanionDB
--- @usage Collectinator:InitCompanionDB(CompanionDB)
--- @param DB Companion database
--- @return Database is populated with all appropiate entries for pets and mounts.
-	
-local function InitCompanionDB(DB)
-
-	addon:MakeMiniPetTable(DB)
-	addon:MakeMountTable(DB)
-
-end
-
 do
 
 	local UnitClass = UnitClass
@@ -1155,6 +1134,8 @@ do
 	-- @name playerData
 	-- @field totalknownpets Total number of known mini-pets.
 	-- @field totalknownmounts Total number of known mounts.
+	-- @field totalpets Total number of mini-pets.
+	-- @field totalmounts Total number of mounts.
 	-- @field playerFaction Players faction
 	-- @field playerClass Players class
 	-- @field ["Reputation"] Listing of players reputation levels
@@ -1162,6 +1143,24 @@ do
 	-- Variables for getting the locations
 	local locationlist = nil
 	local locationchecklist = nil
+
+	--- Populates the internal companion database with all the mini-pets and mounts.
+	-- @name Collectinator:InitCompanionDB
+	-- @usage Collectinator:InitCompanionDB(CompanionDB)
+	-- @param DB Companion database
+	-- @return Database is populated with all appropiate entries for pets and mounts.  Total number of entries are returned.
+		
+	local function InitCompanionDB(DB)
+
+		local pet = 0
+		local mount = 0
+		
+		pet = addon:MakeMiniPetTable(DB)
+		mount = addon:MakeMountTable(DB)
+
+		return pet, mount
+
+	end
 
 	function addon:GetRecipeLocations(SpellID)
 
@@ -1385,8 +1384,8 @@ do
 	--- Causes a scan of the companions to be conducted.
 	-- @name Collectinator:Collectinator_Command
 	-- @usage Collectinator:Collectinator_Command(true)
-	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the ARL GUI.
-	-- @return A frame with either the text dump, or the ARL frame.
+	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the GUI.
+	-- @return A frame with either the text dump, or the GUI frame.
 	function addon:Collectinator_Command(textdump)
 
 		-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
@@ -1403,7 +1402,7 @@ do
 			InitDatabases()
 		end
 
-		InitCompanionDB(CompanionDB)
+		playerData["totalpets"], playerData["totalmounts"] = InitCompanionDB(CompanionDB)
 
 		-- Scan for all known companions
 		self:ScanCompanions(CompanionDB, playerData["totalknownpets"], playerData["totalknownmounts"])
