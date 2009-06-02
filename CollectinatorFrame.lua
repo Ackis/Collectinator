@@ -123,7 +123,7 @@ local SortedCollections = {
 	{ name = "Mounts",		texture = "mounts" },	-- 2
 } 
 
-local MaxProfessions = 2
+local MaxCollections = 2
 
 -- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
 local ExpButtonText = {
@@ -1247,7 +1247,7 @@ local function ReDisplay()
 	addon:UpdateFilters(recipeDB, allSpecTable, playerData)
 	sortedRecipeIndex = addon:SortDatabase(recipeDB)
 
-	playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(recipeDB,playerData.playerProfession)
+	--playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(recipeDB,playerData.playerProfession)
 
 	initDisplayStrings()
 
@@ -1410,7 +1410,7 @@ function addon.numFilters()
 
 	-- IMPORTANT: If the number of filters we're maintaining changes, you'll need to change the FilterValueMap
 	-- at the end (of CreateFrame), as well as the following index value:
-	local MaxFilters = 91
+	local MaxFilters = 81
 
 	local total = 0
 	local active = 0
@@ -1438,9 +1438,9 @@ function addon.resetTitle()
 
 	if (addon.Frame._Expanded == true) then
 		local aFil, tFil = addon.numFilters()
-		myTitle = "ARL (v." .. addonversion .. ") - (" .. aFil .. "/" .. tFil .. " " .. L["Filters"] .. ")"
+		myTitle = "Collectinator (v." .. addonversion .. ") - (" .. aFil .. "/" .. tFil .. " " .. L["Filters"] .. ")"
 	else
-		myTitle = "ARL (v." .. addonversion .. ")"
+		myTitle = "Collectinator (v." .. addonversion .. ")"
 	end
 
 	addon.Frame.HeadingText:SetText(addon:Normal(myTitle))
@@ -1607,7 +1607,7 @@ end
 function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, misc)
 
 	local pushdown = {
-		[64] = 1, [65] = 1, [66] = 1, [67] = 1, [85] = 1,
+		[64] = 1, [65] = 1, [66] = 1, [67] = 1, [19] = 1,
 	}
 	-- set the position of the new checkbox
 	local xPos = 2 + ((col - 1) * 100)
@@ -1953,7 +1953,7 @@ function addon:SwitchProfs(button)
 		-- normal profession switch
 		if (currentProfIndex == 0) then
 			startLoop = 1
-			endLoop = addon.MaxProfessions + 1
+			endLoop = addon.MaxCollections + 1
 		else
 			startLoop = currentProfIndex + 1
 			endLoop = currentProfIndex
@@ -1961,7 +1961,7 @@ function addon:SwitchProfs(button)
 		local index = startLoop
 	
 		while (index ~= endLoop) do
-			if (index > MaxProfessions) then
+			if (index > MaxCollections) then
 				index = 1
 			else
 				displayProf = index
@@ -1971,7 +1971,7 @@ function addon:SwitchProfs(button)
 	elseif button == "RightButton" then
 		-- reverse profession switch
 		if (currentProfIndex == 0) then
-			startLoop = addon.MaxProfessions + 1
+			startLoop = addon.MaxCollections + 1
 			endLoop = 0
 		else
 			startLoop = currentProfIndex - 1
@@ -1981,7 +1981,7 @@ function addon:SwitchProfs(button)
 	
 		while (index ~= endLoop) do
 			if (index < 1) then
-				index = MaxProfessions
+				index = MaxCollections
 			else
 				displayProf = index
 				currentProfIndex = index
@@ -2566,17 +2566,6 @@ function addon.setFlyawayState()
 	ARL_FactionCB:SetChecked(filterdb.general.faction)
 	ARL_KnownCB:SetChecked(filterdb.general.known)
 	ARL_UnknownCB:SetChecked(filterdb.general.unknown)
-	-- Classes
-	ARL_DeathKnightCB:SetChecked(filterdb.classes.deathknight)
-	ARL_DruidCB:SetChecked(filterdb.classes.druid)
-	ARL_HunterCB:SetChecked(filterdb.classes.hunter)
-	ARL_MageCB:SetChecked(filterdb.classes.mage)
-	ARL_PaladinCB:SetChecked(filterdb.classes.paladin)
-	ARL_PriestCB:SetChecked(filterdb.classes.priest)
-	ARL_RogueCB:SetChecked(filterdb.classes.rogue)
-	ARL_ShamanCB:SetChecked(filterdb.classes.shaman)
-	ARL_WarlockCB:SetChecked(filterdb.classes.warlock)
-	ARL_WarriorCB:SetChecked(filterdb.classes.warrior)
 	-- Obtain Options
 	ARL_InstanceCB:SetChecked(filterdb.obtain.instance)
 	ARL_RaidCB:SetChecked(filterdb.obtain.raid)
@@ -2704,22 +2693,6 @@ function addon.resetFilters()
 	filterdb.general.class = false
 	filterdb.general.specialty = false
 	filterdb.general.known = false
-
-	-- Reset all classes to false
-	filterdb.classes.deathknight = false
-	filterdb.classes.druid = false
-	filterdb.classes.hunter = false
-	filterdb.classes.mage = false
-	filterdb.classes.paladin = false
-	filterdb.classes.priest = false
-	filterdb.classes.rogue = false
-	filterdb.classes.shaman = false
-	filterdb.classes.warlock = false
-	filterdb.classes.warrior = false
-
-	-- Set your own class to true
-	local _, currentclass = UnitClass("player")
-	filterdb.classes[strlower(currentclass)] = true
 
 	if (addon.Frame and addon.Frame:IsVisible()) then
 		addon.resetTitle()
@@ -3773,17 +3746,6 @@ function addon:CreateFrame(
 --			() Cross-Faction
 --			() Known
 --			() Unknown
---			Classes:
---			() Deathknight
---			() Druid
---			() Hunter
---			() Mage
---			() Paladin
---			() Priest
---			() Rogue
---			() Shaman
---			() Warlock
---			() Warrior
 			local ARL_SpecialtyCB = CreateFrame("CheckButton", "ARL_SpecialtyCB", addon.Fly_General, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_SpecialtyCB, addon.Fly_General, L["SPECIALTY_DESC"], 2, 1, 1, 0)
 				ARL_SpecialtyCBText:SetText(L["Specialties"])
@@ -3844,13 +3806,13 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(ARL_MobDropCB, addon.Fly_Obtain, L["MOB_DROP_DESC"], 40, 10, 1, 0)
 				ARL_MobDropCBText:SetText(L["Mob Drop"])
 			local ARL_OriginalWoWCB = CreateFrame("CheckButton", "ARL_OriginalWoWCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_OriginalWoWCB, addon.Fly_Obtain, L["ORIGINAL_WOW_DESC"], 89, 12, 1, 0)
+				addon:GenericMakeCB(ARL_OriginalWoWCB, addon.Fly_Obtain, L["ORIGINAL_WOW_DESC"], 26, 12, 1, 0)
 				ARL_OriginalWoWCBText:SetText(L["Old World"])
 			local ARL_BCCB = CreateFrame("CheckButton", "ARL_BCCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_BCCB, addon.Fly_Obtain, L["BC_WOW_DESC"], 90, 13, 1, 0)
+				addon:GenericMakeCB(ARL_BCCB, addon.Fly_Obtain, L["BC_WOW_DESC"], 78, 13, 1, 0)
 				ARL_BCCBText:SetText(L["Burning Crusade"])
 			local ARL_WrathCB = CreateFrame("CheckButton", "ARL_WrathCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], 91, 14, 1, 0)
+				addon:GenericMakeCB(ARL_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], 81, 14, 1, 0)
 				ARL_WrathCBText:SetText(L["Lich King"])
 
 		addon.Fly_Binding = CreateFrame("Frame", "addon.Fly_Binding", addon.Flyaway)
@@ -3966,7 +3928,7 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(ARL_ArmorTrinketCB, addon.Fly_Item, L["TRINKET_DESC"], 67, 5, 2, 0)
 				ARL_ArmorTrinketCBText:SetText(L["Trinket"])
 			local ARL_ArmorShieldCB = CreateFrame("CheckButton", "ARL_ArmorShieldCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_ArmorShieldCB, addon.Fly_Item, L["SHIELD_DESC"], 85, 6, 1, 0)
+				addon:GenericMakeCB(ARL_ArmorShieldCB, addon.Fly_Item, L["SHIELD_DESC"], 19, 6, 1, 0)
 				ARL_ArmorShieldCBText:SetText(L["Shield"])
 --			Weapon:
 --				() 1H		() 2H
@@ -4050,7 +4012,7 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(ARL_WeaponPolearmCB, addon.Fly_Item, L["POLEARM_DESC"], 33, 12, 1, 0)
 				ARL_WeaponPolearmCBText:SetText(L["Polearm"])
 			local ARL_WeaponFistCB = CreateFrame("CheckButton", "ARL_WeaponFistCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WeaponFistCB, addon.Fly_Item, L["FIST_DESC"], 84, 12, 2, 0)
+				addon:GenericMakeCB(ARL_WeaponFistCB, addon.Fly_Item, L["FIST_DESC"], 20, 12, 2, 0)
 				ARL_WeaponFistCBText:SetText(L["Fist"])
 			local ARL_WeaponStaffCB = CreateFrame("CheckButton", "ARL_WeaponStaffCB", addon.Fly_Item, "UICheckButtonTemplate")
 				addon:GenericMakeCB(ARL_WeaponStaffCB, addon.Fly_Item, L["STAFF_DESC"], 34, 13, 1, 0)
@@ -4370,7 +4332,7 @@ function addon:CreateFrame(
 						ReDisplay()
 					end)
 			local ARL_WrathCommon1CB = CreateFrame("CheckButton", "ARL_WrathCommon1CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WrathCommon1CB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"],  Vanguard_Expedition_FactionText), 86, 2, 1, 0)
+				addon:GenericMakeCB(ARL_WrathCommon1CB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"],  Vanguard_Expedition_FactionText), 25, 2, 1, 0)
 				ARL_WrathCommon1CBText:SetText(Vanguard_Expedition_FactionText)
 				ARL_WrathCommon1CBText:SetFont(narrowFont, 11)
 			local ARL_RepArgentCrusadeCB = CreateFrame("CheckButton", "ARL_RepArgentCrusadeCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
@@ -4414,7 +4376,7 @@ function addon:CreateFrame(
 				ARL_RepSonsOfHodirCBText:SetText(BFAC["The Sons of Hodir"])
 				ARL_RepSonsOfHodirCBText:SetFont(narrowFont, 11)
 			local ARL_WrathCommon4CB = CreateFrame("CheckButton", "ARL_WrathCommon4CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(ARL_WrathCommon4CB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], Frostborn_Taunka_FactionText), 82, 12, 1, 0)
+				addon:GenericMakeCB(ARL_WrathCommon4CB, addon.Fly_Rep_LK,sformat(L["SPECIFIC_REP_DESC"], Frostborn_Taunka_FactionText), 1, 12, 1, 0)
 				ARL_WrathCommon4CBText:SetText(Frostborn_Taunka_FactionText)
 				ARL_WrathCommon4CBText:SetFont(narrowFont, 11)
 				ARL_WrathCommon4CBText:SetText(addon:Grey(Frostborn_Taunka_FactionText))
@@ -4495,17 +4457,6 @@ function addon:CreateFrame(
 			[4]  = { cb = ARL_FactionCB,				svroot = filterdb.general,		svval = "faction" },
 			[5]  = { cb = ARL_KnownCB,					svroot = filterdb.general,		svval = "known" },
 			[6]  = { cb = ARL_UnknownCB,				svroot = filterdb.general,		svval = "unknown" },
-		-- Classes
-			[87] = { cb = ARL_DeathKnightCB,			svroot = filterdb.classes,		svval = "deathknight" },
-			[88] = { cb = ARL_DruidCB,					svroot = filterdb.classes,		svval = "druid" },
-			[19] = { cb = ARL_HunterCB,					svroot = filterdb.classes,		svval = "hunter" },
-			[20] = { cb = ARL_MageCB,					svroot = filterdb.classes,		svval = "mage" },
-			[25] = { cb = ARL_PaladinCB,				svroot = filterdb.classes,		svval = "paladin" },
-			[26] = { cb = ARL_PriestCB,					svroot = filterdb.classes,		svval = "priest" },
-			[81] = { cb = ARL_RogueCB,					svroot = filterdb.classes,		svval = "rogue" },
-			[83] = { cb = ARL_ShamanCB,					svroot = filterdb.classes,		svval = "shaman" },
-			[78] = { cb = ARL_WarlockCB,				svroot = filterdb.classes,		svval = "warlock" },
-			[1]  = { cb = ARL_WarriorCB,				svroot = filterdb.classes,		svval = "warrior" },
 		-- Obtain Options
 			[7]  = { cb = ARL_InstanceCB,				svroot = filterdb.obtain,		svval = "instance" },
 			[8]  = { cb = ARL_RaidCB,					svroot = filterdb.obtain,		svval = "raid" },
@@ -4517,9 +4468,9 @@ function addon:CreateFrame(
 			[14] = { cb = ARL_DiscoveryCB,				svroot = filterdb.obtain,		svval = "discovery" },
 			[39] = { cb = ARL_WorldDropCB,				svroot = filterdb.obtain,		svval = "worlddrop" },
 			[40] = { cb = ARL_MobDropCB,				svroot = filterdb.obtain,		svval = "mobdrop" },
-			[89]  = { cb = ARL_OriginalWoWCB,			svroot = filterdb.obtain,		svval = "originalwow" },
-			[90]  = { cb = ARL_BCCB,					svroot = filterdb.obtain,		svval = "bc" },
-			[91]  = { cb = ARL_WrathCB,					svroot = filterdb.obtain,		svval = "wrath" },
+			[26]  = { cb = ARL_OriginalWoWCB,			svroot = filterdb.obtain,		svval = "originalwow" },
+			[78]  = { cb = ARL_BCCB,					svroot = filterdb.obtain,		svval = "bc" },
+			[81]  = { cb = ARL_WrathCB,					svroot = filterdb.obtain,		svval = "wrath" },
 		-- Binding Options
 			[15] = { cb = ARL_iBoECB,					svroot = filterdb.binding,		svval = "itemboe" },
 			[16] = { cb = ARL_iBoPCB,					svroot = filterdb.binding,		svval = "itembop" },
@@ -4534,7 +4485,7 @@ function addon:CreateFrame(
 			[65] = { cb = ARL_ArmorNecklaceCB,			svroot = filterdb.item.armor,	svval = "necklace" },
 			[66] = { cb = ARL_ArmorRingCB,				svroot = filterdb.item.armor,	svval = "ring" },
 			[67] = { cb = ARL_ArmorTrinketCB,			svroot = filterdb.item.armor,	svval = "trinket" },
-			[85] = { cb = ARL_ArmorShieldCB,			svroot = filterdb.item.armor,	svval = "shield" },
+			[19] = { cb = ARL_ArmorShieldCB,			svroot = filterdb.item.armor,	svval = "shield" },
 		-- Weapon Options
 			[27] = { cb = ARL_Weapon1HCB,				svroot = filterdb.item.weapon,	svval = "onehand" },
 			[28] = { cb = ARL_Weapon2HCB,				svroot = filterdb.item.weapon,	svval = "twohand" },
@@ -4543,7 +4494,7 @@ function addon:CreateFrame(
 			[31] = { cb = ARL_WeaponMaceCB,				svroot = filterdb.item.weapon,	svval = "mace" },
 			[32] = { cb = ARL_WeaponSwordCB,			svroot = filterdb.item.weapon,	svval = "sword" },
 			[33] = { cb = ARL_WeaponPolearmCB,			svroot = filterdb.item.weapon,	svval = "polearm" },
-			[84] = { cb = ARL_WeaponFistCB,				svroot = filterdb.item.weapon,	svval = "fist" },
+			[20] = { cb = ARL_WeaponFistCB,				svroot = filterdb.item.weapon,	svval = "fist" },
 			[34] = { cb = ARL_WeaponStaffCB,			svroot = "disabled",			svval = "" },
 			[68] = { cb = ARL_WeaponWandCB,				svroot = filterdb.item.weapon,	svval = "wand" },
 			[35] = { cb = ARL_WeaponThrownCB,			svroot = filterdb.item.weapon,	svval = "thrown" },
@@ -4585,10 +4536,10 @@ function addon:CreateFrame(
 			[74] = { cb = ARL_RepKaluakCB,				svroot = filterdb.rep,			svval = "kaluak" },
 			[75] = { cb = ARL_RepOraclesCB,				svroot = filterdb.rep,			svval = "oracles" },
 			[76] = { cb = ARL_RepWyrmrestCB,			svroot = filterdb.rep,			svval = "wyrmrest" },
-			[86] = { cb = ARL_WrathCommon1CB,			svroot = filterdb.rep,			svval = "wrathcommon1" },
+			[25] = { cb = ARL_WrathCommon1CB,			svroot = filterdb.rep,			svval = "wrathcommon1" },
 			[77] = { cb = ARL_WrathCommon2CB,			svroot = "disabled",			svval = "" },
 			[80] = { cb = ARL_WrathCommon3CB,			svroot = "disabled",			svval = "" },
-			[82] = { cb = ARL_WrathCommon4CB,			svroot = "disabled",			svval = "" },
+			[1] = { cb = ARL_WrathCommon4CB,			svroot = "disabled",			svval = "" },
 			[79] = { cb = ARL_WrathCommon5CB,			svroot = "disabled",			svval = "" },
 		}
 
