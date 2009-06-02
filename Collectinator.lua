@@ -376,6 +376,8 @@ end
 
 --]]
 
+local maxfilterflags = 72
+
 --- Adds a companion into the database.
 -- @name Collectinator:AddCompanion
 -- @usage Collectinator:AddCompanion(DB)
