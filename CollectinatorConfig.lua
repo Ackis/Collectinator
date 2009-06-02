@@ -36,7 +36,7 @@ local valliancewarsong = BFAC["Valiance Expedition"] .. "\\" .. BFAC["Warsong Of
 local frosttaunka =  BFAC["The Frostborn"] .. "\\" .. BFAC["The Taunka"]
 local explorerhand = BFAC["Explorers' League"] .. "\\" .. BFAC["The Hand of Vengeance"]
 
-local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
+local addonversion = GetAddOnMetadata("Collectinator", "Version")
 addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
 
 local function giveProfiles()

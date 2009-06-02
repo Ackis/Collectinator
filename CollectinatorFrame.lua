@@ -4,7 +4,7 @@
 
 ARLFrame.lua
 
-Frame functions for all of AckisRecipeList
+Frame functions for all of Collectinator
 
 File date: @file-date-iso@ 
 File revision: @file-revision@ 
@@ -111,7 +111,7 @@ local playerData = {}
 local arlTooltip = _G["arlTooltip"]
 local arlSpellTooltip = _G["arlSpellTooltip"]
 
-local addonversion = GetAddOnMetadata("AckisRecipeList", "Version")
+local addonversion = GetAddOnMetadata("Collectinator", "Version")
 addonversion = string.gsub(addonversion,"@project.revision@","SVN")
 
 local ARL_SearchText,ARL_LastSearchedText
@@ -119,11 +119,11 @@ local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptC
 
 -- To make tabbing between collections easier 
 local SortedCollections = { 
-	{ name = "Mini-pets",	texture = "alchemy" },	-- 1
-	{ name = "Mounts",		texture = "alchemy" },	-- 2
+	{ name = "Mini-pets",	texture = "minipets" },	-- 1
+	{ name = "Mounts",		texture = "mounts" },	-- 2
 } 
 
-local MaxProfessions = 12
+local MaxProfessions = 2
 
 -- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
 local ExpButtonText = {
@@ -1245,13 +1245,13 @@ end
 local function ReDisplay()
 
 	addon:UpdateFilters(recipeDB, allSpecTable, playerData)
-	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
+	sortedRecipeIndex = addon:SortDatabase(recipeDB)
 
 	playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(recipeDB,playerData.playerProfession)
 
 	initDisplayStrings()
 
-	SetProgressBar(playerData)
+	--SetProgressBar(playerData)
 
 	-- Make sure our expand all button is set to expandall
 	ARL_ExpandButton:SetText(L["EXPANDALL"])
@@ -1539,7 +1539,7 @@ function addon.ToggleFilters()
 		addon.Frame:ClearAllPoints()
 		addon.Frame:SetWidth(293)
 		addon.Frame:SetHeight(447)
-		addon.bgTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\main]])
+		addon.bgTexture:SetTexture([[Interface\Addons\Collectinator\img\main]])
 		addon.bgTexture:SetAllPoints(addon.Frame)
 		addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
 		addon.Frame._Expanded = false
@@ -1572,7 +1572,7 @@ function addon.ToggleFilters()
 		addon.Frame:ClearAllPoints()
 		addon.Frame:SetWidth(444)
 		addon.Frame:SetHeight(447)
-		addon.bgTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\expanded]])
+		addon.bgTexture:SetTexture([[Interface\Addons\Collectinator\img\expanded]])
 		addon.bgTexture:SetAllPoints(addon.Frame)
 		addon.bgTexture:SetTexCoord(0, (444/512), 0, (447/512))
 		addon.Frame._Expanded = true
@@ -1763,7 +1763,7 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 	
 		local iconTex = cButton:CreateTexture(cButton:GetName() .. "buttonTex", "BORDER")
 			if (bName == "ARL_RepLKCB") then
-				iconTex:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\" .. bTex)
+				iconTex:SetTexture("Interface\\Addons\\Collectinator\\img\\" .. bTex)
 			else
 				iconTex:SetTexture('Interface/Glues/Common/' .. bTex)
 			end
@@ -1905,15 +1905,15 @@ local function SetSwitcherTexture(tex)
 
 -- For now, just display the first texture
 	local ARL_S_NTexture = ARL_SwitcherButton:CreateTexture("ARL_S_NTexture", "BACKGROUND")
-	ARL_S_NTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. tex .. [[_up]])
+	ARL_S_NTexture:SetTexture([[Interface\Addons\Collectinator\img\]] .. tex .. [[_up]])
 	ARL_S_NTexture:SetTexCoord(0, 1, 0, 1)
 	ARL_S_NTexture:SetAllPoints(ARL_SwitcherButton)
 	local ARL_S_PTexture = ARL_SwitcherButton:CreateTexture("ARL_S_PTexture", "BACKGROUND")
-	ARL_S_PTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. tex .. [[_down]])
+	ARL_S_PTexture:SetTexture([[Interface\Addons\Collectinator\img\]] .. tex .. [[_down]])
 	ARL_S_PTexture:SetTexCoord(0, 1, 0, 1)
 	ARL_S_PTexture:SetAllPoints(ARL_SwitcherButton)
 	local ARL_S_DTexture = ARL_SwitcherButton:CreateTexture("ARL_S_DTexture", "BACKGROUND")
-	ARL_S_DTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\]] .. tex .. [[_up]])
+	ARL_S_DTexture:SetTexture([[Interface\Addons\Collectinator\img\]] .. tex .. [[_up]])
 	ARL_S_DTexture:SetTexCoord(0, 1, 0, 1)
 	ARL_S_DTexture:SetAllPoints(ARL_SwitcherButton)
 
@@ -2523,7 +2523,7 @@ function addon.RepFilterSwitch(whichrep)
 		addon.flyTexture:ClearAllPoints()
 		addon.Flyaway:SetWidth(296)
 		addon.Flyaway:SetHeight(312)
-		addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_repcol]])
+		addon.flyTexture:SetTexture([[Interface\Addons\Collectinator\img\fly_repcol]])
 		addon.flyTexture:SetAllPoints(addon.Flyaway)
 		addon.flyTexture:SetTexCoord(0, (296/512), 0, (312/512))
 
@@ -2536,7 +2536,7 @@ function addon.RepFilterSwitch(whichrep)
 		addon.flyTexture:ClearAllPoints()
 		addon.Flyaway:SetWidth(136)
 		addon.Flyaway:SetHeight(312)
-		addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
+		addon.flyTexture:SetTexture([[Interface\Addons\Collectinator\img\fly_1col]])
 		addon.flyTexture:SetAllPoints(addon.Flyaway)
 		addon.flyTexture:SetTexCoord(0, (136/256), 0, (312/512))
 		addon.Fly_Rep_OW:Hide()
@@ -2940,7 +2940,7 @@ function addon.DoFlyaway(panel)
 			addon.flyTexture:ClearAllPoints()
 			addon.Flyaway:SetWidth(234)
 			addon.Flyaway:SetHeight(312)
-			addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_2col]])
+			addon.flyTexture:SetTexture([[Interface\Addons\Collectinator\img\fly_2col]])
 			addon.flyTexture:SetAllPoints(addon.Flyaway)
 			addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
 
@@ -2949,7 +2949,7 @@ function addon.DoFlyaway(panel)
 			addon.flyTexture:ClearAllPoints()
 			addon.Flyaway:SetWidth(136)
 			addon.Flyaway:SetHeight(312)
-			addon.flyTexture:SetTexture([[Interface\Addons\AckisRecipeList\img\fly_1col]])
+			addon.flyTexture:SetTexture([[Interface\Addons\Collectinator\img\fly_1col]])
 			addon.flyTexture:SetAllPoints(addon.Flyaway)
 			addon.flyTexture:SetTexCoord(0, (136/256), 0, (312/512))
 
@@ -3161,19 +3161,7 @@ local function SetFramePosition()
 	
 	if (opts.anchorTo == "") then
 		-- no values yet, clamp to whatever frame is appropriate
-		if (ATSWFrame) then
-			-- Anchor frame to ATSW
-			addon.Frame:SetPoint("CENTER", ATSWFrame, "CENTER", 490, 0)
-		elseif (CauldronFrame) then
-			-- Anchor frame to Cauldron
-			addon.Frame:SetPoint("CENTER", CauldronFrame, "CENTER", 490, 0)
-		elseif (Skillet) then
-			-- Anchor frame to Skillet
-			addon.Frame:SetPoint("CENTER", SkilletFrame, "CENTER", 468, 0)
-		else
-			-- Anchor to default tradeskill frame
-			addon.Frame:SetPoint("TOPLEFT", TradeSkillFrame, "TOPRIGHT", 10, 0)
-		end
+		addon.Frame:SetPoint("TOPLEFT", PetPaperDollFrameCompanionFrame, "TOPRIGHT", 10, 0)
 	else
 		if (addon.Frame._Expanded == true) then
 			if (opts.anchorFrom == "TOPLEFT") or
@@ -3382,7 +3370,7 @@ function addon:CreateFrame(
 	-- get our current profession's index
 	for k, v in pairs(SortedCollections) do
 
-		if (v.name == currentProfession) then
+		if (v.name == "Mounts") then
 
 			currentProfIndex = k
 			break
@@ -3414,16 +3402,16 @@ function addon:CreateFrame(
 	if (not addon.Frame) then
 
 		-- Create the main frame
-		addon.Frame = CreateFrame("Frame", "AckisRecipeList.Frame", UIParent)
+		addon.Frame = CreateFrame("Frame", "Collectinator.Frame", UIParent)
 
 		--Allows ARL to be closed with the Escape key
-		tinsert(UISpecialFrames, "AckisRecipeList.Frame")
+		tinsert(UISpecialFrames, "Collectinator.Frame")
 
 		addon.Frame:SetWidth(293)
 		addon.Frame:SetHeight(447)
 
-		addon.bgTexture = addon.Frame:CreateTexture("AckisRecipeList.bgTexture", "ARTWORK")
-		addon.bgTexture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\main")
+		addon.bgTexture = addon.Frame:CreateTexture("Collectinator.bgTexture", "ARTWORK")
+		addon.bgTexture:SetTexture("Interface\\Addons\\Collectinator\\img\\main")
 		addon.bgTexture:SetAllPoints(addon.Frame)
 		addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
 		addon.Frame:SetFrameStrata("DIALOG")
@@ -3644,7 +3632,7 @@ function addon:CreateFrame(
 			ARL_ProgressBar:SetHeight(14)
 			ARL_ProgressBar:ClearAllPoints()
 			ARL_ProgressBar:SetPoint("BOTTOMLEFT", addon.Frame, 17, 7)
-			ARL_ProgressBar:SetStatusBarTexture("Interface\\Addons\\AckisRecipeList\\img\\progressbar")
+			ARL_ProgressBar:SetStatusBarTexture("Interface\\Addons\\Collectinator\\img\\progressbar")
 			ARL_ProgressBar:SetOrientation("HORIZONTAL")
 			ARL_ProgressBar:SetStatusBarColor(0.25, 0.25, 0.75)
 
@@ -3754,8 +3742,8 @@ function addon:CreateFrame(
 			addon.Flyaway:SetWidth(234)
 			addon.Flyaway:SetHeight(312)
 
-			addon.flyTexture = addon.Flyaway:CreateTexture("AckisRecipeList.flyTexture", "ARTWORK")
-			addon.flyTexture:SetTexture("Interface\\Addons\\AckisRecipeList\\img\\fly_2col")
+			addon.flyTexture = addon.Flyaway:CreateTexture("Collectinator.flyTexture", "ARTWORK")
+			addon.flyTexture:SetTexture("Interface\\Addons\\Collectinator\\img\\fly_2col")
 			addon.flyTexture:SetAllPoints(addon.Flyaway)
 			addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
 			addon.Flyaway:SetHitRectInsets(5, 5, 5, 5)
@@ -4628,13 +4616,13 @@ function addon:CreateFrame(
 	SetSwitcherTexture(SortedCollections[currentProfIndex].texture)
 
 	-- Sort the list
-	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
+	sortedRecipeIndex = addon:SortDatabase(recipeDB)
 
 	-- Take our sorted list, and fill up DisplayStrings
 	initDisplayStrings()
 
 	-- Update our progressbar
-	SetProgressBar(cPlayer)
+	--SetProgressBar(cPlayer)
 
 	-- And update our scrollframe
 	RecipeList_Update()
