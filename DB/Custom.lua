@@ -27,11 +27,12 @@ local MODNAME			= "Collectinator"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 --local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local BZONE				= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
 function addon:InitCustom(CustomDB)
 
-	self:addLookupList(CustomDB, 1, "TCG")
-	self:addLookupList(CustomDB, 2, "Chicken Egg")
+	self:addLookupList(CustomDB, 1, "TCG",BZONE["Booty Bay"])
+	self:addLookupList(CustomDB, 2, "Chicken Egg",BZONE["Westlands"])
 	self:addLookupList(CustomDB, 3, "Ooze Bag")
 	self:addLookupList(CustomDB, 4, "Blue Murloc") -- Blizzcon 2005
 	self:addLookupList(CustomDB, 5, "Lurky") -- EU BC CE
@@ -46,9 +47,9 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 14, "WWI France")
 	self:addLookupList(CustomDB, 15, "4th Year Anniversary")
 	self:addLookupList(CustomDB, 16, "Random drop from the egg")
-	self:addLookupList(CustomDB, 17, "Giant Rat")
+	self:addLookupList(CustomDB, 17, "Giant Rat",BZONE["Dalaran"])
 	self:addLookupList(CustomDB, 18, "BC Fishing Daily")
-	self:addLookupList(CustomDB, 19, "Mojo ZA")
+	self:addLookupList(CustomDB, 19, "Mojo ZA",BZONE["Zul'Aman"])
 
 end
 
