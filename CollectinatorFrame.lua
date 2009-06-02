@@ -3363,8 +3363,6 @@ function addon:CreateFrame(
 	rDB,		-- RecipeList
 	sortedRI,	-- sortedindex
 	cPlayer,	-- playerdata
-	asTable,	-- AllSpecialtiesTable
-	trList,		-- TrainerList
 	vList,		-- VendorList
 	qList,		-- QuestList
 	rList,		-- ReputationList

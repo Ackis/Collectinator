@@ -1426,13 +1426,11 @@ do
 			self:DisplayTextDump(CompanionDB, playerData.playerProfession)
 		else
 			-- Sort the recipe list now
---[[			local sortedindex = self:SortMissingRecipes(CompanionDB)
+			local sortedindex = self:SortMissingRecipes(CompanionDB)
 
-			self:CreateFrame(CompanionDB, sortedindex, playerData, AllSpecialtiesTable,
-								TrainerList, VendorList, QuestList, ReputationList,
-								SeasonalList, MobList, CustomList)
-]]--
-			for i in pairs(CompanionDB) do addon:DumpSpell(i) end
+			self:CreateFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
+
+			for i in pairs(CompanionDB) do if (CompanionDB[i]["Known"] == false) then addon:DumpSpell(i) end end
 		end
 
 	end
