@@ -414,9 +414,9 @@ function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType, Game)
 
 	DB[SpellID]["Acquire"] = {}
 
-end
+	DB[SpellID]["Location"] = "Unknown"
 
--- Description: Adds all flag related information to the DB associated with the spell ID
+end
 
 --- Adds filtering flags to a specific entry.
 -- @name Collectinator:AddCompanionFlags
@@ -592,29 +592,25 @@ function addon:ScanCompanions(DB, numminipets, nummounts)
 
 end
 
-do
+--- Scans the database and the local list of companions and flags which ones you know
+-- @name CheckForKnownCompanions
+-- @usage Collectinator:CheckForKnownCompanions(DB)
+-- @param DB Companion database which we are parsing.
+-- @return Companion DB is updated by reference.
+function addon:CheckForKnownCompanions(DB)
 
-	--- Scans the database and the local list of companions and flags which ones you know
-	-- @name CheckForKnownCompanions
-	-- @usage Collectinator:CheckForKnownCompanions(DB)
-	-- @param DB Companion database which we are parsing.
-	-- @return Companion DB is updated by reference.
-	function addon:CheckForKnownCompanions(DB)
+	local companionlist = addon.db.profile.companionlist
 
-		local companionlist = addon.db.profile.companionlist
-
-		-- Scan through all the entries we've saved
-		for i,SpellID in pairs(companionlist) do
-			-- If the entry exists, mark it as known
-			if (DB[SpellID]) then
-				DB[SpellID]["Known"] = true
-			-- If the entry doesn't exist raise an error
-			else
-				local name = GetSpellInfo(SpellID)
-				self:Print("Companion: " .. name .. " (" .. SpellID .. ") not found in database.")
-			end
+	-- Scan through all the entries we've saved
+	for i,SpellID in pairs(companionlist) do
+		-- If the entry exists, mark it as known
+		if (DB[SpellID]) then
+			DB[SpellID]["Known"] = true
+		-- If the entry doesn't exist raise an error
+		else
+			local name = GetSpellInfo(SpellID)
+			self:Print("Companion: " .. name .. " (" .. SpellID .. ") not found in database.")
 		end
-
 	end
 
 end
@@ -1120,12 +1116,13 @@ do
 
 	local CompanionDB = nil
 
-	local CustomList = nil
+	local VendorList = nil
+	local QuestList = nil
 	local MobList = nil
+	local CustomList = nil
 	local QuestList = nil
 	local ReputationList = nil
 	local SeasonalList = nil
-	local VendorList = nil
 	local RepFilters = nil
 
 	local playerData = nil
@@ -1148,8 +1145,7 @@ do
 	-- @name Collectinator:InitCompanionDB
 	-- @usage Collectinator:InitCompanionDB(CompanionDB)
 	-- @param DB Companion database
-	-- @return Database is populated with all appropiate entries for pets and mounts.  Total number of entries are returned.
-		
+	-- @return Database is populated with all appropiate entries for pets and mounts.  Total number of entries are returned.	
 	local function InitCompanionDB(DB)
 
 		local pet = 0
@@ -1162,57 +1158,26 @@ do
 
 	end
 
-	function addon:GetRecipeLocations(SpellID)
+	function addon:GetLocations(SpellID)
 
 		if (CompanionDB) and (CompanionDB[SpellID]) then
 
 			locationlist = {}
 			locationchecklist = {}
 
-			local recipeacquire = CompanionDB[SpellID]["Acquire"]
+			local acquire = CompanionDB[SpellID]["Acquire"]
 
-			for i in pairs(recipeacquire) do
+			for i in pairs(acquire) do
 
-				-- Trainer
-				if (recipeacquire[i]["Type"] == 1) then
-					if (TrainerList) then
-						--@debug@
-						if (not TrainerList[recipeacquire[i]["ID"]]) then
-							self:Print("Missing trainer in database: " .. recipeacquire[i]["ID"])
-							return
-						end
-						--@end-debug@
-						local location = TrainerList[recipeacquire[i]["ID"]]["Location"]
-						if (not locationchecklist[location]) then
-							-- Add the location to the list
-							tinsert(locationlist,location)
-							locationchecklist[location] = true
-						end
-					end
 				-- Vendor
-				elseif (recipeacquire[i]["Type"] == 2) then
+				if (acquire[i]["Type"] == 1) then
 					if (VendorList) then
 						--@debug@
-						if (not VendorList[recipeacquire[i]["ID"]]) then
-							self:Print("Missing vendor in database: " .. recipeacquire[i]["ID"])
+						if (not VendorList[acquire[i]["ID"]]) then
+							self:Print("Missing vendor in database: " .. acquire[i]["ID"])
 						end
 						--@end-debug@
-						local location = VendorList[recipeacquire[i]["ID"]]["Location"]
-						if (not locationchecklist[location]) then
-							-- Add the location to the list
-							tinsert(locationlist,location)
-							locationchecklist[location] = true
-						end
-					end
-				-- Mob Drop
-				elseif (recipeacquire[i]["Type"] == 3) then
-					if (MobList) then
-						--@debug@
-						if (not MobList[recipeacquire[i]["ID"]]) then
-							self:Print("Missing mob in database: " .. recipeacquire[i]["ID"])
-						end
-						--@end-debug@
-						local location = MobList[recipeacquire[i]["ID"]]["Location"]
+						local location = VendorList[acquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
 							tinsert(locationlist,location)
@@ -1220,27 +1185,34 @@ do
 						end
 					end
 				-- Quest
-				elseif (recipeacquire[i]["Type"] == 4) then
+				elseif (acquire[i]["Type"] == 2) then
 					if (QuestList) then
 						--@debug@
-						if (not QuestList[recipeacquire[i]["ID"]]) then
-							self:Print("Missing quest in database: " .. recipeacquire[i]["ID"])
+						if (not QuestList[acquire[i]["ID"]]) then
+							self:Print("Missing quest in database: " .. acquire[i]["ID"])
 						end
 						--@end-debug@
-						local location = QuestList[recipeacquire[i]["ID"]]["Location"]
+						local location = QuestList[acquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
 							tinsert(locationlist,location)
 							locationchecklist[location] = true
 						end
 					end
-				-- World Drop
-				elseif (recipeacquire[i]["Type"] == 7) then
-					local location = L["World Drop"]
-					if (not locationchecklist[location]) then
-						-- Add the location to the list
-						tinsert(locationlist,location)
-						locationchecklist[location] = true
+				-- Mob Drop
+				elseif (acquire[i]["Type"] == 4) then
+					if (MobList) then
+						--@debug@
+						if (not MobList[acquire[i]["ID"]]) then
+							self:Print("Missing mob in database: " .. acquire[i]["ID"])
+						end
+						--@end-debug@
+						local location = MobList[acquire[i]["ID"]]["Location"]
+						if (not locationchecklist[location]) then
+							-- Add the location to the list
+							tinsert(locationlist,location)
+							locationchecklist[location] = true
+						end
 					end
 				end
 			end
