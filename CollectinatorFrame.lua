@@ -1294,7 +1294,7 @@ function addon:CreateScanButton()
 	addon.ScanButton:RegisterForClicks("LeftButtonUp")
 	addon.ScanButton:SetScript("OnClick",
 			function()
-				addon:DoCompleteScan()
+				addon:Collectinator_Command(false)
 				--addon:ToggleFrame()
 			end
 		)
