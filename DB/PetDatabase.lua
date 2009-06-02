@@ -617,7 +617,7 @@ function addon:MakeMiniPetTable(PetDB)
 	companioncount = companioncount + 1
 	self:AddCompanion(PetDB,59250,43698,3,"CRITTER")
 	self:AddCompanionFlags(PetDB,59250,1,2,9,21,36)
-	self:AddCompanionAcquire(PetDB,7,2,8,17)
+	self:AddCompanionAcquire(PetDB,59250,7,2,8,17)
 
 	-- Tickbird Hatchling -- 61348
 	companioncount = companioncount + 1
