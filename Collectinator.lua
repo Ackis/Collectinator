@@ -110,7 +110,6 @@ function addon:OnInitialize()
 	-- Set default options, which are to include everything in the scan
 	local defaults = {
 		profile = {
-			companionlist = {},
 			-- Frame options
 			frameopts = {
 				offsetx = 0,
