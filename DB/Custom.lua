@@ -32,8 +32,8 @@ local BZONE				= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 function addon:InitCustom(CustomDB)
 
 	self:addLookupList(CustomDB, 1, "TCG",BZONE["Booty Bay"])
-	self:addLookupList(CustomDB, 2, "Chicken Egg",BZONE["Westlands"])
-	self:addLookupList(CustomDB, 3, "Ooze Bag")
+	self:addLookupList(CustomDB, 2, "Chicken Egg",BZONE["Westfall"])
+	self:addLookupList(CustomDB, 3, "Ooze Bag",BZONE["Wetlands"])
 	self:addLookupList(CustomDB, 4, "Blue Murloc") -- Blizzcon 2005
 	self:addLookupList(CustomDB, 5, "Lurky") -- EU BC CE
 	self:addLookupList(CustomDB, 6, "Pink Murloc") -- EU Contest
