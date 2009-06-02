@@ -1137,34 +1137,6 @@ local function InitCompanionDB(DB)
 
 end
 
---- Scans the players professions and populates which ones they have
-local function GetPlayerProfessions(ProfTable)
-
-	-- Reset the table, they may have unlearnt a profession
-	for i in pairs(ProfTable) do
-		ProfTable[i] = false
-	end
-
-	-- Scan through the spell book getting the spell names
-	for index=1,25,1 do
-
-		local spellName = GetSpellName(index, BOOKTYPE_SPELL)
-
-		if (not spellName) or (index == 25) then
-			-- Nothing found
-			break
-		end
-		if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
-            if spellName == GetSpellInfo(2656) then
-                ProfTable[GetSpellInfo(2575)] = true
-            else
-                ProfTable[spellName] = true
-            end
-		end
-	end
-
-end
-
 do
 
 	local UnitClass = UnitClass
@@ -1300,6 +1272,7 @@ do
 
 	end
 
+	--- Scans the players professions and populates which ones they have
 	local function GetPlayerProfessions(ProfTable)
 
 		-- Reset the table, they may have unlearnt a profession
@@ -1355,7 +1328,7 @@ do
 			[GetSpellInfo(53428)] = false, -- Runeforging
 		}
 
-		addon:GetPlayerProfession(pData["Professions"])
+		addon:GetPlayerProfessions(pData["Professions"])
 
 		return pData
 
