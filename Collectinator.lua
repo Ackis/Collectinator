@@ -119,7 +119,7 @@ function addon:OnInitialize()
 	-- Set default options, which are to include everything in the scan
 	local defaults = {
 		profile = {
-			companionlist = {}
+
 			-- Frame options
 			frameopts = {
 				offsetx = 0,
@@ -319,15 +319,6 @@ end
 	Player Data Acquisition Functions
 
 ]]--
-
---- Data which is stored regarding a players statistics
--- @class table
--- @name playerData
--- @field totalknownpets Total number of known mini-pets.
--- @field totalknownmounts Total number of known mounts.
--- @field playerFaction Players faction
--- @field playerClass Players class
--- @field ["Reputation"] Listing of players reputation levels
 
 do
 
@@ -565,7 +556,7 @@ end
 
 --- Gets a spell ID from a spell link.
 -- @name GetIDFromLink
--- @usage Collectinator:GetIDFromLink:(SpellLink)
+-- @usage Collectinator:GetIDFromLink(SpellLink)
 -- @param SpellLink The [http://www.wowwiki.com/SpellLink SpellLink] which you wish to get the Spell ID from.
 -- @return The spell ID of the passed [http://www.wowwiki.com/SpellLink SpellLink].
 local function GetIDFromLink(SpellLink)
@@ -576,31 +567,36 @@ local function GetIDFromLink(SpellLink)
 
 end
 
-function addon:ScanCompanions()
-
-	-- Find out how many companions we have learnt
-	local numminipets = GetNumCompanions("CRITTER")
-	local nummounts = GetNumCompanions("MOUNT")
-
-	local butt = addon.db.profile.companionlist
-
-	-- Clear the saved variables for the companion list.
-	twipe(butt)
+--- Scans all companions you have (mounts and mini-pets) and adds them to the saved variables.
+-- @name ScanCompanions
+-- @usage Collectinator:ScanCompanions(DB, playerData["totalknownpets"], playerData["totalknownmounts"])
+-- @param numminipets The number of mini-pets which you know.
+-- @param nummounts The number of mini-pets which you know.
+-- @return The entries in the DB are flagged as known
+function addon:ScanCompanions(DB, numminipets, nummounts)
 
 	-- Parse all the mini-pets you currently have
-	for i=1,numminipets do
+	for i=1,numminipets,1 do
 		-- Get the pet's name and spell ID
 		local _,_,petspell = GetCompanionInfo("CRITTER",i)
-		-- Add the mini-pet to the list of pets we save
-		tinsert(butt,petspell)
+		if (DB[petspell]) then
+			DB[petspell]["Known"] = true
+		else
+			self:Print("Error: " .. petspell .. " not in database.")
+		end
 	end
+
 	-- Parse all the mounts you currently have
-	for i=1,nummounts do
+	for i=1,nummounts,1 do
 		-- Get the pet's name and spell ID
 		local _,_,mountspell = GetCompanionInfo("MOUNT",i)
-		-- Add the mini-pet to the list of pets we save
-		tinsert(butt,mountspell)
+		if (DB[mountspell]) then
+			DB[mountspell]["Known"] = true
+		else
+			self:Print("Error: " .. mountspell .. " not in database.")
+		end
 	end
+
 end
 
 do
@@ -1132,6 +1128,19 @@ function addon:ChatCommand(input)
 ]]--
 end
 
+--- Populates the internal companion database with all the mini-pets and mounts.
+-- @name Collectinator:InitCompanionDB
+-- @usage Collectinator:InitCompanionDB(CompanionDB)
+-- @param DB Companion database
+-- @return Database is populated with all appropiate entries for pets and mounts.
+	
+local function InitCompanionDB(DB)
+
+	addon:MakeMiniPetTable(DB)
+	addon:MakeMountTable(DB)
+
+end
+
 do
 
 	local UnitClass = UnitClass
@@ -1148,6 +1157,14 @@ do
 	local RepFilters = nil
 
 	local playerData = nil
+	--- Data which is stored regarding a players statistics
+	-- @class table
+	-- @name playerData
+	-- @field totalknownpets Total number of known mini-pets.
+	-- @field totalknownmounts Total number of known mounts.
+	-- @field playerFaction Players faction
+	-- @field playerClass Players class
+	-- @field ["Reputation"] Listing of players reputation levels
 
 	-- Variables for getting the locations
 	local locationlist = nil
@@ -1330,7 +1347,7 @@ do
 
 	local function InitDatabases()
 
-		-- Initializes the custom list
+		-- Initializes the custom entry list
 		if (CustomList == nil) then
 			CustomList = {}
 			addon:InitCustom(CustomList)
@@ -1391,22 +1408,28 @@ do
 			playerData = InitPlayerData()
 		end
 
+		-- Update the pet/mount totals:
+		playerData["totalknownpets"] = GetNumCompanions("CRITTER")
+		playerData["totalknownmounts"] = GetNumCompanions("MOUNT")
+
 		-- Lets create all the databases needed if this is the first time everything has been run.
 		if (CompanionDB == nil) then
 			InitDatabases()
 		end
 
-		-- Scan all companions, marking which ones we know.
-		self:ScanCompanions()
+		InitCompanionDB(CompanionDB)
+
+		-- Scan for all known companions
+		self:ScanCompanions(CompanionDB, playerData["totalknownpets"], playerData["totalknownmounts"])
 
 		-- Update the table containing which reps to display
-		self:PopulateRepFilters(RepFilters)
+		--self:PopulateRepFilters(RepFilters)
 
 		-- Add filtering flags to the recipes
-		self:UpdateFilters(CompanionDB, AllSpecialtiesTable, playerData)
+		--self:UpdateFilters(CompanionDB, AllSpecialtiesTable, playerData)
 
 		-- Mark excluded recipes
-		self:MarkExclusions(CompanionDB,playerData)
+		--self:MarkExclusions(CompanionDB,playerData)
 
 		if (textdump == true) then
 			self:DisplayTextDump(CompanionDB, playerData.playerProfession)
