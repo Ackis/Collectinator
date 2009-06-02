@@ -1170,8 +1170,6 @@ do
 	local locationlist = nil
 	local locationchecklist = nil
 
-	-- Description: Determines all the locations a given recipe can be obtained
-
 	function addon:GetRecipeLocations(SpellID)
 
 		if (CompanionDB) and (CompanionDB[SpellID]) then
@@ -1270,8 +1268,6 @@ do
 
 	end
 
-	-- Description: Updates the reputation table.  This only happens seldomly so I'm not worried about effeciency
-
 	function addon:SetRepDB()
 
 		if (playerData and playerData["Reputation"]) then
@@ -1307,8 +1303,6 @@ do
 
 	end
 
-	-- Description: Initializes and adds data relavent to the player character
-
 	local function InitPlayerData()
 
 		local pData = {}
@@ -1342,8 +1336,6 @@ do
 		return pData
 
 	end
-
-	-- Description: Initalizes all the databases to their initial values
 
 	local function InitDatabases()
 
@@ -1435,11 +1427,228 @@ do
 			self:DisplayTextDump(CompanionDB, playerData.playerProfession)
 		else
 			-- Sort the recipe list now
-			local sortedindex = self:SortMissingRecipes(CompanionDB)
+--[[			local sortedindex = self:SortMissingRecipes(CompanionDB)
+
 			self:CreateFrame(CompanionDB, sortedindex, playerData, AllSpecialtiesTable,
 								TrainerList, VendorList, QuestList, ReputationList,
 								SeasonalList, MobList, CustomList)
+]]--
+			for i in pairs(CompanionDB) do DumpSpell(i) end
 		end
+
+	end
+
+	-- Debug function to dump a spell out
+	function addon:DumpSpell(SpellID)
+
+		local clist = CompanionDB
+
+		if (not clist) then
+			return
+		end
+
+		local mlist, qlist, replist, seasonlist, vlist, custlist = MobList, QuestList, ReputationList, SeasonalList, VendorList, CustomList
+
+		if (clist[SpellID]) then
+
+			x = clist[SpellID]
+			self:Print(x["Name"] .. " -- " .. SpellID)
+			self:Print("Rarity: " .. x["Rarity"])
+			if (x["ItemID"]) then
+				local _,linky = GetItemInfo(x["ItemID"])
+				if (linky) then
+					self:Print("Creates: " .. linky .. "(" .. x["ItemID"] .. ")")
+				else
+					self:Print("Creates: (" .. x["ItemID"] .. ")")
+				end
+			end
+	--[[
+			if (x["Locations"]) then
+				self:Print("Located: " .. x["Locations"])
+			end
+	]]--
+
+			local acquire = clist[SpellID]["Acquire"]
+
+			self:Print("Acquire methods:")
+			for i in pairs(acquire) do
+				local acquiretype = acquire[i]["Type"]
+				if (acquiretype == 1) then
+					self:Print("Vendor: " .. acquire[i]["ID"])
+					if (vlist[i]) then
+						self:Print(vlist[i]["Name"])
+					end
+				elseif (acquiretype == 2) then
+					self:Print("Quest: " .. acquire[i]["ID"])
+					if (qlist[i]) then
+						self:Print(qlist[i]["Name"])
+					end
+				elseif (acquiretype == 3) then
+					self:Print("Crafted: " .. GetSpellInfo(acquire[i]["ID"]))
+					self:Print("Created by: " .. GetSpellInfo(acquire[i]["Crafted"]))
+				elseif (acquiretype == 4) then
+					self:Print("Mob: " .. acquire[i]["ID"])
+					if (mlist[i]) then
+						self:Print(mlist[i]["Name"])
+					end
+				elseif (acquiretype == 5) then
+					self:Print("Seasonal: " .. acquire[i]["ID"])
+					if (seasonlist[i]) then
+						self:Print(seasonlist[i]["Name"])
+					end
+				elseif (acquiretype == 6) then
+					self:Print("Reputation: " .. acquire[i]["ID"])
+					self:Print("Rep Level: " .. acquire[i]["RepLevel"])
+					if (replist[acquire[i]["ID"]]) then
+						self:Print(replist[acquire[i]["ID"]]["Name"])
+					end
+					if (vlist[acquire[i]["RepVendor"]]) then
+						self:Print("Rep Vendor: " .. vlist[acquire[i]["RepVendor"]]["Name"] .. " (" .. acquire[i]["RepVendor"] .. ")")
+					end
+				elseif (acquiretype == 7) then
+					self:Print("World Drop: " .. acquire[i]["ID"])
+				elseif (acquiretype == 8) then
+					self:Print("Custom: " .. acquire[i]["ID"])
+					if (custlist[i]) then
+						self:Print(custlist[i]["Name"])
+					end
+				elseif (acquiretype == 9) then
+					self:Print("Achievement: " .. acquire[i]["ID"])
+				else
+					self:Print("Acquire type: " .. acquire[i]["Type"] .. " ID: " .. acquire[i]["ID"])
+				end
+			end
+
+			local flags = x["Flags"]
+			local flagstr = ""
+
+			if (flags[1] == true) then
+				flagstr = flagstr .. "(A),"
+			end
+			if (flags[2] == true) then
+				flagstr = flagstr .. "(H),"
+			end
+			if (flags[3] == true) then
+				flagstr = flagstr .. "Vendor,"
+			end
+			if (flags[4] == true) then
+				flagstr = flagstr .. "Quest,"
+			end
+			if (flags[5] == true) then
+				flagstr = flagstr .. "Crafter,"
+			end
+			if (flags[6] == true) then
+				flagstr = flagstr .. "Instance,"
+			end
+			if (flags[7] == true) then
+				flagstr = flagstr .. "Raid,"
+			end
+			if (flags[8] == true) then
+				flagstr = flagstr .. "Seasonal,"
+			end
+			if (flags[9] == true) then
+				flagstr = flagstr .. "World,"
+			end
+			if (flags[10] == true) then
+				flagstr = flagstr .. "Mob,"
+			end
+			if (flags[11] == true) then
+				flagstr = flagstr .. "TCG,"
+			end
+			if (flags[12] == true) then
+				flagstr = flagstr .. "Special Event,"
+			end
+			if (flags[13] == true) then
+				flagstr = flagstr .. "CE,"
+			end
+			if (flags[14] == true) then
+				flagstr = flagstr .. "Not in game,"
+			end
+			if (flags[15] == true) then
+				flagstr = flagstr .. "Achievement,"
+			end
+			if (flags[16] == true) then
+				flagstr = flagstr .. "PVP,"
+			end
+			if (flags[17] == true) then
+				flagstr = flagstr .. "17,"
+			end
+			if (flags[18] == true) then
+				flagstr = flagstr .. "18,"
+			end
+			if (flags[19] == true) then
+				flagstr = flagstr .. "19,"
+			end
+			if (flags[20] == true) then
+				flagstr = flagstr .. "BoE,"
+			end
+			if (flags[21] == true) then
+				flagstr = flagstr .. "BoP,"
+			end
+			if (flags[22] == true) then
+				flagstr = flagstr .. "BoA,"
+			end
+			if (flags[23] == true) then
+				flagstr = flagstr .. "23,"
+			end
+			if (flags[24] == true) then
+				flagstr = flagstr .. "24,"
+			end
+			if (flags[25] == true) then
+				flagstr = flagstr .. "Alchy,"
+			end
+			if (flags[26] == true) then
+				flagstr = flagstr .. "BS,"
+			end
+			if (flags[27] == true) then
+				flagstr = flagstr .. "Cook,"
+			end
+			if (flags[28] == true) then
+				flagstr = flagstr .. "Enchanting,"
+			end
+			if (flags[29] == true) then
+				flagstr = flagstr .. "Engineering,"
+			end
+			if (flags[30] == true) then
+				flagstr = flagstr .. "FA,"
+			end
+			if (flags[31] == true) then
+				flagstr = flagstr .. "Inscription,"
+			end
+			if (flags[32] == true) then
+				flagstr = flagstr .. "JC,"
+			end
+			if (flags[33] == true) then
+				flagstr = flagstr .. "LW,"
+			end
+			if (flags[34] == true) then
+				flagstr = flagstr .. "Mining,"
+			end
+			if (flags[35] == true) then
+				flagstr = flagstr .. "Tailoring,"
+			end
+			if (flags[36] == true) then
+				flagstr = flagstr .. "Fishing,"
+			end
+			if (flags[37] == true) then
+				flagstr = flagstr .. "37,"
+			end
+			if (flags[38] == true) then
+				flagstr = flagstr .. "38,"
+			end
+			if (flags[39] == true) then
+				flagstr = flagstr .. "39,"
+			end
+
+			self:Print("Flags: " .. flagstr)
+			flagstr = ""
+
+			--self:Print("Reps: " .. flagstr)
+
+		else
+			self:Print("Spell ID not in recipe database.")
+		end
+
 	end
 
 end
