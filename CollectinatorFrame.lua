@@ -117,20 +117,10 @@ addonversion = string.gsub(addonversion,"@project.revision@","SVN")
 local ARL_SearchText,ARL_LastSearchedText
 local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptCB,ARL_ExpPlayerOptCB,ARL_ExpRepOptCB,ARL_RepOldWorldCB,ARL_RepBCCB,ARL_RepLKCB,ARL_ExpMiscOptCB
 
--- To make tabbing between professions easier 
-local SortedProfessions = { 
-	{ name = GetSpellInfo(51304),	texture = "alchemy" },	-- 1 
-	{ name = GetSpellInfo(51300),	texture = "blacksmith" }, -- 2 
-	{ name = GetSpellInfo(51296),	texture = "cooking" },	-- 3 
-	{ name = GetSpellInfo(51313),	texture = "enchant" },	-- 4 
-	{ name = GetSpellInfo(51306),	texture = "engineer" },	-- 5 
-	{ name = GetSpellInfo(45542),	texture = "firstaid" },	-- 6 
-	{ name = GetSpellInfo(45363),	texture = "inscribe" },	-- 7 
-	{ name = GetSpellInfo(51311),	texture = "jewel" },	-- 8 
-	{ name = GetSpellInfo(51302),	texture = "leather" },	-- 9 
-	{ name = GetSpellInfo(53428),	texture = "runeforge" }, -- 10 
-	{ name = GetSpellInfo(32606),	texture = "smelting" },	-- 11 
-	{ name = GetSpellInfo(51309),	texture = "tailor" },	-- 12 
+-- To make tabbing between collections easier 
+local SortedCollections = { 
+	{ name = "Mini-pets",	texture = "alchemy" },	-- 1
+	{ name = "Mounts",		texture = "alchemy" },	-- 2
 } 
 
 local MaxProfessions = 12
@@ -426,16 +416,6 @@ do
 		local autoscanmap = addon.db.profile.autoscanmap
 
 		if ((worldmap == true) or (minimap == true)) then
-
-			local icontext = "Interface\\AddOns\\AckisRecipeList\\img\\enchant_up"
-
-			-- Get the proper icon to put on the mini-map
-			for i,k in pairs(SortedProfessions) do
-				if (k["name"] == playerData.playerProfession) then
-					icontext = "Interface\\AddOns\\AckisRecipeList\\img\\" .. k["texture"] .. "_up"
-					break
-				end
-			end
 
 			local maplist = {}
 
@@ -1984,13 +1964,8 @@ function addon:SwitchProfs(button)
 			if (index > MaxProfessions) then
 				index = 1
 			else
-				if (playerData["Professions"][SortedProfessions[index].name] == true) then
-					displayProf = index
-					currentProfIndex = index
-					break
-				else
-					index = index + 1
-				end
+				displayProf = index
+				currentProfIndex = index
 			end
 		end
 	elseif button == "RightButton" then
@@ -2008,20 +1983,16 @@ function addon:SwitchProfs(button)
 			if (index < 1) then
 				index = MaxProfessions
 			else
-				if (playerData["Professions"][SortedProfessions[index].name] == true) then
-					displayProf = index
-					currentProfIndex = index
-					break
-				else
-					index = index - 1
-				end
+				displayProf = index
+				currentProfIndex = index
+				break
 			end
 		end
 	end
 
 	-- Redisplay the button with the new skill
-	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
-	playerData.playerProfession = SortedProfessions[currentProfIndex].name
+	SetSwitcherTexture(SortedCollections[currentProfIndex].texture)
+	playerData.playerProfession = SortedCollections[currentProfIndex].name
 	currentProfession = playerData.playerProfession
 
 	-- Lets get the new skill level
@@ -3398,7 +3369,6 @@ function addon:CreateFrame(
 	allSpecTable = asTable
 	playerData = cPlayer
 	currentProfession = playerData.playerProfession
-	trainerDB = trList
 	vendorDB = vList
 	questDB = qList
 	repDB = rList
@@ -3410,7 +3380,7 @@ function addon:CreateFrame(
 	DisplayStrings = {}
 
 	-- get our current profession's index
-	for k, v in pairs(SortedProfessions) do
+	for k, v in pairs(SortedCollections) do
 
 		if (v.name == currentProfession) then
 
@@ -4655,7 +4625,7 @@ function addon:CreateFrame(
 	addon.resetTitle()
 
 	-- Set the texture on our switcher button correctly
-	SetSwitcherTexture(SortedProfessions[currentProfIndex].texture)
+	SetSwitcherTexture(SortedCollections[currentProfIndex].texture)
 
 	-- Sort the list
 	sortedRecipeIndex = addon:SortMissingRecipes(recipeDB)
