@@ -119,8 +119,8 @@ local ARL_ExpGeneralOptCB,ARL_ExpObtainOptCB,ARL_ExpBindingOptCB,ARL_ExpItemOptC
 
 -- To make tabbing between collections easier 
 local SortedCollections = { 
-	{ name = "Mini-pets",	texture = "minipets" },	-- 1
-	{ name = "Mounts",		texture = "mounts" },	-- 2
+	{ name = "CRITTER",		texture = "minipets" },	-- 1
+	{ name = "MOUNT",		texture = "mounts" },	-- 2
 } 
 
 local MaxCollections = 2
@@ -1995,39 +1995,6 @@ function addon:SwitchProfs(button)
 	playerData.playerProfession = SortedCollections[currentProfIndex].name
 	currentProfession = playerData.playerProfession
 
-	-- Lets get the new skill level
-	-- Expand all headers first
-
-	local NumSkillLines = GetNumSkillLines()
-	local expandtable = {}
-
-	for i=NumSkillLines,1,-1 do
-		local skillName,_,isExpanded = GetSkillLineInfo(i)
-		if (not isExpanded) then
-			expandtable[skillName] = true
-			ExpandSkillHeader(i)
-		end
-	end
-
-	NumSkillLines = GetNumSkillLines()
-
-	-- Get the skill level
-	for i=1,NumSkillLines,1 do
-		local skillName,_,_,skillRank = GetSkillLineInfo(i)
-		if (skillName == currentProfession) then
-			playerData.playerProfessionLevel = 	skillRank
-			break
-		end
-	end
-
-	-- Collapse expanded headers
-	for i=NumSkillLines,1,-1 do
-		local skillName,_,isExpanded = GetSkillLineInfo(i)
-		if (expandtable[skillName] == true) then
-			CollapseSkillHeader(i)
-		end
-	end
-
 	ReDisplay()
 	addon.resetTitle()
 
@@ -3343,13 +3310,21 @@ function addon:CreateFrame(
 	-- get our current profession's index
 	for k, v in pairs(SortedCollections) do
 
-		if (v.name == "Mounts") then
+		if (v.name == "MOUNT") then
 
 			currentProfIndex = k
 			break
 
 		end
 
+	end
+
+	if (PetPaperDollFrameCompanionFrame:IsVisible()) then
+		if (PetPaperDollFrameCompanionFrame.mode=="CRITTER") then
+			currentProfIndex = 1
+		elseif (PetPaperDollFrameCompanionFrame.mode=="MOUNT") then
+			currentProfIndex = 2
+		end
 	end
 
 	-- Adding a check in to see if we're Horde or Alliance, and change the displayed reputation
