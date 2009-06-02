@@ -2,10 +2,14 @@
 <Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.blizzard.com/wow/ui/" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ..\FrameXML\UI.xsd">
 
-<Include file="DB\Reputation.lua"/>
 <Include file="DB\MountDatabase.lua"/>
 <Include file="DB\PetDatabase.lua"/>
-<Include file="DB\Custom.lua"/>
 <Include file="DB\Vendor.lua"/>
+<Include file="DB\Mob.lua"/>
+<Include file="DB\Quest.lua"/>
+<Include file="DB\Seasonal.lua"/>
+<Include file="DB\Reputation.lua"/>
+<Include file="DB\Custom.lua"/>
+
 
 </Ui>
