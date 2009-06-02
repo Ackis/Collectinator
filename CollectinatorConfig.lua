@@ -15,11 +15,10 @@ Project version: @project-version@
 
 ]]--
 
-local MODNAME			= "Ackis Recipe List"
+local MODNAME			= "Collectinator"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local BFAC				= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local BC				= LibStub("LibBabble-Class-3.0"):GetLookupTable()
 local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 local AceConfig 		= LibStub("AceConfig-3.0")
@@ -118,86 +117,6 @@ local function giveFilter()
 							desc	= L["UNKNOWN_DESC"],
 							get		= function() return addon.db.profile.filters.general.unknown end,
 							set		= function() addon.db.profile.filters.general.unknown = not addon.db.profile.filters.general.unknown end,
-						},
-						deathknight = {
-							order	= 8,
-							type	= "toggle",
-							name	= BC["Deathknight"],
-							desc	= L["CLASS_DESC"],
-							get		= function() return addon.db.profile.filters.classes.deathknight end,
-							set		= function() addon.db.profile.filters.classes.deathknight = not addon.db.profile.filters.classes.deathknight end,
-						},
-						druid = {
-							order	= 9,
-							type	= "toggle",
-							name	= BC["Druid"],
-							desc	= L["CLASS_DESC"],
-							get		= function() return addon.db.profile.filters.classes.druid end,
-							set		= function() addon.db.profile.filters.classes.druid = not addon.db.profile.filters.classes.druid end,
-						},
-						hunter = {
-							order	= 10,
-							type	= "toggle",
-							name	= BC["Hunter"],
-							desc	= L["CLASS_DESC"],
-							get		= function() return addon.db.profile.filters.classes.hunter end,
-							set		= function() addon.db.profile.filters.classes.hunter = not addon.db.profile.filters.classes.hunter end,
-						},
-						mage = {
-							order	= 11,
-							type	= "toggle",
-							name	= BC["Mage"],
-							desc	= L["CLASS_DESC"],
-							get		= function() return addon.db.profile.filters.classes.mage end,
-							set		= function() addon.db.profile.filters.classes.mage = not addon.db.profile.filters.classes.mage end,
-						},
-						paladin = {
-							order	= 12,
-							type	= "toggle",
-							name	= BC["Paladin"],
-							desc	= L["CLASS_DESC"],
-							get		= function() return addon.db.profile.filters.classes.paladin end,
-							set		= function() addon.db.profile.filters.classes.paladin = not addon.db.profile.filters.classes.paladin end,
-						},
-						priest = {
-							order	= 13,
-							type	= "toggle",
-							name	= BC["Priest"],
-							desc	= L["CLASS_DESC"],
-							get		= function() return addon.db.profile.filters.classes.priest end,
-							set		= function() addon.db.profile.filters.classes.priest = not addon.db.profile.filters.classes.priest end,
-						},
-						rogue = {
-							order	= 14,
-							type	= "toggle",
-							name	= BC["Rogue"],
-							desc	= L["CLASS_DESC"],
-							get		= function() return addon.db.profile.filters.classes.rogue end,
-							set		= function() addon.db.profile.filters.classes.rogue = not addon.db.profile.filters.classes.rogue end,
-						},
-						shaman = {
-							order	= 15,
-							type	= "toggle",
-							name	= BC["Shaman"],
-							desc	= L["CLASS_DESC"],
-							get		= function() return addon.db.profile.filters.classes.shaman end,
-							set		= function() addon.db.profile.filters.classes.shaman = not addon.db.profile.filters.classes.shaman end,
-						},
-						warlock = {
-							order	= 16,
-							type	= "toggle",
-							name	= BC["Warlock"],
-							desc	= L["CLASS_DESC"],
-							get		= function() return addon.db.profile.filters.classes.warlock end,
-							set		= function() addon.db.profile.filters.classes.warlock = not addon.db.profile.filters.classes.warlock end,
-						},
-						warrior = {
-							order	= 17,
-							type	= "toggle",
-							name	= BC["Warrior"],
-							desc	= L["CLASS_DESC"],
-							get		= function() return addon.db.profile.filters.classes.warrior end,
-							set		= function() addon.db.profile.filters.classes.warrior = not addon.db.profile.filters.classes.warrior end,
 						},
 					},
 				},
@@ -1057,14 +976,14 @@ local function fullOptions()
 							type	= "execute",
 							name	= L["Scan"],
 							desc	= L["SCAN_RECIPES_DESC"],
-							func	= function(info) addon:AckisRecipeList_Command(false) end,
+							func	= function(info) addon:Collectinator_Command(false) end,
 						},
 						textdump = {
 							order	= 13,
 							type	= "execute",
 							name	= L["Text Dump"],
 							desc	= L["TEXT_DUMP_DESC"],
-							func	= function(info) addon:AckisRecipeList_Command(true) end,
+							func	= function(info) addon:Collectinator_Command(true) end,
 						},
 						exclusionlist = {
 							order	= 14,

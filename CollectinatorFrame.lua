@@ -15,14 +15,13 @@ Project version: @project-version@
 
 ]]--
 
-local MODNAME	= "Ackis Recipe List"
+local MODNAME	= "Collectinator"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local BC		= LibStub("LibBabble-Class-3.0"):GetLookupTable()
 local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local QTip		= LibStub("LibQTip-1.0")
-local QTipClick		= LibStub("LibQTipClick-1.1")
+local QTipClick	= LibStub("LibQTipClick-1.1")
 
 local string = string
 local ipairs = ipairs
@@ -1890,7 +1889,7 @@ do
 		if (addon.Frame and addon.Frame:IsVisible()) then
 			-- Shift only (Text dump)
 			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(true)
+				self:Collectinator_Command(true)
 			-- Alt only (Wipe icons from map)
 			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
 				self:ClearMap()
@@ -1899,7 +1898,7 @@ do
 				addon.Frame:Hide()
 			-- If we have a different profession open we do a scan
 			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(false)
+				self:Collectinator_Command(false)
 				self:SetupMap()
 				currentProfession = cprof
 			end
@@ -1908,13 +1907,13 @@ do
 			currentProfession = cprof
 			-- Shift only (Text dump)
 			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(true)
+				self:Collectinator_Command(true)
 			-- Alt only (Wipe icons from map)
 			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
 				self:ClearMap()
 			-- No modification
 			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:AckisRecipeList_Command(false)
+				self:Collectinator_Command(false)
 				self:SetupMap()
 			end
 		end
