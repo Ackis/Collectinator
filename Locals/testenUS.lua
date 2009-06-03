@@ -1,8 +1,8 @@
 --[[
 
-ARLLocals-enUS.lua
+testenUS.lua
 
-enUS localization strings for Ackis Recipe List
+enUS localization strings for Collectinator
 
 File date: @file-date-iso@
 File revision: @file-revision@
@@ -14,7 +14,7 @@ Currently maintained by: Ackis
 
 Please make sure you update the ToC file with any translations.
 
-Please update http://www.wowace.com/projects/arl/localization/enUS/ for any translation
+Please update http://www.wowace.com/projects/collectinator/localization/enUS/ for any translation
 additions or changes.
 
 ****************************************************************************************
