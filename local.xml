@@ -4,4 +4,8 @@
 
 <Include file="Locals\enUS.lua"/>
 
+<!--@debug@-->
+<Include file="Locals\testenUS.lua"/>
+<!--@end-debug@-->
+
 </Ui>
