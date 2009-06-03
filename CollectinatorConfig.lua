@@ -1074,7 +1074,7 @@ local function fullOptions()
 							desc	= L["SORTING_DESC"],
 							get		= function() return addon.db.profile.sorting end,
 							set		= function(info,name) addon.db.profile.sorting = name end,
-							values	= function() return {Name = L["Name"], SkillAsc = L["Skill (Asc)"], SkillDesc = L["Skill (Desc)"], Acquisition = L["Acquisition"], Location = L["Location"]} end,
+							values	= function() return {Name = L["Name"], Acquisition = L["Acquisition"], Location = L["Location"]} end,
 						},
 					},
 				},

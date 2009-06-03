@@ -2927,10 +2927,6 @@ local function SetSortName()
 
 	if (sorttype == "Name") then
 		Collectinator_DD_SortText:SetText(L["Sort"] .. ": " .. L["Name"])
-	elseif (sorttype == "SkillAsc") then
-		Collectinator_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Asc)"])
-	elseif (sorttype == "SkillDesc") then
-		Collectinator_DD_SortText:SetText(L["Sort"] .. ": " .. L["Skill (Desc)"])
 	elseif (sorttype == "Acquisition") then
 		Collectinator_DD_SortText:SetText(L["Sort"] .. ": " .. L["Acquisition"])
 	elseif (sorttype == "Location") then
@@ -2956,18 +2952,6 @@ local function Collectinator_DD_Sort_Initialize()
 	local info = UIDropDownMenu_CreateInfo()
 
 	k = "Name"
-		info.text = k
-		info.arg1 = info.text
-		info.func = Collectinator_DD_Sort_OnClick
-		info.checked = (addon.db.profile.sorting == k)
-		UIDropDownMenu_AddButton(info)
-	k = "SkillAsc"
-		info.text = k
-		info.arg1 = info.text
-		info.func = Collectinator_DD_Sort_OnClick
-		info.checked = (addon.db.profile.sorting == k)
-		UIDropDownMenu_AddButton(info)
-	k = "SkillDesc"
 		info.text = k
 		info.arg1 = info.text
 		info.func = Collectinator_DD_Sort_OnClick
@@ -3353,11 +3337,6 @@ function addon:CreateFrame(
 			25, 90, "TOPRIGHT", addon.Frame, "TOPRIGHT", -8, -40, "GameFontNormalSmall",
 			"GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
 			Collectinator_FilterButton:SetScript("OnClick", addon.ToggleFilters)
-
-		-- Check for old skill sorting
-		if (addon.db.profile.sorting == "Skill") then
-			addon.db.profile.sorting = "SkillAsc"
-		end
 
 		local Collectinator_DD_Sort = CreateFrame("Frame", "Collectinator_DD_Sort", addon.Frame, "UIDropDownMenuTemplate")
 		Collectinator_DD_Sort:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 55, -39)
