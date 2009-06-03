@@ -2,7 +2,7 @@
 
 ************************************************************************
 
-ARL-Quest.lua
+Quest.lua
 
 Quest data for all of Collectinator
 

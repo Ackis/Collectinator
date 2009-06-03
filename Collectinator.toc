@@ -1,6 +1,6 @@
-﻿## Title: Collectinator
+## Title: Collectinator
 
-## Notes: Will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabbard check list and "fun items" check list will be offered.
+## Notes: Will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabard check list, a title check list and "fun items" check list will be offered.
 
 ## Author: Ackis
 ## eMail: ackis AT shaw DOT ca

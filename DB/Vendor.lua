@@ -2,7 +2,7 @@
 
 ************************************************************************
 
-ARL-Vendor.lua
+Vendor.lua
 
 Vendor data for all of Collectinator
 

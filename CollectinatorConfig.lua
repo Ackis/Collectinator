@@ -2,9 +2,9 @@
 
 ****************************************************************************************
 
-ARLConfig.lua
+CollectinatorConfig.lua
 
-Ace3 Configuration options for ARL
+Ace3 Configuration options for Collectinator
 
 File date: @file-date-iso@
 File revision: @file-revision@
@@ -1091,7 +1091,7 @@ local function fullOptions()
 
 end
 
-local arlmap = nil
+local Collectinatormap = nil
 
 local function giveMap()
 
@@ -1101,9 +1101,9 @@ local function giveMap()
 		tomtomsupport = false
 	end
 
-	if (not arlmap) then
+	if (not Collectinatormap) then
 
-	arlmap = {
+	Collectinatormap = {
 			order	= 1,
 			type	= "group",
 			name	= L["Map Options"],
@@ -1154,7 +1154,7 @@ local function giveMap()
 
 	end
 
-	return arlmap
+	return Collectinatormap
 
 end
 
@@ -1420,8 +1420,8 @@ local function giveDisplay()
 					get		= function() return addon.db.profile.frameopts.tooltipscale end,
 					set		= function(info, v)
 								addon.db.profile.frameopts.tooltipscale = v
-								if (arlTooltip) then arlTooltip:SetScale(v) end
-								if (arlSpellTooltip) then arlSpellTooltip:SetScale(v) end
+								if (CollectinatorTooltip) then CollectinatorTooltip:SetScale(v) end
+								if (CollectinatorSpellTooltip) then CollectinatorSpellTooltip:SetScale(v) end
 							  end,
 				},
 				acquiretooltiplocation = {

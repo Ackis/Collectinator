@@ -2,9 +2,9 @@
 
 ****************************************************************************************
 
-ARLColour.lua
+CollectinatorColour.lua
 
-Colouring functions for ARL
+Colouring functions for Collectinator
 
 File date: @file-date-iso@ 
 File revision: @file-revision@ 

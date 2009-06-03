@@ -519,7 +519,7 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 		DB[ID]["Location"] = Loc
 	else
 		--@debug@
-		self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")
+		--self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")
 		--@end-debug@
 		DB[ID]["Location"] = L["Unknown Zone"]
 	end
@@ -575,7 +575,7 @@ function addon:ScanCompanions(DB, numminipets, nummounts)
 		if (DB[petspell]) then
 			DB[petspell]["Known"] = true
 		else
-			self:Print("Error: " .. petspell .. " not in database.")
+			self:Print("Error: Pet with ID " .. petspell .. " not in database.")
 		end
 	end
 
@@ -586,7 +586,7 @@ function addon:ScanCompanions(DB, numminipets, nummounts)
 		if (DB[mountspell]) then
 			DB[mountspell]["Known"] = true
 		else
-			self:Print("Error: " .. mountspell .. " not in database.")
+			self:Print("Error: Mount with ID ".. mountspell .. " not in database.")
 		end
 	end
 
@@ -1074,7 +1074,7 @@ end
 
 --[[
 
-	ARL Logic Functions
+	Collectinator Logic Functions
 
 ]]--
 
