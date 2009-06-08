@@ -1399,7 +1399,7 @@ do
 			self:UpdateFilters(CompanionDB, playerData, scantype)
 
 			-- Mark excluded recipes
-			playerData.excluded_known, playerData.excluded_unknown = self:GetExclusions(CompanionDB, scantype)
+			playerData.excluded_known, playerData.excluded_unknown = self:MarkExclusions(CompanionDB, scantype)
 
 			if (textdump == true) then
 				self:DisplayTextDump(CompanionDB, playerData.playerProfession)

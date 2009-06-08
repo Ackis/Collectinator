@@ -32,55 +32,55 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Mechanical Squirrel Box - 4055
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,4055,4401,1,"CRITTER",10)
+	self:AddCompanion(PetDB,4055,4401,1,"CRITTER")
 	self:AddCompanionFlags(PetDB,4055,1,2,5,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,4055,3,4036,3928)
 
 	-- Cat Carrier (Bombay) - 10673
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10673,8485,1,"CRITTER",2)
+	self:AddCompanion(PetDB,10673,8485,1,"CRITTER")
 	self:AddCompanionFlags(PetDB,10673,1,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10673,1,6367)
 
 	-- Cat Carrier (Cornish Rex) - 10674
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10674,8486,1,"CRITTER",3)
+	self:AddCompanion(PetDB,10674,8486,1,"CRITTER")
 	self:AddCompanionFlags(PetDB,10674,1,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10674,1,6367)
 
 	-- Cat Carrier (Black Tabby) - 10675
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10675,8491,1,"CRITTER",1)
+	self:AddCompanion(PetDB,10675,8491,1,"CRITTER")
 	self:AddCompanionFlags(PetDB,10675,2,10,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10675,4,1920,4,2271,4,2272,4,2358)
 
 	-- Cat Carrier (Orange Tabby) - 10676
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10676,8487,1,"CRITTER",4)
+	self:AddCompanion(PetDB,10676,8487,1,"CRITTER")
 	self:AddCompanionFlags(PetDB,10676,1,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10676,1,6367)
 
 	-- Cat Carrier (Siamese) - 10677
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10677,8490,1,"CRITTER",5)
+	self:AddCompanion(PetDB,10677,8490,1,"CRITTER")
 	self:AddCompanionFlags(PetDB,10677,1,2,3,6,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10677,1,20980,4,645)
 
 	-- Cat Carrier (Silver Tabby) - 10678
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10678,8488,1,"CRITTER",6)
+	self:AddCompanion(PetDB,10678,8488,1,"CRITTER")
 	self:AddCompanionFlags(PetDB,10678,1,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10678,1,6367)
 
 	-- Cat Carrier (White Kitten) - 10679
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10679,8489,1,"CRITTER",7)
+	self:AddCompanion(PetDB,10679,8489,1,"CRITTER")
 	self:AddCompanionFlags(PetDB,10679,1,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10679,1,8666)
 
 	-- Parrot Cage (Cockatiel) - 10680
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10680,8496,1,"CRITTER",22)
+	self:AddCompanion(PetDB,10680,8496,1,"CRITTER")
 	self:AddCompanionFlags(PetDB,10680,1,2,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10680,1,2663)
 
