@@ -1024,45 +1024,40 @@ local function PopulateRepFilters(RepTable)
 end
 
 -- Description: Scans the recipe listing and updates the filters according to user preferences
-function addon:UpdateFilters(DB,  playerData)
+function addon:UpdateFilters(DB,  playerData, scantype)
 
-	local playerProfession = playerData.playerProfession
-	local playerSpecialty = playerData.playerSpecialty
-	local playerFaction = playerData.playerFaction
-	local playerClass = playerData.playerClass
+	--local playerFaction = playerData.playerFaction
+	--local playerClass = playerData.playerClass
 
-	playerData.filteredcompanions = 0
-	playerData.othercompanions = 0
-
-	playerData.recipes_total = 0
-	playerData.recipes_known = 0
-	playerData.recipes_total_filtered = 0
-	playerData.recipes_known_filtered = 0
+	playerData.total = 0
+	playerData.known = 0
+	playerData.total_filtered = 0
+	playerData.known_filtered = 0
 
 	local displayflag = false
 
-	-- Parse through all the entries in the Recipe array
-	for RecipeID, Recipe in pairs(DB) do
+	-- Parse through all the entries in the array.
+	for ID, item in pairs(DB) do
 
-		-- only interested in the current profession
-		if (Recipe["Profession"] == playerProfession) then
+		-- Only interested in the current type (mount/critter/etc)
+		if (item["Type"] == scantype) then
 
-			-- Determine if we are to display this recipe or not
-			displayflag = self:CheckDisplayRecipe(Recipe, AllSpecialtiesTable, playerProfessionLevel, playerProfession, playerSpecialty, playerFaction, playerClass)
-
-			playerData.recipes_total = playerData.recipes_total + 1
-			playerData.recipes_known = playerData.recipes_known + (Recipe["Known"] == true and 1 or 0)
+			-- Determine if we are to display this item or not
+			--displayflag = self:CheckDisplayitem(item, AllSpecialtiesTable, playerProfessionLevel, scantype, playerSpecialty, playerFaction, playerClass)
+displayflag = true
+			playerData.total = playerData.total + 1
+			playerData.known = playerData.known + (item["Known"] == true and 1 or 0)
 
 			if (displayflag == true) then
-				playerData.recipes_total_filtered = playerData.recipes_total_filtered + 1
-				playerData.recipes_known_filtered = playerData.recipes_known_filtered + (Recipe["Known"] == true and 1 or 0)
+				playerData.total_filtered = playerData.total_filtered + 1
+				playerData.known_filtered = playerData.known_filtered + (item["Known"] == true and 1 or 0)
 
 				-- Include known
-				if (addon.db.profile.filters.general.known == false) and (Recipe["Known"] == true) then
+				if (addon.db.profile.filters.general.known == false) and (item["Known"] == true) then
 					displayflag = false
 				end
 				-- Include unknown
-				if (addon.db.profile.filters.general.unknown == false) and (Recipe["Known"] == false) then
+				if (addon.db.profile.filters.general.unknown == false) and (item["Known"] == false) then
 					displayflag = false
 				end
 			end
@@ -1071,7 +1066,7 @@ function addon:UpdateFilters(DB,  playerData)
 		end
 
 		-- Set the display flag
-		DB[RecipeID]["Display"] = displayflag
+		DB[ID]["Display"] = displayflag
 
 	end
 
@@ -1140,6 +1135,10 @@ do
 	-- @field totalknownmounts Total number of known mounts.
 	-- @field totalpets Total number of mini-pets.
 	-- @field totalmounts Total number of mounts.
+	-- @field total Total number of items in the scan.
+	-- @field known Total number of items known in the scan.
+	-- @field total_filtered Total number of items filtered during the scan.
+	-- @field known_filtered Total number of items known filtered during the scan.
 	-- @field playerFaction Players faction
 	-- @field playerClass Players class
 	-- @field ["Reputation"] Listing of players reputation levels
@@ -1299,7 +1298,6 @@ do
 			[GetSpellInfo(51313)] = false, -- Enchanting
 			[GetSpellInfo(51306)] = false, -- Engineering
 			[GetSpellInfo(45542)] = false, -- First Aid
-			--["Premiers soins"] = false, -- First Aid (Hack for frFR local)
 			[GetSpellInfo(51302)] = false, -- Leatherworking
 			[GetSpellInfo(32606)] = false, -- Mining
 			[GetSpellInfo(51309)] = false, -- Tailoring
@@ -1370,8 +1368,9 @@ do
 	-- @usage Collectinator:Collectinator_Command(true)
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the GUI.
 	-- @param autoupdatescan Boolean, true if we're triggering this from an event (aka we learned a new pet), false otherwise.
+	-- @param scantype 1 for pets, 2 for mounts
 	-- @return A frame with either the text dump, or the GUI frame.
-	function addon:Collectinator_Command(textdump, autoupdatescan)
+	function addon:Collectinator_Command(textdump, autoupdatescan, scantype)
 
 		-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
 		if (playerData == nil) then
@@ -1395,10 +1394,10 @@ do
 		if (not autoupdatescan) then
 
 			-- Update the table containing which reps to display
-			--PopulateRepFilters(RepFilters)
+			PopulateRepFilters(RepFilters)
 
 			-- Add filtering flags to the recipes
-			--self:UpdateFilters(CompanionDB, AllSpecialtiesTable, playerData)
+			self:UpdateFilters(CompanionDB, playerData, scantype)
 
 			-- Mark excluded recipes
 			--self:MarkExclusions(CompanionDB,playerData)
