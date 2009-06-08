@@ -289,7 +289,7 @@ end
 function addon:COMPANION_LEARNED()
 
 	-- When we learn a new pet, we want to automatically scan the companions and update our saved variables
-	self:ScanCompanions()
+	self:Collectinator_Command(false, false)
 
 end
 
@@ -1350,8 +1350,9 @@ do
 	-- @name Collectinator:Collectinator_Command
 	-- @usage Collectinator:Collectinator_Command(true)
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the GUI.
+	-- @param autoupdatescan Boolean, true if we're triggering this from an event (aka we learned a new pet), false otherwise.
 	-- @return A frame with either the text dump, or the GUI frame.
-	function addon:Collectinator_Command(textdump)
+	function addon:Collectinator_Command(textdump, autoupdatescan)
 
 		-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
 		if (playerData == nil) then
@@ -1372,24 +1373,28 @@ do
 		-- Scan for all known companions
 		self:ScanCompanions(CompanionDB, playerData["totalknownpets"], playerData["totalknownmounts"])
 
-		-- Update the table containing which reps to display
-		--self:PopulateRepFilters(RepFilters)
+		if (not autoupdatescan) then
 
-		-- Add filtering flags to the recipes
-		--self:UpdateFilters(CompanionDB, AllSpecialtiesTable, playerData)
+			-- Update the table containing which reps to display
+			--self:PopulateRepFilters(RepFilters)
 
-		-- Mark excluded recipes
-		--self:MarkExclusions(CompanionDB,playerData)
+			-- Add filtering flags to the recipes
+			--self:UpdateFilters(CompanionDB, AllSpecialtiesTable, playerData)
 
-		if (textdump == true) then
-			self:DisplayTextDump(CompanionDB, playerData.playerProfession)
-		else
-			-- Sort the recipe list now
-			local sortedindex = self:SortDatabase(CompanionDB)
+			-- Mark excluded recipes
+			--self:MarkExclusions(CompanionDB,playerData)
 
-			self:CreateFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
+			if (textdump == true) then
+				self:DisplayTextDump(CompanionDB, playerData.playerProfession)
+			else
+				-- Sort the recipe list now
+				local sortedindex = self:SortDatabase(CompanionDB)
 
-			--for i in pairs(CompanionDB) do if (CompanionDB[i]["Known"] == false) then addon:DumpSpell(i) end end
+				self:CreateFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
+
+				--for i in pairs(CompanionDB) do if (CompanionDB[i]["Known"] == false) then addon:DumpSpell(i) end end
+			end
+
 		end
 
 	end
