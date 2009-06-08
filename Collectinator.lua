@@ -17,7 +17,8 @@ local MODNAME	= "Collectinator"
 
 Collectinator 	= LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
 
-local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 --- **Collectinator** provides an interface for scanning companions and moutns to find what is missing.
 -- There are a set of functions which allow you make use of the Collectinator database outside of Collectinator.\\
@@ -26,43 +27,30 @@ local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 -- @name Collectinator.lua
 -- @release @file-revision@
 
-if (not LibStub:GetLibrary("AceLocale-3.0", true)) then
-	addon:Print(format("%s is missing.  Addon cannot run.","AceLocale-3.0"))
-	--@debug@
-	addon:Print("You are using a svn version of Collectinator.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
-	--@end-debug@
-	Collectinator = nil
-	return
-end
+-------------------------------------------------------------------------------
+-- Check to see if we have mandatory libraries loaded. If not, notify the user
+-- which are missing and return.
+-------------------------------------------------------------------------------
+local MissingLibraries
+do
+	local REQUIRED_LIBS = {
+		"AceLocale-3.0",
+		"LibBabble-Boss-3.0",
+		"LibBabble-Class-3.0",
+		"LibBabble-Faction-3.0",
+		"LibBabble-Zone-3.0",
+	}
+	function MissingLibraries()
+		local missing = false
 
-local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-
--- Lets check to see if we have the needed libraries loaded (these are mandatory to run)
-if (not LibStub:GetLibrary("LibBabble-Faction-3.0", true)) then
-	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Faction-3.0"))
-	--@debug@
-	addon:Print("You are using a svn version of Collectinator.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
-	--@end-debug@
-	Collectinator = nil
-	return
-end
-
-if (not LibStub:GetLibrary("LibBabble-Zone-3.0", true)) then
-	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Zone-3.0"))
-	--@debug@
-	addon:Print("You are using a svn version of Collectinator.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
-	--@end-debug@
-	Collectinator = nil
-	return
-end
-
-if (not LibStub:GetLibrary("LibBabble-Boss-3.0", true)) then
-	addon:Print(format(L["MISSING_LIBRARY"],"LibBabble-Boss-3.0"))
-	--@debug@
-	addon:Print("You are using a svn version of Collectinator.  As per WowAce/Curseforge standard, svn externals are not setup.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibBabble-Class-3.0, LibAboutPanel, LibSharedMedia-3.0, LibBetterBlizzoptions and Astrolabe in order for the addon to function correctly.")
-	--@end-debug@
-	Collectinator = nil
-	return
+		for idx, lib in ipairs(REQUIRED_LIBS) do
+			if not LibStub:GetLibrary(lib, true) then
+				missing = true
+				addon:Print(format(L["MISSING_LIBRARY"], lib))
+			end
+		end
+		return missing
+	end
 end
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
