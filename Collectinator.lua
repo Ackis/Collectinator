@@ -1026,9 +1026,6 @@ end
 -- Description: Scans the recipe listing and updates the filters according to user preferences
 function addon:UpdateFilters(DB,  playerData, scantype)
 
-	--local playerFaction = playerData.playerFaction
-	--local playerClass = playerData.playerClass
-
 	playerData.total = 0
 	playerData.known = 0
 	playerData.total_filtered = 0
@@ -1142,6 +1139,8 @@ do
 	-- @field playerFaction Players faction
 	-- @field playerClass Players class
 	-- @field ["Reputation"] Listing of players reputation levels
+	-- @field excluded_unknown Number of unknown items excluded.
+	-- @field excluded_known Number of known items excluded.
 
 	-- Variables for getting the locations
 	local locationlist = nil
@@ -1368,7 +1367,7 @@ do
 	-- @usage Collectinator:Collectinator_Command(true)
 	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the GUI.
 	-- @param autoupdatescan Boolean, true if we're triggering this from an event (aka we learned a new pet), false otherwise.
-	-- @param scantype 1 for pets, 2 for mounts
+	-- @param scantype CRITTER for pets, MOUNT for mounts
 	-- @return A frame with either the text dump, or the GUI frame.
 	function addon:Collectinator_Command(textdump, autoupdatescan, scantype)
 
@@ -1400,7 +1399,7 @@ do
 			self:UpdateFilters(CompanionDB, playerData, scantype)
 
 			-- Mark excluded recipes
-			--self:MarkExclusions(CompanionDB,playerData)
+			playerData.excluded_known, playerData.excluded_unknown = self:GetExclusions(CompanionDB, scantype)
 
 			if (textdump == true) then
 				self:DisplayTextDump(CompanionDB, playerData.playerProfession)
@@ -1706,12 +1705,11 @@ end
 
 -- Description: Marks all exclusions in the recipe database to not be displayed
 
-function addon:MarkExclusions(DB,playerData)
+function addon:MarkExclusions(DB,scantype)
 
 	local exclusionlist = addon.db.profile.exclusionlist
 	local countknown = 0
 	local countunknown = 0
-	local prof = playerData
 
 	local ignored = not addon.db.profile.ignoreexclusionlist
 
@@ -1724,7 +1722,7 @@ function addon:MarkExclusions(DB,playerData)
 				DB[i]["Display"] = false
 			end
 
-			local tmpprof = GetSpellInfo(DB[i]["Profession"])
+			local tmpprof = GetSpellInfo(DB[i]["Type"])
 			if (DB[i]["Known"] == false and tmpprof == prof) then
 				countknown = countknown + 1
 			elseif (tmpprof == prof) then
