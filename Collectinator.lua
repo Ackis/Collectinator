@@ -955,8 +955,7 @@ do
 end
 
 -- Description: Creates an array of which factions we want to include in our display and which ones to ignore
-
-function addon:PopulateRepFilters(RepTable)
+local function PopulateRepFilters(RepTable)
 
 	local repfilters = addon.db.profile.filters.rep
 
@@ -964,15 +963,13 @@ function addon:PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Aldor"]] = repfilters.aldor
 	RepTable[BFAC["Argent Dawn"]] = repfilters.argentdawn
 	RepTable[BFAC["Ashtongue Deathsworn"]] = repfilters.ashtonguedeathsworn
+	--RepTable[BFAC["Bloodsail Buccaneers"]] = repfilters.bloodsail
 	RepTable[BFAC["Cenarion Circle"]] = repfilters.cenarioncircle
 	RepTable[BFAC["Cenarion Expedition"]] = repfilters.cenarionexpedition
 	RepTable[BFAC["The Consortium"]] = repfilters.consortium
-	RepTable[BFAC["Honor Hold"]] = repfilters.hellfire
-	RepTable[BFAC["Thrallmar"]] = repfilters.hellfire
 	RepTable[BFAC["Keepers of Time"]] = repfilters.keepersoftime
-	RepTable[BFAC["Kurenai"]] = repfilters.nagrand
-	RepTable[BFAC["The Mag'har"]] = repfilters.nagrand
 	RepTable[BFAC["Lower City"]] = repfilters.lowercity
+	--RepTable[BFAC["Netherwing"]] = repfilters.netherwing
 	RepTable[BFAC["The Scale of the Sands"]] = repfilters.scaleofthesands
 	RepTable[BFAC["The Sha'tar"]] = repfilters.shatar
 	RepTable[BFAC["Shattered Sun Offensive"]] = repfilters.shatteredsun
@@ -989,6 +986,30 @@ function addon:PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Kalu'ak"]] = repfilters.kaluak
 	RepTable[BFAC["The Oracles"]] = repfilters.oracles
 	RepTable[BFAC["The Wyrmrest Accord"]] = repfilters.wyrmrest
+
+	--RepTable[BFAC["Darnassus"]] = repfilters.
+	--RepTable[BFAC["Exodar"]] = repfilters.
+	--RepTable[BFAC["Gnomergan Exiles"]] = repfilters.
+	--RepTable[BFAC["Ironforge"]] = repfilters.
+	--RepTable[BFAC["Stormwind"]] = repfilters.
+	--RepTable[BFAC["Darkspear Trolls"]] = repfilters.
+	--RepTable[BFAC["Orgrimmar"]] = repfilters.
+	--RepTable[BFAC["Thunder Bluff"]] = repfilters.
+	--RepTable[BFAC["Undercity"]] = repfilters.
+	--RepTable[BFAC["Silvermoon City"]] = repfilters.
+
+	--RepTable[BFAC["Silverwing Sentinels"]] = repfilters.
+	--RepTable[BFAC["Stormpike Guard"]] = repfilters.
+	--RepTable[BFAC["The League of Arathor"]] = repfilters.
+	--RepTable[BFAC["The Defilers"]] = repfilters.
+	--RepTable[BFAC["Frostwolf Clan"]] = repfilters.
+	--RepTable[BFAC["Warsong Outriders"]] = repfilters.
+
+	RepTable[BFAC["Honor Hold"]] = repfilters.hellfire
+	RepTable[BFAC["Thrallmar"]] = repfilters.hellfire
+	RepTable[BFAC["Kurenai"]] = repfilters.nagrand
+	RepTable[BFAC["The Mag'har"]] = repfilters.nagrand
+
 	RepTable[BFAC["Alliance Vanguard"]] = repfilters.wrathcommon1
 	RepTable[BFAC["Horde Expedition"]] = repfilters.wrathcommon1
 	RepTable[BFAC["The Silver Covenant"]] = repfilters.wrathcommon2
@@ -1003,10 +1024,8 @@ function addon:PopulateRepFilters(RepTable)
 end
 
 -- Description: Scans the recipe listing and updates the filters according to user preferences
-
 function addon:UpdateFilters(DB,  playerData)
 
---[[
 	local playerProfession = playerData.playerProfession
 	local playerSpecialty = playerData.playerSpecialty
 	local playerFaction = playerData.playerFaction
@@ -1057,7 +1076,7 @@ function addon:UpdateFilters(DB,  playerData)
 	end
 
 	self:ClearRepTable()
-]]--
+
 end
 
 --[[
@@ -1376,7 +1395,7 @@ do
 		if (not autoupdatescan) then
 
 			-- Update the table containing which reps to display
-			--self:PopulateRepFilters(RepFilters)
+			--PopulateRepFilters(RepFilters)
 
 			-- Add filtering flags to the recipes
 			--self:UpdateFilters(CompanionDB, AllSpecialtiesTable, playerData)
