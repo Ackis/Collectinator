@@ -1407,9 +1407,9 @@ do
 				-- Sort the recipe list now
 				local sortedindex = self:SortDatabase(CompanionDB)
 
-				self:CreateFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
+				--self:CreateFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
 
-				--for i in pairs(CompanionDB) do if (CompanionDB[i]["Known"] == false) then addon:DumpSpell(i) end end
+				for i in pairs(sortedindex) do if (CompanionDB[i]["Known"] == false) then addon:DumpSpell(i) end end
 			end
 
 		end
