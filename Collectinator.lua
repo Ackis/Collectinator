@@ -1408,8 +1408,8 @@ do
 				local sortedindex = self:SortDatabase(CompanionDB)
 
 				--self:CreateFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
-for i in pairs(sortedindex) do addon:Print(i) end
-				for i in pairs(sortedindex) do if (CompanionDB[i]["Known"] == false) then addon:DumpSpell(i) end end
+
+				for i,j in pairs(sortedindex) do if (CompanionDB[j]["Known"] == false) then addon:DumpSpell(j) end end
 			end
 
 		end
