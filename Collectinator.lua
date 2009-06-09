@@ -295,7 +295,7 @@ do
 	local ExpandFactionHeader = ExpandFactionHeader
 
 
-	-- Description: Scans all reputations to get reputation levels to determine if the player can learn a reputation recipe
+	-- Description: Scans all reputations to get reputation levels to determine if the player can learn a reputation item
 
 	function addon:GetFactionLevels(RepTable)
 
@@ -362,7 +362,7 @@ local maxfilterflags = 72
 -- @param ItemID The [http://www.wowwiki.com/ItemLink Item ID] of the item, or nil
 -- @param Rarity The rarity of the item.
 -- @param CompanionType Type of entry added to the database.
--- @param Game Game version recipe was found in, for example, Original, BC, or Wrath.
+-- @param Game Game version item was found in, for example, Original, BC, or Wrath.
 -- @return None, array is passed as a reference.
 function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType, Game)
 
@@ -373,6 +373,7 @@ function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType, Game)
 	DB[SpellID]["ItemID"] = ItemID
 	DB[SpellID]["Rarity"] = Rarity
 	DB[SpellID]["Type"] = CompanionType
+	DB[SpellID]["Game"] = Game or 0
 
 	DB[SpellID]["Owned"] = false
 	DB[SpellID]["Display"] = true
@@ -677,9 +678,9 @@ do
 
 	end
 
-	-- Description: Scans a specific recpie to determine if it is to be displayed or not.
+	-- Description: Scans a specific item to determine if it is to be displayed or not.
 
-	function addon:CheckDisplayRecipe(Entry, playerFaction, playerClass)
+	function addon:CheckDisplay(Entry, playerFaction)
 
 		-- For flag info see comments at start of file in comments
 		local filterdb = addon.db.profile.filters
@@ -688,26 +689,21 @@ do
 		-- See Documentation file for logic explanation
 		-- Stage 1
 		-- Loop through exclusive flags (hard filters)
-		-- If one of these does not pass we do not display the recipe
+		-- If one of these does not pass we do not display the item
 		-- So to be more effecient we'll just leave this function if there's a false
 
 		local generaldb = filterdb.general
 		local obtaindb = filterdb.obtain
 
-		-- Is this recipe in my currently selected profession?
-		if (Entry["Profession"] ~= playerProfession) then
-			return false
-		end
-
 		-- Display both horde and alliance factions?
 		if (generaldb.faction == false) then
-			-- We want to filter out all the Horde only recipes
+			-- We want to filter out all the Horde only items
 			if (playerFaction == BFAC["Alliance"]) then
 				-- Filter out Horde only
 				if (flags[1] == false) and (flags[2] == true) then
 					return false
 				end
-			-- We want to filter out all the Alliance only recipes
+			-- We want to filter out all the Alliance only items
 			else
 				-- Filter out Alliance only
 				if (flags[2] == false) and (flags[1] == true) then
@@ -715,9 +711,8 @@ do
 				end
 			end
 		end
-	--[[
-		-- Filter out "era" recipes
 
+		-- Filter out "era" items
 		if ((obtaindb.originalwow == false) and (Entry["Game"] == 0)) then
 			return false
 		end
@@ -727,7 +722,6 @@ do
 		if ((obtaindb.wrath == false) and (Entry["Game"] == 2)) then
 			return false
 		end
-	--]]
 
 		local bindingdb = filterdb.binding
 
@@ -769,65 +763,79 @@ do
 		if (not CheckReputationDisplay(flags)) then
 			return false
 		end
-	--[[
+
 		-- Stage 2
 		-- loop through nonexclusive (soft filters) flags until one is true
-		-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
+		-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the item
 
-		-- Display trainer recipes
-		if (obtaindb.trainer == true) and (flags[3] == true) then
+		-- Display vendor items
+		if (obtaindb.vendor == true) and (flags[3] == true) then
 			return true
 		end
 
-		-- Display vendor recipes
-		if (obtaindb.vendor == true) and (flags[4] == true) then
+		-- Display quest items
+		if (obtaindb.quest == true) and (flags[4] == true) then
 			return true
 		end
 
-		-- Display instance recipes
-		if (obtaindb.instance == true) and (flags[5] == true) then
+		-- Display instance items
+		if (obtaindb.instance == true) and (flags[6] == true) then
 			return true
 		end
 
-		-- Display raid recipes
-		if (obtaindb.raid == true) and (flags[6] == true) then
+		-- Display raid items
+		if (obtaindb.raid == true) and (flags[7] == true) then
 			return true
 		end
 
-		-- Display seasonal recipes
-		if (obtaindb.seasonal == true) and (flags[7] == true) then
+		-- Display seasonal items
+		if (obtaindb.seasonal == true) and (flags[8] == true) then
 			return true
 		end
 
-		-- Display quest recipes
-		if (obtaindb.quest == true) and (flags[8] == true) then
+		-- Display world drop items
+		if (obtaindb.worlddrop == true) and (flags[9] == true) then
 			return true
 		end
 
-		-- Display PVP recipes
-		if (obtaindb.PVP == true) and (flags[9] == true) then
+		-- Display mob drop items
+		if (obtaindb.mobdrop == true) and (flags[10] == true) then
 			return true
 		end
 
-		-- Display world drop recipes
-		if (obtaindb.worlddrop == true) and (flags[10] == true) then
+		-- Display TCG items
+		if (obtaindb.tcg == true) and (flags[11] == true) then
 			return true
 		end
 
-		-- Display mob drop recipes
-		if (obtaindb.mobdrop == true) and (flags[11] == true) then
+		-- Display Special Event items
+		if (obtaindb.event == true) and (flags[12] == true) then
 			return true
 		end
 
-		-- Display discovery recipes
-		if (obtaindb.discovery == true) and (flags[12] == true) then
+		-- Display CE items
+		if (obtaindb.ce == true) and (flags[13] == true) then
+			return true
+		end
+
+		-- Display removed items
+		if (obtaindb.removed == true) and (flags[14] == true) then
+			return true
+		end
+
+		-- Display achievement items
+		if (obtaindb.achievement == true) and (flags[15] == true) then
+			return true
+		end
+
+		-- Display PVP items
+		if (obtaindb.PVP == true) and (flags[16] == true) then
 			return true
 		end
 
 		-- If we get here it means that no flags matched our values
 		return false
-]]--
-		return true
+
 	end
 
 end
@@ -901,7 +909,7 @@ local function PopulateRepFilters(RepTable)
 
 end
 
--- Description: Scans the recipe listing and updates the filters according to user preferences
+-- Description: Scans the item listing and updates the filters according to user preferences
 function addon:UpdateFilters(DB,  playerData, scantype)
 
 	playerData.total = 0
@@ -918,8 +926,8 @@ function addon:UpdateFilters(DB,  playerData, scantype)
 		if (item["Type"] == scantype) then
 
 			-- Determine if we are to display this item or not
-			--displayflag = self:CheckDisplayitem(item, AllSpecialtiesTable, playerProfessionLevel, scantype, playerSpecialty, playerFaction, playerClass)
-displayflag = true
+			displayflag = self:CheckDisplay(item, playerFaction)
+
 			playerData.total = playerData.total + 1
 			playerData.known = playerData.known + (item["Known"] == true and 1 or 0)
 
@@ -1273,16 +1281,16 @@ do
 			-- Update the table containing which reps to display
 			PopulateRepFilters(RepFilters)
 
-			-- Add filtering flags to the recipes
+			-- Add filtering flags to the items
 			self:UpdateFilters(CompanionDB, playerData, scantype)
 
-			-- Mark excluded recipes
+			-- Mark excluded items
 			playerData.excluded_known, playerData.excluded_unknown = self:MarkExclusions(CompanionDB, scantype)
 
 			if (textdump == true) then
 				self:DisplayTextDump(CompanionDB, playerData.playerProfession)
 			else
-				-- Sort the recipe list now
+				-- Sort the item list now
 				local sortedindex = self:SortDatabase(CompanionDB)
 
 				--self:CreateFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
@@ -1502,7 +1510,7 @@ do
 			--self:Print("Reps: " .. flagstr)
 
 		else
-			self:Print("Spell ID not in recipe database.")
+			self:Print("Spell ID not in item database.")
 		end
 
 	end
@@ -1520,9 +1528,9 @@ do
 	local sortFuncs = nil
 
 	-- Create a new array for the sorted index
-	local SortedRecipeIndex = {}
+	local SortedIndex = {}
 
-	-- Description: Sorts the recipe Database depending on the settings defined in the database.
+	-- Description: Sorts the item Database depending on the settings defined in the database.
 	function addon:SortDatabase(DB)
 
 		if (not sortFuncs) then
@@ -1561,16 +1569,16 @@ do
 				end
 			end
 		end
-		twipe(SortedRecipeIndex)
+		twipe(SortedIndex)
 
-		-- Get all the indexes of the RecipeListing
+		-- Get all the indexes of the DB
 		for n, v in pairs(DB) do
-			tinsert(SortedRecipeIndex, n)
+			tinsert(SortedIndex, n)
 		end
 
-		tsort(SortedRecipeIndex, sortFuncs[addon.db.profile.sorting])
+		tsort(SortedIndex, sortFuncs[addon.db.profile.sorting])
 
-		return SortedRecipeIndex
+		return SortedIndex
 
 	end
 
@@ -1578,11 +1586,11 @@ end
 
 --[[
 
-	Recipe Exclusion Functions
+	item Exclusion Functions
 
 --]]
 
--- Description: Marks all exclusions in the recipe database to not be displayed
+-- Description: Marks all exclusions in the item database to not be displayed
 
 function addon:MarkExclusions(DB,scantype)
 
@@ -1594,7 +1602,7 @@ function addon:MarkExclusions(DB,scantype)
 
 	for i in pairs(exclusionlist) do
 
-		-- We may have a recipe in the exclusion list that has not been scanned yet
+		-- We may have a item in the exclusion list that has not been scanned yet
 		-- check if the entry exists in DB first
 		if (DB[i]) then
 			if (ignored) then
@@ -1616,9 +1624,9 @@ function addon:MarkExclusions(DB,scantype)
 
 end
 
--- Description: Removes or adds a recipe to the exclusion list.
+-- Description: Removes or adds a item to the exclusion list.
 
-function addon:ToggleExcludeRecipe(SpellID)
+function addon:ToggleExclude(SpellID)
 
 	local exclusionlist = addon.db.profile.exclusionlist
 
@@ -1663,7 +1671,7 @@ end
 
 ]]--
 
--- Description: Scans through the recipe database and toggles the flag on if the item is in the search criteria
+-- Description: Scans through the item database and toggles the flag on if the item is in the search criteria
 
 function addon:SearchDB(DB, searchstring)
 
@@ -1675,33 +1683,33 @@ function addon:SearchDB(DB, searchstring)
 		for SpellID in pairs(DB) do
 
 			-- Get the Spell object
-			local recipe = DB[SpellID]
+			local item = DB[SpellID]
 
 			-- Set the search as false automatically
-			recipe["Search"] = false
+			item["Search"] = false
 
 			-- Allow us to search by spell ID
 			if sfind(strlower(SpellID),searchstring) or
 
 				-- Allow us to search byitem ID
-				(recipe["ItemID"] and sfind(strlower(recipe["ItemID"]),searchstring)) or
+				(item["ItemID"] and sfind(strlower(item["ItemID"]),searchstring)) or
 
 				-- Allow us to search by name
-				(recipe["Name"] and sfind(strlower(recipe["Name"]),searchstring)) or
+				(item["Name"] and sfind(strlower(item["Name"]),searchstring)) or
 
 				-- Allow us to search by locations
-				(recipe["Locations"] and sfind(recipe["Locations"],searchstring)) or
+				(item["Locations"] and sfind(item["Locations"],searchstring)) or
 
 				-- Allow us to search by specialty
-				(recipe["Specialty"] and sfind(recipe["Specialty"],searchstring)) or
+				(item["Specialty"] and sfind(item["Specialty"],searchstring)) or
 				
 				-- Allow us to search by skill level
-				(recipe["Level"] and sfind(recipe["Level"],searchstring)) or
+				(item["Level"] and sfind(item["Level"],searchstring)) or
 
 				-- Allow us to search by Rarity
-				(recipe["Rarity"] and sfind(recipe["Rarity"],searchstring)) then
+				(item["Rarity"] and sfind(item["Rarity"],searchstring)) then
 
-					recipe["Search"] = true
+					item["Search"] = true
 
 			end
 
@@ -1711,7 +1719,7 @@ function addon:SearchDB(DB, searchstring)
 
 end
 
--- Description: Goes through the recipe database and resets all the search flags
+-- Description: Goes through the item database and resets all the search flags
 
 function addon:ResetSearch(DB)
 
@@ -1727,7 +1735,7 @@ end
 
 ]]--
 
--- Description: Scans through the recipe database providing a string of comma seperated values for all recipe information
+-- Description: Scans through the item database providing a string of comma seperated values for all item information
 
 function addon:GetTextDump(DB, profession)
 
@@ -1739,14 +1747,14 @@ function addon:GetTextDump(DB, profession)
 
 	-- Add a header to the text table
 	tinsert(texttable,format("Collectinator Text Dump for %s",profession))
-	tinsert(texttable,"Text output of all recipes and acquire information.  Output is in the form of comma seperated values.\n")
-	tinsert(texttable,"Spell ID, Recipe Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
+	tinsert(texttable,"Text output of all items and acquire information.  Output is in the form of comma seperated values.\n")
+	tinsert(texttable,"Spell ID, item Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
 
 	for SpellID in pairs(DB) do
 
-		local recipeprof = GetSpellInfo(DB[SpellID]["Profession"])
+		local itemprof = GetSpellInfo(DB[SpellID]["Profession"])
 
-		if (recipeprof == profession) then
+		if (itemprof == profession) then
 
 			-- Add Spell ID, Name and Skill Level to the list
 			tinsert(texttable,SpellID)
