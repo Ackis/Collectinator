@@ -30,14 +30,14 @@ local modularOptions = {}
 -- Factions which differ depending on ally/horde
 -- Original
 local city1 = BFAC["Darnassus"] .. "\\" .. BFAC["Darkspear Trolls"]
-local city2 = BFAC["Exodar"] .. "\\" .. BFAC["Orgrimmar"]
+local city2 = BFAC["Exodar"] .. "\\" .. BFAC["Silvermoon City"]
 local city3 = BFAC["Gnomergan Exiles"] .. "\\" .. BFAC["Thunder Bluff"]
 local city4 = BFAC["Ironforge"] .. "\\" .. BFAC["Undercity"]
-local city5 = BFAC["Stormwind"] .. "\\" .. BFAC["Silvermoon City"]
+local city5 = BFAC["Stormwind"] .. "\\" .. BFAC["Orgrimmar"]
 
-local pvp1 = BFAC["Silverwing Sentinels"] .. "\\" .. BFAC["The Defilers"]
+local pvp1 = BFAC["Silverwing Sentinels"] .. "\\" .. BFAC["Warsong Outriders"]
 local pvp2 = BFAC["Stormpike Guard"] .. "\\" .. BFAC["Frostwolf Clan"]
-local pvp3 = BFAC["The League of Arathor"] .. "\\" .. BFAC["Warsong Outriders"]
+local pvp3 = BFAC["The League of Arathor"] .. "\\" .. BFAC["The Defilers"]
 -- BC
 local nagrandfac = BFAC["Kurenai"] .. "\\" .. BFAC["The Mag'har"]
 local hellfirefac = BFAC["Honor Hold"] .. "\\" .. BFAC["Thrallmar"]

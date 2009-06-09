@@ -622,38 +622,53 @@ do
 		local repdb = addon.db.profile.filters.rep
 
 		reptable = {
-			[96] = repdb.argentdawn,
-			[97] = repdb.cenarioncircle,
-			[98] = repdb.thoriumbrotherhood,
-			[99] = repdb.timbermaw,
-			[100] = repdb.zandalar,
-			[101] = repdb.aldor,
-			[102] = repdb.ashtonguedeathsworn,
-			[103] = repdb.cenarionexpedition,
-			[104] = repdb.hellfire,
-			[105] = repdb.consortium,
-			[106] = repdb.keepersoftime,
-			[107] = repdb.lowercity,
-			[108] = repdb.nagrand,
-			[109] = repdb.scaleofthesands,
-			[110] = repdb.scryer,
-			[111] = repdb.shatar,
-			[112] = repdb.shatteredsun,
-			[113] = repdb.sporeggar,
-			[114] = repdb.violeteye,
-			[115] = repdb.argentcrusade,
-			[116] = repdb.frenzyheart,
-			[117] = repdb.ebonblade,
-			[118] = repdb.kirintor,
-			[119] = repdb.sonsofhodir,
-			[120] = repdb.kaluak,
-			[121] = repdb.oracles,
-			[122] = repdb.wyrmrest,
-			[123] = repdb.wrathcommon1,
-			[124] = repdb.wrathcommon2,
-			[125] = repdb.wrathcommon3,
-			[126] = repdb.wrathcommon4,
-			[127] = repdb.wrathcommon5,
+			-- Old World
+			[40] = repdb.argentdawn,
+			[41] = repdb.bloodsail,
+			[42] = repdb.cenarioncircle,
+			[43] = repdb.thoriumbrotherhood,
+			[44] = repdb.timbermaw,
+			[45] = repdb.zandalar,
+			-- BC
+			[46] = repdb.aldor,
+			[47] = repdb.ashtonguedeathsworn,
+			[48] = repdb.cenarionexpedition,
+			[49] = repdb.hellfire,
+			[50] = repdb.consortium,
+			[51] = repdb.keepersoftime,
+			[52] = repdb.lowercity,
+			[53] = repdb.nagrand,
+			[54] = repdb.netherwing,
+			[55] = repdb.scaleofthesands,
+			[56] = repdb.scryer,
+			[57] = repdb.shatar,
+			[58] = repdb.shatteredsun,
+			[59] = repdb.sporeggar,
+			[60] = repdb.violeteye,
+			-- Faction Cities
+			[61] = repdb.city1,
+			[62] = repdb.city2,
+			[63] = repdb.city3,
+			[64] = repdb.city4,
+			[65] = repdb.city5,
+			-- PVP
+			[66] = repdb.pvp1,
+			[67] = repdb.pvp2,
+			[68] = repdb.pvp3,
+			-- Wrath
+			[71] = repdb.argentcrusade,
+			[72] = repdb.frenzyheart,
+			[73] = repdb.ebonblade,
+			[74] = repdb.kirintor,
+			[75] = repdb.sonsofhodir,
+			[76] = repdb.kaluak,
+			[77] = repdb.oracles,
+			[78] = repdb.wyrmrest,
+			[79] = repdb.wrathcommon1,
+			[80] = repdb.wrathcommon2,
+			[81] = repdb.wrathcommon3,
+			[82] = repdb.wrathcommon4,
+			[83] = repdb.wrathcommon5,
 		}
 
 	end
@@ -998,10 +1013,10 @@ local function PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Wyrmrest Accord"]] = repfilters.wyrmrest
 
 	RepTable[BFAC["Darnassus"]] = repfilters.city1
-	RepTable[BFAC["Exodar"]] = repfilters.city2
+	RepTable[BFAC["Stormwind"]] = repfilters.city2
 	RepTable[BFAC["Gnomergan Exiles"]] = repfilters.city3
 	RepTable[BFAC["Ironforge"]] = repfilters.city4
-	RepTable[BFAC["Stormwind"]] = repfilters.city5
+	RepTable[BFAC["Exodar"]] = repfilters.city5
 	RepTable[BFAC["Darkspear Trolls"]] = repfilters.city1
 	RepTable[BFAC["Orgrimmar"]] = repfilters.city2
 	RepTable[BFAC["Thunder Bluff"]] = repfilters.city3
@@ -1011,9 +1026,9 @@ local function PopulateRepFilters(RepTable)
 	RepTable[BFAC["Silverwing Sentinels"]] = repfilters.pvp1
 	RepTable[BFAC["Stormpike Guard"]] = repfilters.pvp2
 	RepTable[BFAC["The League of Arathor"]] = repfilters.pvp3
-	RepTable[BFAC["The Defilers"]] = repfilters.pvp1
+	RepTable[BFAC["Warsong Outriders"]] = repfilters.pvp1
 	RepTable[BFAC["Frostwolf Clan"]] = repfilters.pvp2
-	RepTable[BFAC["Warsong Outriders"]] = repfilters.pvp3
+	RepTable[BFAC["The Defilers"]] = repfilters.pvp3
 
 	RepTable[BFAC["Honor Hold"]] = repfilters.hellfire
 	RepTable[BFAC["Thrallmar"]] = repfilters.hellfire

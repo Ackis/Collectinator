@@ -54,8 +54,8 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 *37-39 = Reserved for future use
 ===Reputation===
 ====Original====
-*40 = Bloodsail Buccaneers
-*41 = Argent Dawn
+*40 = Argent Dawn
+*41 = Bloodsail Buccaneers
 *42 = Cenarion Circle
 *43 = Thorium Brotherhood
 *44 = Timbermaw Hold
@@ -69,30 +69,38 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 *51 = Keepers of Time
 *52 = Lower City
 *53 = Nagrand Factions (Maghar/Kureni)
-*54 = Scale of the Sands
-*55 = The Scryer
-*56 = Sha'tar
-*57 = Shattered Sun
-*58 = Sporeggar
-*59 = Violeteye
+*54 = Netherwing
+*55 = Scale of the Sands
+*56 = The Scryer
+*57 = Sha'tar
+*58 = Shattered Sun
+*59 = Sporeggar
+*60 = Violeteye
+====Faction Cities====
+*61 = Darnassus/Darkspear
+*62 = Stormwind/Orgrimmar
+*63 = Gnomerga/Thunder Bluff
+*64 = Ironforge/Undercity
+*65 = Exodar/Silvermoon
+====PVP====
+*66 = WSG
+*67 = AV
+*68 = AB
+*69 - 70 = Reserved for future use
 ====Wrath of the Lich King====
-*60 = Argent Crusade
-*61 = Frenzyheart Tribe
-*62 = Knights of the Ebon Blade
-*63 = Kirin Tor
-*64 = The Sons of Hodir
-*65 = The Kalu'ak
-*66 = The Oracles
-*67 = The Wyrmrest Accord
-*68 = The Silver Convenant
-*69 = The Sunreavers
-*70 = Explorer's League
-*71 = Valiance Expedition
-*72 = The Hand of Vengeance
-*73 = The Taunka
-*74 = Warsong Offensive
-*75 = Horde Expedition
-*76 = Alliance Vanguard
+*71 = Argent Crusade
+*72 = Frenzyheart Tribe
+*73 = Knights of the Ebon Blade
+*74 = Kirin Tor
+*75 = The Sons of Hodir
+*76 = The Kalu'ak
+*77 = The Oracles
+*78 = The Wyrmrest Accord
+*79 = Wrath Common Factions (The Silver Convenant/The Sunreavers)
+*80 = Wrath Common Factions (Explorer's League/Hand of Vengance)
+*81 = Wrath Common Factions(Explorer's League/Valiance Expedition)
+*82 = Wrath Common Factions (The Frostborn/The Taunka)
+*83 = Wrath Common Factions (Alliance Vanguard/Horde Expedition)
 
 ==Acquire Flags==
 
