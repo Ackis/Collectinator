@@ -28,13 +28,25 @@ local AceConfigDialog 	= LibStub("AceConfigDialog-3.0")
 local modularOptions = {}
 
 -- Factions which differ depending on ally/horde
+-- Original
+local city1 = BFAC["Darnassus"] .. "\\" .. BFAC["Darkspear Trolls"]
+local city2 = BFAC["Exodar"] .. "\\" .. BFAC["Orgrimmar"]
+local city3 = BFAC["Gnomergan Exiles"] .. "\\" .. BFAC["Thunder Bluff"]
+local city4 = BFAC["Ironforge"] .. "\\" .. BFAC["Undercity"]
+local city5 = BFAC["Stormwind"] .. "\\" .. BFAC["Silvermoon City"]
+
+local pvp1 = BFAC["Silverwing Sentinels"] .. "\\" .. BFAC["The Defilers"]
+local pvp2 = BFAC["Stormpike Guard"] .. "\\" .. BFAC["Frostwolf Clan"]
+local pvp3 = BFAC["The League of Arathor"] .. "\\" .. BFAC["Warsong Outriders"]
+-- BC
 local nagrandfac = BFAC["Kurenai"] .. "\\" .. BFAC["The Mag'har"]
 local hellfirefac = BFAC["Honor Hold"] .. "\\" .. BFAC["Thrallmar"]
-local howlingtundra = BFAC["Alliance Vanguard"] .. "\\" .. BFAC["Horde Expedition"]
-local sunreaversilverconv = BFAC["The Silver Covenant"] .. "\\" .. BFAC["The Sunreavers"]
-local valliancewarsong = BFAC["Valiance Expedition"] .. "\\" .. BFAC["Warsong Offensive"]
-local frosttaunka =  BFAC["The Frostborn"] .. "\\" .. BFAC["The Taunka"]
-local explorerhand = BFAC["Explorers' League"] .. "\\" .. BFAC["The Hand of Vengeance"]
+-- Wrath
+local wrathcommon1 = BFAC["Alliance Vanguard"] .. "\\" .. BFAC["Horde Expedition"]
+local wrathcommon2 = BFAC["The Silver Covenant"] .. "\\" .. BFAC["The Sunreavers"]
+local wrathcommon3 = BFAC["Valiance Expedition"] .. "\\" .. BFAC["Warsong Offensive"]
+local wrathcommon4 =  BFAC["The Frostborn"] .. "\\" .. BFAC["The Taunka"]
+local wrathcommon5 = BFAC["Explorers' League"] .. "\\" .. BFAC["The Hand of Vengeance"]
 
 local addonversion = GetAddOnMetadata("Collectinator", "Version")
 addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
@@ -634,8 +646,16 @@ local function giveFilter()
 									get		= function() return addon.db.profile.filters.rep.argentdawn end,
 									set		= function() addon.db.profile.filters.rep.argentdawn = not addon.db.profile.filters.rep.argentdawn end,
 								},
-								CenarionCircle = {
+								Bloodsail = {
 									order	= 11,
+									type	= "toggle",
+									name	= BFAC["Bloodsail Buccaneers"],
+									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Bloodsail Buccaneers"]),
+									get		= function() return addon.db.profile.filters.rep.bloodsail end,
+									set		= function() addon.db.profile.filters.rep.bloodsail = not addon.db.profile.filters.rep.bloodsail end,
+								},
+								CenarionCircle = {
+									order	= 12,
 									type	= "toggle",
 									name	= BFAC["Cenarion Circle"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Cenarion Circle"]),
@@ -643,7 +663,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.cenarioncircle = not addon.db.profile.filters.rep.cenarioncircle end,
 								},
 								TB = {
-									order	= 12,
+									order	= 13,
 									type	= "toggle",
 									name	= BFAC["Thorium Brotherhood"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Thorium Brotherhood"]),
@@ -651,7 +671,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.thoriumbrotherhood = not addon.db.profile.filters.rep.thoriumbrotherhood end,
 								},
 								Timbermaw = {
-									order	= 13,
+									order	= 14,
 									type	= "toggle",
 									name	= BFAC["Timbermaw Hold"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Timbermaw Hold"]),
@@ -659,7 +679,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.timbermaw = not addon.db.profile.filters.rep.timbermaw end,
 								},
 								Zandalar = {
-									order	= 14,
+									order	= 15,
 									type	= "toggle",
 									name	= BFAC["Zandalar Tribe"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Zandalar Tribe"]),
@@ -801,6 +821,14 @@ local function giveFilter()
 									get		= function() return addon.db.profile.filters.rep.violeteye end,
 									set		= function() addon.db.profile.filters.rep.violeteye = not addon.db.profile.filters.rep.violeteye end,
 								},
+								Netherwing = {
+									order	= 24,
+									type	= "toggle",
+									name	= BFAC["Netherwing"],
+									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Netherwing"]),
+									get		= function() return addon.db.profile.filters.rep.netherwing end,
+									set		= function() addon.db.profile.filters.rep.netherwing = not addon.db.profile.filters.rep.netherwing end,
+								},
 							},
 						},
 						WotLK = {
@@ -843,8 +871,8 @@ local function giveFilter()
 								WrathCommon1 = {
 									order	= 12,
 									type	= "toggle",
-									name	= howlingtundra,
-									desc	= format(L["SPECIFIC_REP_DESC"],howlingtundra),
+									name	= wrathcommon1,
+									desc	= format(L["SPECIFIC_REP_DESC"],wrathcommon1),
 									get		= function() return addon.db.profile.filters.rep.wrathcommon1 end,
 									set		= function() addon.db.profile.filters.rep.wrathcommon1 = not addon.db.profile.filters.rep.wrathcommon1 end,
 								},
@@ -899,8 +927,8 @@ local function giveFilter()
 								WrathCommon2 = {
 									order	= 26,
 									type	= "toggle",
-									name	= sunreaversilverconv,
-									desc	= format(L["SPECIFIC_REP_DESC"],sunreaversilverconv),
+									name	= wrathcommon2,
+									desc	= format(L["SPECIFIC_REP_DESC"],wrathcommon2),
 									get		= function() return addon.db.profile.filters.rep.wrathcommon2 end,
 									set		= function() addon.db.profile.filters.rep.wrathcommon2 = not addon.db.profile.filters.rep.wrathcommon2 end,
 									disabled = true,
@@ -908,8 +936,8 @@ local function giveFilter()
 								WrathCommon3 = {
 									order	= 27,
 									type	= "toggle",
-									name	= valliancewarsong,
-									desc	= format(L["SPECIFIC_REP_DESC"],valliancewarsong),
+									name	= wrathcommon3,
+									desc	= format(L["SPECIFIC_REP_DESC"],wrathcommon3),
 									get		= function() return addon.db.profile.filters.rep.wrathcommon3 end,
 									set		= function() addon.db.profile.filters.rep.wrathcommon3 = not addon.db.profile.filters.rep.wrathcommon3 end,
 									disabled = true,
@@ -917,8 +945,8 @@ local function giveFilter()
 								WrathCommon4 = {
 									order	= 28,
 									type	= "toggle",
-									name	= frosttaunka,
-									desc	= format(L["SPECIFIC_REP_DESC"],frosttaunka),
+									name	= wrathcommon4,
+									desc	= format(L["SPECIFIC_REP_DESC"],wrathcommon4),
 									get		= function() return addon.db.profile.filters.rep.wrathcommon4 end,
 									set		= function() addon.db.profile.filters.rep.wrathcommon4 = not addon.db.profile.filters.rep.wrathcommon4 end,
 									disabled = true,
@@ -926,11 +954,121 @@ local function giveFilter()
 								WrathCommon5 = {
 									order	= 27,
 									type	= "toggle",
-									name	= explorerhand,
-									desc	= format(L["SPECIFIC_REP_DESC"],explorerhand),
+									name	= wrathcommon5,
+									desc	= format(L["SPECIFIC_REP_DESC"],wrathcommon5),
 									get		= function() return addon.db.profile.filters.rep.wrathcommon5 end,
 									set		= function() addon.db.profile.filters.rep.wrathcommon5 = not addon.db.profile.filters.rep.wrathcommon5 end,
 									disabled = true,
+								},
+							},
+						},
+						factioncity = {
+							order	= 6,
+							type	= "group",
+							name	= L["Main Factions"],
+							desc	= L["FILTERING_MAINFACTION_DESC"],
+							args	= {
+								header1 = {
+									order	= 1,
+									type	= "header",
+									name	= L["Main Factions"],
+								},
+								header2 = {
+									order	= 2,
+									type	= "header",
+									name	= L["Reputation Filtering Options"],
+								},
+								desc = {
+									order	= 3,
+									type	= "description",
+									name	= L["FILTERING_MAINFACTION_DESC"] .. "\n",
+								},
+								City1 = {
+									order	= 10,
+									type	= "toggle",
+									name	= city1,
+									desc	= format(L["SPECIFIC_REP_DESC"],city1),
+									get		= function() return addon.db.profile.filters.rep.city1 end,
+									set		= function() addon.db.profile.filters.rep.city1 = not addon.db.profile.filters.rep.city1 end,
+								},
+								City2 = {
+									order	= 11,
+									type	= "toggle",
+									name	= city1,
+									desc	= format(L["SPECIFIC_REP_DESC"],city2),
+									get		= function() return addon.db.profile.filters.rep.city2 end,
+									set		= function() addon.db.profile.filters.rep.city2 = not addon.db.profile.filters.rep.city2 end,
+								},
+								City3 = {
+									order	= 12,
+									type	= "toggle",
+									name	= city3,
+									desc	= format(L["SPECIFIC_REP_DESC"],city3),
+									get		= function() return addon.db.profile.filters.rep.city3 end,
+									set		= function() addon.db.profile.filters.rep.city3 = not addon.db.profile.filters.rep.city3 end,
+								},
+								City4 = {
+									order	= 13,
+									type	= "toggle",
+									name	= city4,
+									desc	= format(L["SPECIFIC_REP_DESC"],city4),
+									get		= function() return addon.db.profile.filters.rep.city4 end,
+									set		= function() addon.db.profile.filters.rep.city4 = not addon.db.profile.filters.rep.city4 end,
+								},
+								City5 = {
+									order	= 14,
+									type	= "toggle",
+									name	= city5,
+									desc	= format(L["SPECIFIC_REP_DESC"],city5),
+									get		= function() return addon.db.profile.filters.rep.city5 end,
+									set		= function() addon.db.profile.filters.rep.city5 = not addon.db.profile.filters.rep.city5 end,
+								},
+							},
+						},
+						factionpvp = {
+							order	= 6,
+							type	= "group",
+							name	= L["PVP Factions"],
+							desc	= L["FILTERING_PVPFACTION_DESC"],
+							args	= {
+								header1 = {
+									order	= 1,
+									type	= "header",
+									name	= L["PVP Factions"],
+								},
+								header2 = {
+									order	= 2,
+									type	= "header",
+									name	= L["Reputation Filtering Options"],
+								},
+								desc = {
+									order	= 3,
+									type	= "description",
+									name	= L["FILTERING_PVPFACTION_DESC"] .. "\n",
+								},
+								PVP1 = {
+									order	= 10,
+									type	= "toggle",
+									name	= pvp1,
+									desc	= format(L["SPECIFIC_REP_DESC"],pvp1),
+									get		= function() return addon.db.profile.filters.rep.pvp1 end,
+									set		= function() addon.db.profile.filters.rep.pvp1 = not addon.db.profile.filters.rep.pvp1 end,
+								},
+								PVP2 = {
+									order	= 11,
+									type	= "toggle",
+									name	= pvp1,
+									desc	= format(L["SPECIFIC_REP_DESC"],pvp2),
+									get		= function() return addon.db.profile.filters.rep.pvp2 end,
+									set		= function() addon.db.profile.filters.rep.pvp2 = not addon.db.profile.filters.rep.pvp2 end,
+								},
+								PVP3 = {
+									order	= 12,
+									type	= "toggle",
+									name	= pvp3,
+									desc	= format(L["SPECIFIC_REP_DESC"],pvp3),
+									get		= function() return addon.db.profile.filters.rep.pvp3 end,
+									set		= function() addon.db.profile.filters.rep.pvp3 = not addon.db.profile.filters.rep.pvp3 end,
 								},
 							},
 						},
