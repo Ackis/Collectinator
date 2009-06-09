@@ -175,7 +175,7 @@ function addon:OnInitialize()
 					smelt = true,
 					tailor = true,
 					fish = true,
-				}
+				},
 				-- Reputation Options
 				rep = {
 					aldor = true,
