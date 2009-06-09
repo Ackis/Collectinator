@@ -135,8 +135,6 @@ function addon:OnInitialize()
 				-- General Filters
 				general = {
 					faction = true,
-					specialty = false,
-					skill = true,
 					known = false,
 					unknown = true,
 				},
@@ -156,48 +154,25 @@ function addon:OnInitialize()
 					bc = true,
 					wrath = true,
 				},
-				-- Item Filters (Armor/Weapon)
-				item = {
-					armor = {
-						cloth = true,
-						leather = true,
-						mail = true,
-						plate = true,
-						trinket = true,
-						cloak = true,
-						ring = true,
-						necklace = true,
-						shield = true,
-					},
-					weapon = {
-						onehand = true,
-						twohand = true,
-						axe = true,
-						sword = true,
-						mace = true,
-						polearm = true,
-						dagger = true,
-						fist = true,
-						staff = true,
-						wand = true,
-						thrown = true,
-						bow = true,
-						crossbow = true,
-						ammo = true,
-					},
-				},
 				binding = {
 					itemboe = true,
 					itembop = true,
-					recipebop = true,
-					recipeboe = true,
+					itemboa = true,
 				},
-				player = {
-					melee = true,
-					tank = true,
-					healer = true,
-					caster = true,
-				},
+				profs = {
+					alch = true,
+					bs = true,
+					cook = true,
+					ench = true,
+					eng = true,
+					fa = true,
+					insc = true,
+					jc = true,
+					lw = true,
+					smelt = true,
+					tailor = true,
+					fish = true,
+				}
 				-- Reputation Options
 				rep = {
 					aldor = true,
@@ -703,7 +678,6 @@ do
 
 	function addon:CheckDisplayRecipe(Entry, playerFaction, playerClass)
 
-	--[[
 		-- For flag info see comments at start of file in comments
 		local filterdb = addon.db.profile.filters
 		local flags = Entry["Flags"]
@@ -738,19 +712,7 @@ do
 				end
 			end
 		end
-
-		-- Display all skill levels?
-		if (generaldb.skill == false) and (Entry["Level"] > playerProfessionLevel) then
-			return false
-		end
-
-		-- Display all specialities?
-		if (generaldb.specialty == false) then
-			if (Entry["Specialty"]) and (Entry["Specialty"] ~= playerSpecialty) then
-				return false
-			end
-		end
-
+	--[[
 		-- Filter out "era" recipes
 
 		if ((obtaindb.originalwow == false) and (Entry["Game"] == 0)) then
@@ -762,161 +724,49 @@ do
 		if ((obtaindb.wrath == false) and (Entry["Game"] == 2)) then
 			return false
 		end
+	--]]
 
 		local bindingdb = filterdb.binding
 
 		-- Include BoE Items in the scan? (if I want to see BoE items, only filter those that are not BoE)
-		if (bindingdb.itemboe == false) and (flags[36] == true) then
+		if (bindingdb.itemboe == false) and (flags[20] == true) then
 			return false
 		end
 
 		-- Include BoP Items in the scan? (if I want to see BoP items, only filter those that are not BoP)
-		if (bindingdb.itembop == false) and (flags[37] == true) then
+		if (bindingdb.itembop == false) and (flags[21] == true) then
 			return false
 		end
 
 		-- Include BoA Items in the scan? (if I want to see BoA items, only filter those that are not BoA)
-		if (bindingdb.itemboa == false) and (flags[38] == true) then
+		if (bindingdb.itemboa == false) and (flags[22] == true) then
 			return false
 		end
 
-		-- Include BoE Recipes in the scan? (if I want to see BoE recipes, only filter those that are not BoE)
-		if (bindingdb.recipeboe == false) and (flags[40] == true) then
-			return false
-		end
+		local profdb = filterdb.profs
 
-		-- Include BoP Recipes in the scan? (if I want to see BoP recipes, only filter those that are not BoP)
-		if (bindingdb.recipebop == false) and (flags[41] == true) then
-			return false
-		end
-
-		-- Include BoA Recipes in the scan? (if I want to see BoA recipes, only filter those that are not BoA)
-		if (bindingdb.recipeboa == false) and (flags[42] == true) then
-			return false
-		end
-
-		local playerdb = filterdb.player
-
-		-- Include melee type recipes?
-		if (playerdb.melee == false) and (flags[51] == true) then
-			return false
-		end
-
-		-- Include tanking type recipes?
-		if (playerdb.tank == false) and (flags[52] == true) then
-			return false
-		end
-
-		-- Include healing type recipes?
-		if (playerdb.healer == false) and (flags[53] == true) then
-			return false
-		end
-
-		-- Include caster type recipes?
-		if (playerdb.caster == false) and (flags[54] == true) then
-			return false
-		end
-
-		local armordb = filterdb.item.armor
-
-		if (armordb.cloth == false) and (flags[56] == true) then
-			return false
-		end
-
-		if (armordb.leather == false) and (flags[57] == true) then
-			return false
-		end
-
-		if (armordb.mail == false) and (flags[58] == true) then
-			return false
-		end
-
-		if (armordb.plate == false) and (flags[59] == true) then
-			return false
-		end
-
-		if (armordb.trinket == false) and (flags[61] == true) then
-			return false
-		end
-
-		if (armordb.cloak == false) and (flags[60] == true) then
-			return false
-		end
-
-		if (armordb.ring == false) and (flags[62] == true) then
-			return false
-		end
-
-		if (armordb.necklace == false) and (flags[63] == true) then
-			return false
-		end
-
-		if (armordb.shield == false) and (flags[64] == true) then
-			return false
-		end
-
-		local weapondb = filterdb.item.weapon
-
-		if (weapondb.onehand == false) and (flags[66] == true) then
-			return false
-		end
-
-		if (weapondb.twohand == false) and (flags[67] == true) then
-			return false
-		end
-
-		if (weapondb.axe == false) and (flags[68] == true) then
-			return false
-		end
-
-		if (weapondb.sword == false) and (flags[69] == true) then
-			return false
-		end
-
-		if (weapondb.mace == false) and (flags[70] == true) then
-			return false
-		end
-
-		if (weapondb.polearm == false) and (flags[71] == true) then
-			return false
-		end
-
-		if (weapondb.dagger == false) and (flags[72] == true) then
-			return false
-		end
-
-		if (weapondb.fist == false) and (flags[79] == true) then
-			return false
-		end
-
-		if (weapondb.staff == false) and (flags[73] == true) then
-			return false
-		end
-
-		if (weapondb.wand == false) and (flags[74] == true) then
-			return false
-		end
-
-		if (weapondb.thrown == false) and (flags[75] == true) then
-			return false
-		end
-
-		if (weapondb.bow == false) and (flags[76] == true) then
-			return false
-		end
-
-		if (weapondb.crossbow == false) and (flags[77] == true) then
-			return false
-		end
-
-		if (weapondb.ammo == false) and (flags[78] == true) then
-			return false
-		end
+			if (profdb.deathknight == false) and (flags[25] == true) then
+				if (profdb.druid == true) and (flags[26] == true) or
+				(profdb.hunter == true) and (flags[27] == true) or
+				(profdb.mage == true) and (flags[28] == true) or
+				(profdb.paladin == true) and (flags[29] == true) or
+				(profdb.priest == true) and (flags[30] == true) or
+				(profdb.shaman == true) and (flags[31] == true) or
+				(profdb.rogue == true) and (flags[32] == true) or
+				(profdb.warlock == true) and (flags[33] == true) or
+				(profdb.warrior == true) and (flags[34] == true) or
+				(profdb.warrior == true) and (flags[35] == true) or
+				(profdb.warrior == true) and (flags[36] == true) then
+					--do nothing
+				else
+					return false
+				end
+			end
 
 		if (not CheckReputationDisplay(flags)) then
 			return false
 		end
-
+	--[[
 		-- Stage 2
 		-- loop through nonexclusive (soft filters) flags until one is true
 		-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
