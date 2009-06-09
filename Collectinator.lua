@@ -204,12 +204,14 @@ function addon:OnInitialize()
 					scryer = true,
 					argentdawn = true,
 					ashtonguedeathsworn = true,
+					bloodsail = true,
 					cenarioncircle = true,
 					cenarionexpedition = true,
 					consortium = true,
 					hellfire = true,
 					keepersoftime = true,
 					nagrand = true,
+					netherwing = true,
 					lowercity = true,
 					scaleofthesands = true,
 					shatar = true,
@@ -232,6 +234,14 @@ function addon:OnInitialize()
 					wrathcommon3 = true,
 					wrathcommon4 = true,
 					wrathcommon5 = true,
+					city1 = true,
+					city2 = true,
+					city3 = true,
+					city4 = true,
+					city5 = true,
+					pvp1 = true,
+					pvp2 = true,
+					pvp3 = true,
 				},
 			}
 		}
@@ -963,13 +973,13 @@ local function PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Aldor"]] = repfilters.aldor
 	RepTable[BFAC["Argent Dawn"]] = repfilters.argentdawn
 	RepTable[BFAC["Ashtongue Deathsworn"]] = repfilters.ashtonguedeathsworn
-	--RepTable[BFAC["Bloodsail Buccaneers"]] = repfilters.bloodsail
+	RepTable[BFAC["Bloodsail Buccaneers"]] = repfilters.bloodsail
 	RepTable[BFAC["Cenarion Circle"]] = repfilters.cenarioncircle
 	RepTable[BFAC["Cenarion Expedition"]] = repfilters.cenarionexpedition
 	RepTable[BFAC["The Consortium"]] = repfilters.consortium
 	RepTable[BFAC["Keepers of Time"]] = repfilters.keepersoftime
 	RepTable[BFAC["Lower City"]] = repfilters.lowercity
-	--RepTable[BFAC["Netherwing"]] = repfilters.netherwing
+	RepTable[BFAC["Netherwing"]] = repfilters.netherwing
 	RepTable[BFAC["The Scale of the Sands"]] = repfilters.scaleofthesands
 	RepTable[BFAC["The Sha'tar"]] = repfilters.shatar
 	RepTable[BFAC["Shattered Sun Offensive"]] = repfilters.shatteredsun
@@ -987,23 +997,23 @@ local function PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Oracles"]] = repfilters.oracles
 	RepTable[BFAC["The Wyrmrest Accord"]] = repfilters.wyrmrest
 
-	--RepTable[BFAC["Darnassus"]] = repfilters.
-	--RepTable[BFAC["Exodar"]] = repfilters.
-	--RepTable[BFAC["Gnomergan Exiles"]] = repfilters.
-	--RepTable[BFAC["Ironforge"]] = repfilters.
-	--RepTable[BFAC["Stormwind"]] = repfilters.
-	--RepTable[BFAC["Darkspear Trolls"]] = repfilters.
-	--RepTable[BFAC["Orgrimmar"]] = repfilters.
-	--RepTable[BFAC["Thunder Bluff"]] = repfilters.
-	--RepTable[BFAC["Undercity"]] = repfilters.
-	--RepTable[BFAC["Silvermoon City"]] = repfilters.
+	RepTable[BFAC["Darnassus"]] = repfilters.city1
+	RepTable[BFAC["Exodar"]] = repfilters.city2
+	RepTable[BFAC["Gnomergan Exiles"]] = repfilters.city3
+	RepTable[BFAC["Ironforge"]] = repfilters.city4
+	RepTable[BFAC["Stormwind"]] = repfilters.city5
+	RepTable[BFAC["Darkspear Trolls"]] = repfilters.city1
+	RepTable[BFAC["Orgrimmar"]] = repfilters.city2
+	RepTable[BFAC["Thunder Bluff"]] = repfilters.city3
+	RepTable[BFAC["Undercity"]] = repfilters.city4
+	RepTable[BFAC["Silvermoon City"]] = repfilters.city5
 
-	--RepTable[BFAC["Silverwing Sentinels"]] = repfilters.
-	--RepTable[BFAC["Stormpike Guard"]] = repfilters.
-	--RepTable[BFAC["The League of Arathor"]] = repfilters.
-	--RepTable[BFAC["The Defilers"]] = repfilters.
-	--RepTable[BFAC["Frostwolf Clan"]] = repfilters.
-	--RepTable[BFAC["Warsong Outriders"]] = repfilters.
+	RepTable[BFAC["Silverwing Sentinels"]] = repfilters.pvp1
+	RepTable[BFAC["Stormpike Guard"]] = repfilters.pvp2
+	RepTable[BFAC["The League of Arathor"]] = repfilters.pvp3
+	RepTable[BFAC["The Defilers"]] = repfilters.pvp1
+	RepTable[BFAC["Frostwolf Clan"]] = repfilters.pvp2
+	RepTable[BFAC["Warsong Outriders"]] = repfilters.pvp3
 
 	RepTable[BFAC["Honor Hold"]] = repfilters.hellfire
 	RepTable[BFAC["Thrallmar"]] = repfilters.hellfire
