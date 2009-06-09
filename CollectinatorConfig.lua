@@ -164,16 +164,8 @@ local function giveFilter()
 							get		= function() return addon.db.profile.filters.obtain.seasonal end,
 							set		= function() addon.db.profile.filters.obtain.seasonal = not addon.db.profile.filters.obtain.seasonal end,
 						},
-						trainer = {
-							order	= 7,
-							type	= "toggle",
-							name	= L["Trainer"],
-							desc	= L["TRAINER_DESC"],
-							get		= function() return addon.db.profile.filters.obtain.trainer end,
-							set		= function() addon.db.profile.filters.obtain.trainer = not addon.db.profile.filters.obtain.trainer end,
-						},
 						vendor = {
-							order	= 8,
+							order	= 7,
 							type	= "toggle",
 							name	= L["Vendor"],
 							desc	= L["VENDOR_DESC"],
@@ -181,23 +173,15 @@ local function giveFilter()
 							set		= function() addon.db.profile.filters.obtain.vendor = not addon.db.profile.filters.obtain.vendor end,
 						},
 						PVP = {
-							order	= 9,
+							order	= 8,
 							type	= "toggle",
 							name	= L["PVP"],
 							desc	= L["PVP_DESC"],
 							get		= function() return addon.db.profile.filters.obtain.pvp end,
 							set		= function() addon.db.profile.filters.obtain.pvp = not addon.db.profile.filters.obtain.pvp end,
 						},
-						discovery = {
-							order	= 10,
-							type	= "toggle",
-							name	= L["Discovery"],
-							desc	= L["DISCOVERY_DESC"],
-							get		= function() return addon.db.profile.filters.obtain.discovery end,
-							set		= function() addon.db.profile.filters.obtain.discovery = not addon.db.profile.filters.obtain.discovery end,
-						},
 						worlddrop = {
-							order	= 11,
+							order	= 9,
 							type	= "toggle",
 							name	= L["World Drop"],
 							desc	= L["WORLD_DROP_DESC"],
@@ -205,12 +189,52 @@ local function giveFilter()
 							set		= function() addon.db.profile.filters.obtain.worlddrop = not addon.db.profile.filters.obtain.worlddrop end,
 						},
 						mobdrop = {
-							order	= 12,
+							order	= 10,
 							type	= "toggle",
 							name	= L["Mob Drop"],
 							desc	= L["MOB_DROP_DESC"],
 							get		= function() return addon.db.profile.filters.obtain.mobdrop end,
 							set		= function() addon.db.profile.filters.obtain.mobdrop = not addon.db.profile.filters.obtain.mobdrop end,
+						},
+						tcg = {
+							order	= 11,
+							type	= "toggle",
+							name	= L["TCG"],
+							desc	= L["TCG_DESC"],
+							get		= function() return addon.db.profile.filters.obtain.tcg end,
+							set		= function() addon.db.profile.filters.obtain.tcg = not addon.db.profile.filters.obtain.tcg end,
+						},
+						event = {
+							order	= 12,
+							type	= "toggle",
+							name	= L["Event"],
+							desc	= L["EVENT_DESC"],
+							get		= function() return addon.db.profile.filters.obtain.event end,
+							set		= function() addon.db.profile.filters.obtain.event = not addon.db.profile.filters.obtain.event end,
+						},
+						ce = {
+							order	= 13,
+							type	= "toggle",
+							name	= L["Collector's Edition"],
+							desc	= L["CE_DESC"],
+							get		= function() return addon.db.profile.filters.obtain.ce end,
+							set		= function() addon.db.profile.filters.obtain.ce = not addon.db.profile.filters.obtain.ce end,
+						},
+						removed = {
+							order	= 14,
+							type	= "toggle",
+							name	= L["Removed"],
+							desc	= L["REMOVED_DESC"],
+							get		= function() return addon.db.profile.filters.obtain.removed end,
+							set		= function() addon.db.profile.filters.obtain.removed = not addon.db.profile.filters.obtain.removed end,
+						},
+						achievement = {
+							order	= 15,
+							type	= "toggle",
+							name	= L["Achievement"],
+							desc	= L["ACHIEVEMENT_DESC"],
+							get		= function() return addon.db.profile.filters.obtain.achievement end,
+							set		= function() addon.db.profile.filters.obtain.achievement = not addon.db.profile.filters.obtain.achievement end,
 						},
 						originalwow = {
 							order	= 20,
@@ -1031,148 +1055,6 @@ local function fullOptions()
 
 end
 
-local Collectinatormap = nil
-
-local function giveMap()
-
-	local tomtomsupport = true
-
-	if (TomTom) then
-		tomtomsupport = false
-	end
-
-	if (not Collectinatormap) then
-
-	Collectinatormap = {
-			order	= 1,
-			type	= "group",
-			name	= L["Map Options"],
-			desc	= L["MAP_OPTIONS_DESC"],
-			args	= {
-				map_desc =	{
-					order	= 1,
-					type	= "description",
-					name	= L["MAP_OPTIONS_DESC"] .. "\n",
-				},
-				autoscanmap = {
-					order	= 2,
-					type	= "toggle",
-					name	= L["Auto Scan Map"],
-					desc	= L["AUTOSCANMAP_DESC"],
-					disabled = tomtomsupport,
-					get		= function() return addon.db.profile.autoscanmap end,
-					set		= function() addon.db.profile.autoscanmap = not addon.db.profile.autoscanmap end,
-				},
-				worldmap = {
-					order	= 3,
-					type	= "toggle",
-					name	= L["World Map"],
-					desc	= L["WORLDMAP_DESC"],
-					disabled = tomtomsupport,
-					get		= function() return addon.db.profile.worldmap end,
-					set		= function() addon.db.profile.worldmap = not addon.db.profile.worldmap end,
-				},
-				minimap = {
-					order	= 4,
-					type	= "toggle",
-					name	= L["Mini Map"],
-					desc	= L["MINIMAP_DESC"],
-					disabled = tomtomsupport,
-					get		= function() return addon.db.profile.minimap end,
-					set		= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
-				},
-				clearmap = {
-					order	= 5,
-					type	= "execute",
-					name	= L["Clear Waypoints"],
-					disabled = tomtomsupport,
-					desc	= L["CLEAR_WAYPOINTS_DESC"],
-					func	= function() addon:ClearMap() end,
-				},
-			},
-		}
-
-	end
-
-	return Collectinatormap
-
-end
-
-local datamine = nil
-
-local function giveDatamine()
-
-	if (not datamine) then
-
-	datamine = {
-			order	= 1,
-			type	= "group",
-			name	= L["Datamine Options"],
-			desc	= L["DATAMINE_OPTIONS_DESC"],
-			args = {
-				datamine_desc =	{
-					order	= 1,
-					type	= "description",
-					name	= L["DATAMINE_OPTIONS_DESC"] .. "\n",
-				},
-				datamine_warn =	{
-					order	= 2,
-					type	= "description",
-					name	= L["DATAMINE_WARNING_DESC"] .. "\n",
-				},
-				generatelinks = {
-					order	= 73,
-					type	= "execute",
-					name	= L["Generate Tradeskill Links"],
-					desc	= L["GENERATE_LINKS_DESC"],
-					func	= function() addon:GenerateLinks() end,
-				},
-				scantrainerskills = {
-					order	= 75,
-					type	= "execute",
-					name	= L["Compare Trainer Skills"],
-					desc	= L["COMPARE_TRAINER_SKILL_DESC"],
-					func	= function() addon:ScanSkillLevelData() end,
-				},
-				scantraineracquire = {
-					order	= 76,
-					type	= "execute",
-					name	= L["Compare Trainer Acquire"],
-					desc	= L["COMPARE_TRAINER_ACQUIRE_DESC"],
-					func	= function() addon:ScanTrainerData() end,
-				},
-				scantrainers = {
-					order	= 80,
-					type	= "toggle",
-					name	= L["Auto Scan Trainers"],
-					desc	= L["AUTOSCAN_TRAINERS_DESC"],
-					get		= function() return addon.db.profile.scantrainers end,
-					set		= function()
-									if (addon.db.profile.scantrainers) then
-										addon:UnregisterEvent("TRAINER_SHOW")
-									else
-										addon:RegisterEvent("TRAINER_SHOW")
-									end
-									addon.db.profile.scantrainers = not addon.db.profile.scantrainers
-								end,
-				},
-				autoloaddb = {
-					order	= 81,
-					type	= "toggle",
-					name	= L["Auto Load Recipe Database"],
-					desc	= L["AUTOLOAD_DB_DESC"],
-					get		= function() return addon.db.profile.autoloaddb end,
-					set		= function() addon.db.profile.autoloaddb = not addon.db.profile.autoloaddb end,
-				},
-			},
-		}
-
-	end
-
-	return datamine
-
-end
-
 local documentation = nil
 
 local function giveDocs()
@@ -1405,11 +1287,9 @@ function addon:SetupOptions()
 	end
 
 	-- Fill up our modular options...
-	self:RegisterModuleOptions("Datamining", giveDatamine(), L["Datamine Options"])
 	self:RegisterModuleOptions("Display", giveDisplay(), L["Display Options"])
 	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
 	self:RegisterModuleOptions("Filters", giveFilter(), L["Filtering Options"])
-	self:RegisterModuleOptions("Map", giveMap(), L["Map Options"])
 	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
 
 end

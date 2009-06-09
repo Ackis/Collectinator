@@ -20,7 +20,7 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 *2 = Horde faction
 *3 = Vendor
 *4 = Quest
-*5 = Crafted
+*5 =
 *6 = Instance
 *7 = Raid
 *8 = Seasonal
