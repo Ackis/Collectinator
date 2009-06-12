@@ -353,7 +353,7 @@ end
 
 --]]
 
-local maxfilterflags = 72
+local maxfilterflags = 90
 
 --- Adds a companion into the database.
 -- @name Collectinator:AddCompanion
@@ -1694,28 +1694,16 @@ function addon:SearchDB(DB, searchstring)
 			item["Search"] = false
 
 			-- Allow us to search by spell ID
-			if sfind(strlower(SpellID),searchstring) or
-
+			if (sfind(strlower(SpellID),searchstring)) or
 				-- Allow us to search byitem ID
 				(item["ItemID"] and sfind(strlower(item["ItemID"]),searchstring)) or
-
 				-- Allow us to search by name
 				(item["Name"] and sfind(strlower(item["Name"]),searchstring)) or
-
 				-- Allow us to search by locations
 				(item["Locations"] and sfind(item["Locations"],searchstring)) or
-
-				-- Allow us to search by specialty
-				(item["Specialty"] and sfind(item["Specialty"],searchstring)) or
-				
-				-- Allow us to search by skill level
-				(item["Level"] and sfind(item["Level"],searchstring)) or
-
 				-- Allow us to search by Rarity
 				(item["Rarity"] and sfind(item["Rarity"],searchstring)) then
-
 					item["Search"] = true
-
 			end
 
 		end
