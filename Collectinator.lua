@@ -194,6 +194,7 @@ function addon:OnInitialize()
 					scaleofthesands = true,
 					shatar = true,
 					shatteredsun = true,
+					skyguard = true,
 					sporeggar = true,
 					thoriumbrotherhood = true,
 					timbermaw = true,
@@ -621,6 +622,7 @@ do
 			[55] = repdb.scaleofthesands,
 			[56] = repdb.scryer,
 			[57] = repdb.shatar,
+			[90] = repdb.skyguard,
 			[58] = repdb.shatteredsun,
 			[59] = repdb.sporeggar,
 			[60] = repdb.violeteye,
@@ -740,6 +742,7 @@ do
 			return false
 		end
 
+		--[[
 		local profdb = filterdb.profs
 
 			if (profdb.deathknight == false) and (flags[25] == true) then
@@ -759,6 +762,7 @@ do
 					return false
 				end
 			end
+		]]--
 
 		if (not CheckReputationDisplay(flags)) then
 			return false
@@ -859,6 +863,7 @@ local function PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Scale of the Sands"]] = repfilters.scaleofthesands
 	RepTable[BFAC["The Sha'tar"]] = repfilters.shatar
 	RepTable[BFAC["Shattered Sun Offensive"]] = repfilters.shatteredsun
+	RepTable[BFAC["Shatari Skyguard"]] = repfilters.skyguard
 	RepTable[BFAC["Sporeggar"]] = repfilters.sporeggar
 	RepTable[BFAC["Thorium Brotherhood"]] = repfilters.thoriumbrotherhood
 	RepTable[BFAC["Timbermaw Hold"]] = repfilters.timbermaw

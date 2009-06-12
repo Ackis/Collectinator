@@ -73,6 +73,7 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 *55 = Scale of the Sands
 *56 = The Scryer
 *57 = Sha'tar
+*90 = Shatari Skyguard
 *58 = Shattered Sun
 *59 = Sporeggar
 *60 = Violeteye

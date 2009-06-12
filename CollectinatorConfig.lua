@@ -623,8 +623,16 @@ local function giveFilter()
 									get		= function() return addon.db.profile.filters.rep.shatar end,
 									set		= function() addon.db.profile.filters.rep.shatar = not addon.db.profile.filters.rep.shatar end,
 								},
-								SSO = {
+								Skyguard = {
 									order	= 21,
+									type	= "toggle",
+									name	= BFAC["Shatari Skyguard"],
+									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Shatari Skyguard"]),
+									get		= function() return addon.db.profile.filters.rep.skyguard end,
+									set		= function() addon.db.profile.filters.rep.skyguard = not addon.db.profile.filters.rep.skyguard end,
+								},
+								SSO = {
+									order	= 22,
 									type	= "toggle",
 									name	= BFAC["Shattered Sun Offensive"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Shattered Sun Offensive"]),
@@ -632,7 +640,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.shatteredsun = not addon.db.profile.filters.rep.shatteredsun end,
 								},
 								Sporeggar = {
-									order	= 22,
+									order	= 23,
 									type	= "toggle",
 									name	= BFAC["Sporeggar"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Sporeggar"]),
@@ -640,7 +648,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.sporeggar = not addon.db.profile.filters.rep.sporeggar end,
 								},
 								Violeteye = {
-									order	= 23,
+									order	= 24,
 									type	= "toggle",
 									name	= BFAC["The Violet Eye"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["The Violet Eye"]),
@@ -648,7 +656,7 @@ local function giveFilter()
 									set		= function() addon.db.profile.filters.rep.violeteye = not addon.db.profile.filters.rep.violeteye end,
 								},
 								Netherwing = {
-									order	= 24,
+									order	= 25,
 									type	= "toggle",
 									name	= BFAC["Netherwing"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Netherwing"]),

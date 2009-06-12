@@ -32,37 +32,37 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Mechanical Squirrel Box - 4055
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,4055,4401,1,"CRITTER")
+	self:AddCompanion(PetDB,4055,4401,1,"CRITTER",0)
 	self:AddCompanionFlags(PetDB,4055,1,2,5,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,4055,3,4036,3928)
 
 	-- Cat Carrier (Bombay) - 10673
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10673,8485,1,"CRITTER")
+	self:AddCompanion(PetDB,10673,8485,1,"CRITTER",0)
 	self:AddCompanionFlags(PetDB,10673,1,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10673,1,6367)
 
 	-- Cat Carrier (Cornish Rex) - 10674
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10674,8486,1,"CRITTER")
+	self:AddCompanion(PetDB,10674,8486,1,"CRITTER",0)
 	self:AddCompanionFlags(PetDB,10674,1,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10674,1,6367)
 
 	-- Cat Carrier (Black Tabby) - 10675
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10675,8491,1,"CRITTER")
+	self:AddCompanion(PetDB,10675,8491,1,"CRITTER",0)
 	self:AddCompanionFlags(PetDB,10675,2,10,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10675,4,1920,4,2271,4,2272,4,2358)
 
 	-- Cat Carrier (Orange Tabby) - 10676
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10676,8487,1,"CRITTER")
+	self:AddCompanion(PetDB,10676,8487,1,"CRITTER",0)
 	self:AddCompanionFlags(PetDB,10676,1,3,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10676,1,6367)
 
 	-- Cat Carrier (Siamese) - 10677
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,10677,8490,1,"CRITTER")
+	self:AddCompanion(PetDB,10677,8490,1,"CRITTER",0)
 	self:AddCompanionFlags(PetDB,10677,1,2,3,6,20,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,10677,1,20980,4,645)
 
@@ -572,116 +572,116 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Nether Ray Fry - 51716
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,51716,38628,3,"CRITTER")
-	self:AddCompanionFlags(PetDB,51716,1,2,3,21,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanion(PetDB,51716,38628,3,"CRITTER",1)
+	self:AddCompanionFlags(PetDB,51716,1,2,3,21,25,26,27,28,29,30,31,32,33,34,35,36,90)
 	self:AddCompanionAcquire(PetDB,51716,6,1031,4,23367)
 -- Need shatari skyguard
 
 	-- Vampiric Batling - 51851
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,51851,38658,3,"CRITTER")
+	self:AddCompanion(PetDB,51851,38658,3,"CRITTER",1)
 	self:AddCompanionFlags(PetDB,51851,1,2,7,8,10,12,14,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,51851,4,28194,5,7)
 
 	-- Frosty's Collar - 52615
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,52615,39286,3,"CRITTER")
+	self:AddCompanion(PetDB,52615,39286,3,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,52615,1,2,13,22,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,52615,8,11)
 
 	-- Tyrael's Hilt - 53082
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,53082,39656,3,"CRITTER")
+	self:AddCompanion(PetDB,53082,39656,3,"CRITTER",1)
 	self:AddCompanionFlags(PetDB,53082,1,2,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,53082,8,14)
 
 	-- Ghostly Skull - 53316
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,53316,39973,3,"CRITTER")
+	self:AddCompanion(PetDB,53316,39973,3,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,53316,1,2,3,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,53316,1,29537)
 
 	-- Clockwork Rocket Bot - 54187
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,54187,34425,3,"CRITTER")
+	self:AddCompanion(PetDB,54187,34425,3,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,54187,1,2,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,54187,5,1)
 
 	-- Penguin Egg - 58636
 	--companioncount = companioncount + 1
-	--self:AddCompanion(PetDB,58636,43517,3,"CRITTER")
+	--self:AddCompanion(PetDB,58636,43517,3,"CRITTER",2)
 	--self:AddCompanionFlags(PetDB,58636,1,2,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	--self:AddCompanionAcquire(PetDB,
 
 	-- Giant Sewer Rat - 59250
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,59250,43698,3,"CRITTER")
+	self:AddCompanion(PetDB,59250,43698,3,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,59250,1,2,9,21,36)
 	self:AddCompanionAcquire(PetDB,59250,7,2,8,17)
 
 	-- Tickbird Hatchling -- 61348
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,61348,39896,1,"CRITTER")
+	self:AddCompanion(PetDB,61348,39896,1,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,61348,1,2,3,21,25,26,27,28,29,30,31,32,33,34,35,36,66)
 	self:AddCompanionAcquire(PetDB,61348,6,1105,3,31910,8,16)
 
 	-- White Tickbird Hatchling -- 61349
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,61349,39899,1,"CRITTER")
+	self:AddCompanion(PetDB,61349,39899,1,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,61349,1,2,3,21,25,26,27,28,29,30,31,32,33,34,35,36,66)
 	self:AddCompanionAcquire(PetDB,61349,6,1105,3,31910,8,16)
 
 	-- Proto-Drake Whelp -- 61350
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,61350,44721,1,"CRITTER")
+	self:AddCompanion(PetDB,61350,44721,1,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,61350,1,2,3,21,25,26,27,28,29,30,31,32,33,34,35,36,66)
 	self:AddCompanionAcquire(PetDB,61350,6,1105,3,31910,8,16)
 
 	-- Cobra Hatchling -- 61351
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,61351,39898,1,"CRITTER")
+	self:AddCompanion(PetDB,61351,39898,1,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,61351,1,2,3,21,25,26,27,28,29,30,31,32,33,34,35,36,66)
 	self:AddCompanionAcquire(PetDB,61351,6,1105,3,31910,8,16)
 
 	-- Nurtured Penguin Egg - 61357
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,61357,44723,3,"CRITTER")
+	self:AddCompanion(PetDB,61357,44723,3,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,61357,1,2,3,21,25,26,27,28,29,30,31,32,33,34,35,36,65)
 	self:AddCompanionAcquire(PetDB,61357,6,4,1073,31916,6,4,1073,32763)
 
 	-- Kirin Tor Familiar - 61472
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,61472,44738,3,"CRITTER")
+	self:AddCompanion(PetDB,61472,44738,3,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,61472,1,2,15,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionFlags(PetDB,61472,9,1956)
 
 	-- Baby Blizzard Bear - 61855
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,61855,44819,1,"CRITTER")
+	self:AddCompanion(PetDB,61855,44819,1,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,61855,1,2,12,14,22,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionFlags(PetDB,61855,8,15)
 
 	-- Spring Rabbit - 61725
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,61725,44794,1,"CRITTER")
+	self:AddCompanion(PetDB,61725,44794,1,"CRITTER",2)
 
 	-- Little Fawn - 61991
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,61991,44841,1,"CRITTER")
+	self:AddCompanion(PetDB,61991,44841,1,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,61991,1,2,15,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionFlags(PetDB,61991,9,2516)
 
 	-- Strand Crawler -- 62561
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,62561,44983,1,"CRITTER")
+	self:AddCompanion(PetDB,62561,44983,1,"CRITTER",2)
 
 	-- Argent Squire -- 62609
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,62609,44998,1,"CRITTER")
+	self:AddCompanion(PetDB,62609,44998,1,"CRITTER",2)
 
 	-- Argent Gruntling -- 62746
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,62746,45022,1,"CRITTER")
+	self:AddCompanion(PetDB,62746,45022,1,"CRITTER",2)
 
 	return companioncount
 
