@@ -222,7 +222,7 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Smolderweb Carrier - 16450
 	companioncount = companioncount + 1
-	self:AddCompanion(PetDB,16450,12529,1,"CRITTER"/)
+	self:AddCompanion(PetDB,16450,12529,1,"CRITTER",0)
 	self:AddCompanionFlags(PetDB,16450,1,2,4,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,16450,2,4862)
 
