@@ -1300,7 +1300,7 @@ do
 
 				--self:CreateFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
 
-				for i,j in pairs(sortedindex) do if (CompanionDB[j]["Known"] == false) then addon:DumpSpell(j) end end
+				for i,j in pairs(sortedindex) do if (CompanionDB[j]["Display"] == true) then addon:DumpSpell(j) end end
 			end
 
 		end
