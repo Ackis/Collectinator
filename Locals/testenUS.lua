@@ -22,7 +22,7 @@ additions or changes.
 
 local MODNAME	= "Collectinator"
 
-local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true)
+local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true, false)
 
 if not L then return end
 
