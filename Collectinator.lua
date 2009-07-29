@@ -13,12 +13,39 @@ Author: Ackis
 
 ]]--
 
+-------------------------------------------------------------------------------
+-- Localized Lua globals
+-------------------------------------------------------------------------------
+local _G = getfenv(0)
+
+local tostring = tostring
+local tonumber = tonumber
+
+local pairs = pairs
+local select = select
+
+local table = table
+local twipe = table.wipe
+local tremove = table.remove
+local tconcat = table.concat
+local tsort = table.sort
+local tinsert = table.insert
+
+local string = string
+local format = format
+local sfind = string.find
+local smatch = string.match
+local strlower = string.lower
+
+-------------------------------------------------------------------------------
+-- AddOn namespace.
+-------------------------------------------------------------------------------
 local MODNAME	= "Collectinator"
 
-Collectinator 	= LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
+local addon 	= LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
+_G["Collectinator"] = addon
 
-local addon = LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L	= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 --- **Collectinator** provides an interface for scanning companions and moutns to find what is missing.
 -- There are a set of functions which allow you make use of the Collectinator database outside of Collectinator.\\
@@ -57,7 +84,6 @@ local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 -- Global Frame Variables
 addon.optionsFrame = {}
-addon.ScanButton = nil
 addon.Frame = nil
 addon.CollectinatorCopyFrame = nil
 _G["CollectinatorTooltip"] = nil
@@ -66,30 +92,9 @@ _G["CollectinatorSpellTooltip"] = nil
 -- Make global API calls local to speed things up
 local GetSpellInfo = GetSpellInfo
 
-local tostring = tostring
-local tonumber = tonumber
-
-local pairs = pairs
-local select = select
-
-local table = table
-local twipe = table.wipe
-local tremove = table.remove
-local tconcat = table.concat
-local tsort = table.sort
-local tinsert = table.insert
-
-local string = string
-local format = format
-local sfind = string.find
-local smatch = string.match
-local strlower = string.lower
-
---[[
-
-	Initialization functions
-
-]]--
+-------------------------------------------------------------------------------
+-- Initialization functions
+-------------------------------------------------------------------------------
 
 -- Description: Function run when the addon is initialized.  Registers the slash commands, options, and database
 
@@ -243,7 +248,6 @@ end
 -- Description: Function run when the addon is enabled.  Registers events and pre-loads certain variables.
 
 function addon:OnEnable()
-
 	-- Watch for Companion Learned events
 	self:RegisterEvent("COMPANION_LEARNED")
 
@@ -1203,7 +1207,6 @@ do
 	end
 
 	local function InitDatabases()
-
 		-- Initializes the custom entry list
 		if (CustomList == nil) then
 			CustomList = {}
@@ -1261,65 +1264,54 @@ do
 	-- @param scantype CRITTER for pets, MOUNT for mounts
 	-- @return A frame with either the text dump, or the GUI frame.
 	function addon:Collectinator_Command(textdump, autoupdatescan, scantype)
-
 		-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
-		if (playerData == nil) then
-			playerData = InitPlayerData()
-		end
+		playerData = playerData or InitPlayerData()
 
 		-- Update the pet/mount totals:
 		playerData["totalknownpets"] = GetNumCompanions("CRITTER")
 		playerData["totalknownmounts"] = GetNumCompanions("MOUNT")
 
 		-- Lets create all the databases needed if this is the first time everything has been run.
-		if (CompanionDB == nil) then
+		if not CompanionDB then
 			InitDatabases()
 		end
-
 		playerData["totalpets"], playerData["totalmounts"] = InitCompanionDB(CompanionDB)
 
 		-- Scan for all known companions
 		self:ScanCompanions(CompanionDB, playerData["totalknownpets"], playerData["totalknownmounts"])
 
-		if (not autoupdatescan) then
-
-			-- Update the table containing which reps to display
-			PopulateRepFilters(RepFilters)
-
-			-- Add filtering flags to the items
-			self:UpdateFilters(CompanionDB, playerData, scantype)
+		if not autoupdatescan then
+			PopulateRepFilters(RepFilters)	-- Update the table containing which reps to display
+			self:UpdateFilters(CompanionDB, playerData, scantype)	-- Add filtering flags to the items
 
 			-- Mark excluded items
 			playerData.excluded_known, playerData.excluded_unknown = self:MarkExclusions(CompanionDB, scantype)
 
-			if (textdump == true) then
+			if textdump then
 				self:DisplayTextDump(CompanionDB, playerData.playerProfession)
 			else
-				-- Sort the item list now
 				local sortedindex = self:SortDatabase(CompanionDB)
 
 				--self:CreateFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
 
-				for i,j in pairs(sortedindex) do if (CompanionDB[j]["Display"] == true) then addon:DumpSpell(j) end end
+				for i, j in pairs(sortedindex) do
+					if (CompanionDB[j]["Display"] == true) then
+						addon:DumpSpell(j)
+					end
+				end
 			end
-
 		end
-
 	end
 
 	-- Debug function to dump a spell out
 	function addon:DumpSpell(SpellID)
-
 		local clist = CompanionDB
 
-		if (not clist) then
-			return
-		end
+		if not clist then return end
 
 		local mlist, qlist, replist, seasonlist, vlist, custlist = MobList, QuestList, ReputationList, SeasonalList, VendorList, CustomList
 
 		if (clist[SpellID]) then
-
 			x = clist[SpellID]
 			self:Print(x["Name"] .. " -- " .. SpellID)
 			self:Print("Rarity: " .. x["Rarity"])
