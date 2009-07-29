@@ -16,12 +16,11 @@ Project version: @project-version@
 ]]--
 
 local MODNAME	= "Collectinator"
-local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local QTip		= LibStub("LibQTip-1.0")
-local QTipClick	= LibStub("LibQTipClick-1.1")
+local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local QTip	= LibStub("LibQTip-1.0")
 
 local string = string
 local ipairs = ipairs
@@ -1182,7 +1181,6 @@ end
 -- Description: 
 
 local function ReDisplay()
-
 	addon:UpdateFilters(recipeDB, allSpecTable, playerData)
 	sortedRecipeIndex = addon:SortDatabase(recipeDB)
 
@@ -1202,56 +1200,40 @@ local function ReDisplay()
 end
 
 function addon:CreateScanButton()
+	local button = CreateFrame("Button", "Collectinator_ScanButton", PetPaperDollFrameCompanionFrame, "UIPanelButtonTemplate")
+	self.ScanButton = button
 
-	-- Create the scan button
-	if (not addon.ScanButton) then
-		addon.ScanButton = CreateFrame("Button", "Collectinator_ScanButton", UIParent, "UIPanelButtonTemplate")
-	end
+	button:SetHeight(20)
+	button:RegisterForClicks("LeftButtonUp")
+	button:SetScript("OnClick",
+				  function()
+					  addon:Collectinator_Command(false)
+					  --addon:ToggleFrame()
+				  end)
 
-	-- Set some of the common button properties
-	addon.ScanButton:SetHeight(20)
-	addon.ScanButton:RegisterForClicks("LeftButtonUp")
-	addon.ScanButton:SetScript("OnClick",
-			function()
-				addon:Collectinator_Command(false)
-				--addon:ToggleFrame()
-			end
-		)
+	button:SetScript("OnEnter",
+				   function(this)
+					   GameTooltip_SetDefaultAnchor(GameTooltip, this)
+					   GameTooltip:SetText(L["SCAN_COMPANIONS_DESC"])
+					   GameTooltip:Show()
+				   end)
 
-	addon.ScanButton:SetScript("OnEnter",
-			function(this)
-				GameTooltip_SetDefaultAnchor(GameTooltip, this)
-				GameTooltip:SetText(L["SCAN_COMPANIONS_DESC"])
-				GameTooltip:Show()
-			end
-		)
-
-	addon.ScanButton:SetScript("OnLeave",
-			function()
-				GameTooltip:Hide()
-			end
-		)
-
-	addon.ScanButton:SetText(L["Scan"])
-
-	local buttonparent = addon.ScanButton:GetParent()
-	local framelevel = buttonparent:GetFrameLevel()
-	local framestrata = buttonparent:GetFrameStrata()
+	button:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	button:SetText(L["Scan"])
 
 	-- Set the frame level of the button to be 1 deeper than its parent
-	addon.ScanButton:SetFrameLevel(framelevel + 1)
-	addon.ScanButton:SetFrameStrata(framestrata)
+	local parent = button:GetParent()
+	button:SetFrameLevel(parent:GetFrameLevel() + 1)
+	button:SetFrameStrata(parent:GetFrameStrata())
 
-	addon.ScanButton:Enable()
+	button:Enable()
+	button:ClearAllPoints()
 
-	addon.ScanButton:SetParent(PetPaperDollFrameCompanionFrame)
-	addon.ScanButton:ClearAllPoints()
+	button:SetPoint("LEFT", CompanionNextPageButton, "RIGHT", 0, 0)
+	button:SetWidth(addon.ScanButton:GetTextWidth() + 10)
 
-	addon.ScanButton:SetPoint("LEFT",CompanionNextPageButton,"RIGHT",0,0)
-	addon.ScanButton:SetWidth(addon.ScanButton:GetTextWidth() + 10)
-
-	addon.ScanButton:Show()
-
+	button:Show()
+	self:CreateScanButton = nil
 end
 
 function addon:AddTabTotals()
@@ -3040,7 +3022,7 @@ end
 -------------------------------------------------------------------------------
 -- Alt-Tradeskills tooltip
 -------------------------------------------------------------------------------
-local clicktip = QTipClick:Acquire("Collectinator_Clickable", 1, "CENTER")
+local clicktip = QTip:Acquire("Collectinator_Clickable", 1, "CENTER")
 
 -------------------------------------------------------------------------------
 -- Data used in HandleTTClick() and GenerateClickableTT()
