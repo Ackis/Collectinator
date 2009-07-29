@@ -1199,35 +1199,6 @@ local function ReDisplay()
 
 end
 
-function addon:AddTabTotals()
-
-	PetPaperDollFrameTab2:SetScript("OnEnter",
-			function(this)
-				GameTooltip_SetDefaultAnchor(GameTooltip, this)
-				GameTooltip:SetText(GetNumCompanions("CRITTER") .. " companions known.")
-				GameTooltip:Show()
-			end
-		)
-	PetPaperDollFrameTab2:SetScript("OnLeave",
-			function()
-				GameTooltip:Hide()
-			end
-		)
-
-	PetPaperDollFrameTab3:SetScript("OnEnter",
-			function(this)
-				GameTooltip_SetDefaultAnchor(GameTooltip, this)
-				GameTooltip:SetText(GetNumCompanions("MOUNT") .. " mounts known.")
-				GameTooltip:Show()
-			end
-		)
-	PetPaperDollFrameTab3:SetScript("OnLeave",
-			function()
-				GameTooltip:Hide()
-			end
-		)
-end
-
 -- Description: 
 
 function addon:ShowScanButton()

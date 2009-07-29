@@ -279,9 +279,9 @@ function addon:OnEnable()
 	button:SetText(L["Scan"])
 
 	-- Set the frame level of the button to be 1 deeper than its parent
-	local parent = button:GetParent()
-	button:SetFrameLevel(parent:GetFrameLevel() + 1)
-	button:SetFrameStrata(parent:GetFrameStrata())
+	local button_parent = button:GetParent()
+	button:SetFrameLevel(button_parent:GetFrameLevel() + 1)
+	button:SetFrameStrata(button_parent:GetFrameStrata())
 
 	button:Enable()
 	button:ClearAllPoints()
@@ -291,9 +291,24 @@ function addon:OnEnable()
 
 	button:Show()
 
+	-------------------------------------------------------------------------------
 	-- Add mini-pet/mount totals to the tab
-	self:AddTabTotals()
+	-------------------------------------------------------------------------------
+	PetPaperDollFrameTab2:SetScript("OnEnter",
+					function(this)
+						GameTooltip_SetDefaultAnchor(GameTooltip, this)
+						GameTooltip:SetText(GetNumCompanions("CRITTER") .. " companions known.")
+						GameTooltip:Show()
+					end)
+	PetPaperDollFrameTab2:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
+	PetPaperDollFrameTab3:SetScript("OnEnter",
+					function(this)
+						GameTooltip_SetDefaultAnchor(GameTooltip, this)
+						GameTooltip:SetText(GetNumCompanions("MOUNT") .. " mounts known.")
+						GameTooltip:Show()
+					end)
+	PetPaperDollFrameTab3:SetScript("OnLeave", function() GameTooltip:Hide() end)
 end
 
 -- Description: Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
