@@ -254,8 +254,42 @@ function addon:OnEnable()
 	-- Populate the repuatation level
 	self:GetFactionLevels()
 
-	--Create the button now for later use
-	self:CreateScanButton()
+	-------------------------------------------------------------------------------
+	-- Create the scan button.
+	-------------------------------------------------------------------------------
+	local button = CreateFrame("Button", "Collectinator_ScanButton", PetPaperDollFrameCompanionFrame, "UIPanelButtonTemplate")
+	self.ScanButton = button
+
+	button:SetHeight(20)
+	button:RegisterForClicks("LeftButtonUp")
+	button:SetScript("OnClick",
+				  function()
+					  addon:Collectinator_Command(false)
+					  --addon:ToggleFrame()
+				  end)
+
+	button:SetScript("OnEnter",
+				   function(this)
+					   GameTooltip_SetDefaultAnchor(GameTooltip, this)
+					   GameTooltip:SetText(L["SCAN_COMPANIONS_DESC"])
+					   GameTooltip:Show()
+				   end)
+
+	button:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	button:SetText(L["Scan"])
+
+	-- Set the frame level of the button to be 1 deeper than its parent
+	local parent = button:GetParent()
+	button:SetFrameLevel(parent:GetFrameLevel() + 1)
+	button:SetFrameStrata(parent:GetFrameStrata())
+
+	button:Enable()
+	button:ClearAllPoints()
+
+	button:SetPoint("LEFT", CompanionNextPageButton, "RIGHT", 0, 0)
+	button:SetWidth(addon.ScanButton:GetTextWidth() + 10)
+
+	button:Show()
 
 	-- Add mini-pet/mount totals to the tab
 	self:AddTabTotals()
