@@ -1205,7 +1205,7 @@ function addon:CreateScanButton()
 
 	-- Create the scan button
 	if (not addon.ScanButton) then
-		addon.ScanButton = CreateFrame("Button","addon.ScanButton",UIParent,"UIPanelButtonTemplate")
+		addon.ScanButton = CreateFrame("Button", "Collectinator_ScanButton", UIParent, "UIPanelButtonTemplate")
 	end
 
 	-- Set some of the common button properties
@@ -3300,7 +3300,7 @@ function addon:CreateFrame(
 		addon.Frame:Show()
 		addon.Frame._Expanded = false
 
-		addon.Frame.HeadingText = addon.Frame:CreateFontString("addon.Frame.HeadingText", "ARTWORK")
+		addon.Frame.HeadingText = addon.Frame:CreateFontString("Collectinator_Frame.HeadingText", "ARTWORK")
 			
 		addon.Frame.HeadingText:SetFontObject("GameFontHighlightSmall")
 		addon.Frame.HeadingText:ClearAllPoints()
@@ -3595,7 +3595,7 @@ function addon:CreateFrame(
 		Collectinator_ExpMiscOptCB:SetPoint("TOPLEFT", Collectinator_ExpRepOptCB, "BOTTOMLEFT", -0, -8)
 
 		-- Frame for the flyaway pane
-		addon.Flyaway = CreateFrame("Frame", "addon.Flyaway", addon.Frame)
+		addon.Flyaway = CreateFrame("Frame", "Collectinator_Flyaway", addon.Frame)
 			addon.Flyaway:SetWidth(234)
 			addon.Flyaway:SetHeight(312)
 
@@ -3617,7 +3617,7 @@ function addon:CreateFrame(
 
 		-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
 
-		addon.Fly_General = CreateFrame("Frame", "addon.Fly_General", addon.Flyaway)
+		addon.Fly_General = CreateFrame("Frame", "Collectinator_Fly_General", addon.Flyaway)
 			addon.Fly_General:SetWidth(112)
 			addon.Fly_General:SetHeight(280)
 			addon.Fly_General:EnableMouse(true)
@@ -3646,7 +3646,7 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(Collectinator_UnknownCB, addon.Fly_General, L["UNKNOWN_DESC"], 6, 5, 1, 0)
 				Collectinator_UnknownCBText:SetText(L["Unknown"])
 
-		addon.Fly_Obtain = CreateFrame("Frame", "addon.Fly_Obtain", addon.Flyaway)
+		addon.Fly_Obtain = CreateFrame("Frame", "Collectinator_Fly_Obtain", addon.Flyaway)
 			addon.Fly_Obtain:SetWidth(112)
 			addon.Fly_Obtain:SetHeight(280)
 			addon.Fly_Obtain:EnableMouse(true)
@@ -3699,7 +3699,7 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], 81, 14, 1, 0)
 				Collectinator_WrathCBText:SetText(L["Lich King"])
 
-		addon.Fly_Binding = CreateFrame("Frame", "addon.Fly_Binding", addon.Flyaway)
+		addon.Fly_Binding = CreateFrame("Frame", "Collectinator_Fly_Binding", addon.Flyaway)
 			addon.Fly_Binding:SetWidth(210)
 			addon.Fly_Binding:SetHeight(280)
 			addon.Fly_Binding:EnableMouse(true)
@@ -3724,7 +3724,7 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(Collectinator_rBoPCB, addon.Fly_Binding, L["RECIPE_BOP_DESC"], 18, 4, 1, 0)
 				Collectinator_rBoPCBText:SetText(L["RecipeBOPFilter"])
 
-		addon.Fly_Item = CreateFrame("Frame", "addon.Fly_Item", addon.Flyaway)
+		addon.Fly_Item = CreateFrame("Frame", "Collectinator_Fly_Item", addon.Flyaway)
 			addon.Fly_Item:SetWidth(210)
 			addon.Fly_Item:SetHeight(280)
 			addon.Fly_Item:EnableMouse(true)
@@ -3923,7 +3923,7 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(Collectinator_WeaponAmmoCB, addon.Fly_Item, L["AMMO_DESC"], 38, 15, 2, 0)
 				Collectinator_WeaponAmmoCBText:SetText(L["Ammo"])
 
-		addon.Fly_Player= CreateFrame("Frame", "addon.Fly_Player", addon.Flyaway)
+		addon.Fly_Player= CreateFrame("Frame", "Collectinator_Fly_Player", addon.Flyaway)
 			addon.Fly_Player:SetWidth(112)
 			addon.Fly_Player:SetHeight(280)
 			addon.Fly_Player:EnableMouse(true)
@@ -3945,7 +3945,7 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(Collectinator_PlayerCasterCB, addon.Fly_Player, L["CASTER_DPS_DESC"], 44, 4, 1, 0)
 				Collectinator_PlayerCasterCBText:SetText(L["Caster DPS"])
 
-		addon.Fly_Rep = CreateFrame("Frame", "addon.Fly_Rep", addon.Flyaway)
+		addon.Fly_Rep = CreateFrame("Frame", "Collectinator_Fly_Rep", addon.Flyaway)
 			addon.Fly_Rep:SetWidth(112)
 			addon.Fly_Rep:SetHeight(280)
 			addon.Fly_Rep:EnableMouse(true)
@@ -3967,7 +3967,7 @@ function addon:CreateFrame(
 			Collectinator_RepLKCB:SetScript("OnClick", function() addon.RepFilterSwitch(3) end)
 
 			-- Original
-			addon.Fly_Rep_OW= CreateFrame("Frame", "addon.Fly_Rep_OW", addon.Fly_Rep)
+			addon.Fly_Rep_OW= CreateFrame("Frame", "Collectinator_Fly_Rep_OW", addon.Fly_Rep)
 			addon.Fly_Rep_OW:SetWidth(150)
 			addon.Fly_Rep_OW:SetHeight(280)
 			addon.Fly_Rep_OW:EnableMouse(true)
@@ -4032,7 +4032,7 @@ function addon:CreateFrame(
 				Collectinator_RepZandalarCBText:SetFont(narrowFont, 11)
 
 			-- BC
-			addon.Fly_Rep_BC= CreateFrame("Frame", "addon.Fly_Rep_BC", addon.Fly_Rep)
+			addon.Fly_Rep_BC = CreateFrame("Frame", "Collectinator_Fly_Rep_BC", addon.Fly_Rep)
 			addon.Fly_Rep_BC:SetWidth(150)
 			addon.Fly_Rep_BC:SetHeight(280)
 			addon.Fly_Rep_BC:EnableMouse(true)
@@ -4160,7 +4160,7 @@ function addon:CreateFrame(
 				Collectinator_RepVioletEyeCBText:SetFont(narrowFont, 11)
 
 			-- WotLK
-			addon.Fly_Rep_LK= CreateFrame("Frame", "addon.Fly_Rep_LK", addon.Fly_Rep)
+			addon.Fly_Rep_LK= CreateFrame("Frame", "Collectinator_Fly_Rep_LK", addon.Fly_Rep)
 			addon.Fly_Rep_LK:SetWidth(150)
 			addon.Fly_Rep_LK:SetHeight(280)
 			addon.Fly_Rep_LK:EnableMouse(true)
@@ -4276,7 +4276,7 @@ function addon:CreateFrame(
 				Collectinator_RepWyrmrestCBText:SetText(BFAC["The Wyrmrest Accord"])
 				Collectinator_RepWyrmrestCBText:SetFont(narrowFont, 11)
 
-		addon.Fly_Misc = CreateFrame("Frame", "addon.Fly_Misc", addon.Flyaway)
+		addon.Fly_Misc = CreateFrame("Frame", "Collectinator_Fly_Misc", addon.Flyaway)
 			addon.Fly_Misc:SetWidth(210)
 			addon.Fly_Misc:SetHeight(280)
 			addon.Fly_Misc:EnableMouse(true)
