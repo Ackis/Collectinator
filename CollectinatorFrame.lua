@@ -72,9 +72,9 @@ local QTip	= LibStub("LibQTip-1.0")
 -------------------------------------------------------------------------------
 local currentProfIndex = 0
 local currentProfession = ""
-local maxVisibleRecipes = 24
+local maxVisibleCollectibles = 24
 local FilterValueMap = {}
-local sortedRecipeIndex = {}
+local sortedCollectibleIndex = {}
 local DisplayStrings = {}
 local myFaction = ""
 
@@ -82,9 +82,9 @@ local narrowFont = nil
 local normalFont = nil
 
 -------------------------------------------------------------------------------
--- local versions of the databases storing the recipe information, trainers, vendors, etc
+-- local versions of the databases storing the collectible information, trainers, vendors, etc
 -------------------------------------------------------------------------------
-local recipeDB = {}
+local collectibleDB = {}
 local trainerDB = {}
 local vendorDB = {}
 local questDB = {}
@@ -161,7 +161,7 @@ local ExpButtonTT = {
 
 
 -- Define the static popups we're going to call when people don't have a
--- scanned or don't are blocking all recipes from being displayed
+-- scanned or don't are blocking all collectibles from being displayed
 -- with current filters
 StaticPopupDialogs["Collectinator_NOTSCANNED"] = {
 	text = L["NOTSCANNED"], 
@@ -281,13 +281,13 @@ do
 
 	------------------------------------------------------------------------------
 	-- Description: Function to determine if the player has an appropiate level of faction.
-	-- Expected result: A boolean value determing if the player can learn the recipe based on faction
-	-- Input: The database, the index of the recipe, the players faction and reputation levels
-	-- Output: A boolean indicating if they can learn the recipe or not
+	-- Expected result: A boolean value determing if the player can learn the collectible based on faction
+	-- Input: The database, the index of the collectible, the players faction and reputation levels
+	-- Output: A boolean indicating if they can learn the collectible or not
 	------------------------------------------------------------------------------
-	local function checkFactions(DB, recipeIndex, playerFaction, playerRep)
+	local function checkFactions(DB, collectibleIndex, playerFaction, playerRep)
 		local fac = true
-		local acquire = DB[recipeIndex]["Acquire"]
+		local acquire = DB[collectibleIndex]["Acquire"]
 
 		-- Scan through all acquire types
 		for i in pairs(acquire) do
@@ -308,7 +308,7 @@ do
 					end
 				end
 
-				if (not playerRep[repDB[repid]["Name"]]) or (playerRep[repDB[repid]["Name"]] < DB[recipeIndex]["Acquire"][i]["RepLevel"]) then
+				if (not playerRep[repDB[repid]["Name"]]) or (playerRep[repDB[repid]["Name"]] < DB[collectibleIndex]["Acquire"][i]["RepLevel"]) then
 					fac = false
 				else
 					-- This means that the faction level is high enough, so we'll set display to true and leave the loop
@@ -402,10 +402,10 @@ do
 
 	-- Description: Adds mini-map and world map icons with tomtom.
 	-- Expected result: Icons are added to the world map and mini-map.
-	-- Input: An optional recipe ID
+	-- Input: An optional collectible ID
 	-- Output: Points are added to the maps
 
-	function addon:SetupMap(singlerecipe)
+	function addon:SetupMap(singlecollectible)
 
 		if (not TomTom) then
 			--@debug@
@@ -423,21 +423,21 @@ do
 
 			local maplist = {}
 
-			-- We're only getting a single recipe, not a bunch
-			if (singlerecipe) then
+			-- We're only getting a single collectible, not a bunch
+			if (singlecollectible) then
 				-- loop through acquire methods, display each
-				for k, v in pairs(recipeDB[singlerecipe]["Acquire"]) do
+				for k, v in pairs(collectibleDB[singlecollectible]["Acquire"]) do
 					if (CheckMapDisplay(v, filters)) then
 						maplist[v["ID"]] = v["Type"]
 					end
 				end
 			elseif (autoscanmap == true) then
-				-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
-				for i = 1, #sortedRecipeIndex do
-					local recipeIndex = sortedRecipeIndex[i]
-					if ((recipeDB[recipeIndex]["Display"] == true) and (recipeDB[recipeIndex]["Search"] == true)) then
+				-- Scan through all collectibles to display, and add the vendors to a list to get their acquire info
+				for i = 1, #sortedCollectibleIndex do
+					local collectibleIndex = sortedCollectibleIndex[i]
+					if ((collectibleDB[collectibleIndex]["Display"] == true) and (collectibleDB[collectibleIndex]["Search"] == true)) then
 						-- loop through acquire methods, display each
-						for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
+						for k, v in pairs(collectibleDB[collectibleIndex]["Acquire"]) do
 							if (CheckMapDisplay(v, filters)) then
 								maplist[v["ID"]] = v["Type"]
 							end
@@ -507,7 +507,7 @@ do
 	end
 end	-- do
 
--- Description: Parses the recipes and determines which ones to display, and makes them display appropiatly
+-- Description: Parses the collectibles and determines which ones to display, and makes them display appropiatly
 local function WipeDisplayStrings()
 	for i = 1, #DisplayStrings do
 		ReleaseTable(DisplayStrings[i])
@@ -522,26 +522,26 @@ local function initDisplayStrings()
 
 	WipeDisplayStrings()
 
-	for i = 1, #sortedRecipeIndex do
-		local recipeIndex = sortedRecipeIndex[i]
-		local recipeEntry = recipeDB[recipeIndex]
+	for i = 1, #sortedCollectibleIndex do
+		local collectibleIndex = sortedCollectibleIndex[i]
+		local collectibleEntry = collectibleDB[collectibleIndex]
 
-		if ((recipeEntry["Display"] == true) and (recipeEntry["Search"] == true)) then
+		if ((collectibleEntry["Display"] == true) and (collectibleEntry["Search"] == true)) then
 			local recStr = ""
 
-			if (exclude[recipeIndex] == true) then
-				recStr = "** " .. recipeEntry["Name"] .. " **"
+			if (exclude[collectibleIndex] == true) then
+				recStr = "** " .. collectibleEntry["Name"] .. " **"
 			else
-				recStr = recipeEntry["Name"]
+				recStr = collectibleEntry["Name"]
 			end
 
-			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
+			local hasFaction = checkFactions(collectibleDB, collectibleIndex, playerData.playerFaction, playerData["Reputation"])
 
 			str = AcquireTable()
 			str.String = recStr
 
-			str.sID = recipeIndex
-			str.IsRecipe = true
+			str.sID = collectibleIndex
+			str.IsCollectible = true
 			str.IsExpanded = false
 			tinsert(DisplayStrings, insertIndex, str)
 			insertIndex = insertIndex + 1
@@ -549,9 +549,9 @@ local function initDisplayStrings()
 	end
 end
 
-local function ClearRecipeButtonTooltip(bIndex)
+local function ClearCollectibleButtonTooltip(bIndex)
 	local pButton = addon.PlusListButton[bIndex]
-	local rButton = addon.RecipeListButton[bIndex]
+	local rButton = addon.CollectibleListButton[bIndex]
 
 	pButton:SetScript("OnEnter", nil)
 	pButton:SetScript("OnLeave", nil)
@@ -637,7 +637,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local spelltooltiplocation = addon.db.profile.spelltooltiplocation
 	local acquiretooltiplocation = addon.db.profile.acquiretooltiplocation
 
-	local spelllink = recipeDB[rIndex]["RecipeLink"]
+	local spelllink = collectibleDB[rIndex]["CollectibleLink"]
 
 	if (acquiretooltiplocation == L["Off"]) then
 		CollectinatorTooltip:Hide()
@@ -669,60 +669,60 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		end
 
 		CollectinatorTooltip:Clear()
-		ttAdd(0, 1, 0, 0, recipeDB[rIndex]["Name"], addon:hexcolor("HIGH"))
+		ttAdd(0, 1, 0, 0, collectibleDB[rIndex]["Name"], addon:hexcolor("HIGH"))
 
-		-- check if the recipe is excluded
+		-- check if the collectible is excluded
 		if (exclude[rIndex] == true) then
 			clr1 = addon:hexcolor("RED")
-			ttAdd(0, -1, 1, 0, L["RECIPE_EXCLUDED"], clr1)
+			ttAdd(0, -1, 1, 0, L["COLLECTIBLE_EXCLUDED"], clr1)
 		end
 
 		-- Add in skill level requirement, colored correctly
 		clr1 = addon:hexcolor("NORMAL")
 
-		local recipeSkill = recipeDB[rIndex]["Level"]
+		local collectibleSkill = collectibleDB[rIndex]["Level"]
 		local playerSkill = playerData.playerProfessionLevel
 
-		if (recipeSkill > playerSkill) then
+		if (collectibleSkill > playerSkill) then
 			clr2 = addon:hexcolor("RED")
-		elseif ((playerSkill - recipeSkill) < 20) then
+		elseif ((playerSkill - collectibleSkill) < 20) then
 			clr2 = addon:hexcolor("ORANGE")
-		elseif ((playerSkill - recipeSkill) < 30) then
+		elseif ((playerSkill - collectibleSkill) < 30) then
 			clr2 = addon:hexcolor("YELLOW")
-		elseif ((playerSkill - recipeSkill) < 40) then
+		elseif ((playerSkill - collectibleSkill) < 40) then
 			clr2 = addon:hexcolor("GREEN") 
 		else
 			clr2 = addon:hexcolor("MIDGREY")
 		end
 
-		ttAdd(0, -1, 0, 0, L["Required Skill"] .. " :", clr1, recipeDB[rIndex]["Level"], clr2)
+		ttAdd(0, -1, 0, 0, L["Required Skill"] .. " :", clr1, collectibleDB[rIndex]["Level"], clr2)
 		-- spacer
 		ttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
 		-- Binding info
 		clr1 = addon:hexcolor("NORMAL")
 
-		if (recipeDB[rIndex]["Flags"][36]) then
+		if (collectibleDB[rIndex]["Flags"][36]) then
 			ttAdd(0, -1, 1, 0, L["BOEFilter"], clr1)
 		end
 
-		if (recipeDB[rIndex]["Flags"][37]) then
+		if (collectibleDB[rIndex]["Flags"][37]) then
 			ttAdd(0, -1, 1, 0, L["BOPFilter"], clr1)
 		end
 
-		if (recipeDB[rIndex]["Flags"][38]) then
+		if (collectibleDB[rIndex]["Flags"][38]) then
 			ttAdd(0, -1, 1, 0, L["BOAFilter"], clr1)
 		end
 
-		if (recipeDB[rIndex]["Flags"][40]) then
-			ttAdd(0, -1, 1, 0, L["RecipeBOEFilter"], clr1)
+		if (collectibleDB[rIndex]["Flags"][40]) then
+			ttAdd(0, -1, 1, 0, L["CollectibleBOEFilter"], clr1)
 		end
 
-		if (recipeDB[rIndex]["Flags"][41]) then
-			ttAdd(0, -1, 1, 0, L["RecipeBOPFilter"], clr1)
+		if (collectibleDB[rIndex]["Flags"][41]) then
+			ttAdd(0, -1, 1, 0, L["CollectibleBOPFilter"], clr1)
 		end
 
-		if (recipeDB[rIndex]["Flags"][42]) then
-			ttAdd(0, -1, 1, 0, L["RecipeBOAFilter"], clr1)
+		if (collectibleDB[rIndex]["Flags"][42]) then
+			ttAdd(0, -1, 1, 0, L["CollectibleBOAFilter"], clr1)
 		end
 
 		-- spacer
@@ -734,7 +734,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		local factiondisp = addon.db.profile.filters.general.faction
 
 		-- loop through acquire methods, display each
-		for k, v in pairs(recipeDB[rIndex]["Acquire"]) do
+		for k, v in pairs(collectibleDB[rIndex]["Acquire"]) do
 
 			-- Trainer
 			if (v["Type"] == 1) then
@@ -968,7 +968,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			-- Unhandled
 			else
 				clr1 = addon:hexcolor("NORMAL")
-				ttAdd(0, -1, 0, 0, L["Unhandled Recipe"], clr1)
+				ttAdd(0, -1, 0, 0, L["Unhandled Collectible"], clr1)
 			end
 
 		end
@@ -997,12 +997,12 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 end
 
--- Description: This sets the tooltip on the button during a recipelist update
+-- Description: This sets the tooltip on the button during a collectiblelist update
 
-local function SetRecipeButtonTooltip(bIndex)
+local function SetCollectibleButtonTooltip(bIndex)
 
 	local pButton = addon.PlusListButton[bIndex]
-	local rButton = addon.RecipeListButton[bIndex]
+	local rButton = addon.CollectibleListButton[bIndex]
 	local dStringIndex = rButton.sI
 	local rIndex = DisplayStrings[dStringIndex].sID
 	local playerFaction = playerData.playerFaction
@@ -1038,19 +1038,19 @@ end
 
 -- Description: Scrollframe update stuff
 
-local function RecipeList_Update()
+local function CollectibleList_Update()
 
 	-- Clear out the current buttons
-	for i = 1, maxVisibleRecipes do
-		addon.RecipeListButton[i]:SetText("")
-		addon.RecipeListButton[i].sI = 0
+	for i = 1, maxVisibleCollectibles do
+		addon.CollectibleListButton[i]:SetText("")
+		addon.CollectibleListButton[i].sI = 0
 		addon.PlusListButton[i]:Hide()
-		ClearRecipeButtonTooltip(i)
+		ClearCollectibleButtonTooltip(i)
 	end
 
 	local entries = #DisplayStrings
 
-	FauxScrollFrame_Update(Collectinator_RecipeScrollFrame, entries, maxVisibleRecipes, 16)
+	FauxScrollFrame_Update(Collectinator_CollectibleScrollFrame, entries, maxVisibleCollectibles, 16)
 
 	-- close all popups
 	StaticPopup_Hide("Collectinator_NOTSCANNED")
@@ -1066,7 +1066,7 @@ local function RecipeList_Update()
 		Collectinator_ExpandButton:Enable()
 
 		-- now fill in our buttons
-		local listOffset = FauxScrollFrame_GetOffset(Collectinator_RecipeScrollFrame)
+		local listOffset = FauxScrollFrame_GetOffset(Collectinator_CollectibleScrollFrame)
 		local buttonIndex = 1
 		local stringsIndex = buttonIndex + listOffset
 
@@ -1074,7 +1074,7 @@ local function RecipeList_Update()
 
 		while (stayInLoop == true) do
 
-			if (DisplayStrings[stringsIndex].IsRecipe) then
+			if (DisplayStrings[stringsIndex].IsCollectible) then
 
 				-- display the + symbol
 				addon.PlusListButton[buttonIndex]:Show()
@@ -1096,16 +1096,16 @@ local function RecipeList_Update()
 				addon.PlusListButton[buttonIndex]:Hide()
 			end
 
-			addon.RecipeListButton[buttonIndex]:SetText(DisplayStrings[stringsIndex].String)
-			addon.RecipeListButton[buttonIndex].sI = stringsIndex
+			addon.CollectibleListButton[buttonIndex]:SetText(DisplayStrings[stringsIndex].String)
+			addon.CollectibleListButton[buttonIndex].sI = stringsIndex
 
 			-- Set the tooltip on the button
-			SetRecipeButtonTooltip(buttonIndex)
+			SetCollectibleButtonTooltip(buttonIndex)
 
 			buttonIndex = buttonIndex + 1
 			stringsIndex = stringsIndex + 1
 
-			if ((buttonIndex > maxVisibleRecipes) or (stringsIndex > entries)) then
+			if ((buttonIndex > maxVisibleCollectibles) or (stringsIndex > entries)) then
 				stayInLoop = false
 			end
 
@@ -1129,23 +1129,23 @@ local function RecipeList_Update()
 			showpopup = true
 		end
 
-		-- If the recipe total is at 0, it means we have not scanned the profession yet
-		if (playerData.recipes_total == 0) then
+		-- If the collectible total is at 0, it means we have not scanned the profession yet
+		if (playerData.collectibles_total == 0) then
 			if (showpopup == true) then
 				StaticPopup_Show("Collectinator_NOTSCANNED")
 			end
-		-- We know all the recipes
-		elseif (playerData.recipes_known == playerData.recipes_total) then
+		-- We know all the collectibles
+		elseif (playerData.collectibles_known == playerData.collectibles_total) then
 			if (showpopup == true) then
 				StaticPopup_Show("Collectinator_ALLKNOWN")
 			end
 		-- Our filters are actually filtering something
-		elseif ((playerData.recipes_total_filtered - playerData.recipes_known_filtered) == 0) then
+		elseif ((playerData.collectibles_total_filtered - playerData.collectibles_known_filtered) == 0) then
 			if (showpopup == true) then
 				StaticPopup_Show("Collectinator_ALLFILTERED")
 			end
 		-- Our exclusion list is preventing something from being displayed
-		elseif (playerData.excluded_recipes_unknown ~= 0) then
+		elseif (playerData.excluded_collectibles_unknown ~= 0) then
 			if (showpopup == true) then
 				StaticPopup_Show("Collectinator_ALLEXCLUDED")
 			end
@@ -1154,23 +1154,23 @@ local function RecipeList_Update()
 			StaticPopup_Show("Collectinator_SEARCHFILTERED")
 		else
 			addon:Print(L["NO_DISPLAY"])
-			addon:Print("DEBUG: recipes_total check for 0")
-			addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
-			addon:Print("DEBUG: recipes_total check for equal to recipes_total")
-			addon:Print("DEBUG: recipes_known: " .. playerData.recipes_known)
-			addon:Print("DEBUG: recipes_total: " .. playerData.recipes_total)
-			addon:Print("DEBUG: recipes_total_filtered - recipes_known_filtered = 0")
-			addon:Print("DEBUG: recipes_total_filtered: " .. playerData.recipes_total_filtered)
-			addon:Print("DEBUG: recipes_known_filtered: " .. playerData.recipes_known_filtered)
-			addon:Print("DEBUG: excluded_recipes_unknown ~= 0")
-			addon:Print("DEBUG: excluded_recipes_unknown: " .. playerData.excluded_recipes_unknown)
+			addon:Print("DEBUG: collectibles_total check for 0")
+			addon:Print("DEBUG: collectibles_total: " .. playerData.collectibles_total)
+			addon:Print("DEBUG: collectibles_total check for equal to collectibles_total")
+			addon:Print("DEBUG: collectibles_known: " .. playerData.collectibles_known)
+			addon:Print("DEBUG: collectibles_total: " .. playerData.collectibles_total)
+			addon:Print("DEBUG: collectibles_total_filtered - collectibles_known_filtered = 0")
+			addon:Print("DEBUG: collectibles_total_filtered: " .. playerData.collectibles_total_filtered)
+			addon:Print("DEBUG: collectibles_known_filtered: " .. playerData.collectibles_known_filtered)
+			addon:Print("DEBUG: excluded_collectibles_unknown ~= 0")
+			addon:Print("DEBUG: excluded_collectibles_unknown: " .. playerData.excluded_collectibles_unknown)
 		end
 
 	end
 	
 end
 
--- Description: Updates the progress bar based on the number of known / total recipes
+-- Description: Updates the progress bar based on the number of known / total collectibles
 
 local function SetProgressBar(playerData)
 
@@ -1211,17 +1211,17 @@ function addon:ResetGUI()
 
 end
 
--- Under various conditions, I'm going to have to redisplay my recipe list
+-- Under various conditions, I'm going to have to redisplay my collectible list
 -- This could happen because a filter changes, a new profession is chosen, or
 -- a new search occurred. Use this function to do all the dirty work
 
 -- Description: 
 
 local function ReDisplay()
-	addon:UpdateFilters(recipeDB, allSpecTable, playerData)
-	sortedRecipeIndex = addon:SortDatabase(recipeDB)
+	addon:UpdateFilters(collectibleDB, allSpecTable, playerData)
+	sortedCollectibleIndex = addon:SortDatabase(collectibleDB)
 
-	--playerData.excluded_recipes_known, playerData.excluded_recipes_unknown = addon:GetExclusions(recipeDB, playerData.playerProfession)
+	--playerData.excluded_collectibles_known, playerData.excluded_collectibles_unknown = addon:GetExclusions(collectibleDB, playerData.playerProfession)
 
 	initDisplayStrings()
 
@@ -1232,7 +1232,7 @@ local function ReDisplay()
 	addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
 
 	-- And update our scrollframe
-	RecipeList_Update()
+	CollectibleList_Update()
 
 end
 
@@ -1858,12 +1858,12 @@ local function expandEntry(dsIndex)
 
 	local filterDB = addon.db.profile.filters
 	local obtainDB = filterDB.obtain
-	local recipeIndex = DisplayStrings[dsIndex].sID
+	local collectibleIndex = DisplayStrings[dsIndex].sID
 
 	dsIndex = dsIndex + 1
 
 	-- Need to loop through the available acquires and put them all in
-	for k, v in pairs(recipeDB[recipeIndex]["Acquire"]) do
+	for k, v in pairs(collectibleDB[collectibleIndex]["Acquire"]) do
 
 		local pad = "  "
 		local t
@@ -1884,8 +1884,8 @@ local function expandEntry(dsIndex)
 				end
 
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 
 				if (trnr["Faction"] == BFAC["Horde"]) then
@@ -1902,8 +1902,8 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 
 				t.String = pad .. pad .. trnr["Location"] .. " " .. cStr
@@ -1928,8 +1928,8 @@ local function expandEntry(dsIndex)
 				end
 
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 
 				if (vndr["Faction"] == BFAC["Horde"]) then
@@ -1946,8 +1946,8 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 
 				t.String = pad .. pad .. vndr["Location"] .. " " .. cStr
@@ -1972,8 +1972,8 @@ local function expandEntry(dsIndex)
 				end
 
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 
 				nStr = addon:Red(mob["Name"])
@@ -1983,8 +1983,8 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 
 				t.String = pad .. pad .. mob["Location"] .. " " .. cStr
@@ -2009,8 +2009,8 @@ local function expandEntry(dsIndex)
 				end
 
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 
 				if (qst["Faction"] == BFAC["Horde"]) then
@@ -2026,8 +2026,8 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 				t.String = pad .. pad .. qst["Location"] .. " " .. cStr
 				tinsert(DisplayStrings, dsIndex, t)
@@ -2043,8 +2043,8 @@ local function expandEntry(dsIndex)
 				local ssnname = seasonDB[v["ID"]]["Name"]
 
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 
 				local tStr = addon:Season(seasonal .. " : " .. ssnname)
@@ -2084,8 +2084,8 @@ local function expandEntry(dsIndex)
 				end
 
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 
 				t.String = pad .. tStr .. repname
@@ -2108,8 +2108,8 @@ local function expandEntry(dsIndex)
 				end
 
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 
 				t.String = pad .. pad .. rStr .. nStr 
@@ -2118,8 +2118,8 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 
 				t.String = pad .. pad .. pad .. repvndr["Location"] .. " " .. cStr
@@ -2134,8 +2134,8 @@ local function expandEntry(dsIndex)
 			if (obtainDB.worlddrop == true) then
 
 				t = {}
-				t.IsRecipe = false
-				t.sID = recipeIndex
+				t.IsCollectible = false
+				t.sID = collectibleIndex
 				t.IsExpanded = true
 
 				t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
@@ -2151,8 +2151,8 @@ local function expandEntry(dsIndex)
 			local customname = customDB[v["ID"]]["Name"]
 
 			t = {}
-			t.IsRecipe = false
-			t.sID = recipeIndex
+			t.IsCollectible = false
+			t.sID = collectibleIndex
 			t.IsExpanded = true
 
 			local tStr = addon:Normal(customname)
@@ -2165,8 +2165,8 @@ local function expandEntry(dsIndex)
 		else
 
 			t = {}
-			t.IsRecipe = false
-			t.sID = recipeIndex
+			t.IsCollectible = false
+			t.sID = collectibleIndex
 			t.IsExpanded = true
 
 			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
@@ -2183,14 +2183,14 @@ end
 
 -- Description: 
 
-function addon.RecipeItem_OnClick(button)
+function addon.CollectibleItem_OnClick(button)
 
-	local clickedIndex = addon.RecipeListButton[button].sI
+	local clickedIndex = addon.CollectibleListButton[button].sI
 
 	-- Don't do anything if they've clicked on an empty button
 	if (clickedIndex ~= nil) and (clickedIndex ~= 0) then
 
-		local isRecipe = DisplayStrings[clickedIndex].IsRecipe
+		local isCollectible = DisplayStrings[clickedIndex].IsCollectible
 		local isExpanded = DisplayStrings[clickedIndex].IsExpanded
 		local dString = DisplayStrings[clickedIndex].String
 		local clickedSpellIndex = DisplayStrings[clickedIndex].sID
@@ -2203,7 +2203,7 @@ function addon.RecipeItem_OnClick(button)
 				addon:SetupMap(clickedSpellIndex)
 			-- SHIFT
 			elseif (IsShiftKeyDown()) then
-				local itemID = recipeDB[clickedSpellIndex]["ItemID"]
+				local itemID = collectibleDB[clickedSpellIndex]["ItemID"]
 				if (itemID) then
 					local _, itemLink = GetItemInfo(itemID)
 					if (itemLink) then
@@ -2216,22 +2216,22 @@ function addon.RecipeItem_OnClick(button)
 				end
 			-- CTRL
 			elseif (IsControlKeyDown()) then
-				ChatFrameEditBox:Insert(recipeDB[clickedSpellIndex]["RecipeLink"])
+				ChatFrameEditBox:Insert(collectibleDB[clickedSpellIndex]["CollectibleLink"])
 			-- ALT
 			elseif (IsAltKeyDown()) then
 				-- Code needed here to insert this item into the "Ignore List"
-				addon:ToggleExcludeRecipe(clickedSpellIndex)
+				addon:ToggleExcludeCollectible(clickedSpellIndex)
 				ReDisplay()
 			end
 		-- three possibilities here (all with no modifiers)
-		-- 1) We clicked on the recipe button on a closed recipe
-		-- 2) We clicked on the recipe button of an open recipe
-		-- 3) we clicked on the expanded text of an open recipe
-		elseif (isRecipe) then
+		-- 1) We clicked on the collectible button on a closed collectible
+		-- 2) We clicked on the collectible button of an open collectible
+		-- 3) we clicked on the expanded text of an open collectible
+		elseif (isCollectible) then
 			if (isExpanded) then
 				-- get rid of our expanded lines
 				traverseIndex = clickedIndex + 1
-				while (DisplayStrings[traverseIndex].IsRecipe == false) do
+				while (DisplayStrings[traverseIndex].IsCollectible == false) do
 					tremove(DisplayStrings, traverseIndex)
 					-- if this is the last entry in the whole list, we should break out
 					if not DisplayStrings[traverseIndex] then
@@ -2242,21 +2242,21 @@ function addon.RecipeItem_OnClick(button)
 			else
 				-- add in our expanded lines
 				expandEntry(clickedIndex)
-				-- set our current recipe to expanded
+				-- set our current collectible to expanded
 				DisplayStrings[clickedIndex].IsExpanded = true
 			end
 		else
-			-- this inherently implies that we're on an expanded recipe
-			-- first, back up in the list of buttons until we find our recipe line
+			-- this inherently implies that we're on an expanded collectible
+			-- first, back up in the list of buttons until we find our collectible line
 			traverseIndex = clickedIndex - 1
-			while (DisplayStrings[traverseIndex].IsRecipe == false) do
+			while (DisplayStrings[traverseIndex].IsCollectible == false) do
 				traverseIndex = traverseIndex - 1
 			end
 			-- unexpand it
 			DisplayStrings[traverseIndex].IsExpanded = false
-			-- now remove the expanded lines until we get to a recipe again
+			-- now remove the expanded lines until we get to a collectible again
 			traverseIndex = traverseIndex + 1
-			while (DisplayStrings[traverseIndex].IsRecipe == false) do
+			while (DisplayStrings[traverseIndex].IsCollectible == false) do
 				tremove(DisplayStrings, traverseIndex)
 				-- if this is the last entry in the whole list, we should break out
 				if not DisplayStrings[traverseIndex] then
@@ -2266,7 +2266,7 @@ function addon.RecipeItem_OnClick(button)
 		end
 
 			-- finally, call our scrollframe updater
-			RecipeList_Update()
+			CollectibleList_Update()
 	end
 
 end
@@ -2397,8 +2397,8 @@ function addon.setFlyawayState()
 	-- Binding Options
 	Collectinator_iBoECB:SetChecked(filterdb.binding.itemboe)
 	Collectinator_iBoPCB:SetChecked(filterdb.binding.itembop)
-	Collectinator_rBoECB:SetChecked(filterdb.binding.recipeboe)
-	Collectinator_rBoPCB:SetChecked(filterdb.binding.recipebop)
+	Collectinator_rBoECB:SetChecked(filterdb.binding.collectibleboe)
+	Collectinator_rBoPCB:SetChecked(filterdb.binding.collectiblebop)
 	-- Armor Options
 	Collectinator_ArmorClothCB:SetChecked(armordb.cloth)
 	Collectinator_ArmorLeatherCB:SetChecked(armordb.leather)
@@ -2755,7 +2755,7 @@ function addon.DoFlyaway(panel)
 end
 
 -- Description: This does an initial fillup of the DisplayStrings, as above.
--- However, in this case, it expands every recipe
+-- However, in this case, it expands every collectible
 
 local function expandallDisplayStrings()
 
@@ -2766,32 +2766,32 @@ local function expandallDisplayStrings()
 
 	local insertIndex = 1
 
-	for i = 1, #sortedRecipeIndex do
+	for i = 1, #sortedCollectibleIndex do
 
-		local recipeIndex = sortedRecipeIndex[i]
-		local recipeEntry = recipeDB[recipeIndex]
+		local collectibleIndex = sortedCollectibleIndex[i]
+		local collectibleEntry = collectibleDB[collectibleIndex]
 
-		if ((recipeEntry["Display"] == true) and (recipeEntry["Search"] == true)) then
+		if ((collectibleEntry["Display"] == true) and (collectibleEntry["Search"] == true)) then
 
 			local t = {}
 
-			-- add in recipe difficulty coloring
+			-- add in collectible difficulty coloring
 			local recStr = ""
 
-			if (exclude[recipeIndex] == true) then
-				recStr = "** " .. recipeEntry["Name"] .. " **"
+			if (exclude[collectibleIndex] == true) then
+				recStr = "** " .. collectibleEntry["Name"] .. " **"
 			else
-				recStr = recipeEntry["Name"]
+				recStr = collectibleEntry["Name"]
 			end
 
-			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
+			local hasFaction = checkFactions(collectibleDB, collectibleIndex, playerData.playerFaction, playerData["Reputation"])
 
 			t.String = recStr
 
-			t.sID = sortedRecipeIndex[i]
-			t.IsRecipe = true
+			t.sID = sortedCollectibleIndex[i]
+			t.IsCollectible = true
 
-			if (recipeEntry["Acquire"]) then
+			if (collectibleEntry["Acquire"]) then
 				-- we have acquire information for this. push the title entry into the strings
 				-- and start processing the acquires
 				t.IsExpanded = true
@@ -2823,7 +2823,7 @@ function addon.ExpandAll_Clicked()
 		addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
 		initDisplayStrings()
 	end
-	RecipeList_Update()
+	CollectibleList_Update()
 
 end
 
@@ -3072,10 +3072,10 @@ end
 
 clicktip:SetCallback("OnMouseDown", HandleTTClick)
 
--- Description: Creates the initial frame to display recipes into
+-- Description: Creates the initial frame to display collectibles into
 
 function addon:CreateFrame(
-	rDB, 		-- RecipeList
+	rDB, 		-- CollectibleList
 	sortedRI, 	-- sortedindex
 	cPlayer, 	-- playerdata
 	vList, 		-- VendorList
@@ -3090,10 +3090,10 @@ function addon:CreateFrame(
 		.playerProfession == player profession which has been opened
 		.playerProfessionLevel == skill level of profession
 		.playerSpecialty == Specialty if any or ""
-		.totalRecipes == Total recipes added to the database
-		.foundRecipes == Total recipes found that the player knows
-		.otherRecipes == Total non-profession recipes in the database
-		.filteredRecipes == Total recipes filtered
+		.totalCollectibles == Total collectibles added to the database
+		.foundCollectibles == Total collectibles found that the player knows
+		.otherCollectibles == Total non-profession collectibles in the database
+		.filteredCollectibles == Total collectibles filtered
 		.playerFaction == Faction of the player
 		["Professions"] == list of all professions with the ones the player knows set as true
 		["Reputation"] == Reputation levels, what I had in current Collectinatorform was if you didn't have the rep level, it would display it in red
@@ -3114,8 +3114,8 @@ function addon:CreateFrame(
 	local pbMax = 100
 	local pbCur = 50
 
-	sortedRecipeIndex = sortedRI
-	recipeDB = rDB
+	sortedCollectibleIndex = sortedRI
+	collectibleDB = rDB
 	allSpecTable = asTable
 	playerData = cPlayer
 	currentProfession = playerData.playerProfession
@@ -3269,9 +3269,9 @@ function addon:CreateFrame(
 					if (searchtext ~= "") then
 						Collectinator_LastSearchedText = searchtext
 
-						addon:SearchRecipeDB(recipeDB, searchtext)
+						addon:SearchCollectibleDB(collectibleDB, searchtext)
 						initDisplayStrings()
-						RecipeList_Update()
+						CollectibleList_Update()
 
 						Collectinator_ExpandButton:SetText(L["EXPANDALL"])
 						addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
@@ -3287,7 +3287,7 @@ function addon:CreateFrame(
 			"GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
 			Collectinator_ClearButton:SetScript("OnClick", 
 				function()
-					addon:ResetSearch(recipeDB)
+					addon:ResetSearch(collectibleDB)
 					Collectinator_SearchText:SetText(L["SEARCH_BOX_DESC"])
 
 					-- Make sure our expand all button is set to expandall
@@ -3305,7 +3305,7 @@ function addon:CreateFrame(
 					Collectinator_LastSearchedText = ""
 
 					initDisplayStrings()
-					RecipeList_Update()
+					CollectibleList_Update()
 				end
 			)
 		Collectinator_SearchText = CreateFrame("EditBox", "Collectinator_SearchText", addon.Frame, "InputBoxTemplate")
@@ -3317,9 +3317,9 @@ function addon:CreateFrame(
 					if (searchtext ~= "") and (searchtext ~= L["SEARCH_BOX_DESC"]) then
 						Collectinator_LastSearchedText = searchtext
 
-						addon:SearchRecipeDB(recipeDB, searchtext)
+						addon:SearchCollectibleDB(collectibleDB, searchtext)
 						initDisplayStrings()
-						RecipeList_Update()
+						CollectibleList_Update()
 
 						Collectinator_ExpandButton:SetText(L["EXPANDALL"])
 						addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
@@ -3413,7 +3413,7 @@ function addon:CreateFrame(
 			Collectinator_ProgressBarText:SetJustifyH("CENTER")
  			Collectinator_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. floor(pbCur / pbMax * 100) .. "%")
 
-		-- I'm going to use my own tooltip for recipebuttons
+		-- I'm going to use my own tooltip for collectiblebuttons
 		CollectinatorTooltip = QTip:Acquire(MODNAME.." Tooltip", 2, "LEFT", "LEFT")
 		CollectinatorSpellTooltip = CreateFrame("GameTooltip", "CollectinatorSpellTooltip", addon.Frame, "GameTooltipTemplate")
 
@@ -3423,51 +3423,51 @@ function addon:CreateFrame(
 			TipTac:AddModifiedTip(CollectinatorSpellTooltip)
 		end
 
-		-- The main recipe list buttons and scrollframe
+		-- The main collectible list buttons and scrollframe
 		addon.PlusListButton = {}
-		addon.RecipeListButton = {}
+		addon.CollectibleListButton = {}
 
-		for i = 1, maxVisibleRecipes do
+		for i = 1, maxVisibleCollectibles do
 
 			local Temp_Plus = addon:GenericCreateButton("Collectinator_PlusListButton" .. i, addon.Frame, 
 				16, 16, "TOPLEFT", addon.Frame, "TOPLEFT", 20, -100, "GameFontNormalSmall", 
 				"GameFontHighlightSmall", "", "LEFT", "", 2)
 
-			local Temp_Recipe = addon:GenericCreateButton("Collectinator_RecipeListButton" .. i, addon.Frame, 
+			local Temp_Collectible = addon:GenericCreateButton("Collectinator_CollectibleListButton" .. i, addon.Frame, 
 				16, 224, "TOPLEFT", addon.Frame, "TOPLEFT", 37, -100, "GameFontNormalSmall", 
 				"GameFontHighlightSmall", "Blort", "LEFT", "", 0)
 
 			if not (i == 1) then
 
 				Temp_Plus:SetPoint("TOPLEFT", addon.PlusListButton[i-1], "BOTTOMLEFT", 0, 3)
-				Temp_Recipe:SetPoint("TOPLEFT", addon.RecipeListButton[i-1], "BOTTOMLEFT", 0, 3)
+				Temp_Collectible:SetPoint("TOPLEFT", addon.CollectibleListButton[i-1], "BOTTOMLEFT", 0, 3)
 
 			end
 
 			Temp_Plus:SetScript("OnClick", 
 				function ()
-					addon.RecipeItem_OnClick(i)
+					addon.CollectibleItem_OnClick(i)
 				end
 			)
 
-			Temp_Recipe:SetScript("OnClick", 
+			Temp_Collectible:SetScript("OnClick", 
 				function ()
-					addon.RecipeItem_OnClick(i)
+					addon.CollectibleItem_OnClick(i)
 				end
 			)
 
 			addon.PlusListButton[i] = Temp_Plus
-			addon.RecipeListButton[i] = Temp_Recipe
+			addon.CollectibleListButton[i] = Temp_Collectible
 
 		end
 
-		local Collectinator_RecipeScrollFrame = CreateFrame("ScrollFrame", "Collectinator_RecipeScrollFrame", addon.Frame, "FauxScrollFrameTemplate")
-		Collectinator_RecipeScrollFrame:SetHeight(322)
-		Collectinator_RecipeScrollFrame:SetWidth(243)
-		Collectinator_RecipeScrollFrame:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 20, -97)
-		Collectinator_RecipeScrollFrame:SetScript("OnVerticalScroll", 
+		local Collectinator_CollectibleScrollFrame = CreateFrame("ScrollFrame", "Collectinator_CollectibleScrollFrame", addon.Frame, "FauxScrollFrameTemplate")
+		Collectinator_CollectibleScrollFrame:SetHeight(322)
+		Collectinator_CollectibleScrollFrame:SetWidth(243)
+		Collectinator_CollectibleScrollFrame:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 20, -97)
+		Collectinator_CollectibleScrollFrame:SetScript("OnVerticalScroll", 
 			function(self, arg1)
-				FauxScrollFrame_OnVerticalScroll(self, arg1, 16, RecipeList_Update)
+				FauxScrollFrame_OnVerticalScroll(self, arg1, 16, CollectibleList_Update)
 			end
 		)
 
@@ -3533,7 +3533,7 @@ function addon:CreateFrame(
 			addon.Fly_General:SetMovable(false)
 			addon.Fly_General:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
 			addon.Fly_General:Hide()
---			() Craft Specialty recipes
+--			() Craft Specialty collectibles
 --			() All skill levels
 --			() Cross-Faction
 --			() Known
@@ -3617,8 +3617,8 @@ function addon:CreateFrame(
 			addon.Fly_Binding:Hide()
 --			() Crafted Item is Bind on Equip
 --			() Crafted Item is Bind on Pickup
---			() Recipe is Bind on Equip
---			() Recipe is Bind on Pickup
+--			() Collectible is Bind on Equip
+--			() Collectible is Bind on Pickup
 			local Collectinator_iBoECB = CreateFrame("CheckButton", "Collectinator_iBoECB", addon.Fly_Binding, "UICheckButtonTemplate")
 				addon:GenericMakeCB(Collectinator_iBoECB, addon.Fly_Binding, L["BOE_DESC"], 15, 1, 1, 0)
 				Collectinator_iBoECBText:SetText(L["BOEFilter"])
@@ -3626,11 +3626,11 @@ function addon:CreateFrame(
 				addon:GenericMakeCB(Collectinator_iBoPCB, addon.Fly_Binding, L["BOP_DESC"], 16, 2, 1, 0)
 				Collectinator_iBoPCBText:SetText(L["BOPFilter"])
 			local Collectinator_rBoECB = CreateFrame("CheckButton", "Collectinator_rBoECB", addon.Fly_Binding, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_rBoECB, addon.Fly_Binding, L["RECIPE_BOE_DESC"], 17, 3, 1, 0)
-				Collectinator_rBoECBText:SetText(L["RecipeBOEFilter"])
+				addon:GenericMakeCB(Collectinator_rBoECB, addon.Fly_Binding, L["COLLECTIBLE_BOE_DESC"], 17, 3, 1, 0)
+				Collectinator_rBoECBText:SetText(L["CollectibleBOEFilter"])
 			local Collectinator_rBoPCB = CreateFrame("CheckButton", "Collectinator_rBoPCB", addon.Fly_Binding, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_rBoPCB, addon.Fly_Binding, L["RECIPE_BOP_DESC"], 18, 4, 1, 0)
-				Collectinator_rBoPCBText:SetText(L["RecipeBOPFilter"])
+				addon:GenericMakeCB(Collectinator_rBoPCB, addon.Fly_Binding, L["COLLECTIBLE_BOP_DESC"], 18, 4, 1, 0)
+				Collectinator_rBoPCBText:SetText(L["CollectibleBOPFilter"])
 
 		addon.Fly_Item = CreateFrame("Frame", "Collectinator_Fly_Item", addon.Flyaway)
 			addon.Fly_Item:SetWidth(210)
@@ -4266,8 +4266,8 @@ function addon:CreateFrame(
 		-- Binding Options
 			[15] = { cb = Collectinator_iBoECB, 					svroot = filterdb.binding, 		svval = "itemboe" }, 
 			[16] = { cb = Collectinator_iBoPCB, 					svroot = filterdb.binding, 		svval = "itembop" }, 
-			[17] = { cb = Collectinator_rBoECB, 					svroot = filterdb.binding, 		svval = "recipeboe" }, 
-			[18] = { cb = Collectinator_rBoPCB, 					svroot = filterdb.binding, 		svval = "recipebop" }, 
+			[17] = { cb = Collectinator_rBoECB, 					svroot = filterdb.binding, 		svval = "collectibleboe" }, 
+			[18] = { cb = Collectinator_rBoPCB, 					svroot = filterdb.binding, 		svval = "collectiblebop" }, 
 		-- Armor Options
 			[21] = { cb = Collectinator_ArmorClothCB, 				svroot = filterdb.item.armor, 	svval = "cloth" }, 
 			[22] = { cb = Collectinator_ArmorLeatherCB, 			svroot = filterdb.item.armor, 	svval = "leather" }, 
@@ -4359,7 +4359,7 @@ function addon:CreateFrame(
 	SetSwitcherTexture(SortedCollections[currentProfIndex].texture)
 
 	-- Sort the list
-	sortedRecipeIndex = addon:SortDatabase(recipeDB)
+	sortedCollectibleIndex = addon:SortDatabase(collectibleDB)
 
 	-- Take our sorted list, and fill up DisplayStrings
 	initDisplayStrings()
@@ -4368,7 +4368,7 @@ function addon:CreateFrame(
 	SetProgressBar(cPlayer)
 
 	-- And update our scrollframe
-	RecipeList_Update()
+	CollectibleList_Update()
 	addon.Frame:Show()
 
 	-- Make sure to reset search gui elements
@@ -4379,21 +4379,21 @@ end
 
 
 -- Description: Creates a new frame with the contents of a text dump so you can copy and paste
--- Expected result: New frame with all recipes listed and acquire info
+-- Expected result: New frame with all collectibles listed and acquire info
 -- Input: A text string of what to paste
 -- Output: None
 -- Creates a frame where you can copy and paste contents from.  Adds the textdump text into that frame.
 -- Code stolen from Antiarc and Chatter
 
-function addon:DisplayTextDump(RecipeDB, profession, text)
+function addon:DisplayTextDump(CollectibleDB, profession, text)
 
 	local textdump
 
-	-- If we don't send in a RecipeDB and profession, just dump the text
-	if (not RecipeDB and not profession) then
+	-- If we don't send in a CollectibleDB and profession, just dump the text
+	if (not CollectibleDB and not profession) then
 		textdump = text
 	else
-		textdump = self:GetTextDump(RecipeDB, profession)
+		textdump = self:GetTextDump(CollectibleDB, profession)
 	end
 
 	local PaneBackdrop  = {
