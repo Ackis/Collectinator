@@ -564,23 +564,21 @@ local function toRGB(hex)
 	return (tonumber(r, 16) / 256), (tonumber(g, 16) / 256), (tonumber(b, 16) / 256)
 end
 
--- Description: 
-
--- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes, 
+-- I want to do a bit more comprehensive tooltip processing. Things like changing font sizes,
 -- adding padding to the left hand side, and using better color handling. So... this function
 -- will do that for me.
 
 local function ttAdd(
-	leftPad, 		-- number of times to pad two spaces on left side
-	textSize, 		-- negative number. subtract from 12 to get fontsize
-	narrow, 			-- if 1, use ARIALN instead of FRITZQ
-	use_span, 		-- will str1 span both columns?
-	str1, 			-- left hand string
-	hexcolor1, 		-- hex color code for left hand side
-	str2, 			-- if present, this is a double line, and this is the right hand string
-	hexcolor2)		-- if present, hex color code for right hand side
+	leftPad,		-- number of times to pad two spaces on left side
+	textSize,		-- add to or subtract from addon.db.profile.frameopts.fontsize to get fontsize
+	narrow,			-- if 1, use ARIALN instead of FRITZQ
+	str1,			-- left-hand string
+	hexcolor1,		-- hex color code for left-hand side
+	str2,			-- if present, this is the right-hand string
+	hexcolor2)		-- if present, hex color code for right-hand side
 
 	-- are we changing fontsize or narrow?
+	local fontSize
 	if ((narrow == 1) or (textSize ~= 0)) then
 		local font, fontObj = normalFont, normalFontObj
 		if (narrow == 1) then
@@ -588,9 +586,9 @@ local function ttAdd(
 			fontObj = narrowFontObj
 		end
 
-		local fontsize = addon.db.profile.frameopts.fontsize + textSize
+		fontSize = addon.db.profile.frameopts.fontsize + textSize
 
-		fontObj:SetFont(font, fontsize)
+		fontObj:SetFont(font, fontSize)
 		CollectinatorTooltip:SetFont(fontObj)
 	end
 
@@ -602,20 +600,21 @@ local function ttAdd(
 		leftStr = "  " .. leftStr
 		loopPad = loopPad - 1
 	end
+	local lineNum
 
 	if (str2) then
-		local lineNum = CollectinatorTooltip:AddLine(" ")
+		lineNum = CollectinatorTooltip:AddLine()
 		CollectinatorTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r")
-		CollectinatorTooltip:SetCell(lineNum, 2, "|cff"..hexcolor2..str2.."|r")
-	elseif use_span then
-		local lineNum = CollectinatorTooltip:AddLine(" ")
-		CollectinatorTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r", "LEFT", 2)
+		CollectinatorTooltip:SetCell(lineNum, 2, "|cff"..hexcolor2..str2.."|r", "RIGHT")
 	else
-		CollectinatorTooltip:AddLine("|cff"..hexcolor1..leftStr.."|r")
+		-- Text spans both columns - set maximum width to match fontSize to maintain uniform tooltip size. -Torhal
+		local width = math.ceil(fontSize * 37.5)
+		lineNum = CollectinatorTooltip:AddLine()
+		CollectinatorTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
 	end
 end
 
-local function SetSpellTooltip(owner, loc)
+local function SetSpellTooltip(owner, loc, link)
 	CollectinatorSpellTooltip:SetOwner(owner, "ANCHOR_NONE")
 	CollectinatorSpellTooltip:ClearAllPoints()
 	if (loc == "Top") then
@@ -627,372 +626,402 @@ local function SetSpellTooltip(owner, loc)
 	elseif (loc == "Right") then
 		CollectinatorSpellTooltip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
 	end
-
+	CollectinatorSpellTooltip:SetHyperlink(link)
+	CollectinatorSpellTooltip:Show()
 end
 
 local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
-	local clr1, clr2 = "", ""
-	local spelltooltiplocation = addon.db.profile.spelltooltiplocation
-	local acquiretooltiplocation = addon.db.profile.acquiretooltiplocation
+	local spellTooltipLocation = addon.db.profile.spelltooltiplocation
+	local acquireTooltipLocation = addon.db.profile.acquiretooltiplocation
+	local spellLink = collectibleDB[rIndex]["CollectibleLink"]
 
-	local spelllink = collectibleDB[rIndex]["CollectibleLink"]
-
-	if (acquiretooltiplocation == L["Off"]) then
-		CollectinatorTooltip:Hide()
-		-- If we have the spell link tooltip, link it to the owner instead so it shows
-		if (spelltooltiplocation ~= L["Off"]) and (spelllink) then
-			SetSpellTooltip(addon.Frame, spelltooltiplocation)
-			CollectinatorSpellTooltip:SetHyperlink(spelllink)
-			CollectinatorSpellTooltip:Show()
+	if (acquireTooltipLocation == L["Off"]) then
+		QTip:Release(CollectinatorTooltip)
+		-- If we have the spell link tooltip, anchor it to addon.Frame instead so it shows
+		if (spellTooltipLocation ~= L["Off"]) and spellLink then
+			SetSpellTooltip(addon.Frame, spellTooltipLocation, spellLink)
 		else
 			CollectinatorSpellTooltip:Hide()
 		end
-	else
+		return
+	end
+	CollectinatorTooltip = QTip:Acquire(MODNAME.." Tooltip", 2, "LEFT", "LEFT")
+	CollectinatorTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
+	CollectinatorTooltip:ClearAllPoints()
+
+	if (acquireTooltipLocation == "Right") then
+		CollectinatorTooltip:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT")
+	elseif (acquireTooltipLocation == "Left") then
+		CollectinatorTooltip:SetPoint("TOPRIGHT", addon.Frame, "TOPLEFT")
+	elseif (acquireTooltipLocation == "Top") then
+		CollectinatorTooltip:SetPoint("BOTTOMLEFT", addon.Frame, "TOPLEFT")
+	elseif (acquireTooltipLocation == "Bottom") then
+		CollectinatorTooltip:SetPoint("TOPLEFT", addon.Frame, "BOTTOMLEFT")
+	elseif (acquireTooltipLocation == "Mouse") then
 		CollectinatorTooltip:ClearAllPoints()
-		if (acquiretooltiplocation == "Right") then
-			CollectinatorTooltip:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT")
-		elseif (acquiretooltiplocation == "Left") then
-			CollectinatorTooltip:SetPoint("TOPRIGHT", addon.Frame, "TOPLEFT")
-		elseif (acquiretooltiplocation == "Top") then
-			CollectinatorTooltip:SetPoint("BOTTOMLEFT", addon.Frame, "TOPLEFT")
-		elseif (acquiretooltiplocation == "Bottom") then
-			CollectinatorTooltip:SetPoint("TOPLEFT", addon.Frame, "BOTTOMLEFT")
-		elseif (acquiretooltiplocation == "Mouse") then
-			CollectinatorTooltip:ClearAllPoints()
-			local x, y = GetCursorPosition()
-			local uiscale = UIParent:GetEffectiveScale()
-			x = x/uiscale
-			y = y/uiscale
-			CollectinatorTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
-		end
-
-		CollectinatorTooltip:Clear()
-		ttAdd(0, 1, 0, 0, collectibleDB[rIndex]["Name"], addon:hexcolor("HIGH"))
-
-		-- check if the collectible is excluded
-		if (exclude[rIndex] == true) then
-			clr1 = addon:hexcolor("RED")
-			ttAdd(0, -1, 1, 0, L["COLLECTIBLE_EXCLUDED"], clr1)
-		end
-
-		-- Add in skill level requirement, colored correctly
-		clr1 = addon:hexcolor("NORMAL")
-
-		local collectibleSkill = collectibleDB[rIndex]["Level"]
-		local playerSkill = playerData.playerProfessionLevel
-
-		if (collectibleSkill > playerSkill) then
-			clr2 = addon:hexcolor("RED")
-		elseif ((playerSkill - collectibleSkill) < 20) then
-			clr2 = addon:hexcolor("ORANGE")
-		elseif ((playerSkill - collectibleSkill) < 30) then
-			clr2 = addon:hexcolor("YELLOW")
-		elseif ((playerSkill - collectibleSkill) < 40) then
-			clr2 = addon:hexcolor("GREEN") 
-		else
-			clr2 = addon:hexcolor("MIDGREY")
-		end
-
-		ttAdd(0, -1, 0, 0, L["Required Skill"] .. " :", clr1, collectibleDB[rIndex]["Level"], clr2)
-		-- spacer
-		ttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
-		-- Binding info
-		clr1 = addon:hexcolor("NORMAL")
-
-		if (collectibleDB[rIndex]["Flags"][36]) then
-			ttAdd(0, -1, 1, 0, L["BOEFilter"], clr1)
-		end
-
-		if (collectibleDB[rIndex]["Flags"][37]) then
-			ttAdd(0, -1, 1, 0, L["BOPFilter"], clr1)
-		end
-
-		if (collectibleDB[rIndex]["Flags"][38]) then
-			ttAdd(0, -1, 1, 0, L["BOAFilter"], clr1)
-		end
-
-		if (collectibleDB[rIndex]["Flags"][40]) then
-			ttAdd(0, -1, 1, 0, L["CollectibleBOEFilter"], clr1)
-		end
-
-		if (collectibleDB[rIndex]["Flags"][41]) then
-			ttAdd(0, -1, 1, 0, L["CollectibleBOPFilter"], clr1)
-		end
-
-		if (collectibleDB[rIndex]["Flags"][42]) then
-			ttAdd(0, -1, 1, 0, L["CollectibleBOAFilter"], clr1)
-		end
-
-		-- spacer
-		ttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
-
-		-- obtain info
-		ttAdd(0, -1, 0, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
-
-		local factiondisp = addon.db.profile.filters.general.faction
-
-		-- loop through acquire methods, display each
-		for k, v in pairs(collectibleDB[rIndex]["Acquire"]) do
-
-			-- Trainer
-			if (v["Type"] == 1) then
-				-- Trainer:				TrainerName
-				-- TrainerZone			TrainerCoords
-				local trnr = trainerDB[v["ID"]]
-				local cStr = ""
-
-				clr1 = addon:hexcolor("TRAINER")
-				-- Don't display trainers if it's opposite faction
-				local displaytt = false
-				if (trnr["Faction"] == BFAC["Horde"]) then
-					clr2 = addon:hexcolor("HORDE")
-					if (playerFaction == BFAC["Horde"]) then
-						displaytt = true
-					end
-				elseif (trnr["Faction"] == factionAlliance) then
-					clr2 = addon:hexcolor("ALLIANCE")
-					if (playerFaction == factionAlliance) then
-						displaytt = true
-					end
-				else
-					clr2 = addon:hexcolor("NEUTRAL")
-					displaytt = true
-				end
-
-				if (displaytt) then
-					-- Add the trainer information to the tooltip
-					ttAdd(0, -2, 0, 0, L["Trainer"], clr1, trnr["Name"], clr2)
-					-- If we have a coordinate, add the coordinates to the tooltop
-					if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
-						cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
-					end
-					clr1 = addon:hexcolor("NORMAL")
-					clr2 = addon:hexcolor("HIGH")
-					ttAdd(1, -2, 1, 0, trnr["Location"], clr1, cStr, clr2)
-				end
-
-			-- Vendor
-			elseif (v["Type"] == 2) then
-
-				-- Vendor:					VendorName
-				-- VendorZone				VendorCoords
-				local vndr = vendorDB[v["ID"]]
-				local cStr = ""
-
-				clr1 = addon:hexcolor("VENDOR")
-				-- Don't display vendors of opposite faction
-				local displaytt = false
-				if (vndr["Faction"] == BFAC["Horde"]) then
-					clr2 = addon:hexcolor("HORDE")
-					if (playerFaction == BFAC["Horde"]) then
-						displaytt = true
-					end
-				elseif (vndr["Faction"] == factionAlliance) then
-					clr2 = addon:hexcolor("ALLIANCE")
-					if (playerFaction == factionAlliance) then
-						displaytt = true
-					end
-				else
-					clr2 = addon:hexcolor("NEUTRAL")
-					displaytt = true
-				end
-
-				if (displaytt) then
-					if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
-						cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
-					end
-
-					ttAdd(0, -1, 0, 0, L["Vendor"], clr1, vndr["Name"], clr2)
-					clr1 = addon:hexcolor("NORMAL")
-					clr2 = addon:hexcolor("HIGH")
-					ttAdd(1, -2, 1, 0, vndr["Location"], clr1, cStr, clr2)
-				end
-
-			-- Mob Drop
-			elseif (v["Type"] == 3) then
-
-				-- Mob Drop:				Mob Name
-				-- MobZone					MobCoords
-				local mob = mobDB[v["ID"]]
-				local cStr = ""
-
-				if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
-					cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
-				end
-
-				clr1 = addon:hexcolor("MOBDROP")
-				clr2 = addon:hexcolor("HORDE")
-				ttAdd(0, -1, 0, 0, L["Mob Drop"], clr1, mob["Name"], clr2)
-				clr1 = addon:hexcolor("NORMAL")
-				clr2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, 1, 0, mob["Location"], clr1, cStr, clr2)
-
-			-- Quest
-			elseif (v["Type"] == 4) then
-
-				-- Quest:					QuestName
-				-- QuestZone				QuestCoords
-				local qst = questDB[v["ID"]]
-
-				if (qst ~= nil) then
-					clr1 = addon:hexcolor("QUEST")
-					-- Don't display quests of opposite faction
-					local displaytt = false
-					if (qst["Faction"] == BFAC["Horde"]) then
-						clr2 = addon:hexcolor("HORDE")
-						if (playerFaction == BFAC["Horde"]) then
-							displaytt = true
-						end
-					elseif (qst["Faction"] == factionAlliance) then
-						clr2 = addon:hexcolor("ALLIANCE")
-						if (playerFaction == factionAlliance) then
-							displaytt = true
-						end
-					else
-						clr2 = addon:hexcolor("NEUTRAL")
-						displaytt = true
-					end
-
-					if (displaytt) then
-						local cStr = ""
-						if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
-							cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
-						end
-
-						ttAdd(0, -1, 0, 0, L["Quest"], clr1, qst["Name"], clr2)
-						clr1 = addon:hexcolor("NORMAL")
-						clr2 = addon:hexcolor("HIGH")
-						ttAdd(1, -2, 1, 0, qst["Location"], clr1, cStr, clr2)
-					end
-				end
-
-			-- Seasonal
-			elseif (v["Type"] == 5) then
-
-				-- Seasonal:				SeasonEventName
-				local ssnname = seasonDB[v["ID"]]["Name"]
-
-				clr1 = addon:hexcolor("SEASON")
-				ttAdd(0, -1, 0, 0, seasonal, clr1, ssnname, clr1)
-
-			-- Reputation
-			elseif (v["Type"] == ACQUIRE_REPUTATION) then
-
-				-- Reputation:				Faction
-				-- FactionLevel				RepVendor				
-				-- RepVendorZone			RepVendorCoords
-
-				local repfac = repDB[v["ID"]]
-				local repname = repfac["Name"] -- name
-				local rplvl = v["RepLevel"]
-				local repvndr = vendorDB[v["RepVendor"]]
-				local cStr = ""
-
-				if (repvndr["Coordx"] ~= 0) and (repvndr["Coordy"] ~= 0) then
-					cStr = "(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")"
-				end
-				
-				clr1 = addon:hexcolor("REP")
-				clr2 = addon:hexcolor("NORMAL")
-				ttAdd(0, -1, 0, 0, L["Reputation"], clr1, repname, clr2)
-
-				local rStr = ""
-				if (rplvl == 0) then
-					rStr = BFAC["Neutral"]
-					clr1 = addon:hexcolor("NEUTRAL")
-				elseif (rplvl == 1) then
-					rStr = BFAC["Neutral"]
-					clr1 = addon:hexcolor("FRIENDLY")
-				elseif (rplvl == 2) then
-					rStr = BFAC["Honored"]
-					clr1 = addon:hexcolor("HONORED")
-				elseif (rplvl == 3) then
-					rStr = BFAC["Revered"]
-					clr1 = addon:hexcolor("REVERED")
-				else
-					rStr = BFAC["Exalted"]
-					clr1 = addon:hexcolor("EXALTED")
-				end
-
-				local displaytt = false
-				if (repvndr["Faction"] == BFAC["Horde"]) then
-					clr2 = addon:hexcolor("HORDE")
-					if (playerFaction == BFAC["Horde"]) then
-						displaytt = true
-					end
-				elseif (repvndr["Faction"] == factionAlliance) then
-					clr2 = addon:hexcolor("ALLIANCE")
-					if (playerFaction == factionAlliance) then
-						displaytt = true
-					end
-				else
-					clr2 = addon:hexcolor("NEUTRAL")
-					displaytt = true
-				end
-
-				if (displaytt) then
-					ttAdd(1, -2, 0, 0, rStr, clr1, repvndr["Name"], clr2)
-					clr1 = addon:hexcolor("NORMAL")
-					clr2 = addon:hexcolor("HIGH")
-					ttAdd(2, -2, 1, 0, repvndr["Location"], clr1, cStr, clr2)
-				end
-
-			-- World Drop
-			elseif (v["Type"] == 7) then
-
-				-- World Drop				RarityLevel
-				if (v["ID"] == 1) then
-					clr1 = addon:hexcolor("COMMON")
-				elseif (v["ID"] == 2) then
-					clr1 = addon:hexcolor("UNCOMMON")
-				elseif (v["ID"] == 3) then
-					clr1 = addon:hexcolor("RARE")
-				elseif (v["ID"] == 4) then
-					clr1 = addon:hexcolor("EPIC")
-				else
-					clr1 = addon:hexcolor("NORMAL")
-				end
-
-				ttAdd(0, -1, 0, 0, L["World Drop"], clr1)
-
-			-- Custom entry
-			elseif (v["Type"] == 8) then
-				-- Seasonal:				SeasonEventName
-				local customname = customDB[v["ID"]]["Name"]
-
-				clr1 = addon:hexcolor("NORMAL")
-				ttAdd(0, -1, 0, 0, customname, clr1)
-
-			-- Unhandled
-			else
-				clr1 = addon:hexcolor("NORMAL")
-				ttAdd(0, -1, 0, 0, L["Unhandled Collectible"], clr1)
-			end
-
-		end
-
-		-- Spacer
-		ttAdd(0, 0, 0, 0, ".", addon:hexcolor("BLACK"))
-
-		clr1 = addon:hexcolor("NORMAL")
-
-		ttAdd(0, -1, 0, 0, L["ALT_CLICK"], clr1)
-		ttAdd(0, -1, 0, 1, L["CTRL_CLICK"], clr1)
-		ttAdd(0, -1, 0, 1, L["SHIFT_CLICK"], clr1)
-		ttAdd(0, -1, 0, 1, L["CTRL_SHIFT_CLICK"], clr1)
-
-		CollectinatorTooltip:Show()
-
-		-- If we have the spell link tooltip, link it to the owner instead so it shows
-		if (spelltooltiplocation ~= L["Off"]) and (spelllink) then
-			SetSpellTooltip(CollectinatorTooltip, spelltooltiplocation)
-			CollectinatorSpellTooltip:SetHyperlink(spelllink)
-			CollectinatorSpellTooltip:Show()
-		else
-			CollectinatorSpellTooltip:Hide()
-		end
+		local x,y = GetCursorPosition()
+		local uiscale = UIParent:GetEffectiveScale()
+		x = x/uiscale
+		y = y/uiscale
+		CollectinatorTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
 	end
 
+	if TipTac and TipTac.AddModifiedTip then
+		-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
+		TipTac:AddModifiedTip(CollectinatorTooltip, true)
+	end
+	local clr1, clr2 = "", ""
+
+	CollectinatorTooltip:Clear()
+	CollectinatorTooltip:AddHeader()
+	CollectinatorTooltip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..collectibleDB[rIndex]["Name"], "CENTER", 2)
+
+	-- check if the collectible is excluded
+	if (exclude[rIndex] == true) then
+		ttAdd(0, -1, 1, L["COLLECTIBLE_EXCLUDED"], addon:hexcolor("RED"))
+	end
+
+	-- Add in skill level requirement, colored correctly
+	clr1 = addon:hexcolor("NORMAL")
+
+	local collectibleSkill = collectibleDB[rIndex]["Level"]
+	local playerSkill = playerData.playerProfessionLevel
+
+	if (collectibleSkill > playerSkill) then
+		clr2 = addon:hexcolor("RED")
+	elseif ((playerSkill - collectibleSkill) < 20) then
+		clr2 = addon:hexcolor("ORANGE")
+	elseif ((playerSkill - collectibleSkill) < 30) then
+		clr2 = addon:hexcolor("YELLOW")
+	elseif ((playerSkill - collectibleSkill) < 40) then
+		clr2 = addon:hexcolor("GREEN") 
+	else
+		clr2 = addon:hexcolor("MIDGREY")
+	end
+	ttAdd(0, -1, 0, L["Required Skill"] .. " :", clr1, collectibleDB[rIndex]["Level"], clr2)
+	CollectinatorTooltip:AddSeparator()
+	-- Binding info
+	clr1 = addon:hexcolor("NORMAL")
+
+	if (collectibleDB[rIndex]["Flags"][36]) then
+		ttAdd(0, -1, 1, L["BOEFilter"], clr1)
+	end
+
+	if (collectibleDB[rIndex]["Flags"][37]) then
+		ttAdd(0, -1, 1, L["BOPFilter"], clr1)
+	end
+
+	if (collectibleDB[rIndex]["Flags"][38]) then
+		ttAdd(0, -1, 1, L["BOAFilter"], clr1)
+	end
+
+	if (collectibleDB[rIndex]["Flags"][40]) then
+		ttAdd(0, -1, 1, L["CollectibleBOEFilter"], clr1)
+	end
+
+	if (collectibleDB[rIndex]["Flags"][41]) then
+		ttAdd(0, -1, 1, L["CollectibleBOPFilter"], clr1)
+	end
+
+	if (collectibleDB[rIndex]["Flags"][42]) then
+		ttAdd(0, -1, 1, L["CollectibleBOAFilter"], clr1)
+	end
+	CollectinatorTooltip:AddSeparator()
+
+	-- obtain info
+	ttAdd(0, -1, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
+
+	local factiondisp = addon.db.profile.filters.general.faction
+
+	-- loop through acquire methods, display each
+	for k, v in pairs(collectibleDB[rIndex]["Acquire"]) do
+		if (v["Type"] == ACQUIRE_TRAINER) then
+			-- Trainer:			TrainerName
+			-- TrainerZone			TrainerCoords
+			local trnr = trainerDB[v["ID"]]
+			local cStr = ""
+
+			clr1 = addon:hexcolor("TRAINER")
+			-- Don't display trainers if it's opposite faction
+			local displaytt = false
+			if (trnr["Faction"] == factionHorde) then
+				clr2 = addon:hexcolor("HORDE")
+				if (playerFaction == factionHorde) then
+					displaytt = true
+				end
+			elseif (trnr["Faction"] == factionAlliance) then
+				clr2 = addon:hexcolor("ALLIANCE")
+				if (playerFaction == factionAlliance) then
+					displaytt = true
+				end
+			else
+				clr2 = addon:hexcolor("NEUTRAL")
+				displaytt = true
+			end
+
+			if (displaytt) then
+				-- Add the trainer information to the tooltip
+				ttAdd(0, -2, 0, L["Trainer"], clr1, trnr["Name"], clr2)
+				-- If we have a coordinate, add the coordinates to the tooltop
+				if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
+					cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
+				end
+				clr1 = addon:hexcolor("NORMAL")
+				clr2 = addon:hexcolor("HIGH")
+				ttAdd(1, -2, 1, trnr["Location"], clr1, cStr, clr2)
+			end
+		elseif (v["Type"] == ACQUIRE_VENDOR) then
+			-- Vendor:					VendorName
+			-- VendorZone				VendorCoords
+			local vndr = vendorDB[v["ID"]]
+			local cStr = ""
+
+			clr1 = addon:hexcolor("VENDOR")
+			-- Don't display vendors of opposite faction
+			local displaytt = false
+			local faction
+
+			if (vndr["Faction"] == factionHorde) then
+				clr2 = addon:hexcolor("HORDE")
+				if (playerFaction == factionHorde) then
+					displaytt = true
+				else
+					faction = factionHorde
+				end
+			elseif (vndr["Faction"] == factionAlliance) then
+				clr2 = addon:hexcolor("ALLIANCE")
+				if (playerFaction == factionAlliance) then
+					displaytt = true
+				else
+					faction = factionAlliance
+				end
+			else
+				clr2 = addon:hexcolor("NEUTRAL")
+				displaytt = true
+			end
+
+			if (displaytt) then
+				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
+					cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
+				end
+
+				ttAdd(0, -1, 0, L["Vendor"], clr1, vndr["Name"], clr2)
+				clr1 = addon:hexcolor("NORMAL")
+				clr2 = addon:hexcolor("HIGH")
+				ttAdd(1, -2, 1, vndr["Location"], clr1, cStr, clr2)
+			elseif faction then
+				ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
+			end
+		elseif (v["Type"] == ACQUIRE_MOB) then
+			-- Mob Drop:			Mob Name
+			-- MoBZ				MobCoords
+			local mob = mobDB[v["ID"]]
+			local cStr = ""
+
+			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
+				cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
+			end
+
+			clr1 = addon:hexcolor("MOBDROP")
+			clr2 = addon:hexcolor("HORDE")
+			ttAdd(0, -1, 0, L["Mob Drop"], clr1, mob["Name"], clr2)
+			clr1 = addon:hexcolor("NORMAL")
+			clr2 = addon:hexcolor("HIGH")
+			ttAdd(1, -2, 1, mob["Location"], clr1, cStr, clr2)
+		elseif (v["Type"] == ACQUIRE_QUEST) then
+			-- Quest:				QuestName
+			-- QuestZone				QuestCoords
+			local qst = questDB[v["ID"]]
+
+			if qst then
+				clr1 = addon:hexcolor("QUEST")
+				-- Don't display quests of opposite faction
+				local displaytt = false
+				local faction
+
+				if (qst["Faction"] == factionHorde) then
+					clr2 = addon:hexcolor("HORDE")
+					if (playerFaction == factionHorde) then
+						displaytt = true
+					else
+						faction = factionHorde
+					end
+				elseif (qst["Faction"] == factionAlliance) then
+					clr2 = addon:hexcolor("ALLIANCE")
+					if (playerFaction == factionAlliance) then
+						displaytt = true
+					else
+						faction = factionAlliance
+					end
+				else
+					clr2 = addon:hexcolor("NEUTRAL")
+					displaytt = true
+				end
+
+				if (displaytt) then
+					local cStr = ""
+					if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
+						cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
+					end
+
+					ttAdd(0, -1, 0, L["Quest"], clr1, qst["Name"], clr2)
+					clr1 = addon:hexcolor("NORMAL")
+					clr2 = addon:hexcolor("HIGH")
+					ttAdd(1, -2, 1, qst["Location"], clr1, cStr, clr2)
+				elseif faction then
+					ttAdd(0, -1, 0, faction.." "..L["Quest"], clr1)
+				end
+			end
+		elseif (v["Type"] == ACQUIRE_SEASONAL) then
+			-- Seasonal:				SeasonEventName
+			local ssnname = seasonDB[v["ID"]]["Name"]
+
+			clr1 = addon:hexcolor("SEASON")
+			ttAdd(0, -1, 0, seasonal, clr1, ssnname, clr1)
+		elseif (v["Type"] == ACQUIRE_REPUTATION) then
+			-- Reputation:				Faction
+			-- FactionLevel				RepVendor				
+			-- RepVendorZone			RepVendorCoords
+
+			local repfac = repDB[v["ID"]]
+			local repname = repfac["Name"] -- name
+			local rplvl = v["RepLevel"]
+			local repvndr = vendorDB[v["RepVendor"]]
+			local cStr = ""
+
+			if (repvndr["Coordx"] ~= 0) and (repvndr["Coordy"] ~= 0) then
+				cStr = "(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")"
+			end
+			clr1 = addon:hexcolor("REP")
+			clr2 = addon:hexcolor("NORMAL")
+			ttAdd(0, -1, 0, L["Reputation"], clr1, repname, clr2)
+
+			local rStr = ""
+			if (rplvl == 0) then
+				rStr = factionNeutral
+				clr1 = addon:hexcolor("NEUTRAL")
+			elseif (rplvl == 1) then
+				rStr = BFAC["Friendly"]
+				clr1 = addon:hexcolor("FRIENDLY")
+			elseif (rplvl == 2) then
+				rStr = BFAC["Honored"]
+				clr1 = addon:hexcolor("HONORED")
+			elseif (rplvl == 3) then
+				rStr = BFAC["Revered"]
+				clr1 = addon:hexcolor("REVERED")
+			else
+				rStr = BFAC["Exalted"]
+				clr1 = addon:hexcolor("EXALTED")
+			end
+
+			local displaytt = false
+			if (repvndr["Faction"] == factionHorde) then
+				clr2 = addon:hexcolor("HORDE")
+				if (playerFaction == factionHorde) then
+					displaytt = true
+				end
+			elseif (repvndr["Faction"] == factionAlliance) then
+				clr2 = addon:hexcolor("ALLIANCE")
+				if (playerFaction == factionAlliance) then
+					displaytt = true
+				end
+			else
+				clr2 = addon:hexcolor("NEUTRAL")
+				displaytt = true
+			end
+
+			if (displaytt) then
+				ttAdd(1, -2, 0, rStr, clr1, repvndr["Name"], clr2)
+				clr1 = addon:hexcolor("NORMAL")
+				clr2 = addon:hexcolor("HIGH")
+				ttAdd(2, -2, 1, repvndr["Location"], clr1, cStr, clr2)
+			end
+		elseif (v["Type"] == ACQUIRE_WORLD_DROP) then
+			-- World Drop				RarityLevel
+			if (v["ID"] == 1) then
+				clr1 = addon:hexcolor("COMMON")
+			elseif (v["ID"] == 2) then
+				clr1 = addon:hexcolor("UNCOMMON")
+			elseif (v["ID"] == 3) then
+				clr1 = addon:hexcolor("RARE")
+			elseif (v["ID"] == 4) then
+				clr1 = addon:hexcolor("EPIC")
+			else
+				clr1 = addon:hexcolor("NORMAL")
+			end
+			ttAdd(0, -1, 0, L["World Drop"], clr1)
+		elseif (v["Type"] == ACQUIRE_CUSTOM) then
+			local customname = customDB[v["ID"]]["Name"]
+
+			ttAdd(0, -1, 0, customname, addon:hexcolor("NORMAL"))
+		elseif (v["Type"] == ACQUIRE_PVP) then
+			-- Vendor:					VendorName
+			-- VendorZone				VendorCoords
+			local vndr = vendorDB[v["ID"]]
+			local cStr = ""
+
+			clr1 = addon:hexcolor("VENDOR")
+			-- Don't display vendors of opposite faction
+			local displaytt = false
+			local faction
+
+			if (vndr["Faction"] == factionHorde) then
+				clr2 = addon:hexcolor("HORDE")
+				if (playerFaction == factionHorde) then
+					displaytt = true
+				else
+					faction = factionHorde
+				end
+			elseif (vndr["Faction"] == factionAlliance) then
+				clr2 = addon:hexcolor("ALLIANCE")
+				if (playerFaction == factionAlliance) then
+					displaytt = true
+				else
+					faction = factionAlliance
+				end
+			else
+				clr2 = addon:hexcolor("NEUTRAL")
+				displaytt = true
+			end
+
+			if (displaytt) then
+				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
+					cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
+				end
+
+				ttAdd(0, -1, 0, L["Vendor"], clr1, vndr["Name"], clr2)
+				clr1 = addon:hexcolor("NORMAL")
+				clr2 = addon:hexcolor("HIGH")
+				ttAdd(1, -2, 1, vndr["Location"], clr1, cStr, clr2)
+			elseif faction then
+				ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
+			end
+		--@alpha@
+		else	-- Unhandled
+			ttAdd(0, -1, 0, L["Unhandled Collectible"], addon:hexcolor("NORMAL"))
+		--@end-alpha@
+		end
+	end
+	CollectinatorTooltip:AddSeparator()
+	CollectinatorTooltip:AddSeparator()
+
+	clr1 = addon:hexcolor("NORMAL")
+
+	ttAdd(0, -1, 0, L["ALT_CLICK"], clr1)
+	ttAdd(0, -1, 0, L["CTRL_CLICK"], clr1)
+	ttAdd(0, -1, 0, L["SHIFT_CLICK"], clr1)
+
+	if addon.db.profile.worldmap or addon.db.profile.minimap then
+		ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], clr1)
+	end
+	CollectinatorTooltip:Show()
+
+	-- If we have the spell link tooltip, link it to the acquire tooltip.
+	if (spellTooltipLocation ~= L["Off"]) and (spellLink) then
+		SetSpellTooltip(CollectinatorTooltip, spellTooltipLocation, spellLink)
+	else
+		CollectinatorSpellTooltip:Hide()
+	end
 end
 
 -- Description: This sets the tooltip on the button during a collectiblelist update
@@ -1266,13 +1295,15 @@ function addon.numFilters()
 	local active = 0
 
 	for i = 1, MaxFilters do
-		if (FilterValueMap[i].svroot == "disabled") then
-			-- ignore these filters in the totals
-		elseif (FilterValueMap[i].svroot[ FilterValueMap[i].svval ] == true) then
-			active = active + 1
-			total = total + 1
-		else
-			total = total + 1
+		if FilterValueMap[i] and FilterValueMap[i].svroot then
+			if (FilterValueMap[i].svroot == "disabled") then
+				-- ignore these filters in the totals
+			elseif (FilterValueMap[i].svroot[ FilterValueMap[i].svval ] == true) then
+				active = active + 1
+				total = total + 1
+			else
+				total = total + 1
+			end
 		end
 	end
 	return active, total
@@ -3068,13 +3099,12 @@ local function HandleTTClick(event, cell, arg, button)
 	end
 end
 
-clicktip:SetCallback("OnMouseDown", HandleTTClick)
-
-
 -------------------------------------------------------------------------------
 -- Creates the initial display frame for collectible info.
 -------------------------------------------------------------------------------
 local function InitializeFrame()
+	local CreateFrame = _G.CreateFrame
+
 	-------------------------------------------------------------------------------
 	-- Check to see if we're Horde or Alliance, and change the displayed
 	-- reputation strings to be faction-correct.
@@ -4274,31 +4304,6 @@ local function InitializeFrame()
 		[16] = { cb = Collectinator_iBoPCB, 					svroot = filterdb.binding, 		svval = "itembop" }, 
 		[17] = { cb = Collectinator_rBoECB, 					svroot = filterdb.binding, 		svval = "collectibleboe" }, 
 		[18] = { cb = Collectinator_rBoPCB, 					svroot = filterdb.binding, 		svval = "collectiblebop" }, 
-		-- Armor Options
-		[21] = { cb = Collectinator_ArmorClothCB, 				svroot = filterdb.item.armor, 	svval = "cloth" }, 
-		[22] = { cb = Collectinator_ArmorLeatherCB, 			svroot = filterdb.item.armor, 	svval = "leather" }, 
-		[23] = { cb = Collectinator_ArmorMailCB, 				svroot = filterdb.item.armor, 	svval = "mail" }, 
-		[24] = { cb = Collectinator_ArmorPlateCB, 				svroot = filterdb.item.armor, 	svval = "plate" }, 
-		[64] = { cb = Collectinator_ArmorCloakCB, 				svroot = filterdb.item.armor, 	svval = "cloak" }, 
-		[65] = { cb = Collectinator_ArmorNecklaceCB, 			svroot = filterdb.item.armor, 	svval = "necklace" }, 
-		[66] = { cb = Collectinator_ArmorRingCB, 				svroot = filterdb.item.armor, 	svval = "ring" }, 
-		[67] = { cb = Collectinator_ArmorTrinketCB, 			svroot = filterdb.item.armor, 	svval = "trinket" }, 
-		[19] = { cb = Collectinator_ArmorShieldCB, 			svroot = filterdb.item.armor, 	svval = "shield" }, 
-		-- Weapon Options
-		[27] = { cb = Collectinator_Weapon1HCB, 				svroot = filterdb.item.weapon, 	svval = "onehand" }, 
-		[28] = { cb = Collectinator_Weapon2HCB, 				svroot = filterdb.item.weapon, 	svval = "twohand" }, 
-		[29] = { cb = Collectinator_WeaponDaggerCB, 			svroot = filterdb.item.weapon, 	svval = "dagger" }, 
-		[30] = { cb = Collectinator_WeaponAxeCB, 				svroot = filterdb.item.weapon, 	svval = "axe" }, 
-		[31] = { cb = Collectinator_WeaponMaceCB, 				svroot = filterdb.item.weapon, 	svval = "mace" }, 
-		[32] = { cb = Collectinator_WeaponSwordCB, 			svroot = filterdb.item.weapon, 	svval = "sword" }, 
-		[33] = { cb = Collectinator_WeaponPolearmCB, 			svroot = filterdb.item.weapon, 	svval = "polearm" }, 
-		[20] = { cb = Collectinator_WeaponFistCB, 				svroot = filterdb.item.weapon, 	svval = "fist" }, 
-		[34] = { cb = Collectinator_WeaponStaffCB, 			svroot = "disabled", 			svval = "" }, 
-		[68] = { cb = Collectinator_WeaponWandCB, 				svroot = filterdb.item.weapon, 	svval = "wand" }, 
-		[35] = { cb = Collectinator_WeaponThrownCB, 			svroot = filterdb.item.weapon, 	svval = "thrown" }, 
-		[36] = { cb = Collectinator_WeaponBowCB, 				svroot = "disabled", 			svval = "" }, 
-		[37] = { cb = Collectinator_WeaponCrossbowCB, 			svroot = "disabled", 			svval = "" }, 
-		[38] = { cb = Collectinator_WeaponAmmoCB, 				svroot = filterdb.item.weapon, 	svval = "ammo" }, 
 		-- Player Type Options
 		[41] = { cb = Collectinator_PlayerTankCB, 				svroot = filterdb.player, 		svval = "tank" }, 
 		[42] = { cb = Collectinator_PlayerMeleeCB, 			svroot = filterdb.player, 		svval = "melee" }, 
@@ -4351,7 +4356,7 @@ local INDEX_TYPE = {
 }
 
 -------------------------------------------------------------------------------
--- Displays the main recipe frame if it exists. Otherwise, create the frame
+-- Displays the main collectible frame if it exists. Otherwise, create the frame
 -- and initialize it, then show it.
 -------------------------------------------------------------------------------
 function addon:DisplayFrame(
@@ -4381,7 +4386,6 @@ function addon:DisplayFrame(
 
 	sortedCollectibleIndex = sortedCI
 	collectibleDB = cDB
-	allSpecTable = asTable
 	playerData = cPlayer
 	currentProfession = playerData.playerProfession
 	vendorDB = vList
@@ -4415,7 +4419,6 @@ function addon:DisplayFrame(
 
 	-- reset the scale
 	addon.Frame:SetScale(addon.db.profile.frameopts.uiscale)
-	CollectinatorTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 	CollectinatorSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 
 	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
