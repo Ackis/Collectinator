@@ -206,16 +206,44 @@ StaticPopupDialogs["Collectinator_SEARCHFILTERED"] = {
 	hideOnEscape = 1
 }
 
--- Description: 
+-------------------------------------------------------------------------------
+-- Table cache mechanism
+-------------------------------------------------------------------------------
+local AcquireTable, ReleaseTable
+do
+	local table_cache = {}
 
-function addon:CloseWindow()
-	-- Close all possible pop-up windows
+	-- Returns a table
+	function AcquireTable()
+		local tbl = tremove(table_cache) or {}
+		return tbl
+	end
+
+	-- Cleans the table and stores it in the cache
+	function ReleaseTable(tbl)
+		if not tbl then return end
+		twipe(tbl)
+		tinsert(table_cache, tbl)
+	end
+end	-- do block
+
+-------------------------------------------------------------------------------
+-- Close all possible pop-up windows
+-------------------------------------------------------------------------------
+function addon:ClosePopups()
 	StaticPopup_Hide("Collectinator_NOTSCANNED")
 	StaticPopup_Hide("Collectinator_ALLFILTERED")
 	StaticPopup_Hide("Collectinator_ALLKNOWN")
 	StaticPopup_Hide("Collectinator_ALLEXCLUDED")
-	addon.Frame:Hide()
+	StaticPopup_Hide("Collectinator_SEARCHFILTERED")
+end
 
+-------------------------------------------------------------------------------
+-- Hide the main recipe frame, and close all popups.
+-------------------------------------------------------------------------------
+function addon:CloseWindow()
+	self:ClosePopups()
+	self.Frame:Hide()
 end
 
 ------------------------------------------------------------------------------
