@@ -1857,10 +1857,9 @@ function addon:SwitchProfs(button)
 
 end
 
--- Description: 
+local faction_strings	-- This is populated in expandEntry()
 
 local function expandEntry(dsIndex)
-
 	-- insertIndex is the position in DisplayStrings that we want
 	-- to expand. Since we are expanding the current entry, the return
 	-- value should be the index of the next button after the expansion
@@ -1869,326 +1868,245 @@ local function expandEntry(dsIndex)
 	local filterDB = addon.db.profile.filters
 	local obtainDB = filterDB.obtain
 	local collectibleIndex = DisplayStrings[dsIndex].sID
+	local pad = "  "
 
 	dsIndex = dsIndex + 1
 
 	-- Need to loop through the available acquires and put them all in
 	for k, v in pairs(collectibleDB[collectibleIndex]["Acquire"]) do
+		-- Initialize the first line here, since every type below will have one.
+		local t = AcquireTable()
+		t.IsCollectible = false
+		t.sID = collectibleIndex
+		t.IsExpanded = true
 
-		local pad = "  "
-		local t
+		if (v["Type"] == ACQUIRE_TRAINER) and obtainDB.trainer then
+			local trainer = trainerDB[v["ID"]]
 
-		-- Trainer Type
-		if (v["Type"] == 1) then
-
-			local trnr = trainerDB[v["ID"]]
-
-			if ((CheckDisplayFaction(filterDB, trnr["Faction"]) == true) and (obtainDB.trainer == true)) then
-
-				local tStr = addon:Trainer(L["Trainer"] .. " : ")
+			if CheckDisplayFaction(filterDB, trainer["Faction"]) then
 				local nStr = ""
-				local cStr = ""
 
-				if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")")
-				end
-
-				t = {}
-				t.IsCollectible = false
-				t.sID = collectibleIndex
-				t.IsExpanded = true
-
-				if (trnr["Faction"] == BFAC["Horde"]) then
-					nStr = addon:Horde(trnr["Name"])
-				elseif (trnr["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(trnr["Name"])
+				if (trainer["Faction"] == factionHorde) then
+					nStr = addon:Horde(trainer["Name"])
+				elseif (trainer["Faction"] == factionAlliance) then
+					nStr = addon:Alliance(trainer["Name"])
 				else
-					nStr = addon:Neutral(trnr["Name"])
+					nStr = addon:Neutral(trainer["Name"])
 				end
-
-				t.String = pad .. tStr .. nStr
+				t.String = pad .. addon:Trainer(L["Trainer"] .. " : ") .. nStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
-				t = {}
-				t.IsCollectible = false
-				t.sID = collectibleIndex
-				t.IsExpanded = true
-
-				t.String = pad .. pad .. trnr["Location"] .. " " .. cStr
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-			end
-
-		-- Vendor
-		elseif (v["Type"] == 2) then
-
-			local vndr = vendorDB[v["ID"]]
-
-			if ((CheckDisplayFaction(filterDB, vndr["Faction"]) == true) and (obtainDB.vendor == true)) then
-
-				local tStr = addon:Vendor(L["Vendor"] .. " : ")
-				local nStr = ""
 				local cStr = ""
 
-				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")")
+				if (trainer["Coordx"] ~= 0) and (trainer["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")")
 				end
-
-				t = {}
+				t = AcquireTable()
 				t.IsCollectible = false
 				t.sID = collectibleIndex
 				t.IsExpanded = true
+				t.String = pad .. pad .. trainer["Location"] .. " " .. cStr
 
-				if (vndr["Faction"] == BFAC["Horde"]) then
-					nStr = addon:Horde(vndr["Name"])
-				elseif (vndr["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(vndr["Name"])
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+			end
+		-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
+		-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
+		-- This allows us to select PVP only and to see just the PVP collectibles
+		elseif (v["Type"] == ACQUIRE_VENDOR) and (obtainDB.vendor or obtainDB.pvp) then
+			local vendor = vendorDB[v["ID"]]
+
+			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
+				local nStr = ""
+
+				if (vendor["Faction"] == factionHorde) then
+					nStr = addon:Horde(vendor["Name"])
+				elseif (vendor["Faction"] == factionAlliance) then
+					nStr = addon:Alliance(vendor["Name"])
 				else
-					nStr = addon:Neutral(vndr["Name"])
+					nStr = addon:Neutral(vendor["Name"])
 				end
-
-				t.String = pad .. tStr .. nStr
+				t.String = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
-				t = {}
-				t.IsCollectible = false
-				t.sID = collectibleIndex
-				t.IsExpanded = true
-
-				t.String = pad .. pad .. vndr["Location"] .. " " .. cStr
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-			end
-
-		-- Mob Drop Obtain
-		elseif (v["Type"] == 3) then
-
-			if ((obtainDB.mobdrop == true) or (obtainDB.instance == true) or (obtainDB.raid == true)) then
-
-				local mob = mobDB[v["ID"]]
-
-				local tStr = addon:MobDrop(L["Mob Drop"] .. " : ")
-				local nStr = ""
 				local cStr = ""
 
-				if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
+				if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
 				end
-
-				t = {}
+				t = AcquireTable()
 				t.IsCollectible = false
 				t.sID = collectibleIndex
 				t.IsExpanded = true
-
-				nStr = addon:Red(mob["Name"])
-				t.String = pad .. tStr .. nStr
+				t.String = pad .. pad .. vendor["Location"] .. " " .. cStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
-
-				t = {}
-				t.IsCollectible = false
-				t.sID = collectibleIndex
-				t.IsExpanded = true
-
-				t.String = pad .. pad .. mob["Location"] .. " " .. cStr
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
 			end
+		-- Mobs can be in instances, raids, or specific mob related drops.
+		elseif (v["Type"] == ACQUIRE_MOB) and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
+			local mob = mobDB[v["ID"]]
+			t.String = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
 
-		-- Quest Obtain
-		elseif (v["Type"] == 4) then
+			tinsert(DisplayStrings, dsIndex, t)
+			dsIndex = dsIndex + 1
 
-			local qst = questDB[v["ID"]]
+			local cStr = ""
 
-			if ((CheckDisplayFaction(filterDB, qst["Faction"]) == true) and (obtainDB.quest == true))then
+			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
+				cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
+			end
+			t = AcquireTable()
+			t.IsCollectible = false
+			t.sID = collectibleIndex
+			t.IsExpanded = true
+			t.String = pad .. pad .. mob["Location"] .. " " .. cStr
 
-				local tStr = addon:Quest(L["Quest"] .. " : ")
+			tinsert(DisplayStrings, dsIndex, t)
+			dsIndex = dsIndex + 1
+		elseif (v["Type"] == ACQUIRE_QUEST) and obtainDB.quest then
+			local quest = questDB[v["ID"]]
+
+			if CheckDisplayFaction(filterDB, quest["Faction"]) then
 				local nStr = ""
-				local cStr = ""
 
-				if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")")
-				end
-
-				t = {}
-				t.IsCollectible = false
-				t.sID = collectibleIndex
-				t.IsExpanded = true
-
-				if (qst["Faction"] == BFAC["Horde"]) then
-					nStr = addon:Horde(qst["Name"])
-				elseif (qst["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(qst["Name"])
+				if (quest["Faction"] == factionHorde) then
+					nStr = addon:Horde(quest["Name"])
+				elseif (quest["Faction"] == factionAlliance) then
+					nStr = addon:Alliance(quest["Name"])
 				else
-					nStr = addon:Neutral(qst["Name"])
+					nStr = addon:Neutral(quest["Name"])
 				end
-
-				t.String = pad .. tStr .. nStr
+				t.String = pad .. addon:Quest(L["Quest"] .. " : ") .. nStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
-				t = {}
+
+				local cStr = ""
+
+				if (quest["Coordx"] ~= 0) and (quest["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. quest["Coordx"] .. ", " .. quest["Coordy"] .. ")")
+				end
+				t = AcquireTable()
 				t.IsCollectible = false
 				t.sID = collectibleIndex
 				t.IsExpanded = true
-				t.String = pad .. pad .. qst["Location"] .. " " .. cStr
+				t.String = pad .. pad .. quest["Location"] .. " " .. cStr
+
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
-
 			end
-
-		-- Seasonal
-		elseif (v["Type"] == 5) then
-
-			if (obtainDB.seasonal == true) then
-
-				local ssnname = seasonDB[v["ID"]]["Name"]
-
-				t = {}
-				t.IsCollectible = false
-				t.sID = collectibleIndex
-				t.IsExpanded = true
-
-				local tStr = addon:Season(seasonal .. " : " .. ssnname)
-
-				t.String = pad .. tStr
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-			end
-
+		elseif (v["Type"] == ACQUIRE_SEASONAL) and obtainDB.seasonal then
+			t.String = pad .. addon:Season(seasonal .. " : " .. seasonDB[v["ID"]]["Name"])
+			tinsert(DisplayStrings, dsIndex, t)
+			dsIndex = dsIndex + 1
 		elseif (v["Type"] == ACQUIRE_REPUTATION) then -- Need to check if we're displaying the currently id'd rep or not as well
 			-- Reputation Obtain
 			-- Rep: ID, Faction
 			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
 			-- RepVendor - VendorID
-			-- Rep: RepName
-			--   RepLevel: RepVndrName
-			--     RepVndrLoc (Cx, Cy)
+			local rep_vendor = vendorDB[v["RepVendor"]]
 
-			local repfac = repDB[v["ID"]]
-			local repname = repfac["Name"] -- name
-			local rplvl = v["RepLevel"]
-			local repvndr = vendorDB[v["RepVendor"]]
+			if CheckDisplayFaction(filterDB, rep_vendor["Faction"]) then
+				t.String = pad .. addon:Rep(L["Reputation"] .. " : ") .. repDB[v["ID"]]["Name"]
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
 
-			if (CheckDisplayFaction(filterDB, repvndr["Faction"]) == true) then
-
-				-- properly colourize
-				local tStr = addon:Rep(L["Reputation"] .. " : ")
+				if not faction_strings then
+					faction_strings = {
+						[0] = addon:Neutral(factionNeutral .. " : "),
+						[1] = addon:Friendly(BFAC["Friendly"] .. " : "),
+						[2] = addon:Honored(BFAC["Honored"] .. " : "),
+						[3] = addon:Revered(BFAC["Revered"] .. " : "),
+						[4] = addon:Exalted(BFAC["Exalted"] .. " : ")
+					}
+				end
 				local nStr = ""
-				local rStr = ""
+
+				if (rep_vendor["Faction"] == factionHorde) then
+					nStr = addon:Horde(rep_vendor["Name"])
+				elseif (rep_vendor["Faction"] == factionAlliance) then
+					nStr = addon:Alliance(rep_vendor["Name"])
+				else
+					nStr = addon:Neutral(rep_vendor["Name"])
+				end
+				t = AcquireTable()
+				t.IsCollectible = false
+				t.sID = collectibleIndex
+				t.IsExpanded = true
+
+				t.String = pad .. pad .. faction_strings[v["RepLevel"]] .. nStr 
+
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+
 				local cStr = ""
 
-				if (repvndr["Coordx"] ~= 0) and (repvndr["Coordy"] ~= 0) then
-
-					cStr = addon:Coords("(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")")
-
+				if (rep_vendor["Coordx"] ~= 0) and (rep_vendor["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. rep_vendor["Coordx"] .. ", " .. rep_vendor["Coordy"] .. ")")
 				end
-
-				t = {}
+				t = AcquireTable()
 				t.IsCollectible = false
 				t.sID = collectibleIndex
 				t.IsExpanded = true
-
-				t.String = pad .. tStr .. repname
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-				-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
-				if (rplvl == 0) then rStr = addon:Neutral(BFAC["Neutral"] .. " : ")
-				elseif (rplvl == 1) then rStr = addon:Friendly(BFAC["Neutral"] .. " : ")
-				elseif (rplvl == 2) then rStr = addon:Honored(BFAC["Honored"] .. " : ")
-				elseif (rplvl == 3) then rStr = addon:Revered(BFAC["Revered"] .. " : ")
-				else rStr = addon:Exalted(BFAC["Exalted"] .. " : ") end
-
-				if (repvndr["Faction"] == BFAC["Horde"]) then
-					nStr = addon:Horde(repvndr["Name"])
-				elseif (repvndr["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(repvndr["Name"])
-				else
-					nStr = addon:Neutral(repvndr["Name"])
-				end
-
-				t = {}
-				t.IsCollectible = false
-				t.sID = collectibleIndex
-				t.IsExpanded = true
-
-				t.String = pad .. pad .. rStr .. nStr 
+				t.String = pad .. pad .. pad .. rep_vendor["Location"] .. " " .. cStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
-
-				t = {}
-				t.IsCollectible = false
-				t.sID = collectibleIndex
-				t.IsExpanded = true
-
-				t.String = pad .. pad .. pad .. repvndr["Location"] .. " " .. cStr
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
 			end
-
-		-- World Drop
-		elseif (v["Type"] == 7) then
-
-			if (obtainDB.worlddrop == true) then
-
-				t = {}
-				t.IsCollectible = false
-				t.sID = collectibleIndex
-				t.IsExpanded = true
-
-				t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-			end
-
-		-- Custom
-		elseif (v["Type"] == 8) then
-
-			-- Custom: ID, Name
-			local customname = customDB[v["ID"]]["Name"]
-
-			t = {}
-			t.IsCollectible = false
-			t.sID = collectibleIndex
-			t.IsExpanded = true
-
-			local tStr = addon:Normal(customname)
-
-			t.String = pad .. tStr
+		elseif (v["Type"] == ACQUIRE_WORLD_DROP) and obtainDB.worlddrop then
+			t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
+		elseif (v["Type"] == ACQUIRE_CUSTOM) then
+			t.String = pad .. addon:Normal(customDB[v["ID"]]["Name"])
+			tinsert(DisplayStrings, dsIndex, t)
+			dsIndex = dsIndex + 1
+		elseif (v["Type"] == ACQUIRE_PVP) and obtainDB.pvp then
+			local vendor = vendorDB[v["ID"]]
 
-		-- We have an acquire type we aren't sure how to deal with.
-		else
+			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
+				local cStr = ""
 
-			t = {}
-			t.IsCollectible = false
-			t.sID = collectibleIndex
-			t.IsExpanded = true
+				if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")")
+				end
+				local nStr = ""
 
+				if (vendor["Faction"] == factionHorde) then
+					nStr = addon:Horde(vendor["Name"])
+				elseif (vendor["Faction"] == factionAlliance) then
+					nStr = addon:Alliance(vendor["Name"])
+				else
+					nStr = addon:Neutral(vendor["Name"])
+				end
+				t.String = pad .. addon:Vendor(L["Vendor"] .. " : ") .. nStr
+
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+
+				t = AcquireTable()
+				t.IsCollectible = false
+				t.sID = collectibleIndex
+				t.IsExpanded = true
+				t.String = pad .. pad .. vendor["Location"] .. " " .. cStr
+
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
+			end
+		--@alpha@
+		elseif	(v["Type"] > ACQUIRE_MAX) then -- We have an acquire type we aren't sure how to deal with.
 			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-
+		--@end-alpha@
 		end
-
 	end
-	
 	return dsIndex
-
 end
 
 -- Description: 
