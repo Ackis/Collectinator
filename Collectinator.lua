@@ -1341,7 +1341,7 @@ do
 			else
 				local sortedindex = self:SortDatabase(CompanionDB)
 
-				--self:CreateFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
+				self:DisplayFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
 
 				for i, j in pairs(sortedindex) do
 					if (CompanionDB[j]["Display"] == true) then
