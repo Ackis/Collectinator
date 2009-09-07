@@ -2427,16 +2427,6 @@ function addon.setFlyawayState()
 	Collectinator_iBoPCB:SetChecked(filterdb.binding.itembop)
 	Collectinator_rBoECB:SetChecked(filterdb.binding.collectibleboe)
 	Collectinator_rBoPCB:SetChecked(filterdb.binding.collectiblebop)
---[[
-	--Disable weapon options. Probably don't need to touch these...
-	Collectinator_WeaponStaffCB
-	Collectinator_WeaponBowCB
-	Collectinator_WeaponCrossbowCB ]]--
-	-- Player Type Options
-	Collectinator_PlayerTankCB:SetChecked(filterdb.player.tank)
-	Collectinator_PlayerMeleeCB:SetChecked(filterdb.player.melee)
-	Collectinator_PlayerHealerCB:SetChecked(filterdb.player.healer)
-	Collectinator_PlayerCasterCB:SetChecked(filterdb.player.caster)
 	-- Old World Rep Options
 	Collectinator_RepArgentDawnCB:SetChecked(filterdb.rep.argentdawn)
 	Collectinator_RepCenarionCircleCB:SetChecked(filterdb.rep.cenarioncircle)
@@ -2564,8 +2554,6 @@ function addon.DoFlyaway(panel)
 			addon.Fly_General:Show()
 			addon.Fly_Obtain:Hide()
 			addon.Fly_Binding:Hide()
-			addon.Fly_Item:Hide()
-			addon.Fly_Player:Hide()
 			addon.Fly_Rep:Hide()
 			addon.Fly_Misc:Hide()
 
@@ -2588,8 +2576,6 @@ function addon.DoFlyaway(panel)
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Show()
 			addon.Fly_Binding:Hide()
-			addon.Fly_Item:Hide()
-			addon.Fly_Player:Hide()
 			addon.Fly_Rep:Hide()
 			addon.Fly_Misc:Hide()
 
@@ -2612,8 +2598,6 @@ function addon.DoFlyaway(panel)
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
 			addon.Fly_Binding:Show()
-			addon.Fly_Item:Hide()
-			addon.Fly_Player:Hide()
 			addon.Fly_Rep:Hide()
 			addon.Fly_Misc:Hide()
 
@@ -2636,8 +2620,6 @@ function addon.DoFlyaway(panel)
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
 			addon.Fly_Binding:Hide()
-			addon.Fly_Item:Show()
-			addon.Fly_Player:Hide()
 			addon.Fly_Rep:Hide()
 			addon.Fly_Misc:Hide()
 
@@ -2660,8 +2642,6 @@ function addon.DoFlyaway(panel)
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
 			addon.Fly_Binding:Hide()
-			addon.Fly_Item:Hide()
-			addon.Fly_Player:Show()
 			addon.Fly_Rep:Hide()
 			addon.Fly_Misc:Hide()
 
@@ -2684,8 +2664,6 @@ function addon.DoFlyaway(panel)
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
 			addon.Fly_Binding:Hide()
-			addon.Fly_Item:Hide()
-			addon.Fly_Player:Hide()
 			addon.Fly_Rep:Show()
 			addon.Fly_Misc:Hide()
 
@@ -2708,8 +2686,6 @@ function addon.DoFlyaway(panel)
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
 			addon.Fly_Binding:Hide()
-			addon.Fly_Item:Hide()
-			addon.Fly_Player:Hide()
 			addon.Fly_Rep:Hide()
 			addon.Fly_Misc:Show()
 
@@ -3556,40 +3532,6 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_rBoPCB, addon.Fly_Binding, L["COLLECTIBLE_BOP_DESC"], 18, 4, 1, 0)
 	Collectinator_rBoPCBText:SetText(L["CollectibleBOPFilter"])
 
-	addon.Fly_Item = CreateFrame("Frame", "Collectinator_Fly_Item", addon.Flyaway)
-	addon.Fly_Item:SetWidth(210)
-	addon.Fly_Item:SetHeight(280)
-	addon.Fly_Item:EnableMouse(true)
-	addon.Fly_Item:EnableKeyboard(true)
-	addon.Fly_Item:SetMovable(false)
-	addon.Fly_Item:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
-	addon.Fly_Item:Hide()
-
-	addon.Fly_Player = CreateFrame("Frame", "Collectinator_Fly_Player", addon.Flyaway)
-	addon.Fly_Player:SetWidth(112)
-	addon.Fly_Player:SetHeight(280)
-	addon.Fly_Player:EnableMouse(true)
-	addon.Fly_Player:EnableKeyboard(true)
-	addon.Fly_Player:SetMovable(false)
-	addon.Fly_Player:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
-	addon.Fly_Player:Hide()
-
-	local Collectinator_PlayerTankCB = CreateFrame("CheckButton", "Collectinator_PlayerTankCB", addon.Fly_Player, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_PlayerTankCB, addon.Fly_Player, L["TANKS_DESC"], 41, 1, 1, 0)
-	Collectinator_PlayerTankCBText:SetText(L["Tanks"])
-
-	local Collectinator_PlayerMeleeCB = CreateFrame("CheckButton", "Collectinator_PlayerMeleeCB", addon.Fly_Player, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_PlayerMeleeCB, addon.Fly_Player, L["MELEE_DPS_DESC"], 42, 2, 1, 0)
-	Collectinator_PlayerMeleeCBText:SetText(L["Melee DPS"])
-
-	local Collectinator_PlayerHealerCB = CreateFrame("CheckButton", "Collectinator_PlayerHealerCB", addon.Fly_Player, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_PlayerHealerCB, addon.Fly_Player, L["HEALERS_DESC"], 43, 3, 1, 0)
-	Collectinator_PlayerHealerCBText:SetText(L["Healers"])
-
-	local Collectinator_PlayerCasterCB = CreateFrame("CheckButton", "Collectinator_PlayerCasterCB", addon.Fly_Player, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_PlayerCasterCB, addon.Fly_Player, L["CASTER_DPS_DESC"], 44, 4, 1, 0)
-	Collectinator_PlayerCasterCBText:SetText(L["Caster DPS"])
-
 	addon.Fly_Rep = CreateFrame("Frame", "Collectinator_Fly_Rep", addon.Flyaway)
 	addon.Fly_Rep:SetWidth(112)
 	addon.Fly_Rep:SetHeight(280)
@@ -4064,11 +4006,6 @@ local function InitializeFrame()
 		[16] = { cb = Collectinator_iBoPCB, 					svroot = filterdb.binding, 		svval = "itembop" }, 
 		[17] = { cb = Collectinator_rBoECB, 					svroot = filterdb.binding, 		svval = "collectibleboe" }, 
 		[18] = { cb = Collectinator_rBoPCB, 					svroot = filterdb.binding, 		svval = "collectiblebop" }, 
-		-- Player Type Options
-		[41] = { cb = Collectinator_PlayerTankCB, 				svroot = filterdb.player, 		svval = "tank" }, 
-		[42] = { cb = Collectinator_PlayerMeleeCB, 			svroot = filterdb.player, 		svval = "melee" }, 
-		[43] = { cb = Collectinator_PlayerHealerCB, 			svroot = filterdb.player, 		svval = "healer" }, 
-		[44] = { cb = Collectinator_PlayerCasterCB, 			svroot = filterdb.player, 		svval = "caster" }, 
 		-- Old World Rep Options
 		[45] = { cb = Collectinator_RepArgentDawnCB, 			svroot = filterdb.rep, 			svval = "argentdawn" }, 
 		[46] = { cb = Collectinator_RepCenarionCircleCB, 		svroot = filterdb.rep, 			svval = "cenarioncircle" }, 
