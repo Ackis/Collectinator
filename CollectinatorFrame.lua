@@ -1218,11 +1218,33 @@ function addon:ResetGUI()
 
 end
 
+
+-------------------------------------------------------------------------------
+-- Displays a tooltip for the given frame.
+-------------------------------------------------------------------------------
+local TooltipDisplay
+do
+	local function Show_Tooltip(frame, motion)
+		GameTooltip_SetDefaultAnchor(GameTooltip, frame)
+		GameTooltip:SetText(frame.tooltip_text, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+		GameTooltip:Show()
+	end
+
+	local function Hide_Tooltip()
+		GameTooltip:Hide()
+	end
+
+	function TooltipDisplay(frame, textLabel)
+		frame.tooltip_text = textLabel
+
+		frame:SetScript("OnEnter", Show_Tooltip)
+		frame:SetScript("OnLeave", Hide_Tooltip)
+	end
+end	-- do
+
 -- Under various conditions, I'm going to have to redisplay my collectible list
 -- This could happen because a filter changes, a new profession is chosen, or
 -- a new search occurred. Use this function to do all the dirty work
-
--- Description: 
 
 local function ReDisplay(scan_type)
 	print(string.format("Calling ReDisplay with scan_type of %d.", scan_type))
@@ -1237,40 +1259,19 @@ local function ReDisplay(scan_type)
 
 	-- Make sure our expand all button is set to expandall
 	Collectinator_ExpandButton:SetText(L["EXPANDALL"])
-	addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
+	TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
 
 	-- And update our scrollframe
 	CollectibleList_Update()
 
 end
 
--- Description: 
-
-function addon:TooltipDisplay(this, textLabel)
-
-	this:SetScript("OnEnter", 
-			function (this)
-				GameTooltip_SetDefaultAnchor(GameTooltip, this)
-				GameTooltip:SetText(textLabel, HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
-				GameTooltip:Show()
-			end
-		)
-
-	this:SetScript("OnLeave", 
-			function(this)
-				GameTooltip:Hide()
-			end
-		)
-
-end
-
--- Description: 
-
 function addon.numFilters()
 
 	-- IMPORTANT: If the number of filters we're maintaining changes, you'll need to change the FilterValueMap
 	-- at the end (of CreateFrame), as well as the following index value:
 	local MaxFilters = 81
+	print(string.format("numFilters: %d", #FilterValueMap))
 
 	local total = 0
 	local active = 0
@@ -1407,7 +1408,7 @@ function addon.ToggleFilters()
 
 		-- Change the text and tooltip for the filter button
 		Collectinator_FilterButton:SetText(L["FILTER_OPEN"])
-		addon:TooltipDisplay(Collectinator_FilterButton, L["FILTER_OPEN_DESC"])
+		TooltipDisplay(Collectinator_FilterButton, L["FILTER_OPEN_DESC"])
 
 		-- Hide my 7 buttons
 		Collectinator_ExpGeneralOptCB:Hide()
@@ -1439,7 +1440,7 @@ function addon.ToggleFilters()
 
 		-- Change the text and tooltip for the filter button
 		Collectinator_FilterButton:SetText(L["FILTER_CLOSE"])
-		addon:TooltipDisplay(Collectinator_FilterButton, L["FILTER_CLOSE_DESC"])
+		TooltipDisplay(Collectinator_FilterButton, L["FILTER_CLOSE_DESC"])
 
 		-- Show my 7 buttons
 		Collectinator_ExpGeneralOptCB:Show()
@@ -1480,7 +1481,7 @@ function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, 
 		cButton:SetScript("OnClick", function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist ReDisplay(current_tab) end)
 	end
 
-	addon:TooltipDisplay(cButton, ttText, 1)
+	TooltipDisplay(cButton, ttText, 1)
 
 end
 
@@ -1599,7 +1600,7 @@ function addon:GenericCreateButton(
 
 	if (tooltipText ~= "") then
 
-		addon:TooltipDisplay(button, tooltipText)
+		TooltipDisplay(button, tooltipText)
 
 	end
 
@@ -1645,11 +1646,11 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 
 		-- And throw up a tooltip
 		if (bName == "Collectinator_RepOldWorldCB") then
-			addon:TooltipDisplay(cButton, L["FILTERING_OLDWORLD_DESC"])
+			TooltipDisplay(cButton, L["FILTERING_OLDWORLD_DESC"])
 		elseif (bName == "Collectinator_RepBCCB") then
-			addon:TooltipDisplay(cButton, L["FILTERING_BC_DESC"])
+			TooltipDisplay(cButton, L["FILTERING_BC_DESC"])
 		else
-			addon:TooltipDisplay(cButton, L["FILTERING_WOTLK_DESC"])
+			TooltipDisplay(cButton, L["FILTERING_WOTLK_DESC"])
 		end
 
 		return cButton
@@ -1694,7 +1695,7 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 			cButton.text = cbText
 
 		-- And throw up a tooltip
-		addon:TooltipDisplay(cButton, ExpButtonTT[panelIndex])
+		TooltipDisplay(cButton, ExpButtonTT[panelIndex])
 		cButton:Hide()
 		return cButton
 
@@ -2697,11 +2698,11 @@ function addon.ExpandAll_Clicked()
 	-- Called when the expand all button is clicked
 	if (Collectinator_ExpandButton:GetText() == L["EXPANDALL"]) then
 		Collectinator_ExpandButton:SetText(L["CONTRACTALL"])
-		addon:TooltipDisplay(Collectinator_ExpandButton, L["CONTRACTALL_DESC"])
+		TooltipDisplay(Collectinator_ExpandButton, L["CONTRACTALL_DESC"])
 		expandallDisplayStrings()
 	else
 		Collectinator_ExpandButton:SetText(L["EXPANDALL"])
-		addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
+		TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
 		initDisplayStrings()
 	end
 	CollectibleList_Update()
@@ -3074,7 +3075,7 @@ local function InitializeFrame()
 							     CollectibleList_Update()
 
 							     Collectinator_ExpandButton:SetText(L["EXPANDALL"])
-							     addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
+							     TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
 
 							     Collectinator_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 							     Collectinator_SearchButton:Disable()
@@ -3091,7 +3092,7 @@ local function InitializeFrame()
 
 						    -- Make sure our expand all button is set to expandall
 						    Collectinator_ExpandButton:SetText(L["EXPANDALL"])
-						    addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
+						    TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
 
 						    -- Make sure to clear the focus of the searchbox
 						    Collectinator_SearchText:ClearFocus()
@@ -3121,7 +3122,7 @@ local function InitializeFrame()
 							   CollectibleList_Update()
 
 							   Collectinator_ExpandButton:SetText(L["EXPANDALL"])
-							   addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
+							   TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
 
 							   Collectinator_SearchButton:SetNormalFontObject("GameFontDisableSmall")
 							   Collectinator_SearchButton:Disable()
@@ -3839,7 +3840,7 @@ local function InitializeFrame()
 	Collectinator_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
 	Collectinator_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
 	Collectinator_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
-	addon:TooltipDisplay(Collectinator_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
+	TooltipDisplay(Collectinator_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
 
 	Collectinator_MiscAltBtn:RegisterForClicks("LeftButtonUp")
 	Collectinator_MiscAltBtn:SetScript("OnClick", 
@@ -4019,7 +4020,7 @@ function addon:DisplayFrame(
 
 	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
 	Collectinator_ExpandButton:SetText(L["EXPANDALL"])
-	addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
+	TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
 
 	addon.resetTitle()							-- Reset our addon title text
 	SetSwitcherTexture(SortedCollections[current_tab].texture)		-- Set the texture on our switcher button correctly
