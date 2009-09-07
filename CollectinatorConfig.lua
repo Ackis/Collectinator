@@ -31,7 +31,7 @@ local modularOptions = {}
 -- Original
 local city1 = BFAC["Darnassus"] .. "\\" .. BFAC["Darkspear Trolls"]
 local city2 = BFAC["Exodar"] .. "\\" .. BFAC["Silvermoon City"]
-local city3 = BFAC["Gnomergan Exiles"] .. "\\" .. BFAC["Thunder Bluff"]
+local city3 = BFAC["Gnomeregan Exiles"] .. "\\" .. BFAC["Thunder Bluff"]
 local city4 = BFAC["Ironforge"] .. "\\" .. BFAC["Undercity"]
 local city5 = BFAC["Stormwind"] .. "\\" .. BFAC["Orgrimmar"]
 
@@ -626,7 +626,7 @@ local function giveFilter()
 								Skyguard = {
 									order	= 21,
 									type	= "toggle",
-									name	= BFAC["Shatari Skyguard"],
+									name	= BFAC["Shat'tari Skyguard"],
 									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Shatari Skyguard"]),
 									get		= function() return addon.db.profile.filters.rep.skyguard end,
 									set		= function() addon.db.profile.filters.rep.skyguard = not addon.db.profile.filters.rep.skyguard end,
