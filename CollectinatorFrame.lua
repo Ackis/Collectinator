@@ -81,6 +81,20 @@ local myFaction = ""
 local narrowFont = nil
 local normalFont = nil
 
+-------------------------------------------------------------------------------
+-- local versions of the databases storing the recipe information, trainers, vendors, etc
+-------------------------------------------------------------------------------
+local recipeDB = {}
+local trainerDB = {}
+local vendorDB = {}
+local questDB = {}
+local repDB = {}
+local seasonDB = {}
+local customDB = {}
+local mobDB = {}
+local allSpecTable = {}
+local playerData = {}
+
 local seasonal = GetCategoryInfo(155)
 
 -- Fallback in case the user doesn't have LSM-3.0 installed
@@ -106,18 +120,6 @@ end
 -- Font Objects needed for CollectinatorTooltip
 local normalFontObj = CreateFont(MODNAME.."normalFontObj")
 local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
-
--- local versions of the databases storing the recipe information, trainers, vendors, etc
-local recipeDB = {}
-local trainerDB = {}
-local vendorDB = {}
-local questDB = {}
-local repDB = {}
-local seasonDB = {}
-local customDB = {}
-local mobDB = {}
-local allSpecTable = {}
-local playerData = {}
 
 local CollectinatorTooltip = _G["CollectinatorTooltip"]
 local CollectinatorSpellTooltip = _G["CollectinatorSpellTooltip"]
@@ -239,7 +241,7 @@ function addon:ClosePopups()
 end
 
 -------------------------------------------------------------------------------
--- Hide the main recipe frame, and close all popups.
+-- Hide the main collectible frame, and close all popups.
 -------------------------------------------------------------------------------
 function addon:CloseWindow()
 	self:ClosePopups()
@@ -310,7 +312,7 @@ do
 					fac = false
 				else
 					-- This means that the faction level is high enough, so we'll set display to true and leave the loop
-					-- This should allow collectables which have multiple reputations to work correctly
+					-- This should allow collectibles which have multiple reputations to work correctly
 					fac = true
 					break
 				end
@@ -319,8 +321,6 @@ do
 		return fac
 	end
 end	-- do
-
--- Description: 
 
 local function CheckDisplayFaction(filterDB, faction)
 	if (filterDB.general.faction ~= true) then
@@ -505,30 +505,28 @@ do
 		end
 
 	end
-
-end
+end	-- do
 
 -- Description: Parses the recipes and determines which ones to display, and makes them display appropiatly
+local function WipeDisplayStrings()
+	for i = 1, #DisplayStrings do
+		ReleaseTable(DisplayStrings[i])
+	end
+	twipe(DisplayStrings)
+end
 
 local function initDisplayStrings()
-
 	local exclude = addon.db.profile.exclusionlist
-
-	DisplayStrings = nil
-	DisplayStrings = {}
-
 	local insertIndex = 1
+	local str
+
+	WipeDisplayStrings()
 
 	for i = 1, #sortedRecipeIndex do
-
 		local recipeIndex = sortedRecipeIndex[i]
 		local recipeEntry = recipeDB[recipeIndex]
 
 		if ((recipeEntry["Display"] == true) and (recipeEntry["Search"] == true)) then
-
-			local t = {}
-
-			-- add in recipe difficulty coloring
 			local recStr = ""
 
 			if (exclude[recipeIndex] == true) then
@@ -539,41 +537,33 @@ local function initDisplayStrings()
 
 			local hasFaction = checkFactions(recipeDB, recipeIndex, playerData.playerFaction, playerData["Reputation"])
 
-			t.String = recStr
+			str = AcquireTable()
+			str.String = recStr
 
-			t.sID = recipeIndex
-			t.IsRecipe = true
-			t.IsExpanded = false
-			tinsert(DisplayStrings, insertIndex, t)
+			str.sID = recipeIndex
+			str.IsRecipe = true
+			str.IsExpanded = false
+			tinsert(DisplayStrings, insertIndex, str)
 			insertIndex = insertIndex + 1
-
 		end
-
 	end
-
 end
 
--- Description: 
-
 local function ClearRecipeButtonTooltip(bIndex)
-
 	local pButton = addon.PlusListButton[bIndex]
 	local rButton = addon.RecipeListButton[bIndex]
-	pButton:SetScript("OnEnter", function () end)
-	pButton:SetScript("OnLeave", function () end)
-	rButton:SetScript("OnEnter", function () end)
-	rButton:SetScript("OnLeave", function () end)
 
+	pButton:SetScript("OnEnter", nil)
+	pButton:SetScript("OnLeave", nil)
+	rButton:SetScript("OnEnter", nil)
+	rButton:SetScript("OnLeave", nil)
 end
 
 -- Description: Converting from hex to rgb (Thanks Maldivia)
-
 local function toRGB(hex)
-
 	local r, g, b = hex:match("(..)(..)(..)")
 
-	return (tonumber(r, 16) / 256) , (tonumber(g, 16) / 256) , (tonumber(b, 16) / 256)
-
+	return (tonumber(r, 16) / 256), (tonumber(g, 16) / 256), (tonumber(b, 16) / 256)
 end
 
 -- Description: 
@@ -628,7 +618,6 @@ local function ttAdd(
 end
 
 local function SetSpellTooltip(owner, loc)
-
 	CollectinatorSpellTooltip:SetOwner(owner, "ANCHOR_NONE")
 	CollectinatorSpellTooltip:ClearAllPoints()
 	if (loc == "Top") then
@@ -643,10 +632,7 @@ local function SetSpellTooltip(owner, loc)
 
 end
 
--- Description: 
-
 local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
-
 	local clr1, clr2 = "", ""
 	local spelltooltiplocation = addon.db.profile.spelltooltiplocation
 	local acquiretooltiplocation = addon.db.profile.acquiretooltiplocation
@@ -3100,7 +3086,7 @@ function addon:CreateFrame(
 	cList)		-- Customlist
 
 --[[
-	cPlayer is a table containing:
+          cPlayer is a table containing:
 		.playerProfession == player profession which has been opened
 		.playerProfessionLevel == skill level of profession
 		.playerSpecialty == Specialty if any or ""
