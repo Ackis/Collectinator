@@ -209,7 +209,6 @@ StaticPopupDialogs["Collectinator_SEARCHFILTERED"] = {
 -- Description: 
 
 function addon:CloseWindow()
-
 	-- Close all possible pop-up windows
 	StaticPopup_Hide("Collectinator_NOTSCANNED")
 	StaticPopup_Hide("Collectinator_ALLFILTERED")
@@ -219,68 +218,83 @@ function addon:CloseWindow()
 
 end
 
--- Description: Function to determine if the player has an appropiate level of faction.
--- Expected result: A boolean value determing if the player can learn the recipe based on faction
--- Input: The database, the index of the recipe, the players faction and reputation levels
--- Output: A boolean indicating if they can learn the recipe or not
+------------------------------------------------------------------------------
+-- Locale-specific strings. Save some CPU by looking these up exactly once.
+------------------------------------------------------------------------------
+local factionHorde	= BFAC["Horde"]
+local factionAlliance	= BFAC["Alliance"]
+local factionNeutral	= BFAC["Neutral"]
 
-local function checkFactions(DB, recipeIndex, playerFaction, playerRep)
+-------------------------------------------------------------------------------
+-- Constants for acquire types.
+-------------------------------------------------------------------------------
+local ACQUIRE_TRAINER		= 1
+local ACQUIRE_VENDOR		= 2
+local ACQUIRE_MOB		= 3
+local ACQUIRE_QUEST		= 4
+local ACQUIRE_SEASONAL		= 5
+local ACQUIRE_REPUTATION	= 6
+local ACQUIRE_WORLD_DROP	= 7
+local ACQUIRE_CUSTOM		= 8
+local ACQUIRE_PVP		= 9
+local ACQUIRE_MAX		= 9
 
-	local fac = true
-	local acquire = DB[recipeIndex]["Acquire"]
+local checkFactions
+do
+	------------------------------------------------------------------------------
+	-- Reputation constants
+	------------------------------------------------------------------------------
+	local REP_MAGHAR	= 941
+	local REP_HONOR_HOLD	= 946
+	local REP_THRALLMAR	= 947
+	local REP_KURENI	= 978
 
-	-- Scan through all acquire types
-	for i in pairs(acquire) do
+	------------------------------------------------------------------------------
+	-- Description: Function to determine if the player has an appropiate level of faction.
+	-- Expected result: A boolean value determing if the player can learn the recipe based on faction
+	-- Input: The database, the index of the recipe, the players faction and reputation levels
+	-- Output: A boolean indicating if they can learn the recipe or not
+	------------------------------------------------------------------------------
+	local function checkFactions(DB, recipeIndex, playerFaction, playerRep)
+		local fac = true
+		local acquire = DB[recipeIndex]["Acquire"]
 
-		-- If it's a repuitation type
-		if (acquire[i]["Type"] == 6) then
+		-- Scan through all acquire types
+		for i in pairs(acquire) do
+			if acquire[i]["Type"] == ACQUIRE_REPUTATION then
+				local repid = acquire[i]["ID"]
 
-			local repid = acquire[i]["ID"]
-
-			-- If it's Honor Hold/Thrallmar
-			if (repid == 946) or (repid == 947) then
-				-- If the player is Alliance look at Honor Hold only
-				if (playerFaction == BFAC["Alliance"]) then
-					repid = 946
-				-- If the player is Horde look at Thrallmar only
-				else
-					repid = 947
+				if repid == REP_HONOR_HOLD or repid == REP_THRALLMAR then
+					if playerFaction == factionAlliance then
+						repid = REP_HONOR_HOLD
+					else
+						repid = REP_THRALLMAR
+					end
+				elseif repid == REP_MAGHAR or repid == REP_KURENI then
+					if playerFaction == factionAlliance then
+						repid = REP_KURENI
+					else
+						repid = REP_MAGHAR
+					end
 				end
 
-			-- If it's Kureni/Mag'har	
-			elseif (repid == 941) or (repid == 978) then
-				-- If the player is Alliance look at Kureni only
-				if (playerFaction == BFAC["Alliance"]) then
-					repid = 978
-				-- If the player is Horde look at Mag'har only
+				if (not playerRep[repDB[repid]["Name"]]) or (playerRep[repDB[repid]["Name"]] < DB[recipeIndex]["Acquire"][i]["RepLevel"]) then
+					fac = false
 				else
-					repid = 941
+					-- This means that the faction level is high enough, so we'll set display to true and leave the loop
+					-- This should allow collectables which have multiple reputations to work correctly
+					fac = true
+					break
 				end
 			end
-
-			if (not playerRep[repDB[repid]["Name"]]) or (playerRep[repDB[repid]["Name"]] < DB[recipeIndex]["Acquire"][i]["RepLevel"]) then
-				fac = false
-			else
-
-				-- This means that the faction level is high enough to learn the recipe, so we'll set display to true and leave the loop
-				-- This should allow recipes which have multiple reputations to work correctly
-				fac = true
-				break
-
-			end
-
 		end
-
+		return fac
 	end
-
-	return fac
-
-end
+end	-- do
 
 -- Description: 
 
 local function CheckDisplayFaction(filterDB, faction)
-
 	if (filterDB.general.faction ~= true) then
 		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or (faction == nil)) then
 			return true
@@ -290,11 +304,9 @@ local function CheckDisplayFaction(filterDB, faction)
 	else
 		return true
 	end
-
 end
 
 do
-
 	local function LoadZones(c, y, ...)
 		-- Fill up the list for normal lookup
 		for i=1, select('#', ...), 1 do
@@ -725,9 +737,9 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					if (playerFaction == BFAC["Horde"]) then
 						displaytt = true
 					end
-				elseif (trnr["Faction"] == BFAC["Alliance"]) then
+				elseif (trnr["Faction"] == factionAlliance) then
 					clr2 = addon:hexcolor("ALLIANCE")
-					if (playerFaction == BFAC["Alliance"]) then
+					if (playerFaction == factionAlliance) then
 						displaytt = true
 					end
 				else
@@ -763,9 +775,9 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					if (playerFaction == BFAC["Horde"]) then
 						displaytt = true
 					end
-				elseif (vndr["Faction"] == BFAC["Alliance"]) then
+				elseif (vndr["Faction"] == factionAlliance) then
 					clr2 = addon:hexcolor("ALLIANCE")
-					if (playerFaction == BFAC["Alliance"]) then
+					if (playerFaction == factionAlliance) then
 						displaytt = true
 					end
 				else
@@ -819,9 +831,9 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 						if (playerFaction == BFAC["Horde"]) then
 							displaytt = true
 						end
-					elseif (qst["Faction"] == BFAC["Alliance"]) then
+					elseif (qst["Faction"] == factionAlliance) then
 						clr2 = addon:hexcolor("ALLIANCE")
-						if (playerFaction == BFAC["Alliance"]) then
+						if (playerFaction == factionAlliance) then
 							displaytt = true
 						end
 					else
@@ -852,7 +864,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				ttAdd(0, -1, 0, 0, seasonal, clr1, ssnname, clr1)
 
 			-- Reputation
-			elseif (v["Type"] == 6) then
+			elseif (v["Type"] == ACQUIRE_REPUTATION) then
 
 				-- Reputation:				Faction
 				-- FactionLevel				RepVendor				
@@ -896,9 +908,9 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					if (playerFaction == BFAC["Horde"]) then
 						displaytt = true
 					end
-				elseif (repvndr["Faction"] == BFAC["Alliance"]) then
+				elseif (repvndr["Faction"] == factionAlliance) then
 					clr2 = addon:hexcolor("ALLIANCE")
-					if (playerFaction == BFAC["Alliance"]) then
+					if (playerFaction == factionAlliance) then
 						displaytt = true
 					end
 				else
@@ -1864,7 +1876,7 @@ local function expandEntry(dsIndex)
 
 				if (trnr["Faction"] == BFAC["Horde"]) then
 					nStr = addon:Horde(trnr["Name"])
-				elseif (trnr["Faction"] == BFAC["Alliance"]) then
+				elseif (trnr["Faction"] == factionAlliance) then
 					nStr = addon:Alliance(trnr["Name"])
 				else
 					nStr = addon:Neutral(trnr["Name"])
@@ -1908,7 +1920,7 @@ local function expandEntry(dsIndex)
 
 				if (vndr["Faction"] == BFAC["Horde"]) then
 					nStr = addon:Horde(vndr["Name"])
-				elseif (vndr["Faction"] == BFAC["Alliance"]) then
+				elseif (vndr["Faction"] == factionAlliance) then
 					nStr = addon:Alliance(vndr["Name"])
 				else
 					nStr = addon:Neutral(vndr["Name"])
@@ -1989,7 +2001,7 @@ local function expandEntry(dsIndex)
 
 				if (qst["Faction"] == BFAC["Horde"]) then
 					nStr = addon:Horde(qst["Name"])
-				elseif (qst["Faction"] == BFAC["Alliance"]) then
+				elseif (qst["Faction"] == factionAlliance) then
 					nStr = addon:Alliance(qst["Name"])
 				else
 					nStr = addon:Neutral(qst["Name"])
@@ -2029,7 +2041,7 @@ local function expandEntry(dsIndex)
 
 			end
 
-		elseif (v["Type"] == 6) then -- Need to check if we're displaying the currently id'd rep or not as well
+		elseif (v["Type"] == ACQUIRE_REPUTATION) then -- Need to check if we're displaying the currently id'd rep or not as well
 			-- Reputation Obtain
 			-- Rep: ID, Faction
 			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
@@ -2075,7 +2087,7 @@ local function expandEntry(dsIndex)
 
 				if (repvndr["Faction"] == BFAC["Horde"]) then
 					nStr = addon:Horde(repvndr["Name"])
-				elseif (repvndr["Faction"] == BFAC["Alliance"]) then
+				elseif (repvndr["Faction"] == factionAlliance) then
 					nStr = addon:Alliance(repvndr["Name"])
 				else
 					nStr = addon:Neutral(repvndr["Name"])
