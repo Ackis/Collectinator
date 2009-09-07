@@ -626,8 +626,8 @@ local function giveFilter()
 								Skyguard = {
 									order	= 21,
 									type	= "toggle",
-									name	= BFAC["Shat'tari Skyguard"],
-									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Shatari Skyguard"]),
+									name	= BFAC["Sha'tari Skyguard"],
+									desc	= format(L["SPECIFIC_REP_DESC"],BFAC["Sha'tari Skyguard"]),
 									get		= function() return addon.db.profile.filters.rep.skyguard end,
 									set		= function() addon.db.profile.filters.rep.skyguard = not addon.db.profile.filters.rep.skyguard end,
 								},
