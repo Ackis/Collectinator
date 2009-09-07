@@ -70,32 +70,34 @@ local QTip	= LibStub("LibQTip-1.0")
 -------------------------------------------------------------------------------
 -- Variables
 -------------------------------------------------------------------------------
-local currentProfIndex = 0
+local current_tab = 0
 local currentProfession = ""
 local maxVisibleCollectibles = 24
-local FilterValueMap = {}
-local sortedCollectibleIndex = {}
+local FilterValueMap		-- Assigned in InitializeFrame()
 local DisplayStrings = {}
 local myFaction = ""
 
+-------------------------------------------------------------------------------
+-- Tables assigned in addon:DisplayFrame()
+-------------------------------------------------------------------------------
+local collectibleDB, trainerDB, vendorDB, questDB, repDB, seasonDB, customDB, mobDB
+
+local allSpecTable
+local playerData
+
+local sortedCollectibleIndex
+
+local seasonal = GetCategoryInfo(155)
+
+-------------------------------------------------------------------------------
+-- Fonts
+-------------------------------------------------------------------------------
 local narrowFont = nil
 local normalFont = nil
 
--------------------------------------------------------------------------------
--- local versions of the databases storing the collectible information, trainers, vendors, etc
--------------------------------------------------------------------------------
-local collectibleDB = {}
-local trainerDB = {}
-local vendorDB = {}
-local questDB = {}
-local repDB = {}
-local seasonDB = {}
-local customDB = {}
-local mobDB = {}
-local allSpecTable = {}
-local playerData = {}
-
-local seasonal = GetCategoryInfo(155)
+-- Font Objects needed for CollectinatorTooltip
+local normalFontObj = CreateFont(MODNAME.."normalFontObj")
+local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
 
 -- Fallback in case the user doesn't have LSM-3.0 installed
 if (not LibStub:GetLibrary("LibSharedMedia-3.0", true)) then
@@ -116,10 +118,6 @@ else
 	narrowFont = LSM3:Fetch(LSM3.MediaType.FONT, "Arial Narrow")
 	normalFont = LSM3:Fetch(LSM3.MediaType.FONT, "Friz Quadrata TT")
 end
-
--- Font Objects needed for CollectinatorTooltip
-local normalFontObj = CreateFont(MODNAME.."normalFontObj")
-local narrowFontObj = CreateFont(MODNAME.."narrowFontObj")
 
 local CollectinatorTooltip = _G["CollectinatorTooltip"]
 local CollectinatorSpellTooltip = _G["CollectinatorSpellTooltip"]
@@ -1176,10 +1174,10 @@ local function SetProgressBar(playerData)
 
 	local pbCur, pbMax
 
-	if (SortedCollections[currentProfIndex].name == "MOUNT") then
+	if (SortedCollections[current_tab].name == "MOUNT") then
 			pbCur = playerData.totalknownmounts
 			pbMax = playerData.totalmounts
-	elseif (SortedCollections[currentProfIndex].name == "CRITTER") then
+	elseif (SortedCollections[current_tab].name == "CRITTER") then
 			pbCur = playerData.totalknownpets
 			pbMax = playerData.totalpets
 	end
@@ -1798,12 +1796,12 @@ function addon:SwitchProfs(button)
 	-- and a single iteration will do nicely, thank you
 	if button == "LeftButton" then
 		-- normal profession switch
-		if (currentProfIndex == 0) then
+		if (current_tab == 0) then
 			startLoop = 1
 			endLoop = addon.MaxCollections + 1
 		else
-			startLoop = currentProfIndex + 1
-			endLoop = currentProfIndex
+			startLoop = current_tab + 1
+			endLoop = current_tab
 		end
 		local index = startLoop
 	
@@ -1812,17 +1810,17 @@ function addon:SwitchProfs(button)
 				index = 1
 			else
 				displayProf = index
-				currentProfIndex = index
+				current_tab = index
 			end
 		end
 	elseif button == "RightButton" then
 		-- reverse profession switch
-		if (currentProfIndex == 0) then
+		if (current_tab == 0) then
 			startLoop = addon.MaxCollections + 1
 			endLoop = 0
 		else
-			startLoop = currentProfIndex - 1
-			endLoop = currentProfIndex
+			startLoop = current_tab - 1
+			endLoop = current_tab
 		end
 		local index = startLoop
 	
@@ -1831,15 +1829,15 @@ function addon:SwitchProfs(button)
 				index = MaxCollections
 			else
 				displayProf = index
-				currentProfIndex = index
+				current_tab = index
 				break
 			end
 		end
 	end
 
 	-- Redisplay the button with the new skill
-	SetSwitcherTexture(SortedCollections[currentProfIndex].texture)
-	playerData.playerProfession = SortedCollections[currentProfIndex].name
+	SetSwitcherTexture(SortedCollections[current_tab].texture)
+	playerData.playerProfession = SortedCollections[current_tab].name
 	currentProfession = playerData.playerProfession
 
 	ReDisplay()
@@ -3072,11 +3070,1293 @@ end
 
 clicktip:SetCallback("OnMouseDown", HandleTTClick)
 
--- Description: Creates the initial frame to display collectibles into
 
-function addon:CreateFrame(
-	rDB, 		-- CollectibleList
-	sortedRI, 	-- sortedindex
+-------------------------------------------------------------------------------
+-- Creates the initial display frame for collectible info.
+-------------------------------------------------------------------------------
+local function InitializeFrame()
+	-------------------------------------------------------------------------------
+	-- Check to see if we're Horde or Alliance, and change the displayed
+	-- reputation strings to be faction-correct.
+	-------------------------------------------------------------------------------
+	local isAlliance = (myFaction == "Alliance")
+
+	local HonorHold_Thrallmar_FactionText = isAlliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]
+	local Kurenai_Maghar_FactionText = isAlliance and BFAC["Kurenai"] or BFAC["The Mag'har"]
+	local Vanguard_Expedition_FactionText = isAlliance and BFAC["Alliance Vanguard"] or BFAC["Horde Expedition"]
+	local SilverConv_Sunreaver_FactionText = isAlliance and BFAC["The Silver Covenant"] or BFAC["The Sunreavers"]
+	local Valiance_Warsong_FactionText = isAlliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]
+	local Frostborn_Taunka_FactionText = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
+	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
+
+	-------------------------------------------------------------------------------
+	-- Create the main frame
+	-------------------------------------------------------------------------------
+	addon.Frame = CreateFrame("Frame", "Collectinator.Frame", UIParent)
+
+	--Allows Collectinator to be closed with the Escape key
+	tinsert(UISpecialFrames, "Collectinator.Frame")
+
+	addon.Frame:SetWidth(293)
+	addon.Frame:SetHeight(447)
+
+	addon.bgTexture = addon.Frame:CreateTexture("Collectinator.bgTexture", "ARTWORK")
+	addon.bgTexture:SetTexture("Interface\\Addons\\Collectinator\\img\\main")
+	addon.bgTexture:SetAllPoints(addon.Frame)
+	addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
+	addon.Frame:SetFrameStrata("DIALOG")
+	addon.Frame:SetHitRectInsets(5, 5, 5, 5)
+
+	addon.Frame:EnableMouse(true)
+	addon.Frame:EnableKeyboard(true)
+	addon.Frame:SetMovable(true)
+
+	-------------------------------------------------------------------------------
+	-- Assign the frame scripts, then show it.
+	-------------------------------------------------------------------------------
+	addon.Frame:SetScript("OnMouseDown", function()	addon.Frame:StartMoving() end)
+
+	addon.Frame:SetScript("OnHide", function() addon:CloseWindow() end)
+	addon.Frame:SetScript("OnMouseUp", 
+			      function()
+				      addon.Frame:StopMovingOrSizing()
+				      SaveFramePosition()
+			      end)
+
+	addon.Frame:Show()
+	addon.Frame._Expanded = false
+
+	-------------------------------------------------------------------------------
+	-- Create and position the header.
+	-------------------------------------------------------------------------------
+	addon.Frame.HeadingText = addon.Frame:CreateFontString("Collectinator_Frame.HeadingText", "ARTWORK")
+	addon.Frame.HeadingText:SetFontObject("GameFontHighlightSmall")
+	addon.Frame.HeadingText:ClearAllPoints()
+	addon.Frame.HeadingText:SetPoint("TOP", addon.Frame, "TOP", 20, -16)
+	addon.Frame.HeadingText:SetJustifyH("CENTER")
+
+	-------------------------------------------------------------------------------
+	-- Create the switcher button and assign its scripts.
+	-------------------------------------------------------------------------------
+	local Collectinator_SwitcherButton = CreateFrame("Button", "Collectinator_SwitcherButton", addon.Frame, "UIPanelButtonTemplate")
+	Collectinator_SwitcherButton:SetWidth(64)
+	Collectinator_SwitcherButton:SetHeight(64)
+	Collectinator_SwitcherButton:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 1, -2)
+	Collectinator_SwitcherButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+	Collectinator_SwitcherButton:SetScript("OnClick", function(self, button) addon:SwitchProfs(button) end)
+
+	-------------------------------------------------------------------------------
+	-- Stuff in the non-expanded frame (or both)
+	-------------------------------------------------------------------------------
+	local Collectinator_CloseXButton = CreateFrame("Button", "Collectinator_CloseXButton", addon.Frame, "UIPanelCloseButton")
+	-- Close all possible pop-up windows
+	Collectinator_CloseXButton:SetScript("OnClick", function(self) addon:CloseWindow() end)
+	Collectinator_CloseXButton:SetPoint("TOPRIGHT", addon.Frame, "TOPRIGHT", 5, -6)
+
+	-------------------------------------------------------------------------------
+	-- Create the filter button, position it, and set its scripts.
+	-------------------------------------------------------------------------------
+	local Collectinator_FilterButton = addon:GenericCreateButton("Collectinator_FilterButton", addon.Frame, 
+								     25, 90, "TOPRIGHT", addon.Frame, "TOPRIGHT", -8, -40, "GameFontNormalSmall", 
+								     "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
+	Collectinator_FilterButton:SetScript("OnClick", addon.ToggleFilters)
+
+	-------------------------------------------------------------------------------
+	-- Create the sort frame
+	-------------------------------------------------------------------------------
+	local Collectinator_DD_Sort = CreateFrame("Frame", "Collectinator_DD_Sort", addon.Frame, "UIDropDownMenuTemplate")
+	Collectinator_DD_Sort:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 55, -39)
+	Collectinator_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
+	SetSortName()
+	UIDropDownMenu_SetWidth(Collectinator_DD_Sort, 105)
+
+	local Collectinator_ExpandButton = addon:GenericCreateButton("Collectinator_ExpandButton", addon.Frame, 
+								     21, 40, "TOPRIGHT", Collectinator_DD_Sort, "BOTTOMLEFT", -2, 0, "GameFontNormalSmall", 
+								     "GameFontHighlightSmall", L["EXPANDALL"], "CENTER", L["EXPANDALL_DESC"], 1)
+	Collectinator_ExpandButton:SetScript("OnClick", addon.ExpandAll_Clicked)
+
+	local Collectinator_SearchButton = addon:GenericCreateButton("Collectinator_SearchButton", addon.Frame, 
+								     25, 74, "TOPLEFT", Collectinator_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall", 
+								     "GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
+	Collectinator_SearchButton:Disable()
+	Collectinator_SearchButton:SetScript("OnClick", 
+					     function(this)
+						     local searchtext = Collectinator_SearchText:GetText()
+						     searchtext = searchtext:trim()
+
+						     if (searchtext ~= "") then
+							     Collectinator_LastSearchedText = searchtext
+
+							     addon:SearchCollectibleDB(collectibleDB, searchtext)
+							     initDisplayStrings()
+							     CollectibleList_Update()
+
+							     Collectinator_ExpandButton:SetText(L["EXPANDALL"])
+							     addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
+
+							     Collectinator_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+							     Collectinator_SearchButton:Disable()
+						     end
+					     end)
+
+	local Collectinator_ClearButton = addon:GenericCreateButton("Collectinator_ClearButton", addon.Frame, 
+								    28, 28, "RIGHT", Collectinator_SearchButton, "LEFT", 4, -1, "GameFontNormalSmall", 
+								    "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
+	Collectinator_ClearButton:SetScript("OnClick", 
+					    function()
+						    addon:ResetSearch(collectibleDB)
+						    Collectinator_SearchText:SetText(L["SEARCH_BOX_DESC"])
+
+						    -- Make sure our expand all button is set to expandall
+						    Collectinator_ExpandButton:SetText(L["EXPANDALL"])
+						    addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
+
+						    -- Make sure to clear the focus of the searchbox
+						    Collectinator_SearchText:ClearFocus()
+
+						    -- Disable the search button since we're not searching for anything now
+						    Collectinator_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+						    Collectinator_SearchButton:Disable()
+
+						    -- Make sure to clear text for last search
+						    Collectinator_LastSearchedText = ""
+
+						    initDisplayStrings()
+						    CollectibleList_Update()
+					    end)
+	Collectinator_SearchText = CreateFrame("EditBox", "Collectinator_SearchText", addon.Frame, "InputBoxTemplate")
+	Collectinator_SearchText:SetText(L["SEARCH_BOX_DESC"])
+	Collectinator_SearchText:SetScript("OnEnterPressed", 
+					   function(this)
+						   local searchtext = Collectinator_SearchText:GetText()
+						   searchtext = searchtext:trim()
+
+						   if (searchtext ~= "") and (searchtext ~= L["SEARCH_BOX_DESC"]) then
+							   Collectinator_LastSearchedText = searchtext
+
+							   addon:SearchCollectibleDB(collectibleDB, searchtext)
+							   initDisplayStrings()
+							   CollectibleList_Update()
+
+							   Collectinator_ExpandButton:SetText(L["EXPANDALL"])
+							   addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
+
+							   Collectinator_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+							   Collectinator_SearchButton:Disable()
+						   end
+					   end)
+	Collectinator_SearchText:SetScript("OnEditFocusGained", 
+					   function(this)
+						   if (this:GetText() == L["SEARCH_BOX_DESC"]) then
+							   this:SetText("")
+						   end
+					   end)
+	Collectinator_SearchText:SetScript("OnEditFocusLost", 
+					   function(this)
+						   if (this:GetText() == "") then
+							   this:SetText(L["SEARCH_BOX_DESC"])
+						   end
+					   end)
+	Collectinator_SearchText:SetScript("OnTextChanged", 
+					   function(this)
+						   if (this:GetText() ~= "" and this:GetText() ~= L["SEARCH_BOX_DESC"] and this:GetText() ~= Collectinator_LastSearchedText) then
+
+							   Collectinator_SearchButton:SetNormalFontObject("GameFontNormalSmall")
+							   Collectinator_SearchButton:Enable()
+						   else
+							   Collectinator_SearchButton:SetNormalFontObject("GameFontDisableSmall")
+							   Collectinator_SearchButton:Disable()
+						   end
+					   end)
+	Collectinator_SearchText:EnableMouse(true)
+	Collectinator_SearchText:SetAutoFocus(false)
+	Collectinator_SearchText:SetFontObject(ChatFontNormal)
+	Collectinator_SearchText:SetWidth(130)
+	Collectinator_SearchText:SetHeight(12)
+	Collectinator_SearchText:SetPoint("RIGHT", Collectinator_ClearButton, "LEFT", 3, -1)
+	Collectinator_SearchText:Show()
+
+	local Collectinator_CloseButton = addon:GenericCreateButton("Collectinator_CloseButton", addon.Frame, 
+								    22, 69, "BOTTOMRIGHT", addon.Frame, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall", 
+								    "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
+	-- Close all possible pop-up windows
+	Collectinator_CloseButton:SetScript("OnClick", function(self) addon:CloseWindow() end)
+
+	-------------------------------------------------------------------------------
+	-- ProgressBar for our skills
+	-------------------------------------------------------------------------------
+	-- Values for the progressbar (defaults)
+	local pbMin = 0
+	local pbMax = 100
+	local pbCur = 50
+
+	local Collectinator_ProgressBar = CreateFrame("StatusBar", "Collectinator_ProgressBar", addon.Frame)
+	Collectinator_ProgressBar:SetWidth(195)
+	Collectinator_ProgressBar:SetHeight(14)
+	Collectinator_ProgressBar:ClearAllPoints()
+	Collectinator_ProgressBar:SetPoint("BOTTOMLEFT", addon.Frame, 17, 7)
+	Collectinator_ProgressBar:SetStatusBarTexture("Interface\\Addons\\Collectinator\\img\\progressbar")
+	Collectinator_ProgressBar:SetOrientation("HORIZONTAL")
+	Collectinator_ProgressBar:SetStatusBarColor(0.25, 0.25, 0.75)
+	Collectinator_ProgressBar:SetMinMaxValues(pbMin, pbMax)
+	Collectinator_ProgressBar:SetValue(pbCur)
+
+	local Collectinator_ProgressBarText = Collectinator_ProgressBar:CreateFontString("Collectinator_ProgressBarText", "ARTWORK")
+	Collectinator_ProgressBarText:SetWidth(195)
+	Collectinator_ProgressBarText:SetHeight(14)
+	Collectinator_ProgressBarText:SetFontObject("GameFontHighlightSmall")
+	Collectinator_ProgressBarText:ClearAllPoints()
+	Collectinator_ProgressBarText:SetPoint("CENTER", Collectinator_ProgressBar, "CENTER", 0, 0)
+	Collectinator_ProgressBarText:SetJustifyH("CENTER")
+	Collectinator_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. floor(pbCur / pbMax * 100) .. "%")
+
+	-- I'm going to use my own tooltip for collectiblebuttons
+	CollectinatorSpellTooltip = CreateFrame("GameTooltip", "CollectinatorSpellTooltip", addon.Frame, "GameTooltipTemplate")
+
+	-- Add TipTac Support
+	if TipTac and TipTac.AddModifiedTip then
+		TipTac:AddModifiedTip(CollectinatorSpellTooltip)
+	end
+
+	-------------------------------------------------------------------------------
+	-- The main collectible list buttons and scrollframe
+	-------------------------------------------------------------------------------
+	addon.PlusListButton = {}
+	addon.CollectibleListButton = {}
+
+	for i = 1, maxVisibleCollectibles do
+		local Temp_Plus = addon:GenericCreateButton("Collectinator_PlusListButton" .. i, addon.Frame, 
+							    16, 16, "TOPLEFT", addon.Frame, "TOPLEFT", 20, -100, "GameFontNormalSmall", 
+							    "GameFontHighlightSmall", "", "LEFT", "", 2)
+
+		local Temp_Collectible = addon:GenericCreateButton("Collectinator_CollectibleListButton" .. i, addon.Frame, 
+								   16, 224, "TOPLEFT", addon.Frame, "TOPLEFT", 37, -100, "GameFontNormalSmall", 
+								   "GameFontHighlightSmall", "Blort", "LEFT", "", 0)
+
+		if not (i == 1) then
+			Temp_Plus:SetPoint("TOPLEFT", addon.PlusListButton[i-1], "BOTTOMLEFT", 0, 3)
+			Temp_Collectible:SetPoint("TOPLEFT", addon.CollectibleListButton[i-1], "BOTTOMLEFT", 0, 3)
+		end
+
+		Temp_Plus:SetScript("OnClick", function() addon.CollectibleItem_OnClick(i) end)
+
+		Temp_Collectible:SetScript("OnClick", function() addon.CollectibleItem_OnClick(i) end)
+
+		addon.PlusListButton[i] = Temp_Plus
+		addon.CollectibleListButton[i] = Temp_Collectible
+	end
+
+	local Collectinator_CollectibleScrollFrame = CreateFrame("ScrollFrame", "Collectinator_CollectibleScrollFrame", addon.Frame, "FauxScrollFrameTemplate")
+	Collectinator_CollectibleScrollFrame:SetHeight(322)
+	Collectinator_CollectibleScrollFrame:SetWidth(243)
+	Collectinator_CollectibleScrollFrame:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 20, -97)
+	Collectinator_CollectibleScrollFrame:SetScript("OnVerticalScroll", 
+						       function(self, arg1)
+							       FauxScrollFrame_OnVerticalScroll(self, arg1, 16, CollectibleList_Update)
+						       end)
+
+	-------------------------------------------------------------------------------
+	-- Stuff that appears on the main frame only when expanded
+	-------------------------------------------------------------------------------
+	local Collectinator_ResetButton = addon:GenericCreateButton("Collectinator_ResetButton", addon.Frame, 
+								    25, 90, "TOPRIGHT", Collectinator_FilterButton, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall", 
+								    "GameFontHighlightSmall", L["Reset"], "CENTER", L["RESET_DESC"], 1)
+	Collectinator_ResetButton:SetScript("OnClick", addon.resetFilters)
+	Collectinator_ResetButton:Hide()
+
+	-------------------------------------------------------------------------------
+	-- EXPANDED : 7 buttons for opening/closing the flyaway
+	-------------------------------------------------------------------------------
+	Collectinator_ExpGeneralOptCB = addon:CreateExpCB("Collectinator_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
+	Collectinator_ExpGeneralOptCB:SetPoint("TOPRIGHT", Collectinator_FilterButton, "BOTTOMLEFT", -1, -50)
+
+	Collectinator_ExpObtainOptCB = addon:CreateExpCB("Collectinator_ExpObtainOptCB", "Spell_Shadow_MindRot", 2)
+	Collectinator_ExpObtainOptCB:SetPoint("TOPLEFT", Collectinator_ExpGeneralOptCB, "BOTTOMLEFT", 0, -8)
+
+	Collectinator_ExpBindingOptCB = addon:CreateExpCB("Collectinator_ExpBindingOptCB", "INV_Belt_20", 3)
+	Collectinator_ExpBindingOptCB:SetPoint("TOPLEFT", Collectinator_ExpObtainOptCB, "BOTTOMLEFT", -0, -8)
+
+	Collectinator_ExpItemOptCB = addon:CreateExpCB("Collectinator_ExpItemOptCB", "INV_Misc_EngGizmos_19", 4)
+	Collectinator_ExpItemOptCB:SetPoint("TOPLEFT", Collectinator_ExpBindingOptCB, "BOTTOMLEFT", -0, -8)
+
+	Collectinator_ExpPlayerOptCB = addon:CreateExpCB("Collectinator_ExpPlayerOptCB", "INV_Misc_GroupLooking", 5)
+	Collectinator_ExpPlayerOptCB:SetPoint("TOPLEFT", Collectinator_ExpItemOptCB, "BOTTOMLEFT", -0, -8)
+
+	Collectinator_ExpRepOptCB = addon:CreateExpCB("Collectinator_ExpRepOptCB", "INV_Scroll_05", 6)
+	Collectinator_ExpRepOptCB:SetPoint("TOPLEFT", Collectinator_ExpPlayerOptCB, "BOTTOMLEFT", -0, -8)
+
+	Collectinator_ExpMiscOptCB = addon:CreateExpCB("Collectinator_ExpMiscOptCB", "Trade_Engineering", 7)
+	Collectinator_ExpMiscOptCB:SetPoint("TOPLEFT", Collectinator_ExpRepOptCB, "BOTTOMLEFT", -0, -8)
+
+	-------------------------------------------------------------------------------
+	-- Frame for the flyaway pane
+	-------------------------------------------------------------------------------
+	addon.Flyaway = CreateFrame("Frame", "Collectinator_Flyaway", addon.Frame)
+	addon.Flyaway:SetWidth(234)
+	addon.Flyaway:SetHeight(312)
+
+	addon.flyTexture = addon.Flyaway:CreateTexture("Collectinator.flyTexture", "ARTWORK")
+	addon.flyTexture:SetTexture("Interface\\Addons\\Collectinator\\img\\fly_2col")
+	addon.flyTexture:SetAllPoints(addon.Flyaway)
+	addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
+	addon.Flyaway:SetHitRectInsets(5, 5, 5, 5)
+
+	addon.Flyaway:EnableMouse(true)
+	addon.Flyaway:EnableKeyboard(true)
+	addon.Flyaway:SetMovable(false)
+
+	addon.Flyaway:ClearAllPoints()
+	addon.Flyaway:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT", -6, -102)
+
+	addon.Flyaway:SetScript("OnShow", addon.setFlyawayState) 
+	addon.Flyaway:Hide()
+
+	-------------------------------------------------------------------------------
+	-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
+	-------------------------------------------------------------------------------
+	addon.Fly_General = CreateFrame("Frame", "Collectinator_Fly_General", addon.Flyaway)
+	addon.Fly_General:SetWidth(112)
+	addon.Fly_General:SetHeight(280)
+	addon.Fly_General:EnableMouse(true)
+	addon.Fly_General:EnableKeyboard(true)
+	addon.Fly_General:SetMovable(false)
+	addon.Fly_General:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
+	addon.Fly_General:Hide()
+
+	-------------------------------------------------------------------------------
+	--			() Craft Specialty collectibles
+	--			() All skill levels
+	--			() Cross-Faction
+	--			() Known
+	--			() Unknown
+	-------------------------------------------------------------------------------
+	local Collectinator_SpecialtyCB = CreateFrame("CheckButton", "Collectinator_SpecialtyCB", addon.Fly_General, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_SpecialtyCB, addon.Fly_General, L["SPECIALTY_DESC"], 2, 1, 1, 0)
+	Collectinator_SpecialtyCBText:SetText(L["Specialties"])
+
+	local Collectinator_LevelCB = CreateFrame("CheckButton", "Collectinator_LevelCB", addon.Fly_General, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_LevelCB, addon.Fly_General, L["SKILL_DESC"], 3, 2, 1, 0)
+	Collectinator_LevelCBText:SetText(L["Skill"])
+
+	local Collectinator_FactionCB = CreateFrame("CheckButton", "Collectinator_FactionCB", addon.Fly_General, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_FactionCB, addon.Fly_General, L["FACTION_DESC"], 4, 3, 1, 0)
+	Collectinator_FactionCBText:SetText(L["Faction"])
+
+	local Collectinator_KnownCB = CreateFrame("CheckButton", "Collectinator_KnownCB", addon.Fly_General, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_KnownCB, addon.Fly_General, L["KNOWN_DESC"], 5, 4, 1, 0)
+	Collectinator_KnownCBText:SetText(L["Known"])
+
+	local Collectinator_UnknownCB = CreateFrame("CheckButton", "Collectinator_UnknownCB", addon.Fly_General, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_UnknownCB, addon.Fly_General, L["UNKNOWN_DESC"], 6, 5, 1, 0)
+	Collectinator_UnknownCBText:SetText(L["Unknown"])
+
+	addon.Fly_Obtain = CreateFrame("Frame", "Collectinator_Fly_Obtain", addon.Flyaway)
+	addon.Fly_Obtain:SetWidth(112)
+	addon.Fly_Obtain:SetHeight(280)
+	addon.Fly_Obtain:EnableMouse(true)
+	addon.Fly_Obtain:EnableKeyboard(true)
+	addon.Fly_Obtain:SetMovable(false)
+	addon.Fly_Obtain:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
+	addon.Fly_Obtain:Hide()
+
+	-------------------------------------------------------------------------------
+	--			() Instance	() Raid
+	--			() Quest		() Seasonal
+	--			() Trainer		() Vendor
+	--			() PVP		() Discovery
+	--			() World Drop	() Mob Drop
+	-------------------------------------------------------------------------------
+	local Collectinator_InstanceCB = CreateFrame("CheckButton", "Collectinator_InstanceCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_InstanceCB, addon.Fly_Obtain, L["INSTANCE_DESC"], 7, 1, 1, 0)
+	Collectinator_InstanceCBText:SetText(L["Instance"])
+
+	local Collectinator_RaidCB = CreateFrame("CheckButton", "Collectinator_RaidCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RaidCB, addon.Fly_Obtain, L["RAID_DESC"], 8, 2, 1, 0)
+	Collectinator_RaidCBText:SetText(L["Raid"])
+
+	local Collectinator_QuestCB = CreateFrame("CheckButton", "Collectinator_QuestCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_QuestCB, addon.Fly_Obtain, L["QUEST_DESC"], 9, 3, 1, 0)
+	Collectinator_QuestCBText:SetText(L["Quest"])
+
+	local Collectinator_SeasonalCB = CreateFrame("CheckButton", "Collectinator_SeasonalCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_SeasonalCB, addon.Fly_Obtain, L["SEASONAL_DESC"], 10, 4, 1, 0)
+	Collectinator_SeasonalCBText:SetText(seasonal)
+
+	local Collectinator_TrainerCB = CreateFrame("CheckButton", "Collectinator_TrainerCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_TrainerCB, addon.Fly_Obtain, L["TRAINER_DESC"], 11, 5, 1, 0)
+	Collectinator_TrainerCBText:SetText(L["Trainer"])
+
+	local Collectinator_VendorCB = CreateFrame("CheckButton", "Collectinator_VendorCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_VendorCB, addon.Fly_Obtain, L["VENDOR_DESC"], 12, 6, 1, 0)
+	Collectinator_VendorCBText:SetText(L["Vendor"])
+
+	local Collectinator_PVPCB = CreateFrame("CheckButton", "Collectinator_PVPCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_PVPCB, addon.Fly_Obtain, L["PVP_DESC"], 13, 7, 1, 0)
+	Collectinator_PVPCBText:SetText(L["PVP"])
+
+	local Collectinator_DiscoveryCB = CreateFrame("CheckButton", "Collectinator_DiscoveryCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_DiscoveryCB, addon.Fly_Obtain, L["DISCOVERY_DESC"], 14, 8, 1, 0)
+	Collectinator_DiscoveryCBText:SetText(L["Discovery"])
+
+	local Collectinator_WorldDropCB = CreateFrame("CheckButton", "Collectinator_WorldDropCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WorldDropCB, addon.Fly_Obtain, L["WORLD_DROP_DESC"], 39, 9, 1, 0)
+	Collectinator_WorldDropCBText:SetText(L["World Drop"])
+
+	local Collectinator_MobDropCB = CreateFrame("CheckButton", "Collectinator_MobDropCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_MobDropCB, addon.Fly_Obtain, L["MOB_DROP_DESC"], 40, 10, 1, 0)
+	Collectinator_MobDropCBText:SetText(L["Mob Drop"])
+
+	local Collectinator_OriginalWoWCB = CreateFrame("CheckButton", "Collectinator_OriginalWoWCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_OriginalWoWCB, addon.Fly_Obtain, L["ORIGINAL_WOW_DESC"], 26, 12, 1, 0)
+	Collectinator_OriginalWoWCBText:SetText(L["Old World"])
+
+	local Collectinator_BCCB = CreateFrame("CheckButton", "Collectinator_BCCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_BCCB, addon.Fly_Obtain, L["BC_WOW_DESC"], 78, 13, 1, 0)
+	Collectinator_BCCBText:SetText(L["Burning Crusade"])
+
+	local Collectinator_WrathCB = CreateFrame("CheckButton", "Collectinator_WrathCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], 81, 14, 1, 0)
+	Collectinator_WrathCBText:SetText(L["Lich King"])
+
+	addon.Fly_Binding = CreateFrame("Frame", "Collectinator_Fly_Binding", addon.Flyaway)
+	addon.Fly_Binding:SetWidth(210)
+	addon.Fly_Binding:SetHeight(280)
+	addon.Fly_Binding:EnableMouse(true)
+	addon.Fly_Binding:EnableKeyboard(true)
+	addon.Fly_Binding:SetMovable(false)
+	addon.Fly_Binding:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
+	addon.Fly_Binding:Hide()
+
+	-------------------------------------------------------------------------------
+	--			() Crafted Item is Bind on Equip
+	--			() Crafted Item is Bind on Pickup
+	--			() Collectible is Bind on Equip
+	--			() Collectible is Bind on Pickup
+	-------------------------------------------------------------------------------
+	local Collectinator_iBoECB = CreateFrame("CheckButton", "Collectinator_iBoECB", addon.Fly_Binding, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_iBoECB, addon.Fly_Binding, L["BOE_DESC"], 15, 1, 1, 0)
+	Collectinator_iBoECBText:SetText(L["BOEFilter"])
+
+	local Collectinator_iBoPCB = CreateFrame("CheckButton", "Collectinator_iBoPCB", addon.Fly_Binding, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_iBoPCB, addon.Fly_Binding, L["BOP_DESC"], 16, 2, 1, 0)
+	Collectinator_iBoPCBText:SetText(L["BOPFilter"])
+
+	local Collectinator_rBoECB = CreateFrame("CheckButton", "Collectinator_rBoECB", addon.Fly_Binding, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_rBoECB, addon.Fly_Binding, L["COLLECTIBLE_BOE_DESC"], 17, 3, 1, 0)
+	Collectinator_rBoECBText:SetText(L["CollectibleBOEFilter"])
+
+	local Collectinator_rBoPCB = CreateFrame("CheckButton", "Collectinator_rBoPCB", addon.Fly_Binding, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_rBoPCB, addon.Fly_Binding, L["COLLECTIBLE_BOP_DESC"], 18, 4, 1, 0)
+	Collectinator_rBoPCBText:SetText(L["CollectibleBOPFilter"])
+
+	addon.Fly_Item = CreateFrame("Frame", "Collectinator_Fly_Item", addon.Flyaway)
+	addon.Fly_Item:SetWidth(210)
+	addon.Fly_Item:SetHeight(280)
+	addon.Fly_Item:EnableMouse(true)
+	addon.Fly_Item:EnableKeyboard(true)
+	addon.Fly_Item:SetMovable(false)
+	addon.Fly_Item:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
+	addon.Fly_Item:Hide()
+
+	-------------------------------------------------------------------------------
+	--			Armor:
+	--				() Cloth	() Leather
+	--				() Mail	() Plate
+	--
+	--				() Cloak	() Necklace
+	--				() Rings	() Trinkets 
+	--				() Shield
+	-------------------------------------------------------------------------------
+	local Collectinator_ArmorButton = addon:GenericCreateButton("Collectinator_ArmorButton", addon.Fly_Item, 
+								    20, 60, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -4, "GameFontHighlight", 
+								    "GameFontHighlightSmall", L["Armor"], "LEFT", L["ARMOR_TEXT_DESC"], 0)
+	Collectinator_ArmorButton:SetText(L["Armor"] .. ":")
+	Collectinator_ArmorButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+	Collectinator_ArmorButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+	Collectinator_ArmorButton:SetScript("OnClick", 
+					    function(self, button)
+						    local armordb = addon.db.profile.filters.item.armor
+						    if button == "LeftButton" then
+							    -- Reset all armor to true
+							    armordb.cloth = true
+							    armordb.leather = true
+							    armordb.mail = true
+							    armordb.plate = true
+							    armordb.cloak = true
+							    armordb.necklace = true
+							    armordb.ring = true
+							    armordb.trinket = true
+							    armordb.shield = true
+						    elseif button == "RightButton" then
+							    -- Reset all armor to false
+							    armordb.cloth = false
+							    armordb.leather = false
+							    armordb.mail = false
+							    armordb.plate = false
+							    armordb.cloak = false
+							    armordb.necklace = false
+							    armordb.ring = false
+							    armordb.trinket = false
+							    armordb.shield = false
+						    end
+						    -- Update the checkboxes with the new value
+						    Collectinator_ArmorClothCB:SetChecked(armordb.cloth)
+						    Collectinator_ArmorLeatherCB:SetChecked(armordb.leather)
+						    Collectinator_ArmorMailCB:SetChecked(armordb.mail)
+						    Collectinator_ArmorPlateCB:SetChecked(armordb.plate)
+						    Collectinator_ArmorCloakCB:SetChecked(armordb.cloak)
+						    Collectinator_ArmorNecklaceCB:SetChecked(armordb.necklace)
+						    Collectinator_ArmorRingCB:SetChecked(armordb.ring)
+						    Collectinator_ArmorTrinketCB:SetChecked(armordb.trinket)
+						    Collectinator_ArmorShieldCB:SetChecked(armordb.shield)
+						    -- Reset our title
+						    addon.resetTitle()
+						    -- Use new filters
+						    ReDisplay()
+					    end)
+
+	local Collectinator_ArmorClothCB = CreateFrame("CheckButton", "Collectinator_ArmorClothCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_ArmorClothCB, addon.Fly_Item, L["CLOTH_DESC"], 21, 2, 1, 0)
+	Collectinator_ArmorClothCBText:SetText(L["Cloth"])
+
+	local Collectinator_ArmorLeatherCB = CreateFrame("CheckButton", "Collectinator_ArmorLeatherCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_ArmorLeatherCB, addon.Fly_Item, L["LEATHER_DESC"], 22, 2, 2, 0)
+	Collectinator_ArmorLeatherCBText:SetText(L["Leather"])
+
+	local Collectinator_ArmorMailCB = CreateFrame("CheckButton", "Collectinator_ArmorMailCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_ArmorMailCB, addon.Fly_Item, L["MAIL_DESC"], 23, 3, 1, 0)
+	Collectinator_ArmorMailCBText:SetText(L["Mail"])
+
+	local Collectinator_ArmorPlateCB = CreateFrame("CheckButton", "Collectinator_ArmorPlateCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_ArmorPlateCB, addon.Fly_Item, L["PLATE_DESC"], 24, 3, 2, 0)
+	Collectinator_ArmorPlateCBText:SetText(L["Plate"])
+
+	local Collectinator_ArmorCloakCB = CreateFrame("CheckButton", "Collectinator_ArmorCloakCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_ArmorCloakCB, addon.Fly_Item, L["CLOAK_DESC"], 64, 4, 1, 0)
+	Collectinator_ArmorCloakCBText:SetText(L["Cloak"])
+
+	local Collectinator_ArmorNecklaceCB = CreateFrame("CheckButton", "Collectinator_ArmorNecklaceCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_ArmorNecklaceCB, addon.Fly_Item, L["NECKLACE_DESC"], 65, 4, 2, 0)
+	Collectinator_ArmorNecklaceCBText:SetText(L["Necklace"])
+
+	local Collectinator_ArmorRingCB = CreateFrame("CheckButton", "Collectinator_ArmorRingCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_ArmorRingCB, addon.Fly_Item, L["RING_DESC"], 66, 5, 1, 0)
+	Collectinator_ArmorRingCBText:SetText(L["Ring"])
+
+	local Collectinator_ArmorTrinketCB = CreateFrame("CheckButton", "Collectinator_ArmorTrinketCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_ArmorTrinketCB, addon.Fly_Item, L["TRINKET_DESC"], 67, 5, 2, 0)
+	Collectinator_ArmorTrinketCBText:SetText(L["Trinket"])
+
+	local Collectinator_ArmorShieldCB = CreateFrame("CheckButton", "Collectinator_ArmorShieldCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_ArmorShieldCB, addon.Fly_Item, L["SHIELD_DESC"], 19, 6, 1, 0)
+	Collectinator_ArmorShieldCBText:SetText(L["Shield"])
+
+	-------------------------------------------------------------------------------
+	--			Weapon:
+	--				() 1H		() 2H
+	--				() Dagger	() Axe
+	--				() Mace	() Sword
+	--				() Polearm	() Thrown
+	--				() Bow	() Crossbow
+	--				() Staff
+	-------------------------------------------------------------------------------
+	local Collectinator_WeaponButton = addon:GenericCreateButton("Collectinator_WeaponButton", addon.Fly_Item, 
+								     20, 75, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -122, "GameFontHighlight", 
+								     "GameFontHighlightSmall", L["Weapon"], "LEFT", L["WEAPON_TEXT_DESC"], 0)
+	Collectinator_WeaponButton:SetText(L["Weapon"] .. ":")
+	Collectinator_WeaponButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+	Collectinator_WeaponButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+	Collectinator_WeaponButton:SetScript("OnClick", 
+					     function(self, button)
+						     local weapondb = addon.db.profile.filters.item.weapon
+						     if button == "LeftButton" then
+							     -- Reset all weapon to true
+							     weapondb.onehand = true
+							     weapondb.twohand = true
+							     weapondb.dagger = true
+							     weapondb.axe = true
+							     weapondb.mace = true
+							     weapondb.sword = true
+							     weapondb.polearm = true
+							     weapondb.wand = true
+							     weapondb.thrown = true
+							     weapondb.ammo = true
+							     weapondb.fist = true
+						     elseif button == "RightButton" then
+							     -- Reset all weapon to false
+							     weapondb.onehand = false
+							     weapondb.twohand = false
+							     weapondb.dagger = false
+							     weapondb.axe = false
+							     weapondb.mace = false
+							     weapondb.sword = false
+							     weapondb.polearm = false
+							     weapondb.wand = false
+							     weapondb.thrown = false
+							     weapondb.ammo = false
+							     weapondb.fist = false
+						     end
+						     -- Update the checkboxes with the new value
+						     Collectinator_Weapon1HCB:SetChecked(weapondb.onehand)
+						     Collectinator_Weapon2HCB:SetChecked(weapondb.twohand)
+						     Collectinator_WeaponDaggerCB:SetChecked(weapondb.dagger)
+						     Collectinator_WeaponAxeCB:SetChecked(weapondb.axe)
+						     Collectinator_WeaponMaceCB:SetChecked(weapondb.mace)
+						     Collectinator_WeaponSwordCB:SetChecked(weapondb.sword)
+						     Collectinator_WeaponPolearmCB:SetChecked(weapondb.polearm)
+						     Collectinator_WeaponWandCB:SetChecked(weapondb.wand)
+						     Collectinator_WeaponThrownCB:SetChecked(weapondb.thrown)
+						     Collectinator_WeaponAmmoCB:SetChecked(weapondb.ammo)
+						     Collectinator_WeaponFistCB:SetChecked(weapondb.fist)
+						     -- Reset our title
+						     addon.resetTitle()
+						     -- Use new filters
+						     ReDisplay()
+					     end)
+	local Collectinator_Weapon1HCB = CreateFrame("CheckButton", "Collectinator_Weapon1HCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_Weapon1HCB, addon.Fly_Item, L["ONEHAND_DESC"], 27, 9, 1, 0)
+	Collectinator_Weapon1HCBText:SetText(L["One Hand"])
+
+	local Collectinator_Weapon2HCB = CreateFrame("CheckButton", "Collectinator_Weapon2HCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_Weapon2HCB, addon.Fly_Item, L["TWOHAND_DESC"], 28, 9, 2, 0)
+	Collectinator_Weapon2HCBText:SetText(L["Two Hand"])
+
+	local Collectinator_WeaponDaggerCB = CreateFrame("CheckButton", "Collectinator_WeaponDaggerCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WeaponDaggerCB, addon.Fly_Item, L["DAGGER_DESC"], 29, 10, 1, 0)
+	Collectinator_WeaponDaggerCBText:SetText(L["Dagger"])
+
+	local Collectinator_WeaponAxeCB = CreateFrame("CheckButton", "Collectinator_WeaponAxeCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WeaponAxeCB, addon.Fly_Item, L["AXE_DESC"], 30, 10, 2, 0)
+	Collectinator_WeaponAxeCBText:SetText(L["Axe"])
+
+	local Collectinator_WeaponMaceCB = CreateFrame("CheckButton", "Collectinator_WeaponMaceCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WeaponMaceCB, addon.Fly_Item, L["MACE_DESC"], 31, 11, 1, 0)
+	Collectinator_WeaponMaceCBText:SetText(L["Mace"])
+
+	local Collectinator_WeaponSwordCB = CreateFrame("CheckButton", "Collectinator_WeaponSwordCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WeaponSwordCB, addon.Fly_Item, L["SWORD_DESC"], 32, 11, 2, 0)
+	Collectinator_WeaponSwordCBText:SetText(L["Sword"])
+
+	local Collectinator_WeaponPolearmCB = CreateFrame("CheckButton", "Collectinator_WeaponPolearmCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WeaponPolearmCB, addon.Fly_Item, L["POLEARM_DESC"], 33, 12, 1, 0)
+	Collectinator_WeaponPolearmCBText:SetText(L["Polearm"])
+
+	local Collectinator_WeaponFistCB = CreateFrame("CheckButton", "Collectinator_WeaponFistCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WeaponFistCB, addon.Fly_Item, L["FIST_DESC"], 20, 12, 2, 0)
+	Collectinator_WeaponFistCBText:SetText(L["Fist"])
+
+	local Collectinator_WeaponStaffCB = CreateFrame("CheckButton", "Collectinator_WeaponStaffCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WeaponStaffCB, addon.Fly_Item, L["STAFF_DESC"], 34, 13, 1, 0)
+	Collectinator_WeaponStaffCBText:SetText(L["Staff"])
+	Collectinator_WeaponStaffCBText:SetText(addon:Grey(L["Staff"]))
+	Collectinator_WeaponStaffCB:Disable()
+
+	local Collectinator_WeaponWandCB = CreateFrame("CheckButton", "Collectinator_WeaponWandCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WeaponWandCB, addon.Fly_Item, L["WAND_DESC"], 68, 13, 2, 0)
+	Collectinator_WeaponWandCBText:SetText(L["Wand"])
+
+	local Collectinator_WeaponThrownCB = CreateFrame("CheckButton", "Collectinator_WeaponThrownCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WeaponThrownCB, addon.Fly_Item, L["THROWN_DESC"], 35, 14, 1, 0)
+	Collectinator_WeaponThrownCBText:SetText(L["Thrown"])
+
+	local Collectinator_WeaponBowCB = CreateFrame("CheckButton", "Collectinator_WeaponBowCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WeaponBowCB, addon.Fly_Item, L["BOW_DESC"], 36, 14, 2, 0)
+	Collectinator_WeaponBowCBText:SetText(L["Bow"])
+	Collectinator_WeaponBowCBText:SetText(addon:Grey(L["Bow"]))
+	Collectinator_WeaponBowCB:Disable()
+
+	local Collectinator_WeaponCrossbowCB = CreateFrame("CheckButton", "Collectinator_WeaponCrossbowCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WeaponCrossbowCB, addon.Fly_Item, L["CROSSBOW_DESC"], 37, 15, 1, 0)
+	Collectinator_WeaponCrossbowCBText:SetText(L["Crossbow"])
+	Collectinator_WeaponCrossbowCBText:SetText(addon:Grey(L["Crossbow"]))
+	Collectinator_WeaponCrossbowCB:Disable()
+
+	local Collectinator_WeaponAmmoCB = CreateFrame("CheckButton", "Collectinator_WeaponAmmoCB", addon.Fly_Item, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WeaponAmmoCB, addon.Fly_Item, L["AMMO_DESC"], 38, 15, 2, 0)
+	Collectinator_WeaponAmmoCBText:SetText(L["Ammo"])
+
+	addon.Fly_Player = CreateFrame("Frame", "Collectinator_Fly_Player", addon.Flyaway)
+	addon.Fly_Player:SetWidth(112)
+	addon.Fly_Player:SetHeight(280)
+	addon.Fly_Player:EnableMouse(true)
+	addon.Fly_Player:EnableKeyboard(true)
+	addon.Fly_Player:SetMovable(false)
+	addon.Fly_Player:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
+	addon.Fly_Player:Hide()
+
+	local Collectinator_PlayerTankCB = CreateFrame("CheckButton", "Collectinator_PlayerTankCB", addon.Fly_Player, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_PlayerTankCB, addon.Fly_Player, L["TANKS_DESC"], 41, 1, 1, 0)
+	Collectinator_PlayerTankCBText:SetText(L["Tanks"])
+
+	local Collectinator_PlayerMeleeCB = CreateFrame("CheckButton", "Collectinator_PlayerMeleeCB", addon.Fly_Player, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_PlayerMeleeCB, addon.Fly_Player, L["MELEE_DPS_DESC"], 42, 2, 1, 0)
+	Collectinator_PlayerMeleeCBText:SetText(L["Melee DPS"])
+
+	local Collectinator_PlayerHealerCB = CreateFrame("CheckButton", "Collectinator_PlayerHealerCB", addon.Fly_Player, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_PlayerHealerCB, addon.Fly_Player, L["HEALERS_DESC"], 43, 3, 1, 0)
+	Collectinator_PlayerHealerCBText:SetText(L["Healers"])
+
+	local Collectinator_PlayerCasterCB = CreateFrame("CheckButton", "Collectinator_PlayerCasterCB", addon.Fly_Player, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_PlayerCasterCB, addon.Fly_Player, L["CASTER_DPS_DESC"], 44, 4, 1, 0)
+	Collectinator_PlayerCasterCBText:SetText(L["Caster DPS"])
+
+	addon.Fly_Rep = CreateFrame("Frame", "Collectinator_Fly_Rep", addon.Flyaway)
+	addon.Fly_Rep:SetWidth(112)
+	addon.Fly_Rep:SetHeight(280)
+	addon.Fly_Rep:EnableMouse(true)
+	addon.Fly_Rep:EnableKeyboard(true)
+	addon.Fly_Rep:SetMovable(false)
+	addon.Fly_Rep:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
+	addon.Fly_Rep:Hide()
+
+	Collectinator_RepOldWorldCB = addon:CreateExpCB("Collectinator_RepOldWorldCB", "Glues-WoW-Logo", 1)
+	Collectinator_RepOldWorldCB:SetPoint("TOPLEFT", addon.Fly_Rep, "TOPLEFT", 0, -10)
+	Collectinator_RepOldWorldCB:SetScript("OnClick", function() addon.RepFilterSwitch(1) end)
+
+	Collectinator_RepBCCB = addon:CreateExpCB("Collectinator_RepBCCB", "GLUES-WOW-BCLOGO", 1)
+	Collectinator_RepBCCB:SetPoint("TOPLEFT", addon.Fly_Rep, "TOPLEFT", 0, -60)
+	Collectinator_RepBCCB:SetScript("OnClick", function() addon.RepFilterSwitch(2) end)
+
+	Collectinator_RepLKCB = addon:CreateExpCB("Collectinator_RepLKCB", "wotlk_logo", 1)
+	Collectinator_RepLKCB:SetPoint("TOPLEFT", addon.Fly_Rep, "TOPLEFT", 0, -110)
+	Collectinator_RepLKCB:SetScript("OnClick", function() addon.RepFilterSwitch(3) end)
+
+	-------------------------------------------------------------------------------
+	-- Original Reputations
+	-------------------------------------------------------------------------------
+	addon.Fly_Rep_OW = CreateFrame("Frame", "Collectinator_Fly_Rep_OW", addon.Fly_Rep)
+	addon.Fly_Rep_OW:SetWidth(150)
+	addon.Fly_Rep_OW:SetHeight(280)
+	addon.Fly_Rep_OW:EnableMouse(true)
+	addon.Fly_Rep_OW:EnableKeyboard(true)
+	addon.Fly_Rep_OW:SetMovable(false)
+	addon.Fly_Rep_OW:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
+	addon.Fly_Rep_OW:Hide()
+
+	local Collectinator_Rep_OWButton = addon:GenericCreateButton("Collectinator_Rep_OWButton", addon.Fly_Rep_OW, 
+								     20, 85, "TOPLEFT", addon.Fly_Rep_OW, "TOPLEFT", -2, -4, "GameFontHighlight", 
+								     "GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
+	Collectinator_Rep_OWButton:SetText(L["Reputation"] .. ":")
+	Collectinator_Rep_OWButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+	Collectinator_Rep_OWButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+	Collectinator_Rep_OWButton:SetScript("OnClick", 
+					     function(self, button)
+						     local filterdb = addon.db.profile.filters.rep
+						     if button == "LeftButton" then
+							     -- Reset all armor to true
+							     filterdb.argentdawn = true
+							     filterdb.cenarioncircle = true
+							     filterdb.thoriumbrotherhood = true
+							     filterdb.timbermaw = true
+							     filterdb.zandalar = true
+						     elseif button == "RightButton" then
+							     -- Reset all armor to false
+							     filterdb.argentdawn = false
+							     filterdb.cenarioncircle = false
+							     filterdb.thoriumbrotherhood = false
+							     filterdb.timbermaw = false
+							     filterdb.zandalar = false
+						     end
+						     -- Update the checkboxes with the new value
+						     Collectinator_RepArgentDawnCB:SetChecked(filterdb.argentdawn)
+						     Collectinator_RepCenarionCircleCB:SetChecked(filterdb.cenarioncircle)
+						     Collectinator_RepThoriumCB:SetChecked(filterdb.thoriumbrotherhood)
+						     Collectinator_RepTimbermawCB:SetChecked(filterdb.timbermaw)
+						     Collectinator_RepZandalarCB:SetChecked(filterdb.zandalar)
+						     -- Reset our title
+						     addon.resetTitle()
+						     -- Use new filters
+						     ReDisplay()
+					     end)
+
+	local Collectinator_RepArgentDawnCB = CreateFrame("CheckButton", "Collectinator_RepArgentDawnCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepArgentDawnCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Dawn"]), 45, 2, 1, 0)
+	Collectinator_RepArgentDawnCBText:SetText(BFAC["Argent Dawn"])
+	Collectinator_RepArgentDawnCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepCenarionCircleCB = CreateFrame("CheckButton", "Collectinator_RepCenarionCircleCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepCenarionCircleCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Circle"]), 46, 3, 1, 0)
+	Collectinator_RepCenarionCircleCBText:SetText(BFAC["Cenarion Circle"])
+	Collectinator_RepCenarionCircleCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepThoriumCB = CreateFrame("CheckButton", "Collectinator_RepThoriumCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepThoriumCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Thorium Brotherhood"]), 47, 4, 1, 0)
+	Collectinator_RepThoriumCBText:SetText(BFAC["Thorium Brotherhood"])
+	Collectinator_RepThoriumCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepTimbermawCB = CreateFrame("CheckButton", "Collectinator_RepTimbermawCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepTimbermawCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Timbermaw Hold"]), 48, 5, 1, 0)
+	Collectinator_RepTimbermawCBText:SetText(BFAC["Timbermaw Hold"])
+	Collectinator_RepTimbermawCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepZandalarCB = CreateFrame("CheckButton", "Collectinator_RepZandalarCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepZandalarCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Zandalar Tribe"]), 49, 6, 1, 0)
+	Collectinator_RepZandalarCBText:SetText(BFAC["Zandalar Tribe"])
+	Collectinator_RepZandalarCBText:SetFont(narrowFont, 11)
+
+	-------------------------------------------------------------------------------
+	-- The Burning Crusade Reputations
+	-------------------------------------------------------------------------------
+	addon.Fly_Rep_BC = CreateFrame("Frame", "Collectinator_Fly_Rep_BC", addon.Fly_Rep)
+	addon.Fly_Rep_BC:SetWidth(150)
+	addon.Fly_Rep_BC:SetHeight(280)
+	addon.Fly_Rep_BC:EnableMouse(true)
+	addon.Fly_Rep_BC:EnableKeyboard(true)
+	addon.Fly_Rep_BC:SetMovable(false)
+	addon.Fly_Rep_BC:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
+	addon.Fly_Rep_BC:Hide()
+
+	local Collectinator_Rep_BCButton = addon:GenericCreateButton("Collectinator_Rep_OWButton", addon.Fly_Rep_BC, 
+								     20, 85, "TOPLEFT", addon.Fly_Rep_BC, "TOPLEFT", -2, -4, "GameFontHighlight", 
+								     "GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
+	Collectinator_Rep_BCButton:SetText(L["Reputation"] .. ":")
+	Collectinator_Rep_BCButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+	Collectinator_Rep_BCButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+	Collectinator_Rep_BCButton:SetScript("OnClick", 
+					     function(self, button)
+						     local filterdb = addon.db.profile.filters.rep
+
+						     if button == "LeftButton" then
+							     -- Reset all armor to true
+							     filterdb.aldor = true
+							     filterdb.ashtonguedeathsworn = true
+							     filterdb.cenarionexpedition = true
+							     filterdb.consortium = true
+							     filterdb.hellfire = true
+							     filterdb.keepersoftime = true
+							     filterdb.nagrand = true
+							     filterdb.lowercity = true
+							     filterdb.scaleofthesands = true
+							     filterdb.scryer = true
+							     filterdb.shatar = true
+							     filterdb.shatteredsun = true
+							     filterdb.sporeggar = true
+							     filterdb.violeteye = true
+						     elseif button == "RightButton" then
+							     -- Reset all armor to false
+							     filterdb.aldor = false
+							     filterdb.ashtonguedeathsworn = false
+							     filterdb.cenarionexpedition = false
+							     filterdb.consortium = false
+							     filterdb.hellfire = false
+							     filterdb.keepersoftime = false
+							     filterdb.nagrand = false
+							     filterdb.lowercity = false
+							     filterdb.scaleofthesands = false
+							     filterdb.scryer = false
+							     filterdb.shatar = false
+							     filterdb.shatteredsun = false
+							     filterdb.sporeggar = false
+							     filterdb.violeteye = false
+						     end
+						     -- Update the checkboxes with the new value
+						     Collectinator_RepAldorCB:SetChecked(filterdb.aldor)
+						     Collectinator_RepAshtongueCB:SetChecked(filterdb.ashtonguedeathsworn)
+						     Collectinator_RepCenarionExpeditionCB:SetChecked(filterdb.cenarionexpedition)
+						     Collectinator_RepConsortiumCB:SetChecked(filterdb.consortium)
+						     Collectinator_RepHonorHoldCB:SetChecked(filterdb.hellfire)
+						     Collectinator_RepKeepersOfTimeCB:SetChecked(filterdb.keepersoftime)
+						     Collectinator_RepKurenaiCB:SetChecked(filterdb.nagrand)
+						     Collectinator_RepLowerCityCB:SetChecked(filterdb.lowercity)
+						     Collectinator_RepScaleSandsCB:SetChecked(filterdb.scaleofthesands)
+						     Collectinator_RepScryersCB:SetChecked(filterdb.scryer)
+						     Collectinator_RepShatarCB:SetChecked(filterdb.shatar)
+						     Collectinator_RepShatteredSunCB:SetChecked(filterdb.shatteredsun)
+						     Collectinator_RepSporeggarCB:SetChecked(filterdb.sporeggar)
+						     Collectinator_RepVioletEyeCB:SetChecked(filterdb.violeteye)
+						     -- Reset our title
+						     addon.resetTitle()
+						     -- Use new filters
+						     ReDisplay()
+					     end)
+
+	local Collectinator_RepAldorCB = CreateFrame("CheckButton", "Collectinator_RepAldorCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepAldorCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Aldor"]), 50, 2, 1, 0)
+	Collectinator_RepAldorCBText:SetText(BFAC["The Aldor"])
+	Collectinator_RepAldorCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepAshtongueCB = CreateFrame("CheckButton", "Collectinator_RepAshtongueCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepAshtongueCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Ashtongue Deathsworn"]), 51, 3, 1, 0)
+	Collectinator_RepAshtongueCBText:SetText(BFAC["Ashtongue Deathsworn"])
+	Collectinator_RepAshtongueCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepCenarionExpeditionCB = CreateFrame("CheckButton", "Collectinator_RepCenarionExpeditionCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepCenarionExpeditionCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Expedition"]), 52, 4, 1, 0)
+	Collectinator_RepCenarionExpeditionCBText:SetText(BFAC["Cenarion Expedition"])
+	Collectinator_RepCenarionExpeditionCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepConsortiumCB = CreateFrame("CheckButton", "Collectinator_RepConsortiumCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepConsortiumCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Consortium"]), 53, 5, 1, 0)
+	Collectinator_RepConsortiumCBText:SetText(BFAC["The Consortium"])
+	Collectinator_RepConsortiumCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepHonorHoldCB = CreateFrame("CheckButton", "Collectinator_RepHonorHoldCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepHonorHoldCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], HonorHold_Thrallmar_FactionText), 54, 6, 1, 0)
+	Collectinator_RepHonorHoldCBText:SetText(HonorHold_Thrallmar_FactionText)
+	Collectinator_RepHonorHoldCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepKeepersOfTimeCB = CreateFrame("CheckButton", "Collectinator_RepKeepersOfTimeCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepKeepersOfTimeCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Keepers of Time"]), 55, 7, 1, 0)
+	Collectinator_RepKeepersOfTimeCBText:SetText(BFAC["Keepers of Time"])
+	Collectinator_RepKeepersOfTimeCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepKurenaiCB = CreateFrame("CheckButton", "Collectinator_RepKurenaiCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepKurenaiCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], Kurenai_Maghar_FactionText), 56, 8, 1, 0)
+	Collectinator_RepKurenaiCBText:SetText(Kurenai_Maghar_FactionText)
+	Collectinator_RepKurenaiCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepLowerCityCB = CreateFrame("CheckButton", "Collectinator_RepLowerCityCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepLowerCityCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Lower City"]), 57, 9, 1, 0)
+	Collectinator_RepLowerCityCBText:SetText(BFAC["Lower City"])
+	Collectinator_RepLowerCityCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepScaleSandsCB = CreateFrame("CheckButton", "Collectinator_RepScaleSandsCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepScaleSandsCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Scale of the Sands"]), 58, 10, 1, 0)
+	Collectinator_RepScaleSandsCBText:SetText(BFAC["The Scale of the Sands"])
+	Collectinator_RepScaleSandsCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepScryersCB = CreateFrame("CheckButton", "Collectinator_RepScryersCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepScryersCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Scryers"]), 59, 11, 1, 0)
+	Collectinator_RepScryersCBText:SetText(BFAC["The Scryers"])
+	Collectinator_RepScryersCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepShatarCB = CreateFrame("CheckButton", "Collectinator_RepShatarCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepShatarCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Sha'tar"]), 60, 12, 1, 0)
+	Collectinator_RepShatarCBText:SetText(BFAC["The Sha'tar"])
+	Collectinator_RepShatarCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepShatteredSunCB = CreateFrame("CheckButton", "Collectinator_RepShatteredSunCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepShatteredSunCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Shattered Sun Offensive"]), 61, 13, 1, 0)
+	Collectinator_RepShatteredSunCBText:SetText(BFAC["Shattered Sun Offensive"])
+	Collectinator_RepShatteredSunCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepSporeggarCB = CreateFrame("CheckButton", "Collectinator_RepSporeggarCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepSporeggarCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Sporeggar"]), 62, 14, 1, 0)
+	Collectinator_RepSporeggarCBText:SetText(BFAC["Sporeggar"])
+	Collectinator_RepSporeggarCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepVioletEyeCB = CreateFrame("CheckButton", "Collectinator_RepVioletEyeCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepVioletEyeCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Violet Eye"]), 63, 15, 1, 0)
+	Collectinator_RepVioletEyeCBText:SetText(BFAC["The Violet Eye"])
+	Collectinator_RepVioletEyeCBText:SetFont(narrowFont, 11)
+
+	-------------------------------------------------------------------------------
+	-- Wrath of the Lich King Reputations
+	-------------------------------------------------------------------------------
+	addon.Fly_Rep_LK= CreateFrame("Frame", "Collectinator_Fly_Rep_LK", addon.Fly_Rep)
+	addon.Fly_Rep_LK:SetWidth(150)
+	addon.Fly_Rep_LK:SetHeight(280)
+	addon.Fly_Rep_LK:EnableMouse(true)
+	addon.Fly_Rep_LK:EnableKeyboard(true)
+	addon.Fly_Rep_LK:SetMovable(false)
+	addon.Fly_Rep_LK:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
+	addon.Fly_Rep_LK:Hide()
+
+	local Collectinator_Rep_LKButton = addon:GenericCreateButton("Collectinator_Rep_OWButton", addon.Fly_Rep_LK, 
+								     20, 85, "TOPLEFT", addon.Fly_Rep_LK, "TOPLEFT", -2, -4, "GameFontHighlight", 
+								     "GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
+	Collectinator_Rep_LKButton:SetText(L["Reputation"] .. ":")
+	Collectinator_Rep_LKButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+	Collectinator_Rep_LKButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+	Collectinator_Rep_LKButton:SetScript("OnClick", 
+					     function(self, button)
+						     local filterdb = addon.db.profile.filters.rep
+						     if button == "LeftButton" then
+							     -- Reset all armor to true
+							     filterdb.argentcrusade = true
+							     filterdb.frenzyheart = true
+							     filterdb.ebonblade = true
+							     filterdb.kirintor = true
+							     filterdb.sonsofhodir = true
+							     filterdb.kaluak = true
+							     filterdb.oracles = true
+							     filterdb.wyrmrest = true
+							     filterdb.wrathcommon1 = true
+						     elseif button == "RightButton" then
+							     -- Reset all armor to false
+							     filterdb.argentcrusade = false
+							     filterdb.frenzyheart = false
+							     filterdb.ebonblade = false
+							     filterdb.kirintor = false
+							     filterdb.sonsofhodir = false
+							     filterdb.kaluak = false
+							     filterdb.oracles = false
+							     filterdb.wyrmrest = false
+							     filterdb.wrathcommon1 = false
+						     end
+						     -- Update the checkboxes with the new value
+						     Collectinator_RepArgentCrusadeCB:SetChecked(filterdb.argentcrusade)
+						     Collectinator_RepFrenzyheartCB:SetChecked(filterdb.frenzyheart)
+						     Collectinator_RepEbonBladeCB:SetChecked(filterdb.ebonblade)
+						     Collectinator_RepKirinTorCB:SetChecked(filterdb.kirintor)
+						     Collectinator_RepSonsOfHodirCB:SetChecked(filterdb.sonsofhodir)
+						     Collectinator_RepKaluakCB:SetChecked(filterdb.kaluak)
+						     Collectinator_RepOraclesCB:SetChecked(filterdb.oracles)
+						     Collectinator_RepWyrmrestCB:SetChecked(filterdb.wyrmrest)
+						     Collectinator_WrathCommon1CB:SetChecked(filterdb.wrathcommon1)
+						     -- Reset our title
+						     addon.resetTitle()
+						     -- Use new filters
+						     ReDisplay()
+					     end)
+
+	local Collectinator_WrathCommon1CB = CreateFrame("CheckButton", "Collectinator_WrathCommon1CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WrathCommon1CB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"],  Vanguard_Expedition_FactionText), 25, 2, 1, 0)
+	Collectinator_WrathCommon1CBText:SetText(Vanguard_Expedition_FactionText)
+	Collectinator_WrathCommon1CBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepArgentCrusadeCB = CreateFrame("CheckButton", "Collectinator_RepArgentCrusadeCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepArgentCrusadeCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Crusade"]), 69, 3, 1, 0)
+	Collectinator_RepArgentCrusadeCBText:SetText(BFAC["Argent Crusade"])
+	Collectinator_RepArgentCrusadeCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_WrathCommon5CB = CreateFrame("CheckButton", "Collectinator_WrathCommon5CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WrathCommon5CB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], Explorer_Hand_FactionText), 79, 4, 1, 0)
+	Collectinator_WrathCommon5CBText:SetText(Explorer_Hand_FactionText)
+	Collectinator_WrathCommon5CBText:SetFont(narrowFont, 11)
+	Collectinator_WrathCommon5CBText:SetText(addon:Grey(Explorer_Hand_FactionText))
+	Collectinator_WrathCommon5CB:Disable()
+
+	local Collectinator_RepFrenzyheartCB = CreateFrame("CheckButton", "Collectinator_RepFrenzyheartCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepFrenzyheartCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["Frenzyheart Tribe"]), 70, 5, 1, 0)
+	Collectinator_RepFrenzyheartCBText:SetText(BFAC["Frenzyheart Tribe"])
+	Collectinator_RepFrenzyheartCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepKaluakCB = CreateFrame("CheckButton", "Collectinator_RepKaluakCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepKaluakCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Kalu'ak"]), 74, 6, 1, 0)
+	Collectinator_RepKaluakCBText:SetText(BFAC["The Kalu'ak"])
+	Collectinator_RepKaluakCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepKirinTorCB = CreateFrame("CheckButton", "Collectinator_RepKirinTorCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepKirinTorCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["Kirin Tor"]), 72, 7, 1, 0)
+	Collectinator_RepKirinTorCBText:SetText(BFAC["Kirin Tor"])
+	Collectinator_RepKirinTorCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepEbonBladeCB = CreateFrame("CheckButton", "Collectinator_RepEbonBladeCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepEbonBladeCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["Knights of the Ebon Blade"]), 71, 8, 1, 0)
+	Collectinator_RepEbonBladeCBText:SetText(BFAC["Knights of the Ebon Blade"])
+	Collectinator_RepEbonBladeCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepOraclesCB = CreateFrame("CheckButton", "Collectinator_RepOraclesCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepOraclesCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Oracles"]), 75, 9, 1, 0)
+	Collectinator_RepOraclesCBText:SetText(BFAC["The Oracles"])
+	Collectinator_RepOraclesCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_WrathCommon2CB = CreateFrame("CheckButton", "Collectinator_WrathCommon2CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WrathCommon2CB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], SilverConv_Sunreaver_FactionText), 77, 10, 1, 0)
+	Collectinator_WrathCommon2CBText:SetText(SilverConv_Sunreaver_FactionText)
+	Collectinator_WrathCommon2CBText:SetFont(narrowFont, 11)
+	Collectinator_WrathCommon2CBText:SetText(addon:Grey(SilverConv_Sunreaver_FactionText))
+	Collectinator_WrathCommon2CB:Disable()
+
+	local Collectinator_RepSonsOfHodirCB = CreateFrame("CheckButton", "Collectinator_RepSonsOfHodirCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepSonsOfHodirCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Sons of Hodir"]), 73, 11, 1, 0)
+	Collectinator_RepSonsOfHodirCBText:SetText(BFAC["The Sons of Hodir"])
+	Collectinator_RepSonsOfHodirCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_WrathCommon4CB = CreateFrame("CheckButton", "Collectinator_WrathCommon4CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WrathCommon4CB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], Frostborn_Taunka_FactionText), 1, 12, 1, 0)
+	Collectinator_WrathCommon4CBText:SetText(Frostborn_Taunka_FactionText)
+	Collectinator_WrathCommon4CBText:SetFont(narrowFont, 11)
+	Collectinator_WrathCommon4CBText:SetText(addon:Grey(Frostborn_Taunka_FactionText))
+	Collectinator_WrathCommon4CB:Disable()
+
+	local Collectinator_WrathCommon3CB = CreateFrame("CheckButton", "Collectinator_WrathCommon3CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_WrathCommon3CB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], Valiance_Warsong_FactionText), 80, 13, 1, 0)
+	Collectinator_WrathCommon3CBText:SetText(Valiance_Warsong_FactionText)
+	Collectinator_WrathCommon3CBText:SetFont(narrowFont, 11)
+	Collectinator_WrathCommon3CBText:SetText(addon:Grey(Valiance_Warsong_FactionText))
+	Collectinator_WrathCommon3CB:Disable()
+
+	local Collectinator_RepWyrmrestCB = CreateFrame("CheckButton", "Collectinator_RepWyrmrestCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepWyrmrestCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Wyrmrest Accord"]), 76, 14, 1, 0)
+	Collectinator_RepWyrmrestCBText:SetText(BFAC["The Wyrmrest Accord"])
+	Collectinator_RepWyrmrestCBText:SetFont(narrowFont, 11)
+
+	addon.Fly_Misc = CreateFrame("Frame", "Collectinator_Fly_Misc", addon.Flyaway)
+	addon.Fly_Misc:SetWidth(210)
+	addon.Fly_Misc:SetHeight(280)
+	addon.Fly_Misc:EnableMouse(true)
+	addon.Fly_Misc:EnableKeyboard(true)
+	addon.Fly_Misc:SetMovable(false)
+	addon.Fly_Misc:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
+	addon.Fly_Misc:Hide()
+
+	local Collectinator_MiscText = addon.Fly_Misc:CreateFontString("Collectinator_MiscText", "OVERLAY", "GameFontHighlight")
+	Collectinator_MiscText:SetText(L["Miscellaneous"] .. ":")
+	Collectinator_MiscText:SetPoint("TOPLEFT", addon.Fly_Misc, "TOPLEFT", 5, -8)
+	Collectinator_MiscText:SetHeight(14)
+	Collectinator_MiscText:SetWidth(150)
+	Collectinator_MiscText:SetJustifyH("LEFT")
+
+	local Collectinator_IgnoreCB = CreateFrame("CheckButton", "Collectinator_IgnoreCB", addon.Fly_Misc, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_IgnoreCB, addon.Fly_Misc, L["DISPLAY_EXCLUSION_DESC"], none, 2, 1, 1)
+	Collectinator_IgnoreCBText:SetText(L["Display Exclusions"])
+
+	local Collectinator_MiscAltText = addon.Fly_Misc:CreateFontString("Collectinator_MiscAltBtn", "OVERLAY", "GameFontNormal")
+	Collectinator_MiscAltText:SetText(L["Alt-Tradeskills"] .. ":")
+	Collectinator_MiscAltText:SetPoint("TOPLEFT", Collectinator_IgnoreCB, "BOTTOMLEFT", 4, 0)
+	Collectinator_MiscAltText:SetHeight(14)
+	Collectinator_MiscAltText:SetWidth(95)
+	Collectinator_MiscAltText:SetJustifyH("LEFT")
+
+	local Collectinator_MiscAltBtn = CreateFrame("Button", "Collectinator_IgnoreCB", addon.Fly_Misc)
+	Collectinator_MiscAltBtn:SetPoint("LEFT", Collectinator_MiscAltText, "RIGHT")
+	Collectinator_MiscAltBtn:SetHeight(22)
+	Collectinator_MiscAltBtn:SetWidth(22)
+	Collectinator_MiscAltBtn:SetNormalTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Up")
+	Collectinator_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
+	Collectinator_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
+	Collectinator_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
+	addon:TooltipDisplay(Collectinator_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
+
+	Collectinator_MiscAltBtn:RegisterForClicks("LeftButtonUp")
+	Collectinator_MiscAltBtn:SetScript("OnClick", 
+				 function(this, button)
+					 if clicktip then
+						 if not click_info.modified then
+							 clicktip = QTip:Release(clicktip)
+							 twipe(click_info)
+						 else
+							 twipe(click_info)
+							 GenerateClickableTT(this)
+						 end
+					 else
+						 clicktip = QTip:Acquire("Collectinator_Clickable", 1, "CENTER")
+						 twipe(click_info)
+
+						 if TipTac and TipTac.AddModifiedTip then
+							 TipTac:AddModifiedTip(clicktip, true)
+						 end
+						 GenerateClickableTT(this)
+					 end
+				 end)
+	Collectinator_MiscAltBtn:SetScript("OnHide", 
+					function(this, button)
+						clicktip = QTip:Release(clicktip)
+						twipe(click_info)
+					end)
+
+	-------------------------------------------------------------------------------
+	-- Now that everything exists, populate the global filter table
+	-------------------------------------------------------------------------------
+	local filterdb = addon.db.profile.filters
+
+	FilterValueMap = {
+		------------------------------------------------------------------------------------------------------------------------------
+		-- General Options
+		------------------------------------------------------------------------------------------------------------------------------
+		[2]  = { cb = Collectinator_SpecialtyCB, 				svroot = filterdb.general, 		svval = "specialty" }, 
+		[3]  = { cb = Collectinator_LevelCB, 					svroot = filterdb.general, 		svval = "skill" }, 
+		[4]  = { cb = Collectinator_FactionCB, 				svroot = filterdb.general, 		svval = "faction" }, 
+		[5]  = { cb = Collectinator_KnownCB, 					svroot = filterdb.general, 		svval = "known" }, 
+		[6]  = { cb = Collectinator_UnknownCB, 				svroot = filterdb.general, 		svval = "unknown" }, 
+		------------------------------------------------------------------------------------------------------------------------------
+		-- Obtain Options
+		------------------------------------------------------------------------------------------------------------------------------
+		[7]  = { cb = Collectinator_InstanceCB, 				svroot = filterdb.obtain, 		svval = "instance" }, 
+		[8]  = { cb = Collectinator_RaidCB, 					svroot = filterdb.obtain, 		svval = "raid" }, 
+		[9]  = { cb = Collectinator_QuestCB, 					svroot = filterdb.obtain, 		svval = "quest" }, 
+		[10] = { cb = Collectinator_SeasonalCB, 				svroot = filterdb.obtain, 		svval = "seasonal" }, 
+		[11] = { cb = Collectinator_TrainerCB, 				svroot = filterdb.obtain, 		svval = "trainer" }, 
+		[12] = { cb = Collectinator_VendorCB, 					svroot = filterdb.obtain, 		svval = "vendor" }, 
+		[13] = { cb = Collectinator_PVPCB, 					svroot = filterdb.obtain, 		svval = "pvp" }, 
+		[14] = { cb = Collectinator_DiscoveryCB, 				svroot = filterdb.obtain, 		svval = "discovery" }, 
+		[39] = { cb = Collectinator_WorldDropCB, 				svroot = filterdb.obtain, 		svval = "worlddrop" }, 
+		[40] = { cb = Collectinator_MobDropCB, 				svroot = filterdb.obtain, 		svval = "mobdrop" }, 
+		[26]  = { cb = Collectinator_OriginalWoWCB, 			svroot = filterdb.obtain, 		svval = "originalwow" }, 
+		[78]  = { cb = Collectinator_BCCB, 					svroot = filterdb.obtain, 		svval = "bc" }, 
+		[81]  = { cb = Collectinator_WrathCB, 					svroot = filterdb.obtain, 		svval = "wrath" }, 
+		------------------------------------------------------------------------------------------------------------------------------
+		-- Binding Options
+		------------------------------------------------------------------------------------------------------------------------------
+		[15] = { cb = Collectinator_iBoECB, 					svroot = filterdb.binding, 		svval = "itemboe" }, 
+		[16] = { cb = Collectinator_iBoPCB, 					svroot = filterdb.binding, 		svval = "itembop" }, 
+		[17] = { cb = Collectinator_rBoECB, 					svroot = filterdb.binding, 		svval = "collectibleboe" }, 
+		[18] = { cb = Collectinator_rBoPCB, 					svroot = filterdb.binding, 		svval = "collectiblebop" }, 
+		-- Armor Options
+		[21] = { cb = Collectinator_ArmorClothCB, 				svroot = filterdb.item.armor, 	svval = "cloth" }, 
+		[22] = { cb = Collectinator_ArmorLeatherCB, 			svroot = filterdb.item.armor, 	svval = "leather" }, 
+		[23] = { cb = Collectinator_ArmorMailCB, 				svroot = filterdb.item.armor, 	svval = "mail" }, 
+		[24] = { cb = Collectinator_ArmorPlateCB, 				svroot = filterdb.item.armor, 	svval = "plate" }, 
+		[64] = { cb = Collectinator_ArmorCloakCB, 				svroot = filterdb.item.armor, 	svval = "cloak" }, 
+		[65] = { cb = Collectinator_ArmorNecklaceCB, 			svroot = filterdb.item.armor, 	svval = "necklace" }, 
+		[66] = { cb = Collectinator_ArmorRingCB, 				svroot = filterdb.item.armor, 	svval = "ring" }, 
+		[67] = { cb = Collectinator_ArmorTrinketCB, 			svroot = filterdb.item.armor, 	svval = "trinket" }, 
+		[19] = { cb = Collectinator_ArmorShieldCB, 			svroot = filterdb.item.armor, 	svval = "shield" }, 
+		-- Weapon Options
+		[27] = { cb = Collectinator_Weapon1HCB, 				svroot = filterdb.item.weapon, 	svval = "onehand" }, 
+		[28] = { cb = Collectinator_Weapon2HCB, 				svroot = filterdb.item.weapon, 	svval = "twohand" }, 
+		[29] = { cb = Collectinator_WeaponDaggerCB, 			svroot = filterdb.item.weapon, 	svval = "dagger" }, 
+		[30] = { cb = Collectinator_WeaponAxeCB, 				svroot = filterdb.item.weapon, 	svval = "axe" }, 
+		[31] = { cb = Collectinator_WeaponMaceCB, 				svroot = filterdb.item.weapon, 	svval = "mace" }, 
+		[32] = { cb = Collectinator_WeaponSwordCB, 			svroot = filterdb.item.weapon, 	svval = "sword" }, 
+		[33] = { cb = Collectinator_WeaponPolearmCB, 			svroot = filterdb.item.weapon, 	svval = "polearm" }, 
+		[20] = { cb = Collectinator_WeaponFistCB, 				svroot = filterdb.item.weapon, 	svval = "fist" }, 
+		[34] = { cb = Collectinator_WeaponStaffCB, 			svroot = "disabled", 			svval = "" }, 
+		[68] = { cb = Collectinator_WeaponWandCB, 				svroot = filterdb.item.weapon, 	svval = "wand" }, 
+		[35] = { cb = Collectinator_WeaponThrownCB, 			svroot = filterdb.item.weapon, 	svval = "thrown" }, 
+		[36] = { cb = Collectinator_WeaponBowCB, 				svroot = "disabled", 			svval = "" }, 
+		[37] = { cb = Collectinator_WeaponCrossbowCB, 			svroot = "disabled", 			svval = "" }, 
+		[38] = { cb = Collectinator_WeaponAmmoCB, 				svroot = filterdb.item.weapon, 	svval = "ammo" }, 
+		-- Player Type Options
+		[41] = { cb = Collectinator_PlayerTankCB, 				svroot = filterdb.player, 		svval = "tank" }, 
+		[42] = { cb = Collectinator_PlayerMeleeCB, 			svroot = filterdb.player, 		svval = "melee" }, 
+		[43] = { cb = Collectinator_PlayerHealerCB, 			svroot = filterdb.player, 		svval = "healer" }, 
+		[44] = { cb = Collectinator_PlayerCasterCB, 			svroot = filterdb.player, 		svval = "caster" }, 
+		-- Old World Rep Options
+		[45] = { cb = Collectinator_RepArgentDawnCB, 			svroot = filterdb.rep, 			svval = "argentdawn" }, 
+		[46] = { cb = Collectinator_RepCenarionCircleCB, 		svroot = filterdb.rep, 			svval = "cenarioncircle" }, 
+		[47] = { cb = Collectinator_RepThoriumCB, 				svroot = filterdb.rep, 			svval = "thoriumbrotherhood" }, 
+		[48] = { cb = Collectinator_RepTimbermawCB, 			svroot = filterdb.rep, 			svval = "timbermaw" }, 
+		[49] = { cb = Collectinator_RepZandalarCB, 			svroot = filterdb.rep, 			svval = "zandalar" }, 
+		-- BC Rep Options
+		[50] = { cb = Collectinator_RepAldorCB, 				svroot = filterdb.rep, 			svval = "aldor" }, 
+		[51] = { cb = Collectinator_RepAshtongueCB, 			svroot = filterdb.rep, 			svval = "ashtonguedeathsworn" }, 
+		[52] = { cb = Collectinator_RepCenarionExpeditionCB, 	svroot = filterdb.rep, 			svval = "cenarionexpedition" }, 
+		[53] = { cb = Collectinator_RepConsortiumCB, 			svroot = filterdb.rep, 			svval = "consortium" }, 
+		[54] = { cb = Collectinator_RepHonorHoldCB, 			svroot = filterdb.rep, 			svval = "hellfire" }, 
+		[55] = { cb = Collectinator_RepKeepersOfTimeCB, 		svroot = filterdb.rep, 			svval = "keepersoftime" }, 
+		[56] = { cb = Collectinator_RepKurenaiCB, 				svroot = filterdb.rep, 			svval = "nagrand" }, 
+		[57] = { cb = Collectinator_RepLowerCityCB, 			svroot = filterdb.rep, 			svval = "lowercity" }, 
+		[58] = { cb = Collectinator_RepScaleSandsCB, 			svroot = filterdb.rep, 			svval = "scaleofthesands" }, 
+		[59] = { cb = Collectinator_RepScryersCB, 				svroot = filterdb.rep, 			svval = "scryer" }, 
+		[60] = { cb = Collectinator_RepShatarCB, 				svroot = filterdb.rep, 			svval = "shatar" }, 
+		[61] = { cb = Collectinator_RepShatteredSunCB, 		svroot = filterdb.rep, 			svval = "shatteredsun" }, 
+		[62] = { cb = Collectinator_RepSporeggarCB, 			svroot = filterdb.rep, 			svval = "sporeggar" }, 
+		[63] = { cb = Collectinator_RepVioletEyeCB, 			svroot = filterdb.rep, 			svval = "violeteye" }, 
+		-- LK Rep Options (may need to be changed after beta.
+		[69] = { cb = Collectinator_RepArgentCrusadeCB, 		svroot = filterdb.rep, 			svval = "argentcrusade" }, 
+		[70] = { cb = Collectinator_RepFrenzyheartCB, 			svroot = filterdb.rep, 			svval = "frenzyheart" }, 
+		[71] = { cb = Collectinator_RepEbonBladeCB, 			svroot = filterdb.rep, 			svval = "ebonblade" }, 
+		[72] = { cb = Collectinator_RepKirinTorCB, 			svroot = filterdb.rep, 			svval = "kirintor" }, 
+		[73] = { cb = Collectinator_RepSonsOfHodirCB, 			svroot = filterdb.rep, 			svval = "sonsofhodir" }, 
+		[74] = { cb = Collectinator_RepKaluakCB, 				svroot = filterdb.rep, 			svval = "kaluak" }, 
+		[75] = { cb = Collectinator_RepOraclesCB, 				svroot = filterdb.rep, 			svval = "oracles" }, 
+		[76] = { cb = Collectinator_RepWyrmrestCB, 			svroot = filterdb.rep, 			svval = "wyrmrest" }, 
+		[25] = { cb = Collectinator_WrathCommon1CB, 			svroot = filterdb.rep, 			svval = "wrathcommon1" }, 
+		[77] = { cb = Collectinator_WrathCommon2CB, 			svroot = "disabled", 			svval = "" }, 
+		[80] = { cb = Collectinator_WrathCommon3CB, 			svroot = "disabled", 			svval = "" }, 
+		[1] = { cb = Collectinator_WrathCommon4CB, 			svroot = "disabled", 			svval = "" }, 
+		[79] = { cb = Collectinator_WrathCommon5CB, 			svroot = "disabled", 			svval = "" }, 
+	}
+end
+
+-------------------------------------------------------------------------------
+-- Returns the index type based on the supplied string.
+-------------------------------------------------------------------------------
+local INDEX_TYPE = {
+	["CRITTER"]	= 1,
+	["MOUNT"]	= 2,
+}
+
+-------------------------------------------------------------------------------
+-- Displays the main recipe frame if it exists. Otherwise, create the frame
+-- and initialize it, then show it.
+-------------------------------------------------------------------------------
+function addon:DisplayFrame(
+	cDB, 		-- CollectibleList
+	sortedCI, 	-- sortedindex
 	cPlayer, 	-- playerdata
 	vList, 		-- VendorList
 	qList, 		-- QuestList
@@ -3084,38 +4364,23 @@ function addon:CreateFrame(
 	sList, 		-- SeasonalList
 	mList, 		-- MobList
 	cList)		-- Customlist
-
---[[
-          cPlayer is a table containing:
-		.playerProfession == player profession which has been opened
-		.playerProfessionLevel == skill level of profession
-		.playerSpecialty == Specialty if any or ""
-		.totalCollectibles == Total collectibles added to the database
-		.foundCollectibles == Total collectibles found that the player knows
-		.otherCollectibles == Total non-profession collectibles in the database
-		.filteredCollectibles == Total collectibles filtered
-		.playerFaction == Faction of the player
-		["Professions"] == list of all professions with the ones the player knows set as true
-		["Reputation"] == Reputation levels, what I had in current Collectinatorform was if you didn't have the rep level, it would display it in red
---]]
-
+	-------------------------------------------------------------------------------
+	-- cPlayer is a table containing:
+	-- .playerProfession == player profession which has been opened
+	-- .playerProfessionLevel == skill level of profession
+	-- .playerSpecialty == Specialty if any or ""
+	-- .totalCollectibles == Total collectibles added to the database
+	-- .foundCollectibles == Total collectibles found that the player knows
+	-- .otherCollectibles == Total non-profession collectibles in the database
+	-- .filteredCollectibles == Total collectibles filtered
+	-- .playerFaction == Faction of the player
+	-- ["Professions"] == list of all professions with the ones the player knows set as true
+	-- ["Reputation"] == Reputation levels, what I had in current Collectinatorform was if you didn't have the rep level, it would display it in red
+	-------------------------------------------------------------------------------
 	myFaction = cPlayer.playerFaction
 
-	local HonorHold_Thrallmar_FactionText = ""
-	local Kurenai_Maghar_FactionText = ""
-	local Vanguard_Expedition_FactionText = ""
-	local SilverConv_Sunreaver_FactionText = ""
-	local Valiance_Warsong_FactionText = ""
-	local Frostborn_Taunka_FactionText = ""
-	local Explorer_Hand_FactionText = ""
-
-	-- Values for the progressbar (defaults)
-	local pbMin = 0
-	local pbMax = 100
-	local pbCur = 50
-
-	sortedCollectibleIndex = sortedRI
-	collectibleDB = rDB
+	sortedCollectibleIndex = sortedCI
+	collectibleDB = cDB
 	allSpecTable = asTable
 	playerData = cPlayer
 	currentProfession = playerData.playerProfession
@@ -3126,1222 +4391,27 @@ function addon:CreateFrame(
 	mobDB = mList
 	customDB = cList
 
-	-- reset current display items
-	DisplayStrings = {}
+	WipeDisplayStrings()	-- reset current display items
 
-	-- get our current profession's index
+	-- get our current index
 	for k, v in pairs(SortedCollections) do
-
-		if (v.name == "MOUNT") then
-
-			currentProfIndex = k
+		if v.name == "MOUNT" then
+			current_tab = k
 			break
-
-		end
-
-	end
-
-	if (PetPaperDollFrameCompanionFrame:IsVisible()) then
-		if (PetPaperDollFrameCompanionFrame.mode=="CRITTER") then
-			currentProfIndex = 1
-		elseif (PetPaperDollFrameCompanionFrame.mode=="MOUNT") then
-			currentProfIndex = 2
 		end
 	end
+	local companion_frame = PetPaperDollFrameCompanionFrame
 
-	-- Adding a check in to see if we're Horde or Alliance, and change the displayed reputation
-	-- strings to be faction correct (eg, Honor Hold / Thrallmar)
-	if (myFaction == "Alliance") then
-		HonorHold_Thrallmar_FactionText = BFAC["Honor Hold"]
-		Kurenai_Maghar_FactionText = BFAC["Kurenai"]
-		Vanguard_Expedition_FactionText = BFAC["Alliance Vanguard"]
-		SilverConv_Sunreaver_FactionText = BFAC["The Silver Covenant"]
-		Valiance_Warsong_FactionText = BFAC["Valiance Expedition"]
-		Frostborn_Taunka_FactionText = BFAC["The Frostborn"]
-		Explorer_Hand_FactionText = BFAC["Explorers' League"]
-	else
-		HonorHold_Thrallmar_FactionText = BFAC["Thrallmar"]
-		Kurenai_Maghar_FactionText = BFAC["The Mag'har"]
-		Vanguard_Expedition_FactionText = BFAC["Horde Expedition"]
-		SilverConv_Sunreaver_FactionText = BFAC["The Sunreavers"]
-		Valiance_Warsong_FactionText = BFAC["Warsong Offensive"]
-		Frostborn_Taunka_FactionText = BFAC["The Taunka"]
-		Explorer_Hand_FactionText = BFAC["The Hand of Vengeance"]
+	if companion_frame:IsVisible() then
+		current_tab = INDEX_TYPE[companion_frame.mode] or 0
 	end
 
-	if (not addon.Frame) then
-
-		-- Create the main frame
-		addon.Frame = CreateFrame("Frame", "Collectinator.Frame", UIParent)
-
-		--Allows Collectinator to be closed with the Escape key
-		tinsert(UISpecialFrames, "Collectinator.Frame")
-
-		addon.Frame:SetWidth(293)
-		addon.Frame:SetHeight(447)
-
-		addon.bgTexture = addon.Frame:CreateTexture("Collectinator.bgTexture", "ARTWORK")
-		addon.bgTexture:SetTexture("Interface\\Addons\\Collectinator\\img\\main")
-		addon.bgTexture:SetAllPoints(addon.Frame)
-		addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
-		addon.Frame:SetFrameStrata("DIALOG")
-		addon.Frame:SetHitRectInsets(5, 5, 5, 5)
-
-		addon.Frame:EnableMouse(true)
-		addon.Frame:EnableKeyboard(true)
-		addon.Frame:SetMovable(true)
-
-		addon.Frame:SetScript("OnMouseDown", 
-				function()
-					addon.Frame:StartMoving()
-				end
-			)
-
-		addon.Frame:SetScript("OnHide", function() self:CloseWindow() end)
-		addon.Frame:SetScript("OnMouseUp", 
-				function()
-					addon.Frame:StopMovingOrSizing()
-					SaveFramePosition()
-				end
-			)
-
-		addon.Frame:Show()
-		addon.Frame._Expanded = false
-
-		addon.Frame.HeadingText = addon.Frame:CreateFontString("Collectinator_Frame.HeadingText", "ARTWORK")
-			
-		addon.Frame.HeadingText:SetFontObject("GameFontHighlightSmall")
-		addon.Frame.HeadingText:ClearAllPoints()
-		addon.Frame.HeadingText:SetPoint("TOP", addon.Frame, "TOP", 20, -16)
-		addon.Frame.HeadingText:SetJustifyH("CENTER")
-
-		local Collectinator_SwitcherButton = CreateFrame("Button", "Collectinator_SwitcherButton", addon.Frame, "UIPanelButtonTemplate")
-			Collectinator_SwitcherButton:SetWidth(64)
-			Collectinator_SwitcherButton:SetHeight(64)
-			Collectinator_SwitcherButton:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 1, -2)
-			Collectinator_SwitcherButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-			Collectinator_SwitcherButton:SetScript("OnClick", 
-				function(self, button)
-					addon:SwitchProfs(button)
-				end
-			)
-
-		-- Stuff in the non-expanded frame (or both)
-		local Collectinator_CloseXButton = CreateFrame("Button", "Collectinator_CloseXButton", addon.Frame, "UIPanelCloseButton")
-			Collectinator_CloseXButton:SetScript("OnClick", 
-				function(this)
-					-- Close all possible pop-up windows
-					StaticPopup_Hide("Collectinator_NOTSCANNED")
-					StaticPopup_Hide("Collectinator_ALLFILTERED")
-					StaticPopup_Hide("Collectinator_ALLKNOWN")
-					StaticPopup_Hide("Collectinator_ALLEXCLUDED")
-					StaticPopup_Hide("Collectinator_SEARCHFILTERED")
-					this:GetParent():Hide()
-				end
-			)
-			Collectinator_CloseXButton:SetPoint("TOPRIGHT", addon.Frame, "TOPRIGHT", 5, -6)
-
-		local Collectinator_FilterButton = addon:GenericCreateButton("Collectinator_FilterButton", addon.Frame, 
-			25, 90, "TOPRIGHT", addon.Frame, "TOPRIGHT", -8, -40, "GameFontNormalSmall", 
-			"GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
-			Collectinator_FilterButton:SetScript("OnClick", addon.ToggleFilters)
-
-		local Collectinator_DD_Sort = CreateFrame("Frame", "Collectinator_DD_Sort", addon.Frame, "UIDropDownMenuTemplate")
-		Collectinator_DD_Sort:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 55, -39)
-		Collectinator_DD_Sort:SetHitRectInsets(16, 16, 0, 0)
-		SetSortName()
-		UIDropDownMenu_SetWidth(Collectinator_DD_Sort, 105)
-
-		local Collectinator_ExpandButton = addon:GenericCreateButton("Collectinator_ExpandButton", addon.Frame, 
-			21, 40, "TOPRIGHT", Collectinator_DD_Sort, "BOTTOMLEFT", -2, 0, "GameFontNormalSmall", 
-			"GameFontHighlightSmall", L["EXPANDALL"], "CENTER", L["EXPANDALL_DESC"], 1)
-			Collectinator_ExpandButton:SetScript("OnClick", addon.ExpandAll_Clicked)
-
-		local Collectinator_SearchButton = addon:GenericCreateButton("Collectinator_SearchButton", addon.Frame, 
-			25, 74, "TOPLEFT", Collectinator_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall", 
-			"GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
-			Collectinator_SearchButton:Disable()
-			Collectinator_SearchButton:SetScript("OnClick", 
-				function(this)
-					local searchtext = Collectinator_SearchText:GetText()
-					searchtext = searchtext:trim()
-
-					if (searchtext ~= "") then
-						Collectinator_LastSearchedText = searchtext
-
-						addon:SearchCollectibleDB(collectibleDB, searchtext)
-						initDisplayStrings()
-						CollectibleList_Update()
-
-						Collectinator_ExpandButton:SetText(L["EXPANDALL"])
-						addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
-
-						Collectinator_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-						Collectinator_SearchButton:Disable()
-					end
-				end
-			)
-
-		local Collectinator_ClearButton = addon:GenericCreateButton("Collectinator_ClearButton", addon.Frame, 
-			28, 28, "RIGHT", Collectinator_SearchButton, "LEFT", 4, -1, "GameFontNormalSmall", 
-			"GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
-			Collectinator_ClearButton:SetScript("OnClick", 
-				function()
-					addon:ResetSearch(collectibleDB)
-					Collectinator_SearchText:SetText(L["SEARCH_BOX_DESC"])
-
-					-- Make sure our expand all button is set to expandall
-					Collectinator_ExpandButton:SetText(L["EXPANDALL"])
-					addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
-
-					-- Make sure to clear the focus of the searchbox
-					Collectinator_SearchText:ClearFocus()
-
-					-- Disable the search button since we're not searching for anything now
-					Collectinator_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-					Collectinator_SearchButton:Disable()
-
-					-- Make sure to clear text for last search
-					Collectinator_LastSearchedText = ""
-
-					initDisplayStrings()
-					CollectibleList_Update()
-				end
-			)
-		Collectinator_SearchText = CreateFrame("EditBox", "Collectinator_SearchText", addon.Frame, "InputBoxTemplate")
-			Collectinator_SearchText:SetText(L["SEARCH_BOX_DESC"])
-			Collectinator_SearchText:SetScript("OnEnterPressed", 
-				function(this)
-					local searchtext = Collectinator_SearchText:GetText()
-					searchtext = searchtext:trim()
-					if (searchtext ~= "") and (searchtext ~= L["SEARCH_BOX_DESC"]) then
-						Collectinator_LastSearchedText = searchtext
-
-						addon:SearchCollectibleDB(collectibleDB, searchtext)
-						initDisplayStrings()
-						CollectibleList_Update()
-
-						Collectinator_ExpandButton:SetText(L["EXPANDALL"])
-						addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
-
-						Collectinator_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-						Collectinator_SearchButton:Disable()
-					end
-				end
-			)
-			Collectinator_SearchText:SetScript("OnEditFocusGained", 
-				function(this)
-
-					if (this:GetText() == L["SEARCH_BOX_DESC"]) then
-
-						this:SetText("")
-
-					end
-
-				end
-			)
-			Collectinator_SearchText:SetScript("OnEditFocusLost", 
-				function(this)
-
-					if (this:GetText() == "") then
-
-						this:SetText(L["SEARCH_BOX_DESC"])
-
-					end
-
-				end
-			)
-			Collectinator_SearchText:SetScript("OnTextChanged", 
-				function(this)
-
-					if (this:GetText() ~= "" and this:GetText() ~= L["SEARCH_BOX_DESC"] and this:GetText() ~= Collectinator_LastSearchedText) then
-
-						Collectinator_SearchButton:SetNormalFontObject("GameFontNormalSmall")
-						Collectinator_SearchButton:Enable()
-						
-					else
-
-						Collectinator_SearchButton:SetNormalFontObject("GameFontDisableSmall")
-						Collectinator_SearchButton:Disable()
-
-					end
-
-				end
-			)
-			Collectinator_SearchText:EnableMouse(true)
-			Collectinator_SearchText:SetAutoFocus(false)
-			Collectinator_SearchText:SetFontObject(ChatFontNormal)
-			Collectinator_SearchText:SetWidth(130)
-			Collectinator_SearchText:SetHeight(12)
-			Collectinator_SearchText:SetPoint("RIGHT", Collectinator_ClearButton, "LEFT", 3, -1)
-			Collectinator_SearchText:Show()
-
-		local Collectinator_CloseButton = addon:GenericCreateButton("Collectinator_CloseButton", addon.Frame, 
-			22, 69, "BOTTOMRIGHT", addon.Frame, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall", 
-			"GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
-			Collectinator_CloseButton:SetScript("OnClick", 
-				function(this)
-					-- Close all possible pop-up windows
-					StaticPopup_Hide("Collectinator_NOTSCANNED")
-					StaticPopup_Hide("Collectinator_ALLFILTERED")
-					StaticPopup_Hide("Collectinator_ALLKNOWN")
-					StaticPopup_Hide("Collectinator_ALLEXCLUDED")
-					StaticPopup_Hide("Collectinator_SEARCHFILTERED")
-					this:GetParent():Hide()
-				end
-			)
-
-		-- ProgressBar for our skills
-		local Collectinator_ProgressBar = CreateFrame("StatusBar", "Collectinator_ProgressBar", addon.Frame)
-			Collectinator_ProgressBar:SetWidth(195)
-			Collectinator_ProgressBar:SetHeight(14)
-			Collectinator_ProgressBar:ClearAllPoints()
-			Collectinator_ProgressBar:SetPoint("BOTTOMLEFT", addon.Frame, 17, 7)
-			Collectinator_ProgressBar:SetStatusBarTexture("Interface\\Addons\\Collectinator\\img\\progressbar")
-			Collectinator_ProgressBar:SetOrientation("HORIZONTAL")
-			Collectinator_ProgressBar:SetStatusBarColor(0.25, 0.25, 0.75)
-
-			Collectinator_ProgressBar:SetMinMaxValues(pbMin, pbMax)
-			Collectinator_ProgressBar:SetValue(pbCur)
-
-		local Collectinator_ProgressBarText = Collectinator_ProgressBar:CreateFontString("Collectinator_ProgressBarText", "ARTWORK")
-			Collectinator_ProgressBarText:SetWidth(195)
-			Collectinator_ProgressBarText:SetHeight(14)
-			Collectinator_ProgressBarText:SetFontObject("GameFontHighlightSmall")
-			Collectinator_ProgressBarText:ClearAllPoints()
-			Collectinator_ProgressBarText:SetPoint("CENTER", Collectinator_ProgressBar, "CENTER", 0, 0)
-			Collectinator_ProgressBarText:SetJustifyH("CENTER")
- 			Collectinator_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. floor(pbCur / pbMax * 100) .. "%")
-
-		-- I'm going to use my own tooltip for collectiblebuttons
-		CollectinatorTooltip = QTip:Acquire(MODNAME.." Tooltip", 2, "LEFT", "LEFT")
-		CollectinatorSpellTooltip = CreateFrame("GameTooltip", "CollectinatorSpellTooltip", addon.Frame, "GameTooltipTemplate")
-
-		-- Add TipTac Support
-		if (TipTac) and (TipTac.AddModifiedTip) then
-			TipTac:AddModifiedTip(CollectinatorTooltip)
-			TipTac:AddModifiedTip(CollectinatorSpellTooltip)
-		end
-
-		-- The main collectible list buttons and scrollframe
-		addon.PlusListButton = {}
-		addon.CollectibleListButton = {}
-
-		for i = 1, maxVisibleCollectibles do
-
-			local Temp_Plus = addon:GenericCreateButton("Collectinator_PlusListButton" .. i, addon.Frame, 
-				16, 16, "TOPLEFT", addon.Frame, "TOPLEFT", 20, -100, "GameFontNormalSmall", 
-				"GameFontHighlightSmall", "", "LEFT", "", 2)
-
-			local Temp_Collectible = addon:GenericCreateButton("Collectinator_CollectibleListButton" .. i, addon.Frame, 
-				16, 224, "TOPLEFT", addon.Frame, "TOPLEFT", 37, -100, "GameFontNormalSmall", 
-				"GameFontHighlightSmall", "Blort", "LEFT", "", 0)
-
-			if not (i == 1) then
-
-				Temp_Plus:SetPoint("TOPLEFT", addon.PlusListButton[i-1], "BOTTOMLEFT", 0, 3)
-				Temp_Collectible:SetPoint("TOPLEFT", addon.CollectibleListButton[i-1], "BOTTOMLEFT", 0, 3)
-
-			end
-
-			Temp_Plus:SetScript("OnClick", 
-				function ()
-					addon.CollectibleItem_OnClick(i)
-				end
-			)
-
-			Temp_Collectible:SetScript("OnClick", 
-				function ()
-					addon.CollectibleItem_OnClick(i)
-				end
-			)
-
-			addon.PlusListButton[i] = Temp_Plus
-			addon.CollectibleListButton[i] = Temp_Collectible
-
-		end
-
-		local Collectinator_CollectibleScrollFrame = CreateFrame("ScrollFrame", "Collectinator_CollectibleScrollFrame", addon.Frame, "FauxScrollFrameTemplate")
-		Collectinator_CollectibleScrollFrame:SetHeight(322)
-		Collectinator_CollectibleScrollFrame:SetWidth(243)
-		Collectinator_CollectibleScrollFrame:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 20, -97)
-		Collectinator_CollectibleScrollFrame:SetScript("OnVerticalScroll", 
-			function(self, arg1)
-				FauxScrollFrame_OnVerticalScroll(self, arg1, 16, CollectibleList_Update)
-			end
-		)
-
-		-- Stuff that appears on the main frame only when expanded
-
-		local Collectinator_ResetButton = addon:GenericCreateButton("Collectinator_ResetButton", addon.Frame, 
-			25, 90, "TOPRIGHT", Collectinator_FilterButton, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall", 
-			"GameFontHighlightSmall", L["Reset"], "CENTER", L["RESET_DESC"], 1)
-			Collectinator_ResetButton:SetScript("OnClick", addon.resetFilters)
-			Collectinator_ResetButton:Hide()
-
-		-- EXPANDED : 7 buttons for opening/closing the flyaway
-
-		Collectinator_ExpGeneralOptCB = addon:CreateExpCB("Collectinator_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
-		Collectinator_ExpGeneralOptCB:SetPoint("TOPRIGHT", Collectinator_FilterButton, "BOTTOMLEFT", -1, -50)
-
-		Collectinator_ExpObtainOptCB = addon:CreateExpCB("Collectinator_ExpObtainOptCB", "Spell_Shadow_MindRot", 2)
-		Collectinator_ExpObtainOptCB:SetPoint("TOPLEFT", Collectinator_ExpGeneralOptCB, "BOTTOMLEFT", 0, -8)
-
-		Collectinator_ExpBindingOptCB = addon:CreateExpCB("Collectinator_ExpBindingOptCB", "INV_Belt_20", 3)
-		Collectinator_ExpBindingOptCB:SetPoint("TOPLEFT", Collectinator_ExpObtainOptCB, "BOTTOMLEFT", -0, -8)
-
-		Collectinator_ExpItemOptCB = addon:CreateExpCB("Collectinator_ExpItemOptCB", "INV_Misc_EngGizmos_19", 4)
-		Collectinator_ExpItemOptCB:SetPoint("TOPLEFT", Collectinator_ExpBindingOptCB, "BOTTOMLEFT", -0, -8)
-
-		Collectinator_ExpPlayerOptCB = addon:CreateExpCB("Collectinator_ExpPlayerOptCB", "INV_Misc_GroupLooking", 5)
-		Collectinator_ExpPlayerOptCB:SetPoint("TOPLEFT", Collectinator_ExpItemOptCB, "BOTTOMLEFT", -0, -8)
-
-		Collectinator_ExpRepOptCB = addon:CreateExpCB("Collectinator_ExpRepOptCB", "INV_Scroll_05", 6)
-		Collectinator_ExpRepOptCB:SetPoint("TOPLEFT", Collectinator_ExpPlayerOptCB, "BOTTOMLEFT", -0, -8)
-
-		Collectinator_ExpMiscOptCB = addon:CreateExpCB("Collectinator_ExpMiscOptCB", "Trade_Engineering", 7)
-		Collectinator_ExpMiscOptCB:SetPoint("TOPLEFT", Collectinator_ExpRepOptCB, "BOTTOMLEFT", -0, -8)
-
-		-- Frame for the flyaway pane
-		addon.Flyaway = CreateFrame("Frame", "Collectinator_Flyaway", addon.Frame)
-			addon.Flyaway:SetWidth(234)
-			addon.Flyaway:SetHeight(312)
-
-			addon.flyTexture = addon.Flyaway:CreateTexture("Collectinator.flyTexture", "ARTWORK")
-			addon.flyTexture:SetTexture("Interface\\Addons\\Collectinator\\img\\fly_2col")
-			addon.flyTexture:SetAllPoints(addon.Flyaway)
-			addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
-			addon.Flyaway:SetHitRectInsets(5, 5, 5, 5)
-
-			addon.Flyaway:EnableMouse(true)
-			addon.Flyaway:EnableKeyboard(true)
-			addon.Flyaway:SetMovable(false)
-
-			addon.Flyaway:ClearAllPoints()
-			addon.Flyaway:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT", -6, -102)
-
-			addon.Flyaway:SetScript("OnShow", addon.setFlyawayState) 
-			addon.Flyaway:Hide()
-
-		-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
-
-		addon.Fly_General = CreateFrame("Frame", "Collectinator_Fly_General", addon.Flyaway)
-			addon.Fly_General:SetWidth(112)
-			addon.Fly_General:SetHeight(280)
-			addon.Fly_General:EnableMouse(true)
-			addon.Fly_General:EnableKeyboard(true)
-			addon.Fly_General:SetMovable(false)
-			addon.Fly_General:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
-			addon.Fly_General:Hide()
---			() Craft Specialty collectibles
---			() All skill levels
---			() Cross-Faction
---			() Known
---			() Unknown
-			local Collectinator_SpecialtyCB = CreateFrame("CheckButton", "Collectinator_SpecialtyCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_SpecialtyCB, addon.Fly_General, L["SPECIALTY_DESC"], 2, 1, 1, 0)
-				Collectinator_SpecialtyCBText:SetText(L["Specialties"])
-			local Collectinator_LevelCB = CreateFrame("CheckButton", "Collectinator_LevelCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_LevelCB, addon.Fly_General, L["SKILL_DESC"], 3, 2, 1, 0)
-				Collectinator_LevelCBText:SetText(L["Skill"])
-			local Collectinator_FactionCB = CreateFrame("CheckButton", "Collectinator_FactionCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_FactionCB, addon.Fly_General, L["FACTION_DESC"], 4, 3, 1, 0)
-				Collectinator_FactionCBText:SetText(L["Faction"])
-			local Collectinator_KnownCB = CreateFrame("CheckButton", "Collectinator_KnownCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_KnownCB, addon.Fly_General, L["KNOWN_DESC"], 5, 4, 1, 0)
-				Collectinator_KnownCBText:SetText(L["Known"])
-			local Collectinator_UnknownCB = CreateFrame("CheckButton", "Collectinator_UnknownCB", addon.Fly_General, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_UnknownCB, addon.Fly_General, L["UNKNOWN_DESC"], 6, 5, 1, 0)
-				Collectinator_UnknownCBText:SetText(L["Unknown"])
-
-		addon.Fly_Obtain = CreateFrame("Frame", "Collectinator_Fly_Obtain", addon.Flyaway)
-			addon.Fly_Obtain:SetWidth(112)
-			addon.Fly_Obtain:SetHeight(280)
-			addon.Fly_Obtain:EnableMouse(true)
-			addon.Fly_Obtain:EnableKeyboard(true)
-			addon.Fly_Obtain:SetMovable(false)
-			addon.Fly_Obtain:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
-			addon.Fly_Obtain:Hide()
---			() Instance	() Raid
---			() Quest		() Seasonal
---			() Trainer		() Vendor
---			() PVP		() Discovery
---			() World Drop	() Mob Drop
-			local Collectinator_InstanceCB = CreateFrame("CheckButton", "Collectinator_InstanceCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_InstanceCB, addon.Fly_Obtain, L["INSTANCE_DESC"], 7, 1, 1, 0)
-				Collectinator_InstanceCBText:SetText(L["Instance"])
-			local Collectinator_RaidCB = CreateFrame("CheckButton", "Collectinator_RaidCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RaidCB, addon.Fly_Obtain, L["RAID_DESC"], 8, 2, 1, 0)
-				Collectinator_RaidCBText:SetText(L["Raid"])
-			local Collectinator_QuestCB = CreateFrame("CheckButton", "Collectinator_QuestCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_QuestCB, addon.Fly_Obtain, L["QUEST_DESC"], 9, 3, 1, 0)
-				Collectinator_QuestCBText:SetText(L["Quest"])
-			local Collectinator_SeasonalCB = CreateFrame("CheckButton", "Collectinator_SeasonalCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_SeasonalCB, addon.Fly_Obtain, L["SEASONAL_DESC"], 10, 4, 1, 0)
-				Collectinator_SeasonalCBText:SetText(seasonal)
-			local Collectinator_TrainerCB = CreateFrame("CheckButton", "Collectinator_TrainerCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_TrainerCB, addon.Fly_Obtain, L["TRAINER_DESC"], 11, 5, 1, 0)
-				Collectinator_TrainerCBText:SetText(L["Trainer"])
-			local Collectinator_VendorCB = CreateFrame("CheckButton", "Collectinator_VendorCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_VendorCB, addon.Fly_Obtain, L["VENDOR_DESC"], 12, 6, 1, 0)
-				Collectinator_VendorCBText:SetText(L["Vendor"])
-			local Collectinator_PVPCB = CreateFrame("CheckButton", "Collectinator_PVPCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_PVPCB, addon.Fly_Obtain, L["PVP_DESC"], 13, 7, 1, 0)
-				Collectinator_PVPCBText:SetText(L["PVP"])
-			local Collectinator_DiscoveryCB = CreateFrame("CheckButton", "Collectinator_DiscoveryCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_DiscoveryCB, addon.Fly_Obtain, L["DISCOVERY_DESC"], 14, 8, 1, 0)
-				Collectinator_DiscoveryCBText:SetText(L["Discovery"])
-			local Collectinator_WorldDropCB = CreateFrame("CheckButton", "Collectinator_WorldDropCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WorldDropCB, addon.Fly_Obtain, L["WORLD_DROP_DESC"], 39, 9, 1, 0)
-				Collectinator_WorldDropCBText:SetText(L["World Drop"])
-			local Collectinator_MobDropCB = CreateFrame("CheckButton", "Collectinator_MobDropCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_MobDropCB, addon.Fly_Obtain, L["MOB_DROP_DESC"], 40, 10, 1, 0)
-				Collectinator_MobDropCBText:SetText(L["Mob Drop"])
-			local Collectinator_OriginalWoWCB = CreateFrame("CheckButton", "Collectinator_OriginalWoWCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_OriginalWoWCB, addon.Fly_Obtain, L["ORIGINAL_WOW_DESC"], 26, 12, 1, 0)
-				Collectinator_OriginalWoWCBText:SetText(L["Old World"])
-			local Collectinator_BCCB = CreateFrame("CheckButton", "Collectinator_BCCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_BCCB, addon.Fly_Obtain, L["BC_WOW_DESC"], 78, 13, 1, 0)
-				Collectinator_BCCBText:SetText(L["Burning Crusade"])
-			local Collectinator_WrathCB = CreateFrame("CheckButton", "Collectinator_WrathCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], 81, 14, 1, 0)
-				Collectinator_WrathCBText:SetText(L["Lich King"])
-
-		addon.Fly_Binding = CreateFrame("Frame", "Collectinator_Fly_Binding", addon.Flyaway)
-			addon.Fly_Binding:SetWidth(210)
-			addon.Fly_Binding:SetHeight(280)
-			addon.Fly_Binding:EnableMouse(true)
-			addon.Fly_Binding:EnableKeyboard(true)
-			addon.Fly_Binding:SetMovable(false)
-			addon.Fly_Binding:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
-			addon.Fly_Binding:Hide()
---			() Crafted Item is Bind on Equip
---			() Crafted Item is Bind on Pickup
---			() Collectible is Bind on Equip
---			() Collectible is Bind on Pickup
-			local Collectinator_iBoECB = CreateFrame("CheckButton", "Collectinator_iBoECB", addon.Fly_Binding, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_iBoECB, addon.Fly_Binding, L["BOE_DESC"], 15, 1, 1, 0)
-				Collectinator_iBoECBText:SetText(L["BOEFilter"])
-			local Collectinator_iBoPCB = CreateFrame("CheckButton", "Collectinator_iBoPCB", addon.Fly_Binding, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_iBoPCB, addon.Fly_Binding, L["BOP_DESC"], 16, 2, 1, 0)
-				Collectinator_iBoPCBText:SetText(L["BOPFilter"])
-			local Collectinator_rBoECB = CreateFrame("CheckButton", "Collectinator_rBoECB", addon.Fly_Binding, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_rBoECB, addon.Fly_Binding, L["COLLECTIBLE_BOE_DESC"], 17, 3, 1, 0)
-				Collectinator_rBoECBText:SetText(L["CollectibleBOEFilter"])
-			local Collectinator_rBoPCB = CreateFrame("CheckButton", "Collectinator_rBoPCB", addon.Fly_Binding, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_rBoPCB, addon.Fly_Binding, L["COLLECTIBLE_BOP_DESC"], 18, 4, 1, 0)
-				Collectinator_rBoPCBText:SetText(L["CollectibleBOPFilter"])
-
-		addon.Fly_Item = CreateFrame("Frame", "Collectinator_Fly_Item", addon.Flyaway)
-			addon.Fly_Item:SetWidth(210)
-			addon.Fly_Item:SetHeight(280)
-			addon.Fly_Item:EnableMouse(true)
-			addon.Fly_Item:EnableKeyboard(true)
-			addon.Fly_Item:SetMovable(false)
-			addon.Fly_Item:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
-			addon.Fly_Item:Hide()
---			Armor:
---				() Cloth	() Leather
---				() Mail	() Plate
---
---				() Cloak	() Necklace
---				() Rings	() Trinkets 
---				() Shield
-			local Collectinator_ArmorButton = addon:GenericCreateButton("Collectinator_ArmorButton", addon.Fly_Item, 
-				20, 60, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -4, "GameFontHighlight", 
-				"GameFontHighlightSmall", L["Armor"], "LEFT", L["ARMOR_TEXT_DESC"], 0)
-				Collectinator_ArmorButton:SetText(L["Armor"] .. ":")
-				Collectinator_ArmorButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-				Collectinator_ArmorButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-				Collectinator_ArmorButton:SetScript("OnClick", 
-					function(self, button)
-						local armordb = addon.db.profile.filters.item.armor
-						if button == "LeftButton" then
-							-- Reset all armor to true
-							armordb.cloth = true
-							armordb.leather = true
-							armordb.mail = true
-							armordb.plate = true
-							armordb.cloak = true
-							armordb.necklace = true
-							armordb.ring = true
-							armordb.trinket = true
-							armordb.shield = true
-						elseif button == "RightButton" then
-							-- Reset all armor to false
-							armordb.cloth = false
-							armordb.leather = false
-							armordb.mail = false
-							armordb.plate = false
-							armordb.cloak = false
-							armordb.necklace = false
-							armordb.ring = false
-							armordb.trinket = false
-							armordb.shield = false
-						end
-						-- Update the checkboxes with the new value
-						Collectinator_ArmorClothCB:SetChecked(armordb.cloth)
-						Collectinator_ArmorLeatherCB:SetChecked(armordb.leather)
-						Collectinator_ArmorMailCB:SetChecked(armordb.mail)
-						Collectinator_ArmorPlateCB:SetChecked(armordb.plate)
-						Collectinator_ArmorCloakCB:SetChecked(armordb.cloak)
-						Collectinator_ArmorNecklaceCB:SetChecked(armordb.necklace)
-						Collectinator_ArmorRingCB:SetChecked(armordb.ring)
-						Collectinator_ArmorTrinketCB:SetChecked(armordb.trinket)
-						Collectinator_ArmorShieldCB:SetChecked(armordb.shield)
-						-- Reset our title
-						addon.resetTitle()
-						-- Use new filters
-						ReDisplay()
-					end)
-			local Collectinator_ArmorClothCB = CreateFrame("CheckButton", "Collectinator_ArmorClothCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_ArmorClothCB, addon.Fly_Item, L["CLOTH_DESC"], 21, 2, 1, 0)
-				Collectinator_ArmorClothCBText:SetText(L["Cloth"])
-			local Collectinator_ArmorLeatherCB = CreateFrame("CheckButton", "Collectinator_ArmorLeatherCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_ArmorLeatherCB, addon.Fly_Item, L["LEATHER_DESC"], 22, 2, 2, 0)
-				Collectinator_ArmorLeatherCBText:SetText(L["Leather"])
-			local Collectinator_ArmorMailCB = CreateFrame("CheckButton", "Collectinator_ArmorMailCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_ArmorMailCB, addon.Fly_Item, L["MAIL_DESC"], 23, 3, 1, 0)
-				Collectinator_ArmorMailCBText:SetText(L["Mail"])
-			local Collectinator_ArmorPlateCB = CreateFrame("CheckButton", "Collectinator_ArmorPlateCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_ArmorPlateCB, addon.Fly_Item, L["PLATE_DESC"], 24, 3, 2, 0)
-				Collectinator_ArmorPlateCBText:SetText(L["Plate"])
-
-			local Collectinator_ArmorCloakCB = CreateFrame("CheckButton", "Collectinator_ArmorCloakCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_ArmorCloakCB, addon.Fly_Item, L["CLOAK_DESC"], 64, 4, 1, 0)
-				Collectinator_ArmorCloakCBText:SetText(L["Cloak"])
-			local Collectinator_ArmorNecklaceCB = CreateFrame("CheckButton", "Collectinator_ArmorNecklaceCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_ArmorNecklaceCB, addon.Fly_Item, L["NECKLACE_DESC"], 65, 4, 2, 0)
-				Collectinator_ArmorNecklaceCBText:SetText(L["Necklace"])
-			local Collectinator_ArmorRingCB = CreateFrame("CheckButton", "Collectinator_ArmorRingCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_ArmorRingCB, addon.Fly_Item, L["RING_DESC"], 66, 5, 1, 0)
-				Collectinator_ArmorRingCBText:SetText(L["Ring"])
-			local Collectinator_ArmorTrinketCB = CreateFrame("CheckButton", "Collectinator_ArmorTrinketCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_ArmorTrinketCB, addon.Fly_Item, L["TRINKET_DESC"], 67, 5, 2, 0)
-				Collectinator_ArmorTrinketCBText:SetText(L["Trinket"])
-			local Collectinator_ArmorShieldCB = CreateFrame("CheckButton", "Collectinator_ArmorShieldCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_ArmorShieldCB, addon.Fly_Item, L["SHIELD_DESC"], 19, 6, 1, 0)
-				Collectinator_ArmorShieldCBText:SetText(L["Shield"])
---			Weapon:
---				() 1H		() 2H
---				() Dagger	() Axe
---				() Mace	() Sword
---				() Polearm	() Thrown
---				() Bow	() Crossbow
---				() Staff
-			local Collectinator_WeaponButton = addon:GenericCreateButton("Collectinator_WeaponButton", addon.Fly_Item, 
-				20, 75, "TOPLEFT", addon.Fly_Item, "TOPLEFT", -2, -122, "GameFontHighlight", 
-				"GameFontHighlightSmall", L["Weapon"], "LEFT", L["WEAPON_TEXT_DESC"], 0)
-				Collectinator_WeaponButton:SetText(L["Weapon"] .. ":")
-				Collectinator_WeaponButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-				Collectinator_WeaponButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-				Collectinator_WeaponButton:SetScript("OnClick", 
-					function(self, button)
-						local weapondb = addon.db.profile.filters.item.weapon
-						if button == "LeftButton" then
-							-- Reset all weapon to true
-							weapondb.onehand = true
-							weapondb.twohand = true
-							weapondb.dagger = true
-							weapondb.axe = true
-							weapondb.mace = true
-							weapondb.sword = true
-							weapondb.polearm = true
-							weapondb.wand = true
-							weapondb.thrown = true
-							weapondb.ammo = true
-							weapondb.fist = true
-						elseif button == "RightButton" then
-							-- Reset all weapon to false
-							weapondb.onehand = false
-							weapondb.twohand = false
-							weapondb.dagger = false
-							weapondb.axe = false
-							weapondb.mace = false
-							weapondb.sword = false
-							weapondb.polearm = false
-							weapondb.wand = false
-							weapondb.thrown = false
-							weapondb.ammo = false
-							weapondb.fist = false
-						end
-						-- Update the checkboxes with the new value
-						Collectinator_Weapon1HCB:SetChecked(weapondb.onehand)
-						Collectinator_Weapon2HCB:SetChecked(weapondb.twohand)
-						Collectinator_WeaponDaggerCB:SetChecked(weapondb.dagger)
-						Collectinator_WeaponAxeCB:SetChecked(weapondb.axe)
-						Collectinator_WeaponMaceCB:SetChecked(weapondb.mace)
-						Collectinator_WeaponSwordCB:SetChecked(weapondb.sword)
-						Collectinator_WeaponPolearmCB:SetChecked(weapondb.polearm)
-						Collectinator_WeaponWandCB:SetChecked(weapondb.wand)
-						Collectinator_WeaponThrownCB:SetChecked(weapondb.thrown)
-						Collectinator_WeaponAmmoCB:SetChecked(weapondb.ammo)
-						Collectinator_WeaponFistCB:SetChecked(weapondb.fist)
-						-- Reset our title
-						addon.resetTitle()
-						-- Use new filters
-						ReDisplay()
-					end)
-			local Collectinator_Weapon1HCB = CreateFrame("CheckButton", "Collectinator_Weapon1HCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_Weapon1HCB, addon.Fly_Item, L["ONEHAND_DESC"], 27, 9, 1, 0)
-				Collectinator_Weapon1HCBText:SetText(L["One Hand"])
-			local Collectinator_Weapon2HCB = CreateFrame("CheckButton", "Collectinator_Weapon2HCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_Weapon2HCB, addon.Fly_Item, L["TWOHAND_DESC"], 28, 9, 2, 0)
-				Collectinator_Weapon2HCBText:SetText(L["Two Hand"])
-			local Collectinator_WeaponDaggerCB = CreateFrame("CheckButton", "Collectinator_WeaponDaggerCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WeaponDaggerCB, addon.Fly_Item, L["DAGGER_DESC"], 29, 10, 1, 0)
-				Collectinator_WeaponDaggerCBText:SetText(L["Dagger"])
-			local Collectinator_WeaponAxeCB = CreateFrame("CheckButton", "Collectinator_WeaponAxeCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WeaponAxeCB, addon.Fly_Item, L["AXE_DESC"], 30, 10, 2, 0)
-				Collectinator_WeaponAxeCBText:SetText(L["Axe"])
-			local Collectinator_WeaponMaceCB = CreateFrame("CheckButton", "Collectinator_WeaponMaceCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WeaponMaceCB, addon.Fly_Item, L["MACE_DESC"], 31, 11, 1, 0)
-				Collectinator_WeaponMaceCBText:SetText(L["Mace"])
-			local Collectinator_WeaponSwordCB = CreateFrame("CheckButton", "Collectinator_WeaponSwordCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WeaponSwordCB, addon.Fly_Item, L["SWORD_DESC"], 32, 11, 2, 0)
-				Collectinator_WeaponSwordCBText:SetText(L["Sword"])
-			local Collectinator_WeaponPolearmCB = CreateFrame("CheckButton", "Collectinator_WeaponPolearmCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WeaponPolearmCB, addon.Fly_Item, L["POLEARM_DESC"], 33, 12, 1, 0)
-				Collectinator_WeaponPolearmCBText:SetText(L["Polearm"])
-			local Collectinator_WeaponFistCB = CreateFrame("CheckButton", "Collectinator_WeaponFistCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WeaponFistCB, addon.Fly_Item, L["FIST_DESC"], 20, 12, 2, 0)
-				Collectinator_WeaponFistCBText:SetText(L["Fist"])
-			local Collectinator_WeaponStaffCB = CreateFrame("CheckButton", "Collectinator_WeaponStaffCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WeaponStaffCB, addon.Fly_Item, L["STAFF_DESC"], 34, 13, 1, 0)
-				Collectinator_WeaponStaffCBText:SetText(L["Staff"])
-				Collectinator_WeaponStaffCBText:SetText(addon:Grey(L["Staff"]))
-				Collectinator_WeaponStaffCB:Disable()
-			local Collectinator_WeaponWandCB = CreateFrame("CheckButton", "Collectinator_WeaponWandCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WeaponWandCB, addon.Fly_Item, L["WAND_DESC"], 68, 13, 2, 0)
-				Collectinator_WeaponWandCBText:SetText(L["Wand"])
-			local Collectinator_WeaponThrownCB = CreateFrame("CheckButton", "Collectinator_WeaponThrownCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WeaponThrownCB, addon.Fly_Item, L["THROWN_DESC"], 35, 14, 1, 0)
-				Collectinator_WeaponThrownCBText:SetText(L["Thrown"])
-			local Collectinator_WeaponBowCB = CreateFrame("CheckButton", "Collectinator_WeaponBowCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WeaponBowCB, addon.Fly_Item, L["BOW_DESC"], 36, 14, 2, 0)
-				Collectinator_WeaponBowCBText:SetText(L["Bow"])
-				Collectinator_WeaponBowCBText:SetText(addon:Grey(L["Bow"]))
-				Collectinator_WeaponBowCB:Disable()
-			local Collectinator_WeaponCrossbowCB = CreateFrame("CheckButton", "Collectinator_WeaponCrossbowCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WeaponCrossbowCB, addon.Fly_Item, L["CROSSBOW_DESC"], 37, 15, 1, 0)
-				Collectinator_WeaponCrossbowCBText:SetText(L["Crossbow"])
-				Collectinator_WeaponCrossbowCBText:SetText(addon:Grey(L["Crossbow"]))
-				Collectinator_WeaponCrossbowCB:Disable()
-			local Collectinator_WeaponAmmoCB = CreateFrame("CheckButton", "Collectinator_WeaponAmmoCB", addon.Fly_Item, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WeaponAmmoCB, addon.Fly_Item, L["AMMO_DESC"], 38, 15, 2, 0)
-				Collectinator_WeaponAmmoCBText:SetText(L["Ammo"])
-
-		addon.Fly_Player= CreateFrame("Frame", "Collectinator_Fly_Player", addon.Flyaway)
-			addon.Fly_Player:SetWidth(112)
-			addon.Fly_Player:SetHeight(280)
-			addon.Fly_Player:EnableMouse(true)
-			addon.Fly_Player:EnableKeyboard(true)
-			addon.Fly_Player:SetMovable(false)
-			addon.Fly_Player:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
-			addon.Fly_Player:Hide()
-
-			local Collectinator_PlayerTankCB = CreateFrame("CheckButton", "Collectinator_PlayerTankCB", addon.Fly_Player, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_PlayerTankCB, addon.Fly_Player, L["TANKS_DESC"], 41, 1, 1, 0)
-				Collectinator_PlayerTankCBText:SetText(L["Tanks"])
-			local Collectinator_PlayerMeleeCB = CreateFrame("CheckButton", "Collectinator_PlayerMeleeCB", addon.Fly_Player, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_PlayerMeleeCB, addon.Fly_Player, L["MELEE_DPS_DESC"], 42, 2, 1, 0)
-				Collectinator_PlayerMeleeCBText:SetText(L["Melee DPS"])
-			local Collectinator_PlayerHealerCB = CreateFrame("CheckButton", "Collectinator_PlayerHealerCB", addon.Fly_Player, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_PlayerHealerCB, addon.Fly_Player, L["HEALERS_DESC"], 43, 3, 1, 0)
-				Collectinator_PlayerHealerCBText:SetText(L["Healers"])
-			local Collectinator_PlayerCasterCB = CreateFrame("CheckButton", "Collectinator_PlayerCasterCB", addon.Fly_Player, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_PlayerCasterCB, addon.Fly_Player, L["CASTER_DPS_DESC"], 44, 4, 1, 0)
-				Collectinator_PlayerCasterCBText:SetText(L["Caster DPS"])
-
-		addon.Fly_Rep = CreateFrame("Frame", "Collectinator_Fly_Rep", addon.Flyaway)
-			addon.Fly_Rep:SetWidth(112)
-			addon.Fly_Rep:SetHeight(280)
-			addon.Fly_Rep:EnableMouse(true)
-			addon.Fly_Rep:EnableKeyboard(true)
-			addon.Fly_Rep:SetMovable(false)
-			addon.Fly_Rep:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
-			addon.Fly_Rep:Hide()
-
-			Collectinator_RepOldWorldCB = addon:CreateExpCB("Collectinator_RepOldWorldCB", "Glues-WoW-Logo", 1)
-			Collectinator_RepOldWorldCB:SetPoint("TOPLEFT", addon.Fly_Rep, "TOPLEFT", 0, -10)
-			Collectinator_RepOldWorldCB:SetScript("OnClick", function() addon.RepFilterSwitch(1) end)
-
-			Collectinator_RepBCCB = addon:CreateExpCB("Collectinator_RepBCCB", "GLUES-WOW-BCLOGO", 1)
-			Collectinator_RepBCCB:SetPoint("TOPLEFT", addon.Fly_Rep, "TOPLEFT", 0, -60)
-			Collectinator_RepBCCB:SetScript("OnClick", function() addon.RepFilterSwitch(2) end)
-
-			Collectinator_RepLKCB = addon:CreateExpCB("Collectinator_RepLKCB", "wotlk_logo", 1)
-			Collectinator_RepLKCB:SetPoint("TOPLEFT", addon.Fly_Rep, "TOPLEFT", 0, -110)
-			Collectinator_RepLKCB:SetScript("OnClick", function() addon.RepFilterSwitch(3) end)
-
-			-- Original
-			addon.Fly_Rep_OW= CreateFrame("Frame", "Collectinator_Fly_Rep_OW", addon.Fly_Rep)
-			addon.Fly_Rep_OW:SetWidth(150)
-			addon.Fly_Rep_OW:SetHeight(280)
-			addon.Fly_Rep_OW:EnableMouse(true)
-			addon.Fly_Rep_OW:EnableKeyboard(true)
-			addon.Fly_Rep_OW:SetMovable(false)
-			addon.Fly_Rep_OW:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
-			addon.Fly_Rep_OW:Hide()
-			local Collectinator_Rep_OWButton = addon:GenericCreateButton("Collectinator_Rep_OWButton", addon.Fly_Rep_OW, 
-				20, 85, "TOPLEFT", addon.Fly_Rep_OW, "TOPLEFT", -2, -4, "GameFontHighlight", 
-				"GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
-				Collectinator_Rep_OWButton:SetText(L["Reputation"] .. ":")
-				Collectinator_Rep_OWButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-				Collectinator_Rep_OWButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-				Collectinator_Rep_OWButton:SetScript("OnClick", 
-					function(self, button)
-						local filterdb = addon.db.profile.filters.rep
-						if button == "LeftButton" then
-							-- Reset all armor to true
-							filterdb.argentdawn = true
-							filterdb.cenarioncircle = true
-							filterdb.thoriumbrotherhood = true
-							filterdb.timbermaw = true
-							filterdb.zandalar = true
-						elseif button == "RightButton" then
-							-- Reset all armor to false
-							filterdb.argentdawn = false
-							filterdb.cenarioncircle = false
-							filterdb.thoriumbrotherhood = false
-							filterdb.timbermaw = false
-							filterdb.zandalar = false
-						end
-						-- Update the checkboxes with the new value
-						Collectinator_RepArgentDawnCB:SetChecked(filterdb.argentdawn)
-						Collectinator_RepCenarionCircleCB:SetChecked(filterdb.cenarioncircle)
-						Collectinator_RepThoriumCB:SetChecked(filterdb.thoriumbrotherhood)
-						Collectinator_RepTimbermawCB:SetChecked(filterdb.timbermaw)
-						Collectinator_RepZandalarCB:SetChecked(filterdb.zandalar)
-						-- Reset our title
-						addon.resetTitle()
-						-- Use new filters
-						ReDisplay()
-					end)
-			local Collectinator_RepArgentDawnCB = CreateFrame("CheckButton", "Collectinator_RepArgentDawnCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepArgentDawnCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Dawn"]), 45, 2, 1, 0)
-				Collectinator_RepArgentDawnCBText:SetText(BFAC["Argent Dawn"])
-				Collectinator_RepArgentDawnCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepCenarionCircleCB = CreateFrame("CheckButton", "Collectinator_RepCenarionCircleCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepCenarionCircleCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Circle"]), 46, 3, 1, 0)
-				Collectinator_RepCenarionCircleCBText:SetText(BFAC["Cenarion Circle"])
-				Collectinator_RepCenarionCircleCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepThoriumCB = CreateFrame("CheckButton", "Collectinator_RepThoriumCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepThoriumCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Thorium Brotherhood"]), 47, 4, 1, 0)
-				Collectinator_RepThoriumCBText:SetText(BFAC["Thorium Brotherhood"])
-				Collectinator_RepThoriumCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepTimbermawCB = CreateFrame("CheckButton", "Collectinator_RepTimbermawCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepTimbermawCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Timbermaw Hold"]), 48, 5, 1, 0)
-				Collectinator_RepTimbermawCBText:SetText(BFAC["Timbermaw Hold"])
-				Collectinator_RepTimbermawCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepZandalarCB = CreateFrame("CheckButton", "Collectinator_RepZandalarCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepZandalarCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Zandalar Tribe"]), 49, 6, 1, 0)
-				Collectinator_RepZandalarCBText:SetText(BFAC["Zandalar Tribe"])
-				Collectinator_RepZandalarCBText:SetFont(narrowFont, 11)
-
-			-- BC
-			addon.Fly_Rep_BC = CreateFrame("Frame", "Collectinator_Fly_Rep_BC", addon.Fly_Rep)
-			addon.Fly_Rep_BC:SetWidth(150)
-			addon.Fly_Rep_BC:SetHeight(280)
-			addon.Fly_Rep_BC:EnableMouse(true)
-			addon.Fly_Rep_BC:EnableKeyboard(true)
-			addon.Fly_Rep_BC:SetMovable(false)
-			addon.Fly_Rep_BC:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
-			addon.Fly_Rep_BC:Hide()
-			local Collectinator_Rep_BCButton = addon:GenericCreateButton("Collectinator_Rep_OWButton", addon.Fly_Rep_BC, 
-				20, 85, "TOPLEFT", addon.Fly_Rep_BC, "TOPLEFT", -2, -4, "GameFontHighlight", 
-				"GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
-				Collectinator_Rep_BCButton:SetText(L["Reputation"] .. ":")
-				Collectinator_Rep_BCButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-				Collectinator_Rep_BCButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-				Collectinator_Rep_BCButton:SetScript("OnClick", 
-					function(self, button)
-						local filterdb = addon.db.profile.filters.rep
-						if button == "LeftButton" then
-							-- Reset all armor to true
-							filterdb.aldor = true
-							filterdb.ashtonguedeathsworn = true
-							filterdb.cenarionexpedition = true
-							filterdb.consortium = true
-							filterdb.hellfire = true
-							filterdb.keepersoftime = true
-							filterdb.nagrand = true
-							filterdb.lowercity = true
-							filterdb.scaleofthesands = true
-							filterdb.scryer = true
-							filterdb.shatar = true
-							filterdb.shatteredsun = true
-							filterdb.sporeggar = true
-							filterdb.violeteye = true
-						elseif button == "RightButton" then
-							-- Reset all armor to false
-							filterdb.aldor = false
-							filterdb.ashtonguedeathsworn = false
-							filterdb.cenarionexpedition = false
-							filterdb.consortium = false
-							filterdb.hellfire = false
-							filterdb.keepersoftime = false
-							filterdb.nagrand = false
-							filterdb.lowercity = false
-							filterdb.scaleofthesands = false
-							filterdb.scryer = false
-							filterdb.shatar = false
-							filterdb.shatteredsun = false
-							filterdb.sporeggar = false
-							filterdb.violeteye = false
-						end
-						-- Update the checkboxes with the new value
-						Collectinator_RepAldorCB:SetChecked(filterdb.aldor)
-						Collectinator_RepAshtongueCB:SetChecked(filterdb.ashtonguedeathsworn)
-						Collectinator_RepCenarionExpeditionCB:SetChecked(filterdb.cenarionexpedition)
-						Collectinator_RepConsortiumCB:SetChecked(filterdb.consortium)
-						Collectinator_RepHonorHoldCB:SetChecked(filterdb.hellfire)
-						Collectinator_RepKeepersOfTimeCB:SetChecked(filterdb.keepersoftime)
-						Collectinator_RepKurenaiCB:SetChecked(filterdb.nagrand)
-						Collectinator_RepLowerCityCB:SetChecked(filterdb.lowercity)
-						Collectinator_RepScaleSandsCB:SetChecked(filterdb.scaleofthesands)
-						Collectinator_RepScryersCB:SetChecked(filterdb.scryer)
-						Collectinator_RepShatarCB:SetChecked(filterdb.shatar)
-						Collectinator_RepShatteredSunCB:SetChecked(filterdb.shatteredsun)
-						Collectinator_RepSporeggarCB:SetChecked(filterdb.sporeggar)
-						Collectinator_RepVioletEyeCB:SetChecked(filterdb.violeteye)
-						-- Reset our title
-						addon.resetTitle()
-						-- Use new filters
-						ReDisplay()
-					end)
-			local Collectinator_RepAldorCB = CreateFrame("CheckButton", "Collectinator_RepAldorCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepAldorCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Aldor"]), 50, 2, 1, 0)
-				Collectinator_RepAldorCBText:SetText(BFAC["The Aldor"])
-				Collectinator_RepAldorCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepAshtongueCB = CreateFrame("CheckButton", "Collectinator_RepAshtongueCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepAshtongueCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Ashtongue Deathsworn"]), 51, 3, 1, 0)
-				Collectinator_RepAshtongueCBText:SetText(BFAC["Ashtongue Deathsworn"])
-				Collectinator_RepAshtongueCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepCenarionExpeditionCB = CreateFrame("CheckButton", "Collectinator_RepCenarionExpeditionCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepCenarionExpeditionCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Expedition"]), 52, 4, 1, 0)
-				Collectinator_RepCenarionExpeditionCBText:SetText(BFAC["Cenarion Expedition"])
-				Collectinator_RepCenarionExpeditionCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepConsortiumCB = CreateFrame("CheckButton", "Collectinator_RepConsortiumCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepConsortiumCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Consortium"]), 53, 5, 1, 0)
-				Collectinator_RepConsortiumCBText:SetText(BFAC["The Consortium"])
-				Collectinator_RepConsortiumCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepHonorHoldCB = CreateFrame("CheckButton", "Collectinator_RepHonorHoldCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepHonorHoldCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], HonorHold_Thrallmar_FactionText), 54, 6, 1, 0)
-				Collectinator_RepHonorHoldCBText:SetText(HonorHold_Thrallmar_FactionText)
-				Collectinator_RepHonorHoldCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepKeepersOfTimeCB = CreateFrame("CheckButton", "Collectinator_RepKeepersOfTimeCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepKeepersOfTimeCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Keepers of Time"]), 55, 7, 1, 0)
-				Collectinator_RepKeepersOfTimeCBText:SetText(BFAC["Keepers of Time"])
-				Collectinator_RepKeepersOfTimeCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepKurenaiCB = CreateFrame("CheckButton", "Collectinator_RepKurenaiCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepKurenaiCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], Kurenai_Maghar_FactionText), 56, 8, 1, 0)
-				Collectinator_RepKurenaiCBText:SetText(Kurenai_Maghar_FactionText)
-				Collectinator_RepKurenaiCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepLowerCityCB = CreateFrame("CheckButton", "Collectinator_RepLowerCityCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepLowerCityCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Lower City"]), 57, 9, 1, 0)
-				Collectinator_RepLowerCityCBText:SetText(BFAC["Lower City"])
-				Collectinator_RepLowerCityCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepScaleSandsCB = CreateFrame("CheckButton", "Collectinator_RepScaleSandsCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepScaleSandsCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Scale of the Sands"]), 58, 10, 1, 0)
-				Collectinator_RepScaleSandsCBText:SetText(BFAC["The Scale of the Sands"])
-				Collectinator_RepScaleSandsCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepScryersCB = CreateFrame("CheckButton", "Collectinator_RepScryersCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepScryersCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Scryers"]), 59, 11, 1, 0)
-				Collectinator_RepScryersCBText:SetText(BFAC["The Scryers"])
-				Collectinator_RepScryersCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepShatarCB = CreateFrame("CheckButton", "Collectinator_RepShatarCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepShatarCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Sha'tar"]), 60, 12, 1, 0)
-				Collectinator_RepShatarCBText:SetText(BFAC["The Sha'tar"])
-				Collectinator_RepShatarCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepShatteredSunCB = CreateFrame("CheckButton", "Collectinator_RepShatteredSunCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepShatteredSunCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Shattered Sun Offensive"]), 61, 13, 1, 0)
-				Collectinator_RepShatteredSunCBText:SetText(BFAC["Shattered Sun Offensive"])
-				Collectinator_RepShatteredSunCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepSporeggarCB = CreateFrame("CheckButton", "Collectinator_RepSporeggarCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepSporeggarCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Sporeggar"]), 62, 14, 1, 0)
-				Collectinator_RepSporeggarCBText:SetText(BFAC["Sporeggar"])
-				Collectinator_RepSporeggarCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepVioletEyeCB = CreateFrame("CheckButton", "Collectinator_RepVioletEyeCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepVioletEyeCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Violet Eye"]), 63, 15, 1, 0)
-				Collectinator_RepVioletEyeCBText:SetText(BFAC["The Violet Eye"])
-				Collectinator_RepVioletEyeCBText:SetFont(narrowFont, 11)
-
-			-- WotLK
-			addon.Fly_Rep_LK= CreateFrame("Frame", "Collectinator_Fly_Rep_LK", addon.Fly_Rep)
-			addon.Fly_Rep_LK:SetWidth(150)
-			addon.Fly_Rep_LK:SetHeight(280)
-			addon.Fly_Rep_LK:EnableMouse(true)
-			addon.Fly_Rep_LK:EnableKeyboard(true)
-			addon.Fly_Rep_LK:SetMovable(false)
-			addon.Fly_Rep_LK:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
-			addon.Fly_Rep_LK:Hide()
-			local Collectinator_Rep_LKButton = addon:GenericCreateButton("Collectinator_Rep_OWButton", addon.Fly_Rep_LK, 
-				20, 85, "TOPLEFT", addon.Fly_Rep_LK, "TOPLEFT", -2, -4, "GameFontHighlight", 
-				"GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
-				Collectinator_Rep_LKButton:SetText(L["Reputation"] .. ":")
-				Collectinator_Rep_LKButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-				Collectinator_Rep_LKButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-				Collectinator_Rep_LKButton:SetScript("OnClick", 
-					function(self, button)
-						local filterdb = addon.db.profile.filters.rep
-						if button == "LeftButton" then
-							-- Reset all armor to true
-							filterdb.argentcrusade = true
-							filterdb.frenzyheart = true
-							filterdb.ebonblade = true
-							filterdb.kirintor = true
-							filterdb.sonsofhodir = true
-							filterdb.kaluak = true
-							filterdb.oracles = true
-							filterdb.wyrmrest = true
-							filterdb.wrathcommon1 = true
-						elseif button == "RightButton" then
-							-- Reset all armor to false
-							filterdb.argentcrusade = false
-							filterdb.frenzyheart = false
-							filterdb.ebonblade = false
-							filterdb.kirintor = false
-							filterdb.sonsofhodir = false
-							filterdb.kaluak = false
-							filterdb.oracles = false
-							filterdb.wyrmrest = false
-							filterdb.wrathcommon1 = false
-						end
-						-- Update the checkboxes with the new value
-						Collectinator_RepArgentCrusadeCB:SetChecked(filterdb.argentcrusade)
-						Collectinator_RepFrenzyheartCB:SetChecked(filterdb.frenzyheart)
-						Collectinator_RepEbonBladeCB:SetChecked(filterdb.ebonblade)
-						Collectinator_RepKirinTorCB:SetChecked(filterdb.kirintor)
-						Collectinator_RepSonsOfHodirCB:SetChecked(filterdb.sonsofhodir)
-						Collectinator_RepKaluakCB:SetChecked(filterdb.kaluak)
-						Collectinator_RepOraclesCB:SetChecked(filterdb.oracles)
-						Collectinator_RepWyrmrestCB:SetChecked(filterdb.wyrmrest)
-						Collectinator_WrathCommon1CB:SetChecked(filterdb.wrathcommon1)
-						-- Reset our title
-						addon.resetTitle()
-						-- Use new filters
-						ReDisplay()
-					end)
-			local Collectinator_WrathCommon1CB = CreateFrame("CheckButton", "Collectinator_WrathCommon1CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WrathCommon1CB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"],  Vanguard_Expedition_FactionText), 25, 2, 1, 0)
-				Collectinator_WrathCommon1CBText:SetText(Vanguard_Expedition_FactionText)
-				Collectinator_WrathCommon1CBText:SetFont(narrowFont, 11)
-			local Collectinator_RepArgentCrusadeCB = CreateFrame("CheckButton", "Collectinator_RepArgentCrusadeCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepArgentCrusadeCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Crusade"]), 69, 3, 1, 0)
-				Collectinator_RepArgentCrusadeCBText:SetText(BFAC["Argent Crusade"])
-				Collectinator_RepArgentCrusadeCBText:SetFont(narrowFont, 11)
-			local Collectinator_WrathCommon5CB = CreateFrame("CheckButton", "Collectinator_WrathCommon5CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WrathCommon5CB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], Explorer_Hand_FactionText), 79, 4, 1, 0)
-				Collectinator_WrathCommon5CBText:SetText(Explorer_Hand_FactionText)
-				Collectinator_WrathCommon5CBText:SetFont(narrowFont, 11)
-				Collectinator_WrathCommon5CBText:SetText(addon:Grey(Explorer_Hand_FactionText))
-				Collectinator_WrathCommon5CB:Disable()
-			local Collectinator_RepFrenzyheartCB = CreateFrame("CheckButton", "Collectinator_RepFrenzyheartCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepFrenzyheartCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["Frenzyheart Tribe"]), 70, 5, 1, 0)
-				Collectinator_RepFrenzyheartCBText:SetText(BFAC["Frenzyheart Tribe"])
-				Collectinator_RepFrenzyheartCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepKaluakCB = CreateFrame("CheckButton", "Collectinator_RepKaluakCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepKaluakCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Kalu'ak"]), 74, 6, 1, 0)
-				Collectinator_RepKaluakCBText:SetText(BFAC["The Kalu'ak"])
-				Collectinator_RepKaluakCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepKirinTorCB = CreateFrame("CheckButton", "Collectinator_RepKirinTorCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepKirinTorCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["Kirin Tor"]), 72, 7, 1, 0)
-				Collectinator_RepKirinTorCBText:SetText(BFAC["Kirin Tor"])
-				Collectinator_RepKirinTorCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepEbonBladeCB = CreateFrame("CheckButton", "Collectinator_RepEbonBladeCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepEbonBladeCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["Knights of the Ebon Blade"]), 71, 8, 1, 0)
-				Collectinator_RepEbonBladeCBText:SetText(BFAC["Knights of the Ebon Blade"])
-				Collectinator_RepEbonBladeCBText:SetFont(narrowFont, 11)
-			local Collectinator_RepOraclesCB = CreateFrame("CheckButton", "Collectinator_RepOraclesCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepOraclesCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Oracles"]), 75, 9, 1, 0)
-				Collectinator_RepOraclesCBText:SetText(BFAC["The Oracles"])
-				Collectinator_RepOraclesCBText:SetFont(narrowFont, 11)
-			local Collectinator_WrathCommon2CB = CreateFrame("CheckButton", "Collectinator_WrathCommon2CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WrathCommon2CB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], SilverConv_Sunreaver_FactionText), 77, 10, 1, 0)
-				Collectinator_WrathCommon2CBText:SetText(SilverConv_Sunreaver_FactionText)
-				Collectinator_WrathCommon2CBText:SetFont(narrowFont, 11)
-				Collectinator_WrathCommon2CBText:SetText(addon:Grey(SilverConv_Sunreaver_FactionText))
-				Collectinator_WrathCommon2CB:Disable()
-			local Collectinator_RepSonsOfHodirCB = CreateFrame("CheckButton", "Collectinator_RepSonsOfHodirCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepSonsOfHodirCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Sons of Hodir"]), 73, 11, 1, 0)
-				Collectinator_RepSonsOfHodirCBText:SetText(BFAC["The Sons of Hodir"])
-				Collectinator_RepSonsOfHodirCBText:SetFont(narrowFont, 11)
-			local Collectinator_WrathCommon4CB = CreateFrame("CheckButton", "Collectinator_WrathCommon4CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WrathCommon4CB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], Frostborn_Taunka_FactionText), 1, 12, 1, 0)
-				Collectinator_WrathCommon4CBText:SetText(Frostborn_Taunka_FactionText)
-				Collectinator_WrathCommon4CBText:SetFont(narrowFont, 11)
-				Collectinator_WrathCommon4CBText:SetText(addon:Grey(Frostborn_Taunka_FactionText))
-				Collectinator_WrathCommon4CB:Disable()
-			local Collectinator_WrathCommon3CB = CreateFrame("CheckButton", "Collectinator_WrathCommon3CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_WrathCommon3CB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], Valiance_Warsong_FactionText), 80, 13, 1, 0)
-				Collectinator_WrathCommon3CBText:SetText(Valiance_Warsong_FactionText)
-				Collectinator_WrathCommon3CBText:SetFont(narrowFont, 11)
-				Collectinator_WrathCommon3CBText:SetText(addon:Grey(Valiance_Warsong_FactionText))
-				Collectinator_WrathCommon3CB:Disable()
-			local Collectinator_RepWyrmrestCB = CreateFrame("CheckButton", "Collectinator_RepWyrmrestCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_RepWyrmrestCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Wyrmrest Accord"]), 76, 14, 1, 0)
-				Collectinator_RepWyrmrestCBText:SetText(BFAC["The Wyrmrest Accord"])
-				Collectinator_RepWyrmrestCBText:SetFont(narrowFont, 11)
-
-		addon.Fly_Misc = CreateFrame("Frame", "Collectinator_Fly_Misc", addon.Flyaway)
-			addon.Fly_Misc:SetWidth(210)
-			addon.Fly_Misc:SetHeight(280)
-			addon.Fly_Misc:EnableMouse(true)
-			addon.Fly_Misc:EnableKeyboard(true)
-			addon.Fly_Misc:SetMovable(false)
-			addon.Fly_Misc:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
-			addon.Fly_Misc:Hide()
-			local Collectinator_MiscText = addon.Fly_Misc:CreateFontString("Collectinator_MiscText", "OVERLAY", "GameFontHighlight")
-				Collectinator_MiscText:SetText(L["Miscellaneous"] .. ":")
-				Collectinator_MiscText:SetPoint("TOPLEFT", addon.Fly_Misc, "TOPLEFT", 5, -8)
-				Collectinator_MiscText:SetHeight(14)
-				Collectinator_MiscText:SetWidth(150)
-				Collectinator_MiscText:SetJustifyH("LEFT")
-			local Collectinator_IgnoreCB = CreateFrame("CheckButton", "Collectinator_IgnoreCB", addon.Fly_Misc, "UICheckButtonTemplate")
-				addon:GenericMakeCB(Collectinator_IgnoreCB, addon.Fly_Misc, L["DISPLAY_EXCLUSION_DESC"], none, 2, 1, 1)
-				Collectinator_IgnoreCBText:SetText(L["Display Exclusions"])
-			local Collectinator_MiscAltText = addon.Fly_Misc:CreateFontString("Collectinator_MiscAltBtn", "OVERLAY", "GameFontNormal")
-				Collectinator_MiscAltText:SetText(L["Alt-Tradeskills"] .. ":")
-				Collectinator_MiscAltText:SetPoint("TOPLEFT", Collectinator_IgnoreCB, "BOTTOMLEFT", 4, 0)
-				Collectinator_MiscAltText:SetHeight(14)
-				Collectinator_MiscAltText:SetWidth(95)
-				Collectinator_MiscAltText:SetJustifyH("LEFT")
-			local Collectinator_MiscAltBtn = CreateFrame("Button", "Collectinator_IgnoreCB", addon.Fly_Misc)
-				Collectinator_MiscAltBtn:SetPoint("LEFT", Collectinator_MiscAltText, "RIGHT")
-				Collectinator_MiscAltBtn:SetHeight(22)
-				Collectinator_MiscAltBtn:SetWidth(22)
-				Collectinator_MiscAltBtn:SetNormalTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Up")
-				Collectinator_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
-				Collectinator_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
-				Collectinator_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
-				addon:TooltipDisplay(Collectinator_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
-				Collectinator_MiscAltBtn:RegisterForClicks("LeftButtonUp")
-				Collectinator_MiscAltBtn:SetScript("OnClick", 
-					function(this, button)
-						clicktip:SetParent(this)
-						if clicktip:IsShown() then
-							if not click_info.modified then
-								clicktip:Hide()
-								twipe(click_info)
-							else
-								twipe(click_info)
-								GenerateClickableTT(this)
-							end
-						else
-							twipe(click_info)
-							GenerateClickableTT(this)
-						end
-					end)
-				Collectinator_MiscAltBtn:SetScript("OnHide", 
-					function(this, button)
-						clicktip:Hide()
-						twipe(click_info)
-					end)
-
-		-- Now that everything exists, populate the global filter table
-		local filterdb = addon.db.profile.filters
-
-		FilterValueMap = {
-		-- General Options
-			[2]  = { cb = Collectinator_SpecialtyCB, 				svroot = filterdb.general, 		svval = "specialty" }, 
-			[3]  = { cb = Collectinator_LevelCB, 					svroot = filterdb.general, 		svval = "skill" }, 
-			[4]  = { cb = Collectinator_FactionCB, 				svroot = filterdb.general, 		svval = "faction" }, 
-			[5]  = { cb = Collectinator_KnownCB, 					svroot = filterdb.general, 		svval = "known" }, 
-			[6]  = { cb = Collectinator_UnknownCB, 				svroot = filterdb.general, 		svval = "unknown" }, 
-		-- Obtain Options
-			[7]  = { cb = Collectinator_InstanceCB, 				svroot = filterdb.obtain, 		svval = "instance" }, 
-			[8]  = { cb = Collectinator_RaidCB, 					svroot = filterdb.obtain, 		svval = "raid" }, 
-			[9]  = { cb = Collectinator_QuestCB, 					svroot = filterdb.obtain, 		svval = "quest" }, 
-			[10] = { cb = Collectinator_SeasonalCB, 				svroot = filterdb.obtain, 		svval = "seasonal" }, 
-			[11] = { cb = Collectinator_TrainerCB, 				svroot = filterdb.obtain, 		svval = "trainer" }, 
-			[12] = { cb = Collectinator_VendorCB, 					svroot = filterdb.obtain, 		svval = "vendor" }, 
-			[13] = { cb = Collectinator_PVPCB, 					svroot = filterdb.obtain, 		svval = "pvp" }, 
-			[14] = { cb = Collectinator_DiscoveryCB, 				svroot = filterdb.obtain, 		svval = "discovery" }, 
-			[39] = { cb = Collectinator_WorldDropCB, 				svroot = filterdb.obtain, 		svval = "worlddrop" }, 
-			[40] = { cb = Collectinator_MobDropCB, 				svroot = filterdb.obtain, 		svval = "mobdrop" }, 
-			[26]  = { cb = Collectinator_OriginalWoWCB, 			svroot = filterdb.obtain, 		svval = "originalwow" }, 
-			[78]  = { cb = Collectinator_BCCB, 					svroot = filterdb.obtain, 		svval = "bc" }, 
-			[81]  = { cb = Collectinator_WrathCB, 					svroot = filterdb.obtain, 		svval = "wrath" }, 
-		-- Binding Options
-			[15] = { cb = Collectinator_iBoECB, 					svroot = filterdb.binding, 		svval = "itemboe" }, 
-			[16] = { cb = Collectinator_iBoPCB, 					svroot = filterdb.binding, 		svval = "itembop" }, 
-			[17] = { cb = Collectinator_rBoECB, 					svroot = filterdb.binding, 		svval = "collectibleboe" }, 
-			[18] = { cb = Collectinator_rBoPCB, 					svroot = filterdb.binding, 		svval = "collectiblebop" }, 
-		-- Armor Options
-			[21] = { cb = Collectinator_ArmorClothCB, 				svroot = filterdb.item.armor, 	svval = "cloth" }, 
-			[22] = { cb = Collectinator_ArmorLeatherCB, 			svroot = filterdb.item.armor, 	svval = "leather" }, 
-			[23] = { cb = Collectinator_ArmorMailCB, 				svroot = filterdb.item.armor, 	svval = "mail" }, 
-			[24] = { cb = Collectinator_ArmorPlateCB, 				svroot = filterdb.item.armor, 	svval = "plate" }, 
-			[64] = { cb = Collectinator_ArmorCloakCB, 				svroot = filterdb.item.armor, 	svval = "cloak" }, 
-			[65] = { cb = Collectinator_ArmorNecklaceCB, 			svroot = filterdb.item.armor, 	svval = "necklace" }, 
-			[66] = { cb = Collectinator_ArmorRingCB, 				svroot = filterdb.item.armor, 	svval = "ring" }, 
-			[67] = { cb = Collectinator_ArmorTrinketCB, 			svroot = filterdb.item.armor, 	svval = "trinket" }, 
-			[19] = { cb = Collectinator_ArmorShieldCB, 			svroot = filterdb.item.armor, 	svval = "shield" }, 
-		-- Weapon Options
-			[27] = { cb = Collectinator_Weapon1HCB, 				svroot = filterdb.item.weapon, 	svval = "onehand" }, 
-			[28] = { cb = Collectinator_Weapon2HCB, 				svroot = filterdb.item.weapon, 	svval = "twohand" }, 
-			[29] = { cb = Collectinator_WeaponDaggerCB, 			svroot = filterdb.item.weapon, 	svval = "dagger" }, 
-			[30] = { cb = Collectinator_WeaponAxeCB, 				svroot = filterdb.item.weapon, 	svval = "axe" }, 
-			[31] = { cb = Collectinator_WeaponMaceCB, 				svroot = filterdb.item.weapon, 	svval = "mace" }, 
-			[32] = { cb = Collectinator_WeaponSwordCB, 			svroot = filterdb.item.weapon, 	svval = "sword" }, 
-			[33] = { cb = Collectinator_WeaponPolearmCB, 			svroot = filterdb.item.weapon, 	svval = "polearm" }, 
-			[20] = { cb = Collectinator_WeaponFistCB, 				svroot = filterdb.item.weapon, 	svval = "fist" }, 
-			[34] = { cb = Collectinator_WeaponStaffCB, 			svroot = "disabled", 			svval = "" }, 
-			[68] = { cb = Collectinator_WeaponWandCB, 				svroot = filterdb.item.weapon, 	svval = "wand" }, 
-			[35] = { cb = Collectinator_WeaponThrownCB, 			svroot = filterdb.item.weapon, 	svval = "thrown" }, 
-			[36] = { cb = Collectinator_WeaponBowCB, 				svroot = "disabled", 			svval = "" }, 
-			[37] = { cb = Collectinator_WeaponCrossbowCB, 			svroot = "disabled", 			svval = "" }, 
-			[38] = { cb = Collectinator_WeaponAmmoCB, 				svroot = filterdb.item.weapon, 	svval = "ammo" }, 
-		-- Player Type Options
-			[41] = { cb = Collectinator_PlayerTankCB, 				svroot = filterdb.player, 		svval = "tank" }, 
-			[42] = { cb = Collectinator_PlayerMeleeCB, 			svroot = filterdb.player, 		svval = "melee" }, 
-			[43] = { cb = Collectinator_PlayerHealerCB, 			svroot = filterdb.player, 		svval = "healer" }, 
-			[44] = { cb = Collectinator_PlayerCasterCB, 			svroot = filterdb.player, 		svval = "caster" }, 
-		-- Old World Rep Options
-			[45] = { cb = Collectinator_RepArgentDawnCB, 			svroot = filterdb.rep, 			svval = "argentdawn" }, 
-			[46] = { cb = Collectinator_RepCenarionCircleCB, 		svroot = filterdb.rep, 			svval = "cenarioncircle" }, 
-			[47] = { cb = Collectinator_RepThoriumCB, 				svroot = filterdb.rep, 			svval = "thoriumbrotherhood" }, 
-			[48] = { cb = Collectinator_RepTimbermawCB, 			svroot = filterdb.rep, 			svval = "timbermaw" }, 
-			[49] = { cb = Collectinator_RepZandalarCB, 			svroot = filterdb.rep, 			svval = "zandalar" }, 
-		-- BC Rep Options
-			[50] = { cb = Collectinator_RepAldorCB, 				svroot = filterdb.rep, 			svval = "aldor" }, 
-			[51] = { cb = Collectinator_RepAshtongueCB, 			svroot = filterdb.rep, 			svval = "ashtonguedeathsworn" }, 
-			[52] = { cb = Collectinator_RepCenarionExpeditionCB, 	svroot = filterdb.rep, 			svval = "cenarionexpedition" }, 
-			[53] = { cb = Collectinator_RepConsortiumCB, 			svroot = filterdb.rep, 			svval = "consortium" }, 
-			[54] = { cb = Collectinator_RepHonorHoldCB, 			svroot = filterdb.rep, 			svval = "hellfire" }, 
-			[55] = { cb = Collectinator_RepKeepersOfTimeCB, 		svroot = filterdb.rep, 			svval = "keepersoftime" }, 
-			[56] = { cb = Collectinator_RepKurenaiCB, 				svroot = filterdb.rep, 			svval = "nagrand" }, 
-			[57] = { cb = Collectinator_RepLowerCityCB, 			svroot = filterdb.rep, 			svval = "lowercity" }, 
-			[58] = { cb = Collectinator_RepScaleSandsCB, 			svroot = filterdb.rep, 			svval = "scaleofthesands" }, 
-			[59] = { cb = Collectinator_RepScryersCB, 				svroot = filterdb.rep, 			svval = "scryer" }, 
-			[60] = { cb = Collectinator_RepShatarCB, 				svroot = filterdb.rep, 			svval = "shatar" }, 
-			[61] = { cb = Collectinator_RepShatteredSunCB, 		svroot = filterdb.rep, 			svval = "shatteredsun" }, 
-			[62] = { cb = Collectinator_RepSporeggarCB, 			svroot = filterdb.rep, 			svval = "sporeggar" }, 
-			[63] = { cb = Collectinator_RepVioletEyeCB, 			svroot = filterdb.rep, 			svval = "violeteye" }, 
-		-- LK Rep Options (may need to be changed after beta.
-			[69] = { cb = Collectinator_RepArgentCrusadeCB, 		svroot = filterdb.rep, 			svval = "argentcrusade" }, 
-			[70] = { cb = Collectinator_RepFrenzyheartCB, 			svroot = filterdb.rep, 			svval = "frenzyheart" }, 
-			[71] = { cb = Collectinator_RepEbonBladeCB, 			svroot = filterdb.rep, 			svval = "ebonblade" }, 
-			[72] = { cb = Collectinator_RepKirinTorCB, 			svroot = filterdb.rep, 			svval = "kirintor" }, 
-			[73] = { cb = Collectinator_RepSonsOfHodirCB, 			svroot = filterdb.rep, 			svval = "sonsofhodir" }, 
-			[74] = { cb = Collectinator_RepKaluakCB, 				svroot = filterdb.rep, 			svval = "kaluak" }, 
-			[75] = { cb = Collectinator_RepOraclesCB, 				svroot = filterdb.rep, 			svval = "oracles" }, 
-			[76] = { cb = Collectinator_RepWyrmrestCB, 			svroot = filterdb.rep, 			svval = "wyrmrest" }, 
-			[25] = { cb = Collectinator_WrathCommon1CB, 			svroot = filterdb.rep, 			svval = "wrathcommon1" }, 
-			[77] = { cb = Collectinator_WrathCommon2CB, 			svroot = "disabled", 			svval = "" }, 
-			[80] = { cb = Collectinator_WrathCommon3CB, 			svroot = "disabled", 			svval = "" }, 
-			[1] = { cb = Collectinator_WrathCommon4CB, 			svroot = "disabled", 			svval = "" }, 
-			[79] = { cb = Collectinator_WrathCommon5CB, 			svroot = "disabled", 			svval = "" }, 
-		}
-
+	if not self.Frame then
+		InitializeFrame()
+		InitializeFrame = nil
 	end
-
-	-- Set our addon frame position
-	SetFramePosition()
-
-	-- Initialize dropdown
-	Collectinator_DD_Sort.initialize = Collectinator_DD_Sort_Initialize
+	SetFramePosition()							-- Set our addon frame position
+	Collectinator_DD_Sort.initialize = Collectinator_DD_Sort_Initialize	-- Initialize dropdown
 
 	-- reset the scale
 	addon.Frame:SetScale(addon.db.profile.frameopts.uiscale)
@@ -4352,29 +4422,22 @@ function addon:CreateFrame(
 	Collectinator_ExpandButton:SetText(L["EXPANDALL"])
 	addon:TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
 
-	-- Reset our addon title text
-	addon.resetTitle()
-
-	-- Set the texture on our switcher button correctly
-	SetSwitcherTexture(SortedCollections[currentProfIndex].texture)
+	addon.resetTitle()							-- Reset our addon title text
+	SetSwitcherTexture(SortedCollections[current_tab].texture)		-- Set the texture on our switcher button correctly
 
 	-- Sort the list
 	sortedCollectibleIndex = addon:SortDatabase(collectibleDB)
 
-	-- Take our sorted list, and fill up DisplayStrings
-	initDisplayStrings()
-
-	-- Update our progressbar
-	SetProgressBar(cPlayer)
+	initDisplayStrings()							-- Take our sorted list, and fill up DisplayStrings
+	SetProgressBar(cPlayer)							-- Update our progressbar
 
 	-- And update our scrollframe
 	CollectibleList_Update()
-	addon.Frame:Show()
+	self.Frame:Show()
 
 	-- Make sure to reset search gui elements
 	Collectinator_LastSearchedText = ""
 	Collectinator_SearchText:SetText(L["SEARCH_BOX_DESC"])
-
 end
 
 
