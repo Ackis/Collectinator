@@ -1066,7 +1066,6 @@ end
 -- Description: Scrollframe update stuff
 
 local function CollectibleList_Update()
-
 	-- Clear out the current buttons
 	for i = 1, maxVisibleCollectibles do
 		addon.CollectibleListButton[i]:SetText("")
@@ -1078,16 +1077,9 @@ local function CollectibleList_Update()
 	local entries = #DisplayStrings
 
 	FauxScrollFrame_Update(Collectinator_CollectibleScrollFrame, entries, maxVisibleCollectibles, 16)
+	addon:ClosePopups()
 
-	-- close all popups
-	StaticPopup_Hide("Collectinator_NOTSCANNED")
-	StaticPopup_Hide("Collectinator_ALLFILTERED")
-	StaticPopup_Hide("Collectinator_ALLKNOWN")
-	StaticPopup_Hide("Collectinator_ALLEXCLUDED")
-	StaticPopup_Hide("Collectinator_SEARCHFILTERED")
-
-	if (entries > 0) then
-
+	if entries > 0 then
 		-- enable expand button
 		Collectinator_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
 		Collectinator_ExpandButton:Enable()
@@ -1096,17 +1088,12 @@ local function CollectibleList_Update()
 		local listOffset = FauxScrollFrame_GetOffset(Collectinator_CollectibleScrollFrame)
 		local buttonIndex = 1
 		local stringsIndex = buttonIndex + listOffset
-
 		local stayInLoop = true
 
-		while (stayInLoop == true) do
+		while stayInLoop do
+			if DisplayStrings[stringsIndex].IsCollectible then
+				addon.PlusListButton[buttonIndex]:Show()	-- display the + symbol
 
-			if (DisplayStrings[stringsIndex].IsCollectible) then
-
-				-- display the + symbol
-				addon.PlusListButton[buttonIndex]:Show()
-
-				-- Is it expanded or not?
 				if (DisplayStrings[stringsIndex].IsExpanded) then
 					addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
 					addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
@@ -1118,15 +1105,12 @@ local function CollectibleList_Update()
 					addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 					addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
 				end
-
 			else
 				addon.PlusListButton[buttonIndex]:Hide()
 			end
-
 			addon.CollectibleListButton[buttonIndex]:SetText(DisplayStrings[stringsIndex].String)
 			addon.CollectibleListButton[buttonIndex].sI = stringsIndex
 
-			-- Set the tooltip on the button
 			SetCollectibleButtonTooltip(buttonIndex)
 
 			buttonIndex = buttonIndex + 1
@@ -1135,9 +1119,7 @@ local function CollectibleList_Update()
 			if ((buttonIndex > maxVisibleCollectibles) or (stringsIndex > entries)) then
 				stayInLoop = false
 			end
-
 		end
-
 	-- Entries are 0 here, so we have 0 to display
 	else
 		-- disable expand button, it's useless here and would spam the same error again
@@ -1146,39 +1128,39 @@ local function CollectibleList_Update()
 
 		local showpopup = false
 
-		if (addon.db.profile.hidepopup ~= true) then
+		if not addon.db.profile.hidepopup then
 			showpopup = true
 		end
 
 		-- If we haven't run this before we'll show pop-ups for the first time.
-		if (addon.db.profile.addonversion ~= addonversion) then
+		if addon.db.profile.addonversion ~= addonversion then
 			addon.db.profile.addonversion = addonversion
 			showpopup = true
 		end
 
-		-- If the collectible total is at 0, it means we have not scanned the profession yet
-		if (playerData.collectibles_total == 0) then
-			if (showpopup == true) then
-				StaticPopup_Show("Collectinator_NOTSCANNED")
+		-- If the collectible total is at 0, it means we have not scanned yet
+		if playerData.collectibles_total == 0 then
+			if showpopup then
+				StaticPopup_Show("COLLECTINATOR_NOTSCANNED")
 			end
 		-- We know all the collectibles
-		elseif (playerData.collectibles_known == playerData.collectibles_total) then
-			if (showpopup == true) then
-				StaticPopup_Show("Collectinator_ALLKNOWN")
+		elseif playerData.collectibles_known == playerData.collectibles_total then
+			if showpopup then
+				StaticPopup_Show("COLLECTINATOR_ALLKNOWN")
 			end
 		-- Our filters are actually filtering something
 		elseif ((playerData.collectibles_total_filtered - playerData.collectibles_known_filtered) == 0) then
-			if (showpopup == true) then
-				StaticPopup_Show("Collectinator_ALLFILTERED")
+			if showpopup then
+				StaticPopup_Show("COLLECTINATOR_ALLFILTERED")
 			end
 		-- Our exclusion list is preventing something from being displayed
 		elseif (playerData.excluded_collectibles_unknown ~= 0) then
-			if (showpopup == true) then
-				StaticPopup_Show("Collectinator_ALLEXCLUDED")
+			if showpopup then
+				StaticPopup_Show("COLLECTINATOR_ALLEXCLUDED")
 			end
 		-- We have some search text that is preventing stuff from being displayed
 		elseif (Collectinator_SearchText:GetText() ~= "") then
-			StaticPopup_Show("Collectinator_SEARCHFILTERED")
+			StaticPopup_Show("COLLECTINATOR_SEARCHFILTERED")
 		else
 			addon:Print(L["NO_DISPLAY"])
 			addon:Print("DEBUG: collectibles_total check for 0")
@@ -1192,9 +1174,7 @@ local function CollectibleList_Update()
 			addon:Print("DEBUG: excluded_collectibles_unknown ~= 0")
 			addon:Print("DEBUG: excluded_collectibles_unknown: " .. playerData.excluded_collectibles_unknown)
 		end
-
 	end
-	
 end
 
 -- Description: Updates the progress bar based on the number of known / total collectibles
@@ -1244,8 +1224,9 @@ end
 
 -- Description: 
 
-local function ReDisplay()
-	addon:UpdateFilters(collectibleDB, allSpecTable, playerData)
+local function ReDisplay(scan_type)
+	print(string.format("Calling ReDisplay with scan_type of %d.", scan_type))
+	addon:UpdateFilters(collectibleDB, playerData, scan_type)
 	sortedCollectibleIndex = addon:SortDatabase(collectibleDB)
 
 	--playerData.excluded_collectibles_known, playerData.excluded_collectibles_unknown = addon:GetExclusions(collectibleDB, playerData.playerProfession)
@@ -1341,7 +1322,7 @@ function addon.filterSwitch(val)
 	addon.resetTitle()
 
 	-- Use new filters
-	ReDisplay()
+	ReDisplay(current_tab)
 
 end
 
@@ -1496,7 +1477,7 @@ function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, 
 	if (misc == 0) then
 		cButton:SetScript("OnClick", function() addon.filterSwitch(scriptVal) end)
 	else
-		cButton:SetScript("OnClick", function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist ReDisplay() end)
+		cButton:SetScript("OnClick", function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist ReDisplay(current_tab) end)
 	end
 
 	addon:TooltipDisplay(cButton, ttText, 1)
@@ -1871,7 +1852,7 @@ function addon:SwitchProfs(button)
 	playerData.playerProfession = SortedCollections[current_tab].name
 	currentProfession = playerData.playerProfession
 
-	ReDisplay()
+	ReDisplay(current_tab)
 	addon.resetTitle()
 
 end
@@ -2250,7 +2231,7 @@ function addon.CollectibleItem_OnClick(button)
 			elseif (IsAltKeyDown()) then
 				-- Code needed here to insert this item into the "Ignore List"
 				addon:ToggleExcludeCollectible(clickedSpellIndex)
-				ReDisplay()
+				ReDisplay(current_tab)
 			end
 		-- three possibilities here (all with no modifiers)
 		-- 1) We clicked on the collectible button on a closed collectible
@@ -2514,7 +2495,7 @@ function addon.resetFilters()
 		addon.Flyaway:Hide()
 
 		-- Reset the display
-		ReDisplay()
+		ReDisplay(current_tab)
 	end
 end
 
@@ -2831,7 +2812,7 @@ local function Collectinator_DD_Sort_OnClick(button, value)
 	CloseDropDownMenus()
 	addon.db.profile.sorting = value
 	SetSortName()
-	ReDisplay()
+	ReDisplay(current_tab)
 end
 
 -- Description: 
@@ -3598,7 +3579,7 @@ local function InitializeFrame()
 						     -- Reset our title
 						     addon.resetTitle()
 						     -- Use new filters
-						     ReDisplay()
+						     ReDisplay(current_tab)
 					     end)
 
 	local Collectinator_RepArgentDawnCB = CreateFrame("CheckButton", "Collectinator_RepArgentDawnCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
@@ -3699,7 +3680,7 @@ local function InitializeFrame()
 						     -- Reset our title
 						     addon.resetTitle()
 						     -- Use new filters
-						     ReDisplay()
+						     ReDisplay(current_tab)
 					     end)
 
 	local Collectinator_RepAldorCB = CreateFrame("CheckButton", "Collectinator_RepAldorCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
@@ -3829,7 +3810,7 @@ local function InitializeFrame()
 						     -- Reset our title
 						     addon.resetTitle()
 						     -- Use new filters
-						     ReDisplay()
+						     ReDisplay(current_tab)
 					     end)
 
 	local Collectinator_WrathCommon1CB = CreateFrame("CheckButton", "Collectinator_WrathCommon1CB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
