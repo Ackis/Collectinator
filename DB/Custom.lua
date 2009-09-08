@@ -50,6 +50,9 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 17, "Giant Rat",BZONE["Dalaran"])
 	self:addLookupList(CustomDB, 18, "BC Fishing Daily")
 	self:addLookupList(CustomDB, 19, "Mojo ZA",BZONE["Zul'Aman"])
+	self:addLookupList(CustomDB, 20, "Wrath Fishing Daily")
+	self:addLookupList(CustomDB, 21, "PVP Pet")
+	self:addLookupList(CustomDB, 22, "Grunty") -- Blizzcon 2009
 
 end
 
