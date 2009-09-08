@@ -680,12 +680,12 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Curious Oracle Hatchling
 	self:AddCompanion(PetDB,65381,46545,2,"CRITTER",2)
-	self:AddCompanionFlags(PetDB,65381,1,2,8,21,,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionFlags(PetDB,65381,1,2,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,65381,5,8)
 
 	-- Curious Wolvar Pup
 	self:AddCompanion(PetDB,65382,46544,2,"CRITTER",2)
-	self:AddCompanionFlags(PetDB,65382,1,2,8,21,,25,26,27,28,29,30,31,32,33,34,35,36)
+	self:AddCompanionFlags(PetDB,65382,1,2,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,65382,5,8)
 
 	return 133
