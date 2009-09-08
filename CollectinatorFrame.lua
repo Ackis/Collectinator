@@ -256,15 +256,15 @@ local factionNeutral	= BFAC["Neutral"]
 -------------------------------------------------------------------------------
 -- Constants for acquire types.
 -------------------------------------------------------------------------------
-local ACQUIRE_TRAINER		= 1
-local ACQUIRE_VENDOR		= 2
-local ACQUIRE_MOB		= 3
-local ACQUIRE_QUEST		= 4
+local ACQUIRE_VENDOR		= 1
+local ACQUIRE_QUEST		= 2
+local ACQUIRE_WTF1		= 3
+local ACQUIRE_MOB		= 4
 local ACQUIRE_SEASONAL		= 5
 local ACQUIRE_REPUTATION	= 6
-local ACQUIRE_WORLD_DROP	= 7
+local ACQUIRE_WTF2		= 7
 local ACQUIRE_CUSTOM		= 8
-local ACQUIRE_PVP		= 9
+local ACQUIRE_ACHIEVEMENT	= 9
 local ACQUIRE_MAX		= 9
 
 local checkFactions
@@ -1559,7 +1559,6 @@ function addon:GenericCreateButton(
 end
 
 -- Description: Generic function for creating my expanded panel buttons
-
 function addon:CreateExpCB(bName, bTex, panelIndex)
 	local ExpTextureSize = 34
 
@@ -1606,55 +1605,57 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 		return cButton
 	else 
 		local cButton = CreateFrame("CheckButton", bName, addon.Frame) -- , "UICheckButtonTemplate")
-			cButton:SetWidth(ExpTextureSize)
-			cButton:SetHeight(ExpTextureSize)
-			cButton:SetScript("OnClick", function() 
-				addon.DoFlyaway(panelIndex)
-			end)
+		cButton:SetWidth(ExpTextureSize)
+		cButton:SetHeight(ExpTextureSize)
+		cButton:SetScript("OnClick", function() 
+						     addon.DoFlyaway(panelIndex)
+					     end)
 
 		local bgTex = cButton:CreateTexture(cButton:GetName() .. "bgTex", "BACKGROUND")
-			bgTex:SetTexture('Interface/SpellBook/UI-Spellbook-SpellBackground')
-			bgTex:SetHeight(ExpTextureSize + 6)
-			bgTex:SetWidth(ExpTextureSize + 4)
-			bgTex:SetTexCoord(0, (43/64), 0, (43/64))
-			bgTex:SetPoint("CENTER", cButton, "CENTER", 0, 0)
+		bgTex:SetTexture('Interface/SpellBook/UI-Spellbook-SpellBackground')
+		bgTex:SetHeight(ExpTextureSize + 6)
+		bgTex:SetWidth(ExpTextureSize + 4)
+		bgTex:SetTexCoord(0, (43/64), 0, (43/64))
+		bgTex:SetPoint("CENTER", cButton, "CENTER", 0, 0)
+
 		local iconTex = cButton:CreateTexture(cButton:GetName() .. "iconTex", "BORDER")
-			iconTex:SetTexture('Interface/Icons/' .. bTex)
-			iconTex:SetAllPoints(cButton)
+		iconTex:SetTexture('Interface/Icons/' .. bTex)
+		iconTex:SetAllPoints(cButton)
+
 		local pushedTexture = cButton:CreateTexture(cButton:GetName() .. "pTex", "ARTWORK")
-			pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
-			pushedTexture:SetAllPoints(cButton)
-			cButton:SetPushedTexture(pushedTexture)
+		pushedTexture:SetTexture('Interface/Buttons/UI-Quickslot-Depress')
+		pushedTexture:SetAllPoints(cButton)
+		cButton:SetPushedTexture(pushedTexture)
+
 		local highlightTexture = cButton:CreateTexture()
-			highlightTexture:SetTexture('Interface/Buttons/ButtonHilight-Square')
-			highlightTexture:SetAllPoints(cButton)
-			highlightTexture:SetBlendMode('ADD')
-			cButton:SetHighlightTexture(highlightTexture)
+		highlightTexture:SetTexture('Interface/Buttons/ButtonHilight-Square')
+		highlightTexture:SetAllPoints(cButton)
+		highlightTexture:SetBlendMode('ADD')
+		cButton:SetHighlightTexture(highlightTexture)
+
 		local checkedTexture = cButton:CreateTexture()
-			checkedTexture:SetTexture('Interface/Buttons/CheckButtonHilight')
-			checkedTexture:SetAllPoints(cButton)
-			checkedTexture:SetBlendMode('ADD')
-			cButton:SetCheckedTexture(checkedTexture)
+		checkedTexture:SetTexture('Interface/Buttons/CheckButtonHilight')
+		checkedTexture:SetAllPoints(cButton)
+		checkedTexture:SetBlendMode('ADD')
+		cButton:SetCheckedTexture(checkedTexture)
+
 		-- Create the text object to go along with it
 		local cbText = cButton:CreateFontString("cbText", "OVERLAY", "GameFontHighlight")
-			cbText:SetText(addon:Yellow(ExpButtonText[panelIndex]))
-			cbText:SetPoint("LEFT", cButton, "RIGHT", 5, 0)
-			cbText:SetHeight(14)
-			cbText:SetWidth(100)
-			cbText:SetJustifyH("LEFT")
-			cButton.text = cbText
+		cbText:SetText(addon:Yellow(ExpButtonText[panelIndex]))
+		cbText:SetPoint("LEFT", cButton, "RIGHT", 5, 0)
+		cbText:SetHeight(14)
+		cbText:SetWidth(100)
+		cbText:SetJustifyH("LEFT")
+		cButton.text = cbText
 
 		-- And throw up a tooltip
 		TooltipDisplay(cButton, ExpButtonTT[panelIndex])
 		cButton:Hide()
 		return cButton
-
 	end
-
 end
 
 do
-
 	local currentProfession = nil
 
 	-- Description: Provides logic for when you are clicking the scan button.
@@ -2384,10 +2385,8 @@ function addon.DoFlyaway(panel)
 			ChangeFilters = true
 
 		else
-
 			Collectinator_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
 			ChangeFilters = false
-
 		end
 
 	elseif (panel == 6) then
@@ -3894,12 +3893,11 @@ end
 -- Creates a frame where you can copy and paste contents from.  Adds the textdump text into that frame.
 -- Code stolen from Antiarc and Chatter
 
-function addon:DisplayTextDump(CollectibleDB, profession, text)
-
+function addon:DisplayTextDump(CollectibleDB, text)
 	local textdump
 
 	-- If we don't send in a CollectibleDB and profession, just dump the text
-	if (not CollectibleDB and not profession) then
+	if not CollectibleDB then
 		textdump = text
 	else
 		textdump = self:GetTextDump(CollectibleDB, profession)
