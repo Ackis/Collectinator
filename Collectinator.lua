@@ -1096,7 +1096,6 @@ do
 	-- @param DB Companion database
 	-- @return Database is populated with all appropiate entries for pets and mounts.  Total number of entries are returned.
 	local function InitCompanionDB(DB)
-
 		local pet = 0
 		local mount = 0
 		
@@ -1104,7 +1103,6 @@ do
 		mount = addon:MakeMountTable(DB)
 
 		return pet, mount
-
 	end
 
 	--- Scans the acquire methods for the location and update the entry in the database with them.
@@ -1114,8 +1112,7 @@ do
 	-- @return Locations are populated for the given spell.
 	function addon:GetLocations(SpellID)
 
-		if (CompanionDB) and (CompanionDB[SpellID]) then
-
+		if CompanionDB and CompanionDB[SpellID] then
 			locationlist = {}
 			locationchecklist = {}
 
@@ -1299,7 +1296,7 @@ do
 		end
 
 		-- Initializes the companion list
-		if (CompanionDB == nil) then
+		if not CompanionDB then
 			CompanionDB = {}
 		end
 
@@ -1337,7 +1334,7 @@ do
 			playerData.excluded_known, playerData.excluded_unknown = self:MarkExclusions(CompanionDB, scantype)
 
 			if textdump then
-				self:DisplayTextDump(CompanionDB, playerData.playerProfession)
+				self:DisplayTextDump(CompanionDB)
 			else
 				local sortedindex = self:SortDatabase(CompanionDB)
 
@@ -1608,6 +1605,7 @@ do
 				local recb = DB[b]["Locations"] or ""
 				reca = smatch(reca,"(%w+),") or ""
 				recb = smatch(recb,"(%w+),") or ""
+
 				if (reca == recb) then
 					return DB[a]["Name"] < DB[b]["Name"]
 				else
