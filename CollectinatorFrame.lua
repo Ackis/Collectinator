@@ -3170,15 +3170,10 @@ local function InitializeFrame()
 	addon.Fly_General:Hide()
 
 	-------------------------------------------------------------------------------
-	--			() All skill levels
 	--			() Cross-Faction
 	--			() Known
 	--			() Unknown
 	-------------------------------------------------------------------------------
-	local Collectinator_LevelCB = CreateFrame("CheckButton", "Collectinator_LevelCB", addon.Fly_General, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_LevelCB, addon.Fly_General, L["SKILL_DESC"], "skill", 2, 1, 0)
-	Collectinator_LevelCBText:SetText(L["Skill"])
-
 	local Collectinator_FactionCB = CreateFrame("CheckButton", "Collectinator_FactionCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_FactionCB, addon.Fly_General, L["FACTION_DESC"], "faction", 3, 1, 0)
 	Collectinator_FactionCBText:SetText(L["Faction"])
@@ -3204,7 +3199,7 @@ local function InitializeFrame()
 	--			() Instance	() Raid
 	--			() Quest		() Seasonal
 	--			() Trainer		() Vendor
-	--			() PVP		() Discovery
+	--			() PVP
 	--			() World Drop	() Mob Drop
 	-------------------------------------------------------------------------------
 	local Collectinator_InstanceCB = CreateFrame("CheckButton", "Collectinator_InstanceCB", addon.Fly_Obtain, "UICheckButtonTemplate")
@@ -3234,10 +3229,6 @@ local function InitializeFrame()
 	local Collectinator_PVPCB = CreateFrame("CheckButton", "Collectinator_PVPCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_PVPCB, addon.Fly_Obtain, L["PVP_DESC"], "pvp", 7, 1, 0)
 	Collectinator_PVPCBText:SetText(L["PVP"])
-
-	local Collectinator_DiscoveryCB = CreateFrame("CheckButton", "Collectinator_DiscoveryCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_DiscoveryCB, addon.Fly_Obtain, L["DISCOVERY_DESC"], "discovery", 8, 1, 0)
-	Collectinator_DiscoveryCBText:SetText(L["Discovery"])
 
 	local Collectinator_WorldDropCB = CreateFrame("CheckButton", "Collectinator_WorldDropCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_WorldDropCB, addon.Fly_Obtain, L["WORLD_DROP_DESC"], "worlddrop", 9, 1, 0)
@@ -3732,7 +3723,6 @@ local function InitializeFrame()
 		------------------------------------------------------------------------------------------------
 		-- General Options
 		------------------------------------------------------------------------------------------------
-		["skill"]		= { cb = Collectinator_LevelCB,			svroot = filterdb.general },
 		["faction"]		= { cb = Collectinator_FactionCB,		svroot = filterdb.general },
 		["known"]		= { cb = Collectinator_KnownCB,			svroot = filterdb.general },
 		["unknown"]		= { cb = Collectinator_UnknownCB,		svroot = filterdb.general },
@@ -3746,7 +3736,6 @@ local function InitializeFrame()
 		["trainer"]		= { cb = Collectinator_TrainerCB,		svroot = filterdb.obtain },
 		["vendor"]		= { cb = Collectinator_VendorCB,		svroot = filterdb.obtain },
 		["pvp"]			= { cb = Collectinator_PVPCB,			svroot = filterdb.obtain },
-		["discovery"]		= { cb = Collectinator_DiscoveryCB,		svroot = filterdb.obtain },
 		["worlddrop"]		= { cb = Collectinator_WorldDropCB,		svroot = filterdb.obtain },
 		["mobdrop"]		= { cb = Collectinator_MobDropCB,		svroot = filterdb.obtain },
 		["originalwow"]		= { cb = Collectinator_OriginalWoWCB,		svroot = filterdb.obtain },
