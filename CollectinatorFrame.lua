@@ -2265,7 +2265,6 @@ function addon.setFlyawayState()
 	local filterdb = addon.db.profile.filters
 
 	-- General Options
-	Collectinator_SpecialtyCB:SetChecked(filterdb.general.specialty)
 	Collectinator_LevelCB:SetChecked(filterdb.general.skill)
 	Collectinator_FactionCB:SetChecked(filterdb.general.faction)
 	Collectinator_KnownCB:SetChecked(filterdb.general.known)
@@ -2353,35 +2352,6 @@ local function recursiveReset(t)
 end
 
 -- Description: 
-
-function addon.resetFilters() 
-
-	local filterdb = addon.db.profile.filters
-
-	-- Reset all filters to true
-	recursiveReset(addon.db.profile.filters)
-
-	-- Reset specific filters to false
-	filterdb.general.class = false
-	filterdb.general.specialty = false
-	filterdb.general.known = false
-
-	if (addon.Frame and addon.Frame:IsVisible()) then
-		addon.resetTitle()
-
-		-- Uncheck the seven buttons
-		HideCollectinator_ExpOptCB()
-
-		-- Hide the flyaway panel
-		addon.Flyaway:Hide()
-
-		-- Reset the display
-		ReDisplay(current_tab)
-	end
-end
-
--- Description: 
-
 function addon.DoFlyaway(panel)
 
 	-- This is going to manage the flyaway panel, as well as checking or unchecking the
@@ -3206,7 +3176,22 @@ local function InitializeFrame()
 	local Collectinator_ResetButton = addon:GenericCreateButton("Collectinator_ResetButton", addon.Frame, 
 								    25, 90, "TOPRIGHT", Collectinator_FilterButton, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall", 
 								    "GameFontHighlightSmall", L["Reset"], "CENTER", L["RESET_DESC"], 1)
-	Collectinator_ResetButton:SetScript("OnClick", addon.resetFilters)
+	Collectinator_ResetButton:SetScript("OnClick", function()
+							       local filterdb = addon.db.profile.filters
+
+							       -- Reset all filters to true
+							       recursiveReset(filterdb)
+
+							       -- Reset specific filters to false
+							       filterdb.general.known = false
+
+							       if addon.Frame:IsVisible() then
+								       addon.resetTitle()
+								       HideCollectinator_ExpOptCB()
+								       addon.Flyaway:Hide()
+								       ReDisplay(current_tab)
+							       end
+						       end)
 	Collectinator_ResetButton:Hide()
 
 	-------------------------------------------------------------------------------
@@ -3269,16 +3254,11 @@ local function InitializeFrame()
 	addon.Fly_General:Hide()
 
 	-------------------------------------------------------------------------------
-	--			() Craft Specialty collectibles
 	--			() All skill levels
 	--			() Cross-Faction
 	--			() Known
 	--			() Unknown
 	-------------------------------------------------------------------------------
-	local Collectinator_SpecialtyCB = CreateFrame("CheckButton", "Collectinator_SpecialtyCB", addon.Fly_General, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_SpecialtyCB, addon.Fly_General, L["SPECIALTY_DESC"], "specialty", 1, 1, 0)
-	Collectinator_SpecialtyCBText:SetText(L["Specialties"])
-
 	local Collectinator_LevelCB = CreateFrame("CheckButton", "Collectinator_LevelCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_LevelCB, addon.Fly_General, L["SKILL_DESC"], "skill", 2, 1, 0)
 	Collectinator_LevelCBText:SetText(L["Skill"])
@@ -3840,7 +3820,6 @@ local function InitializeFrame()
 		------------------------------------------------------------------------------------------------
 		-- General Options
 		------------------------------------------------------------------------------------------------
-		["specialty"]		= { cb = Collectinator_SpecialtyCB,		svroot = filterdb.general },
 		["skill"]		= { cb = Collectinator_LevelCB,			svroot = filterdb.general },
 		["faction"]		= { cb = Collectinator_FactionCB,		svroot = filterdb.general },
 		["known"]		= { cb = Collectinator_KnownCB,			svroot = filterdb.general },
@@ -3938,7 +3917,6 @@ function addon:DisplayFrame(
 	-- cPlayer is a table containing:
 	-- .playerProfession == player profession which has been opened
 	-- .playerProfessionLevel == skill level of profession
-	-- .playerSpecialty == Specialty if any or ""
 	-- .totalCollectibles == Total collectibles added to the database
 	-- .foundCollectibles == Total collectibles found that the player knows
 	-- .otherCollectibles == Total non-profession collectibles in the database
