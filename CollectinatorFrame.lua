@@ -703,28 +703,16 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	-- Binding info
 	clr1 = addon:hexcolor("NORMAL")
 
-	if (collectibleDB[rIndex]["Flags"][36]) then
+	if (collectibleDB[rIndex]["Flags"][20]) then
 		ttAdd(0, -1, 1, L["BOEFilter"], clr1)
 	end
 
-	if (collectibleDB[rIndex]["Flags"][37]) then
+	if (collectibleDB[rIndex]["Flags"][21]) then
 		ttAdd(0, -1, 1, L["BOPFilter"], clr1)
 	end
 
-	if (collectibleDB[rIndex]["Flags"][38]) then
+	if (collectibleDB[rIndex]["Flags"][22]) then
 		ttAdd(0, -1, 1, L["BOAFilter"], clr1)
-	end
-
-	if (collectibleDB[rIndex]["Flags"][40]) then
-		ttAdd(0, -1, 1, L["CollectibleBOEFilter"], clr1)
-	end
-
-	if (collectibleDB[rIndex]["Flags"][41]) then
-		ttAdd(0, -1, 1, L["CollectibleBOPFilter"], clr1)
-	end
-
-	if (collectibleDB[rIndex]["Flags"][42]) then
-		ttAdd(0, -1, 1, L["CollectibleBOAFilter"], clr1)
 	end
 	CollectinatorTooltip:AddSeparator()
 
@@ -2256,99 +2244,15 @@ function addon.RepFilterSwitch(whichrep)
 end
 
 -- Description: 
-
-function addon.setFlyawayState()
-
-	-- This function sets all the current options in the flyaway panel to make
-	-- sure they are consistent with the SV options. This is run every time the
-	-- Flyaway panel "OnShow" triggers
-	local filterdb = addon.db.profile.filters
-
-	-- General Options
-	Collectinator_LevelCB:SetChecked(filterdb.general.skill)
-	Collectinator_FactionCB:SetChecked(filterdb.general.faction)
-	Collectinator_KnownCB:SetChecked(filterdb.general.known)
-	Collectinator_UnknownCB:SetChecked(filterdb.general.unknown)
-	-- Obtain Options
-	Collectinator_InstanceCB:SetChecked(filterdb.obtain.instance)
-	Collectinator_RaidCB:SetChecked(filterdb.obtain.raid)
-	Collectinator_QuestCB:SetChecked(filterdb.obtain.quest)
-	Collectinator_SeasonalCB:SetChecked(filterdb.obtain.seasonal)
-	Collectinator_TrainerCB:SetChecked(filterdb.obtain.trainer)
-	Collectinator_VendorCB:SetChecked(filterdb.obtain.vendor)
-	Collectinator_PVPCB:SetChecked(filterdb.obtain.pvp)
-	Collectinator_DiscoveryCB:SetChecked(filterdb.obtain.discovery)
-	Collectinator_WorldDropCB:SetChecked(filterdb.obtain.worlddrop)
-	Collectinator_MobDropCB:SetChecked(filterdb.obtain.mobdrop)
-	Collectinator_OriginalWoWCB:SetChecked(filterdb.obtain.originalwow)
-	Collectinator_BCCB:SetChecked(filterdb.obtain.bc)
-	Collectinator_WrathCB:SetChecked(filterdb.obtain.wrath)
-	-- Binding Options
-	Collectinator_iBoECB:SetChecked(filterdb.binding.itemboe)
-	Collectinator_iBoPCB:SetChecked(filterdb.binding.itembop)
-	Collectinator_rBoECB:SetChecked(filterdb.binding.collectibleboe)
-	Collectinator_rBoPCB:SetChecked(filterdb.binding.collectiblebop)
-	-- Old World Rep Options
-	Collectinator_RepArgentDawnCB:SetChecked(filterdb.rep.argentdawn)
-	Collectinator_RepCenarionCircleCB:SetChecked(filterdb.rep.cenarioncircle)
-	Collectinator_RepThoriumCB:SetChecked(filterdb.rep.thoriumbrotherhood)
-	Collectinator_RepTimbermawCB:SetChecked(filterdb.rep.timbermaw)
-	Collectinator_RepZandalarCB:SetChecked(filterdb.rep.zandalar)
-	-- BC Rep Options
-	Collectinator_RepAldorCB:SetChecked(filterdb.rep.aldor)
-	Collectinator_RepAshtongueCB:SetChecked(filterdb.rep.ashtonguedeathsworn)
-	Collectinator_RepCenarionExpeditionCB:SetChecked(filterdb.rep.cenarionexpedition)
-	Collectinator_RepConsortiumCB:SetChecked(filterdb.rep.consortium)
-	Collectinator_RepHonorHoldCB:SetChecked(filterdb.rep.hellfire)
-	Collectinator_RepKeepersOfTimeCB:SetChecked(filterdb.rep.keepersoftime)
-	Collectinator_RepKurenaiCB:SetChecked(filterdb.rep.nagrand)
-	Collectinator_RepLowerCityCB:SetChecked(filterdb.rep.lowercity)
-	Collectinator_RepScaleSandsCB:SetChecked(filterdb.rep.scaleofthesands)
-	Collectinator_RepScryersCB:SetChecked(filterdb.rep.scryer)
-	Collectinator_RepShatarCB:SetChecked(filterdb.rep.shatar)
-	Collectinator_RepShatteredSunCB:SetChecked(filterdb.rep.shatteredsun)
-	Collectinator_RepSporeggarCB:SetChecked(filterdb.rep.sporeggar)
-	Collectinator_RepVioletEyeCB:SetChecked(filterdb.rep.violeteye)
-	-- WotLK Rep Options
-	Collectinator_RepArgentCrusadeCB:SetChecked(filterdb.rep.argentcrusade)
-	Collectinator_RepFrenzyheartCB:SetChecked(filterdb.rep.frenzyheart)
-	Collectinator_RepEbonBladeCB:SetChecked(filterdb.rep.ebonblade)
-	Collectinator_RepKirinTorCB:SetChecked(filterdb.rep.kirintor)
-	Collectinator_RepSonsOfHodirCB:SetChecked(filterdb.rep.sonsofhodir)
-	Collectinator_RepKaluakCB:SetChecked(filterdb.rep.kaluak)
-	Collectinator_RepOraclesCB:SetChecked(filterdb.rep.oracles)
-	Collectinator_RepWyrmrestCB:SetChecked(filterdb.rep.wyrmrest)
-	Collectinator_WrathCommon1CB:SetChecked(filterdb.rep.wrathcommon1)
---[[
-	--Disable unused Rep Options
-	Collectinator_WrathCommon2CB:SetChecked(filterdb.rep.wrathcommon2)
-	Collectinator_WrathCommon3CB:SetChecked(filterdb.rep.wrathcommon3)
-	Collectinator_WrathCommon4CB:SetChecked(filterdb.rep.wrathcommon4)
-	Collectinator_WrathCommon5CB:SetChecked(filterdb.rep.wrathcommon5) ]]--
-	-- Miscellaneous Options
-	Collectinator_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
-end
-
--- Description: 
-
 local function recursiveReset(t)
-
 	-- Thanks to Antiarc for this code
-
 	for k, v in pairs(t) do
-
 		if type(v) == "table" then
-
 			recursiveReset(v)
-
 		else
-
 			t[k] = true
-
 		end
-
 	end
-
 end
 
 -- Description: 
@@ -3238,7 +3142,19 @@ local function InitializeFrame()
 	addon.Flyaway:ClearAllPoints()
 	addon.Flyaway:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT", -6, -102)
 
-	addon.Flyaway:SetScript("OnShow", addon.setFlyawayState) 
+	-------------------------------------------------------------------------------
+	-- Set all the current options in the flyaway panel to make sure they are
+	-- consistent with the SV options.
+	-------------------------------------------------------------------------------
+	addon.Flyaway:SetScript("OnShow", function()
+						  for filter, info in pairs(FilterValueMap) do
+							  if info.svroot then
+								  info.cb:SetChecked(info.svroot[filter])
+							  end
+						  end
+						  -- Miscellaneous Options
+						  Collectinator_IgnoreCB:SetChecked(addon.db.profile.ignoreexclusionlist)
+					  end)
 	addon.Flyaway:Hide()
 
 	-------------------------------------------------------------------------------
@@ -3358,21 +3274,17 @@ local function InitializeFrame()
 	--			() Collectible is Bind on Equip
 	--			() Collectible is Bind on Pickup
 	-------------------------------------------------------------------------------
+	local Collectinator_iBoACB = CreateFrame("CheckButton", "Collectinator_iBoACB", addon.Fly_Binding, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_iBoACB, addon.Fly_Binding, L["BOA_DESC"], "itemboa", 1, 1, 0)
+	Collectinator_iBoACBText:SetText(L["BOAFilter"])
+
 	local Collectinator_iBoECB = CreateFrame("CheckButton", "Collectinator_iBoECB", addon.Fly_Binding, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_iBoECB, addon.Fly_Binding, L["BOE_DESC"], "itemboe", 1, 1, 0)
+	addon:GenericMakeCB(Collectinator_iBoECB, addon.Fly_Binding, L["BOE_DESC"], "itemboe", 2, 1, 0)
 	Collectinator_iBoECBText:SetText(L["BOEFilter"])
 
 	local Collectinator_iBoPCB = CreateFrame("CheckButton", "Collectinator_iBoPCB", addon.Fly_Binding, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_iBoPCB, addon.Fly_Binding, L["BOP_DESC"], "itembop", 2, 1, 0)
+	addon:GenericMakeCB(Collectinator_iBoPCB, addon.Fly_Binding, L["BOP_DESC"], "itembop", 3, 1, 0)
 	Collectinator_iBoPCBText:SetText(L["BOPFilter"])
-
-	local Collectinator_rBoECB = CreateFrame("CheckButton", "Collectinator_rBoECB", addon.Fly_Binding, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_rBoECB, addon.Fly_Binding, L["COLLECTIBLE_BOE_DESC"], "collectibleboe", 3, 1, 0)
-	Collectinator_rBoECBText:SetText(L["CollectibleBOEFilter"])
-
-	local Collectinator_rBoPCB = CreateFrame("CheckButton", "Collectinator_rBoPCB", addon.Fly_Binding, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_rBoPCB, addon.Fly_Binding, L["COLLECTIBLE_BOP_DESC"], "collectiblebop", 4, 1, 0)
-	Collectinator_rBoPCBText:SetText(L["CollectibleBOPFilter"])
 
 	addon.Fly_Rep = CreateFrame("Frame", "Collectinator_Fly_Rep", addon.Flyaway)
 	addon.Fly_Rep:SetWidth(112)
@@ -3843,10 +3755,9 @@ local function InitializeFrame()
 		------------------------------------------------------------------------------------------------
 		-- Binding Options
 		------------------------------------------------------------------------------------------------
+		["itemboa"]		= { cb = Collectinator_iBoACB,			svroot = filterdb.binding },
 		["itemboe"]		= { cb = Collectinator_iBoECB,			svroot = filterdb.binding },
 		["itembop"]		= { cb = Collectinator_iBoPCB,			svroot = filterdb.binding },
-		["collectibleboe"]	= { cb = Collectinator_rBoECB,			svroot = filterdb.binding },
-		["collectiblebop"]	= { cb = Collectinator_rBoPCB,			svroot = filterdb.binding },
 		------------------------------------------------------------------------------------------------
 		-- Old World Rep Options
 		------------------------------------------------------------------------------------------------
