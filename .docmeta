@@ -1,8 +1,12 @@
 -
- type: wiki
+ type: creole
  input-file: Docs/Documentation.txt
  output-page: "Database Documentation"
 -
  type: wiki
  input-file: Docs/Main.txt
  output-page: "Main"
+-
+ type: luadoc
+ input-file: Collectinator.lua
+ output-page: "API"

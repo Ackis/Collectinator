@@ -249,7 +249,7 @@ end
 ------------------------------------------------------------------------------
 -- Locale-specific strings. Save some CPU by looking these up exactly once.
 ------------------------------------------------------------------------------
-local factionHorde	= BFAC["Horde"]
+local factionHorde		= BFAC["Horde"]
 local factionAlliance	= BFAC["Alliance"]
 local factionNeutral	= BFAC["Neutral"]
 
@@ -257,15 +257,15 @@ local factionNeutral	= BFAC["Neutral"]
 -- Constants for acquire types.
 -------------------------------------------------------------------------------
 local ACQUIRE_VENDOR		= 1
-local ACQUIRE_QUEST		= 2
-local ACQUIRE_WTF1		= 3
-local ACQUIRE_MOB		= 4
+local ACQUIRE_QUEST			= 2
+local ACQUIRE_CRAFTED		= 3 -- IE: Tailoring makes carpets, engineering makes pets
+local ACQUIRE_MOB			= 4
 local ACQUIRE_SEASONAL		= 5
 local ACQUIRE_REPUTATION	= 6
-local ACQUIRE_WTF2		= 7
+local ACQUIRE_WORLDDROP		= 7
 local ACQUIRE_CUSTOM		= 8
 local ACQUIRE_ACHIEVEMENT	= 9
-local ACQUIRE_MAX		= 9
+local ACQUIRE_MAX			= 9
 
 local checkFactions
 do

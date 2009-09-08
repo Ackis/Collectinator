@@ -1,44 +1,42 @@
-Documentation.txt
+'''Database and code documentation for Collectinator'''
 
-Database and code documentation for Collectinator.
+==Localization
 
-==Localization==
+Please see this [http://www.wowace.com/projects/collectinator/pages/localization/ page] for information on localization within the addon.
 
-All the localization files are located in the "Locals" sub-directory.  Feel free to edit locals in any language, make the enUS more effecient, correct typos, etc.  All I would ask is if you do edit something, check in-game first to make sure the change works.
+==API
 
-==AddCompanionAcquire==
+All database functions are documented on the [[http://www.wowace.com/projects/collectinator/pages/api/ api] page.
 
-This function adds entries into the main database with exact instructions on how the items can be obtained. The details of these acquire methods are detailed further down.
- self:AddCompanionAcquire(PetDB,4055,3,4036,3928)
-
-==Filter Flags==
+==Filter Flags
 
 A item can be flagged with many (or even all) of the below flags. They are defined as follows:
 
-===Obtain===
+===Obtain
 *1 = Alliance faction
 *2 = Horde faction
 *3 = Vendor
 *4 = Quest
-*5 =
+*5 = UNUSED
 *6 = Instance
 *7 = Raid
 *8 = Seasonal
 *9 = World Drop
 *10 = Mob drop
-*11 = TCG
+*11 = Trading Card Game
 *12 = Special Event
-*13 = CE
+*13 = Collectors Edition
 *14 = Not in game anymore
 *15 = Achievement
 *16 = PVP
 *17-19 = Reserved for future use
-===Crafted Properties===
+===Binding Properties
 *20 = Item BoE
 *21 = Item BoP
 *22 = Item BoA
 *23-24 = Reserved for future use
-===Profession===
+===Profession
+# Which professions is the pet restricted to?
 *25 = Alchemist
 *26 = Blacksmithing
 *27 = Cooking
@@ -52,15 +50,15 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 *35 = Tailoring
 *36 = Fishing
 *37-39 = Reserved for future use
-===Reputation===
-====Original====
+===Reputation
+====Original
 *40 = Argent Dawn
 *41 = Bloodsail Buccaneers
 *42 = Cenarion Circle
 *43 = Thorium Brotherhood
 *44 = Timbermaw Hold
 *45 = Zandalar Tribe
-====Burning Crusade====
+====Burning Crusade
 *46 = The Aldor
 *47 = Ashtongue Deathsworn
 *48 = Cenarion Expedition
@@ -77,18 +75,18 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 *58 = Shattered Sun
 *59 = Sporeggar
 *60 = Violeteye
-====Faction Cities====
+====Faction Cities
 *61 = Darnassus/Darkspear
 *62 = Stormwind/Orgrimmar
 *63 = Gnomerga/Thunder Bluff
 *64 = Ironforge/Undercity
 *65 = Exodar/Silvermoon
-====PVP====
+====PVP
 *66 = WSG
 *67 = AV
 *68 = AB
 *69 - 70 = Reserved for future use
-====Wrath of the Lich King====
+====Wrath of the Lich King
 *71 = Argent Crusade
 *72 = Frenzyheart Tribe
 *73 = Knights of the Ebon Blade
@@ -103,7 +101,7 @@ A item can be flagged with many (or even all) of the below flags. They are defin
 *82 = Wrath Common Factions (The Frostborn/The Taunka)
 *83 = Wrath Common Factions (Alliance Vanguard/Horde Expedition)
 
-==Acquire Flags==
+==Acquire Flags
 
 Defined below is the specification for the arguments passed back into addon:AddCompanionAcquire(DB, SpellID, ...). Each Acquire Type passes in different parameters depending on how the recipe is acquired:
 

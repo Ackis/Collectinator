@@ -13,6 +13,14 @@ Author: Ackis
 
 ]]--
 
+--- **Collectinator** provides an interface for scanning companions and moutns to find what is missing.
+-- There are a set of functions which allow you make use of the Collectinator database outside of Collectinator.\\
+-- Collectinator supports all mounts/pets currently in World of Warcraft 3.1.
+-- @class file
+-- @name Collectinator.lua
+-- @release @file-revision@
+
+
 -------------------------------------------------------------------------------
 -- Localized Lua globals
 -------------------------------------------------------------------------------
@@ -47,14 +55,7 @@ _G["Collectinator"] = addon
 
 local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
---- **Collectinator** provides an interface for scanning companions and moutns to find what is missing.
--- There are a set of functions which allow you make use of the Collectinator database outside of Collectinator.\\
--- Collectinator supports all mounts/pets currently in World of Warcraft 3.1.
--- @class file
--- @name Collectinator.lua
--- @release @file-revision@
-
--------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 -- Check to see if we have mandatory libraries loaded. If not, notify the user
 -- which are missing and return.
 -------------------------------------------------------------------------------
