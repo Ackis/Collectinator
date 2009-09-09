@@ -641,7 +641,7 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Darting Hatchling
 	self:AddCompanion(PetDB,67413,48112,1,"CRITTER",2)
 	self:AddCompanionFlags(PetDB,67413,1,2,10,20,25,26,27,28,29,30,31,32,33,34,35,36)
-	self:AddCompanionAcquire(PetDB,4,14232)
+	self:AddCompanionAcquire(PetDB,67413,4,14232)
 
 	-- Deviate Hatchling
 	self:AddCompanion(PetDB,67414,48114,1,"CRITTER",2)
@@ -688,6 +688,11 @@ function addon:MakeMiniPetTable(PetDB)
 	self:AddCompanionFlags(PetDB,65382,1,2,8,21,25,26,27,28,29,30,31,32,33,34,35,36)
 	self:AddCompanionAcquire(PetDB,65382,5,8)
 
-	return 133
+	-- Battle-Bot
+	self:AddCompanion(PetDB, 65682, 46767, 2, "CRITTER", 2)
+	self:AddCompanionFlags(PetDB, 65682, 1, 2, 12, 14, 21, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36)
+	self:AddCompanionAcquire(PetDB, 65682, 8)
+
+	return 134
 
 end
