@@ -62,11 +62,11 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local MissingLibraries
 do
 	local REQUIRED_LIBS = {
-		"AceLocale-3.0",
-		"LibBabble-Boss-3.0",
-		"LibBabble-Class-3.0",
-		"LibBabble-Faction-3.0",
-		"LibBabble-Zone-3.0",
+		"AceLocale-3.0", 
+		"LibBabble-Boss-3.0", 
+		"LibBabble-Class-3.0", 
+		"LibBabble-Faction-3.0", 
+		"LibBabble-Zone-3.0", 
 	}
 	function MissingLibraries()
 		local missing = false
@@ -108,123 +108,123 @@ function addon:OnInitialize()
 		profile = {
 			-- Frame options
 			frameopts = {
-				offsetx = 0,
-				offsety = 0,
-				anchorTo = "",
-				anchorFrom = "",
-				uiscale = 1,
-				tooltipscale = .9,
-				fontsize = 11,
-			},
-			sorting = "Name",
-			includefiltered = false,
-			includeexcluded = false,
-			closeguionskillclose = false,
-			ignoreexclusionlist = false,
-			scanbuttonlocation = "TR",
-			spelltooltiplocation = "Right",
-			acquiretooltiplocation = "Mouse",
-			hidepopup = false,
-			minimap = true,
-			worldmap = true,
-			autoscanmap = false,
-			scantrainers = false,
-			autoloaddb = false,
+				offsetx = 0, 
+				offsety = 0, 
+				anchorTo = "", 
+				anchorFrom = "", 
+				uiscale = 1, 
+				tooltipscale = .9, 
+				fontsize = 11, 
+			}, 
+			sorting = "Name", 
+			includefiltered = false, 
+			includeexcluded = false, 
+			closeguionskillclose = false, 
+			ignoreexclusionlist = false, 
+			scanbuttonlocation = "TR", 
+			spelltooltiplocation = "Right", 
+			acquiretooltiplocation = "Mouse", 
+			hidepopup = false, 
+			minimap = true, 
+			worldmap = true, 
+			autoscanmap = false, 
+			scantrainers = false, 
+			autoloaddb = false, 
 
-			exclusionlist = {},
+			exclusionlist = {}, 
 
 			filters = {
 				general = {
-					faction = true,
-					known = false,
-					unknown = true,
-				},
+					faction = true, 
+					known = false, 
+					unknown = true, 
+				}, 
 				obtain = {
-					vendor = true,
-					quest = true,
-					instance = true,
-					raid = true,
-					seasonal = true,
-					worlddrop = true,
-					mobdrop = true,
-					pvp = true,
-					tcg = true,
-					event = true,
-					ce = true,
-					removed = true,
-					achievement = true,
-					originalwow = true,
-					bc = true,
-					wrath = true,
-				},
+					vendor = true, 
+					quest = true, 
+					instance = true, 
+					raid = true, 
+					seasonal = true, 
+					worlddrop = true, 
+					mobdrop = true, 
+					pvp = true, 
+					tcg = true, 
+					event = true, 
+					ce = true, 
+					removed = true, 
+					achievement = true, 
+					originalwow = true, 
+					bc = true, 
+					wrath = true, 
+				}, 
 				binding = {
-					itemboe = true,
-					itembop = true,
-					itemboa = true,
-				},
+					itemboe = true, 
+					itembop = true, 
+					itemboa = true, 
+				}, 
 				profs = {
-					alch = true,
-					bs = true,
-					cook = true,
-					ench = true,
-					eng = true,
-					fa = true,
-					insc = true,
-					jc = true,
-					lw = true,
-					smelt = true,
-					tailor = true,
-					fish = true,
-				},
+					alch = true, 
+					bs = true, 
+					cook = true, 
+					ench = true, 
+					eng = true, 
+					fa = true, 
+					insc = true, 
+					jc = true, 
+					lw = true, 
+					smelt = true, 
+					tailor = true, 
+					fish = true, 
+				}, 
 				rep = {
-					aldor = true,
-					scryer = true,
-					argentdawn = true,
-					ashtonguedeathsworn = true,
-					bloodsail = true,
-					cenarioncircle = true,
-					cenarionexpedition = true,
-					consortium = true,
-					hellfire = true,
-					keepersoftime = true,
-					nagrand = true,
-					netherwing = true,
-					lowercity = true,
-					scaleofthesands = true,
-					shatar = true,
-					shatteredsun = true,
-					skyguard = true,
-					sporeggar = true,
-					thoriumbrotherhood = true,
-					timbermaw = true,
-					violeteye = true,
-					zandalar = true,
-					argentcrusade = true,
-					frenzyheart = true,
-					ebonblade = true,
-					kirintor = true,
-					sonsofhodir = true,
-					kaluak = true,
-					oracles = true,
-					wyrmrest = true,
-					wrathcommon1 = true,
-					wrathcommon2 = true,
-					wrathcommon3 = true,
-					wrathcommon4 = true,
-					wrathcommon5 = true,
-					city1 = true,
-					city2 = true,
-					city3 = true,
-					city4 = true,
-					city5 = true,
-					pvp1 = true,
-					pvp2 = true,
-					pvp3 = true,
+					aldor = true, 
+					scryer = true, 
+					argentdawn = true, 
+					ashtonguedeathsworn = true, 
+					bloodsail = true, 
+					cenarioncircle = true, 
+					cenarionexpedition = true, 
+					consortium = true, 
+					hellfire = true, 
+					keepersoftime = true, 
+					nagrand = true, 
+					netherwing = true, 
+					lowercity = true, 
+					scaleofthesands = true, 
+					shatar = true, 
+					shatteredsun = true, 
+					skyguard = true, 
+					sporeggar = true, 
+					thoriumbrotherhood = true, 
+					timbermaw = true, 
+					violeteye = true, 
+					zandalar = true, 
+					argentcrusade = true, 
+					frenzyheart = true, 
+					ebonblade = true, 
+					kirintor = true, 
+					sonsofhodir = true, 
+					kaluak = true, 
+					oracles = true, 
+					wyrmrest = true, 
+					wrathcommon1 = true, 
+					wrathcommon2 = true, 
+					wrathcommon3 = true, 
+					wrathcommon4 = true, 
+					wrathcommon5 = true, 
+					city1 = true, 
+					city2 = true, 
+					city3 = true, 
+					city4 = true, 
+					city5 = true, 
+					pvp1 = true, 
+					pvp2 = true, 
+					pvp3 = true, 
 				}, -- rep
 			} -- filters
 		} -- profile
 	} --defaults
-	addon.db = LibStub("AceDB-3.0"):New("CollectinatorDB2",defaults)
+	addon.db = LibStub("AceDB-3.0"):New("CollectinatorDB2", defaults)
 
 	if not addon.db then
 		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the Collectinator database file (Collectinator.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
@@ -247,7 +247,7 @@ function addon:OnEnable()
 
 	button:SetHeight(20)
 	button:RegisterForClicks("LeftButtonUp")
-	button:SetScript("OnClick",
+	button:SetScript("OnClick", 
 				  function()
 					  local companion_frame = PetPaperDollFrameCompanionFrame
 					  local current_tab = "CRITTER"
@@ -259,7 +259,7 @@ function addon:OnEnable()
 					  --addon:ToggleFrame()
 				  end)
 
-	button:SetScript("OnEnter",
+	button:SetScript("OnEnter", 
 				   function(this)
 					   GameTooltip_SetDefaultAnchor(GameTooltip, this)
 					   GameTooltip:SetText(L["SCAN_COMPANIONS_DESC"])
@@ -285,7 +285,7 @@ function addon:OnEnable()
 	-------------------------------------------------------------------------------
 	-- Add mini-pet/mount totals to the tab
 	-------------------------------------------------------------------------------
-	PetPaperDollFrameTab2:SetScript("OnEnter",
+	PetPaperDollFrameTab2:SetScript("OnEnter", 
 					function(this)
 						GameTooltip_SetDefaultAnchor(GameTooltip, this)
 						GameTooltip:SetText(GetNumCompanions("CRITTER") .. " companions known.")
@@ -293,7 +293,7 @@ function addon:OnEnable()
 					end)
 	PetPaperDollFrameTab2:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
-	PetPaperDollFrameTab3:SetScript("OnEnter",
+	PetPaperDollFrameTab3:SetScript("OnEnter", 
 					function(this)
 						GameTooltip_SetDefaultAnchor(GameTooltip, this)
 						GameTooltip:SetText(GetNumCompanions("MOUNT") .. " mounts known.")
@@ -390,34 +390,30 @@ local maxfilterflags = 90
 -- @param Game Game version item was found in, for example, Original, BC, or Wrath.
 -- @return None, array is passed as a reference.
 function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType, Game)
+	if DB[SpellID] then	-- If the entry already exists, abort.
+		return
+	end
 
-	-- Create an entry for this minipet
-	DB[SpellID] = {}
-
-	DB[SpellID]["Name"] = GetSpellInfo(SpellID) or ""
-	DB[SpellID]["ItemID"] = ItemID
-	DB[SpellID]["Rarity"] = Rarity
-	DB[SpellID]["Type"] = CompanionType
-	DB[SpellID]["Game"] = Game or 0
-
-	DB[SpellID]["Owned"] = false
-	DB[SpellID]["Display"] = true
-	DB[SpellID]["Search"] = true
-	DB[SpellID]["Known"] = false
-
-	DB[SpellID]["Flags"] = {}
-
+	DB[SpellID] = {
+		["Name"] = GetSpellInfo(SpellID) or ""
+		["ItemID"] = ItemID
+		["Rarity"] = Rarity
+		["Type"] = CompanionType
+		["Game"] = Game or 0
+		["Owned"] = false
+		["Display"] = true
+		["Search"] = true
+		["Known"] = false
+		["Flags"] = {}
+		["Acquire"] = {}
+		["Location"] = "Unknown"
+	}
 	local flag = DB[SpellID]["Flags"]
 
 	-- Set the filter flags to all false
-	for i=1,maxfilterflags,1 do
+	for i=1, maxfilterflags, 1 do
 		flag[i] = false
 	end
-
-	DB[SpellID]["Acquire"] = {}
-
-	DB[SpellID]["Location"] = "Unknown"
-
 end
 
 --- Adds filtering flags to a specific entry.
@@ -429,7 +425,7 @@ end
 -- @return None, array is passed as a reference.
 function addon:AddCompanionFlags(DB, SpellID, ...)
 	-- flags are defined in Documentation.lua
-	local numvars = select('#',...)
+	local numvars = select('#', ...)
 	local flags = DB[SpellID]["Flags"]
 
 	-- Find out how many flags we're adding
@@ -442,13 +438,13 @@ end
 
 --- Adds acquire methods to a specific companion.
 -- @name Collectinator:AddCompanionAcquire
--- @usage Collectinator:AddCompanionAcquire:(DB,2329,8,8)
+-- @usage Collectinator:AddCompanionAcquire:(DB, 2329, 8, 8)
 -- @param DB The database (array) which you wish to add acquire methods too.
 -- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the item being entered to the database.
 -- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
 -- @return None, array is passed as a reference.
 function addon:AddCompanionAcquire(DB, SpellID, ...)
-	local numvars = select('#',...)	-- Find out how many flags we're adding
+	local numvars = select('#', ...)	-- Find out how many flags we're adding
 	local index = 1			-- Index for the number of Acquire entries we have
 	local i = 1			-- Index for which variables we're parsing through
 
@@ -486,7 +482,7 @@ end
 
 --- Adds an item to a specific database listing (ie: vendor, mob, etc)
 -- @name Collectinator:addLookupList
--- @usage Collectinator:addLookupList:(VendorDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+-- @usage Collectinator:addLookupList:(VendorDB, NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
 -- @param DB Database which the entry will be stored.
 -- @param ID Unique identified for the entry.
 -- @param Name Name of the entry.
@@ -558,9 +554,9 @@ end
 function addon:ScanCompanions(DB, numminipets, nummounts)
 
 	-- Parse all the mini-pets you currently have
-	for i=1,numminipets,1 do
+	for i=1, numminipets, 1 do
 		-- Get the pet's name and spell ID
-		local _,_,petspell = GetCompanionInfo("CRITTER",i)
+		local _, _, petspell = GetCompanionInfo("CRITTER", i)
 		if (DB[petspell]) then
 			DB[petspell]["Known"] = true
 		else
@@ -569,9 +565,9 @@ function addon:ScanCompanions(DB, numminipets, nummounts)
 	end
 
 	-- Parse all the mounts you currently have
-	for i=1,nummounts,1 do
+	for i=1, nummounts, 1 do
 		-- Get the pet's name and spell ID
-		local _,_,mountspell = GetCompanionInfo("MOUNT",i)
+		local _, _, mountspell = GetCompanionInfo("MOUNT", i)
 		if (DB[mountspell]) then
 			DB[mountspell]["Known"] = true
 		else
@@ -591,7 +587,7 @@ function addon:CheckForKnownCompanions(DB)
 	local companionlist = addon.db.profile.companionlist
 
 	-- Scan through all the entries we've saved
-	for i,SpellID in pairs(companionlist) do
+	for i, SpellID in pairs(companionlist) do
 		-- If the entry exists, mark it as known
 		if (DB[SpellID]) then
 			DB[SpellID]["Known"] = true
@@ -614,53 +610,53 @@ do
 
 		reptable = {
 			-- Old World
-			[40] = repdb.argentdawn,
-			[41] = repdb.bloodsail,
-			[42] = repdb.cenarioncircle,
-			[43] = repdb.thoriumbrotherhood,
-			[44] = repdb.timbermaw,
-			[45] = repdb.zandalar,
+			[40] = repdb.argentdawn, 
+			[41] = repdb.bloodsail, 
+			[42] = repdb.cenarioncircle, 
+			[43] = repdb.thoriumbrotherhood, 
+			[44] = repdb.timbermaw, 
+			[45] = repdb.zandalar, 
 			-- BC
-			[46] = repdb.aldor,
-			[47] = repdb.ashtonguedeathsworn,
-			[48] = repdb.cenarionexpedition,
-			[49] = repdb.hellfire,
-			[50] = repdb.consortium,
-			[51] = repdb.keepersoftime,
-			[52] = repdb.lowercity,
-			[53] = repdb.nagrand,
-			[54] = repdb.netherwing,
-			[55] = repdb.scaleofthesands,
-			[56] = repdb.scryer,
-			[57] = repdb.shatar,
-			[90] = repdb.skyguard,
-			[58] = repdb.shatteredsun,
-			[59] = repdb.sporeggar,
-			[60] = repdb.violeteye,
+			[46] = repdb.aldor, 
+			[47] = repdb.ashtonguedeathsworn, 
+			[48] = repdb.cenarionexpedition, 
+			[49] = repdb.hellfire, 
+			[50] = repdb.consortium, 
+			[51] = repdb.keepersoftime, 
+			[52] = repdb.lowercity, 
+			[53] = repdb.nagrand, 
+			[54] = repdb.netherwing, 
+			[55] = repdb.scaleofthesands, 
+			[56] = repdb.scryer, 
+			[57] = repdb.shatar, 
+			[90] = repdb.skyguard, 
+			[58] = repdb.shatteredsun, 
+			[59] = repdb.sporeggar, 
+			[60] = repdb.violeteye, 
 			-- Faction Cities
-			[61] = repdb.city1,
-			[62] = repdb.city2,
-			[63] = repdb.city3,
-			[64] = repdb.city4,
-			[65] = repdb.city5,
+			[61] = repdb.city1, 
+			[62] = repdb.city2, 
+			[63] = repdb.city3, 
+			[64] = repdb.city4, 
+			[65] = repdb.city5, 
 			-- PVP
-			[66] = repdb.pvp1,
-			[67] = repdb.pvp2,
-			[68] = repdb.pvp3,
+			[66] = repdb.pvp1, 
+			[67] = repdb.pvp2, 
+			[68] = repdb.pvp3, 
 			-- Wrath
-			[71] = repdb.argentcrusade,
-			[72] = repdb.frenzyheart,
-			[73] = repdb.ebonblade,
-			[74] = repdb.kirintor,
-			[75] = repdb.sonsofhodir,
-			[76] = repdb.kaluak,
-			[77] = repdb.oracles,
-			[78] = repdb.wyrmrest,
-			[79] = repdb.wrathcommon1,
-			[80] = repdb.wrathcommon2,
-			[81] = repdb.wrathcommon3,
-			[82] = repdb.wrathcommon4,
-			[83] = repdb.wrathcommon5,
+			[71] = repdb.argentcrusade, 
+			[72] = repdb.frenzyheart, 
+			[73] = repdb.ebonblade, 
+			[74] = repdb.kirintor, 
+			[75] = repdb.sonsofhodir, 
+			[76] = repdb.kaluak, 
+			[77] = repdb.oracles, 
+			[78] = repdb.wyrmrest, 
+			[79] = repdb.wrathcommon1, 
+			[80] = repdb.wrathcommon2, 
+			[81] = repdb.wrathcommon3, 
+			[82] = repdb.wrathcommon4, 
+			[83] = repdb.wrathcommon5, 
 		}
 
 	end
@@ -1049,7 +1045,7 @@ do
 						local location = VendorList[acquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
-							tinsert(locationlist,location)
+							tinsert(locationlist, location)
 							locationchecklist[location] = true
 						end
 					end
@@ -1064,7 +1060,7 @@ do
 						local location = QuestList[acquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
-							tinsert(locationlist,location)
+							tinsert(locationlist, location)
 							locationchecklist[location] = true
 						end
 					end
@@ -1079,7 +1075,7 @@ do
 						local location = MobList[acquire[i]["ID"]]["Location"]
 						if (not locationchecklist[location]) then
 							-- Add the location to the list
-							tinsert(locationlist,location)
+							tinsert(locationlist, location)
 							locationchecklist[location] = true
 						end
 					end
@@ -1093,7 +1089,7 @@ do
 			if (#locationlist == 0)then
 				return ""
 			else
-				return tconcat(locationlist,",")
+				return tconcat(locationlist, ", ")
 			end
 		else
 			return ""
@@ -1115,7 +1111,7 @@ do
 		end
 
 		-- Scan through the spell book getting the spell names
-		for index=1,25,1 do
+		for index=1, 25, 1 do
 
 			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
 
@@ -1258,17 +1254,19 @@ do
 	function addon:DumpSpell(SpellID)
 		local clist = CompanionDB
 
-		if not clist then return end
-
+		if not clist then
+			return
+		end
 		local mlist, qlist, replist, seasonlist, vlist, custlist = MobList, QuestList, ReputationList, SeasonalList, VendorList, CustomList
 
-		if (clist[SpellID]) then
+		if clist[SpellID] then
 			x = clist[SpellID]
 			self:Print(x["Name"] .. " -- " .. SpellID)
 			self:Print("Rarity: " .. x["Rarity"])
-			if (x["ItemID"]) then
-				local _,linky = GetItemInfo(x["ItemID"])
-				if (linky) then
+
+			if x["ItemID"] then
+				local _, linky = GetItemInfo(x["ItemID"])
+				if linky then
 					self:Print("Creates: " .. linky .. "(" .. x["ItemID"] .. ")")
 				else
 					self:Print("Creates: (" .. x["ItemID"] .. ")")
@@ -1283,48 +1281,56 @@ do
 			local acquire = clist[SpellID]["Acquire"]
 
 			self:Print("Acquire methods:")
+
 			for i in pairs(acquire) do
 				local acquiretype = acquire[i]["Type"]
-				if (acquiretype == 1) then
+
+				if acquiretype == 1 then
 					self:Print("Vendor: " .. acquire[i]["ID"])
-					if (vlist[i]) then
+
+					if vlist[i] then
 						self:Print(vlist[i]["Name"])
 					end
-				elseif (acquiretype == 2) then
+				elseif acquiretype == 2 then
 					self:Print("Quest: " .. acquire[i]["ID"])
-					if (qlist[i]) then
+
+					if qlist[i] then
 						self:Print(qlist[i]["Name"])
 					end
-				elseif (acquiretype == 3) then
+				elseif acquiretype == 3 then
 					self:Print("Crafted: " .. GetSpellInfo(acquire[i]["ID"]))
 					self:Print("Created by: " .. GetSpellInfo(acquire[i]["Crafted"]))
-				elseif (acquiretype == 4) then
+				elseif acquiretype == 4 then
 					self:Print("Mob: " .. acquire[i]["ID"])
-					if (mlist[i]) then
+
+					if mlist[i] then
 						self:Print(mlist[i]["Name"])
 					end
-				elseif (acquiretype == 5) then
+				elseif acquiretype == 5 then
 					self:Print("Seasonal: " .. acquire[i]["ID"])
-					if (seasonlist[i]) then
+
+					if seasonlist[i] then
 						self:Print(seasonlist[i]["Name"])
 					end
-				elseif (acquiretype == 6) then
+				elseif acquiretype == 6 then
 					self:Print("Reputation: " .. acquire[i]["ID"])
 					self:Print("Rep Level: " .. acquire[i]["RepLevel"])
-					if (replist[acquire[i]["ID"]]) then
+
+					if replist[acquire[i]["ID"]] then
 						self:Print(replist[acquire[i]["ID"]]["Name"])
 					end
-					if (vlist[acquire[i]["RepVendor"]]) then
+
+					if vlist[acquire[i]["RepVendor"]] then
 						self:Print("Rep Vendor: " .. vlist[acquire[i]["RepVendor"]]["Name"] .. " (" .. acquire[i]["RepVendor"] .. ")")
 					end
-				elseif (acquiretype == 7) then
+				elseif acquiretype == 7 then
 					self:Print("World Drop: " .. acquire[i]["ID"])
-				elseif (acquiretype == 8) then
+				elseif acquiretype == 8 then
 					self:Print("Custom: " .. acquire[i]["ID"])
 					if (custlist[i]) then
 						self:Print(custlist[i]["Name"])
 					end
-				elseif (acquiretype == 9) then
+				elseif acquiretype == 9 then
 					self:Print("Achievement: " .. acquire[i]["ID"])
 				else
 					self:Print("Acquire type: " .. acquire[i]["Type"] .. " ID: " .. acquire[i]["ID"])
@@ -1334,278 +1340,261 @@ do
 			local flags = x["Flags"]
 			local flagstr = ""
 
-			if (flags[1] == true) then
-				flagstr = flagstr .. "(A),"
-			end
-			if (flags[2] == true) then
-				flagstr = flagstr .. "(H),"
-			end
-			if (flags[3] == true) then
-				flagstr = flagstr .. "Vendor,"
-			end
-			if (flags[4] == true) then
-				flagstr = flagstr .. "Quest,"
-			end
-			if (flags[5] == true) then
-				flagstr = flagstr .. "Crafter,"
-			end
-			if (flags[6] == true) then
-				flagstr = flagstr .. "Instance,"
-			end
-			if (flags[7] == true) then
-				flagstr = flagstr .. "Raid,"
-			end
-			if (flags[8] == true) then
-				flagstr = flagstr .. "Seasonal,"
-			end
-			if (flags[9] == true) then
-				flagstr = flagstr .. "World,"
-			end
-			if (flags[10] == true) then
-				flagstr = flagstr .. "Mob,"
-			end
-			if (flags[11] == true) then
-				flagstr = flagstr .. "TCG,"
-			end
-			if (flags[12] == true) then
-				flagstr = flagstr .. "Special Event,"
-			end
-			if (flags[13] == true) then
-				flagstr = flagstr .. "CE,"
-			end
-			if (flags[14] == true) then
-				flagstr = flagstr .. "Not in game,"
-			end
-			if (flags[15] == true) then
-				flagstr = flagstr .. "Achievement,"
-			end
-			if (flags[16] == true) then
-				flagstr = flagstr .. "PVP,"
-			end
-			if (flags[17] == true) then
-				flagstr = flagstr .. "17,"
-			end
-			if (flags[18] == true) then
-				flagstr = flagstr .. "18,"
-			end
-			if (flags[19] == true) then
-				flagstr = flagstr .. "19,"
-			end
-			if (flags[20] == true) then
-				flagstr = flagstr .. "BoE,"
-			end
-			if (flags[21] == true) then
-				flagstr = flagstr .. "BoP,"
-			end
-			if (flags[22] == true) then
-				flagstr = flagstr .. "BoA,"
-			end
-			if (flags[23] == true) then
-				flagstr = flagstr .. "23,"
-			end
-			if (flags[24] == true) then
-				flagstr = flagstr .. "24,"
-			end
-			if (flags[25] == true) then
-				flagstr = flagstr .. "Alchy,"
-			end
-			if (flags[26] == true) then
-				flagstr = flagstr .. "BS,"
-			end
-			if (flags[27] == true) then
-				flagstr = flagstr .. "Cook,"
-			end
-			if (flags[28] == true) then
-				flagstr = flagstr .. "Enchanting,"
-			end
-			if (flags[29] == true) then
-				flagstr = flagstr .. "Engineering,"
-			end
-			if (flags[30] == true) then
-				flagstr = flagstr .. "FA,"
-			end
-			if (flags[31] == true) then
-				flagstr = flagstr .. "Inscription,"
-			end
-			if (flags[32] == true) then
-				flagstr = flagstr .. "JC,"
-			end
-			if (flags[33] == true) then
-				flagstr = flagstr .. "LW,"
-			end
-			if (flags[34] == true) then
-				flagstr = flagstr .. "Mining,"
-			end
-			if (flags[35] == true) then
-				flagstr = flagstr .. "Tailoring,"
-			end
-			if (flags[36] == true) then
-				flagstr = flagstr .. "Fishing,"
-			end
-			if (flags[37] == true) then
-				flagstr = flagstr .. "37,"
-			end
-			if (flags[38] == true) then
-				flagstr = flagstr .. "38,"
-			end
-			if (flags[39] == true) then
-				flagstr = flagstr .. "39,"
+			if flags[1] then
+				flagstr = flagstr .. "(A), "
 			end
 
+			if flags[2] then
+				flagstr = flagstr .. "(H), "
+			end
+
+			if flags[3] then
+				flagstr = flagstr .. "Vendor, "
+			end
+
+			if flags[4] then
+				flagstr = flagstr .. "Quest, "
+			end
+
+			if flags[5] then
+				flagstr = flagstr .. "Crafter, "
+			end
+
+			if flags[6] then
+				flagstr = flagstr .. "Instance, "
+			end
+
+			if flags[7] then
+				flagstr = flagstr .. "Raid, "
+			end
+
+			if flags[8] then
+				flagstr = flagstr .. "Seasonal, "
+			end
+
+			if flags[9] then
+				flagstr = flagstr .. "World, "
+			end
+
+			if flags[10] then
+				flagstr = flagstr .. "Mob, "
+			end
+
+			if flags[11] then
+				flagstr = flagstr .. "TCG, "
+			end
+
+			if flags[12] then
+				flagstr = flagstr .. "Special Event, "
+			end
+
+			if flags[13] then
+				flagstr = flagstr .. "CE, "
+			end
+
+			if flags[14] then
+				flagstr = flagstr .. "Not in game, "
+			end
+
+			if flags[15] then
+				flagstr = flagstr .. "Achievement, "
+			end
+
+			if flags[16] then
+				flagstr = flagstr .. "PVP, "
+			end
+
+			if flags[17] then
+				flagstr = flagstr .. "17, "
+			end
+
+			if flags[18] then
+				flagstr = flagstr .. "18, "
+			end
+
+			if flags[19] then
+				flagstr = flagstr .. "19, "
+			end
+
+			if flags[20] then
+				flagstr = flagstr .. "BoE, "
+			end
+
+			if flags[21] then
+				flagstr = flagstr .. "BoP, "
+			end
+
+			if flags[22] then
+				flagstr = flagstr .. "BoA, "
+			end
+
+			if flags[23] then
+				flagstr = flagstr .. "23, "
+			end
+
+			if flags[24] then
+				flagstr = flagstr .. "24, "
+			end
+
+			if flags[25] then
+				flagstr = flagstr .. "Alchy, "
+			end
+
+			if flags[26] then
+				flagstr = flagstr .. "BS, "
+			end
+
+			if flags[27] then
+				flagstr = flagstr .. "Cook, "
+			end
+
+			if flags[28] then
+				flagstr = flagstr .. "Enchanting, "
+			end
+
+			if flags[29] then
+				flagstr = flagstr .. "Engineering, "
+			end
+
+			if flags[30] then
+				flagstr = flagstr .. "FA, "
+			end
+
+			if flags[31] then
+				flagstr = flagstr .. "Inscription, "
+			end
+
+			if flags[32] then
+				flagstr = flagstr .. "JC, "
+			end
+
+			if flags[33] then
+				flagstr = flagstr .. "LW, "
+			end
+
+			if flags[34] then
+				flagstr = flagstr .. "Mining, "
+			end
+
+			if flags[35] then
+				flagstr = flagstr .. "Tailoring, "
+			end
+
+			if flags[36] then
+				flagstr = flagstr .. "Fishing, "
+			end
+
+			if flags[37] then
+				flagstr = flagstr .. "37, "
+			end
+
+			if flags[38] then
+				flagstr = flagstr .. "38, "
+			end
+
+			if flags[39] then
+				flagstr = flagstr .. "39, "
+			end
 			self:Print("Flags: " .. flagstr)
 			flagstr = ""
-
 			--self:Print("Reps: " .. flagstr)
-
 		else
 			self:Print("Spell ID not in item database.")
 		end
-
 	end
-
 end
 
---[[
-
-	item Exclusion Functions
-
---]]
-
--- Description: Marks all exclusions in the item database to not be displayed
-
-function addon:MarkExclusions(DB,scantype)
-
+-------------------------------------------------------------------------------
+-- Item Exclusion Functions
+-------------------------------------------------------------------------------
+-- Marks all exclusions in the item database to not be displayed
+function addon:MarkExclusions(DB, scantype)
 	local exclusionlist = addon.db.profile.exclusionlist
+	local ignored = not addon.db.profile.ignoreexclusionlist
 	local countknown = 0
 	local countunknown = 0
 
-	local ignored = not addon.db.profile.ignoreexclusionlist
-
 	for i in pairs(exclusionlist) do
-
 		-- We may have a item in the exclusion list that has not been scanned yet
 		-- check if the entry exists in DB first
-		if (DB[i]) then
-			if (ignored) then
+		if DB[i] then
+			if ignored then
 				DB[i]["Display"] = false
 			end
-
 			local tmpprof = GetSpellInfo(DB[i]["Type"])
-			if (DB[i]["Known"] == false and tmpprof == prof) then
+
+			if not DB[i]["Known"] and tmpprof == prof then
 				countknown = countknown + 1
-			elseif (tmpprof == prof) then
+			elseif tmpprof == prof then
 				countunknown = countunknown + 1
 			end
-
 		end
-
 	end
-
 	return countknown, countunknown
-
 end
 
--- Description: Removes or adds a item to the exclusion list.
-
+-- Removes or adds a item to the exclusion list.
 function addon:ToggleExclude(SpellID)
-
 	local exclusionlist = addon.db.profile.exclusionlist
 
-	-- Remove the Spell from the exclusion list
-	if (exclusionlist[SpellID]) then
-
+	if exclusionlist[SpellID] then
 		exclusionlist[SpellID] = nil
-
 	else
-
 		exclusionlist[SpellID] = true
-
 	end
-
 end
 
--- Description: Prints all the ID's in the exclusion list out into chat.
-
+-- Prints all the ID's in the exclusion list out into chat.
 function addon:ViewExclusionList()
-
 	local exclusionlist = addon.db.profile.exclusionlist
 
 	-- Parse all items in the exclusion list
 	for i in pairs(exclusionlist) do
 		self:Print(i .. ": " .. GetSpellInfo(i))
 	end
-
 end
 
 function addon:ClearExclusionList()
-
 	local exclusionlist = addon.db.profile.exclusionlist
-
-	-- Nuke our exclusion table
 	exclusionlist = twipe(exclusionlist)
-
 end
 
---[[
-
-	Searching Functions
-
-]]--
-
--- Description: Scans through the item database and toggles the flag on if the item is in the search criteria
-
+-------------------------------------------------------------------------------
+-- Searching Functions
+-------------------------------------------------------------------------------
+-- Scans through the item database and toggles the flag on if the item is in the search criteria
 function addon:SearchDB(DB, searchstring)
+	if not searchstring then
+		return
+	end
+	searchstring = strlower(searchstring)
 
-	if (searchstring) then
-
-		searchstring = strlower(searchstring)
-
-		-- Go through the entire database
-		for SpellID in pairs(DB) do
-
-			-- Get the Spell object
-			local item = DB[SpellID]
-
-			-- Set the search as false automatically
+	for SpellID in pairs(DB) do
+		local item = DB[SpellID]
 			item["Search"] = false
 
-			-- Allow us to search by spell ID
-			if (sfind(strlower(SpellID),searchstring)) or
-				-- Allow us to search byitem ID
-				(item["ItemID"] and sfind(strlower(item["ItemID"]),searchstring)) or
-				-- Allow us to search by name
-				(item["Name"] and sfind(strlower(item["Name"]),searchstring)) or
-				-- Allow us to search by locations
-				(item["Locations"] and sfind(item["Locations"],searchstring)) or
-				-- Allow us to search by Rarity
-				(item["Rarity"] and sfind(item["Rarity"],searchstring)) then
-					item["Search"] = true
+			if (sfind(strlower(SpellID), searchstring)
+			    or (item["ItemID"] and sfind(strlower(item["ItemID"]), searchstring))
+				    or (item["Name"] and sfind(strlower(item["Name"]), searchstring))
+				    or (item["Locations"] and sfind(item["Locations"], searchstring))
+				    or (item["Rarity"] and sfind(item["Rarity"], searchstring))) then
+				item["Search"] = true
 			end
-
 		end
-
 	end
-
 end
 
--- Description: Goes through the item database and resets all the search flags
-
+-- Goes through the item database and resets all the search flags
 function addon:ResetSearch(DB)
-
 	for SpellID in pairs(DB) do
 		DB[SpellID]["Search"] = true
 	end
-
 end
 
---[[
-
-	Text dumping functions
-
-]]--
-
--- Description: Scans through the item database providing a string of comma seperated values for all item information
-
+-------------------------------------------------------------------------------
+-- Text dumping functions
+-------------------------------------------------------------------------------
+-- Scans through the item database providing a string of comma seperated values for all item information
 function addon:GetTextDump(DB, profession)
 
 	local texttable = {}
@@ -1615,36 +1604,33 @@ function addon:GetTextDump(DB, profession)
 	--@end-debug@
 
 	-- Add a header to the text table
-	tinsert(texttable,format("Collectinator Text Dump for %s",profession))
-	tinsert(texttable,"Text output of all items and acquire information.  Output is in the form of comma seperated values.\n")
-	tinsert(texttable,"Spell ID, item Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
+	tinsert(texttable, format("Collectinator Text Dump for %s", profession))
+	tinsert(texttable, "Text output of all items and acquire information.  Output is in the form of comma seperated values.\n")
+	tinsert(texttable, "Spell ID, item Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
 
 	for SpellID in pairs(DB) do
-
 		local itemprof = GetSpellInfo(DB[SpellID]["Profession"])
 
-		if (itemprof == profession) then
-
+		if itemprof == profession then
 			-- Add Spell ID, Name and Skill Level to the list
-			tinsert(texttable,SpellID)
-			tinsert(texttable,",")
-			tinsert(texttable,DB[SpellID]["Name"])
-			tinsert(texttable,",")
-			tinsert(texttable,DB[SpellID]["Level"])
-			tinsert(texttable,",[")
+			tinsert(texttable, SpellID)
+			tinsert(texttable, ", ")
+			tinsert(texttable, DB[SpellID]["Name"])
+			tinsert(texttable, ", ")
+			tinsert(texttable, DB[SpellID]["Level"])
+			tinsert(texttable, ", [")
 
 			-- Add in all the filter flags
 			local flags = DB[SpellID]["Flags"]
 
 			-- Find out which flags are marked as "true"
-			for i=1,127,1 do
-				if (flags[i] == true) then
-					tinsert(texttable,i)
-					tinsert(texttable,",")
+			for i = 1, 127, 1 do
+				if flags[i] then
+					tinsert(texttable, i)
+					tinsert(texttable, ", ")
 				end
 			end
-
-			tinsert(texttable,"],[")
+			tinsert(texttable, "], [")
 
 			-- Find out which unique acquire methods we have
 			local acquire = DB[SpellID]["Acquire"]
@@ -1672,19 +1658,19 @@ function addon:GetTextDump(DB, profession)
 
 			-- Add all the acquire methods in
 			for i in pairs(acquirelist) do
-				tinsert(texttable,i)
-				tinsert(texttable,",")
+				tinsert(texttable, i)
+				tinsert(texttable, ", ")
 			end
 
 			if (DB[SpellID]["Known"]) then
-				tinsert(texttable,"],true\n")
+				tinsert(texttable, "], true\n")
 			else
-				tinsert(texttable,"],false\n")
+				tinsert(texttable, "], false\n")
 			end
 
 		end
 	end
 
-	return tconcat(texttable,"")
+	return tconcat(texttable, "")
 
 end
