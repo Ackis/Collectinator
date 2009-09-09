@@ -249,7 +249,13 @@ function addon:OnEnable()
 	button:RegisterForClicks("LeftButtonUp")
 	button:SetScript("OnClick",
 				  function()
-					  addon:Collectinator_Command(false)
+					  local companion_frame = PetPaperDollFrameCompanionFrame
+					  local current_tab = "CRITTER"
+
+					  if companion_frame:IsVisible() then
+						  current_tab = companion_frame.mode
+					  end
+					  addon:Collectinator_Command(false, false, current_tab)
 					  --addon:ToggleFrame()
 				  end)
 
@@ -396,7 +402,7 @@ function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType, Game)
 
 	DB[SpellID]["Owned"] = false
 	DB[SpellID]["Display"] = true
-	DB[SpellID]["Search"] = false
+	DB[SpellID]["Search"] = true
 	DB[SpellID]["Known"] = false
 
 	DB[SpellID]["Flags"] = {}
@@ -910,50 +916,39 @@ end
 
 -- Description: Scans the item listing and updates the filters according to user preferences
 function addon:UpdateFilters(DB,  playerData, scantype)
+	local can_show = false
 
 	playerData.total = 0
 	playerData.known = 0
 	playerData.total_filtered = 0
 	playerData.known_filtered = 0
 
-	local displayflag = false
-
-	-- Parse through all the entries in the array.
 	for ID, item in pairs(DB) do
-
-		-- Only interested in the current type (mount/critter/etc)
-		if (item["Type"] == scantype) then
-
-			-- Determine if we are to display this item or not
-			displayflag = self:CheckDisplay(item, playerFaction)
+		if item["Type"] == scantype then
+			can_show = self:CheckDisplay(item, playerFaction)
 
 			playerData.total = playerData.total + 1
 			playerData.known = playerData.known + (item["Known"] == true and 1 or 0)
 
-			if (displayflag == true) then
+			if can_show then
 				playerData.total_filtered = playerData.total_filtered + 1
 				playerData.known_filtered = playerData.known_filtered + (item["Known"] == true and 1 or 0)
 
 				-- Include known
 				if (addon.db.profile.filters.general.known == false) and (item["Known"] == true) then
-					displayflag = false
+					can_show = false
 				end
 				-- Include unknown
 				if (addon.db.profile.filters.general.unknown == false) and (item["Known"] == false) then
-					displayflag = false
+					can_show = false
 				end
 			end
 		else
-				displayflag = false
+			can_show = false
 		end
-
-		-- Set the display flag
-		DB[ID]["Display"] = displayflag
-
+		DB[ID]["Display"] = can_show
 	end
-
 	self:ClearRepTable()
-
 end
 
 --[[

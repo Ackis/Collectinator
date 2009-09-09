@@ -78,6 +78,21 @@ local DisplayStrings = {}
 local myFaction = ""
 
 -------------------------------------------------------------------------------
+-- Constants
+-------------------------------------------------------------------------------
+-- Returns the index type based on the supplied string.
+local INDEX_TYPE = {
+	["CRITTER"]	= 1,
+	["MOUNT"]	= 2,
+}
+
+-- Returns the index string based on the supplied type.
+local INDEX_STRING = {
+	[1] = "CRITTER",
+	[2] = "MOUNT",
+}
+
+-------------------------------------------------------------------------------
 -- Tables assigned in addon:DisplayFrame()
 -------------------------------------------------------------------------------
 local collectibleDB, vendorDB, questDB, repDB, seasonDB, customDB, mobDB
@@ -283,7 +298,7 @@ do
 	-- Input: The database, the index of the collectible, the players faction and reputation levels
 	-- Output: A boolean indicating if they can learn the collectible or not
 	------------------------------------------------------------------------------
-	local function checkFactions(DB, collectibleIndex, playerFaction, playerRep)
+	function checkFactions(DB, collectibleIndex, playerFaction, playerRep)
 		local fac = true
 		local acquire = DB[collectibleIndex]["Acquire"]
 
@@ -305,8 +320,14 @@ do
 						repid = REP_MAGHAR
 					end
 				end
+				local rep_idx = repDB[repid]
+				local player_rep
 
-				if (not playerRep[repDB[repid]["Name"]]) or (playerRep[repDB[repid]["Name"]] < DB[collectibleIndex]["Acquire"][i]["RepLevel"]) then
+				if rep_idx then
+					player_rep = playerRep[rep_idx["Name"]]
+				end
+
+				if (not player_rep) or (player_rep < DB[collectibleIndex]["Acquire"][i]["RepLevel"]) then
 					fac = false
 				else
 					-- This means that the faction level is high enough, so we'll set display to true and leave the loop
@@ -500,7 +521,10 @@ do
 	end
 end	-- do
 
--- Description: Parses the collectibles and determines which ones to display, and makes them display appropiatly
+-------------------------------------------------------------------------------
+-- Parses the collectibles and determines which ones to display, and makes
+-- them display appropriatly
+-------------------------------------------------------------------------------
 local function WipeDisplayStrings()
 	for i = 1, #DisplayStrings do
 		ReleaseTable(DisplayStrings[i])
@@ -511,7 +535,6 @@ end
 local function initDisplayStrings()
 	local exclude = addon.db.profile.exclusionlist
 	local insertIndex = 1
-	local str
 
 	WipeDisplayStrings()
 
@@ -530,7 +553,7 @@ local function initDisplayStrings()
 
 			local hasFaction = checkFactions(collectibleDB, collectibleIndex, playerData.playerFaction, playerData["Reputation"])
 
-			str = AcquireTable()
+			local str = AcquireTable()
 			str.String = recStr
 
 			str.sID = collectibleIndex
@@ -747,40 +770,49 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			local cStr = ""
 
 			clr1 = addon:hexcolor("VENDOR")
-			-- Don't display vendors of opposite faction
-			local displaytt = false
-			local faction
 
-			if (vndr["Faction"] == factionHorde) then
-				clr2 = addon:hexcolor("HORDE")
-				if (playerFaction == factionHorde) then
-					displaytt = true
-				else
-					faction = factionHorde
-				end
-			elseif (vndr["Faction"] == factionAlliance) then
-				clr2 = addon:hexcolor("ALLIANCE")
-				if (playerFaction == factionAlliance) then
-					displaytt = true
-				else
-					faction = factionAlliance
-				end
-			else
+			if not vndr then
 				clr2 = addon:hexcolor("NEUTRAL")
-				displaytt = true
-			end
-
-			if (displaytt) then
-				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
-					cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
-				end
-
-				ttAdd(0, -1, 0, L["Vendor"], clr1, vndr["Name"], clr2)
+				ttAdd(0, -1, 0, L["Vendor"], clr1, UNKNOWN, clr2)
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, 1, vndr["Location"], clr1, cStr, clr2)
-			elseif faction then
-				ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
+				ttAdd(1, -2, 1, UNKNOWN, clr1, cStr, clr2)
+			else
+				-- Don't display vendors of opposite faction
+				local displaytt = false
+				local faction
+
+				if (vndr["Faction"] == factionHorde) then
+					clr2 = addon:hexcolor("HORDE")
+					if (playerFaction == factionHorde) then
+						displaytt = true
+					else
+						faction = factionHorde
+					end
+				elseif (vndr["Faction"] == factionAlliance) then
+					clr2 = addon:hexcolor("ALLIANCE")
+					if (playerFaction == factionAlliance) then
+						displaytt = true
+					else
+						faction = factionAlliance
+					end
+				else
+					clr2 = addon:hexcolor("NEUTRAL")
+					displaytt = true
+				end
+
+				if displaytt then
+					if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
+						cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
+					end
+
+					ttAdd(0, -1, 0, L["Vendor"], clr1, vndr["Name"], clr2)
+					clr1 = addon:hexcolor("NORMAL")
+					clr2 = addon:hexcolor("HIGH")
+					ttAdd(1, -2, 1, vndr["Location"], clr1, cStr, clr2)
+				elseif faction then
+					ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
+				end
 			end
 		elseif (acquire_type == ACQUIRE_MOB) then
 			-- Mob Drop:			Mob Name
@@ -788,16 +820,25 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			local mob = mobDB[v["ID"]]
 			local cStr = ""
 
-			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
-				cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
-			end
+			if not mob then
+				clr1 = addon:hexcolor("MOBDROP")
+				clr2 = addon:hexcolor("HORDE")
+				ttAdd(0, -1, 0, L["Mob Drop"], clr1, UNKNOWN, clr2)
+				clr1 = addon:hexcolor("NORMAL")
+				clr2 = addon:hexcolor("HIGH")
+				ttAdd(1, -2, 1, UNKNOWN, clr1, cStr, clr2)
+			else
+				if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
+					cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
+				end
 
-			clr1 = addon:hexcolor("MOBDROP")
-			clr2 = addon:hexcolor("HORDE")
-			ttAdd(0, -1, 0, L["Mob Drop"], clr1, mob["Name"], clr2)
-			clr1 = addon:hexcolor("NORMAL")
-			clr2 = addon:hexcolor("HIGH")
-			ttAdd(1, -2, 1, mob["Location"], clr1, cStr, clr2)
+				clr1 = addon:hexcolor("MOBDROP")
+				clr2 = addon:hexcolor("HORDE")
+				ttAdd(0, -1, 0, L["Mob Drop"], clr1, mob["Name"], clr2)
+				clr1 = addon:hexcolor("NORMAL")
+				clr2 = addon:hexcolor("HIGH")
+				ttAdd(1, -2, 1, mob["Location"], clr1, cStr, clr2)
+			end
 		elseif (acquire_type == ACQUIRE_QUEST) then
 			-- Quest:				QuestName
 			-- QuestZone				QuestCoords
@@ -1042,7 +1083,6 @@ local function CollectibleList_Update()
 		addon.PlusListButton[i]:Hide()
 		ClearCollectibleButtonTooltip(i)
 	end
-
 	local entries = #DisplayStrings
 
 	FauxScrollFrame_Update(Collectinator_CollectibleScrollFrame, entries, maxVisibleCollectibles, 16)
@@ -1274,10 +1314,10 @@ end	-- do
 -- chosen, or a new search occurred. Use this function to do all the dirty work
 -------------------------------------------------------------------------------
 local function ReDisplay(scan_type)
-	addon:UpdateFilters(collectibleDB, playerData, scan_type)
+	addon:UpdateFilters(collectibleDB, playerData, INDEX_STRING[scan_type])
 	sortedCollectibleIndex = SortDatabase(collectibleDB)
 
-	--playerData.excluded_collectibles_known, playerData.excluded_collectibles_unknown = addon:GetExclusions(collectibleDB, playerData.playerProfession)
+	playerData.excluded_collectibles_known, playerData.excluded_collectibles_unknown = addon:GetExclusions(collectibleDB, scan_type)
 
 	initDisplayStrings()
 	SetProgressBar(playerData)
@@ -1448,7 +1488,7 @@ do
 			cButton:SetScript("OnClick", function()
 							     FilterValueMap[scriptVal].svroot[scriptVal] = FilterValueMap[scriptVal].cb:GetChecked() and true or false
 							     addon.resetTitle()
-							     ReDisplay()
+							     ReDisplay(current_tab)
 						     end)
 		else
 			cButton:SetScript("OnClick", function()
@@ -1858,45 +1898,13 @@ local function expandEntry(dsIndex)
 
 		acquire_type = v["Type"]
 
-		if acquire_type == ACQUIRE_TRAINER and obtainDB.trainer then
-			local trainer = trainerDB[v["ID"]]
-
-			if CheckDisplayFaction(filterDB, trainer["Faction"]) then
-				local nStr = ""
-
-				if (trainer["Faction"] == factionHorde) then
-					nStr = addon:Horde(trainer["Name"])
-				elseif (trainer["Faction"] == factionAlliance) then
-					nStr = addon:Alliance(trainer["Name"])
-				else
-					nStr = addon:Neutral(trainer["Name"])
-				end
-				t.String = pad .. addon:Trainer(L["Trainer"] .. " : ") .. nStr
-
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-
-				local cStr = ""
-
-				if (trainer["Coordx"] ~= 0) and (trainer["Coordy"] ~= 0) then
-					cStr = addon:Coords("(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")")
-				end
-				t = AcquireTable()
-				t.IsCollectible = false
-				t.sID = collectibleIndex
-				t.IsExpanded = true
-				t.String = pad .. pad .. trainer["Location"] .. " " .. cStr
-
-				tinsert(DisplayStrings, dsIndex, t)
-				dsIndex = dsIndex + 1
-			end
-		elseif acquire_type == ACQUIRE_VENDOR and (obtainDB.vendor or obtainDB.pvp) then
+		if acquire_type == ACQUIRE_VENDOR and (obtainDB.vendor or obtainDB.pvp) then
 			-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
 			-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
 			-- This allows us to select PVP only and to see just the PVP collectibles
 			local vendor = vendorDB[v["ID"]]
 
-			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
+			if vendor and CheckDisplayFaction(filterDB, vendor["Faction"]) then
 				local nStr = ""
 
 				if vendor["Faction"] == factionHorde then
@@ -1926,30 +1934,33 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 			end
 		-- Mobs can be in instances, raids, or specific mob related drops.
-		elseif (acquire_type == ACQUIRE_MOB) and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
+		elseif acquire_type == ACQUIRE_MOB and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
 			local mob = mobDB[v["ID"]]
-			t.String = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
 
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
+			if mob then
+				t.String = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
 
-			local cStr = ""
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
 
-			if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
-				cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
+				local cStr = ""
+
+				if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
+					cStr = addon:Coords("(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")")
+				end
+				t = AcquireTable()
+				t.IsCollectible = false
+				t.sID = collectibleIndex
+				t.IsExpanded = true
+				t.String = pad .. pad .. mob["Location"] .. " " .. cStr
+
+				tinsert(DisplayStrings, dsIndex, t)
+				dsIndex = dsIndex + 1
 			end
-			t = AcquireTable()
-			t.IsCollectible = false
-			t.sID = collectibleIndex
-			t.IsExpanded = true
-			t.String = pad .. pad .. mob["Location"] .. " " .. cStr
-
-			tinsert(DisplayStrings, dsIndex, t)
-			dsIndex = dsIndex + 1
-		elseif (acquire_type == ACQUIRE_QUEST) and obtainDB.quest then
+		elseif acquire_type == ACQUIRE_QUEST and obtainDB.quest then
 			local quest = questDB[v["ID"]]
 
-			if CheckDisplayFaction(filterDB, quest["Faction"]) then
+			if quest and CheckDisplayFaction(filterDB, quest["Faction"]) then
 				local nStr = ""
 
 				if (quest["Faction"] == factionHorde) then
@@ -1978,18 +1989,18 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif (acquire_type == ACQUIRE_SEASONAL) and obtainDB.seasonal then
+		elseif acquire_type == ACQUIRE_SEASONAL and obtainDB.seasonal then
 			t.String = pad .. addon:Season(seasonal .. " : " .. seasonDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (acquire_type == ACQUIRE_REPUTATION) then -- Need to check if we're displaying the currently id'd rep or not as well
+		elseif acquire_type == ACQUIRE_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
 			-- Reputation Obtain
 			-- Rep: ID, Faction
 			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
 			-- RepVendor - VendorID
 			local rep_vendor = vendorDB[v["RepVendor"]]
 
-			if CheckDisplayFaction(filterDB, rep_vendor["Faction"]) then
+			if rep_vendor and CheckDisplayFaction(filterDB, rep_vendor["Faction"]) then
 				t.String = pad .. addon:Rep(L["Reputation"] .. " : ") .. repDB[v["ID"]]["Name"]
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
@@ -2036,11 +2047,11 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif (acquire_type == ACQUIRE_WORLD_DROP) and obtainDB.worlddrop then
+		elseif acquire_type == ACQUIRE_WORLD_DROP and obtainDB.worlddrop then
 			t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (acquire_type == ACQUIRE_CUSTOM) then
+		elseif acquire_type == ACQUIRE_CUSTOM then
 			t.String = pad .. addon:Normal(customDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
@@ -2090,12 +2101,10 @@ end
 -- Description: 
 
 function addon.CollectibleItem_OnClick(button)
-
 	local clickedIndex = addon.CollectibleListButton[button].sI
 
 	-- Don't do anything if they've clicked on an empty button
-	if (clickedIndex ~= nil) and (clickedIndex ~= 0) then
-
+	if clickedIndex and (clickedIndex ~= 0) then
 		local isCollectible = DisplayStrings[clickedIndex].IsCollectible
 		local isExpanded = DisplayStrings[clickedIndex].IsExpanded
 		local dString = DisplayStrings[clickedIndex].String
@@ -2103,16 +2112,16 @@ function addon.CollectibleItem_OnClick(button)
 		local traverseIndex = 0
 
 		-- First, check if this is a "modified" click, and react appropriately
-		if (IsModifierKeyDown()) then
-			-- CTRL-SHIFT
-			if (IsControlKeyDown() and IsShiftKeyDown()) then
+		if IsModifierKeyDown() then
+			if IsControlKeyDown() and IsShiftKeyDown() then
 				addon:SetupMap(clickedSpellIndex)
-			-- SHIFT
-			elseif (IsShiftKeyDown()) then
+			elseif IsShiftKeyDown() then
 				local itemID = collectibleDB[clickedSpellIndex]["ItemID"]
-				if (itemID) then
+
+				if itemID then
 					local _, itemLink = GetItemInfo(itemID)
-					if (itemLink) then
+
+					if itemLink then
 						ChatFrameEditBox:Insert(itemLink)
 					else
 						addon:Print(L["NoItemLink"])
@@ -2120,25 +2129,24 @@ function addon.CollectibleItem_OnClick(button)
 				else
 					addon:Print(L["NoItemLink"])
 				end
-			-- CTRL
-			elseif (IsControlKeyDown()) then
+			elseif IsControlKeyDown() then
 				ChatFrameEditBox:Insert(collectibleDB[clickedSpellIndex]["CollectibleLink"])
-			-- ALT
-			elseif (IsAltKeyDown()) then
+			elseif IsAltKeyDown() then
 				-- Code needed here to insert this item into the "Ignore List"
 				addon:ToggleExcludeCollectible(clickedSpellIndex)
 				ReDisplay(current_tab)
 			end
-		-- three possibilities here (all with no modifiers)
-		-- 1) We clicked on the collectible button on a closed collectible
-		-- 2) We clicked on the collectible button of an open collectible
-		-- 3) we clicked on the expanded text of an open collectible
-		elseif (isCollectible) then
-			if (isExpanded) then
-				-- get rid of our expanded lines
-				traverseIndex = clickedIndex + 1
+		elseif isCollectible then
+			-- three possibilities here (all with no modifiers)
+			-- 1) We clicked on the collectible button on a closed collectible
+			-- 2) We clicked on the collectible button of an open collectible
+			-- 3) we clicked on the expanded text of an open collectible
+			if isExpanded then
+				traverseIndex = clickedIndex + 1	-- get rid of our expanded lines
+
 				while (DisplayStrings[traverseIndex].IsCollectible == false) do
 					tremove(DisplayStrings, traverseIndex)
+
 					-- if this is the last entry in the whole list, we should break out
 					if not DisplayStrings[traverseIndex] then
 						break
@@ -2155,22 +2163,23 @@ function addon.CollectibleItem_OnClick(button)
 			-- this inherently implies that we're on an expanded collectible
 			-- first, back up in the list of buttons until we find our collectible line
 			traverseIndex = clickedIndex - 1
+
 			while (DisplayStrings[traverseIndex].IsCollectible == false) do
 				traverseIndex = traverseIndex - 1
 			end
-			-- unexpand it
-			DisplayStrings[traverseIndex].IsExpanded = false
-			-- now remove the expanded lines until we get to a collectible again
+			DisplayStrings[traverseIndex].IsExpanded = false	-- unexpand it
 			traverseIndex = traverseIndex + 1
+
+			-- now remove the expanded lines until we get to a collectible again
 			while (DisplayStrings[traverseIndex].IsCollectible == false) do
 				tremove(DisplayStrings, traverseIndex)
+
 				-- if this is the last entry in the whole list, we should break out
 				if not DisplayStrings[traverseIndex] then
 					break
 				end
 			end
 		end
-
 			-- finally, call our scrollframe updater
 			CollectibleList_Update()
 	end
@@ -2886,7 +2895,7 @@ local function InitializeFrame()
 						     if (searchtext ~= "") then
 							     Collectinator_LastSearchedText = searchtext
 
-							     addon:SearchCollectibleDB(collectibleDB, searchtext)
+							     addon:SearchDB(collectibleDB, searchtext)
 							     initDisplayStrings()
 							     CollectibleList_Update()
 
@@ -2933,7 +2942,7 @@ local function InitializeFrame()
 						   if (searchtext ~= "") and (searchtext ~= L["SEARCH_BOX_DESC"]) then
 							   Collectinator_LastSearchedText = searchtext
 
-							   addon:SearchCollectibleDB(collectibleDB, searchtext)
+							   addon:SearchDB(collectibleDB, searchtext)
 							   initDisplayStrings()
 							   CollectibleList_Update()
 
@@ -3763,14 +3772,6 @@ local function InitializeFrame()
 		["wrathcommon5"]	= { cb = Collectinator_WrathCommon5CB,		svroot = nil },
 	}
 end
-
--------------------------------------------------------------------------------
--- Returns the index type based on the supplied string.
--------------------------------------------------------------------------------
-local INDEX_TYPE = {
-	["CRITTER"]	= 1,
-	["MOUNT"]	= 2,
-}
 
 -------------------------------------------------------------------------------
 -- Displays the main collectible frame if it exists. Otherwise, create the frame
