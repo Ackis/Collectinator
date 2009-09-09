@@ -62,8 +62,8 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Cat Carrier (Black Tabby) - 10675
 	self:AddCompanion(PetDB, 10675, 8491, R_COMMON, "CRITTER", GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 10675, 2, 10, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 10675, 4, 1920, 4, 2271, 4, 2272, 4, 2358)
+	self:AddCompanionFlags(PetDB, 10675, A_QUEST, 10, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 10675, A_MOB, 1920, A_MOB, 2271, A_MOB, 2272, A_MOB, 2358)
 
 	-- Cat Carrier (Orange Tabby) - 10676
 	self:AddCompanion(PetDB, 10676, 8487, R_COMMON, "CRITTER", GAME_ORIG)
@@ -73,7 +73,7 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Cat Carrier (Siamese) - 10677
 	self:AddCompanion(PetDB, 10677, 8490, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10677, F_ALLIANCE, F_HORDE, F_VENDOR, F_INSTANCE, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 10677, 1, 20980, 4, 645)
+	self:AddCompanionAcquire(PetDB, 10677, 1, 20980, A_MOB, 645)
 
 	-- Cat Carrier (Silver Tabby) - 10678
 	self:AddCompanion(PetDB, 10678, 8488, R_COMMON, "CRITTER", GAME_ORIG)
@@ -93,12 +93,12 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Parrot Cage (Hyacinth Macaw) - 10682
 	self:AddCompanion(PetDB, 10682, 8494, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10682, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 10682, 4, 1561, 4, 1562, 4, 1563, 4, 1564, 4, 1565, 4, 1653, 4, 2545, 4, 4505, 4, 4506)
+	self:AddCompanionAcquire(PetDB, 10682, A_MOB, 1561, A_MOB, 1562, A_MOB, 1563, A_MOB, 1564, A_MOB, 1565, A_MOB, 1653, A_MOB, 2545, A_MOB, 4505, A_MOB, 4506)
 
 	-- Parrot Cage (Green Wing Macaw) - 10683
 	self:AddCompanion(PetDB, 10683, 8492, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10683, F_ALLIANCE, F_HORDE, F_INSTANCE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 10683, 4, 657)
+	self:AddCompanionAcquire(PetDB, 10683, A_MOB, 657)
 
 	-- Parrot Cage (Senegal) - 10684
 	self:AddCompanion(PetDB, 10684, 8495, R_COMMON, "CRITTER", GAME_ORIG)
@@ -118,31 +118,31 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Dark Whelpling - 10695
 	self:AddCompanion(PetDB, 10695, 10822, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10695, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 10695, 4, 2725, 4, 4324)
+	self:AddCompanionAcquire(PetDB, 10695, A_MOB, 2725, A_MOB, 4324)
 
 	-- Azure Whelpling - 10696
 	self:AddCompanion(PetDB, 10696, 34535, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10696, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 10696, 4, 193, 4, 6129, 4, 6130, 4, 6131)
+	self:AddCompanionAcquire(PetDB, 10696, A_MOB, 193, A_MOB, 6129, A_MOB, 6130, A_MOB, 6131)
 
 	-- Tiny Crimson Whelpling - 10697
 	self:AddCompanion(PetDB, 10697, 8499, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10697, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 10697, 4, 1042, 4, 1044, 4, 1069)
+	self:AddCompanionAcquire(PetDB, 10697, A_MOB, 1042, A_MOB, 1044, A_MOB, 1069)
 
 	-- Tiny Emerald Whelpling - 10698
 	self:AddCompanion(PetDB, 10698, 8498, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10698, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 10698, 4, 741)
+	self:AddCompanionAcquire(PetDB, 10698, A_MOB, 741)
 
 	-- Wood Frog Box - 10703
 	self:AddCompanion(PetDB, 10703, 11027, R_COMMON, "CRITTER", GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 10703, F_ALLIANCE, F_HORDE, 3, F_SEASONAL, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	--self:AddCompanionFlags(PetDB, 10703, F_ALLIANCE, F_HORDE, F_VENDOR, F_SEASONAL, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(PetDB, 10703, 1, 14860, 7, 3)
 
 	-- Tree Frog Box - 10704
 	self:AddCompanion(PetDB, 10704, 11026, R_COMMON, "CRITTER", GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 10704, F_ALLIANCE, F_HORDE, 3, F_SEASONAL, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	--self:AddCompanionFlags(PetDB, 10704, F_ALLIANCE, F_HORDE, F_VENDOR, F_SEASONAL, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(PetDB, 10704, 1, 14860, 7, 3)
 
 	-- Hawk Owl - 10706
@@ -183,7 +183,7 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Mechanical Chicken - 12243
 	self:AddCompanion(PetDB, 12243, 10398, R_COMMON, "CRITTER", GAME_ORIG)
 	--self:AddCompanionFlags(PetDB, 12243, F_ALLIANCE, F_HORDE, F_QUEST, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(PetDB, 12243, 2, 3721, 
+	--self:AddCompanionAcquire(PetDB, 12243, A_QUEST, 3721, 
 
 	-- Chicken Egg - 13548
 	self:AddCompanion(PetDB, 13548, 11110, R_COMMON, "CRITTER", GAME_ORIG)
@@ -192,28 +192,28 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Pet Bombling - 15048
 	self:AddCompanion(PetDB, 15048, 11825, R_COMMON, "CRITTER", GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 15048, F_ALLIANCE, F_HORDE, 5, 21, 29)
-	--self:AddCompanionAcquire(PetDB, 15048, 3, 4036, 15628)
+	--self:AddCompanionFlags(PetDB, 15048, F_ALLIANCE, F_HORDE, F_UNUSED, F_BOP, F_FIRST_AID)
+	--self:AddCompanionAcquire(PetDB, 15048, A_CRAFTED, 4036, 15628)
 
 	-- Lil' Smoky - 15049
 	self:AddCompanion(PetDB, 15049, 11826, R_COMMON, "CRITTER", GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 15049, F_ALLIANCE, F_HORDE, 5, 21, 29)
-	--self:AddCompanionAcquire(PetDB, 15049, 3, 4036, 15633)
+	--self:AddCompanionFlags(PetDB, 15049, F_ALLIANCE, F_HORDE, F_UNUSED, F_BOP, F_FIRST_AID)
+	--self:AddCompanionAcquire(PetDB, 15049, A_CRAFTED, 4036, 15633)
 
 	-- Sprite Darter Egg - 15067
 	self:AddCompanion(PetDB, 15067, 11474, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 15067, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 15067, 2, 4298)
+	self:AddCompanionAcquire(PetDB, 15067, A_QUEST, 4298)
 
 	-- Worg Carrier - 15999
 	self:AddCompanion(PetDB, 15999, 12264, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 15999, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 15999, 2, 4729)
+	self:AddCompanionAcquire(PetDB, 15999, A_QUEST, 4729)
 
 	-- Smolderweb Carrier - 16450
 	self:AddCompanion(PetDB, 16450, 12529, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 16450, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 16450, 2, 4862)
+	self:AddCompanionAcquire(PetDB, 16450, A_QUEST, 4862)
 
 	-- Panda Collar - 17707
 	self:AddCompanion(PetDB, 17707, 13583, R_RARE, "CRITTER", GAME_ORIG)
@@ -232,8 +232,8 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Lifelike Mechanical Toad - 19772
 	self:AddCompanion(PetDB, 19772, 15996, R_COMMON, "CRITTER", GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 19772, F_ALLIANCE, F_HORDE, 5, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(PetDB, 19772, 3, 4036, 19793)
+	--self:AddCompanionFlags(PetDB, 19772, F_ALLIANCE, F_HORDE, F_UNUSED, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	--self:AddCompanionAcquire(PetDB, 19772, A_CRAFTED, 4036, 19793)
 
 	-- A Jubling's Tiny Home - 23811
 	self:AddCompanion(PetDB, 23811, 19450, R_COMMON, "CRITTER", GAME_ORIG)
@@ -252,13 +252,13 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Disgusting Oozeling - 25162
 	self:AddCompanion(PetDB, 25162, 20769, R_COMMON, "CRITTER", GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 25162, F_ALLIANCE, F_HORDE, 9, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	--self:AddCompanionFlags(PetDB, 25162, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(PetDB, 25162, 8, 3)
 
 	-- Tranquil Mechanical Yeti - 26010
 	self:AddCompanion(PetDB, 26010, 21277, R_COMMON, "CRITTER", GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 26010, F_ALLIANCE, F_HORDE, 5, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(PetDB, 26010, 3, 4036, 26011)
+	--self:AddCompanionFlags(PetDB, 26010, F_ALLIANCE, F_HORDE, F_UNUSED, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	--self:AddCompanionAcquire(PetDB, 26010, A_CRAFTED, 4036, 26011)
 
 	-- Snowman Kit - 26045
 	self:AddCompanion(PetDB, 26045, 21309, R_COMMON, "CRITTER", GAME_ORIG)
@@ -298,17 +298,17 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Turtle Box - 28738
 	self:AddCompanion(PetDB, 28738, 23002, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 28738, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 28738, 2, 171, 2, 5502, 7, 8)
+	self:AddCompanionAcquire(PetDB, 28738, A_QUEST, 171, A_QUEST, 5502, 7, 8)
 
 	-- Piglet's Collar - 28739
 	self:AddCompanion(PetDB, 28739, 23007, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 28739, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 28739, 2, 171, 2, 5502, 7, 8)
+	self:AddCompanionAcquire(PetDB, 28739, A_QUEST, 171, A_QUEST, 5502, 7, 8)
 
 	-- Rat Cage - 28740
 	self:AddCompanion(PetDB, 28740, 23015, R_COMMON, "CRITTER", GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 28740, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 28740, 2, 171, 2, 5502, 7, 8)
+	self:AddCompanionAcquire(PetDB, 28740, A_QUEST, 171, A_QUEST, 5502, 7, 8)
 
 	-- Spirit of Summer - 28871
 	self:AddCompanion(PetDB, 28871, 23083, R_RARE, "CRITTER", GAME_ORIG)
@@ -327,7 +327,7 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Magical Crawdad Box - 33050
 	self:AddCompanion(PetDB, 33050, 27445, R_COMMON, "CRITTER", GAME_TBC)
-	self:AddCompanionFlags(PetDB, 33050, F_ALLIANCE, F_HORDE, 9, 21, 36)
+	self:AddCompanionFlags(PetDB, 33050, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOP, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 33050, 8, 9)
 
 	-- Mana Wyrmling - 35156
@@ -383,12 +383,12 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Captured Firefly - 36034
 	self:AddCompanion(PetDB, 36034, 29960, R_COMMON, "CRITTER", GAME_TBC)
 	self:AddCompanionFlags(PetDB, 36034, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 36034, 4, 20197)
+	self:AddCompanionAcquire(PetDB, 36034, A_MOB, 20197)
 
 	-- Miniwing - 39181
 	self:AddCompanion(PetDB, 39181, 31760, R_COMMON, "CRITTER", GAME_TBC)
 	self:AddCompanionFlags(PetDB, 39181, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 39181, 2, 10898)
+	self:AddCompanionAcquire(PetDB, 39181, A_QUEST, 10898)
 
 	-- Wolpertinger's Tankard - 39709
 	self:AddCompanion(PetDB, 39709, 32233, R_RARE, "CRITTER", GAME_TBC)
@@ -408,17 +408,17 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Sleepy Willy - 40613
 	self:AddCompanion(PetDB, 40613, 32617, R_RARE, "CRITTER", GAME_TBC)
 	self:AddCompanionFlags(PetDB, 40613, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 40613, 2, 10966, 2, 10967, 5, 8)
+	self:AddCompanionAcquire(PetDB, 40613, A_QUEST, 10966, A_QUEST, 10967, A_SEASONAL, 8)
 
 	-- Egbert's Egg - 40614
 	self:AddCompanion(PetDB, 40614, 32616, R_RARE, "CRITTER", GAME_TBC)
 	self:AddCompanionFlags(PetDB, 40614, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 40614, 2, 10966, 2, 10967, 5, 8)
+	self:AddCompanionAcquire(PetDB, 40614, A_QUEST, 10966, A_QUEST, 10967, A_SEASONAL, 8)
 
 	-- Elekk Training Collar - 40634
 	self:AddCompanion(PetDB, 40634, 32622, R_RARE, "CRITTER", GAME_TBC)
 	self:AddCompanionFlags(PetDB, 40634, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 40634, 2, 10966, 2, 10967, 5, 8)
+	self:AddCompanionAcquire(PetDB, 40634, A_QUEST, 10966, A_QUEST, 10967, A_SEASONAL, 8)
 
 	-- Reeking Pet Carrier - 40990
 	self:AddCompanion(PetDB, 40990, 40653, R_RARE, "CRITTER", GAME_TBC)
@@ -428,17 +428,17 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Sinister Squashling - 42609
 	self:AddCompanion(PetDB, 42609, 33154, R_RARE, "CRITTER", GAME_TBC)
 	self:AddCompanionFlags(PetDB, 42609, F_ALLIANCE, F_HORDE, F_INSTANCE, F_SEASONAL, F_MOB_DROP, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 42609, 4, 23682, 5, 7)
+	self:AddCompanionAcquire(PetDB, 42609, A_MOB, 23682, A_SEASONAL, 7)
 
 	-- Toothy's Bucket - 43697
 	self:AddCompanion(PetDB, 43697, 33816, R_RARE, "CRITTER", GAME_TBC)
-	self:AddCompanionFlags(PetDB, 43697, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, 36)
-	self:AddCompanionAcquire(PetDB, 43697, 2, 11665, 8, 18)
+	self:AddCompanionFlags(PetDB, 43697, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 43697, A_QUEST, 11665, 8, 18)
 
 	-- Muckbreath's Bucket - 43698
 	self:AddCompanion(PetDB, 43698, 33818, R_RARE, "CRITTER", GAME_TBC)
-	self:AddCompanionFlags(PetDB, 43698, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, 36)
-	self:AddCompanionAcquire(PetDB, 43698, 2, 11665, 8, 18)
+	self:AddCompanionFlags(PetDB, 43698, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 43698, A_QUEST, 11665, 8, 18)
 
 	-- Mojo - 43918
 	self:AddCompanion(PetDB, 43918, 33993, R_RARE, "CRITTER", GAME_TBC)
@@ -448,7 +448,7 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Tiny Sporebat - 45082
 	self:AddCompanion(PetDB, 45082, 34478, R_RARE, "CRITTER", GAME_TBC)
 	self:AddCompanionFlags(PetDB, 45082, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING, 58)
-	self:AddCompanionAcquire(PetDB, 45082, 6, 970, 4, 18382)
+	self:AddCompanionAcquire(PetDB, 45082, 6, 970, A_MOB, 18382)
 
 	-- Rocket Chicken - 45125
 	self:AddCompanion(PetDB, 45125, 34492, R_RARE, "CRITTER", GAME_TBC)
@@ -463,22 +463,22 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Scorched Stone - 45890
 	self:AddCompanion(PetDB, 45890, 34955, R_RARE, "CRITTER", GAME_TBC)
 	self:AddCompanionFlags(PetDB, 45890, F_ALLIANCE, F_HORDE, F_INSTANCE, F_SEASONAL, F_MOB_DROP, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 45890, 4, 25740, 5, 4)
+	self:AddCompanionAcquire(PetDB, 45890, A_MOB, 25740, A_SEASONAL, 4)
 
 	-- Snarly's Bucket - 46425
 	self:AddCompanion(PetDB, 46425, 35349, R_RARE, "CRITTER", GAME_TBC)
-	self:AddCompanionFlags(PetDB, 46425, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, 36)
-	self:AddCompanionAcquire(PetDB, 46425, 2, 11665, 8, 18)
+	self:AddCompanionFlags(PetDB, 46425, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 46425, A_QUEST, 11665, 8, 18)
 
 	-- Chuck's Bucket - 46426
 	self:AddCompanion(PetDB, 46426, 35350, R_RARE, "CRITTER", GAME_TBC)
-	self:AddCompanionFlags(PetDB, 46426, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, 36)
-	self:AddCompanionAcquire(PetDB, 46426, 2, 11665, 8, 18)
+	self:AddCompanionFlags(PetDB, 46426, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 46426, A_QUEST, 11665, 8, 18)
 
 	-- Phoenix Hatchling - 46599
 	self:AddCompanion(PetDB, 46599, 35504, R_RARE, "CRITTER", GAME_TBC)
 	self:AddCompanionFlags(PetDB, 46599, F_ALLIANCE, F_HORDE, F_INSTANCE, F_MOB_DROP, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 46599, 4, 24664)
+	self:AddCompanionAcquire(PetDB, 46599, A_MOB, 24664)
 
 	-- Spirit of Competition - 48406
 	self:AddCompanion(PetDB, 48406, 37297, R_UNCOMMON, "CRITTER", GAME_TBC)
@@ -498,32 +498,32 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Nether Ray Fry - 51716
 	self:AddCompanion(PetDB, 51716, 38628, R_RARE, "CRITTER", GAME_TBC)
 	self:AddCompanionFlags(PetDB, 51716, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING, 90)
-	self:AddCompanionAcquire(PetDB, 51716, 6, 1031, 4, 23367)
+	self:AddCompanionAcquire(PetDB, 51716, 6, 1031, A_MOB, 23367)
 
 	-- Vampiric Batling - 51851
 	self:AddCompanion(PetDB, 51851, 38658, R_RARE, "CRITTER", GAME_TBC)
 	self:AddCompanionFlags(PetDB, 51851, F_ALLIANCE, F_HORDE, F_RAID, F_SEASONAL, F_MOB_DROP, F_SPEC_EVENT, F_REMOVED, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 51851, 4, 28194, 5, 7)
+	self:AddCompanionAcquire(PetDB, 51851, A_MOB, 28194, A_SEASONAL, 7)
 
 	-- Frosty's Collar - 52615
 	self:AddCompanion(PetDB, 52615, 39286, R_RARE, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 52615, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 52615, 8, 11)
+	self:AddCompanionAcquire(PetDB, 52615, A_CUSTOM, 11)
 
 	-- Tyrael's Hilt - 53082
 	self:AddCompanion(PetDB, 53082, 39656, R_RARE, "CRITTER", GAME_TBC)
 	self:AddCompanionFlags(PetDB, 53082, F_ALLIANCE, F_HORDE, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 53082, 8, 14)
+	self:AddCompanionAcquire(PetDB, 53082, A_CUSTOM, 14)
 
 	-- Ghostly Skull - 53316
 	self:AddCompanion(PetDB, 53316, 39973, R_RARE, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 53316, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 53316, 1, 29537)
+	self:AddCompanionAcquire(PetDB, 53316, A_VENDOR, 29537)
 
 	-- Clockwork Rocket Bot - 54187
 	self:AddCompanion(PetDB, 54187, 34425, R_RARE, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 54187, 5, 1)
+	self:AddCompanionAcquire(PetDB, 54187, A_SEASONAL, 1)
 
 	-- Penguin Egg - 58636
 	--companioncount = companioncount + 1
@@ -534,57 +534,57 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Giant Sewer Rat - 59250
 	self:AddCompanion(PetDB, 59250, 43698, R_RARE, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 59250, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOP, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 59250, 7, 2, 8, 17)
+	self:AddCompanionAcquire(PetDB, 59250, 7, A_QUEST, 8, 17)
 
 	-- Tickbird Hatchling -- 61348
 	self:AddCompanion(PetDB, 61348, 39896, R_COMMON, "CRITTER", GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61348, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING, 66)
+	self:AddCompanionFlags(PetDB, 61348, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING, 77)
 	self:AddCompanionAcquire(PetDB, 61348, 6, 1105, 3, 31910, 8, 16)
 
 	-- White Tickbird Hatchling -- 61349
 	self:AddCompanion(PetDB, 61349, 39899, R_COMMON, "CRITTER", GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61349, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING, 66)
+	self:AddCompanionFlags(PetDB, 61349, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING, 77)
 	self:AddCompanionAcquire(PetDB, 61349, 6, 1105, 3, 31910, 8, 16)
 
 	-- Proto-Drake Whelp -- 61350
 	self:AddCompanion(PetDB, 61350, 44721, R_COMMON, "CRITTER", GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61350, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING, 66)
+	self:AddCompanionFlags(PetDB, 61350, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING, 77)
 	self:AddCompanionAcquire(PetDB, 61350, 6, 1105, 3, 31910, 8, 16)
 
 	-- Cobra Hatchling -- 61351
 	self:AddCompanion(PetDB, 61351, 39898, R_COMMON, "CRITTER", GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61351, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING, 66)
+	self:AddCompanionFlags(PetDB, 61351, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING, 77)
 	self:AddCompanionAcquire(PetDB, 61351, 6, 1105, 3, 31910, 8, 16)
 
 	-- Nurtured Penguin Egg - 61357
 	self:AddCompanion(PetDB, 61357, 44723, R_RARE, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61357, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING, 65)
-	self:AddCompanionAcquire(PetDB, 61357, 6, 4, 1073, 31916, 6, 4, 1073, 32763)
+	self:AddCompanionAcquire(PetDB, 61357, 6, A_MOB, 1073, 31916, 6, A_MOB, 1073, 32763)
 
 	-- Kirin Tor Familiar - 61472
 	self:AddCompanion(PetDB, 61472, 44738, R_RARE, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61472, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 61472, 9, 1956)
+	self:AddCompanionAcquire(PetDB, 61472, A_ACHIEVEMENT, 1956)
 
 	-- Baby Blizzard Bear - 61855
 	self:AddCompanion(PetDB, 61855, 44819, R_COMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61855, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 61855, 8, 15)
+	self:AddCompanionAcquire(PetDB, 61855, A_CUSTOM, 15)
 
 	-- Spring Rabbit - 61725
 	self:AddCompanion(PetDB, 61725, 44794, R_COMMON, "CRITTER", GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61725, F_ALLIANCE, F_HORDE, 8)
-	self:AddCompanionAcquire(PetDB, 61725, 5, 9)
+	self:AddCompanionFlags(PetDB, 61725, F_ALLIANCE, F_HORDE, F_SEASONAL)
+	self:AddCompanionAcquire(PetDB, 61725, A_SEASONAL, A_ACHIEVEMENT)
 
 	-- Little Fawn - 61991
 	self:AddCompanion(PetDB, 61991, 44841, R_COMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61991, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 61991, 9, 2516)
+	self:AddCompanionAcquire(PetDB, 61991, A_ACHIEVEMENT, 2516)
 
 	-- Ammen Vale Lashling -- 62562
 	self:AddCompanion(PetDB, 62562, 44984, R_UNCOMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62562, F_ALLIANCE, F_VENDOR, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 62562, 1, 33657)
+	self:AddCompanionAcquire(PetDB, 62562, A_VENDOR, 33657)
 
 	-- Dun Morogh Cub -- 62508
 	self:AddCompanion(PetDB, 62508, 44970, R_UNCOMMON, "CRITTER", GAME_WOTLK)
@@ -639,17 +639,17 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Argent Squire -- 62609
 	self:AddCompanion(PetDB, 62609, 44998, R_COMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62609, F_ALLIANCE, F_QUEST, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 62609, 2, 13702, 2, 13732, 2, 13733, 2, 13734, 2, 13735)
+	self:AddCompanionAcquire(PetDB, 62609, A_QUEST, 13702, A_QUEST, 13732, A_QUEST, 13733, A_QUEST, 13734, A_QUEST, 13735)
 
 	-- Argent Gruntling -- 62746
 	self:AddCompanion(PetDB, 62746, 45022, R_COMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62746, F_HORDE, F_QUEST, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 62746, 2, 13736, 2, 13737, 2, 13738, 2, 13739, 2, 13740)
+	self:AddCompanionAcquire(PetDB, 62746, A_QUEST, 13736, A_QUEST, 13737, A_QUEST, 13738, A_QUEST, 13739, A_QUEST, 13740)
 
 	-- Shimmering Wormling -- 66096
 	self:AddCompanion(PetDB, 66096, 46820, R_UNCOMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 66096, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 66096, 6, 1094, 4, 34881, 6, 1124, 4, 34772)
+	self:AddCompanionAcquire(PetDB, 66096, 6, 1094, A_MOB, 34881, 6, 1124, A_MOB, 34772)
 
 	-- Murkimus
 	self:AddCompanion(PetDB, 63318, 45180, R_UNCOMMON, "CRITTER", GAME_WOTLK)
@@ -664,57 +664,57 @@ function addon:MakeMiniPetTable(PetDB)
 	-- Darting Hatchling
 	self:AddCompanion(PetDB, 67413, 48112, R_COMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67413, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 67413, 4, 14232)
+	self:AddCompanionAcquire(PetDB, 67413, A_MOB, 14232)
 
 	-- Deviate Hatchling
 	self:AddCompanion(PetDB, 67414, 48114, R_COMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67414, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 67414, 4, 3636, 4, 3637)
+	self:AddCompanionAcquire(PetDB, 67414, A_MOB, 3636, A_MOB, 3637)
 
 	-- Gundrak Hatchling
 	self:AddCompanion(PetDB, 67415, 48116, R_COMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67415, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 67415, 4, 29334)
+	self:AddCompanionAcquire(PetDB, 67415, A_MOB, 29334)
 
 	-- Leaping Hatchling
 	self:AddCompanion(PetDB, 67416, 48118, R_COMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67416, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 67416, 4, 5842)
+	self:AddCompanionAcquire(PetDB, 67416, A_MOB, 5842)
 
 	-- Obsidian Hatchling
 	self:AddCompanion(PetDB, 67417, 48120, R_COMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67417, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 67417, 1, 28951)
+	self:AddCompanionAcquire(PetDB, 67417, A_VENDOR, 28951)
 
 	-- Ravasaur Hatchling
 	self:AddCompanion(PetDB, 67418, 48122, R_COMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67418, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 67418, 4, 6581)
+	self:AddCompanionAcquire(PetDB, 67418, A_MOB, 6581)
 
 	-- Razormaw Hatchling
 	self:AddCompanion(PetDB, 67419, 48124, R_COMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67419, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 67419, 4, 1140)
+	self:AddCompanionAcquire(PetDB, 67419, A_MOB, 1140)
 
 	-- Razzashi Hatchling
 	self:AddCompanion(PetDB, 67420, 48122, R_COMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67420, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 67420, 4, 14821)
+	self:AddCompanionAcquire(PetDB, 67420, A_MOB, 14821)
 
 	-- Curious Oracle Hatchling
 	self:AddCompanion(PetDB, 65381, 46545, R_UNCOMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 65381, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 65381, 5, 8)
+	self:AddCompanionAcquire(PetDB, 65381, A_SEASONAL, A_CUSTOM)
 
 	-- Curious Wolvar Pup
 	self:AddCompanion(PetDB, 65382, 46544, R_UNCOMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 65382, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 65382, 5, 8)
+	self:AddCompanionAcquire(PetDB, 65382, A_SEASONAL, A_CUSTOM)
 
 	-- Battle-Bot
 	self:AddCompanion(PetDB, 65682, 46767, R_UNCOMMON, "CRITTER", GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 65682, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 65682, 8)
+	self:AddCompanionAcquire(PetDB, 65682, A_CUSTOM)
 
 	return 134
 
