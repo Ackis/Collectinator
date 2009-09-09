@@ -79,16 +79,20 @@ do
 		end
 		return missing
 	end
+end	-- do
+
+if MissingLibraries() then
+	--@debug@
+	addon:Print("You are using an SVN version of Collectinator.  As per WowAce/Curseforge standards, SVN externals are not set up.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, and LibBetterBlizzoptions in order for the addon to function correctly.")
+	--@end-debug@
+	AckisRecipeList = nil
+	return
 end
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 -- Global Frame Variables
 addon.optionsFrame = {}
-addon.Frame = nil
-addon.CollectinatorCopyFrame = nil
-_G["CollectinatorTooltip"] = nil
-_G["CollectinatorSpellTooltip"] = nil
 
 -- Make global API calls local to speed things up
 local GetSpellInfo = GetSpellInfo
@@ -97,14 +101,11 @@ local GetSpellInfo = GetSpellInfo
 -- Initialization functions
 -------------------------------------------------------------------------------
 
--- Description: Function run when the addon is initialized.  Registers the slash commands, options, and database
-
+--  Registers the slash commands, options, and database
 function addon:OnInitialize()
-
 	-- Set default options, which are to include everything in the scan
 	local defaults = {
 		profile = {
-
 			-- Frame options
 			frameopts = {
 				offsetx = 0,
@@ -115,11 +116,7 @@ function addon:OnInitialize()
 				tooltipscale = .9,
 				fontsize = 11,
 			},
-
-			-- Sorting Options
 			sorting = "Name",
-
-			-- Display Options
 			includefiltered = false,
 			includeexcluded = false,
 			closeguionskillclose = false,
@@ -136,15 +133,12 @@ function addon:OnInitialize()
 
 			exclusionlist = {},
 
-			-- Filter Options
 			filters = {
-				-- General Filters
 				general = {
 					faction = true,
 					known = false,
 					unknown = true,
 				},
-				-- Obtain Options
 				obtain = {
 					vendor = true,
 					quest = true,
@@ -182,7 +176,6 @@ function addon:OnInitialize()
 					tailor = true,
 					fish = true,
 				},
-				-- Reputation Options
 				rep = {
 					aldor = true,
 					scryer = true,
@@ -227,33 +220,24 @@ function addon:OnInitialize()
 					pvp1 = true,
 					pvp2 = true,
 					pvp3 = true,
-				},
-			}
-		}
-	}
-
+				}, -- rep
+			} -- filters
+		} -- profile
+	} --defaults
 	addon.db = LibStub("AceDB-3.0"):New("CollectinatorDB2",defaults)
 
-	if (not addon.db) then
+	if not addon.db then
 		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the Collectinator database file (Collectinator.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
 		return
 	end
-
 	self:SetupOptions()
-
-	-- Register slash commands
-	self:RegisterChatCommand("collectinator", "ChatCommand")
-
+	self:RegisterChatCommand("collectinator", "ChatCommand")	-- Register slash commands
 end
 
--- Description: Function run when the addon is enabled.  Registers events and pre-loads certain variables.
-
+-- Registers events and pre-loads certain variables.
 function addon:OnEnable()
-	-- Watch for Companion Learned events
-	self:RegisterEvent("COMPANION_LEARNED")
-
-	-- Populate the repuatation level
-	self:GetFactionLevels()
+	self:RegisterEvent("COMPANION_LEARNED")	-- Watch for Companion Learned events
+	self:GetFactionLevels()			-- Populate the repuatation level
 
 	-------------------------------------------------------------------------------
 	-- Create the scan button.
@@ -312,50 +296,37 @@ function addon:OnEnable()
 	PetPaperDollFrameTab3:SetScript("OnLeave", function() GameTooltip:Hide() end)
 end
 
--- Description: Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
-
+-- Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
 function addon:OnDisable()
-
 	-- If we disable the addon when the GUI is up, hide it.
-	if (addon.Frame) then
+	if addon.Frame then
 		addon.Frame:Hide()
 	end
-
 end
 
---[[
-
-	Event handling functions
-
-]]--
-
+-------------------------------------------------------------------------------
+-- Event handling functions
+-------------------------------------------------------------------------------
 function addon:COMPANION_LEARNED()
-
 	-- When we learn a new pet, we want to automatically scan the companions and update our saved variables
 	self:Collectinator_Command(false, false)
-
 end
 
---[[
-
-	Player Data Acquisition Functions
-
-]]--
-
+-------------------------------------------------------------------------------
+-- Player Data Acquisition Functions
+-------------------------------------------------------------------------------
 do
+	local GetNumFactions = _G.GetNumFactions
+	local GetFactionInfo = _G.GetFactionInfo
+	local CollapseFactionHeader = _G.CollapseFactionHeader
+	local ExpandFactionHeader = _G.ExpandFactionHeader
 
-	local GetNumFactions = GetNumFactions
-	local GetFactionInfo = GetFactionInfo
-	local CollapseFactionHeader = CollapseFactionHeader
-	local ExpandFactionHeader = ExpandFactionHeader
-
-
-	-- Description: Scans all reputations to get reputation levels to determine if the player can learn a reputation item
-
+	-------------------------------------------------------------------------------
+	-- Scans all reputations to get reputation levels to determine if the player can learn a reputation item
+	-------------------------------------------------------------------------------
 	function addon:GetFactionLevels(RepTable)
-
-	-- Bug here when I reload UI
-		if (not RepTable) then
+		-- Bug here when I reload UI
+		if not RepTable then
 			return
 		end
 
@@ -365,21 +336,19 @@ do
 		local numfactions = GetNumFactions()
 
 		-- Lets expand all the headers
-		for i=numfactions,1,-1 do
+		for i = numfactions, 1, -1 do
 			local name, _, _, _, _, _, _, _, _, isCollapsed = GetFactionInfo(i)
 
-			if (isCollapsed) then
+			if isCollapsed then
 				ExpandFactionHeader(i)
 				t[name] = true
 			end
 		end
-
-		-- Number of factions with everything expanded
-		numfactions = GetNumFactions()
+		numfactions = GetNumFactions()	-- Number of factions with everything expanded
 
 		-- Get the rep levels
-		for i=1,numfactions,1 do
-			local name,_,replevel = GetFactionInfo(i)
+		for i = 1, numfactions, 1 do
+			local name, _, replevel = GetFactionInfo(i)
 
 			-- If the rep is greater than neutral
 			if (replevel > 4) then
@@ -389,24 +358,19 @@ do
 		end
 
 		-- Collapse the headers again
-		for i=numfactions,1,-1 do
+		for i = numfactions, 1, -1 do
 			local name = GetFactionInfo(i)
 
-			if (t[name]) then
+			if t[name] then
 				CollapseFactionHeader(i)
 			end
 		end
-
 	end
+end	-- do
 
-end
-
---[[
-
-	Companion DB functions
-
---]]
-
+-------------------------------------------------------------------------------
+-- Companion DB functions
+-------------------------------------------------------------------------------
 local maxfilterflags = 90
 
 --- Adds a companion into the database.
@@ -458,20 +422,16 @@ end
 -- @param ... A listing of filtering flags.  See [[database-documentation]] for a listing of filtering flags.
 -- @return None, array is passed as a reference.
 function addon:AddCompanionFlags(DB, SpellID, ...)
-
 	-- flags are defined in Documentation.lua
-
 	local numvars = select('#',...)
 	local flags = DB[SpellID]["Flags"]
 
 	-- Find out how many flags we're adding
-	for i=1,numvars,1 do
+	for i = 1, numvars, 1 do
 		-- Get the value of the current flag
 		local flag = select(i, ...)
 		flags[flag] = true
 	end
-	
-
 end
 
 --- Adds acquire methods to a specific companion.
@@ -482,19 +442,13 @@ end
 -- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
 -- @return None, array is passed as a reference.
 function addon:AddCompanionAcquire(DB, SpellID, ...)
-
-	-- Find out how many flags we're adding
-	local numvars = select('#',...)
-
-	-- Index for the number of Acquire entries we have
-	local index = 1
-
-	-- Index for which variables we're parsing through
-	local i = 1
+	local numvars = select('#',...)	-- Find out how many flags we're adding
+	local index = 1			-- Index for the number of Acquire entries we have
+	local i = 1			-- Index for which variables we're parsing through
 
 	local acquire = DB[SpellID]["Acquire"]
 
-	while (i < numvars) do
+	while i < numvars do
 
 		-- Create the space for the current Acquire method
 		acquire[index] = {}
@@ -520,11 +474,8 @@ function addon:AddCompanionAcquire(DB, SpellID, ...)
 			acquire[index]["RepVendor"] = RepVendor
 			i = i + 2
 		end
-
 		index = index + 1
-
 	end
-
 end
 
 --- Adds an item to a specific database listing (ie: vendor, mob, etc)
@@ -713,31 +664,21 @@ do
 	end
 
 	local function CheckReputationDisplay(flags)
-
-		if (not reptable) then
+		if not reptable then
 			CreateRepTable()
 		end
-
 		local display = true
 
 		for i in pairs(reptable) do
-			if (flags[i]) then
-				if (reptable[i]) then
-					display = true
-				else
-					display = false
-				end
+			if flags[i] then
+				display = reptable[i] and true or false
 			end
 		end
-
 		return display
-
 	end
 
 	-- Description: Scans a specific item to determine if it is to be displayed or not.
-
 	function addon:CheckDisplay(Entry, playerFaction)
-
 		-- For flag info see comments at start of file in comments
 		local filterdb = addon.db.profile.filters
 		local flags = Entry["Flags"]
@@ -747,22 +688,21 @@ do
 		-- Loop through exclusive flags (hard filters)
 		-- If one of these does not pass we do not display the item
 		-- So to be more effecient we'll just leave this function if there's a false
-
 		local generaldb = filterdb.general
 		local obtaindb = filterdb.obtain
 
 		-- Display both horde and alliance factions?
-		if (generaldb.faction == false) then
+		if not generaldb.faction then
 			-- We want to filter out all the Horde only items
-			if (playerFaction == BFAC["Alliance"]) then
+			if playerFaction == BFAC["Alliance"] then
 				-- Filter out Horde only
-				if (flags[1] == false) and (flags[2] == true) then
+				if (not flags[1]) and flags[2] then
 					return false
 				end
 			-- We want to filter out all the Alliance only items
 			else
 				-- Filter out Alliance only
-				if (flags[2] == false) and (flags[1] == true) then
+				if (not flags[2]) and flags[1] then
 					return false
 				end
 			end
@@ -1054,11 +994,10 @@ function addon:ChatCommand(input)
 end
 
 do
-
 	local UnitClass = UnitClass
 	local UnitFactionGroup = UnitFactionGroup
 
-	local CompanionDB = nil
+	local CompanionDB
 
 	local VendorList = nil
 	local QuestList = nil
@@ -1090,21 +1029,6 @@ do
 	-- Variables for getting the locations
 	local locationlist = nil
 	local locationchecklist = nil
-
-	--- Populates the internal companion database with all the mini-pets and mounts.
-	-- @name Collectinator:InitCompanionDB
-	-- @usage Collectinator:InitCompanionDB(CompanionDB)
-	-- @param DB Companion database
-	-- @return Database is populated with all appropiate entries for pets and mounts.  Total number of entries are returned.
-	local function InitCompanionDB(DB)
-		local pet = 0
-		local mount = 0
-		
-		pet = addon:MakeMiniPetTable(DB)
-		mount = addon:MakeMountTable(DB)
-
-		return pet, mount
-	end
 
 	--- Scans the acquire methods for the location and update the entry in the database with them.
 	-- @name Collectinator:GetLocations
@@ -1322,7 +1246,8 @@ do
 		if not CompanionDB then
 			InitDatabases()
 		end
-		playerData["totalpets"], playerData["totalmounts"] = InitCompanionDB(CompanionDB)
+		playerData["totalpets"] = addon:MakeMiniPetTable(CompanionDB)
+		playerData["totalmounts"] = addon:MakeMountTable(CompanionDB)
 
 		-- Scan for all known companions
 		self:ScanCompanions(CompanionDB, playerData["totalknownpets"], playerData["totalknownmounts"])
@@ -1556,74 +1481,6 @@ do
 		else
 			self:Print("Spell ID not in item database.")
 		end
-
-	end
-
-end
-
---[[
-
-	Sorting Functions
-
-]]--
-
-do
-	-- Sorting functions
-	local sortFuncs = nil
-
-	-- Create a new array for the sorted index
-	local SortedIndex = {}
-
-	-- Description: Sorts the item Database depending on the settings defined in the database.
-	function addon:SortDatabase(DB)
-
-		if (not sortFuncs) then
-			sortFuncs = {}
-
-			sortFuncs["Name"] = function(a, b)
-				return DB[a]["Name"] < DB[b]["Name"]
-			end
-
-			-- Will only sort based off of the first acquire type
-			sortFuncs["Acquisition"] = function (a, b)
-				local reca = DB[a]["Acquire"][1]
-				local recb = DB[b]["Acquire"][1]
-				if (reca and recb) then
-					if (reca["Type"] == recb["Type"]) then
-						return DB[a]["Name"] < DB[b]["Name"]
-					else
-						return reca["Type"] < recb["Type"]
-					end
-				else
-					return not not reca
-				end
-			end
-
-			-- Will only sort based off of the first acquire type
-			sortFuncs["Location"] = function (a, b)
-				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
-				local reca = DB[a]["Locations"] or ""
-				local recb = DB[b]["Locations"] or ""
-				reca = smatch(reca,"(%w+),") or ""
-				recb = smatch(recb,"(%w+),") or ""
-
-				if (reca == recb) then
-					return DB[a]["Name"] < DB[b]["Name"]
-				else
-					return (reca < recb)
-				end
-			end
-		end
-		twipe(SortedIndex)
-
-		-- Get all the indexes of the DB
-		for n, v in pairs(DB) do
-			tinsert(SortedIndex, n)
-		end
-
-		tsort(SortedIndex, sortFuncs[addon.db.profile.sorting])
-
-		return SortedIndex
 
 	end
 
