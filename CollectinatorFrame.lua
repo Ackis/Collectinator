@@ -71,7 +71,7 @@ local QTip	= LibStub("LibQTip-1.0")
 -- Variables
 -------------------------------------------------------------------------------
 local current_tab = 0
-local currentProfession = ""
+local current_tab_name = ""
 local maxVisibleCollectibles = 24
 local FilterValueMap		-- Assigned in InitializeFrame()
 local DisplayStrings = {}
@@ -127,7 +127,7 @@ addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
 
 local Collectinator_SearchText, Collectinator_LastSearchedText
 local Collectinator_ExpGeneralOptCB, Collectinator_ExpObtainOptCB, Collectinator_ExpBindingOptCB
-local Collectinator_ExpItemOptCB, Collectinator_ExpPlayerOptCB, Collectinator_ExpRepOptCB
+local Collectinator_ExpItemOptCB, Collectinator_ExpRepOptCB
 local Collectinator_RepOldWorldCB, Collectinator_RepBCCB, Collectinator_RepLKCB, Collectinator_ExpMiscOptCB
 
 -- To make tabbing between collections easier 
@@ -144,19 +144,17 @@ local ExpButtonText = {
 	L["Obtain"], 		-- 2
 	L["Binding"], 		-- 3
 	L["Item"], 		-- 4
-	L["Player Type"], 	-- 5
-	L["Reputation"], 	-- 6
-	L["Misc"]		-- 7
+	L["Reputation"], 	-- 5
+	L["Misc"]		-- 6
 }
 
 local ExpButtonTT = {
-	L["FILTERING_GENERAL_DESC"], 	-- 1
-	L["FILTERING_OBTAIN_DESC"], 		-- 2
-	L["FILTERING_BINDING_DESC"], 	-- 3
+	L["FILTERING_GENERAL_DESC"],		-- 1
+	L["FILTERING_OBTAIN_DESC"],		-- 2
+	L["FILTERING_BINDING_DESC"],	 	-- 3
 	L["FILTERING_ITEM_DESC"], 		-- 4
-	L["FILTERING_PLAYERTYPE_DESC"], 	-- 5
-	L["FILTERING_REP_DESC"], 		-- 6
-	L["FILTERING_MISC_DESC"]		-- 7
+	L["FILTERING_REP_DESC"], 		-- 5
+	L["FILTERING_MISC_DESC"]		-- 6
 }
 
 
@@ -1277,7 +1275,7 @@ end	-- do
 -------------------------------------------------------------------------------
 local function ReDisplay(scan_type)
 	addon:UpdateFilters(collectibleDB, playerData, scan_type)
-	sortedCollectibleIndex = addon:SortDatabase(collectibleDB)
+	sortedCollectibleIndex = SortDatabase(collectibleDB)
 
 	--playerData.excluded_collectibles_known, playerData.excluded_collectibles_unknown = addon:GetExclusions(collectibleDB, playerData.playerProfession)
 
@@ -1318,9 +1316,8 @@ local function HideCollectinator_ExpOptCB(ignorevalue)
 	Collectinator_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2]))
 	Collectinator_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3]))
 	Collectinator_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
-	Collectinator_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5]))
-	Collectinator_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[6]))
-	Collectinator_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7]))
+	Collectinator_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[5]))
+	Collectinator_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
 
 	if (ignorevalue ~= "general") then
 		Collectinator_ExpGeneralOptCB:SetChecked(false)
@@ -1350,25 +1347,18 @@ local function HideCollectinator_ExpOptCB(ignorevalue)
 		Collectinator_ExpItemOptCB.text:SetText(addon:White(ExpButtonText[4]))
 	end
 
-	if (ignorevalue ~= "player") then
-		Collectinator_ExpPlayerOptCB:SetChecked(false)
-		Collectinator_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5]))
-	else
-		Collectinator_ExpPlayerOptCB.text:SetText(addon:White(ExpButtonText[5]))
-	end
-
 	if (ignorevalue ~= "rep") then
 		Collectinator_ExpRepOptCB:SetChecked(false)
-		Collectinator_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
+		Collectinator_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[5]))
 	else
-		Collectinator_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[6]))
+		Collectinator_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[5]))
 	end
 
 	if (ignorevalue ~= "misc") then
 		Collectinator_ExpMiscOptCB:SetChecked(false)
-		Collectinator_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7]))
+		Collectinator_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
 	else
-		Collectinator_ExpMiscOptCB.text:SetText(addon:White(ExpButtonText[7]))
+		Collectinator_ExpMiscOptCB.text:SetText(addon:White(ExpButtonText[6]))
 	end
 end
 
@@ -1399,7 +1389,6 @@ function addon.ToggleFilters()
 		Collectinator_ExpObtainOptCB:Hide()
 		Collectinator_ExpBindingOptCB:Hide()
 		Collectinator_ExpItemOptCB:Hide()
-		Collectinator_ExpPlayerOptCB:Hide()
 		Collectinator_ExpRepOptCB:Hide()
 		Collectinator_ExpMiscOptCB:Hide()
 
@@ -1426,12 +1415,11 @@ function addon.ToggleFilters()
 		Collectinator_FilterButton:SetText(L["FILTER_CLOSE"])
 		TooltipDisplay(Collectinator_FilterButton, L["FILTER_CLOSE_DESC"])
 
-		-- Show my 7 buttons
+		-- Show my buttons
 		Collectinator_ExpGeneralOptCB:Show()
 		Collectinator_ExpObtainOptCB:Show()
 		Collectinator_ExpBindingOptCB:Show()
 		Collectinator_ExpItemOptCB:Show()
-		Collectinator_ExpPlayerOptCB:Show()
 		Collectinator_ExpRepOptCB:Show()
 		Collectinator_ExpMiscOptCB:Show()
 
@@ -1447,16 +1435,10 @@ end
 -- Description: 
 do
 	function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, misc)
-		local pushdown = {
-			[64] = 1, [65] = 1, [66] = 1, [67] = 1, [19] = 1, 
-		}
 		-- set the position of the new checkbox
 		local xPos = 2 + ((col - 1) * 100)
 		local yPos = -3 - ((row - 1) * 17)
 
-		if pushdown[scriptVal] then
-			yPos = yPos - 5
-		end
 		cButton:SetPoint("TOPLEFT", anchorFrame, "TOPLEFT", xPos, yPos)
 		cButton:SetHeight(24)
 		cButton:SetWidth(24)
@@ -1469,7 +1451,10 @@ do
 							     ReDisplay()
 						     end)
 		else
-			cButton:SetScript("OnClick", function() addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist ReDisplay(current_tab) end)
+			cButton:SetScript("OnClick", function()
+							     addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist
+							     ReDisplay(current_tab)
+						     end)
 		end
 		TooltipDisplay(cButton, ttText, 1)
 	end
@@ -1477,14 +1462,11 @@ end	-- do
 
 -- Description: 
 
-function addon:GenericCreateButton(
-	bName, parentFrame, 	bHeight, bWidth, 
-	anchorFrom, anchorFrame, anchorTo, xOffset, yOffset, 
-	bNormFont, bHighFont, initText, tAlign, tooltipText, noTextures)
-
-	-- I hate stretchy buttons. Thanks very much to ckknight for this code
-	-- (found in RockConfig)
-
+-------------------------------------------------------------------------------
+-- Generic button-creation function and functions required for its
+-- implementation
+-------------------------------------------------------------------------------
+do
 	-- when pressed, the button should look pressed
 	local function button_OnMouseDown(this)
 		if this:IsEnabled() == 1 then
@@ -1518,85 +1500,87 @@ function addon:GenericCreateButton(
 		this:EnableMouse(true)
 	end
 
-	local button = CreateFrame("Button", bName, parentFrame)
+	function addon:GenericCreateButton(
+					   bName, parentFrame, 	bHeight, bWidth, 
+					   anchorFrom, anchorFrame, anchorTo, xOffset, yOffset, 
+					   bNormFont, bHighFont, initText, tAlign, tooltipText, noTextures)
+		-- I hate stretchy buttons. Thanks very much to ckknight for this code
+		-- (found in RockConfig)
 
-	button:SetWidth(bWidth)
-	button:SetHeight(bHeight)
+		local button = CreateFrame("Button", bName, parentFrame)
 
-	if (noTextures == 1) then
-		local left = button:CreateTexture(button:GetName() .. "_LeftTexture", "BACKGROUND")
-		button.left = left
-		local middle = button:CreateTexture(button:GetName() .. "_MiddleTexture", "BACKGROUND")
-		button.middle = middle
-		local right = button:CreateTexture(button:GetName() .. "_RightTexture", "BACKGROUND")
-		button.right = right
+		button:SetWidth(bWidth)
+		button:SetHeight(bHeight)
 
-		left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
-		right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+		if (noTextures == 1) then
+			local left = button:CreateTexture(button:GetName() .. "_LeftTexture", "BACKGROUND")
+			button.left = left
+			local middle = button:CreateTexture(button:GetName() .. "_MiddleTexture", "BACKGROUND")
+			button.middle = middle
+			local right = button:CreateTexture(button:GetName() .. "_RightTexture", "BACKGROUND")
+			button.right = right
 
-		left:SetPoint("TOPLEFT")
-		left:SetPoint("BOTTOMLEFT")
-		left:SetWidth(12)
-		left:SetTexCoord(0, 0.09375, 0, 0.6875)
+			left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+			middle:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
+			right:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
 
-		right:SetPoint("TOPRIGHT")
-		right:SetPoint("BOTTOMRIGHT")
-		right:SetWidth(12)
-		right:SetTexCoord(0.53125, 0.625, 0, 0.6875)
+			left:SetPoint("TOPLEFT")
+			left:SetPoint("BOTTOMLEFT")
+			left:SetWidth(12)
+			left:SetTexCoord(0, 0.09375, 0, 0.6875)
 
-		middle:SetPoint("TOPLEFT", left, "TOPRIGHT")
-		middle:SetPoint("BOTTOMRIGHT", right, "BOTTOMLEFT")
-		middle:SetTexCoord(0.09375, 0.53125, 0, 0.6875)
+			right:SetPoint("TOPRIGHT")
+			right:SetPoint("BOTTOMRIGHT")
+			right:SetWidth(12)
+			right:SetTexCoord(0.53125, 0.625, 0, 0.6875)
 
-		button:SetScript("OnMouseDown", button_OnMouseDown)
-		button:SetScript("OnMouseUp", button_OnMouseUp)
-		button:SetScript("OnEnter", SubControl_OnEnter)
-		button:SetScript("OnLeave", SubControl_OnLeave)
+			middle:SetPoint("TOPLEFT", left, "TOPRIGHT")
+			middle:SetPoint("BOTTOMRIGHT", right, "BOTTOMLEFT")
+			middle:SetTexCoord(0.09375, 0.53125, 0, 0.6875)
 
-		button.__Enable = button.Enable
-		button.__Disable = button.Disable
-		button.Enable = button_Enable
-		button.Disable = button_Disable
+			button:SetScript("OnMouseDown", button_OnMouseDown)
+			button:SetScript("OnMouseUp", button_OnMouseUp)
+			button:SetScript("OnEnter", SubControl_OnEnter)
+			button:SetScript("OnLeave", SubControl_OnLeave)
 
-		local highlight = button:CreateTexture(button:GetName() .. "_Highlight", "OVERLAY", "UIPanelButtonHighlightTexture")
-		button:SetHighlightTexture(highlight)
-	elseif (noTextures == 2) then
-		button:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
-		button:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
-		button:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-		button:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
-	elseif (noTextures == 3) then
-		button:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-		button:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-		button:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Hilight")
-		button:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disable")
+			button.__Enable = button.Enable
+			button.__Disable = button.Disable
+			button.Enable = button_Enable
+			button.Disable = button_Disable
+
+			local highlight = button:CreateTexture(button:GetName() .. "_Highlight", "OVERLAY", "UIPanelButtonHighlightTexture")
+			button:SetHighlightTexture(highlight)
+		elseif (noTextures == 2) then
+			button:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+			button:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
+			button:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+			button:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+		elseif (noTextures == 3) then
+			button:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+			button:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+			button:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Hilight")
+			button:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disable")
+		end
+
+		local text = button:CreateFontString(button:GetName() .. "_FontString", "ARTWORK")
+		button:SetFontString(text)
+		button.text = text
+		text:SetPoint("LEFT", button, "LEFT", 7, 0)
+		text:SetPoint("RIGHT", button, "RIGHT", -7, 0)
+		text:SetJustifyH(tAlign)
+
+		text:SetFontObject(bNormFont)
+		--	text:SetHighlightFontObject(bHighFont)
+		--	text:SetDisabledFontObject(GameFontDisableSmall)
+		text:SetText(initText)
+		button:SetPoint(anchorFrom, anchorFrame, anchorTo, xOffset, yOffset)
+
+		if (tooltipText ~= "") then
+			TooltipDisplay(button, tooltipText)
+		end
+		return button
 	end
-
-	local text = button:CreateFontString(button:GetName() .. "_FontString", "ARTWORK")
-	button:SetFontString(text)
-	button.text = text
-	text:SetPoint("LEFT", button, "LEFT", 7, 0)
-	text:SetPoint("RIGHT", button, "RIGHT", -7, 0)
-	text:SetJustifyH(tAlign)
-
-	text:SetFontObject(bNormFont)
---	text:SetHighlightFontObject(bHighFont)
---	text:SetDisabledFontObject(GameFontDisableSmall)
-
-	text:SetText(initText)		
-
-	button:SetPoint(anchorFrom, anchorFrame, anchorTo, xOffset, yOffset)
-
-	if (tooltipText ~= "") then
-
-		TooltipDisplay(button, tooltipText)
-
-	end
-
-	return button
-
-end
+end	-- do
 
 -- Description: Generic function for creating my expanded panel buttons
 function addon:CreateExpCB(bName, bTex, panelIndex)
@@ -1696,7 +1680,7 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 end
 
 do
-	local currentProfession = nil
+	local current_tab_name = nil
 
 	-- Description: Provides logic for when you are clicking the scan button.
 	-- Expected result: Does appropiate task depending on what button has been clicked and the current state.
@@ -1717,17 +1701,17 @@ do
 			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
 				self:ClearMap()
 			-- If we have the same profession open, then we close the scanned window
-			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) and (currentProfession == cprof) then
+			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) and (current_tab_name == cprof) then
 				addon.Frame:Hide()
 			-- If we have a different profession open we do a scan
 			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
 				self:Collectinator_Command(false)
 				self:SetupMap()
-				currentProfession = cprof
+				current_tab_name = cprof
 			end
 		-- Frame is hidden
 		else
-			currentProfession = cprof
+			current_tab_name = cprof
 			-- Shift only (Text dump)
 			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
 				self:Collectinator_Command(true)
@@ -1842,7 +1826,7 @@ function addon:SwitchProfs(button)
 	-- Redisplay the button with the new skill
 	SetSwitcherTexture(SortedCollections[current_tab].texture)
 	playerData.playerProfession = SortedCollections[current_tab].name
-	currentProfession = playerData.playerProfession
+	current_tab_name = playerData.playerProfession
 
 	ReDisplay(current_tab)
 	addon.resetTitle()
@@ -2309,9 +2293,8 @@ function addon.DoFlyaway(panel)
 	-- 2	Collectinator_ExpObtainOptCB			Obtain Filters
 	-- 3	Collectinator_ExpBindingOptCB			Binding Filters
 	-- 4	Collectinator_ExpItemOptCB			Item Filters
-	-- 5	Collectinator_ExpPlayerOptCB			Player Type Filters
-	-- 6	Collectinator_ExpRepOptCB				Reputation Filters
-	-- 7	Collectinator_ExpMiscOptCB			Miscellaneous Filters
+	-- 5	Collectinator_ExpRepOptCB			Reputation Filters
+	-- 6	Collectinator_ExpMiscOptCB			Miscellaneous Filters
 
 	local ChangeFilters = false
 
@@ -2412,27 +2395,6 @@ function addon.DoFlyaway(panel)
 		end
 
 	elseif (panel == 5) then
-
-		if (Collectinator_ExpPlayerOptCB:GetChecked()) then
-
-			HideCollectinator_ExpOptCB("player")
-
-			-- display the correct subframe with all the buttons and such, hide the others
-			addon.Fly_General:Hide()
-			addon.Fly_Obtain:Hide()
-			addon.Fly_Binding:Hide()
-			addon.Fly_Rep:Hide()
-			addon.Fly_Misc:Hide()
-
-			ChangeFilters = true
-
-		else
-			Collectinator_ExpPlayerOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
-			ChangeFilters = false
-		end
-
-	elseif (panel == 6) then
-
 		if (Collectinator_ExpRepOptCB:GetChecked()) then
 
 			HideCollectinator_ExpOptCB("rep")
@@ -2448,13 +2410,11 @@ function addon.DoFlyaway(panel)
 
 		else
 
-			Collectinator_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[6])) 
+			Collectinator_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
 			ChangeFilters = false
 
 		end
-
-	elseif (panel == 7) then
-
+	elseif (panel == 6) then
 		if (Collectinator_ExpMiscOptCB:GetChecked()) then
 
 			HideCollectinator_ExpOptCB("misc")
@@ -2470,87 +2430,69 @@ function addon.DoFlyaway(panel)
 
 		else
 
-			Collectinator_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[7])) 
+			Collectinator_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[6])) 
 			ChangeFilters = false
 
 		end
 
 	end
 
-	if (ChangeFilters == true) then
-
+	if ChangeFilters then
 		-- Depending on which panel we're showing, either display one column
 		-- or two column
-		if ((panel == 3) or (panel == 4) or (panel == 7)) then
-
+		if ((panel == 3) or (panel == 4) or (panel == 6)) then
 			addon.flyTexture:ClearAllPoints()
 			addon.Flyaway:SetWidth(234)
 			addon.Flyaway:SetHeight(312)
 			addon.flyTexture:SetTexture([[Interface\Addons\Collectinator\img\fly_2col]])
 			addon.flyTexture:SetAllPoints(addon.Flyaway)
 			addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
-
-		elseif ((panel == 1) or (panel == 2) or (panel == 5) or (panel == 6)) then
-
+		elseif ((panel == 1) or (panel == 2) or (panel == 5)) then
 			addon.flyTexture:ClearAllPoints()
-			addon.Flyaway:SetWidth(136)
+			addon.Flyaway:SetWidth(155)
 			addon.Flyaway:SetHeight(312)
 			addon.flyTexture:SetTexture([[Interface\Addons\Collectinator\img\fly_1col]])
 			addon.flyTexture:SetAllPoints(addon.Flyaway)
 			addon.flyTexture:SetTexCoord(0, (136/256), 0, (312/512))
-
 		end
-
 		-- Change the filters to the current panel
 		addon.Flyaway:Show()
-
 	else
-
 		-- We're hiding, don't bother changing anything
 		addon.Flyaway:Hide()
-
 	end
-
 end
 
 -- Description: This does an initial fillup of the DisplayStrings, as above.
 -- However, in this case, it expands every collectible
 
 local function expandallDisplayStrings()
-
 	local exclude = addon.db.profile.exclusionlist
-
-	DisplayStrings = nil
-	DisplayStrings = {}
-
 	local insertIndex = 1
 
-	for i = 1, #sortedCollectibleIndex do
+	WipeDisplayStrings()
 
+	for i = 1, #sortedCollectibleIndex do
 		local collectibleIndex = sortedCollectibleIndex[i]
 		local collectibleEntry = collectibleDB[collectibleIndex]
 
-		if ((collectibleEntry["Display"] == true) and (collectibleEntry["Search"] == true)) then
-
-			local t = {}
-
-			-- add in collectible difficulty coloring
+		if collectibleEntry["Display"] and collectibleEntry["Search"] then
 			local recStr = ""
 
-			if (exclude[collectibleIndex] == true) then
+			if exclude[collectibleIndex] then
 				recStr = "** " .. collectibleEntry["Name"] .. " **"
 			else
 				recStr = collectibleEntry["Name"]
 			end
 
 			local hasFaction = checkFactions(collectibleDB, collectibleIndex, playerData.playerFaction, playerData["Reputation"])
+			local t = AcquireTable()
 
 			t.String = recStr
-
 			t.sID = sortedCollectibleIndex[i]
 			t.IsCollectible = true
 
-			if (collectibleEntry["Acquire"]) then
+			if collectibleEntry["Acquire"] then
 				-- we have acquire information for this. push the title entry into the strings
 				-- and start processing the acquires
 				t.IsExpanded = true
@@ -2561,11 +2503,8 @@ local function expandallDisplayStrings()
 				tinsert(DisplayStrings, insertIndex, t)
 				insertIndex = insertIndex + 1
 			end
-
 		end
-
 	end
-
 end
 
 -- Description: 
@@ -3140,7 +3079,7 @@ local function InitializeFrame()
 	Collectinator_ResetButton:Hide()
 
 	-------------------------------------------------------------------------------
-	-- EXPANDED : 7 buttons for opening/closing the flyaway
+	-- EXPANDED : buttons for opening/closing the flyaway
 	-------------------------------------------------------------------------------
 	Collectinator_ExpGeneralOptCB = addon:CreateExpCB("Collectinator_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
 	Collectinator_ExpGeneralOptCB:SetPoint("TOPRIGHT", Collectinator_FilterButton, "BOTTOMLEFT", -1, -50)
@@ -3154,13 +3093,10 @@ local function InitializeFrame()
 	Collectinator_ExpItemOptCB = addon:CreateExpCB("Collectinator_ExpItemOptCB", "INV_Misc_EngGizmos_19", 4)
 	Collectinator_ExpItemOptCB:SetPoint("TOPLEFT", Collectinator_ExpBindingOptCB, "BOTTOMLEFT", -0, -8)
 
-	Collectinator_ExpPlayerOptCB = addon:CreateExpCB("Collectinator_ExpPlayerOptCB", "INV_Misc_GroupLooking", 5)
-	Collectinator_ExpPlayerOptCB:SetPoint("TOPLEFT", Collectinator_ExpItemOptCB, "BOTTOMLEFT", -0, -8)
+	Collectinator_ExpRepOptCB = addon:CreateExpCB("Collectinator_ExpRepOptCB", "INV_Scroll_05", 5)
+	Collectinator_ExpRepOptCB:SetPoint("TOPLEFT", Collectinator_ExpItemOptCB, "BOTTOMLEFT", -0, -8)
 
-	Collectinator_ExpRepOptCB = addon:CreateExpCB("Collectinator_ExpRepOptCB", "INV_Scroll_05", 6)
-	Collectinator_ExpRepOptCB:SetPoint("TOPLEFT", Collectinator_ExpPlayerOptCB, "BOTTOMLEFT", -0, -8)
-
-	Collectinator_ExpMiscOptCB = addon:CreateExpCB("Collectinator_ExpMiscOptCB", "Trade_Engineering", 7)
+	Collectinator_ExpMiscOptCB = addon:CreateExpCB("Collectinator_ExpMiscOptCB", "Trade_Engineering", 6)
 	Collectinator_ExpMiscOptCB:SetPoint("TOPLEFT", Collectinator_ExpRepOptCB, "BOTTOMLEFT", -0, -8)
 
 	-------------------------------------------------------------------------------
@@ -3199,10 +3135,15 @@ local function InitializeFrame()
 	addon.Flyaway:Hide()
 
 	-------------------------------------------------------------------------------
-	-- Flyaway virtual frames to group buttons/text easily (and make them easy to show/hide)
+	-- Flyaway virtual frames to group, show, and hide buttons and text easily
+	-------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------
+	--			() Cross-Faction
+	--			() Known
+	--			() Unknown
 	-------------------------------------------------------------------------------
 	addon.Fly_General = CreateFrame("Frame", "Collectinator_Fly_General", addon.Flyaway)
-	addon.Fly_General:SetWidth(112)
+	addon.Fly_General:SetWidth(210)
 	addon.Fly_General:SetHeight(280)
 	addon.Fly_General:EnableMouse(true)
 	addon.Fly_General:EnableKeyboard(true)
@@ -3210,25 +3151,27 @@ local function InitializeFrame()
 	addon.Fly_General:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
 	addon.Fly_General:Hide()
 
-	-------------------------------------------------------------------------------
-	--			() Cross-Faction
-	--			() Known
-	--			() Unknown
-	-------------------------------------------------------------------------------
 	local Collectinator_FactionCB = CreateFrame("CheckButton", "Collectinator_FactionCB", addon.Fly_General, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_FactionCB, addon.Fly_General, L["FACTION_DESC"], "faction", 3, 1, 0)
+	addon:GenericMakeCB(Collectinator_FactionCB, addon.Fly_General, L["FACTION_DESC"], "faction", 1, 1, 0)
 	Collectinator_FactionCBText:SetText(L["Faction"])
 
 	local Collectinator_KnownCB = CreateFrame("CheckButton", "Collectinator_KnownCB", addon.Fly_General, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_KnownCB, addon.Fly_General, L["KNOWN_DESC"], "known", 4, 1, 0)
+	addon:GenericMakeCB(Collectinator_KnownCB, addon.Fly_General, L["KNOWN_DESC"], "known", 2, 1, 0)
 	Collectinator_KnownCBText:SetText(L["Known"])
 
 	local Collectinator_UnknownCB = CreateFrame("CheckButton", "Collectinator_UnknownCB", addon.Fly_General, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_UnknownCB, addon.Fly_General, L["UNKNOWN_DESC"], "unknown", 5, 1, 0)
+	addon:GenericMakeCB(Collectinator_UnknownCB, addon.Fly_General, L["UNKNOWN_DESC"], "unknown", 3, 1, 0)
 	Collectinator_UnknownCBText:SetText(L["Unknown"])
 
+	-------------------------------------------------------------------------------
+	--			() Instance	() Raid
+	--			() Quest		() Seasonal
+	--			() Vendor
+	--			() PVP
+	--			() World Drop	() Mob Drop
+	-------------------------------------------------------------------------------
 	addon.Fly_Obtain = CreateFrame("Frame", "Collectinator_Fly_Obtain", addon.Flyaway)
-	addon.Fly_Obtain:SetWidth(112)
+	addon.Fly_Obtain:SetWidth(210)
 	addon.Fly_Obtain:SetHeight(280)
 	addon.Fly_Obtain:EnableMouse(true)
 	addon.Fly_Obtain:EnableKeyboard(true)
@@ -3236,13 +3179,6 @@ local function InitializeFrame()
 	addon.Fly_Obtain:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
 	addon.Fly_Obtain:Hide()
 
-	-------------------------------------------------------------------------------
-	--			() Instance	() Raid
-	--			() Quest		() Seasonal
-	--			() Trainer		() Vendor
-	--			() PVP
-	--			() World Drop	() Mob Drop
-	-------------------------------------------------------------------------------
 	local Collectinator_InstanceCB = CreateFrame("CheckButton", "Collectinator_InstanceCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_InstanceCB, addon.Fly_Obtain, L["INSTANCE_DESC"], "instance", 1, 1, 0)
 	Collectinator_InstanceCBText:SetText(L["Instance"])
@@ -3259,40 +3195,40 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_SeasonalCB, addon.Fly_Obtain, L["SEASONAL_DESC"], "seasonal", 4, 1, 0)
 	Collectinator_SeasonalCBText:SetText(seasonal)
 
-	local Collectinator_TrainerCB = CreateFrame("CheckButton", "Collectinator_TrainerCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_TrainerCB, addon.Fly_Obtain, L["TRAINER_DESC"], "trainer", 5, 1, 0)
-	Collectinator_TrainerCBText:SetText(L["Trainer"])
-
 	local Collectinator_VendorCB = CreateFrame("CheckButton", "Collectinator_VendorCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_VendorCB, addon.Fly_Obtain, L["VENDOR_DESC"], "vendor", 6, 1, 0)
+	addon:GenericMakeCB(Collectinator_VendorCB, addon.Fly_Obtain, L["VENDOR_DESC"], "vendor", 5, 1, 0)
 	Collectinator_VendorCBText:SetText(L["Vendor"])
 
 	local Collectinator_PVPCB = CreateFrame("CheckButton", "Collectinator_PVPCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_PVPCB, addon.Fly_Obtain, L["PVP_DESC"], "pvp", 7, 1, 0)
+	addon:GenericMakeCB(Collectinator_PVPCB, addon.Fly_Obtain, L["PVP_DESC"], "pvp", 6, 1, 0)
 	Collectinator_PVPCBText:SetText(L["PVP"])
 
 	local Collectinator_WorldDropCB = CreateFrame("CheckButton", "Collectinator_WorldDropCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_WorldDropCB, addon.Fly_Obtain, L["WORLD_DROP_DESC"], "worlddrop", 9, 1, 0)
+	addon:GenericMakeCB(Collectinator_WorldDropCB, addon.Fly_Obtain, L["WORLD_DROP_DESC"], "worlddrop", 7, 1, 0)
 	Collectinator_WorldDropCBText:SetText(L["World Drop"])
 
 	local Collectinator_MobDropCB = CreateFrame("CheckButton", "Collectinator_MobDropCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_MobDropCB, addon.Fly_Obtain, L["MOB_DROP_DESC"], "mobdrop", 10, 1, 0)
+	addon:GenericMakeCB(Collectinator_MobDropCB, addon.Fly_Obtain, L["MOB_DROP_DESC"], "mobdrop", 8, 1, 0)
 	Collectinator_MobDropCBText:SetText(L["Mob Drop"])
 
 	local Collectinator_OriginalWoWCB = CreateFrame("CheckButton", "Collectinator_OriginalWoWCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_OriginalWoWCB, addon.Fly_Obtain, L["ORIGINAL_WOW_DESC"], "originalwow", 12, 1, 0)
+	addon:GenericMakeCB(Collectinator_OriginalWoWCB, addon.Fly_Obtain, L["ORIGINAL_WOW_DESC"], "originalwow", 9, 1, 0)
 	Collectinator_OriginalWoWCBText:SetText(L["Old World"])
 
 	local Collectinator_BCCB = CreateFrame("CheckButton", "Collectinator_BCCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_BCCB, addon.Fly_Obtain, L["BC_WOW_DESC"], "bc", 13, 1, 0)
+	addon:GenericMakeCB(Collectinator_BCCB, addon.Fly_Obtain, L["BC_WOW_DESC"], "bc", 10, 1, 0)
 	Collectinator_BCCBText:SetText(L["Burning Crusade"])
 
 	local Collectinator_WrathCB = CreateFrame("CheckButton", "Collectinator_WrathCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], "wrath", 14, 1, 0)
+	addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], "wrath", 11, 1, 0)
 	Collectinator_WrathCBText:SetText(L["Lich King"])
 
+	-------------------------------------------------------------------------------
+	--			() Collectible is Bind on Equip
+	--			() Collectible is Bind on Pickup
+	-------------------------------------------------------------------------------
 	addon.Fly_Binding = CreateFrame("Frame", "Collectinator_Fly_Binding", addon.Flyaway)
-	addon.Fly_Binding:SetWidth(210)
+	addon.Fly_Binding:SetWidth(120)
 	addon.Fly_Binding:SetHeight(280)
 	addon.Fly_Binding:EnableMouse(true)
 	addon.Fly_Binding:EnableKeyboard(true)
@@ -3300,12 +3236,6 @@ local function InitializeFrame()
 	addon.Fly_Binding:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
 	addon.Fly_Binding:Hide()
 
-	-------------------------------------------------------------------------------
-	--			() Crafted Item is Bind on Equip
-	--			() Crafted Item is Bind on Pickup
-	--			() Collectible is Bind on Equip
-	--			() Collectible is Bind on Pickup
-	-------------------------------------------------------------------------------
 	local Collectinator_iBoACB = CreateFrame("CheckButton", "Collectinator_iBoACB", addon.Fly_Binding, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_iBoACB, addon.Fly_Binding, L["BOA_DESC"], "itemboa", 1, 1, 0)
 	Collectinator_iBoACBText:SetText(L["BOAFilter"])
@@ -3318,8 +3248,11 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_iBoPCB, addon.Fly_Binding, L["BOP_DESC"], "itembop", 3, 1, 0)
 	Collectinator_iBoPCBText:SetText(L["BOPFilter"])
 
+	-------------------------------------------------------------------------------
+	-- Reputation flyout
+	-------------------------------------------------------------------------------
 	addon.Fly_Rep = CreateFrame("Frame", "Collectinator_Fly_Rep", addon.Flyaway)
-	addon.Fly_Rep:SetWidth(112)
+	addon.Fly_Rep:SetWidth(210)
 	addon.Fly_Rep:SetHeight(280)
 	addon.Fly_Rep:EnableMouse(true)
 	addon.Fly_Rep:EnableKeyboard(true)
@@ -3774,7 +3707,6 @@ local function InitializeFrame()
 		["raid"]		= { cb = Collectinator_RaidCB,			svroot = filterdb.obtain },
 		["quest"]		= { cb = Collectinator_QuestCB,			svroot = filterdb.obtain },
 		["seasonal"]		= { cb = Collectinator_SeasonalCB,		svroot = filterdb.obtain },
-		["trainer"]		= { cb = Collectinator_TrainerCB,		svroot = filterdb.obtain },
 		["vendor"]		= { cb = Collectinator_VendorCB,		svroot = filterdb.obtain },
 		["pvp"]			= { cb = Collectinator_PVPCB,			svroot = filterdb.obtain },
 		["worlddrop"]		= { cb = Collectinator_WorldDropCB,		svroot = filterdb.obtain },
@@ -3845,8 +3777,6 @@ local INDEX_TYPE = {
 -- and initialize it, then show it.
 -------------------------------------------------------------------------------
 function addon:DisplayFrame(
-	cDB, 		-- CollectibleList
-	sortedCI, 	-- sortedindex
 	cPlayer, 	-- playerdata
 	vList, 		-- VendorList
 	qList, 		-- QuestList
@@ -3868,10 +3798,8 @@ function addon:DisplayFrame(
 	-------------------------------------------------------------------------------
 	myFaction = cPlayer.playerFaction
 
-	sortedCollectibleIndex = sortedCI
-	collectibleDB = cDB
 	playerData = cPlayer
-	currentProfession = playerData.playerProfession
+	current_tab_name = playerData.playerProfession
 	vendorDB = vList
 	questDB = qList
 	repDB = rList
@@ -3913,7 +3841,14 @@ function addon:DisplayFrame(
 	SetSwitcherTexture(SortedCollections[current_tab].texture)		-- Set the texture on our switcher button correctly
 
 	-- Sort the list
-	sortedCollectibleIndex = addon:SortDatabase(collectibleDB)
+	collectibleDB = self.data_table
+	sortedCollectibleIndex = SortDatabase(collectibleDB)
+
+	for i, j in pairs(sortedCollectibleIndex) do
+		if collectibleDB[j]["Display"] then
+			addon:DumpSpell(j)
+		end
+	end
 
 	initDisplayStrings()							-- Take our sorted list, and fill up DisplayStrings
 	SetProgressBar(cPlayer)							-- Update our progressbar
