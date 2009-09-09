@@ -857,7 +857,7 @@ local function PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Scale of the Sands"]] = repfilters.scaleofthesands
 	RepTable[BFAC["The Sha'tar"]] = repfilters.shatar
 	RepTable[BFAC["Shattered Sun Offensive"]] = repfilters.shatteredsun
-	RepTable[BFAC["Shatari Skyguard"]] = repfilters.skyguard
+	RepTable[BFAC["Sha'tari Skyguard"]] = repfilters.skyguard
 	RepTable[BFAC["Sporeggar"]] = repfilters.sporeggar
 	RepTable[BFAC["Thorium Brotherhood"]] = repfilters.thoriumbrotherhood
 	RepTable[BFAC["Timbermaw Hold"]] = repfilters.timbermaw
@@ -874,7 +874,7 @@ local function PopulateRepFilters(RepTable)
 
 	RepTable[BFAC["Darnassus"]] = repfilters.city1
 	RepTable[BFAC["Stormwind"]] = repfilters.city2
-	RepTable[BFAC["Gnomergan Exiles"]] = repfilters.city3
+	RepTable[BFAC["Gnomeregan Exiles"]] = repfilters.city3
 	RepTable[BFAC["Ironforge"]] = repfilters.city4
 	RepTable[BFAC["Exodar"]] = repfilters.city5
 	RepTable[BFAC["Darkspear Trolls"]] = repfilters.city1
@@ -1036,7 +1036,6 @@ do
 	-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the item being entry to the database.
 	-- @return Locations are populated for the given spell.
 	function addon:GetLocations(SpellID)
-
 		if CompanionDB and CompanionDB[SpellID] then
 			locationlist = {}
 			locationchecklist = {}
@@ -1044,7 +1043,6 @@ do
 			local acquire = CompanionDB[SpellID]["Acquire"]
 
 			for i in pairs(acquire) do
-
 				-- Vendor
 				if (acquire[i]["Type"] == 1) then
 					if (VendorList) then
@@ -1105,11 +1103,9 @@ do
 		else
 			return ""
 		end
-
 	end
 
 	function addon:SetRepDB()
-
 		if (playerData and playerData["Reputation"]) then
 			self:GetFactionLevels(playerData["Reputation"])
 		end
@@ -1118,7 +1114,6 @@ do
 
 	--- Scans the players professions and populates which ones they have
 	local function GetPlayerProfessions(ProfTable)
-
 		-- Reset the table, they may have unlearnt a profession
 		for i in pairs(ProfTable) do
 			ProfTable[i] = false
@@ -1145,7 +1140,6 @@ do
 	end
 
 	local function InitPlayerData()
-
 		local pData = {}
 
 		pData.playerFaction = UnitFactionGroup("player")
@@ -1170,61 +1164,59 @@ do
 			[GetSpellInfo(45363)] = false, -- Inscription
 			[GetSpellInfo(53428)] = false, -- Runeforging
 		}
-
 		GetPlayerProfessions(pData["Professions"])
 
 		return pData
-
 	end
 
 	local function InitDatabases()
 		-- Initializes the custom entry list
-		if (CustomList == nil) then
+		if not CustomList then
 			CustomList = {}
 			addon:InitCustom(CustomList)
 		end
 
 		-- Initializes the mob list
-		if (MobList == nil) then
+		if not MobList then
 			MobList = {}
 			addon:InitMob(MobList)
 		end
 
 		-- Initializes the quest list
-		if (QuestList == nil) then
+		if not QuestList then
 			QuestList = {}
 			addon:InitQuest(QuestList)
 		end
 
 		-- Initializes the reputation list
-		if (ReputationList == nil) then
+		if not ReputationList then
 			ReputationList = {}
 			addon:InitReputation(ReputationList)
 		end
 
 		-- Initializes the season list
-		if (SeasonalList == nil) then
+		if not SeasonalList then
 			SeasonalList = {}
 			addon:InitSeasons(SeasonalList)
 		end
 
 		-- Initializes the vendor list
-		if (VendorList == nil) then
+		if not VendorList then
 			VendorList = {}
 			addon:InitVendor(VendorList)
 		end
 
 		-- Initializes the reputation filters
 		-- Don't assign values no because we do a scan later on
-		if (RepFilters == nil) then
+		if not RepFilters then
 			RepFilters = {}
 		end
 
 		-- Initializes the companion list
 		if not CompanionDB then
 			CompanionDB = {}
+			addon.data_table = CompanionDB
 		end
-
 	end
 
 	--- Causes a scan of the companions to be conducted.
@@ -1262,15 +1254,7 @@ do
 			if textdump then
 				self:DisplayTextDump(CompanionDB)
 			else
-				local sortedindex = self:SortDatabase(CompanionDB)
-
-				self:DisplayFrame(CompanionDB, sortedindex, playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
-
-				for i, j in pairs(sortedindex) do
-					if (CompanionDB[j]["Display"] == true) then
-						addon:DumpSpell(j)
-					end
-				end
+				self:DisplayFrame(playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
 			end
 		end
 	end
