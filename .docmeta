@@ -1,5 +1,5 @@
 -
- type: creole
+ type: wiki
  input-file: Docs/Documentation.txt
  output-page: "Database Documentation"
 -
