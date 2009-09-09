@@ -80,7 +80,7 @@ local myFaction = ""
 -------------------------------------------------------------------------------
 -- Tables assigned in addon:DisplayFrame()
 -------------------------------------------------------------------------------
-local collectibleDB, trainerDB, vendorDB, questDB, repDB, seasonDB, customDB, mobDB
+local collectibleDB, vendorDB, questDB, repDB, seasonDB, customDB, mobDB
 
 local allSpecTable
 local playerData
@@ -126,7 +126,9 @@ local addonversion = GetAddOnMetadata("Collectinator", "Version")
 addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
 
 local Collectinator_SearchText, Collectinator_LastSearchedText
-local Collectinator_ExpGeneralOptCB, Collectinator_ExpObtainOptCB, Collectinator_ExpBindingOptCB, Collectinator_ExpItemOptCB, Collectinator_ExpPlayerOptCB, Collectinator_ExpRepOptCB, Collectinator_RepOldWorldCB, Collectinator_RepBCCB, Collectinator_RepLKCB, Collectinator_ExpMiscOptCB
+local Collectinator_ExpGeneralOptCB, Collectinator_ExpObtainOptCB, Collectinator_ExpBindingOptCB
+local Collectinator_ExpItemOptCB, Collectinator_ExpPlayerOptCB, Collectinator_ExpRepOptCB
+local Collectinator_RepOldWorldCB, Collectinator_RepBCCB, Collectinator_RepLKCB, Collectinator_ExpMiscOptCB
 
 -- To make tabbing between collections easier 
 local SortedCollections = { 
@@ -249,7 +251,7 @@ end
 ------------------------------------------------------------------------------
 -- Locale-specific strings. Save some CPU by looking these up exactly once.
 ------------------------------------------------------------------------------
-local factionHorde		= BFAC["Horde"]
+local factionHorde	= BFAC["Horde"]
 local factionAlliance	= BFAC["Alliance"]
 local factionNeutral	= BFAC["Neutral"]
 
@@ -257,15 +259,15 @@ local factionNeutral	= BFAC["Neutral"]
 -- Constants for acquire types.
 -------------------------------------------------------------------------------
 local ACQUIRE_VENDOR		= 1
-local ACQUIRE_QUEST			= 2
+local ACQUIRE_QUEST		= 2
 local ACQUIRE_CRAFTED		= 3 -- IE: Tailoring makes carpets, engineering makes pets
-local ACQUIRE_MOB			= 4
+local ACQUIRE_MOB		= 4
 local ACQUIRE_SEASONAL		= 5
 local ACQUIRE_REPUTATION	= 6
-local ACQUIRE_WORLDDROP		= 7
+local ACQUIRE_WORLD_DROP	= 7
 local ACQUIRE_CUSTOM		= 8
 local ACQUIRE_ACHIEVEMENT	= 9
-local ACQUIRE_MAX			= 9
+local ACQUIRE_MAX		= 9
 
 local checkFactions
 do
@@ -322,7 +324,7 @@ end	-- do
 
 local function CheckDisplayFaction(filterDB, faction)
 	if (filterDB.general.faction ~= true) then
-		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or (faction == nil)) then
+		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or not faction) then
 			return true
 		else
 			return false
@@ -366,9 +368,8 @@ do
 	-- Output: All icons are removed.
 
 	function addon:ClearMap()
-
 		-- Make sure we have TomTom installed
-		if (TomTom) then
+		if TomTom then
 			-- Remove all the waypoints from TomTom
 			for i in pairs(iconlist) do
 				TomTom:RemoveWaypoint(iconlist[i])
@@ -376,11 +377,9 @@ do
 			-- Nuke our own internal table
 			iconlist = twipe(iconlist)
 		end
-
 	end
 
 	local function CheckMapDisplay(v, filters)
-
 		local display = false
 
 		-- If it's a trainer check to see if we're displaying it on the map.
@@ -402,9 +401,7 @@ do
 	-- Expected result: Icons are added to the world map and mini-map.
 	-- Input: An optional collectible ID
 	-- Output: Points are added to the maps
-
 	function addon:SetupMap(singlecollectible)
-
 		if (not TomTom) then
 			--@debug@
 			self:Print("TomTom not loaded, integration with the world map and mini-map disabled.")
@@ -596,13 +593,13 @@ local function ttAdd(
 	local loopPad = leftPad
 	local leftStr = str1
 
-	while (loopPad > 0) do
+	while loopPad > 0 do
 		leftStr = "  " .. leftStr
 		loopPad = loopPad - 1
 	end
 	local lineNum
 
-	if (str2) then
+	if str2 then
 		lineNum = CollectinatorTooltip:AddLine()
 		CollectinatorTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r")
 		CollectinatorTooltip:SetCell(lineNum, 2, "|cff"..hexcolor2..str2.."|r", "RIGHT")
@@ -617,13 +614,14 @@ end
 local function SetSpellTooltip(owner, loc, link)
 	CollectinatorSpellTooltip:SetOwner(owner, "ANCHOR_NONE")
 	CollectinatorSpellTooltip:ClearAllPoints()
-	if (loc == "Top") then
+
+	if loc == "Top" then
 		CollectinatorSpellTooltip:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
-	elseif (loc == "Bottom") then
+	elseif loc == "Bottom" then
 		CollectinatorSpellTooltip:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
-	elseif (loc == "Left") then
+	elseif loc == "Left" then
 		CollectinatorSpellTooltip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
-	elseif (loc == "Right") then
+	elseif loc == "Right" then
 		CollectinatorSpellTooltip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
 	end
 	CollectinatorSpellTooltip:SetHyperlink(link)
@@ -631,15 +629,15 @@ local function SetSpellTooltip(owner, loc, link)
 end
 
 local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
-	local spellTooltipLocation = addon.db.profile.spelltooltiplocation
-	local acquireTooltipLocation = addon.db.profile.acquiretooltiplocation
+	local spell_tip_loc = addon.db.profile.spelltooltiplocation
+	local acquire_tip_loc = addon.db.profile.acquiretooltiplocation
 	local spellLink = collectibleDB[rIndex]["CollectibleLink"]
 
-	if (acquireTooltipLocation == L["Off"]) then
+	if acquire_tip_loc == L["Off"] then
 		QTip:Release(CollectinatorTooltip)
 		-- If we have the spell link tooltip, anchor it to addon.Frame instead so it shows
-		if (spellTooltipLocation ~= L["Off"]) and spellLink then
-			SetSpellTooltip(addon.Frame, spellTooltipLocation, spellLink)
+		if (spell_tip_loc ~= L["Off"]) and spellLink then
+			SetSpellTooltip(addon.Frame, spell_tip_loc, spellLink)
 		else
 			CollectinatorSpellTooltip:Hide()
 		end
@@ -649,15 +647,15 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	CollectinatorTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 	CollectinatorTooltip:ClearAllPoints()
 
-	if (acquireTooltipLocation == "Right") then
+	if acquire_tip_loc == "Right" then
 		CollectinatorTooltip:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT")
-	elseif (acquireTooltipLocation == "Left") then
+	elseif acquire_tip_loc == "Left" then
 		CollectinatorTooltip:SetPoint("TOPRIGHT", addon.Frame, "TOPLEFT")
-	elseif (acquireTooltipLocation == "Top") then
+	elseif acquire_tip_loc == "Top" then
 		CollectinatorTooltip:SetPoint("BOTTOMLEFT", addon.Frame, "TOPLEFT")
-	elseif (acquireTooltipLocation == "Bottom") then
+	elseif acquire_tip_loc == "Bottom" then
 		CollectinatorTooltip:SetPoint("TOPLEFT", addon.Frame, "BOTTOMLEFT")
-	elseif (acquireTooltipLocation == "Mouse") then
+	elseif acquire_tip_loc == "Mouse" then
 		CollectinatorTooltip:ClearAllPoints()
 		local x,y = GetCursorPosition()
 		local uiscale = UIParent:GetEffectiveScale()
@@ -677,28 +675,13 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	CollectinatorTooltip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..collectibleDB[rIndex]["Name"], "CENTER", 2)
 
 	-- check if the collectible is excluded
-	if (exclude[rIndex] == true) then
+	if exclude[rIndex] then
 		ttAdd(0, -1, 1, L["COLLECTIBLE_EXCLUDED"], addon:hexcolor("RED"))
 	end
 
 	-- Add in skill level requirement, colored correctly
 	clr1 = addon:hexcolor("NORMAL")
 
-	local collectibleSkill = collectibleDB[rIndex]["Level"]
-	local playerSkill = playerData.playerProfessionLevel
-
-	if (collectibleSkill > playerSkill) then
-		clr2 = addon:hexcolor("RED")
-	elseif ((playerSkill - collectibleSkill) < 20) then
-		clr2 = addon:hexcolor("ORANGE")
-	elseif ((playerSkill - collectibleSkill) < 30) then
-		clr2 = addon:hexcolor("YELLOW")
-	elseif ((playerSkill - collectibleSkill) < 40) then
-		clr2 = addon:hexcolor("GREEN") 
-	else
-		clr2 = addon:hexcolor("MIDGREY")
-	end
-	ttAdd(0, -1, 0, L["Required Skill"] .. " :", clr1, collectibleDB[rIndex]["Level"], clr2)
 	CollectinatorTooltip:AddSeparator()
 	-- Binding info
 	clr1 = addon:hexcolor("NORMAL")
@@ -715,29 +698,30 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		ttAdd(0, -1, 1, L["BOAFilter"], clr1)
 	end
 	CollectinatorTooltip:AddSeparator()
-
-	-- obtain info
 	ttAdd(0, -1, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
 
 	local factiondisp = addon.db.profile.filters.general.faction
+	local acquire_type
 
-	-- loop through acquire methods, display each
 	for k, v in pairs(collectibleDB[rIndex]["Acquire"]) do
-		if (v["Type"] == ACQUIRE_TRAINER) then
+		acquire_type = v["Type"]
+
+		if acquire_type == ACQUIRE_TRAINER then
 			-- Trainer:			TrainerName
 			-- TrainerZone			TrainerCoords
-			local trnr = trainerDB[v["ID"]]
+			local trainer = trainerDB[v["ID"]]
 			local cStr = ""
 
 			clr1 = addon:hexcolor("TRAINER")
 			-- Don't display trainers if it's opposite faction
 			local displaytt = false
-			if (trnr["Faction"] == factionHorde) then
+
+			if (trainer["Faction"] == factionHorde) then
 				clr2 = addon:hexcolor("HORDE")
 				if (playerFaction == factionHorde) then
 					displaytt = true
 				end
-			elseif (trnr["Faction"] == factionAlliance) then
+			elseif (trainer["Faction"] == factionAlliance) then
 				clr2 = addon:hexcolor("ALLIANCE")
 				if (playerFaction == factionAlliance) then
 					displaytt = true
@@ -749,16 +733,16 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 			if (displaytt) then
 				-- Add the trainer information to the tooltip
-				ttAdd(0, -2, 0, L["Trainer"], clr1, trnr["Name"], clr2)
+				ttAdd(0, -2, 0, L["Trainer"], clr1, trainer["Name"], clr2)
 				-- If we have a coordinate, add the coordinates to the tooltop
-				if (trnr["Coordx"] ~= 0) and (trnr["Coordy"] ~= 0) then
-					cStr = "(" .. trnr["Coordx"] .. ", " .. trnr["Coordy"] .. ")"
+				if (trainer["Coordx"] ~= 0) and (trainer["Coordy"] ~= 0) then
+					cStr = "(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")"
 				end
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, 1, trnr["Location"], clr1, cStr, clr2)
+				ttAdd(1, -2, 1, trainer["Location"], clr1, cStr, clr2)
 			end
-		elseif (v["Type"] == ACQUIRE_VENDOR) then
+		elseif (acquire_type == ACQUIRE_VENDOR) then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
 			local vndr = vendorDB[v["ID"]]
@@ -800,7 +784,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			elseif faction then
 				ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
 			end
-		elseif (v["Type"] == ACQUIRE_MOB) then
+		elseif (acquire_type == ACQUIRE_MOB) then
 			-- Mob Drop:			Mob Name
 			-- MoBZ				MobCoords
 			local mob = mobDB[v["ID"]]
@@ -816,7 +800,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			clr1 = addon:hexcolor("NORMAL")
 			clr2 = addon:hexcolor("HIGH")
 			ttAdd(1, -2, 1, mob["Location"], clr1, cStr, clr2)
-		elseif (v["Type"] == ACQUIRE_QUEST) then
+		elseif (acquire_type == ACQUIRE_QUEST) then
 			-- Quest:				QuestName
 			-- QuestZone				QuestCoords
 			local qst = questDB[v["ID"]]
@@ -860,13 +844,13 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					ttAdd(0, -1, 0, faction.." "..L["Quest"], clr1)
 				end
 			end
-		elseif (v["Type"] == ACQUIRE_SEASONAL) then
+		elseif (acquire_type == ACQUIRE_SEASONAL) then
 			-- Seasonal:				SeasonEventName
 			local ssnname = seasonDB[v["ID"]]["Name"]
 
 			clr1 = addon:hexcolor("SEASON")
 			ttAdd(0, -1, 0, seasonal, clr1, ssnname, clr1)
-		elseif (v["Type"] == ACQUIRE_REPUTATION) then
+		elseif (acquire_type == ACQUIRE_REPUTATION) then
 			-- Reputation:				Faction
 			-- FactionLevel				RepVendor				
 			-- RepVendorZone			RepVendorCoords
@@ -924,7 +908,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(2, -2, 1, repvndr["Location"], clr1, cStr, clr2)
 			end
-		elseif (v["Type"] == ACQUIRE_WORLD_DROP) then
+		elseif (acquire_type == ACQUIRE_WORLD_DROP) then
 			-- World Drop				RarityLevel
 			if (v["ID"] == 1) then
 				clr1 = addon:hexcolor("COMMON")
@@ -938,11 +922,11 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr1 = addon:hexcolor("NORMAL")
 			end
 			ttAdd(0, -1, 0, L["World Drop"], clr1)
-		elseif (v["Type"] == ACQUIRE_CUSTOM) then
+		elseif (acquire_type == ACQUIRE_CUSTOM) then
 			local customname = customDB[v["ID"]]["Name"]
 
 			ttAdd(0, -1, 0, customname, addon:hexcolor("NORMAL"))
-		elseif (v["Type"] == ACQUIRE_PVP) then
+		elseif (acquire_type == ACQUIRE_PVP) then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
 			local vndr = vendorDB[v["ID"]]
@@ -972,11 +956,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				displaytt = true
 			end
 
-			if (displaytt) then
+			if displaytt then
 				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
 					cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
 				end
-
 				ttAdd(0, -1, 0, L["Vendor"], clr1, vndr["Name"], clr2)
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
@@ -1005,8 +988,8 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	CollectinatorTooltip:Show()
 
 	-- If we have the spell link tooltip, link it to the acquire tooltip.
-	if (spellTooltipLocation ~= L["Off"]) and (spellLink) then
-		SetSpellTooltip(CollectinatorTooltip, spellTooltipLocation, spellLink)
+	if spell_tip_loc ~= L["Off"] and spellLink then
+		SetSpellTooltip(CollectinatorTooltip, spell_tip_loc, spellLink)
 	else
 		CollectinatorSpellTooltip:Hide()
 	end
@@ -1206,6 +1189,63 @@ function addon:ResetGUI()
 
 end
 
+-------------------------------------------------------------------------------
+-- Sorts the database depending on the configuration settings.
+-------------------------------------------------------------------------------
+local SortDatabase
+do
+	local tsort = table.sort
+	local sortFuncs
+	local SortedIndex = {}
+
+	function SortDatabase(DB)
+		if not sortFuncs then
+			sortFuncs = {}
+
+			sortFuncs["Name"] = function(a, b)
+				return DB[a]["Name"] < DB[b]["Name"]
+			end
+
+			-- Will only sort based off of the first acquire type
+			sortFuncs["Acquisition"] = function (a, b)
+				local reca = DB[a]["Acquire"][1]
+				local recb = DB[b]["Acquire"][1]
+				if (reca and recb) then
+					if (reca["Type"] == recb["Type"]) then
+						return DB[a]["Name"] < DB[b]["Name"]
+					else
+						return reca["Type"] < recb["Type"]
+					end
+				else
+					return not not reca
+				end
+			end
+
+			-- Will only sort based off of the first acquire type
+			sortFuncs["Location"] = function (a, b)
+				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
+				local reca = DB[a]["Locations"] or ""
+				local recb = DB[b]["Locations"] or ""
+				reca = smatch(reca,"(%w+),") or ""
+				recb = smatch(recb,"(%w+),") or ""
+
+				if (reca == recb) then
+					return DB[a]["Name"] < DB[b]["Name"]
+				else
+					return (reca < recb)
+				end
+			end
+		end
+		twipe(SortedIndex)
+
+		-- Get all the indexes of the DB
+		for n, v in pairs(DB) do
+			tinsert(SortedIndex, n)
+		end
+		tsort(SortedIndex, sortFuncs[addon.db.profile.sorting])
+		return SortedIndex
+	end
+end	-- do
 
 -------------------------------------------------------------------------------
 -- Displays a tooltip for the given frame.
@@ -1812,6 +1852,7 @@ end
 local faction_strings	-- This is populated in expandEntry()
 
 local function expandEntry(dsIndex)
+	dsIndex = dsIndex + 1
 	-- insertIndex is the position in DisplayStrings that we want
 	-- to expand. Since we are expanding the current entry, the return
 	-- value should be the index of the next button after the expansion
@@ -1821,8 +1862,7 @@ local function expandEntry(dsIndex)
 	local obtainDB = filterDB.obtain
 	local collectibleIndex = DisplayStrings[dsIndex].sID
 	local pad = "  "
-
-	dsIndex = dsIndex + 1
+	local acquire_type
 
 	-- Need to loop through the available acquires and put them all in
 	for k, v in pairs(collectibleDB[collectibleIndex]["Acquire"]) do
@@ -1832,7 +1872,9 @@ local function expandEntry(dsIndex)
 		t.sID = collectibleIndex
 		t.IsExpanded = true
 
-		if (v["Type"] == ACQUIRE_TRAINER) and obtainDB.trainer then
+		acquire_type = v["Type"]
+
+		if acquire_type == ACQUIRE_TRAINER and obtainDB.trainer then
 			local trainer = trainerDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, trainer["Faction"]) then
@@ -1864,18 +1906,18 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
-		-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
-		-- This allows us to select PVP only and to see just the PVP collectibles
-		elseif (v["Type"] == ACQUIRE_VENDOR) and (obtainDB.vendor or obtainDB.pvp) then
+		elseif acquire_type == ACQUIRE_VENDOR and (obtainDB.vendor or obtainDB.pvp) then
+			-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
+			-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
+			-- This allows us to select PVP only and to see just the PVP collectibles
 			local vendor = vendorDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
 				local nStr = ""
 
-				if (vendor["Faction"] == factionHorde) then
+				if vendor["Faction"] == factionHorde then
 					nStr = addon:Horde(vendor["Name"])
-				elseif (vendor["Faction"] == factionAlliance) then
+				elseif vendor["Faction"] == factionAlliance then
 					nStr = addon:Alliance(vendor["Name"])
 				else
 					nStr = addon:Neutral(vendor["Name"])
@@ -1900,7 +1942,7 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 			end
 		-- Mobs can be in instances, raids, or specific mob related drops.
-		elseif (v["Type"] == ACQUIRE_MOB) and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
+		elseif (acquire_type == ACQUIRE_MOB) and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
 			local mob = mobDB[v["ID"]]
 			t.String = pad .. addon:MobDrop(L["Mob Drop"] .. " : ") .. addon:Red(mob["Name"])
 
@@ -1920,7 +1962,7 @@ local function expandEntry(dsIndex)
 
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (v["Type"] == ACQUIRE_QUEST) and obtainDB.quest then
+		elseif (acquire_type == ACQUIRE_QUEST) and obtainDB.quest then
 			local quest = questDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, quest["Faction"]) then
@@ -1952,11 +1994,11 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif (v["Type"] == ACQUIRE_SEASONAL) and obtainDB.seasonal then
+		elseif (acquire_type == ACQUIRE_SEASONAL) and obtainDB.seasonal then
 			t.String = pad .. addon:Season(seasonal .. " : " .. seasonDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (v["Type"] == ACQUIRE_REPUTATION) then -- Need to check if we're displaying the currently id'd rep or not as well
+		elseif (acquire_type == ACQUIRE_REPUTATION) then -- Need to check if we're displaying the currently id'd rep or not as well
 			-- Reputation Obtain
 			-- Rep: ID, Faction
 			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
@@ -2010,15 +2052,15 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif (v["Type"] == ACQUIRE_WORLD_DROP) and obtainDB.worlddrop then
+		elseif (acquire_type == ACQUIRE_WORLD_DROP) and obtainDB.worlddrop then
 			t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (v["Type"] == ACQUIRE_CUSTOM) then
+		elseif (acquire_type == ACQUIRE_CUSTOM) then
 			t.String = pad .. addon:Normal(customDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (v["Type"] == ACQUIRE_PVP) and obtainDB.pvp then
+		elseif (acquire_type == ACQUIRE_PVP) and obtainDB.pvp then
 			local vendor = vendorDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
