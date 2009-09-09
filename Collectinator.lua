@@ -395,18 +395,18 @@ function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType, Game)
 	end
 
 	DB[SpellID] = {
-		["Name"] = GetSpellInfo(SpellID) or ""
-		["ItemID"] = ItemID
-		["Rarity"] = Rarity
-		["Type"] = CompanionType
-		["Game"] = Game or 0
-		["Owned"] = false
-		["Display"] = true
-		["Search"] = true
-		["Known"] = false
-		["Flags"] = {}
-		["Acquire"] = {}
-		["Location"] = "Unknown"
+		["Name"] = GetSpellInfo(SpellID) or "",
+		["ItemID"] = ItemID,
+		["Rarity"] = Rarity,
+		["Type"] = CompanionType,
+		["Game"] = Game or 0,
+		["Owned"] = false,
+		["Display"] = true,
+		["Search"] = true,
+		["Known"] = false,
+		["Flags"] = {},
+		["Acquire"] = {},
+		["Location"] = "Unknown",
 	}
 	local flag = DB[SpellID]["Flags"]
 
@@ -1571,15 +1571,14 @@ function addon:SearchDB(DB, searchstring)
 
 	for SpellID in pairs(DB) do
 		local item = DB[SpellID]
-			item["Search"] = false
+		item["Search"] = false
 
-			if (sfind(strlower(SpellID), searchstring)
-			    or (item["ItemID"] and sfind(strlower(item["ItemID"]), searchstring))
-				    or (item["Name"] and sfind(strlower(item["Name"]), searchstring))
-				    or (item["Locations"] and sfind(item["Locations"], searchstring))
-				    or (item["Rarity"] and sfind(item["Rarity"], searchstring))) then
-				item["Search"] = true
-			end
+		if (sfind(strlower(SpellID), searchstring)
+		    or (item["ItemID"] and sfind(strlower(item["ItemID"]), searchstring))
+			    or (item["Name"] and sfind(strlower(item["Name"]), searchstring))
+			    or (item["Locations"] and sfind(item["Locations"], searchstring))
+			    or (item["Rarity"] and sfind(item["Rarity"], searchstring))) then
+			item["Search"] = true
 		end
 	end
 end
