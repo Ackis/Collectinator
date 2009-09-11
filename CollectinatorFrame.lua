@@ -1,19 +1,13 @@
---[[
-
-****************************************************************************************
-
-CollectinatorFrame.lua
-
-Frame functions for all of Collectinator
-
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
-Project revision: @project-revision@
-Project version: @project-version@
-
-****************************************************************************************
-
-]]--
+-------------------------------------------------------------------------------
+-- CollectinatorFrame.lua
+-------------------------------------------------------------------------------
+-- Frame functions for all of Collectinator
+-------------------------------------------------------------------------------
+-- File date: @file-date-iso@ 
+-- File revision: @file-revision@ 
+-- Project revision: @project-revision@
+-- Project version: @project-version@
+-------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------
 -- Localized globals
@@ -150,10 +144,11 @@ local SortedCollections = {
 	{ name = "CRITTER", 		texture = "minipets" }, 	-- 1
 	{ name = "MOUNT", 		texture = "mounts" }, 	-- 2
 } 
-
 local MaxCollections = 2
 
--- Some variables I want to use in creating the GUI later... (ZJ 8/26/08)
+-------------------------------------------------------------------------------
+-- Expanded button constants
+-------------------------------------------------------------------------------
 local ExpButtonText = {
 	L["General"], 		-- 1
 	L["Obtain"], 		-- 2
@@ -172,10 +167,9 @@ local ExpButtonTT = {
 	L["FILTERING_MISC_DESC"]		-- 6
 }
 
-
--- Define the static popups we're going to call when people don't have a
--- scanned or don't are blocking all collectibles from being displayed
--- with current filters
+-------------------------------------------------------------------------------
+-- Static popup dialogs
+-------------------------------------------------------------------------------
 StaticPopupDialogs["Collectinator_NOTSCANNED"] = {
 	text = L["NOTSCANNED"], 
 	button1 = L["Ok"], 
@@ -342,7 +336,7 @@ do
 end	-- do
 
 local function CheckDisplayFaction(filterDB, faction)
-	if (filterDB.general.faction ~= true) then
+	if not filterDB.general.faction then
 		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or not faction) then
 			return true
 		else
@@ -420,7 +414,7 @@ do
 	-- Expected result: Icons are added to the world map and mini-map.
 	-- Input: An optional collectible ID
 	-- Output: Points are added to the maps
-	function addon:SetupMap(singlecollectible)
+	function addon:SetupMap(single_collectible)
 		if (not TomTom) then
 			--@debug@
 			self:Print("TomTom not loaded, integration with the world map and mini-map disabled.")
@@ -433,26 +427,26 @@ do
 		local filters = addon.db.profile.filters
 		local autoscanmap = addon.db.profile.autoscanmap
 
-		if ((worldmap == true) or (minimap == true)) then
-
+		if worldmap or minimap then
 			local maplist = {}
 
 			-- We're only getting a single collectible, not a bunch
-			if (singlecollectible) then
+			if single_collectible then
 				-- loop through acquire methods, display each
-				for k, v in pairs(collectibleDB[singlecollectible]["Acquire"]) do
-					if (CheckMapDisplay(v, filters)) then
+				for k, v in pairs(collectibleDB[single_collectible]["Acquire"]) do
+					if CheckMapDisplay(v, filters) then
 						maplist[v["ID"]] = v["Type"]
 					end
 				end
-			elseif (autoscanmap == true) then
+			elseif autoscanmap then
 				-- Scan through all collectibles to display, and add the vendors to a list to get their acquire info
 				for i = 1, #sortedCollectibleIndex do
 					local collectibleIndex = sortedCollectibleIndex[i]
-					if ((collectibleDB[collectibleIndex]["Display"] == true) and (collectibleDB[collectibleIndex]["Search"] == true)) then
+
+					if collectibleDB[collectibleIndex]["Display"] and collectibleDB[collectibleIndex]["Search"] then
 						-- loop through acquire methods, display each
 						for k, v in pairs(collectibleDB[collectibleIndex]["Acquire"]) do
-							if (CheckMapDisplay(v, filters)) then
+							if CheckMapDisplay(v, filters) then
 								maplist[v["ID"]] = v["Type"]
 							end
 						end
@@ -479,7 +473,6 @@ do
 			]]--
 
 			for k, j in pairs(maplist) do
-
 				local continent, zone
 				local loc = nil
 
@@ -513,11 +506,8 @@ do
 					local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
 					tinsert(iconlist, iconuid)
 				end
-
 			end
-
 		end
-
 	end
 end	-- do
 
@@ -545,15 +535,14 @@ local function initDisplayStrings()
 		if ((collectibleEntry["Display"] == true) and (collectibleEntry["Search"] == true)) then
 			local recStr = ""
 
-			if (exclude[collectibleIndex] == true) then
+			if exclude[collectibleIndex] then
 				recStr = "** " .. collectibleEntry["Name"] .. " **"
 			else
 				recStr = collectibleEntry["Name"]
 			end
-
 			local hasFaction = checkFactions(collectibleDB, collectibleIndex, playerData.playerFaction, playerData["Reputation"])
-
 			local str = AcquireTable()
+
 			str.String = recStr
 
 			str.sID = collectibleIndex
