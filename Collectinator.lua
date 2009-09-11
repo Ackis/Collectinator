@@ -389,7 +389,7 @@ local maxfilterflags = 90
 -- @param CompanionType Type of entry added to the database.
 -- @param Game Game version item was found in, for example, Original, BC, or Wrath.
 -- @return None, array is passed as a reference.
-function addon:AddCompanion(DB, SpellID, ItemID, Rarity, CompanionType, Game)
+function addon:AddCompanion(DB, CompanionType, SpellID, ItemID, Rarity, Game)
 	if DB[SpellID] then	-- If the entry already exists, abort.
 		return
 	end
