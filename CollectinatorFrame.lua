@@ -74,6 +74,30 @@ local myFaction = ""
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- Item "rarity"
+-------------------------------------------------------------------------------
+local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
+
+-------------------------------------------------------------------------------
+-- Origin
+-------------------------------------------------------------------------------
+local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
+
+-------------------------------------------------------------------------------
+-- Filter flags
+-------------------------------------------------------------------------------
+local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_UNUSED, F_INSTANCE, F_RAID, F_SEASONAL, F_WORLD_DROP, F_MOB_DROP = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP = 11, 12, 13, 14, 15, 16
+local F_BOE, F_BOP, F_BOA = 20, 21, 22
+local F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36
+
+-------------------------------------------------------------------------------
+-- Constants for acquire types.
+-------------------------------------------------------------------------------
+local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
+
 -- Returns the index type based on the supplied string.
 local INDEX_TYPE = {
 	["CRITTER"]	= 1,
@@ -262,20 +286,6 @@ local factionHorde	= BFAC["Horde"]
 local factionAlliance	= BFAC["Alliance"]
 local factionNeutral	= BFAC["Neutral"]
 
--------------------------------------------------------------------------------
--- Constants for acquire types.
--------------------------------------------------------------------------------
-local ACQUIRE_VENDOR		= 1
-local ACQUIRE_QUEST		= 2
-local ACQUIRE_CRAFTED		= 3 -- IE: Tailoring makes carpets, engineering makes pets
-local ACQUIRE_MOB		= 4
-local ACQUIRE_SEASONAL		= 5
-local ACQUIRE_REPUTATION	= 6
-local ACQUIRE_WORLD_DROP	= 7
-local ACQUIRE_CUSTOM		= 8
-local ACQUIRE_ACHIEVEMENT	= 9
-local ACQUIRE_MAX		= 9
-
 local checkFactions
 do
 	------------------------------------------------------------------------------
@@ -298,7 +308,7 @@ do
 
 		-- Scan through all acquire types
 		for i in pairs(acquire) do
-			if acquire[i]["Type"] == ACQUIRE_REPUTATION then
+			if acquire[i]["Type"] == A_REPUTATION then
 				local repid = acquire[i]["ID"]
 
 				if repid == REP_HONOR_HOLD or repid == REP_THRALLMAR then
@@ -395,11 +405,7 @@ do
 	local function CheckMapDisplay(v, filters)
 		local display = false
 
-		-- If it's a trainer check to see if we're displaying it on the map.
-		if (v["Type"] == 1) then
-			display = ((trainerDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (trainerDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
-		-- If it's a vendor check to see if we're displaying it on the map
-		elseif (v["Type"] == 2) then
+		if (v["Type"] == 2) then
 			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
 		-- If it's a quest check to see if we're displaying it on the map
 		elseif (v["Type"] == 4) then
@@ -643,7 +649,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local acquire_tip_loc = addon.db.profile.acquiretooltiplocation
 	local spellLink = collectibleDB[rIndex]["CollectibleLink"]
 
-	if acquire_tip_loc == L["Off"] then
+	if (acquire_tip_loc == L["Off"]) then
 		QTip:Release(CollectinatorTooltip)
 		-- If we have the spell link tooltip, anchor it to addon.Frame instead so it shows
 		if (spell_tip_loc ~= L["Off"]) and spellLink then
@@ -674,7 +680,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		CollectinatorTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
 	end
 
-	if TipTac and TipTac.AddModifiedTip then
+	if (TipTac and TipTac.AddModifiedTip) then
 		-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
 		TipTac:AddModifiedTip(CollectinatorTooltip, true)
 	end
@@ -696,15 +702,15 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	-- Binding info
 	clr1 = addon:hexcolor("NORMAL")
 
-	if (collectibleDB[rIndex]["Flags"][20]) then
+	if (collectibleDB[rIndex]["Flags"][F_BOE]) then
 		ttAdd(0, -1, 1, L["BOEFilter"], clr1)
 	end
 
-	if (collectibleDB[rIndex]["Flags"][21]) then
+	if (collectibleDB[rIndex]["Flags"][F_BOP]) then
 		ttAdd(0, -1, 1, L["BOPFilter"], clr1)
 	end
 
-	if (collectibleDB[rIndex]["Flags"][22]) then
+	if (collectibleDB[rIndex]["Flags"][F_BOA]) then
 		ttAdd(0, -1, 1, L["BOAFilter"], clr1)
 	end
 	CollectinatorTooltip:AddSeparator()
@@ -716,51 +722,15 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	for k, v in pairs(collectibleDB[rIndex]["Acquire"]) do
 		acquire_type = v["Type"]
 
-		if acquire_type == ACQUIRE_TRAINER then
-			-- Trainer:			TrainerName
-			-- TrainerZone			TrainerCoords
-			local trainer = trainerDB[v["ID"]]
-			local cStr = ""
-
-			clr1 = addon:hexcolor("TRAINER")
-			-- Don't display trainers if it's opposite faction
-			local displaytt = false
-
-			if (trainer["Faction"] == factionHorde) then
-				clr2 = addon:hexcolor("HORDE")
-				if (playerFaction == factionHorde) then
-					displaytt = true
-				end
-			elseif (trainer["Faction"] == factionAlliance) then
-				clr2 = addon:hexcolor("ALLIANCE")
-				if (playerFaction == factionAlliance) then
-					displaytt = true
-				end
-			else
-				clr2 = addon:hexcolor("NEUTRAL")
-				displaytt = true
-			end
-
-			if (displaytt) then
-				-- Add the trainer information to the tooltip
-				ttAdd(0, -2, 0, L["Trainer"], clr1, trainer["Name"], clr2)
-				-- If we have a coordinate, add the coordinates to the tooltop
-				if (trainer["Coordx"] ~= 0) and (trainer["Coordy"] ~= 0) then
-					cStr = "(" .. trainer["Coordx"] .. ", " .. trainer["Coordy"] .. ")"
-				end
-				clr1 = addon:hexcolor("NORMAL")
-				clr2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, 1, trainer["Location"], clr1, cStr, clr2)
-			end
-		elseif (acquire_type == ACQUIRE_VENDOR) then
+		if (acquire_type == A_VENDOR) then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
 			local vndr = vendorDB[v["ID"]]
 			local cStr = ""
 
 			clr1 = addon:hexcolor("VENDOR")
-
-			if not vndr then
+			-- If we don't have the vendor in the db
+			if (not vndr) then
 				clr2 = addon:hexcolor("NEUTRAL")
 				ttAdd(0, -1, 0, L["Vendor"], clr1, UNKNOWN, clr2)
 				clr1 = addon:hexcolor("NORMAL")
@@ -803,7 +773,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
 				end
 			end
-		elseif (acquire_type == ACQUIRE_MOB) then
+		elseif (acquire_type == A_MOB) then
 			-- Mob Drop:			Mob Name
 			-- MoBZ				MobCoords
 			local mob = mobDB[v["ID"]]
@@ -828,7 +798,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(1, -2, 1, mob["Location"], clr1, cStr, clr2)
 			end
-		elseif (acquire_type == ACQUIRE_QUEST) then
+		elseif (acquire_type == A_QUEST) then
 			-- Quest:				QuestName
 			-- QuestZone				QuestCoords
 			local qst = questDB[v["ID"]]
@@ -872,13 +842,13 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					ttAdd(0, -1, 0, faction.." "..L["Quest"], clr1)
 				end
 			end
-		elseif (acquire_type == ACQUIRE_SEASONAL) then
+		elseif (acquire_type == A_SEASONAL) then
 			-- Seasonal:				SeasonEventName
 			local ssnname = seasonDB[v["ID"]]["Name"]
 
 			clr1 = addon:hexcolor("SEASON")
 			ttAdd(0, -1, 0, seasonal, clr1, ssnname, clr1)
-		elseif (acquire_type == ACQUIRE_REPUTATION) then
+		elseif (acquire_type == A_REPUTATION) then
 			-- Reputation:				Faction
 			-- FactionLevel				RepVendor				
 			-- RepVendorZone			RepVendorCoords
@@ -936,7 +906,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(2, -2, 1, repvndr["Location"], clr1, cStr, clr2)
 			end
-		elseif (acquire_type == ACQUIRE_WORLD_DROP) then
+		elseif (acquire_type == A_WORLD_DROP) then
 			-- World Drop				RarityLevel
 			if (v["ID"] == 1) then
 				clr1 = addon:hexcolor("COMMON")
@@ -950,7 +920,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr1 = addon:hexcolor("NORMAL")
 			end
 			ttAdd(0, -1, 0, L["World Drop"], clr1)
-		elseif (acquire_type == ACQUIRE_CUSTOM) then
+		elseif (acquire_type == A_CUSTOM) then
 			local customname = customDB[v["ID"]]["Name"]
 
 			ttAdd(0, -1, 0, customname, addon:hexcolor("NORMAL"))
@@ -1887,7 +1857,7 @@ local function expandEntry(dsIndex)
 
 		acquire_type = v["Type"]
 
-		if acquire_type == ACQUIRE_VENDOR and (obtainDB.vendor or obtainDB.pvp) then
+		if acquire_type == A_VENDOR and (obtainDB.vendor or obtainDB.pvp) then
 			-- Right now PVP obtained items are located on vendors so they have the vendor and pvp flag.
 			-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
 			-- This allows us to select PVP only and to see just the PVP collectibles
@@ -1923,7 +1893,7 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 			end
 		-- Mobs can be in instances, raids, or specific mob related drops.
-		elseif acquire_type == ACQUIRE_MOB and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
+		elseif acquire_type == A_MOB and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
 			local mob = mobDB[v["ID"]]
 
 			if mob then
@@ -1946,7 +1916,7 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif acquire_type == ACQUIRE_QUEST and obtainDB.quest then
+		elseif acquire_type == A_QUEST and obtainDB.quest then
 			local quest = questDB[v["ID"]]
 
 			if quest and CheckDisplayFaction(filterDB, quest["Faction"]) then
@@ -1978,11 +1948,11 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif acquire_type == ACQUIRE_SEASONAL and obtainDB.seasonal then
+		elseif acquire_type == A_SEASONAL and obtainDB.seasonal then
 			t.String = pad .. addon:Season(seasonal .. " : " .. seasonDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif acquire_type == ACQUIRE_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
+		elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
 			-- Reputation Obtain
 			-- Rep: ID, Faction
 			-- RepLevel = 0 (Neutral), 1 (Friendly), 2 (Honored), 3 (Revered), 4 (Exalted)
@@ -2036,11 +2006,11 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
-		elseif acquire_type == ACQUIRE_WORLD_DROP and obtainDB.worlddrop then
+		elseif acquire_type == A_WORLD_DROP and obtainDB.worlddrop then
 			t.String = pad .. addon:RarityColor(v["ID"] + 1, L["World Drop"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif acquire_type == ACQUIRE_CUSTOM then
+		elseif acquire_type == A_CUSTOM then
 			t.String = pad .. addon:Normal(customDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
@@ -2077,7 +2047,7 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 			end
 		--@alpha@
-		elseif	(v["Type"] > ACQUIRE_MAX) then -- We have an acquire type we aren't sure how to deal with.
+		elseif	(v["Type"] > A_MAX) then -- We have an acquire type we aren't sure how to deal with.
 			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
