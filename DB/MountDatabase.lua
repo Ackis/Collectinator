@@ -78,112 +78,112 @@ function addon:MakeMountTable(MountDB)
 
 	-- Brown Horse Bridle - 458
 	AddMount(458, 5656, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 458, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionFlags(MountDB, 458, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	self:AddCompanionAcquire(MountDB, 458, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
 
 	-- Black Stallion Bridle - 470
 	self:AddMount(470, 2411, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 470, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionFlags(MountDB, 470, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	self:AddCompanionAcquire(MountDB, 470, A_VENDOR, 1460)
 
 	-- Pinto Bridle - 472
-	self:AddMount(472, 2414, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,472,F_ALLIANCE, 3,16)
-	--self:AddCompanionAcquire(MountDB,472,1,384,1,1460,1,2357,1,4885)
+	self:AddMount(472, 2414, R_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB, 472, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(MountDB, 472, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
 
 	-- Horn of the Timber Wolf - 580
-	self:AddMount(580, 1132, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,580,2,3,16)
-	--self:AddCompanionAcquire(MountDB,580,1,3362)
+	self:AddMount(580, 1132, R_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB, 580, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(MountDB, 580, A_VENDOR, 3362)
 
 	-- Chestnut Mare Bridle - 6648
-	self:AddMount(6648, 5655, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,6648,1,3,16)
+	self:AddMount(6648, 5655, R_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB, 6648, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,6648,1,384,1,1460,1,2357,1,4885)
 
 	-- Horn of the Dire Wolf - 6653
-	self:AddMount(6653, 5665, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,6653,2,3,16)
+	self:AddMount(6653, 5665, R_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB, 6653, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,6653,1,3362)
 
 	-- Horn of the Brown Wolf - 6654
-	self:AddMount(6654, 5668, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,6654,2,3,16)
+	self:AddMount(6654, 5668, R_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB, 6654, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,6654,1,3362)
 
 	-- Gray Ram - 6777
 	self:AddMount(6777, 5864, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,6777,1,3,16)
+	self:AddCompanionFlags(MountDB, 6777, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,6777,1,1261)
 
 	-- White Ram - 6898
 	self:AddMount(6898, 5873, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,6898,1,3,16)
+	self:AddCompanionFlags(MountDB, 6898, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,6898,1,1261)
 
 	-- Brown Ram - 6899
 	self:AddMount(6899, 5872, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,6899,1,3,16)
+	self:AddCompanionFlags(MountDB, 6899, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,6899,1,1261)
 
 	-- Reins of the Striped Frostsaber - 8394
 	self:AddMount(8394, 8631, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,8394,1,3,16)
+	self:AddCompanionFlags(MountDB, 8394, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,8394,1,4730)
 
 	-- Whistle of the Emerald Raptor - 8395
 	self:AddMount(8395, 8588, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,8395,2,3,16)
+	self:AddCompanionFlags(MountDB, 8395, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,8395,1,7952)
 
 	-- Reins of the Spotted Frostsaber - 10789
 	self:AddMount(10789, 8632, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,10789,1,3,16)
+	self:AddCompanionFlags(MountDB, 10789, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,10789,1,4730)
 
 	-- Reins of the Striped Nightsaber - 10793
 	self:AddMount(10793, 8629, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,10793,1,3,16)
+	self:AddCompanionFlags(MountDB, 10793, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,10793,1,4730)
 
 	-- Old Whistle of the Ivory Raptor - 10795
 	self:AddMount(10795, 8589, 1, GAME_ORIG)
-	-- No filter flags
+	self:AddCompanionFlags(MountDB, 10795, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	-- No acquire information
 
 	-- Whistle of the Turquoise Raptor - 10796
 	self:AddMount(10796, 8591, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,10796,2,3,16)
+	self:AddCompanionFlags(MountDB, 10796, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,10796,1,7952)
 
 	-- Whistle of the Violet Raptor - 10799
 	self:AddMount(10799, 8592, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,10799,2,3,16)
+	self:AddCompanionFlags(MountDB,10799, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,10799,1,7952)
 
 	-- Red Mechanostrider - 10873
 	self:AddMount(10873, 8563, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,10873,1,3,16)
+	self:AddCompanionFlags(MountDB,10873, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,10873,1,7955)
 
 	-- Blue Mechanostrider - 10969
 	self:AddMount(10969, 8595, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,10969,1,3,16)
+	self:AddCompanionFlags(MountDB,10969, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,10969,1,7955)
 
 	-- White Mechanostrider Mod B - 15779
 	self:AddMount(15779, 13326, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,15779,16)
+	self:AddCompanionFlags(MountDB,15779, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	-- No acquire information
 
 	-- Reins of the Nightsaber - 16055
 	self:AddMount(16055, 12303, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,16055,16)
+	self:AddCompanionFlags(MountDB,16055, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	-- No acquire information
 
 	-- Reins of the Ancient Frostsaber - 16056
 	self:AddMount(16056, 12302, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,16056,16)
+	self:AddCompanionFlags(MountDB,16056, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	-- No acquire information
 
 	-- Horn of the Red Wolf - 16080
@@ -198,12 +198,12 @@ function addon:MakeMountTable(MountDB)
 
 	-- Palomino Bridle - 16082
 	self:AddMount(16082, 12354, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,16082,16)
+	self:AddCompanionFlags(MountDB,16082, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	-- No acquire information
 
 	-- White Stallion Bridle - 16083
 	self:AddMount(16083, 12353, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,16083,16)
+	self:AddCompanionFlags(MountDB,16083, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	-- No acquire information
 
 	-- Whistle of the Mottled Red Raptor - 16084
@@ -213,7 +213,7 @@ function addon:MakeMountTable(MountDB)
 
 	-- Reins of the Winterspring Frostsaber - 17229
 	self:AddMount(17229, 13086, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,17229,1,3,16)
+	self:AddCompanionFlags(MountDB,17229, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,17229,1,10618)
 
 	-- Whistle of the Ivory Raptor - 17450
@@ -223,17 +223,17 @@ function addon:MakeMountTable(MountDB)
 
 	-- Green Mechanostrider - 17453
 	self:AddMount(17453, 13321, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,17453,1,3,16)
+	self:AddCompanionFlags(MountDB,17453, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,17453,1,7955)
 
 	-- Unpainted Mechanostrider - 17454
 	self:AddMount(17454, 13322, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,17454,1,3,16)
+	self:AddCompanionFlags(MountDB,17454, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	--self:AddCompanionAcquire(MountDB,17454,1,7955)
 
 	-- Icy Blue Mechanostrider Mod A - 17459
 	self:AddMount(17459, 13327, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,17459,16)
+	self:AddCompanionFlags(MountDB,17459, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	-- No acquire information
 
 	-- Frost Ram - 17460
