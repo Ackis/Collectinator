@@ -15,8 +15,8 @@ Project version: @project-version@
 
 ]]--
 
-local MODNAME			= "Collectinator"
-local addon			= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME = "Collectinator"
+local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 -------------------------------------------------------------------------------
 -- Item "rarity"
@@ -41,7 +41,7 @@ local F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, 
 -------------------------------------------------------------------------------
 local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT = 1, 2, 3, 4, 5, 6, 7, 8, 9
 
-local initialized	= false
+local initialized = false
 
 function addon:MakeMiniPetTable(PetDB)
 
