@@ -116,12 +116,12 @@ function addon:MakeMountTable(MountDB)
 	-- Chestnut Mare Bridle - 6648
 	AddMount(6648, 5655, R_RARE, GAME_ORIG)
 	self:AddCompanionFlags(MountDB, 6648, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(MountDB,6648,1,384,1,1460,1,2357,1,4885)
+	self:AddCompanionAcquire(MountDB, 6648, A_VENDOR,384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
 
 	-- Horn of the Dire Wolf - 6653
 	AddMount(6653, 5665, R_RARE, GAME_ORIG)
 	self:AddCompanionFlags(MountDB, 6653, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(MountDB,6653,1,3362)
+	self:AddCompanionAcquire(MountDB, 6653, A_VENDOR, 3362)
 
 	-- Horn of the Brown Wolf - 6654
 	AddMount(6654, 5668, R_RARE, GAME_ORIG)
