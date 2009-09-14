@@ -259,39 +259,39 @@ function addon:MakeMountTable(MountDB)
 	self:AddCompanionAcquire(MountDB, 17461, A_CUSTOM, 23)
 
 	-- Red Skeletal Horse - 17462
-	AddMount(17462, 13331, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,17462,1,2,3,16)
-	--self:AddCompanionAcquire(MountDB,17462,1,4731)
+	AddMount(17462, 13331, F_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB,17462, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(MountDB,17462,A_VENDOR,4731)
 
 	-- Blue Skeletal Horse - 17463
-	AddMount(17463, 13332, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,17463,1,2,3,16)
-	--self:AddCompanionAcquire(MountDB,17463,1,4731)
+	AddMount(17463, 13332, F_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB,17463, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(MountDB,17463,A_VENDOR,4731)
 
 	-- Brown Skeletal Horse - 17464
-	AddMount(17464, 13333, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,17464,1,2,3,16)
-	--self:AddCompanionAcquire(MountDB,17464,1,4731)
+	AddMount(17464, 13333, F_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB,17464, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(MountDB,17464,A_VENDOR,4731)
 
 	-- Green Skeletal Warhorse - 17465
-	AddMount(17465, 13334, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,17465,1,2,3,16)
-	--self:AddCompanionAcquire(MountDB,17465,1,4731)
+	AddMount(17465, 13334, F_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB,17465, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(MountDB,17465,A_VENDOR,4731)
 
 	-- Deathcharger's Reins - 17481
-	AddMount(17481, 13335, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,17481,1,2,16)
-	--self:AddCompanionAcquire(MountDB,17481,4,10440)
+	AddMount(17481, 13335, F_EPIC, GAME_ORIG)
+	self:AddCompanionFlags(MountDB,17481, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_INSTANCE, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(MountDB,17481,A_MOB,10440)
 
 	-- Gray Kodo - 18989
-	AddMount(18989, 15277, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,18989,2,3,16)
-	--self:AddCompanionAcquire(MountDB,18989,1,3685)
+	AddMount(18989, 15277, F_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB,18989, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(MountDB,18989,A_VENDOR,3685)
 
 	-- Brown Kodo - 18990
-	AddMount(18990, 15290, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,18990,2,3,16)
-	--self:AddCompanionAcquire(MountDB,18990,1,3685)
+	AddMount(18990, 15290, F_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB,18990, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(MountDB,18990,A_VENDOR,3685)
 
 	-- Green Kodo - 18991
 	AddMount(18991, 15292, F_EPIC, GAME_ORIG)

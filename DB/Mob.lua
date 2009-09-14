@@ -33,6 +33,7 @@ local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 function addon:InitMob(MobDB)
 
 	self:addLookupList(MobDB,1561,L["Bloodsail Raider"],BZONE["Stranglethorn Vale"],27.0,70.0)
+	self:addLookupList(MobDB,10440,BB["Baron Rivendare"],BZONE["Stratholme"],0,0)
 	self:addLookupList(MobDB,24664,BBOSS["Kael'thas Sunstrider"],BZONE["Magisters' Terrace"],0,0)
 
 end
