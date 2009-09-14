@@ -56,9 +56,9 @@ function addon:MakeMiniPetTable(PetDB)
 	-------------------------------------------------------------------------------
 	local num_pets = 0
 
-	local function AddPet(...)
+	local function AddPet(SpellID, PetItemID, Rarity, Game)
 		num_pets = num_pets + 1
-		addon:AddCompanion(PetDB, "CRITTER", ...)
+		addon:AddCompanion(PetDB, "CRITTER", SpellID, PetItemID, Rarity, Game)
 	end
 
 	-- Mechanical Squirrel Box - 4055
