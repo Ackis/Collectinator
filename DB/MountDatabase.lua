@@ -56,6 +56,11 @@ local F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, 
 -------------------------------------------------------------------------------
 local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT = 1, 2, 3, 4, 5, 6, 7, 8, 9
 
+-------------------------------------------------------------------------------
+-- Class types
+-------------------------------------------------------------------------------
+local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C_WARLOCK, C_WARRIOR = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
 local initialized = false
 
 function addon:MakeMountTable(MountDB)
@@ -71,9 +76,13 @@ function addon:MakeMountTable(MountDB)
 	-------------------------------------------------------------------------------
 	local num_mounts = 0
 
-	local function AddMount(SpellID, MountItemID, Rarity, Game)
+	local function AddMount(SpellID, MountItemID, Rarity, Game, Class)
 		num_mounts = num_mounts + 1
-		addon:AddCompanion(MountDB, "MOUNT", SpellID, MountItemID, Rarity, Game)
+		if (Class) then
+			addon:AddCompanion(MountDB, "MOUNT", SpellID, MountItemID, Rarity, Game, Class)
+		else
+			addon:AddCompanion(MountDB, "MOUNT", SpellID, MountItemID, Rarity, Game)
+		end
 	end
 
 	-- Brown Horse Bridle - 458
@@ -811,6 +820,11 @@ function addon:MakeMountTable(MountDB)
 	--self:AddCompanionFlags(MountDB,48027,1,2,3,16)
 	--self:AddCompanionAcquire(MountDB,48027,1,12783)
 
+	-- Acherus Deathcharger - 48778
+	self:AddMount(48778, nil, 1, GAME_WOTLK, C_DK)
+	self:AddCompanionFlags(MountDB, 48778, F_ALLIANCE, F_HORDE, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(MountDB, 48778, A_QUEST, 12687)
+
 	-- Vengeful Nether Drake - 49193
 	self:AddMount(49193, 37676, 1, GAME_BC)
 	--self:AddCompanionFlags(MountDB,49193,16)
@@ -832,9 +846,9 @@ function addon:MakeMountTable(MountDB)
 	--self:AddCompanionAcquire(MountDB,51412,1,17249)
 
 	-- Winged Steed of the Ebon Blade - 54729
-	self:AddMount(54729, 40775, 1, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,54729,1,2,3,16)
-	--self:AddCompanionAcquire(MountDB,54729,1,29587)
+	self:AddMount(54729, 40775, F_EPIC, GAME_WOTLK, C_DK)
+	self:AddCompanionFlags(MountDB, 54729, F_ALLIANCE, F_HORDE, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(MountDB,54729, A_VENDOR, 29587)
 
 	-- Reins of the White Polar Bear - 54753
 	self:AddMount(54753, 43962, 1, GAME_WOTLK)

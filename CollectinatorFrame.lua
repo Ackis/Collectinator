@@ -98,6 +98,11 @@ local F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, 
 -------------------------------------------------------------------------------
 local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
 
+-------------------------------------------------------------------------------
+-- Class types
+-------------------------------------------------------------------------------
+local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C_WARLOCK, C_WARRIOR = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
 -- Returns the index type based on the supplied string.
 local INDEX_TYPE = {
 	["CRITTER"]	= 1,
