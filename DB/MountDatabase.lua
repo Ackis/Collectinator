@@ -77,18 +77,18 @@ function addon:MakeMountTable(MountDB)
 	end
 
 	-- Brown Horse Bridle - 458
-	AddMount(458, 5656, 3, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,458,1,3,16)
-	--self:AddCompanionAcquire(MountDB,458,1,384,1,1460,1,2357,1,4885)
+	AddMount(458, 5656, R_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB, 458, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(MountDB, 458, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
 
 	-- Black Stallion Bridle - 470
-	self:AddMount(470, 2411, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,470,1,3,16)
-	--self:AddCompanionAcquire(MountDB,470,1,1460)
+	self:AddMount(470, 2411, R_RARE, GAME_ORIG)
+	self:AddCompanionFlags(MountDB, 470, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(MountDB, 470, A_VENDOR, 1460)
 
 	-- Pinto Bridle - 472
 	self:AddMount(472, 2414, 1, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,472,1,3,16)
+	--self:AddCompanionFlags(MountDB,472,F_ALLIANCE, 3,16)
 	--self:AddCompanionAcquire(MountDB,472,1,384,1,1460,1,2357,1,4885)
 
 	-- Horn of the Timber Wolf - 580
