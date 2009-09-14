@@ -4,7 +4,7 @@
 
 Collectinator
 
-File date: @file-date-iso@ 
+File date: @file-date-iso@
 Project version: @project-version@
 
 Author: Ackis
@@ -41,6 +41,18 @@ local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_UNUSED, F_INSTANCE, F_RAID, F_SE
 local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP = 11, 12, 13, 14, 15, 16
 local F_BOE, F_BOP, F_BOA = 20, 21, 22
 local F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36
+local F_ARGENT_DAWN, F_BLOODSAIL, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_ TIMBERMAW, F_WINTERSRPING, F_ZANDALAR = 40, 41, 42, 43, 44, 100, 45
+local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPIDITION, F_HELLFIRE, F_CONSORTIUM, F_KOT, F_LOWER_CITY, F_NAGRAND = 46, 47, 48, 49, 50, 51, 52, 53
+local F_NETHERWING, F_SCALE_SANDS, F_SCRYER, F_SHATAR, F_SKYGUARD, F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLET_EYE = 54, 55, 56, 57, 90, 58, 59, 60
+local F_CITY1, F_CITY2, F_CITY3, F_CITY5, F_CITY5 = 61, 62, 63, 64, 65
+local F_PVP1, F_PVP2, F_PVP3 = 66, 67, 68
+local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALUAK, F_ORACLES, F_WYRMREST = 71, 72, 73, 74, 75, 76, 77, 78
+local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79, 80, 81, 82, 83
+
+-------------------------------------------------------------------------------
+-- Reputation Flags
+-------------------------------------------------------------------------------
+local R_WINTERSPRING = 589
 
 -------------------------------------------------------------------------------
 -- Constants for acquire types.
@@ -93,11 +105,11 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 local MissingLibraries
 do
 	local REQUIRED_LIBS = {
-		"AceLocale-3.0", 
-		"LibBabble-Boss-3.0", 
-		"LibBabble-Class-3.0", 
-		"LibBabble-Faction-3.0", 
-		"LibBabble-Zone-3.0", 
+		"AceLocale-3.0",
+		"LibBabble-Boss-3.0",
+		"LibBabble-Class-3.0",
+		"LibBabble-Faction-3.0",
+		"LibBabble-Zone-3.0",
 	}
 	function MissingLibraries()
 		local missing = false
@@ -139,118 +151,118 @@ function addon:OnInitialize()
 		profile = {
 			-- Frame options
 			frameopts = {
-				offsetx = 0, 
-				offsety = 0, 
-				anchorTo = "", 
-				anchorFrom = "", 
-				uiscale = 1, 
-				tooltipscale = .9, 
-				fontsize = 11, 
-			}, 
-			sorting = "Name", 
-			includefiltered = false, 
-			includeexcluded = false, 
-			closeguionskillclose = false, 
-			ignoreexclusionlist = false, 
-			scanbuttonlocation = "TR", 
-			spelltooltiplocation = "Right", 
-			acquiretooltiplocation = "Mouse", 
-			hidepopup = false, 
-			minimap = true, 
-			worldmap = true, 
-			autoscanmap = false, 
-			scantrainers = false, 
-			autoloaddb = false, 
+				offsetx = 0,
+				offsety = 0,
+				anchorTo = "",
+				anchorFrom = "",
+				uiscale = 1,
+				tooltipscale = .9,
+				fontsize = 11,
+			},
+			sorting = "Name",
+			includefiltered = false,
+			includeexcluded = false,
+			closeguionskillclose = false,
+			ignoreexclusionlist = false,
+			scanbuttonlocation = "TR",
+			spelltooltiplocation = "Right",
+			acquiretooltiplocation = "Mouse",
+			hidepopup = false,
+			minimap = true,
+			worldmap = true,
+			autoscanmap = false,
+			scantrainers = false,
+			autoloaddb = false,
 
-			exclusionlist = {}, 
+			exclusionlist = {},
 
 			filters = {
 				general = {
-					faction = true, 
-					known = false, 
-					unknown = true, 
-				}, 
+					faction = true,
+					known = false,
+					unknown = true,
+				},
 				obtain = {
-					vendor = true, 
-					quest = true, 
-					instance = true, 
-					raid = true, 
-					seasonal = true, 
-					worlddrop = true, 
-					mobdrop = true, 
-					pvp = true, 
-					tcg = true, 
-					event = true, 
-					ce = true, 
-					removed = true, 
-					achievement = true, 
-					originalwow = true, 
-					bc = true, 
-					wrath = true, 
-				}, 
+					vendor = true,
+					quest = true,
+					instance = true,
+					raid = true,
+					seasonal = true,
+					worlddrop = true,
+					mobdrop = true,
+					pvp = true,
+					tcg = true,
+					event = true,
+					ce = true,
+					removed = true,
+					achievement = true,
+					originalwow = true,
+					bc = true,
+					wrath = true,
+				},
 				binding = {
-					itemboe = true, 
-					itembop = true, 
-					itemboa = true, 
-				}, 
+					itemboe = true,
+					itembop = true,
+					itemboa = true,
+				},
 				profs = {
-					alch = true, 
-					bs = true, 
-					cook = true, 
-					ench = true, 
-					eng = true, 
-					fa = true, 
-					insc = true, 
-					jc = true, 
-					lw = true, 
-					smelt = true, 
-					tailor = true, 
-					fish = true, 
-				}, 
+					alch = true,
+					bs = true,
+					cook = true,
+					ench = true,
+					eng = true,
+					fa = true,
+					insc = true,
+					jc = true,
+					lw = true,
+					smelt = true,
+					tailor = true,
+					fish = true,
+				},
 				rep = {
-					aldor = true, 
-					scryer = true, 
-					argentdawn = true, 
-					ashtonguedeathsworn = true, 
-					bloodsail = true, 
-					cenarioncircle = true, 
-					cenarionexpedition = true, 
-					consortium = true, 
-					hellfire = true, 
-					keepersoftime = true, 
-					nagrand = true, 
-					netherwing = true, 
-					lowercity = true, 
-					scaleofthesands = true, 
-					shatar = true, 
-					shatteredsun = true, 
-					skyguard = true, 
-					sporeggar = true, 
-					thoriumbrotherhood = true, 
-					timbermaw = true, 
-					violeteye = true, 
-					zandalar = true, 
-					argentcrusade = true, 
-					frenzyheart = true, 
-					ebonblade = true, 
-					kirintor = true, 
-					sonsofhodir = true, 
-					kaluak = true, 
-					oracles = true, 
-					wyrmrest = true, 
-					wrathcommon1 = true, 
-					wrathcommon2 = true, 
-					wrathcommon3 = true, 
-					wrathcommon4 = true, 
-					wrathcommon5 = true, 
-					city1 = true, 
-					city2 = true, 
-					city3 = true, 
-					city4 = true, 
-					city5 = true, 
-					pvp1 = true, 
-					pvp2 = true, 
-					pvp3 = true, 
+					aldor = true,
+					scryer = true,
+					argentdawn = true,
+					ashtonguedeathsworn = true,
+					bloodsail = true,
+					cenarioncircle = true,
+					cenarionexpedition = true,
+					consortium = true,
+					hellfire = true,
+					keepersoftime = true,
+					nagrand = true,
+					netherwing = true,
+					lowercity = true,
+					scaleofthesands = true,
+					shatar = true,
+					shatteredsun = true,
+					skyguard = true,
+					sporeggar = true,
+					thoriumbrotherhood = true,
+					timbermaw = true,
+					violeteye = true,
+					zandalar = true,
+					argentcrusade = true,
+					frenzyheart = true,
+					ebonblade = true,
+					kirintor = true,
+					sonsofhodir = true,
+					kaluak = true,
+					oracles = true,
+					wyrmrest = true,
+					wrathcommon1 = true,
+					wrathcommon2 = true,
+					wrathcommon3 = true,
+					wrathcommon4 = true,
+					wrathcommon5 = true,
+					city1 = true,
+					city2 = true,
+					city3 = true,
+					city4 = true,
+					city5 = true,
+					pvp1 = true,
+					pvp2 = true,
+					pvp3 = true,
 				}, -- rep
 			} -- filters
 		} -- profile
@@ -278,7 +290,7 @@ function addon:OnEnable()
 
 	button:SetHeight(20)
 	button:RegisterForClicks("LeftButtonUp")
-	button:SetScript("OnClick", 
+	button:SetScript("OnClick",
 				  function()
 					  local companion_frame = PetPaperDollFrameCompanionFrame
 					  local current_tab = "CRITTER"
@@ -290,7 +302,7 @@ function addon:OnEnable()
 					  --addon:ToggleFrame()
 				  end)
 
-	button:SetScript("OnEnter", 
+	button:SetScript("OnEnter",
 				   function(this)
 					   GameTooltip_SetDefaultAnchor(GameTooltip, this)
 					   GameTooltip:SetText(L["SCAN_COMPANIONS_DESC"])
@@ -316,7 +328,7 @@ function addon:OnEnable()
 	-------------------------------------------------------------------------------
 	-- Add mini-pet/mount totals to the tab
 	-------------------------------------------------------------------------------
-	PetPaperDollFrameTab2:SetScript("OnEnter", 
+	PetPaperDollFrameTab2:SetScript("OnEnter",
 					function(this)
 						GameTooltip_SetDefaultAnchor(GameTooltip, this)
 						GameTooltip:SetText(GetNumCompanions("CRITTER") .. " companions known.")
@@ -324,7 +336,7 @@ function addon:OnEnable()
 					end)
 	PetPaperDollFrameTab2:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
-	PetPaperDollFrameTab3:SetScript("OnEnter", 
+	PetPaperDollFrameTab3:SetScript("OnEnter",
 					function(this)
 						GameTooltip_SetDefaultAnchor(GameTooltip, this)
 						GameTooltip:SetText(GetNumCompanions("MOUNT") .. " mounts known.")
@@ -524,19 +536,12 @@ end
 -- @return None, array is passed as a reference.
 function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 
-	--[[
-		For individual database structures, see Documentation
-	]]--
-
 	DB[ID] = {}
 	DB[ID]["Name"] = Name
 
 	if (Loc) then
 		DB[ID]["Location"] = Loc
 	else
-		--@debug@
-		--self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")
-		--@end-debug@
 		DB[ID]["Location"] = L["Unknown Zone"]
 	end
 
@@ -641,53 +646,54 @@ do
 
 		reptable = {
 			-- Old World
-			[40] = repdb.argentdawn, 
-			[41] = repdb.bloodsail, 
-			[42] = repdb.cenarioncircle, 
-			[43] = repdb.thoriumbrotherhood, 
-			[44] = repdb.timbermaw, 
-			[45] = repdb.zandalar, 
+			[F_ARGENT_DAWN] = repdb.argentdawn,
+			[F_BLOODSAIL] = repdb.bloodsail,
+			[F_CENARION_CIRCLE] = repdb.cenarioncircle,
+			[F_THORIUM_BROTHERHOOD] = repdb.thoriumbrotherhood,
+			[TIMBERMAW] = repdb.timbermaw,
+			[F_WINTERSRPING] = repdb.winterspring,
+			[F_ZANDALAR] = repdb.zandalar,
 			-- BC
-			[46] = repdb.aldor, 
-			[47] = repdb.ashtonguedeathsworn, 
-			[48] = repdb.cenarionexpedition, 
-			[49] = repdb.hellfire, 
-			[50] = repdb.consortium, 
-			[51] = repdb.keepersoftime, 
-			[52] = repdb.lowercity, 
-			[53] = repdb.nagrand, 
-			[54] = repdb.netherwing, 
-			[55] = repdb.scaleofthesands, 
-			[56] = repdb.scryer, 
-			[57] = repdb.shatar, 
-			[90] = repdb.skyguard, 
-			[58] = repdb.shatteredsun, 
-			[59] = repdb.sporeggar, 
-			[60] = repdb.violeteye, 
+			[F_ALDOR] = repdb.aldor,
+			[F_ASHTONGUE] = repdb.ashtonguedeathsworn,
+			[F_CENARION_EXPIDITION] = repdb.cenarionexpedition,
+			[F_HELLFIRE] = repdb.hellfire,
+			[F_CONSORTIUM] = repdb.consortium,
+			[F_KOT] = repdb.keepersoftime,
+			[F_LOWER_CITY] = repdb.lowercity,
+			[F_NAGRAND] = repdb.nagrand,
+			[F_NETHERWING] = repdb.netherwing,
+			[F_SCALE_SANDS] = repdb.scaleofthesands,
+			[F_SCRYER] = repdb.scryer,
+			[F_SHATAR] = repdb.shatar,
+			[F_SKYGUARD] = repdb.skyguard,
+			[F_SHATTEREDSUN] = repdb.shatteredsun,
+			[F_SPOREGGAR] = repdb.sporeggar,
+			[F_VIOLET_EYE] = repdb.violeteye,
 			-- Faction Cities
-			[61] = repdb.city1, 
-			[62] = repdb.city2, 
-			[63] = repdb.city3, 
-			[64] = repdb.city4, 
-			[65] = repdb.city5, 
+			[F_CITY1] = repdb.city1,
+			[F_CITY2] = repdb.city2,
+			[F_CITY3] = repdb.city3,
+			[F_CITY4] = repdb.city4,
+			[F_CITY5] = repdb.city5,
 			-- PVP
-			[66] = repdb.pvp1, 
-			[67] = repdb.pvp2, 
-			[68] = repdb.pvp3, 
+			[F_PVP1] = repdb.pvp1,
+			[F_PVP2] = repdb.pvp2,
+			[F_PVP3] = repdb.pvp3,
 			-- Wrath
-			[71] = repdb.argentcrusade, 
-			[72] = repdb.frenzyheart, 
-			[73] = repdb.ebonblade, 
-			[74] = repdb.kirintor, 
-			[75] = repdb.sonsofhodir, 
-			[76] = repdb.kaluak, 
-			[77] = repdb.oracles, 
-			[78] = repdb.wyrmrest, 
-			[79] = repdb.wrathcommon1, 
-			[80] = repdb.wrathcommon2, 
-			[81] = repdb.wrathcommon3, 
-			[82] = repdb.wrathcommon4, 
-			[83] = repdb.wrathcommon5, 
+			[F_ARGENT_CRUSADE] = repdb.argentcrusade,
+			[F_FRENZYHEART] = repdb.frenzyheart,
+			[F_EBON_BLADE] = repdb.ebonblade,
+			[F_KIRINTOR] = repdb.kirintor,
+			[F_HODIR] = repdb.sonsofhodir,
+			[F_KALUAK] = repdb.kaluak,
+			[F_ORACLES] = repdb.oracles,
+			[F_WYRMREST] = repdb.wyrmrest,
+			[WRATHCOMMON1] = repdb.wrathcommon1,
+			[WRATHCOMMON2] = repdb.wrathcommon2,
+			[WRATHCOMMON3] = repdb.wrathcommon3,
+			[WRATHCOMMON4] = repdb.wrathcommon4,
+			[WRATHCOMMON5] = repdb.wrathcommon5,
 		}
 
 	end
@@ -729,67 +735,45 @@ do
 			-- We want to filter out all the Horde only items
 			if playerFaction == BFAC["Alliance"] then
 				-- Filter out Horde only
-				if (not flags[1]) and flags[2] then
+				if (not flags[F_ALLIANCE]) and flags[F_HORDE] then
 					return false
 				end
 			-- We want to filter out all the Alliance only items
 			else
 				-- Filter out Alliance only
-				if (not flags[2]) and flags[1] then
+				if (not flags[F_HORDE]) and flags[F_ALLIANCE] then
 					return false
 				end
 			end
 		end
 
 		-- Filter out "era" items
-		if ((obtaindb.originalwow == false) and (Entry["Game"] == 0)) then
+		if ((obtaindb.originalwow == false) and (Entry["Game"] == GAME_ORIG)) then
 			return false
 		end
-		if ((obtaindb.bc == false) and (Entry["Game"] == 1)) then
+		if ((obtaindb.bc == false) and (Entry["Game"] == GAME_BC)) then
 			return false
 		end
-		if ((obtaindb.wrath == false) and (Entry["Game"] == 2)) then
+		if ((obtaindb.wrath == false) and (Entry["Game"] == GAME_WOTLK)) then
 			return false
 		end
 
 		local bindingdb = filterdb.binding
 
 		-- Include BoE Items in the scan? (if I want to see BoE items, only filter those that are not BoE)
-		if (bindingdb.itemboe == false) and (flags[20] == true) then
+		if (bindingdb.itemboe == false) and (flags[F_BOE] == true) then
 			return false
 		end
 
 		-- Include BoP Items in the scan? (if I want to see BoP items, only filter those that are not BoP)
-		if (bindingdb.itembop == false) and (flags[21] == true) then
+		if (bindingdb.itembop == false) and (flags[F_BOP] == true) then
 			return false
 		end
 
 		-- Include BoA Items in the scan? (if I want to see BoA items, only filter those that are not BoA)
-		if (bindingdb.itemboa == false) and (flags[22] == true) then
+		if (bindingdb.itemboa == false) and (flags[F_BOA] == true) then
 			return false
 		end
-
-		--[[
-		local profdb = filterdb.profs
-
-			if (profdb.deathknight == false) and (flags[25] == true) then
-				if (profdb.druid == true) and (flags[26] == true) or
-				(profdb.hunter == true) and (flags[27] == true) or
-				(profdb.mage == true) and (flags[28] == true) or
-				(profdb.paladin == true) and (flags[29] == true) or
-				(profdb.priest == true) and (flags[30] == true) or
-				(profdb.shaman == true) and (flags[31] == true) or
-				(profdb.rogue == true) and (flags[32] == true) or
-				(profdb.warlock == true) and (flags[33] == true) or
-				(profdb.warrior == true) and (flags[34] == true) or
-				(profdb.warrior == true) and (flags[35] == true) or
-				(profdb.warrior == true) and (flags[36] == true) then
-					--do nothing
-				else
-					return false
-				end
-			end
-		]]--
 
 		if (not CheckReputationDisplay(flags)) then
 			return false
@@ -800,32 +784,32 @@ do
 		-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the item
 
 		-- Display vendor items
-		if (obtaindb.vendor == true) and (flags[3] == true) then
+		if (obtaindb.vendor == true) and (flags[F_VENDOR] == true) then
 			return true
 		end
 
 		-- Display quest items
-		if (obtaindb.quest == true) and (flags[4] == true) then
+		if (obtaindb.quest == true) and (flags[F_QUEST] == true) then
 			return true
 		end
 
 		-- Display instance items
-		if (obtaindb.instance == true) and (flags[6] == true) then
+		if (obtaindb.instance == true) and (flags[F_INSTANCE] == true) then
 			return true
 		end
 
 		-- Display raid items
-		if (obtaindb.raid == true) and (flags[7] == true) then
+		if (obtaindb.raid == true) and (flags[F_RAID] == true) then
 			return true
 		end
 
 		-- Display seasonal items
-		if (obtaindb.seasonal == true) and (flags[8] == true) then
+		if (obtaindb.seasonal == true) and (flags[F_SEASONAL] == true) then
 			return true
 		end
 
 		-- Display world drop items
-		if (obtaindb.worlddrop == true) and (flags[9] == true) then
+		if (obtaindb.worlddrop == true) and (flags[F_WORLD_DROP] == true) then
 			return true
 		end
 
@@ -835,32 +819,32 @@ do
 		end
 
 		-- Display TCG items
-		if (obtaindb.tcg == true) and (flags[11] == true) then
+		if (obtaindb.tcg == true) and (flags[F_TCG] == true) then
 			return true
 		end
 
 		-- Display Special Event items
-		if (obtaindb.event == true) and (flags[12] == true) then
+		if (obtaindb.event == true) and (flags[F_SPEC_EVENT] == true) then
 			return true
 		end
 
 		-- Display CE items
-		if (obtaindb.ce == true) and (flags[13] == true) then
+		if (obtaindb.ce == true) and (flags[F_COLLECTORS] == true) then
 			return true
 		end
 
 		-- Display removed items
-		if (obtaindb.removed == true) and (flags[14] == true) then
+		if (obtaindb.removed == true) and (flags[F_REMOVED] == true) then
 			return true
 		end
 
 		-- Display achievement items
-		if (obtaindb.achievement == true) and (flags[15] == true) then
+		if (obtaindb.achievement == true) and (flags[F_ACHIEVEMENT] == true) then
 			return true
 		end
 
 		-- Display PVP items
-		if (obtaindb.PVP == true) and (flags[16] == true) then
+		if (obtaindb.PVP == true) and (flags[F_PVP] == true) then
 			return true
 		end
 
