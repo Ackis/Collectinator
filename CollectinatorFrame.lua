@@ -735,7 +735,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				ttAdd(0, -1, 0, L["Vendor"], clr1, UNKNOWN, clr2)
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, 1, UNKNOWN, clr1, cStr, clr2)
+				ttAdd(1, -2, 1, v["ID"], clr1, cStr, clr2)
 			else
 				-- Don't display vendors of opposite faction
 				local displaytt = false
@@ -779,13 +779,13 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			local mob = mobDB[v["ID"]]
 			local cStr = ""
 
-			if not mob then
+			if (not mob) then
 				clr1 = addon:hexcolor("MOBDROP")
 				clr2 = addon:hexcolor("HORDE")
 				ttAdd(0, -1, 0, L["Mob Drop"], clr1, UNKNOWN, clr2)
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, 1, UNKNOWN, clr1, cStr, clr2)
+				ttAdd(1, -2, 1, v["ID"], clr1, cStr, clr2)
 			else
 				if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
 					cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
