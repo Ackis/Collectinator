@@ -23,6 +23,7 @@ Author: Ackis
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
+local maxfilterflags = 90
 
 -------------------------------------------------------------------------------
 -- Item "rarity"
@@ -42,11 +43,6 @@ local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP = 11, 1
 local F_BOE, F_BOP, F_BOA = 20, 21, 22
 local F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36
 -- Reputation filter flags moved to the do/end block since they're only used there
-
--------------------------------------------------------------------------------
--- Reputation Flags
--------------------------------------------------------------------------------
-local R_WINTERSPRING = 589
 
 -------------------------------------------------------------------------------
 -- Constants for acquire types.
@@ -414,7 +410,6 @@ end	-- do
 -------------------------------------------------------------------------------
 -- Companion DB functions
 -------------------------------------------------------------------------------
-local maxfilterflags = 90
 
 --- Adds a companion into the database.
 -- @name Collectinator:AddCompanion
