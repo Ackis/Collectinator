@@ -63,7 +63,7 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Mechanical Squirrel Box - 4055
 	AddPet(4055, 4401, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 4055, F_ALLIANCE, F_HORDE, F_UNUSED, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(PetDB, 4055, F_ALLIANCE, F_HORDE, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 4055, A_CRAFTED, 4036, 3928)
 
 	-- Cat Carrier (Bombay) - 10673
