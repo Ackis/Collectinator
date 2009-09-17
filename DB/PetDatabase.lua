@@ -37,6 +37,17 @@ local F_BOE, F_BOP, F_BOA = 20, 21, 22
 local F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36
 
 -------------------------------------------------------------------------------
+-- Reputation Filter Flags
+-------------------------------------------------------------------------------
+local F_ARGENT_DAWN, F_BLOODSAIL, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_ TIMBERMAW, F_WINTERSRPING, F_ZANDALAR = 40, 41, 42, 43, 44, 100, 45
+local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPIDITION, F_HELLFIRE, F_CONSORTIUM, F_KOT, F_LOWER_CITY, F_NAGRAND = 46, 47, 48, 49, 50, 51, 52, 53
+local F_NETHERWING, F_SCALE_SANDS, F_SCRYER, F_SHATAR, F_SKYGUARD, F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLET_EYE = 54, 55, 56, 57, 90, 58, 59, 60
+local F_CITY1, F_CITY2, F_CITY3, F_CITY5, F_CITY5 = 61, 62, 63, 64, 65
+local F_PVP1, F_PVP2, F_PVP3 = 66, 67, 68
+local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALUAK, F_ORACLES, F_WYRMREST = 71, 72, 73, 74, 75, 76, 77, 78
+local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79, 80, 81, 82, 83
+
+-------------------------------------------------------------------------------
 -- Acquire types
 -------------------------------------------------------------------------------
 local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT = 1, 2, 3, 4, 5, 6, 7, 8, 9
@@ -153,13 +164,13 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Wood Frog Box - 10703
 	AddPet(10703, 11027, R_COMMON, GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 10703, F_ALLIANCE, F_HORDE, F_VENDOR, F_SEASONAL, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(PetDB, 10703, 1, 14860, 7, 3)
+	self:AddCompanionFlags(PetDB, 10703, F_ALLIANCE, F_HORDE, F_VENDOR, F_SEASONAL, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 10703, 1, 14860, 7, 3)
 
 	-- Tree Frog Box - 10704
 	AddPet(10704, 11026, R_COMMON, GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 10704, F_ALLIANCE, F_HORDE, F_VENDOR, F_SEASONAL, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(PetDB, 10704, 1, 14860, 7, 3)
+	self:AddCompanionFlags(PetDB, 10704, F_ALLIANCE, F_HORDE, F_VENDOR, F_SEASONAL, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 10704, 1, 14860, 7, 3)
 
 	-- Hawk Owl - 10706
 	AddPet(10706, 8501, R_COMMON, GAME_ORIG)
@@ -198,23 +209,23 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Mechanical Chicken - 12243
 	AddPet(12243, 10398, R_COMMON, GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 12243, F_ALLIANCE, F_HORDE, F_QUEST, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(PetDB, 12243, A_QUEST, 3721, 
+	self:AddCompanionFlags(PetDB, 12243, F_ALLIANCE, F_HORDE, F_QUEST, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 12243, A_QUEST, 3721)
 
 	-- Chicken Egg - 13548
 	AddPet(13548, 11110, R_COMMON, GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 13548, F_ALLIANCE, F_HORDE, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(PetDB, 13548, 8, 2)
+	self:AddCompanionFlags(PetDB, 13548, F_ALLIANCE, F_HORDE, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 13548, 8, 2)
 
 	-- Pet Bombling - 15048
 	AddPet(15048, 11825, R_COMMON, GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 15048, F_ALLIANCE, F_HORDE, F_UNUSED, F_BOP, F_FIRST_AID)
-	--self:AddCompanionAcquire(PetDB, 15048, A_CRAFTED, 4036, 15628)
+	self:AddCompanionFlags(PetDB, 15048, F_ALLIANCE, F_HORDE, F_BOP, F_ENG)
+	self:AddCompanionAcquire(PetDB, 15048, A_CRAFTED, 4036, 15628)
 
 	-- Lil' Smoky - 15049
 	AddPet(15049, 11826, R_COMMON, GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 15049, F_ALLIANCE, F_HORDE, F_UNUSED, F_BOP, F_FIRST_AID)
-	--self:AddCompanionAcquire(PetDB, 15049, A_CRAFTED, 4036, 15633)
+	self:AddCompanionFlags(PetDB, 15049, F_ALLIANCE, F_HORDE, F_BOP, F_ENG)
+	self:AddCompanionAcquire(PetDB, 15049, A_CRAFTED, 4036, 15633)
 
 	-- Sprite Darter Egg - 15067
 	AddPet(15067, 11474, R_COMMON, GAME_ORIG)
@@ -248,13 +259,13 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Lifelike Mechanical Toad - 19772
 	AddPet(19772, 15996, R_COMMON, GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 19772, F_ALLIANCE, F_HORDE, F_UNUSED, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(PetDB, 19772, A_CRAFTED, 4036, 19793)
+	self:AddCompanionFlags(PetDB, 19772, F_ALLIANCE, F_HORDE, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 19772, A_CRAFTED, 4036, 19793)
 
 	-- A Jubling's Tiny Home - 23811
 	AddPet(23811, 19450, R_COMMON, GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 23811, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(PetDB, 23811, 7, 3)
+	self:AddCompanionFlags(PetDB, 23811, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 23811, 7, 3)
 
 	-- Blue Murloc Egg - 24696 (Murky)
 	AddPet(24696, 20371, R_RARE, GAME_ORIG)
@@ -268,13 +279,13 @@ function addon:MakeMiniPetTable(PetDB)
 
 	-- Disgusting Oozeling - 25162
 	AddPet(25162, 20769, R_COMMON, GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 25162, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(PetDB, 25162, 8, 3)
+	self:AddCompanionFlags(PetDB, 25162, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 25162, 8, 3)
 
 	-- Tranquil Mechanical Yeti - 26010
 	AddPet(26010, 21277, R_COMMON, GAME_ORIG)
-	--self:AddCompanionFlags(PetDB, 26010, F_ALLIANCE, F_HORDE, F_UNUSED, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	--self:AddCompanionAcquire(PetDB, 26010, A_CRAFTED, 4036, 26011)
+	self:AddCompanionFlags(PetDB, 26010, F_ALLIANCE, F_HORDE, F_UNUSED, F_BOE, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 26010, A_CRAFTED, 4036, 26011)
 
 	-- Snowman Kit - 26045
 	AddPet(26045, 21309, R_COMMON, GAME_ORIG)

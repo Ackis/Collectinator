@@ -631,7 +631,6 @@ do
 	-------------------------------------------------------------------------------
 	-- Reputation Filter Flags
 	-------------------------------------------------------------------------------
-
 	local F_ARGENT_DAWN, F_BLOODSAIL, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_ TIMBERMAW, F_WINTERSRPING, F_ZANDALAR = 40, 41, 42, 43, 44, 100, 45
 	local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPIDITION, F_HELLFIRE, F_CONSORTIUM, F_KOT, F_LOWER_CITY, F_NAGRAND = 46, 47, 48, 49, 50, 51, 52, 53
 	local F_NETHERWING, F_SCALE_SANDS, F_SCRYER, F_SHATAR, F_SKYGUARD, F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLET_EYE = 54, 55, 56, 57, 90, 58, 59, 60
@@ -733,17 +732,17 @@ do
 		local obtaindb = filterdb.obtain
 
 		-- Display both horde and alliance factions?
-		if not generaldb.faction then
+		if (not generaldb.faction) then
 			-- We want to filter out all the Horde only items
-			if playerFaction == BFAC["Alliance"] then
+			if (playerFaction == BFAC["Alliance"]) then
 				-- Filter out Horde only
-				if (not flags[F_ALLIANCE]) and flags[F_HORDE] then
+				if (flags[F_HORDE]) then
 					return false
 				end
 			-- We want to filter out all the Alliance only items
 			else
 				-- Filter out Alliance only
-				if (not flags[F_HORDE]) and flags[F_ALLIANCE] then
+				if (flags[F_ALLIANCE]) then
 					return false
 				end
 			end
