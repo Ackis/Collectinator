@@ -627,7 +627,6 @@ end
 
 do
 
-
 	-------------------------------------------------------------------------------
 	-- Reputation Filter Flags
 	-------------------------------------------------------------------------------
@@ -704,7 +703,7 @@ do
 	end
 
 	local function CheckReputationDisplay(flags)
-		if not reptable then
+		if (not reptable) then
 			CreateRepTable()
 		end
 		local display = true

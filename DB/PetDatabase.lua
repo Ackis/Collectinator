@@ -16,6 +16,8 @@ Project version: @project-version@
 http://lua-users.org/wiki/SlightlyLessSimpleLuaPreprocessor
 http://wowuidev.pastey.net/125321
 http://wowuidev.pastey.net/125322
+12:59	sylvanaar	Ackis so i saved that code to a file luapp.lua, then i did lua luapp.lua infile.lua outfile.lua
+13:00	sylvanaar	"lua luapp.lua infile.lua outfile.lua"
 
 ]]--
 

@@ -23,17 +23,17 @@ Format:
 
 ]]--
 
-local MODNAME			= "Collectinator"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME	= "Collectinator"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local BZONE				= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
-local BBOSS				= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local BZ		= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+local BB		= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 function addon:InitMob(MobDB)
 
-	self:addLookupList(MobDB,1561,L["Bloodsail Raider"],BZONE["Stranglethorn Vale"],27.0,70.0)
-	self:addLookupList(MobDB,10440,BB["Baron Rivendare"],BZONE["Stratholme"],0,0)
-	self:addLookupList(MobDB,24664,BBOSS["Kael'thas Sunstrider"],BZONE["Magisters' Terrace"],0,0)
+	self:addLookupList(MobDB,1561,L["Bloodsail Raider"],BZ["Stranglethorn Vale"],27.0,70.0)
+	self:addLookupList(MobDB,10440,BB["Baron Rivendare"],BZ["Stratholme"],0,0)
+	self:addLookupList(MobDB,24664,BB["Kael'thas Sunstrider"],BZ["Magisters' Terrace"],0,0)
 
 end
