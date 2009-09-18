@@ -630,10 +630,10 @@ do
 	-------------------------------------------------------------------------------
 	-- Reputation Filter Flags
 	-------------------------------------------------------------------------------
-	local F_ARGENT_DAWN, F_BLOODSAIL, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_ TIMBERMAW, F_WINTERSRPING, F_ZANDALAR = 40, 41, 42, 43, 44, 100, 45
+	local F_ARGENT_DAWN, F_BLOODSAIL, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_TIMBERMAW, F_WINTERSRPING, F_ZANDALAR = 40, 41, 42, 43, 44, 100, 45
 	local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPIDITION, F_HELLFIRE, F_CONSORTIUM, F_KOT, F_LOWER_CITY, F_NAGRAND = 46, 47, 48, 49, 50, 51, 52, 53
 	local F_NETHERWING, F_SCALE_SANDS, F_SCRYER, F_SHATAR, F_SKYGUARD, F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLET_EYE = 54, 55, 56, 57, 90, 58, 59, 60
-	local F_CITY1, F_CITY2, F_CITY3, F_CITY5, F_CITY5 = 61, 62, 63, 64, 65
+	local F_CITY1, F_CITY2, F_CITY3, F_CITY4, F_CITY5 = 61, 62, 63, 64, 65
 	local F_PVP1, F_PVP2, F_PVP3 = 66, 67, 68
 	local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALUAK, F_ORACLES, F_WYRMREST = 71, 72, 73, 74, 75, 76, 77, 78
 	local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79, 80, 81, 82, 83
@@ -650,7 +650,7 @@ do
 			[F_BLOODSAIL] = repdb.bloodsail,
 			[F_CENARION_CIRCLE] = repdb.cenarioncircle,
 			[F_THORIUM_BROTHERHOOD] = repdb.thoriumbrotherhood,
-			[TIMBERMAW] = repdb.timbermaw,
+			[F_TIMBERMAW] = repdb.timbermaw,
 			[F_WINTERSRPING] = repdb.winterspring,
 			[F_ZANDALAR] = repdb.zandalar,
 			-- BC
