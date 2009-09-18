@@ -3809,12 +3809,6 @@ function addon:DisplayFrame(
 	collectibleDB = self.data_table
 	sortedCollectibleIndex = SortDatabase(collectibleDB)
 
-	for i, j in pairs(sortedCollectibleIndex) do
-		if collectibleDB[j]["Display"] then
-			addon:DumpSpell(j)
-		end
-	end
-
 	initDisplayStrings()							-- Take our sorted list, and fill up DisplayStrings
 	SetProgressBar(cPlayer)							-- Update our progressbar
 
