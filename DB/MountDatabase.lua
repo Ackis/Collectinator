@@ -76,6 +76,7 @@ local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DRO
 local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C_WARLOCK, C_WARRIOR = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 local initialized = false
+local num_mounts
 
 function addon:MakeMountTable(MountDB)
 
@@ -88,7 +89,7 @@ function addon:MakeMountTable(MountDB)
 	-------------------------------------------------------------------------------
 	-- Counter and wrapper function
 	-------------------------------------------------------------------------------
-	local num_mounts = 0
+	num_mounts = 0
 
 	local function AddMount(SpellID, MountItemID, Rarity, Game, Class)
 		num_mounts = num_mounts + 1
