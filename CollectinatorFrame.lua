@@ -1843,17 +1843,17 @@ end
 local faction_strings	-- This is populated in expandEntry()
 
 local function expandEntry(dsIndex)
-	dsIndex = dsIndex + 1
 	-- insertIndex is the position in DisplayStrings that we want
 	-- to expand. Since we are expanding the current entry, the return
 	-- value should be the index of the next button after the expansion
 	-- occurs
-
 	local filterDB = addon.db.profile.filters
 	local obtainDB = filterDB.obtain
 	local collectibleIndex = DisplayStrings[dsIndex].sID
 	local pad = "  "
 	local acquire_type
+
+	dsIndex = dsIndex + 1
 
 	-- Need to loop through the available acquires and put them all in
 	for k, v in pairs(collectibleDB[collectibleIndex]["Acquire"]) do
