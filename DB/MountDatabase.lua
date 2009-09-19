@@ -51,7 +51,7 @@ Collectinator: Error: Mount with ID 59793 not in database.
 
 ]]--
 
-local MODNAME = "Collectinator"
+local MODNAME	= "Collectinator"
 local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 -------------------------------------------------------------------------------
@@ -97,28 +97,20 @@ local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DRO
 local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C_WARLOCK, C_WARRIOR = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 local initialized = false
-local num_mounts
+local num_mounts = 0
 
-function addon:MakeMountTable(MountDB)
-
-	if (initialized) then
-		return
+function addon:GetMountTotal(MountDB)
+	if initialized then
+		return num_mounts
 	end
-
 	initialized = true
 
 	-------------------------------------------------------------------------------
-	-- Counter and wrapper function
+	-- Wrapper function
 	-------------------------------------------------------------------------------
-	num_mounts = 0
-
 	local function AddMount(SpellID, MountItemID, Rarity, Game, Class)
 		num_mounts = num_mounts + 1
-		if (Class) then
-			addon:AddCompanion(MountDB, "MOUNT", SpellID, MountItemID, Rarity, Game, Class)
-		else
-			addon:AddCompanion(MountDB, "MOUNT", SpellID, MountItemID, Rarity, Game)
-		end
+		addon:AddCompanion(MountDB, "MOUNT", SpellID, MountItemID, Rarity, Game, Class)
 	end
 
 	-- Brown Horse Bridle - 458
