@@ -352,11 +352,7 @@ end	-- do
 
 local function CheckDisplayFaction(filterDB, faction)
 	if not filterDB.general.faction then
-		if ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or not faction) then
-			return true
-		else
-			return false
-		end
+		return ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or not faction) and true or false
 	else
 		return true
 	end
