@@ -561,16 +561,6 @@ local function initDisplayStrings()
 	end
 end
 
-local function ClearCollectibleButtonTooltip(bIndex)
-	local pButton = addon.PlusListButton[bIndex]
-	local rButton = addon.CollectibleListButton[bIndex]
-
-	pButton:SetScript("OnEnter", nil)
-	pButton:SetScript("OnLeave", nil)
-	rButton:SetScript("OnEnter", nil)
-	rButton:SetScript("OnLeave", nil)
-end
-
 -- Description: Converting from hex to rgb (Thanks Maldivia)
 local function toRGB(hex)
 	local r, g, b = hex:match("(..)(..)(..)")
@@ -1003,151 +993,177 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	end
 end
 
--- Description: This sets the tooltip on the button during a collectiblelist update
+-------------------------------------------------------------------------------
+-- Scrollframe update stuff
+-------------------------------------------------------------------------------
+local CollectibleList_Update
+do
+	local highlight = CreateFrame("Frame", nil, UIParent)
+	highlight:SetFrameStrata("TOOLTIP")
+	highlight:Hide()
 
-local function SetCollectibleButtonTooltip(bIndex)
-	local pButton = addon.PlusListButton[bIndex]
-	local rButton = addon.CollectibleListButton[bIndex]
-	local dStringIndex = rButton.sI
-	local rIndex = DisplayStrings[dStringIndex].sID
-	local playerFaction = playerData.playerFaction
-	local exclude = addon.db.profile.exclusionlist
+	highlight._texture = highlight:CreateTexture(nil, "OVERLAY")
+	highlight._texture:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
+	highlight._texture:SetBlendMode("ADD")
+	highlight._texture:SetAllPoints(highlight)
 
-	pButton:SetScript("OnEnter",
-			  function(pButton)
-				  GenerateTooltipContent(pButton, rIndex, playerFaction, exclude)
-			  end)
-
-	pButton:SetScript("OnLeave", 
-			function()
-				QTip:Release(CollectinatorTooltip)
-				CollectinatorSpellTooltip:Hide()
-			end)
-
-	rButton:SetScript("OnEnter", 
-			  function(rButton)
-				  GenerateTooltipContent(rButton, rIndex, playerFaction, exclude)
-			  end)
-
-	rButton:SetScript("OnLeave", 
-			  function()
-				  QTip:Release(CollectinatorTooltip)
-				  CollectinatorSpellTooltip:Hide()
-			  end)
-end
-
--- Description: Scrollframe update stuff
-
-local function CollectibleList_Update()
-	-- Clear out the current buttons
-	for i = 1, maxVisibleCollectibles do
-		addon.CollectibleListButton[i]:SetText("")
-		addon.CollectibleListButton[i].sI = 0
-		addon.PlusListButton[i]:Hide()
-		ClearCollectibleButtonTooltip(i)
+	local function Button_OnLeave()
+		QTip:Release(CollectinatorTooltip)
+		CollectinatorSpellTooltip:Hide()
 	end
-	local entries = #DisplayStrings
 
-	FauxScrollFrame_Update(Collectinator_CollectibleScrollFrame, entries, maxVisibleCollectibles, 16)
-	addon:ClosePopups()
+	local function Bar_OnEnter(self)
+		highlight:SetParent(self)
+		highlight:SetAllPoints(self)
+		highlight:Show()
+		GenerateTooltipContent(self, DisplayStrings[self.sI].sID, playerData.playerFaction, addon.db.profile.exclusionlist)
+	end
 
-	if entries > 0 then
-		-- enable expand button
-		Collectinator_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
-		Collectinator_ExpandButton:Enable()
+	local function Bar_OnLeave()
+		highlight:Hide()
+		highlight:ClearAllPoints()
+		highlight:SetParent(nil)
+		QTip:Release(CollectinatorTooltip)
+		CollectinatorSpellTooltip:Hide()
+	end
 
-		-- now fill in our buttons
-		local listOffset = FauxScrollFrame_GetOffset(Collectinator_CollectibleScrollFrame)
-		local buttonIndex = 1
-		local stringsIndex = buttonIndex + listOffset
-		local stayInLoop = true
+	local function SetButtonScripts(bIndex)
+		local pButton = addon.PlusListButton[bIndex]
+		local rButton = addon.CollectibleListButton[bIndex]
+		local dStringIndex = rButton.sI
+		local rIndex = DisplayStrings[dStringIndex].sID
 
-		while stayInLoop do
-			if DisplayStrings[stringsIndex].IsCollectible then
-				addon.PlusListButton[buttonIndex]:Show()	-- display the + symbol
+		pButton:SetScript("OnEnter",
+				  function(pButton)
+					  GenerateTooltipContent(pButton, rIndex, playerData.playerFaction, addon.db.profile.exclusionlist)
+				  end)
+		pButton:SetScript("OnLeave", Button_OnLeave)
 
-				if (DisplayStrings[stringsIndex].IsExpanded) then
-					addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
-					addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
-					addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-					addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
+		rButton:SetScript("OnEnter", Bar_OnEnter)
+		rButton:SetScript("OnLeave", Bar_OnLeave)
+	end
+
+	local function ClearButtonScripts(bIndex)
+		local pButton = addon.PlusListButton[bIndex]
+		local rButton = addon.CollectibleListButton[bIndex]
+
+		pButton:SetScript("OnEnter", nil)
+		pButton:SetScript("OnLeave", nil)
+		rButton:SetScript("OnEnter", nil)
+		rButton:SetScript("OnLeave", nil)
+	end
+
+	function CollectibleList_Update()
+		-- Clear out the current buttons
+		for i = 1, maxVisibleCollectibles do
+			addon.CollectibleListButton[i]:SetText("")
+			addon.CollectibleListButton[i].sI = 0
+			addon.PlusListButton[i]:Hide()
+			ClearButtonScripts(i)
+		end
+		local entries = #DisplayStrings
+
+		FauxScrollFrame_Update(Collectinator_CollectibleScrollFrame, entries, maxVisibleCollectibles, 16)
+		addon:ClosePopups()
+
+		if entries > 0 then
+			-- enable expand button
+			Collectinator_ExpandButton:SetNormalFontObject("GameFontNormalSmall")
+			Collectinator_ExpandButton:Enable()
+
+			-- now fill in our buttons
+			local listOffset = FauxScrollFrame_GetOffset(Collectinator_CollectibleScrollFrame)
+			local buttonIndex = 1
+			local stringsIndex = buttonIndex + listOffset
+			local stayInLoop = true
+
+			while stayInLoop do
+				if DisplayStrings[stringsIndex].IsCollectible then
+					addon.PlusListButton[buttonIndex]:Show()	-- display the + symbol
+
+					if (DisplayStrings[stringsIndex].IsExpanded) then
+						addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
+						addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
+						addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+						addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-MinusButton-Disabled")
+					else
+						addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+						addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
+						addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+						addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+					end
 				else
-					addon.PlusListButton[buttonIndex]:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
-					addon.PlusListButton[buttonIndex]:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
-					addon.PlusListButton[buttonIndex]:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-					addon.PlusListButton[buttonIndex]:SetDisabledTexture("Interface\\Buttons\\UI-PlusButton-Disabled")
+					addon.PlusListButton[buttonIndex]:Hide()
 				end
-			else
-				addon.PlusListButton[buttonIndex]:Hide()
+				addon.CollectibleListButton[buttonIndex]:SetText(DisplayStrings[stringsIndex].String)
+				addon.CollectibleListButton[buttonIndex].sI = stringsIndex
+
+				SetButtonScripts(buttonIndex)
+
+				buttonIndex = buttonIndex + 1
+				stringsIndex = stringsIndex + 1
+
+				if ((buttonIndex > maxVisibleCollectibles) or (stringsIndex > entries)) then
+					stayInLoop = false
+				end
 			end
-			addon.CollectibleListButton[buttonIndex]:SetText(DisplayStrings[stringsIndex].String)
-			addon.CollectibleListButton[buttonIndex].sI = stringsIndex
-
-			SetCollectibleButtonTooltip(buttonIndex)
-
-			buttonIndex = buttonIndex + 1
-			stringsIndex = stringsIndex + 1
-
-			if ((buttonIndex > maxVisibleCollectibles) or (stringsIndex > entries)) then
-				stayInLoop = false
-			end
-		end
-	-- Entries are 0 here, so we have 0 to display
-	else
-		-- disable expand button, it's useless here and would spam the same error again
-		Collectinator_ExpandButton:SetNormalFontObject("GameFontDisableSmall")
-		Collectinator_ExpandButton:Disable()
-
-		local showpopup = false
-
-		if not addon.db.profile.hidepopup then
-			showpopup = true
-		end
-
-		-- If we haven't run this before we'll show pop-ups for the first time.
-		if addon.db.profile.addonversion ~= addonversion then
-			addon.db.profile.addonversion = addonversion
-			showpopup = true
-		end
-
-		-- If the collectible total is at 0, it means we have not scanned yet
-		if playerData.collectibles_total == 0 then
-			if showpopup then
-				StaticPopup_Show("COLLECTINATOR_NOTSCANNED")
-			end
-		-- We know all the collectibles
-		elseif playerData.collectibles_known == playerData.collectibles_total then
-			if showpopup then
-				StaticPopup_Show("COLLECTINATOR_ALLKNOWN")
-			end
-		-- Our filters are actually filtering something
-		elseif ((playerData.collectibles_total_filtered - playerData.collectibles_known_filtered) == 0) then
-			if showpopup then
-				StaticPopup_Show("COLLECTINATOR_ALLFILTERED")
-			end
-		-- Our exclusion list is preventing something from being displayed
-		elseif (playerData.excluded_collectibles_unknown ~= 0) then
-			if showpopup then
-				StaticPopup_Show("COLLECTINATOR_ALLEXCLUDED")
-			end
-		-- We have some search text that is preventing stuff from being displayed
-		elseif (Collectinator_SearchText:GetText() ~= "") then
-			StaticPopup_Show("COLLECTINATOR_SEARCHFILTERED")
+			-- Entries are 0 here, so we have 0 to display
 		else
-			addon:Print(L["NO_DISPLAY"])
-			addon:Print("DEBUG: collectibles_total check for 0")
-			addon:Print("DEBUG: collectibles_total: " .. playerData.collectibles_total)
-			addon:Print("DEBUG: collectibles_total check for equal to collectibles_total")
-			addon:Print("DEBUG: collectibles_known: " .. playerData.collectibles_known)
-			addon:Print("DEBUG: collectibles_total: " .. playerData.collectibles_total)
-			addon:Print("DEBUG: collectibles_total_filtered - collectibles_known_filtered = 0")
-			addon:Print("DEBUG: collectibles_total_filtered: " .. playerData.collectibles_total_filtered)
-			addon:Print("DEBUG: collectibles_known_filtered: " .. playerData.collectibles_known_filtered)
-			addon:Print("DEBUG: excluded_collectibles_unknown ~= 0")
-			addon:Print("DEBUG: excluded_collectibles_unknown: " .. playerData.excluded_collectibles_unknown)
+			-- disable expand button, it's useless here and would spam the same error again
+			Collectinator_ExpandButton:SetNormalFontObject("GameFontDisableSmall")
+			Collectinator_ExpandButton:Disable()
+
+			local showpopup = false
+
+			if not addon.db.profile.hidepopup then
+				showpopup = true
+			end
+
+			-- If we haven't run this before we'll show pop-ups for the first time.
+			if addon.db.profile.addonversion ~= addonversion then
+				addon.db.profile.addonversion = addonversion
+				showpopup = true
+			end
+
+			-- If the collectible total is at 0, it means we have not scanned yet
+			if playerData.collectibles_total == 0 then
+				if showpopup then
+					StaticPopup_Show("COLLECTINATOR_NOTSCANNED")
+				end
+				-- We know all the collectibles
+			elseif playerData.collectibles_known == playerData.collectibles_total then
+				if showpopup then
+					StaticPopup_Show("COLLECTINATOR_ALLKNOWN")
+				end
+				-- Our filters are actually filtering something
+			elseif ((playerData.collectibles_total_filtered - playerData.collectibles_known_filtered) == 0) then
+				if showpopup then
+					StaticPopup_Show("COLLECTINATOR_ALLFILTERED")
+				end
+				-- Our exclusion list is preventing something from being displayed
+			elseif (playerData.excluded_collectibles_unknown ~= 0) then
+				if showpopup then
+					StaticPopup_Show("COLLECTINATOR_ALLEXCLUDED")
+				end
+				-- We have some search text that is preventing stuff from being displayed
+			elseif (Collectinator_SearchText:GetText() ~= "") then
+				StaticPopup_Show("COLLECTINATOR_SEARCHFILTERED")
+			else
+				addon:Print(L["NO_DISPLAY"])
+				addon:Print("DEBUG: collectibles_total check for 0")
+				addon:Print("DEBUG: collectibles_total: " .. playerData.collectibles_total)
+				addon:Print("DEBUG: collectibles_total check for equal to collectibles_total")
+				addon:Print("DEBUG: collectibles_known: " .. playerData.collectibles_known)
+				addon:Print("DEBUG: collectibles_total: " .. playerData.collectibles_total)
+				addon:Print("DEBUG: collectibles_total_filtered - collectibles_known_filtered = 0")
+				addon:Print("DEBUG: collectibles_total_filtered: " .. playerData.collectibles_total_filtered)
+				addon:Print("DEBUG: collectibles_known_filtered: " .. playerData.collectibles_known_filtered)
+				addon:Print("DEBUG: excluded_collectibles_unknown ~= 0")
+				addon:Print("DEBUG: excluded_collectibles_unknown: " .. playerData.excluded_collectibles_unknown)
+			end
 		end
 	end
-end
+end	-- do
 
 -- Description: 
 
