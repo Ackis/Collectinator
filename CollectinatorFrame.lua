@@ -543,7 +543,7 @@ local function initDisplayStrings()
 		local collectibleIndex = sortedCollectibleIndex[i]
 		local collectibleEntry = collectibleDB[collectibleIndex]
 
-		if ((collectibleEntry["Display"] == true) and (collectibleEntry["Search"] == true)) then
+		if collectibleEntry["Display"] and collectibleEntry["Search"] then
 			local recStr = ""
 
 			if exclude[collectibleIndex] then
@@ -1010,7 +1010,6 @@ end
 -- Description: This sets the tooltip on the button during a collectiblelist update
 
 local function SetCollectibleButtonTooltip(bIndex)
-
 	local pButton = addon.PlusListButton[bIndex]
 	local rButton = addon.CollectibleListButton[bIndex]
 	local dStringIndex = rButton.sI
@@ -1018,32 +1017,27 @@ local function SetCollectibleButtonTooltip(bIndex)
 	local playerFaction = playerData.playerFaction
 	local exclude = addon.db.profile.exclusionlist
 
-	pButton:SetScript("OnEnter", 
-			function (pButton)
-				GenerateTooltipContent(pButton, rIndex, playerFaction, exclude)
-			end
-		)
+	pButton:SetScript("OnEnter",
+			  function(pButton)
+				  GenerateTooltipContent(pButton, rIndex, playerFaction, exclude)
+			  end)
 
 	pButton:SetScript("OnLeave", 
 			function()
-				CollectinatorTooltip:Hide()
+				QTip:Release(CollectinatorTooltip)
 				CollectinatorSpellTooltip:Hide()
-			end
-		)
+			end)
 
 	rButton:SetScript("OnEnter", 
-			function (rButton)
-				GenerateTooltipContent(rButton, rIndex, playerFaction, exclude)
-			end
-		)
+			  function(rButton)
+				  GenerateTooltipContent(rButton, rIndex, playerFaction, exclude)
+			  end)
 
 	rButton:SetScript("OnLeave", 
-			function()
-				CollectinatorTooltip:Hide()
-				CollectinatorSpellTooltip:Hide()
-			end
-		)
-
+			  function()
+				  QTip:Release(CollectinatorTooltip)
+				  CollectinatorSpellTooltip:Hide()
+			  end)
 end
 
 -- Description: Scrollframe update stuff
