@@ -361,7 +361,7 @@ end
 do
 	local function LoadZones(c, y, ...)
 		-- Fill up the list for normal lookup
-		for i=1, select('#', ...), 1 do
+		for i = 1, select('#', ...), 1 do
 			c[i] = select(i, ...)
 		end
 		-- Reverse lookup to make work easier later on
@@ -1149,33 +1149,6 @@ local function CollectibleList_Update()
 	end
 end
 
--- Description: Updates the progress bar based on the number of known / total collectibles
-
-local function SetProgressBar(playerData)
-
-	local pbCur, pbMax
-
-	if (SortedCollections[current_tab].name == "MOUNT") then
-			pbCur = playerData.totalknownmounts
-			pbMax = playerData.totalmounts
-	elseif (SortedCollections[current_tab].name == "CRITTER") then
-			pbCur = playerData.totalknownpets
-			pbMax = playerData.totalpets
-	end
-
-	Collectinator_ProgressBar:SetMinMaxValues(0, pbMax)
-	Collectinator_ProgressBar:SetValue(pbCur)
-
-	if (floor(pbCur / pbMax * 100) < 101) and (pbCur >= 0) and (pbMax >= 0) then
-		Collectinator_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. floor(pbCur / pbMax * 100) .. "%")
-	else
-		pbCur = 0
-		pbMax = 0
-		Collectinator_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. L["NOT_YET_SCANNED"])
-	end
-
-end
-
 -- Description: 
 
 function addon:ResetGUI()
@@ -1280,10 +1253,10 @@ local function ReDisplay(scan_type)
 	addon:UpdateFilters(collectibleDB, playerData, INDEX_STRING[scan_type])
 	sortedCollectibleIndex = SortDatabase(collectibleDB)
 
-	playerData.excluded_collectibles_known, playerData.excluded_collectibles_unknown = addon:GetExclusions(collectibleDB, scan_type)
+	playerData.excluded_collectibles_known, playerData.excluded_collectibles_unknown = addon:MarkExclusions(collectibleDB, scan_type)
 
 	initDisplayStrings()
-	SetProgressBar(playerData)
+	addon.Frame.progress_bar:Update()
 
 	-- Make sure our expand all button is set to expandall
 	Collectinator_ExpandButton:SetText(L["EXPANDALL"])
@@ -1381,7 +1354,7 @@ function addon.ToggleFilters()
 		addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
 		addon.Frame._Expanded = false
 		addon.Frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
-		Collectinator_ProgressBar:SetWidth(195)
+		addon.Frame.progress_bar:SetWidth(195)
 
 		-- Change the text and tooltip for the filter button
 		Collectinator_FilterButton:SetText(L["FILTER_OPEN"])
@@ -1412,7 +1385,7 @@ function addon.ToggleFilters()
 		addon.bgTexture:SetTexCoord(0, (444/512), 0, (447/512))
 		addon.Frame._Expanded = true
 		addon.Frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
-		Collectinator_ProgressBar:SetWidth(345)
+		addon.Frame.progress_bar:SetWidth(345)
 
 		-- Change the text and tooltip for the filter button
 		Collectinator_FilterButton:SetText(L["FILTER_CLOSE"])
@@ -2961,25 +2934,64 @@ local function InitializeFrame()
 	local pbMax = 100
 	local pbCur = 50
 
-	local Collectinator_ProgressBar = CreateFrame("StatusBar", "Collectinator_ProgressBar", addon.Frame)
-	Collectinator_ProgressBar:SetWidth(195)
-	Collectinator_ProgressBar:SetHeight(14)
-	Collectinator_ProgressBar:ClearAllPoints()
-	Collectinator_ProgressBar:SetPoint("BOTTOMLEFT", addon.Frame, 17, 7)
-	Collectinator_ProgressBar:SetStatusBarTexture("Interface\\Addons\\Collectinator\\img\\progressbar")
-	Collectinator_ProgressBar:SetOrientation("HORIZONTAL")
-	Collectinator_ProgressBar:SetStatusBarColor(0.25, 0.25, 0.75)
-	Collectinator_ProgressBar:SetMinMaxValues(pbMin, pbMax)
-	Collectinator_ProgressBar:SetValue(pbCur)
+	local progress_bar = CreateFrame("StatusBar", nil, addon.Frame)
+	progress_bar:SetWidth(195)
+	progress_bar:SetHeight(14)
+	progress_bar:ClearAllPoints()
+	progress_bar:SetPoint("BOTTOMLEFT", addon.Frame, 17, 7)
+	progress_bar:SetStatusBarTexture("Interface\\Addons\\Collectinator\\img\\progressbar")
+	progress_bar:SetOrientation("HORIZONTAL")
+	progress_bar:SetStatusBarColor(0.25, 0.25, 0.75)
+	progress_bar:SetMinMaxValues(pbMin, pbMax)
+	progress_bar:SetValue(pbCur)
 
-	local Collectinator_ProgressBarText = Collectinator_ProgressBar:CreateFontString("Collectinator_ProgressBarText", "ARTWORK")
-	Collectinator_ProgressBarText:SetWidth(195)
-	Collectinator_ProgressBarText:SetHeight(14)
-	Collectinator_ProgressBarText:SetFontObject("GameFontHighlightSmall")
-	Collectinator_ProgressBarText:ClearAllPoints()
-	Collectinator_ProgressBarText:SetPoint("CENTER", Collectinator_ProgressBar, "CENTER", 0, 0)
-	Collectinator_ProgressBarText:SetJustifyH("CENTER")
-	Collectinator_ProgressBarText:SetText(pbCur .. " / " .. pbMax .. " - " .. floor(pbCur / pbMax * 100) .. "%")
+	-------------------------------------------------------------------------------
+	-- Updates the progress bar based on the number of known and total collectibles
+	-------------------------------------------------------------------------------
+	progress_bar.Update = function(self)
+		local pbCur, pbMax
+		local tmp_type = SortedCollections[current_tab].name
+		local lower_type = tmp_type:lower()
+		local known_str = lower_type .. "_known"
+		local total_str = lower_type .. "_total"
+		local known_filtered_str = lower_type .. "_known_filtered"
+		local total_filtered_str = lower_type .. "_total_filtered"
+
+		if addon.db.profile.includefiltered then
+			pbCur = playerData[known_str]
+			pbMax = playerData[total_str]
+		else
+			-- We're removing filtered recipes from the final count
+			pbCur = playerData[known_filtered_str]
+			pbMax = playerData[total_filtered_str]
+		end
+
+--		if not addon.db.profile.includeexcluded and not addon.db.profile.ignoreexclusionlist then
+--			pbCur = pbCur - playerData.excluded_recipes_unknown
+--			pbMax = pbMax - playerData.excluded_recipes_known
+--		end
+		self:SetMinMaxValues(0, pbMax)
+		self:SetValue(pbCur)
+
+		if (floor(pbCur / pbMax * 100) < 101) and (pbCur >= 0) and (pbMax >= 0) then
+			self.text:SetText(pbCur .. " / " .. pbMax .. " - " .. floor(pbCur / pbMax * 100) .. "%")
+		else
+			pbCur = 0
+			pbMax = 0
+			self.text:SetText(pbCur .. " / " .. pbMax .. " - " .. L["NOT_YET_SCANNED"])
+		end
+	end
+	addon.Frame.progress_bar = progress_bar
+
+	local progress_bar_text = progress_bar:CreateFontString(nil, "ARTWORK")
+	progress_bar_text:SetWidth(195)
+	progress_bar_text:SetHeight(14)
+	progress_bar_text:SetFontObject("GameFontHighlightSmall")
+	progress_bar_text:ClearAllPoints()
+	progress_bar_text:SetPoint("CENTER", progress_bar, "CENTER", 0, 0)
+	progress_bar_text:SetJustifyH("CENTER")
+	progress_bar_text:SetText(pbCur .. " / " .. pbMax .. " - " .. floor(pbCur / pbMax * 100) .. "%")
+	addon.Frame.progress_bar.text = progress_bar_text
 
 	-- I'm going to use my own tooltip for collectiblebuttons
 	CollectinatorSpellTooltip = CreateFrame("GameTooltip", "CollectinatorSpellTooltip", addon.Frame, "GameTooltipTemplate")
@@ -3809,7 +3821,7 @@ function addon:DisplayFrame(
 	sortedCollectibleIndex = SortDatabase(collectibleDB)
 
 	initDisplayStrings()							-- Take our sorted list, and fill up DisplayStrings
-	SetProgressBar(cPlayer)							-- Update our progressbar
+	self.Frame.progress_bar:Update()
 
 	-- And update our scrollframe
 	CollectibleList_Update()
