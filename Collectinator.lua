@@ -577,14 +577,13 @@ end
 -- @param nummounts The number of mini-pets which you know.
 -- @return The entries in the DB are flagged as known
 function addon:ScanCompanions(DB, numminipets, nummounts)
-
 	-- Parse all the mini-pets you currently have
-	for i=1, numminipets, 1 do
-		-- Get the pet's name and spell ID
-		local _, _, petspell = GetCompanionInfo("CRITTER", i)
+	for i = 1, numminipets, 1 do
+		local _, _, petspell, _, _ = GetCompanionInfo("CRITTER", i)	-- Get the pet's name and spell ID
+
 		if (DB[petspell]) then
 			DB[petspell]["Known"] = true
-		else
+		elseif petspell then
 			self:Print("Error: Pet with ID " .. petspell .. " not in database.")
 		end
 	end
@@ -595,8 +594,8 @@ function addon:ScanCompanions(DB, numminipets, nummounts)
 		local _, _, mountspell = GetCompanionInfo("MOUNT", i)
 		if (DB[mountspell]) then
 			DB[mountspell]["Known"] = true
-		else
-			self:Print("Error: Mount with ID ".. mountspell .. " not in database.")
+		elseif mountspell then
+			self:Print("Error: Mount with ID ".. tostring(mountspell) .. " not in database.")
 		end
 	end
 
@@ -927,23 +926,31 @@ end
 
 -- Description: Scans the item listing and updates the filters according to user preferences
 function addon:UpdateFilters(DB,  playerData, scantype)
+	local playerFaction = playerData.playerFaction
+	local playerClass = playerData.playerClass
 	local can_show = false
+	local tmp_type = scantype
+	local lower_type = tmp_type:lower()
+	local known_str = lower_type .. "_known"
+	local total_str = lower_type .. "_total"
+	local known_filtered_str = lower_type .. "_known_filtered"
+	local total_filtered_str = lower_type .. "_total_filtered"
 
-	playerData.total = 0
-	playerData.known = 0
-	playerData.total_filtered = 0
-	playerData.known_filtered = 0
+	playerData[known_str] = 0
+	playerData[total_str] = 0
+	playerData[known_filtered_str] = 0
+	playerData[total_filtered_str] = 0
 
 	for ID, item in pairs(DB) do
 		if item["Type"] == scantype then
 			can_show = self:CheckDisplay(item, playerFaction)
 
-			playerData.total = playerData.total + 1
-			playerData.known = playerData.known + (item["Known"] == true and 1 or 0)
+			playerData[total_str] = playerData[total_str] + 1
+			playerData[known_str] = playerData[known_str] + (item["Known"] == true and 1 or 0)
 
 			if can_show then
-				playerData.total_filtered = playerData.total_filtered + 1
-				playerData.known_filtered = playerData.known_filtered + (item["Known"] == true and 1 or 0)
+				playerData[total_filtered_str] = playerData[total_filtered_str] + 1
+				playerData[known_filtered_str] = playerData[known_filtered_str] + (item["Known"] == true and 1 or 0)
 
 				-- Include known
 				if (addon.db.profile.filters.general.known == false) and (item["Known"] == true) then
@@ -1019,8 +1026,8 @@ do
 	-- @class table
 	-- @name playerData
 	-- @field totalknownpets Total number of known mini-pets.
-	-- @field totalknownmounts Total number of known mounts.
-	-- @field totalpets Total number of mini-pets.
+	-- @field mount_total Total number of known mounts.
+	-- @field critter_total Total number of mini-pets.
 	-- @field totalmounts Total number of mounts.
 	-- @field total Total number of items in the scan.
 	-- @field known Total number of items known in the scan.
@@ -1237,18 +1244,18 @@ do
 		playerData = playerData or InitPlayerData()
 
 		-- Update the pet/mount totals:
-		playerData["totalknownpets"] = GetNumCompanions("CRITTER")
-		playerData["totalknownmounts"] = GetNumCompanions("MOUNT")
+		playerData["critter_known"] = GetNumCompanions("CRITTER")
+		playerData["mount_known"] = GetNumCompanions("MOUNT")
 
 		-- Lets create all the databases needed if this is the first time everything has been run.
 		if not CompanionDB then
 			InitDatabases()
 		end
-		playerData["totalpets"] = addon:GetMiniPetTotal(CompanionDB)
-		playerData["totalmounts"] = addon:GetMountTotal(CompanionDB)
+		playerData["critter_total"] = addon:GetMiniPetTotal(CompanionDB)
+		playerData["mount_total"] = addon:GetMountTotal(CompanionDB)
 
 		-- Scan for all known companions
-		self:ScanCompanions(CompanionDB, playerData["totalknownpets"], playerData["totalknownmounts"])
+		self:ScanCompanions(CompanionDB, playerData["critter_total"], playerData["mount_total"])
 
 		if not autoupdatescan then
 			PopulateRepFilters(RepFilters)	-- Update the table containing which reps to display
