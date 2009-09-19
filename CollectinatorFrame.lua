@@ -858,58 +858,67 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			-- FactionLevel				RepVendor				
 			-- RepVendorZone			RepVendorCoords
 
-			local repfac = repDB[v["ID"]]
-			local repname = repfac["Name"] -- name
-			local rplvl = v["RepLevel"]
-			local repvndr = vendorDB[v["RepVendor"]]
+			local rep_vendor = vendorDB[v["RepVendor"]]
 			local cStr = ""
 
-			if (repvndr["Coordx"] ~= 0) and (repvndr["Coordy"] ~= 0) then
-				cStr = "(" .. repvndr["Coordx"] .. ", " .. repvndr["Coordy"] .. ")"
-			end
-			clr1 = addon:hexcolor("REP")
-			clr2 = addon:hexcolor("NORMAL")
-			ttAdd(0, -1, 0, L["Reputation"], clr1, repname, clr2)
-
-			local rStr = ""
-			if (rplvl == 0) then
-				rStr = factionNeutral
-				clr1 = addon:hexcolor("NEUTRAL")
-			elseif (rplvl == 1) then
-				rStr = BFAC["Friendly"]
-				clr1 = addon:hexcolor("FRIENDLY")
-			elseif (rplvl == 2) then
-				rStr = BFAC["Honored"]
-				clr1 = addon:hexcolor("HONORED")
-			elseif (rplvl == 3) then
-				rStr = BFAC["Revered"]
-				clr1 = addon:hexcolor("REVERED")
-			else
-				rStr = BFAC["Exalted"]
-				clr1 = addon:hexcolor("EXALTED")
-			end
-
-			local displaytt = false
-			if (repvndr["Faction"] == factionHorde) then
-				clr2 = addon:hexcolor("HORDE")
-				if (playerFaction == factionHorde) then
-					displaytt = true
-				end
-			elseif (repvndr["Faction"] == factionAlliance) then
-				clr2 = addon:hexcolor("ALLIANCE")
-				if (playerFaction == factionAlliance) then
-					displaytt = true
-				end
-			else
+			if not rep_vendor then
 				clr2 = addon:hexcolor("NEUTRAL")
-				displaytt = true
-			end
-
-			if (displaytt) then
-				ttAdd(1, -2, 0, rStr, clr1, repvndr["Name"], clr2)
+				ttAdd(0, -1, 0, L["Vendor"], clr1, UNKNOWN, clr2)
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
-				ttAdd(2, -2, 1, repvndr["Location"], clr1, cStr, clr2)
+				ttAdd(1, -2, 1, v["ID"], clr1, cStr, clr2)
+			else
+				local repfac = repDB[v["ID"]]
+				local repname = repfac["Name"] -- name
+				local rep_level = v["RepLevel"]
+
+				if (rep_vendor["Coordx"] ~= 0) and (rep_vendor["Coordy"] ~= 0) then
+					cStr = "(" .. rep_vendor["Coordx"] .. ", " .. rep_vendor["Coordy"] .. ")"
+				end
+				clr1 = addon:hexcolor("REP")
+				clr2 = addon:hexcolor("NORMAL")
+				ttAdd(0, -1, 0, L["Reputation"], clr1, repname, clr2)
+
+				local rStr = ""
+				if (rep_level == 0) then
+					rStr = factionNeutral
+					clr1 = addon:hexcolor("NEUTRAL")
+				elseif (rep_level == 1) then
+					rStr = BFAC["Friendly"]
+					clr1 = addon:hexcolor("FRIENDLY")
+				elseif (rep_level == 2) then
+					rStr = BFAC["Honored"]
+					clr1 = addon:hexcolor("HONORED")
+				elseif (rep_level == 3) then
+					rStr = BFAC["Revered"]
+					clr1 = addon:hexcolor("REVERED")
+				else
+					rStr = BFAC["Exalted"]
+					clr1 = addon:hexcolor("EXALTED")
+				end
+
+				local displaytt = false
+				if (rep_vendor["Faction"] == factionHorde) then
+					clr2 = addon:hexcolor("HORDE")
+					if (playerFaction == factionHorde) then
+						displaytt = true
+					end
+				elseif (rep_vendor["Faction"] == factionAlliance) then
+					clr2 = addon:hexcolor("ALLIANCE")
+					if (playerFaction == factionAlliance) then
+						displaytt = true
+					end
+				else
+					clr2 = addon:hexcolor("NEUTRAL")
+					displaytt = true
+				end
+
+				if (displaytt) then
+					ttAdd(1, -2, 0, rStr, clr1, rep_vendor["Name"], clr2)
+					clr1 = addon:hexcolor("NORMAL")
+					clr2 = addon:hexcolor("HIGH")
+					ttAdd(2, -2, 1, rep_vendor["Location"], clr1, cStr, clr2)
+				end
 			end
 		elseif (acquire_type == A_WORLD_DROP) then
 			-- World Drop				RarityLevel
