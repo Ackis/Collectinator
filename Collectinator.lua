@@ -1244,8 +1244,8 @@ do
 		if not CompanionDB then
 			InitDatabases()
 		end
-		playerData["totalpets"] = addon:MakeMiniPetTable(CompanionDB)
-		playerData["totalmounts"] = addon:MakeMountTable(CompanionDB)
+		playerData["totalpets"] = addon:GetMiniPetTotal(CompanionDB)
+		playerData["totalmounts"] = addon:GetMountTotal(CompanionDB)
 
 		-- Scan for all known companions
 		self:ScanCompanions(CompanionDB, playerData["totalknownpets"], playerData["totalknownmounts"])
