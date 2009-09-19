@@ -59,21 +59,17 @@ local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79,
 local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT = 1, 2, 3, 4, 5, 6, 7, 8, 9
 
 local initialized = false
-local num_pets
+local num_pets = 0
 
-function addon:MakeMiniPetTable(PetDB)
-
-	if (initialized) then
-		return
+function addon:GetMiniPetTotal(PetDB)
+	if initialized then
+		return num_pets
 	end
-
 	initialized = true
 
 	-------------------------------------------------------------------------------
 	-- Counter and wrapper function
 	-------------------------------------------------------------------------------
-	num_pets = 0
-
 	local function AddPet(SpellID, PetItemID, Rarity, Game)
 		num_pets = num_pets + 1
 		addon:AddCompanion(PetDB, "CRITTER", SpellID, PetItemID, Rarity, Game)
