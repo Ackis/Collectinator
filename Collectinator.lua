@@ -1257,7 +1257,7 @@ do
 		-- Scan for all known companions
 		self:ScanCompanions(CompanionDB, playerData["critter_total"], playerData["mount_total"])
 
-		if not autoupdatescan then
+		if not autoupdatescan and scantype then
 			PopulateRepFilters(RepFilters)	-- Update the table containing which reps to display
 			self:UpdateFilters(CompanionDB, playerData, scantype)	-- Add filtering flags to the items
 
