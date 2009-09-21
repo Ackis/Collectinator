@@ -41,6 +41,9 @@ local debug = false
 debug = true
 --@end-debug@
 
+-- Remove this once collectinator is up and alive with localization
+debug = true
+
 local L = LibStub("AceLocale-3.0"):NewLocale("Collectinator", "enUS", true, debug)
 
 if not L then return end
