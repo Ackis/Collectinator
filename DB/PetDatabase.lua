@@ -608,7 +608,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Spring Rabbit - 61725
 	AddPet(61725, 44794, R_COMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61725, F_ALLIANCE, F_HORDE, F_SEASONAL)
-	self:AddCompanionAcquire(PetDB, 61725, A_SEASONAL, A_ACHIEVEMENT)
+	self:AddCompanionAcquire(PetDB, 61725, A_SEASONAL, 9)
 
 	-- Little Fawn - 61991
 	AddPet(61991, 44841, R_COMMON, GAME_WOTLK)
@@ -738,12 +738,12 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Curious Oracle Hatchling
 	AddPet(65381, 46545, R_UNCOMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 65381, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 65381, A_SEASONAL, A_CUSTOM)
+	self:AddCompanionAcquire(PetDB, 65381, A_QUEST, 13960, A_SEASONAL, 8)
 
 	-- Curious Wolvar Pup
 	AddPet(65382, 46544, R_UNCOMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 65382, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 65382, A_SEASONAL, A_CUSTOM)
+	self:AddCompanionAcquire(PetDB, 65382, A_QUEST, 13959, A_SEASONAL, 8)
 
 	-- Battle-Bot
 	AddPet(65682, 46767, R_UNCOMMON, GAME_WOTLK)
