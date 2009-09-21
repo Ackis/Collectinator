@@ -41,7 +41,6 @@ local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
 local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_UNUSED, F_INSTANCE, F_RAID, F_SEASONAL, F_WORLD_DROP, F_MOB_DROP = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP = 11, 12, 13, 14, 15, 16
 local F_BOE, F_BOP, F_BOA = 20, 21, 22
-local F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36
 -- Reputation filter flags moved to the do/end block since they're only used there
 
 -------------------------------------------------------------------------------
@@ -626,6 +625,7 @@ end
 
 do
 
+	local F_ALCH, F_BS, F_COOKING, F_ENCH, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
 	-------------------------------------------------------------------------------
 	-- Reputation Filter Flags
 	-------------------------------------------------------------------------------
@@ -754,6 +754,45 @@ do
 			return false
 		end
 		if ((obtaindb.wrath == false) and (Entry["Game"] == GAME_WOTLK)) then
+			return false
+		end
+
+		local profdb = filterdb.profs
+
+		if ((profdb.alch == false) and (flags[F_ALCH] == true) then
+			return false
+		end
+		if ((profdb.bs == false) and (flags[F_BS] == true) then
+			return false
+		end
+		if ((profdb.cook == false) and (flags[F_COOKING] == true) then
+			return false
+		end
+		if ((profdb.ench == false) and (flags[F_ENCH] == true) then
+			return false
+		end
+		if ((profdb.eng == false) and (flags[F_ENG] == true) then
+			return false
+		end
+		if ((profdb.fa == false) and (flags[F_FIRST_AID] == true) then
+			return false
+		end
+		if ((profdb.insc == false) and (flags[F_INSC] == true) then
+			return false
+		end
+		if ((profdb.jc == false) and (flags[F_JC] == true) then
+			return false
+		end
+		if ((profdb.lw == false) and (flags[F_LW] == true) then
+			return false
+		end
+		if ((profdb.smelt == false) and (flags[F_SMELT] == true) then
+			return false
+		end
+		if ((profdb.tailor == false) and (flags[F_TAILOR] == true) then
+			return false
+		end
+		if ((profdb.fish == false) and (flags[F_FISHING] == true) then
 			return false
 		end
 
