@@ -28,27 +28,6 @@ Format:
 
 ************************************************************************
 
-Collectinator: Error: Mount with ID 59650 not in database. 
-Collectinator: Error: Mount with ID 64977 not in database. 
-Collectinator: Error: Mount with ID 60119 not in database. 
-Collectinator: Error: Mount with ID 59788 not in database. 
-Collectinator: Error: Mount with ID 64658 not in database. 
-Collectinator: Error: Mount with ID 63635 not in database. 
-Collectinator: Error: Mount with ID 63643 not in database. 
-Collectinator: Error: Mount with ID 65641 not in database. 
-Collectinator: Error: Mount with ID 61997 not in database. 
-Collectinator: Error: Mount with ID 64731 not in database. 
-Collectinator: Error: Mount with ID 63642 not in database. 
-Collectinator: Error: Mount with ID 65646 not in database. 
-Collectinator: Error: Mount with ID 65644 not in database. 
-Collectinator: Error: Mount with ID 65639 not in database. 
-Collectinator: Error: Mount with ID 61447 not in database. 
-Collectinator: Error: Mount with ID 59571 not in database. 
-Collectinator: Error: Mount with ID 64659 not in database. 
-Collectinator: Error: Mount with ID 64657 not in database. 
-Collectinator: Error: Mount with ID 65645 not in database. 
-Collectinator: Error: Mount with ID 59793 not in database. 
-
 ]]--
 
 local MODNAME	= "Collectinator"
@@ -982,6 +961,106 @@ function addon:GetMountTotal(MountDB)
 	AddMount(61230, 44690, 1, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB,61230,1,2,3,16)
 	--self:AddCompanionAcquire(MountDB,61230,1,32216)
+
+	-- Black Drake
+	AddMount(59650, 43986, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Black Skeletal Horse
+	AddMount(64977, 46308, R_RARE, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	self:AddCompanionAcquire(MountDB, A_VENDOR, 4731)
+
+	-- Black War Bear
+	AddMount(60119, 44224, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Black War Mammoth
+	AddMount(59788, 44077, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Black Wolf
+	AddMount(64658, 46099, R_RARE, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	self:AddCompanionAcquire(MountDB, A_VENDOR, 3362)
+
+	-- Darkspear Raptor
+	AddMount(63635, 45593, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	self:AddCompanionAcquire(MountDB, A_VENDOR, 33554)
+
+	-- Forsaken Warhorse
+	AddMount(63643, 45597, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	self:AddCompanionAcquire(MountDB, A_VENDOR, 33355)
+
+	-- Great Golden Kodo
+	AddMount(65641, 46750, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	self:AddCompanionAcquire(MountDB, A_VENDOR, 33556)
+
+	-- Red Dragonhawk
+	AddMount(61997, 44842, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Sea Turtle
+	AddMount(64731, 46109, R_RARE, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Silvermoon Hawkstrider
+	AddMount(63642, 45596, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	self:AddCompanionAcquire(MountDB, 63642, A_VENDOR, 33557)
+
+	-- Swift Burgandy Wolf
+	AddMount(65646, 46749, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	self:AddCompanionAcquire(MountDB, A_VENDOR, 33553)
+
+	-- Swift Purple Raptor
+	AddMount(65644, 46743, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Swift Red Hawkstrider
+	AddMount(65639, 46751, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Traveler's Tundra Mammoth
+	AddMount(61447, 44234, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Twilight Drake
+	AddMount(59571, 43954, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Venomhide Ravasaur
+	AddMount(64659, 46102, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- White Kodo
+	AddMount(64657, 46100, R_RARE, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- White Skeletal Warhorse
+	AddMount(65645, 46746, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
+
+	-- Wooly Mammoth
+	AddMount(59793, 44231, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB,
+	--self:AddCompanionAcquire(MountDB,
 
 	return num_mounts
 
