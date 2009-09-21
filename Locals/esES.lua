@@ -30,7 +30,7 @@ These translations are released under the Public Domain.
 ************************************************************************
 ]]--
 
-local L = LibStub("AceLocale-3.0"):NewLocale("Collectinator", "esES", true)
+local L = LibStub("AceLocale-3.0"):NewLocale("Collectinator", "esES")
 
 if not L then return end
 
