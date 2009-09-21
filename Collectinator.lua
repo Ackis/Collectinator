@@ -759,40 +759,40 @@ do
 
 		local profdb = filterdb.profs
 
-		if ((profdb.alch == false) and (flags[F_ALCH] == true) then
+		if ((profdb.alch == false) and (flags[F_ALCH] == true)) then
 			return false
 		end
-		if ((profdb.bs == false) and (flags[F_BS] == true) then
+		if ((profdb.bs == false) and (flags[F_BS] == true)) then
 			return false
 		end
-		if ((profdb.cook == false) and (flags[F_COOKING] == true) then
+		if ((profdb.cook == false) and (flags[F_COOKING] == true)) then
 			return false
 		end
-		if ((profdb.ench == false) and (flags[F_ENCH] == true) then
+		if ((profdb.ench == false) and (flags[F_ENCH] == true)) then
 			return false
 		end
-		if ((profdb.eng == false) and (flags[F_ENG] == true) then
+		if ((profdb.eng == false) and (flags[F_ENG] == true)) then
 			return false
 		end
-		if ((profdb.fa == false) and (flags[F_FIRST_AID] == true) then
+		if ((profdb.fa == false) and (flags[F_FIRST_AID] == true)) then
 			return false
 		end
-		if ((profdb.insc == false) and (flags[F_INSC] == true) then
+		if ((profdb.insc == false) and (flags[F_INSC] == true)) then
 			return false
 		end
-		if ((profdb.jc == false) and (flags[F_JC] == true) then
+		if ((profdb.jc == false) and (flags[F_JC] == true)) then
 			return false
 		end
-		if ((profdb.lw == false) and (flags[F_LW] == true) then
+		if ((profdb.lw == false) and (flags[F_LW] == true)) then
 			return false
 		end
-		if ((profdb.smelt == false) and (flags[F_SMELT] == true) then
+		if ((profdb.smelt == false) and (flags[F_SMELT] == true)) then
 			return false
 		end
-		if ((profdb.tailor == false) and (flags[F_TAILOR] == true) then
+		if ((profdb.tailor == false) and (flags[F_TAILOR] == true)) then
 			return false
 		end
-		if ((profdb.fish == false) and (flags[F_FISHING] == true) then
+		if ((profdb.fish == false) and (flags[F_FISHING] == true)) then
 			return false
 		end
 
