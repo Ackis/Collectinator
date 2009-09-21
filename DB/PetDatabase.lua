@@ -422,7 +422,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Wolpertinger's Tankard - 39709
 	AddPet(39709, 32233, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 39709, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(PetDB, 39709, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 39709, 7, 6)
 
 	-- Fortune Coin - 40405 (Lucky)
@@ -474,6 +474,11 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(43918, 33993, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 43918, F_ALLIANCE, F_HORDE, F_RAID, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 43918, 8, 19)
+
+	-- Pint-Sized Pink Elekk - 44369
+	AddPet(44369, 46707, R_RARE, GAME_TBC)
+	self:AddCompanionFlags(PetDB, 44369, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 44369, 7, 6)
 
 	-- Tiny Sporebat - 45082
 	AddPet(45082, 34478, R_RARE, GAME_TBC)
