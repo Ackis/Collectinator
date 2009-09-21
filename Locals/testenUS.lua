@@ -14,8 +14,8 @@ Currently maintained by: Ackis
 
 Please make sure you update the ToC file with any translations.
 
-Please update http://www.wowace.com/projects/collectinator/localization/enUS/ for any translation
-additions or changes.
+Please update http://www.wowace.com/projects/collectinator/localization/enUS/ 
+for any translation additions or changes.
 
 ****************************************************************************************
 ]]--
@@ -50,27 +50,27 @@ L["Documentation"]			= true
 -- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
 L["Scan"]					= true
-L["SCAN_RECIPES_DESC"]		= [[Scans an open tradeskill for missing recipes.
+L["SCAN_RECIPES_DESC"]		= [[Scans an open tradeskill for missing entries.
 Shift-click to generate a text dump.
 Alt-click to remove all waypoints from the mini-map and world map.]]
 L["Text Dump"]				= true
-L["TEXT_DUMP_DESC"]			= "Displays all recipes in a comma separated value format which can be copied and pasted into another client."
+L["TEXT_DUMP_DESC"]			= "Displays all entries in a comma separated value format which can be copied and pasted into another client."
 L["View Exclusion List"]	= true
 L["Clear Exclusion List"]	= true
 L["Reset All Filters"]		= true
 L["Scan Button Position"]	= true
 L["SCANBUTTONPOSITION_DESC"] = "Allows you to customize where the scan button is placed on the tradeskill frame."
-L["VIEW_EXCLUSION_LIST_DESC"] = "Prints out a list of all recipes on the exclusion list."
-L["CLEAR_EXCLUSION_LIST_DESC"] = "Removes all recipes from the exclusion list."
+L["VIEW_EXCLUSION_LIST_DESC"] = "Prints out a list of all entries on the exclusion list."
+L["CLEAR_EXCLUSION_LIST_DESC"] = "Removes all entries from the exclusion list."
 L["MAINFILTER_OPTIONS_DESC"] = "Allows you to specify how ARL handles different filters."
 L["DISPLAY_OPTIONS_DESC"]	= "Allows you to customize how the GUI behaves."
-L["SORTING_OPTIONS_DESC"]	= "Allows you to customize the way displayed recipes are sorted."
+L["SORTING_OPTIONS_DESC"]	= "Allows you to customize the way displayed entries are sorted."
 L["ARL_DOC_DESC"]			= "Documentation for Ackis Recipe List"
 
 -- UI Documentation
 L["Using Filters"]			= true
 L["USING_FILTERS_DESC"]		= [[Filters may be toggled on or off.  There are two types of filters: one which will prevent the recipe from showing up at all, and one which will prevent a specific type of acquire information from showing up.
-With the first type of filter, these match the proprieties of the recipe (ie: binding).  If you toggle ARL to not show BoP recipes, no recipes that are BoP will show up in the scan.  The second type of filter deals with acquire information.  If a recipe is available as a mob drop, or from a vendor and you toggle to not show vendor recipes, the recipe will still show up but vendor information will be hidden for it.  The reason is that there is still another way to acquire this recipe (mob drop) so it should still be included in the scan.
+With the first type of filter, these match the proprieties of the recipe (ie: binding).  If you toggle ARL to not show BoP entries, no entries that are BoP will show up in the scan.  The second type of filter deals with acquire information.  If a recipe is available as a mob drop, or from a vendor and you toggle to not show vendor entries, the recipe will still show up but vendor information will be hidden for it.  The reason is that there is still another way to acquire this recipe (mob drop) so it should still be included in the scan.
 Please note that the tooltips will always hide the opposite faction methods of acquiring a recipe.  This has been done to save space in the tooltip since they can get quite large.]]
 L["Reporting Bugs"]			= true
 L["REPORTING_BUGS_DESC"]	= [[When reporting a bug, please make sure you do the following:
@@ -80,14 +80,14 @@ L["REPORTING_BUGS_DESC"]	= [[When reporting a bug, please make sure you do the f
 4) Read the bug reporting documentation at http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/
 5) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.
 6) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/projects/arl/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the recipe/profession you were working with, and any other info that you think may help.
-When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing recipes in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily.]]
+When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing entries in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily.]]
 L["Common Issues"]			= true
 L["COMMON_ISSUES_DESC"]		= [[Please refer to these common issues before submitting a bug report.
 1) Recipe X does not show up! - Check your filter settings to make sure that the recipe is not being filtered.
-2) Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show recipes which your class can use and most glpyhs are not usable by your class.
-3) I don't want to see opposite faction recipes! Turn on the factions filter.  This will set it up to only display your factions obtainable recipes.  If something still shows up and it shouldn't, please submit a bug report.]]
+2) Inscription is missing so many glyphs! Why aren't they listed?  Turn off your 'classes' filter.  By default (and due to popular request) ARL will only show entries which your class can use and most glpyhs are not usable by your class.
+3) I don't want to see opposite faction entries! Turn on the factions filter.  This will set it up to only display your factions obtainable entries.  If something still shows up and it shouldn't, please submit a bug report.]]
 L["Exclusion Issues"]		= true
-L["EXCLUSION_ISSUES_DESC"]	= "To add a recipe to the exclusion (ignore) list, just alt-click on it from the recipe window.  To get this recipe back, open up the ARL options and set the toggle of \"Show Excluded Recipes\" to be on.  This will show all the recipes you've excluded in your scan during your next scan.  Once you have done this, Alt Click on the recipe again to remove it from the exclusion list."
+L["EXCLUSION_ISSUES_DESC"]	= "To add a recipe to the exclusion (ignore) list, just alt-click on it from the recipe window.  To get this recipe back, open up the ARL options and set the toggle of \"Show Excluded entries\" to be on.  This will show all the entries you've excluded in your scan during your next scan.  Once you have done this, Alt Click on the recipe again to remove it from the exclusion list."
 L["Map Issues"]				= true
 L["MAP_ISSUES_DESC"]		= "ARL relies on TomTom to add icons and waypoints to the World Map and the Mini-map.  You can customize these by going to the ARL configuration menu and scrolling to the display options.  If you do not have TomTom installed, nothing will be added.  Auto-adding icons is disabled by default."
 L["Game Commands"]			= true
@@ -106,7 +106,7 @@ Ackis Recipe List has recently changed to use a GUI for change parameters.  Type
 - /arl filter
   Opens up filtering options.
 - /arl scan
-  Performs a scan for missing recipes.  This is in place for those times when you cannot access the scan button.
+  Performs a scan for missing entries.  This is in place for those times when you cannot access the scan button.
 
 Clicking:
 Ackis Recipe List will behave differently depending on which modifying keys you use to click.
@@ -115,7 +115,7 @@ Scan Button:
 This is the functionality that occurs when you are clicking the scan button.
 
 - Normal Click
-  Performs a scan of the current tradeskill displaying recipes in a new window.
+  Performs a scan of the current tradeskill displaying entries in a new window.
 - Shift Click
   Generates a text dumping of the current tradeskill in CSV format.
 - Alt Click
@@ -137,13 +137,13 @@ This is the functionality that occurs when you click on a recipe.
 
 -- Config UI Elements and their associated descriptions
 L["Include Filtered"]		= true
-L["FILTERCOUNT_DESC"]		= "Include filtered recipes in the count of total recipes."
+L["FILTERCOUNT_DESC"]		= "Include filtered entries in the count of total entries."
 L["Include Excluded"]		= true
-L["EXCLUDECOUNT_DESC"]		= "Include excluded recipes in the count of total recipes."
+L["EXCLUDECOUNT_DESC"]		= "Include excluded entries in the count of total entries."
 L["Close GUI"]				= "Close with Tradeskill UI"
 L["CLOSEGUI_DESC"]			= "Close the ARL window when the crafting window is closed."
 L["Display Exclusions"]		= true
-L["DISPLAY_EXCLUSION_DESC"]	= "Display recipes that are in the exclusion list."
+L["DISPLAY_EXCLUSION_DESC"]	= "Display entries that are in the exclusion list."
 L["Reset Window Position"]	= true
 L["RESET_WINDOW_DESC"]		= "Resets the ARL GUI to default position."
 L["UI Scale"]				= true
@@ -159,7 +159,7 @@ L["FONT_SIZE_DESC"]			= "Changes the size of the fonts for ARL."
 L["Sorting"]				= true
 L["Sort"]					= true
 L["Display"]				= true
-L["SORTING_DESC"]			= "Change the way in which displayed recipes are sorted."
+L["SORTING_DESC"]			= "Change the way in which displayed entries are sorted."
 L["TOOLTIP_OPTIONS_DESC"]	= "Allows you to specify how the tooltips for ARL behave.  The acquire tooltip lists the different information on how to acquire the recipe, whereas the spell tooltip lists the recipe information itself."
 L["MAP_OPTIONS_DESC"]		= "Allows you to change how ARL integrates into the world map and into the mini-map."
 L["Version"]				= "Version: "
@@ -181,8 +181,8 @@ L["Acquisition"]			= true
 L["Unhandled Recipe"]		= true
 L["World Map"]				= true
 L["Mini Map"]				= true
-L["WORLDMAP_DESC"]			= "Do you want missing vendor recipes to appear on the world map."
-L["MINIMAP_DESC"]			= "Do you want missing vendor recipes to appear on the mini map."
+L["WORLDMAP_DESC"]			= "Do you want missing vendor entries to appear on the world map."
+L["MINIMAP_DESC"]			= "Do you want missing vendor entries to appear on the mini map."
 L["Clear Waypoints"]		= true
 L["CLEAR_WAYPOINTS_DESC"]	= "Remove all ARL waypoints from TomTom."
 L["Hide Pop-Up"]			= true
@@ -206,11 +206,11 @@ L["Wrath of the Lich King"]	= true
 L["Misc"]					= true
 
 -- Filter Configuration Descriptions
-L["FILTERING_OPTIONS_DESC"]					= "Allows you to customize which recipes are filtered."
+L["FILTERING_OPTIONS_DESC"]					= "Allows you to customize which entries are filtered."
 L["General Filtering Options"]				= true
 L["FILTERING_GENERAL_DESC"]					= "Configuration for several more general filter types."
 L["Obtain Filtering Options"]				= true
-L["FILTERING_OBTAIN_DESC"]					= "Configuration for which methods of obtaining recipes are included in the scan."
+L["FILTERING_OBTAIN_DESC"]					= "Configuration for which methods of obtaining entries are included in the scan."
 L["Binding Filtering Options"]				= true
 L["FILTERING_BINDING_DESC"]					= "Configuration for which types of binding are included in the scan."
 L["Item Filtering Options"]					= true
@@ -222,13 +222,13 @@ L["FILTERING_WEAPONS_DESC"]					= "Configuration for which types of weapons are 
 L["Player Type Filtering Options"]			= true
 L["FILTERING_PLAYERTYPE_DESC"]				= "Configuration for items matching which player types are included in the scan."
 L["Reputation Filtering Options"]			= true
-L["FILTERING_REP_DESC"]						= "Configuration for which reputation reward recipes are included in the scan."
+L["FILTERING_REP_DESC"]						= "Configuration for which reputation reward entries are included in the scan."
 L["Old World Rep. Filtering Options"]		= true
-L["FILTERING_OLDWORLD_DESC"]				= "Configuration for which Old World Reputation reward recipes are included in the scan."
+L["FILTERING_OLDWORLD_DESC"]				= "Configuration for which Old World Reputation reward entries are included in the scan."
 L["Burning Crusade Rep. Filtering Options"]	= true
-L["FILTERING_BC_DESC"]						= "Configuration for which Burning Crusade Reputation reward recipes are included in the scan."
+L["FILTERING_BC_DESC"]						= "Configuration for which Burning Crusade Reputation reward entries are included in the scan."
 L["Lich King Rep. Filtering Options"]		= true
-L["FILTERING_WOTLK_DESC"]					= "Configuration for which Wrath of the Lich King Reputation reward recipes are included in the scan."
+L["FILTERING_WOTLK_DESC"]					= "Configuration for which Wrath of the Lich King Reputation reward entries are included in the scan."
 L["REP_TEXT_DESC"]							= [[Left-click here to select all reputation filters.
 Right-click here to deselect all reputation filters.]]
 L["Miscellaneous"]							= true
@@ -236,7 +236,7 @@ L["FILTERING_MISC_DESC"]					= "Configuration for miscellaneous options which ar
 
 -- General Filter UI Elements and their associated descriptions
 L["Faction"]				= true
-L["FACTION_DESC"]			= "Include both horde and alliance faction recipes in the scan."
+L["FACTION_DESC"]			= "Include both horde and alliance faction entries in the scan."
 L["Classes"]				= true
 L["CLASS_DESC"]				= "Include this class in the scan.  This will filter on two factors: 1) Can the class use the recipe and 2) can the class learn the recipe."
 L["CLASS_TEXT_DESC"]		= [[Left-click here to select all classes.
@@ -244,112 +244,112 @@ Right-click here to select your own class.]]
 L["Specialties"]			= true
 L["SPECIALTY_DESC"]			= "Include all trade-skill specialties in the scan."
 L["Skill"]					= true
-L["SKILL_DESC"]				= "Include all recipes in the scan, regardless of your current skill level."
+L["SKILL_DESC"]				= "Include all entries in the scan, regardless of your current skill level."
 L["Known"]					= true
-L["KNOWN_DESC"]				= "Include all known recipes in the scan."
+L["KNOWN_DESC"]				= "Include all known entries in the scan."
 L["Unknown"]				= true
-L["UNKNOWN_DESC"]			= "Include all unknown recipes in the scan."
+L["UNKNOWN_DESC"]			= "Include all unknown entries in the scan."
 
 -- Obtain Filter UI Elements and their associated descriptions
 L["Instance"]				= true
-L["INSTANCE_DESC"]			= "Recipes obtained from (5 man) instances should be included in the scan."
+L["INSTANCE_DESC"]			= "entries obtained from (5 man) instances should be included in the scan."
 L["Raid"]					= true
-L["RAID_DESC"]				= "Recipes obtained in raids (ie: Molten Core, Serpent Shrine Cavern, etc.) should be included in the scan."
+L["RAID_DESC"]				= "entries obtained in raids (ie: Molten Core, Serpent Shrine Cavern, etc.) should be included in the scan."
 L["Quest"]					= true
-L["QUEST_DESC"]				= "Recipes obtained as quest rewards should be included in the scan."
-L["SEASONAL_DESC"]			= "Recipes obtained in world events should be included in the scan."
+L["QUEST_DESC"]				= "entries obtained as quest rewards should be included in the scan."
+L["SEASONAL_DESC"]			= "entries obtained in world events should be included in the scan."
 L["Trainer"]				= true
-L["TRAINER_DESC"]			= "Recipes learned from trainers should be included in the scan."
+L["TRAINER_DESC"]			= "entries learned from trainers should be included in the scan."
 L["Vendor"]					= true
-L["VENDOR_DESC"]			= "Recipes purchased from vendors should be included in the scan."
+L["VENDOR_DESC"]			= "entries purchased from vendors should be included in the scan."
 L["PVP"]					= true
-L["PVP_DESC"]				= "Recipes obtained through PVP should be included in the scan."
+L["PVP_DESC"]				= "entries obtained through PVP should be included in the scan."
 L["Discovery"]				= true
-L["DISCOVERY_DESC"]			= "Recipes obtained through Discovery should be included in the scan."
+L["DISCOVERY_DESC"]			= "entries obtained through Discovery should be included in the scan."
 L["World Drop"]				= true
-L["WORLD_DROP_DESC"]		= "Recipes that are World Drops should be included in the scan."
+L["WORLD_DROP_DESC"]		= "entries that are World Drops should be included in the scan."
 L["Mob Drop"]				= true
-L["MOB_DROP_DESC"]			= "Recipes that are Mob Drops should be included in the scan."
+L["MOB_DROP_DESC"]			= "entries that are Mob Drops should be included in the scan."
 
 -- Binding Filter UI Elements and their associated descriptions
 L["BOEFilter"]				= "Item Bind on Equip"
-L["BOE_DESC"]				= "Recipes that make Bind on Equip items should be included in the scan."
+L["BOE_DESC"]				= "entries that make Bind on Equip items should be included in the scan."
 L["BOPFilter"]				= "Item Bind on Pickup"
-L["BOP_DESC"]				= "Recipes that make Bind on Pickup items should be included in the scan."
+L["BOP_DESC"]				= "entries that make Bind on Pickup items should be included in the scan."
 L["BOAFilter"]				= "Item Bind to Account"
-L["BOA_DESC"]				= "Recipes that make Bind to Account items should be included in the scan."
+L["BOA_DESC"]				= "entries that make Bind to Account items should be included in the scan."
 L["RecipeBOEFilter"]		= "Recipe Bind on Equip"
-L["RECIPE_BOE_DESC"]		= "Recipes that are Bind on Equip should be included in the scan."
+L["RECIPE_BOE_DESC"]		= "entries that are Bind on Equip should be included in the scan."
 L["RecipeBOPFilter"]		= "Recipe Bind on Pickup"
-L["RECIPE_BOP_DESC"]		= "Recipes that are Bind on Pickup should be included in the scan."
+L["RECIPE_BOP_DESC"]		= "entries that are Bind on Pickup should be included in the scan."
 L["RecipeBOAFilter"]		= "Recipe Bind to Account"
-L["RECIPE_BOA_DESC"]		= "Recipes that are Bind to Account should be included in the scan."
+L["RECIPE_BOA_DESC"]		= "entries that are Bind to Account should be included in the scan."
 
 -- Item - Armor UI Elements and their associated descriptions
 L["ARMOR_TEXT_DESC"]		= [[Left-click here to select all armor filters.
 Right-click here to deselect all armor filters.]]
 L["Cloth"]					= true
-L["CLOTH_DESC"]				= "Recipes that make cloth items should be included in the scan."
+L["CLOTH_DESC"]				= "entries that make cloth items should be included in the scan."
 L["Leather"]				= true
-L["LEATHER_DESC"]			= "Recipes that make leather items should be included in the scan."
+L["LEATHER_DESC"]			= "entries that make leather items should be included in the scan."
 L["Mail"]					= true
-L["MAIL_DESC"]				= "Recipes that make mail items should be included in the scan."
+L["MAIL_DESC"]				= "entries that make mail items should be included in the scan."
 L["Plate"]					= true
-L["PLATE_DESC"]				= "Recipes that make plate items should be included in the scan."
+L["PLATE_DESC"]				= "entries that make plate items should be included in the scan."
 L["Cloak"]					= true
-L["CLOAK_DESC"]				= "Recipes that make cloaks should be included in the scan."
+L["CLOAK_DESC"]				= "entries that make cloaks should be included in the scan."
 L["Ring"]					= true
-L["RING_DESC"]				= "Recipes that make rings should be included in the scan."
+L["RING_DESC"]				= "entries that make rings should be included in the scan."
 L["Trinket"]				= true
-L["TRINKET_DESC"]			= "Recipes that make trinkets should be included in the scan."
+L["TRINKET_DESC"]			= "entries that make trinkets should be included in the scan."
 L["Necklace"]				= true
-L["NECKLACE_DESC"]			= "Recipes that make necklaces should be included in the scan."
+L["NECKLACE_DESC"]			= "entries that make necklaces should be included in the scan."
 L["Shield"]					= true
-L["SHIELD_DESC"]			= "Recipes that make shields should be included in the scan."
+L["SHIELD_DESC"]			= "entries that make shields should be included in the scan."
 
 -- Item - Weapon UI Elements and their associated descriptions
 L["WEAPON_TEXT_DESC"]		= [[Left-click here to select all weapon filters.
 Right-click here to deselect all weapon filters.]]
 L["One Hand"]				= true
-L["ONEHAND_DESC"]			= "Recipes that make one handed items should be included in the scan."
+L["ONEHAND_DESC"]			= "entries that make one handed items should be included in the scan."
 L["Two Hand"]				= true
-L["TWOHAND_DESC"]			= "Recipes that make two handed items should be included in the scan."
+L["TWOHAND_DESC"]			= "entries that make two handed items should be included in the scan."
 L["Axe"]					= true
-L["AXE_DESC"]				= "Recipes that make axes should be included in the scan."
+L["AXE_DESC"]				= "entries that make axes should be included in the scan."
 L["Sword"]					= true
-L["SWORD_DESC"]				= "Recipes that make swords should be included in the scan."
+L["SWORD_DESC"]				= "entries that make swords should be included in the scan."
 L["Mace"]					= true
-L["MACE_DESC"]				= "Recipes that make maces should be included in the scan."
+L["MACE_DESC"]				= "entries that make maces should be included in the scan."
 L["Polearm"]				= true
-L["POLEARM_DESC"]			= "Recipes that make polearms should be included in the scan."
+L["POLEARM_DESC"]			= "entries that make polearms should be included in the scan."
 L["Dagger"]					= true
-L["DAGGER_DESC"]			= "Recipes that make daggers should be included in the scan."
+L["DAGGER_DESC"]			= "entries that make daggers should be included in the scan."
 L["Fist"]					= true
-L["FIST_DESC"]				= "Recipes that make fist weapons should be included in the scan."
+L["FIST_DESC"]				= "entries that make fist weapons should be included in the scan."
 L["Staff"]					= true
-L["STAFF_DESC"]				= "Recipes that make stave's should be included in the scan."
+L["STAFF_DESC"]				= "entries that make stave's should be included in the scan."
 L["Wand"]					= true
-L["WAND_DESC"]				= "Recipes that make wands should be included in the scan."
+L["WAND_DESC"]				= "entries that make wands should be included in the scan."
 L["Thrown"]					= true
-L["THROWN_DESC"]			= "Recipes that make thrown weapons should be included in the scan."
+L["THROWN_DESC"]			= "entries that make thrown weapons should be included in the scan."
 L["Bow"]					= true
-L["BOW_DESC"]				= "Recipes that make bows should be included in the scan."
+L["BOW_DESC"]				= "entries that make bows should be included in the scan."
 L["Crossbow"]				= true
-L["CROSSBOW_DESC"]			= "Recipes that make crossbows should be included in the scan."
+L["CROSSBOW_DESC"]			= "entries that make crossbows should be included in the scan."
 L["Ammo"]					= true
-L["AMMO_DESC"]				= "Recipes that make ammunition should be included in the scan."
+L["AMMO_DESC"]				= "entries that make ammunition should be included in the scan."
 L["Gun"]					= true
-L["GUN_DESC"]				= "Recipes that make guns should be included in the scan."
+L["GUN_DESC"]				= "entries that make guns should be included in the scan."
 
 -- Player Type Filtering UI Elements and their associated descriptions
 L["Melee DPS"]				= true
-L["MELEE_DPS_DESC"]			= "Recipes that are used by melee dps players should be included in the scan."
+L["MELEE_DPS_DESC"]			= "entries that are used by melee dps players should be included in the scan."
 L["Tanks"]					= true
-L["TANKS_DESC"]				= "Recipes that are used by tank players should be included in the scan."
+L["TANKS_DESC"]				= "entries that are used by tank players should be included in the scan."
 L["Caster DPS"]				= true
-L["CASTER_DPS_DESC"]		= "Recipes that are used by casting dps players should be included in the scan."
+L["CASTER_DPS_DESC"]		= "entries that are used by casting dps players should be included in the scan."
 L["Healers"]				= true
-L["HEALERS_DESC"]			= "Recipes that are used by healer players should be included in the scan."
+L["HEALERS_DESC"]			= "entries that are used by healer players should be included in the scan."
 
 -- Reputation Filtering UI Elements and their associated description
 L["SPECIFIC_REP_DESC"]		= "Include %s faction."
@@ -360,11 +360,11 @@ L["FILTER_OPEN_DESC"]		= "Open filter option panel."
 L["FILTER_CLOSE"]			= "<<< Filter"
 L["FILTER_CLOSE_DESC"]		= "Close filter option panel."
 L["EXPANDALL"]				= "+ All"
-L["EXPANDALL_DESC"]			= "Expand all recipes listed below."
+L["EXPANDALL_DESC"]			= "Expand all entries listed below."
 L["CONTRACTALL"]			= "- All"
-L["CONTRACTALL_DESC"]		= "Minimize all recipes listed below."
+L["CONTRACTALL_DESC"]		= "Minimize all entries listed below."
 L["Search"]					= true
-L["SEARCH_DESC"]			= "Filter to recipes that contain text at left."
+L["SEARCH_DESC"]			= "Filter to entries that contain text at left."
 L["SEARCH_BOX_DESC"]		= "Enter text to search"
 L["CLEAR_DESC"]				= "Clear the search text box."
 L["Close"]					= "Exit"
@@ -386,11 +386,11 @@ L["Required Skill"]		= true
 
 -- Popup Strings
 L["NOTSCANNED"]		= "You have not yet scanned this profession. Please open this profession and click on Scan."
-L["Collectinator_FILTERED"]	= "Although you have already scanned this profession, your filters are currently preventing any recipes from being displayed. Please change your filters and try again."
-L["Collectinator_ALLKNOWN"]	= "You know all the recipes for this profession."
-L["Collectinator_ALLEXCLUDED"] = "Although you have already scanned this profession, your exclusions are currently preventing any recipes from being displayed. Please change your exclusions and try again."
+L["Collectinator_FILTERED"]	= "Although you have already scanned this profession, your filters are currently preventing any entries from being displayed. Please change your filters and try again."
+L["Collectinator_ALLKNOWN"]	= "You know all the entries for this profession."
+L["Collectinator_ALLEXCLUDED"] = "Although you have already scanned this profession, your exclusions are currently preventing any entries from being displayed. Please change your exclusions and try again."
 L["Collectinator_SEARCHFILTERED"] = "Your search has no results."
-L["NO_DISPLAY"] 	= "No recipes to display.  If you get this message please submit a ticket at http://www.wowace.com/projects/arl/tickets listing what filters you have, what is in your exclusion list, which profession, and the number of known/unknown recipes."
+L["NO_DISPLAY"] 	= "No entries to display.  If you get this message please submit a ticket at http://www.wowace.com/projects/arl/tickets listing what filters you have, what is in your exclusion list, which profession, and the number of known/unknown entries."
 
 -- Error/warning Text
 L["MissingFromDB"] = [[": is missing from the database.
@@ -1751,9 +1751,9 @@ L["Imindril Spearsong"] = true
 L["First Aid Trainer"] = true
 L["Enchanting Trainer"] = true
 L["Alt-Tradeskills"] = true
-L["ORIGINAL_WOW_DESC"] = "Recipes available with the original game."
-L["BC_WOW_DESC"] = "Recipes available with the Burning Crusade."
-L["LK_WOW_DESC"] = "Recipes available with the Wrath of the Lich King."
+L["ORIGINAL_WOW_DESC"] = "entries available with the original game."
+L["BC_WOW_DESC"] = "entries available with the Burning Crusade."
+L["LK_WOW_DESC"] = "entries available with the Wrath of the Lich King."
 L["Lich King"] = true
 L["Silverbrook Trapper"] = true
 L["Silverbrook Villager"] = true
