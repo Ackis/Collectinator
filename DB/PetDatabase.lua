@@ -748,7 +748,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Battle-Bot
 	AddPet(65682, 46767, R_UNCOMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 65682, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 65682, A_CUSTOM)
+	self:AddCompanionAcquire(PetDB, 65682, A_CUSTOM, 24)
 
 	return num_pets
 

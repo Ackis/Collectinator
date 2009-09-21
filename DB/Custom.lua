@@ -54,6 +54,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 21, "PVP Pet")
 	self:addLookupList(CustomDB, 22, "Grunty") -- Blizzcon 2009
 	self:addLookupList(CustomDB, 23, "Original Epic Mount")
+	self:addLookupList(CustomDB, 24, "Battlebot")
 
 end
 
