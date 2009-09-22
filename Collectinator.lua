@@ -1095,42 +1095,45 @@ do
 			for i in pairs(acquire) do
 				-- Vendor
 				if (acquire[i]["Type"] == A_VENDOR) then
-					--@debug@
-					if (not VendorList[acquire[i]["ID"]]) then
+					if not VendorList[acquire[i]["ID"]] then
+						--@debug@
 						self:Print("Missing vendor in database: " .. acquire[i]["ID"])
-					end
-					--@end-debug@
-					local location = VendorList[acquire[i]["ID"]]["Location"]
-					if (not locationchecklist[location]) then
-						-- Add the location to the list
-						tinsert(locationlist, location)
-						locationchecklist[location] = true
+						--@end-debug@
+					else
+						local location = VendorList[acquire[i]["ID"]]["Location"]
+						if (not locationchecklist[location]) then
+							-- Add the location to the list
+							tinsert(locationlist, location)
+							locationchecklist[location] = true
+						end
 					end
 				-- Quest
 				elseif (acquire[i]["Type"] == A_QUEST) then
-					--@debug@
-					if (not QuestList[acquire[i]["ID"]]) then
+					if not QuestList[acquire[i]["ID"]] then
+						--@debug@
 						self:Print("Missing quest in database: " .. acquire[i]["ID"])
-					end
-					--@end-debug@
-					local location = QuestList[acquire[i]["ID"]]["Location"]
-					if (not locationchecklist[location]) then
-						-- Add the location to the list
-						tinsert(locationlist, location)
-						locationchecklist[location] = true
+						--@end-debug@
+					else
+						local location = QuestList[acquire[i]["ID"]]["Location"]
+						if (not locationchecklist[location]) then
+							-- Add the location to the list
+							tinsert(locationlist, location)
+							locationchecklist[location] = true
+						end
 					end
 				-- Mob Drop
 				elseif (acquire[i]["Type"] == A_MOB) then
-					--@debug@
-					if (not MobList[acquire[i]["ID"]]) then
+					if not MobList[acquire[i]["ID"]] then
+						--@debug@
 						self:Print("Missing mob in database: " .. acquire[i]["ID"])
-					end
-					--@end-debug@
-					local location = MobList[acquire[i]["ID"]]["Location"]
-					if (not locationchecklist[location]) then
-						-- Add the location to the list
-						tinsert(locationlist, location)
-						locationchecklist[location] = true
+						--@end-debug@
+					else
+						local location = MobList[acquire[i]["ID"]]["Location"]
+						if (not locationchecklist[location]) then
+							-- Add the location to the list
+							tinsert(locationlist, location)
+							locationchecklist[location] = true
+						end
 					end
 				end
 			end
