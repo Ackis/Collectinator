@@ -26,24 +26,6 @@ Author: Ackis
 local maxfilterflags = 90
 
 -------------------------------------------------------------------------------
--- Item "rarity"
--------------------------------------------------------------------------------
-local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
-
--------------------------------------------------------------------------------
--- Origin
--------------------------------------------------------------------------------
-local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
-
--------------------------------------------------------------------------------
--- Filter flags
--------------------------------------------------------------------------------
-local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_UNUSED, F_INSTANCE, F_RAID, F_SEASONAL, F_WORLD_DROP, F_MOB_DROP = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP = 11, 12, 13, 14, 15, 16
-local F_BOE, F_BOP, F_BOA = 20, 21, 22
--- Reputation filter flags moved to the do/end block since they're only used there
-
--------------------------------------------------------------------------------
 -- Constants for acquire types.
 -------------------------------------------------------------------------------
 local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
@@ -494,14 +476,14 @@ function addon:AddCompanionAcquire(DB, SpellID, ...)
 		i = i + 2
 
 		-- Crafted
-		if (AcquireType == 3) then
+		if (AcquireType == A_CRAFTED) then
 			local craftedby = select(i, ...)
 			acquire[index]["Crafted"] = craftedby
 			i = i + 1
 		end
 
 		-- Reputation
-		if (AcquireType == 6) then
+		if (AcquireType == A_REPUTATION) then
 			local RepLevel, RepVendor = select(i, ...)
 			acquire[index]["RepLevel"] = RepLevel
 			acquire[index]["RepVendor"] = RepVendor
@@ -625,6 +607,17 @@ end
 
 do
 
+	-------------------------------------------------------------------------------
+	-- Origin
+	-------------------------------------------------------------------------------
+	local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
+
+	-------------------------------------------------------------------------------
+	-- Filter flags
+	-------------------------------------------------------------------------------
+	local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_UNUSED, F_INSTANCE, F_RAID, F_SEASONAL, F_WORLD_DROP, F_MOB_DROP = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+	local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP = 11, 12, 13, 14, 15, 16
+	local F_BOE, F_BOP, F_BOA = 20, 21, 22
 	local F_ALCH, F_BS, F_COOKING, F_ENCH, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
 	-------------------------------------------------------------------------------
 	-- Reputation Filter Flags
@@ -1096,7 +1089,7 @@ do
 
 			for i in pairs(acquire) do
 				-- Vendor
-				if (acquire[i]["Type"] == 1) then
+				if (acquire[i]["Type"] == A_VENDOR) then
 					if (VendorList) then
 						--@debug@
 						if (not VendorList[acquire[i]["ID"]]) then
@@ -1111,7 +1104,7 @@ do
 						end
 					end
 				-- Quest
-				elseif (acquire[i]["Type"] == 2) then
+				elseif (acquire[i]["Type"] == A_QUEST) then
 					if (QuestList) then
 						--@debug@
 						if (not QuestList[acquire[i]["ID"]]) then
@@ -1126,7 +1119,7 @@ do
 						end
 					end
 				-- Mob Drop
-				elseif (acquire[i]["Type"] == 4) then
+				elseif (acquire[i]["Type"] == A_MOB) then
 					if (MobList) then
 						--@debug@
 						if (not MobList[acquire[i]["ID"]]) then
@@ -1173,9 +1166,7 @@ do
 
 		-- Scan through the spell book getting the spell names
 		for index=1, 25, 1 do
-
 			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
-
 			if (not spellName) or (index == 25) then
 				-- Nothing found
 				break
@@ -1445,22 +1436,24 @@ function addon:GetTextDump(DB, profession)
 			local acquirelist = {}
 
 			for i in pairs(acquire) do
-				if (acquire[i]["Type"] == 1) then
-					acquirelist["Trainer"] = true
-				elseif (acquire[i]["Type"] == 2) then
+				if (acquire[i]["Type"] == A_VENDOR) then
 					acquirelist["Vendor"] = true
-				elseif (acquire[i]["Type"] == 3) then
-					acquirelist["Mob Drop"] = true
-				elseif (acquire[i]["Type"] == 4) then
+				elseif (acquire[i]["Type"] == A_QUEST) then
 					acquirelist["Quest"] = true
-				elseif (acquire[i]["Type"] == 5) then
+				elseif (acquire[i]["Type"] == A_CRAFTED) then
+					acquirelist["Crafted"] = true
+				elseif (acquire[i]["Type"] == A_MOB) then
+					acquirelist["Mob Drop"] = true
+				elseif (acquire[i]["Type"] == A_SEASONAL) then
 					acquirelist["Seasonal"] = true
-				elseif (acquire[i]["Type"] == 6) then
+				elseif (acquire[i]["Type"] == A_REPUTATION) then
 					acquirelist["Reputation"] = true
-				elseif (acquire[i]["Type"] == 7) then
+				elseif (acquire[i]["Type"] == A_WORLD_DROP) then
 					acquirelist["World Drop"] = true
-				elseif (acquire[i]["Type"] == 8) then
+				elseif (acquire[i]["Type"] == A_CUSTOM) then
 					acquirelist["Custom"] = true
+				elseif (acquire[i]["Type"] == A_ACHIEVEMENT) then
+					acquirelist["Achivement"] = true
 				end
 			end
 
