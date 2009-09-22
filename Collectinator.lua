@@ -1085,51 +1085,52 @@ do
 
 			local acquire = CompanionDB[SpellID]["Acquire"]
 
+			if not VendorList or not QuestList or not MobList then
+				--@debug@
+				self:Print("Databases not loaded, locations not updated.")
+				--@end-debug@
+				return
+			end
+
 			for i in pairs(acquire) do
 				-- Vendor
 				if (acquire[i]["Type"] == A_VENDOR) then
-					if (VendorList) then
-						--@debug@
-						if (not VendorList[acquire[i]["ID"]]) then
-							self:Print("Missing vendor in database: " .. acquire[i]["ID"])
-						end
-						--@end-debug@
-						local location = VendorList[acquire[i]["ID"]]["Location"]
-						if (not locationchecklist[location]) then
-							-- Add the location to the list
-							tinsert(locationlist, location)
-							locationchecklist[location] = true
-						end
+					--@debug@
+					if (not VendorList[acquire[i]["ID"]]) then
+						self:Print("Missing vendor in database: " .. acquire[i]["ID"])
+					end
+					--@end-debug@
+					local location = VendorList[acquire[i]["ID"]]["Location"]
+					if (not locationchecklist[location]) then
+						-- Add the location to the list
+						tinsert(locationlist, location)
+						locationchecklist[location] = true
 					end
 				-- Quest
 				elseif (acquire[i]["Type"] == A_QUEST) then
-					if (QuestList) then
-						--@debug@
-						if (not QuestList[acquire[i]["ID"]]) then
-							self:Print("Missing quest in database: " .. acquire[i]["ID"])
-						end
-						--@end-debug@
-						local location = QuestList[acquire[i]["ID"]]["Location"]
-						if (not locationchecklist[location]) then
-							-- Add the location to the list
-							tinsert(locationlist, location)
-							locationchecklist[location] = true
-						end
+					--@debug@
+					if (not QuestList[acquire[i]["ID"]]) then
+						self:Print("Missing quest in database: " .. acquire[i]["ID"])
+					end
+					--@end-debug@
+					local location = QuestList[acquire[i]["ID"]]["Location"]
+					if (not locationchecklist[location]) then
+						-- Add the location to the list
+						tinsert(locationlist, location)
+						locationchecklist[location] = true
 					end
 				-- Mob Drop
 				elseif (acquire[i]["Type"] == A_MOB) then
-					if (MobList) then
-						--@debug@
-						if (not MobList[acquire[i]["ID"]]) then
-							self:Print("Missing mob in database: " .. acquire[i]["ID"])
-						end
-						--@end-debug@
-						local location = MobList[acquire[i]["ID"]]["Location"]
-						if (not locationchecklist[location]) then
-							-- Add the location to the list
-							tinsert(locationlist, location)
-							locationchecklist[location] = true
-						end
+					--@debug@
+					if (not MobList[acquire[i]["ID"]]) then
+						self:Print("Missing mob in database: " .. acquire[i]["ID"])
+					end
+					--@end-debug@
+					local location = MobList[acquire[i]["ID"]]["Location"]
+					if (not locationchecklist[location]) then
+						-- Add the location to the list
+						tinsert(locationlist, location)
+						locationchecklist[location] = true
 					end
 				end
 			end
@@ -1138,7 +1139,8 @@ do
 			tsort(locationlist, function(a, b) return a < b end)
 
 			-- Return the list as a string
-			if (#locationlist == 0)then
+			-- If we have no locations return an emptry string
+			if (#locationlist == 0) then
 				return ""
 			else
 				return tconcat(locationlist, ", ")
