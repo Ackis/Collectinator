@@ -1157,7 +1157,6 @@ do
 		if (playerData and playerData["Reputation"]) then
 			self:GetFactionLevels(playerData["Reputation"])
 		end
-
 	end
 
 	--- Scans the players professions and populates which ones they have
@@ -1273,7 +1272,8 @@ do
 	-- @param scantype CRITTER for pets, MOUNT for mounts
 	-- @return A frame with either the text dump, or the GUI frame.
 	function addon:Collectinator_Command(textdump, autoupdatescan, scantype)
-		-- First time a scan has been run, we need to get the player specifc data, specifically faction information, profession information and other pertinant data.
+		-- First time a scan has been run, we need to get the player specifc data
+		-- specifically faction information, profession information and other pertinant data.
 		playerData = playerData or InitPlayerData()
 
 		-- Update the pet/mount totals:
@@ -1304,12 +1304,12 @@ do
 			end
 		end
 	end
-
 end
 
 -------------------------------------------------------------------------------
 -- Item Exclusion Functions
 -------------------------------------------------------------------------------
+
 -- Marks all exclusions in the item database to not be displayed
 function addon:MarkExclusions(DB, scantype)
 	local exclusionlist = addon.db.profile.exclusionlist
@@ -1365,6 +1365,7 @@ end
 -------------------------------------------------------------------------------
 -- Searching Functions
 -------------------------------------------------------------------------------
+
 -- Scans through the item database and toggles the flag on if the item is in the search criteria
 function addon:SearchDB(DB, searchstring)
 	if not searchstring then
@@ -1396,14 +1397,10 @@ end
 -------------------------------------------------------------------------------
 -- Text dumping functions
 -------------------------------------------------------------------------------
+
 -- Scans through the item database providing a string of comma seperated values for all item information
 function addon:GetTextDump(DB, profession)
-
 	local texttable = {}
-
-	--@debug@
-	self:Print("DEBUG: Getting text dump for: " .. profession)
-	--@end-debug@
 
 	-- Add a header to the text table
 	tinsert(texttable, format("Collectinator Text Dump for %s", profession))
@@ -1476,5 +1473,4 @@ function addon:GetTextDump(DB, profession)
 	end
 
 	return tconcat(texttable, "")
-
 end

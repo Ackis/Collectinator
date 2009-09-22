@@ -94,212 +94,212 @@ function addon:GetMountTotal(MountDB)
 
 	-- Brown Horse Bridle - 458
 	AddMount(458, 5656, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 458, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 458, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 458, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
 
 	-- Black Stallion Bridle - 470
 	AddMount(470, 2411, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 470, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 470, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 470, A_VENDOR, 1460)
 
 	-- Pinto Bridle - 472
 	AddMount(472, 2414, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 472, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 472, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 472, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
 
 	-- Horn of the Timber Wolf - 580
 	AddMount(580, 1132, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 580, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 580, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 580, A_VENDOR, 3362)
 
 	-- Chestnut Mare Bridle - 6648
 	AddMount(6648, 5655, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 6648, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 6648, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 6648, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
 
 	-- Horn of the Dire Wolf - 6653
 	AddMount(6653, 5665, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 6653, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 6653, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 6653, A_VENDOR, 3362)
 
 	-- Horn of the Brown Wolf - 6654
 	AddMount(6654, 5668, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 6654, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 6654, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,6654,A_VENDOR,3362)
 
 	-- Gray Ram - 6777
 	AddMount(6777, 5864, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 6777, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 6777, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,6777,A_VENDOR,1261)
 
 	-- White Ram - 6898
 	AddMount(6898, 5873, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 6898, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 6898, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,6898,A_VENDOR,1261)
 
 	-- Brown Ram - 6899
 	AddMount(6899, 5872, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 6899, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 6899, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,6899,A_VENDOR,1261)
 
 	-- Reins of the Striped Frostsaber - 8394
 	AddMount(8394, 8631, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 8394, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 8394, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,8394,A_VENDOR,4730)
 
 	-- Whistle of the Emerald Raptor - 8395
 	AddMount(8395, 8588, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 8395, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 8395, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,8395,A_VENDOR,7952)
 
 	-- Reins of the Spotted Frostsaber - 10789
 	AddMount(10789, 8632, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 10789, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 10789, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,10789,A_VENDOR,4730)
 
 	-- Reins of the Striped Nightsaber - 10793
 	AddMount(10793, 8629, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 10793, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 10793, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,10793,A_VENDOR,4730)
 
 	-- Whistle of the Turquoise Raptor - 10796
 	AddMount(10796, 8591, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 10796, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 10796, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,10796,A_VENDOR,7952)
 
 	-- Whistle of the Violet Raptor - 10799
 	AddMount(10799, 8592, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,10799, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,10799, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,10799,A_VENDOR,7952)
 
 	-- Red Mechanostrider - 10873
 	AddMount(10873, 8563, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,10873, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,10873, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,10873,A_VENDOR,7955)
 
 	-- Blue Mechanostrider - 10969
 	AddMount(10969, 8595, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,10969, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,10969, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,10969,A_VENDOR,7955)
 
 	-- White Mechanostrider Mod B - 15779
 	AddMount(15779, 13326, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,15779, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,15779, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 15779, A_CUSTOM, 23)
 
 	-- Reins of the Nightsaber - 16055
 	AddMount(16055, 12303, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,16055, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,16055, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 16055, A_CUSTOM, 23)
 
 	-- Reins of the Ancient Frostsaber - 16056
 	AddMount(16056, 12302, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,16056, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,16056, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 16056, A_CUSTOM, 23)
 
 	-- Horn of the Red Wolf - 16080
 	AddMount(16080, 12330, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 16080, F_HORDE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 16080, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 16080, A_CUSTOM, 23)
 
 	-- Horn of the Arctic Wolf - 16081
 	AddMount(16081, 12351, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,16081, F_HORDE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,16081, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 16081, A_CUSTOM, 23)
 
 	-- Palomino Bridle - 16082
 	AddMount(16082, 12354, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,16082, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,16082, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 16082, A_CUSTOM, 23)
 
 	-- White Stallion Bridle - 16083
 	AddMount(16083, 12353, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,16083, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,16083, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 16083, A_CUSTOM, 23)
 
 	-- Whistle of the Mottled Red Raptor - 16084
 	AddMount(16084, 8586, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,16084, F_HORDE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,16084, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 16084, A_CUSTOM, 23)
 
 	-- Reins of the Winterspring Frostsaber - 17229
 	AddMount(17229, 13086, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 17229, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING, F_WINTERSPRING)
+	self:AddCompanionFlags(MountDB, 17229, F_ALLIANCE, F_VENDOR, F_BOP, F_WINTERSPRING)
 	self:AddCompanionAcquire(MountDB,17229, A_REPUTATION, R_WINTERSPRING, EXALTED, 10618)
 
 	-- Whistle of the Ivory Raptor - 17450
 	AddMount(17450, 13317, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17450, F_HORDE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,17450, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 17450, A_CUSTOM, 23)
 
 	-- Green Mechanostrider - 17453
 	AddMount(17453, 13321, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17453, F_ALLIANCE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,17453, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,17453, A_VENDOR, 7955)
 
 	-- Unpainted Mechanostrider - 17454
 	AddMount(17454, 13322, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17454, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,17454, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 17454, A_CUSTOM, 23)
 
 	-- Icy Blue Mechanostrider Mod A - 17459
 	AddMount(17459, 13327, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17459, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,17459, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 17459, A_CUSTOM, 23)
 
 	-- Frost Ram - 17460
 	AddMount(17460, 13329, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17460, F_HORDE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,17460, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 17460, A_CUSTOM, 23)
 
 	-- Black Ram - 17461
 	AddMount(17461, 13328, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17461, F_HORDE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,17461, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 17461, A_CUSTOM, 23)
 
 	-- Red Skeletal Horse - 17462
 	AddMount(17462, 13331, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17462, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,17462, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,17462,A_VENDOR,4731)
 
 	-- Blue Skeletal Horse - 17463
 	AddMount(17463, 13332, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17463, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,17463, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,17463,A_VENDOR,4731)
 
 	-- Brown Skeletal Horse - 17464
 	AddMount(17464, 13333, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17464, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,17464, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,17464,A_VENDOR,4731)
 
 	-- Green Skeletal Warhorse - 17465
 	AddMount(17465, 13334, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17465, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,17465, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,17465,A_VENDOR,4731)
 
 	-- Deathcharger's Reins - 17481
 	AddMount(17481, 13335, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17481, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_INSTANCE, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,17481, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_INSTANCE, F_BOP)
 	self:AddCompanionAcquire(MountDB,17481,A_MOB,10440)
 
 	-- Gray Kodo - 18989
 	AddMount(18989, 15277, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,18989, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,18989, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,18989,A_VENDOR,3685)
 
 	-- Brown Kodo - 18990
 	AddMount(18990, 15290, F_RARE, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,18990, F_HORDE, F_VENDOR, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,18990, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,18990,A_VENDOR,3685)
 
 	-- Green Kodo - 18991
 	AddMount(18991, 15292, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB, 18991, F_HORDE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 18991, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 18991, A_CUSTOM, 23)
 
 	-- Teal Kodo - 18992
 	AddMount(18992, 15293, F_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,18992, F_HORDE, F_VENDOR, F_BOP, F_REMOVED, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB,18992, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 18992, A_CUSTOM, 23)
 
 	-- Black War Steed Bridle - 22717
@@ -824,7 +824,7 @@ function addon:GetMountTotal(MountDB)
 
 	-- Acherus Deathcharger - 48778
 	AddMount(48778, nil, 1, GAME_WOTLK, C_DK)
-	self:AddCompanionFlags(MountDB, 48778, F_ALLIANCE, F_HORDE, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 48778, F_ALLIANCE, F_HORDE, F_BOP)
 	self:AddCompanionAcquire(MountDB, 48778, A_QUEST, 12687)
 
 	-- Vengeful Nether Drake - 49193
@@ -849,7 +849,7 @@ function addon:GetMountTotal(MountDB)
 
 	-- Winged Steed of the Ebon Blade - 54729
 	AddMount(54729, 40775, F_EPIC, GAME_WOTLK, C_DK)
-	self:AddCompanionFlags(MountDB, 54729, F_ALLIANCE, F_HORDE, F_BOP, F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING)
+	self:AddCompanionFlags(MountDB, 54729, F_ALLIANCE, F_HORDE, F_BOP)
 	self:AddCompanionAcquire(MountDB,54729, A_VENDOR, 29587)
 
 	-- Reins of the White Polar Bear - 54753
