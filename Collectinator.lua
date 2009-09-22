@@ -1344,8 +1344,8 @@ end
 --- Removes or adds a item to the exclusion list.
 -- @name Collectinator:ToggleExclude
 -- @usage Collectinator:ToggleExclude
--- @param 
--- @return 
+-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] in the database which we want to exclude
+-- @return The specified [http://www.wowwiki.com/SpellLink Spell ID] is excluded from the database.
 function addon:ToggleExclude(SpellID)
 	local exclusionlist = addon.db.profile.exclusionlist
 
@@ -1357,10 +1357,9 @@ function addon:ToggleExclude(SpellID)
 end
 
 --- Prints all the ID's in the exclusion list out into chat.
--- @name Collectinator:
--- @usage Collectinator:
--- @param 
--- @return 
+-- @name Collectinator:ViewExclusionList
+-- @usage Collectinator:ViewExclusionList()
+-- @return All the entries in the exclusion list are printed out into chat.
 function addon:ViewExclusionList()
 	local exclusionlist = addon.db.profile.exclusionlist
 
@@ -1371,10 +1370,9 @@ function addon:ViewExclusionList()
 end
 
 --- Clears the exclusion list of all entries.
--- @name Collectinator:
--- @usage Collectinator:
--- @param 
--- @return 
+-- @name Collectinator:ClearExclusionList
+-- @usage Collectinator:ClearExclusionList()
+-- @return The exclusion list is cleared.
 function addon:ClearExclusionList()
 	local exclusionlist = addon.db.profile.exclusionlist
 	exclusionlist = twipe(exclusionlist)
