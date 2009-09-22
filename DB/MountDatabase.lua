@@ -970,7 +970,7 @@ function addon:GetMountTotal(MountDB)
 	-- Black Skeletal Horse
 	AddMount(64977, 46308, R_RARE, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB,
-	self:AddCompanionAcquire(MountDB, A_VENDOR, 4731)
+	self:AddCompanionAcquire(MountDB, 64977, A_VENDOR, 4731)
 
 	-- Black War Bear
 	AddMount(60119, 44224, R_EPIC, GAME_WOTLK)
@@ -985,22 +985,22 @@ function addon:GetMountTotal(MountDB)
 	-- Black Wolf
 	AddMount(64658, 46099, R_RARE, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB,
-	self:AddCompanionAcquire(MountDB, A_VENDOR, 3362)
+	self:AddCompanionAcquire(MountDB, 64658, A_VENDOR, 3362)
 
 	-- Darkspear Raptor
 	AddMount(63635, 45593, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB,
-	self:AddCompanionAcquire(MountDB, A_VENDOR, 33554)
+	self:AddCompanionAcquire(MountDB, 63635, A_VENDOR, 33554)
 
 	-- Forsaken Warhorse
 	AddMount(63643, 45597, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB,
-	self:AddCompanionAcquire(MountDB, A_VENDOR, 33355)
+	self:AddCompanionAcquire(MountDB, 63643, A_VENDOR, 33355)
 
 	-- Great Golden Kodo
 	AddMount(65641, 46750, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB,
-	self:AddCompanionAcquire(MountDB, A_VENDOR, 33556)
+	self:AddCompanionAcquire(MountDB, 65641, A_VENDOR, 33556)
 
 	-- Red Dragonhawk
 	AddMount(61997, 44842, R_EPIC, GAME_WOTLK)
@@ -1020,7 +1020,7 @@ function addon:GetMountTotal(MountDB)
 	-- Swift Burgandy Wolf
 	AddMount(65646, 46749, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB,
-	self:AddCompanionAcquire(MountDB, A_VENDOR, 33553)
+	self:AddCompanionAcquire(MountDB, 65646, A_VENDOR, 33553)
 
 	-- Swift Purple Raptor
 	AddMount(65644, 46743, R_EPIC, GAME_WOTLK)
