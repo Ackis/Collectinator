@@ -1310,7 +1310,12 @@ end
 -- Item Exclusion Functions
 -------------------------------------------------------------------------------
 
--- Marks all exclusions in the item database to not be displayed
+--- Marks all exclusions in the item database to not be displayed
+-- @name Collectinator:MarkExclusions
+-- @usage Collectinator:MarkExclusions(CompanionDB, "CRITTER")
+-- @param DB Reference to the entire database.
+-- @param scantype What type of scan occured: CRITTER, MOUNT, etc
+-- @return All entries which are to be excluded in the database have their display flag marked to false.
 function addon:MarkExclusions(DB, scantype)
 	local exclusionlist = addon.db.profile.exclusionlist
 	local ignored = not addon.db.profile.ignoreexclusionlist
@@ -1320,23 +1325,27 @@ function addon:MarkExclusions(DB, scantype)
 	for i in pairs(exclusionlist) do
 		-- We may have a item in the exclusion list that has not been scanned yet
 		-- check if the entry exists in DB first
-		if DB[i] then
-			if ignored then
-				DB[i]["Display"] = false
-			end
-			local tmpprof = GetSpellInfo(DB[i]["Type"])
+		if DB[i] and ignored then
+			DB[i]["Display"] = false
+--[[
+			local entrytype = GetSpellInfo(DB[i]["Type"])
 
-			if not DB[i]["Known"] and tmpprof == prof then
+			if not DB[i]["Known"] and entrytype == scantype then
 				countknown = countknown + 1
-			elseif tmpprof == prof then
+			elseif entrytype == scantype then
 				countunknown = countunknown + 1
 			end
+]]--
 		end
 	end
 	return countknown, countunknown
 end
 
--- Removes or adds a item to the exclusion list.
+--- Removes or adds a item to the exclusion list.
+-- @name Collectinator:ToggleExclude
+-- @usage Collectinator:ToggleExclude
+-- @param 
+-- @return 
 function addon:ToggleExclude(SpellID)
 	local exclusionlist = addon.db.profile.exclusionlist
 
@@ -1347,7 +1356,11 @@ function addon:ToggleExclude(SpellID)
 	end
 end
 
--- Prints all the ID's in the exclusion list out into chat.
+--- Prints all the ID's in the exclusion list out into chat.
+-- @name Collectinator:
+-- @usage Collectinator:
+-- @param 
+-- @return 
 function addon:ViewExclusionList()
 	local exclusionlist = addon.db.profile.exclusionlist
 
@@ -1357,6 +1370,11 @@ function addon:ViewExclusionList()
 	end
 end
 
+--- Clears the exclusion list of all entries.
+-- @name Collectinator:
+-- @usage Collectinator:
+-- @param 
+-- @return 
 function addon:ClearExclusionList()
 	local exclusionlist = addon.db.profile.exclusionlist
 	exclusionlist = twipe(exclusionlist)
