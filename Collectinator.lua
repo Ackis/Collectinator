@@ -60,15 +60,20 @@ local smatch = string.match
 local strlower = string.lower
 
 -------------------------------------------------------------------------------
+-- Localized API Functions
+-------------------------------------------------------------------------------
+local GetSpellInfo = GetSpellInfo
+
+-------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
-local MODNAME	= "Collectinator"
+local MODNAME = "Collectinator"
 
 local LibStub = LibStub
 local addon = LibStub("AceAddon-3.0"):NewAddon(MODNAME, "AceConsole-3.0", "AceEvent-3.0")
 _G["Collectinator"] = addon
 
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
 ------------------------------------------------------------------------------
 -- Check to see if we have mandatory libraries loaded. If not, notify the user
@@ -93,23 +98,25 @@ do
 		end
 		return missing
 	end
+
+	if MissingLibraries() then
+		--@debug@
+		addon:Print("You are using a repository version of Collectinator.")
+		addon:Print("You will have to install the following libraries to ensure the mod runs correctly:")
+		for idx, lib in ipairs(REQUIRED_LIBS) do
+			addon:Print(lib)
+		end
+		addon:Print("Collectinator not loaded.")
+		--@end-debug@
+		_G["Collectinator"] = nil
+		return
+	end
 end	-- do
 
-if MissingLibraries() then
-	--@debug@
-	addon:Print("You are using an SVN version of Collectinator.  As per WowAce/Curseforge standards, SVN externals are not set up.  You will have to install Ace3, Babble-Faction-3.0, Babble-Zone-3.0, Babble-Boss-3.0, LibAboutPanel, LibSharedMedia-3.0, and LibBetterBlizzoptions in order for the addon to function correctly.")
-	--@end-debug@
-	_G["Collectinator"] = nil
-	return
-end
-
-local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 -- Global Frame Variables
 addon.optionsFrame = {}
-
--- Make global API calls local to speed things up
-local GetSpellInfo = GetSpellInfo
 
 -------------------------------------------------------------------------------
 -- Initialization functions
@@ -457,14 +464,13 @@ end
 -- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
 -- @return None, array is passed as a reference.
 function addon:AddCompanionAcquire(DB, SpellID, ...)
-	local numvars = select('#', ...)	-- Find out how many flags we're adding
+	local numvars = select('#', ...)-- Find out how many flags we're adding
 	local index = 1			-- Index for the number of Acquire entries we have
 	local i = 1			-- Index for which variables we're parsing through
 
 	local acquire = DB[SpellID]["Acquire"]
 
 	while i < numvars do
-
 		-- Create the space for the current Acquire method
 		acquire[index] = {}
 
@@ -490,7 +496,7 @@ function addon:AddCompanionAcquire(DB, SpellID, ...)
 			i = i + 2
 		end
 		index = index + 1
-	end
+	end	-- end-while
 end
 
 --- Adds an item to a specific database listing (ie: vendor, mob, etc)
@@ -509,18 +515,18 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 	DB[ID] = {}
 	DB[ID]["Name"] = Name
 
-	if (Loc) then
+	if Loc then
 		DB[ID]["Location"] = Loc
 	else
 		DB[ID]["Location"] = L["Unknown Zone"]
 	end
 
-	if (Coordx) and (Coordy) then
+	if Coordx and Coordy then
 		DB[ID]["Coordx"] = Coordx
 		DB[ID]["Coordy"] = Coordy
 	end
 
-	if (Faction) then
+	if Faction then
 		if (Faction == 0) then
 			DB[ID]["Faction"] = BFAC["Neutral"]
 		elseif (Faction == 1) then
@@ -532,11 +538,9 @@ function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 
 end
 
---[[
-
-	Scanning Functions
-
-]]--
+-------------------------------------------------------------------------------
+-- Scanning Functions
+-------------------------------------------------------------------------------
 
 --- Gets a spell ID from a spell link.
 -- @name GetIDFromLink
@@ -544,11 +548,8 @@ end
 -- @param SpellLink The [http://www.wowwiki.com/SpellLink SpellLink] which you wish to get the Spell ID from.
 -- @return The spell ID of the passed [http://www.wowwiki.com/SpellLink SpellLink].
 local function GetIDFromLink(SpellLink)
-
-	--return smatch(SpellLink, "|H%w+:(%d+)")
-	-- Faster matching per Neffi
+	-- Faster pattern matching per Neffi
 	return smatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
-
 end
 
 --- Scans all companions you have (mounts and mini-pets) and adds them to the saved variables.
@@ -588,7 +589,6 @@ end
 -- @param DB Companion database which we are parsing.
 -- @return Companion DB is updated by reference.
 function addon:CheckForKnownCompanions(DB)
-
 	local companionlist = addon.db.profile.companionlist
 
 	-- Scan through all the entries we've saved
@@ -602,11 +602,9 @@ function addon:CheckForKnownCompanions(DB)
 			self:Print("Companion: " .. name .. " (" .. SpellID .. ") not found in database.")
 		end
 	end
-
 end
 
 do
-
 	-------------------------------------------------------------------------------
 	-- Origin
 	-------------------------------------------------------------------------------
