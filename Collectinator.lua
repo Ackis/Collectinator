@@ -40,21 +40,21 @@ local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
 
-local tostring = tostring
-local tonumber = tonumber
+local tostring = _G.tostring
+local tonumber = _G.tonumber
 
-local pairs = pairs
-local select = select
+local pairs = _G.pairs
+local select = _G.select
 
-local table = table
+local table = _G.table
 local twipe = table.wipe
 local tremove = table.remove
 local tconcat = table.concat
 local tsort = table.sort
 local tinsert = table.insert
 
-local string = string
-local format = format
+local string = _G.string
+local format = string.format
 local sfind = string.find
 local smatch = string.match
 local strlower = string.lower
@@ -411,11 +411,12 @@ end	-- do
 -- @return None, array is passed as a reference.
 function addon:AddCompanion(DB, CompanionType, SpellID, ItemID, Rarity, Game)
 	if DB[SpellID] then	-- If the entry already exists, abort.
+		self:Print("Duplicate companion - "..SpellID.." "..ItemID)
 		return
 	end
 
 	DB[SpellID] = {
-		["Name"] = GetSpellInfo(SpellID) or "",
+		["Name"] = GetSpellInfo(SpellID) or "Unknown ("..SpellID..")",
 		["ItemID"] = ItemID,
 		["Rarity"] = Rarity,
 		["Type"] = CompanionType,
