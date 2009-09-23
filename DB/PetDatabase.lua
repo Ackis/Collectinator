@@ -208,7 +208,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Crimson Snake - 10717
 	AddPet(10717, 10392, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10717, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10717, 1, 8404, 1, 20980)
+	self:AddCompanionAcquire(PetDB, 10717, A_VENDOR, 8404, 1, 20980)
 
 	-- Mechanical Chicken - 12243
 	AddPet(12243, 10398, R_COMMON, GAME_ORIG)
@@ -218,7 +218,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Chicken Egg - 13548
 	AddPet(13548, 11110, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 13548, F_ALLIANCE, F_HORDE, F_BOP)
-	self:AddCompanionAcquire(PetDB, 13548, 8, 2)
+	self:AddCompanionAcquire(PetDB, 13548, A_CUSTOM, 2)
 
 	-- Pet Bombling - 15048
 	AddPet(15048, 11825, R_COMMON, GAME_ORIG)
