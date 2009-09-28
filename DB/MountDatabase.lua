@@ -208,7 +208,7 @@ function addon:GetMountTotal(MountDB)
 	--self:AddCompanionAcquire(MountDB,
 
 	-- Red Skeletal Warhorse - 22722
-	AddMount(22722, 18248, 1, GAME_ORIG)
+	AddMount(22722, 18248, R_EPIC, GAME_ORIG)
 	--self:AddCompanionFlags(MountDB,22722,16)
 	--self:AddCompanionAcquire(MountDB,
 
@@ -366,15 +366,15 @@ function addon:GetMountTotal(MountDB)
 	self:AddCompanionAcquire(MountDB,17481,A_MOB,10440)
 
 --CLASS
-	 -- Felsteed - XX
-	--AddMount(XX, YY, R_RARE, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB, XX, 
+	 -- Felsteed - 5784
+	AddMount(5784, nil, R_RARE, GAME_ORIG, C_WARLOCK)
+	--self:AddCompanionFlags(MountDB, 5784, 
 	--self:AddCompanionAcquire(MountDB, XX,
 
-	 -- Dreadsteed - XX
-	--AddMount(XX, YY, R_RARE, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Dreadsteed - 23161
+	AddMount(23161, nil, R_RARE, GAME_ORIG, C_WARLOCK)
+	--self:AddCompanionFlags(MountDB, 23161, 
+	--self:AddCompanionAcquire(MountDB, 23161,
 
 	 -- Warhorse - Alliance - XX
 	--AddMount(XX, YY, R_RARE, GAME_ORIG)
@@ -806,18 +806,18 @@ function addon:GetMountTotal(MountDB)
 	self:AddCompanionFlags(MountDB,17464, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,17464,A_VENDOR,4731)
 
-	 -- Ochre Skeletal Warhorse - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Ochre Skeletal Warhorse - 66846
+	AddMount(66846, 47101, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB, 66846, 
+	--self:AddCompanionAcquire(MountDB, 66846,
 
 	-- Purple Skeletal Warhorse - 23246
-	AddMount(23246, 18791, 1, GAME_ORIG)
+	AddMount(23246, 18791, R_EPIC, GAME_ORIG)
 	--self:AddCompanionFlags(MountDB,23246,1,2,3,4,16)
 	--self:AddCompanionAcquire(MountDB,23246,1,4731,2,27716)
 
 	-- Green Skeletal Warhorse - 17465
-	AddMount(17465, 13334, R_RARE, GAME_ORIG)
+	AddMount(17465, 13334, R_EPIC, GAME_ORIG)
 	self:AddCompanionFlags(MountDB,17465, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB,17465,A_VENDOR,4731)
 
