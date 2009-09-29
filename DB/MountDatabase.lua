@@ -54,6 +54,11 @@ local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALU
 local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79, 80, 81, 82, 83
 
 -------------------------------------------------------------------------------
+-- Acquire types
+-------------------------------------------------------------------------------
+local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT = 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+-------------------------------------------------------------------------------
 -- Reputation Acquire Flags
 -------------------------------------------------------------------------------
 local R_WINTERSPRING = 589
@@ -61,16 +66,10 @@ local R_WINTERSPRING = 589
 -------------------------------------------------------------------------------
 -- Reputation Levels
 -------------------------------------------------------------------------------
-
 local FRIENDLY = 1
 local HONORED = 2
 local REVERED = 3
 local EXALTED = 4
-
--------------------------------------------------------------------------------
--- Acquire types
--------------------------------------------------------------------------------
-local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT = 1, 2, 3, 4, 5, 6, 7, 8, 9
 
 -------------------------------------------------------------------------------
 -- Class types
