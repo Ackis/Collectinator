@@ -284,19 +284,24 @@ function addon:GetMountTotal(MountDB)
 	--self:AddCompanionAcquire(MountDB, XX,
 
 --WORLD EVENT DROP
+	-- Brewfest Ram - 43899
+	AddMount(43899, 33976, R_RARE, GAME_BC)
+	self:AddCompanionFlags(MountDB, 43899, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(MountDB,43899,1,24468,1,24510)
+
 	-- Great Brewfest Kodo - 49379
-	AddMount(49379, 37828, 1, GAME_BC)
-	--self:AddCompanionFlags(MountDB,49379,1,2,10,16)
-	--self:AddCompanionAcquire(MountDB,49379,4,23795,4,23872)
+	AddMount(49379, 37828, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(MountDB, 49379, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(MountDB,49379,4,23795,4,23872)
 
 	-- Swift Brewfest Ram - 43900
-	AddMount(43900, 33977, 1, GAME_BC)
-	--self:AddCompanionFlags(MountDB,43900,1,2,3,10,16)
-	--self:AddCompanionAcquire(MountDB,43900,1,24468,1,24510,4,23795,4,23872)
+	AddMount(43900, 33977, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(MountDB,43900,, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(MountDB,43900,1,24468,1,24510,4,23795,4,23872)
 
 	-- The Horseman's Reins - 48025
-	AddMount(48025, 37012, 1, GAME_BC)
-	--self:AddCompanionFlags(MountDB,48025,16)
+	AddMount(48025, 37012, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(MountDB,48025, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_BOP)
 	--self:AddCompanionAcquire(MountDB,
 
 --DROP
@@ -1232,11 +1237,6 @@ function addon:GetMountTotal(MountDB)
 	AddMount(43688, 33809, 1, GAME_BC)
 	--self:AddCompanionFlags(MountDB,43688,1,2,4,16)
 	--self:AddCompanionAcquire(MountDB,43688,2,27704)
-
-	-- Brewfest Ram - 43899
-	AddMount(43899, 33976, 1, GAME_BC)
-	--self:AddCompanionFlags(MountDB,43899,1,2,3,16)
-	--self:AddCompanionAcquire(MountDB,43899,1,24468,1,24510)
 
 	-- Swift Nether Drake - 37015
 	AddMount(37015, 30609, 1, GAME_BC)
