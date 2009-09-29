@@ -142,8 +142,8 @@ function addon:GetMountTotal(MountDB)
 -- FISHING
 	-- Sea Turtle
 	AddMount(64731, 46109, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,
-	--self:AddCompanionAcquire(MountDB,
+	self:AddCompanionFlags(MountDB, 64731, F_ALLIANCE, F_HORDE, F_FISHING, F_BOP)
+	self:AddCompanionAcquire(MountDB, 64731, A_CUSTOM, 25)
 
 -- PLAYERMADE
 	 -- Turbo-Charged Flying Machine Control - 44151
