@@ -305,68 +305,68 @@ function addon:GetMountTotal(MountDB)
 	--self:AddCompanionAcquire(MountDB,
 
 --DROP
-	 -- Onyxia Broodling - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Reins of the Onyxian Drake - 69395
+	AddMount(69395, 49636, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 69395, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(MountDB, 69395, A_MOB, 10184)
 
-	 -- Mimiron's Head - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Mimiron's Head - 63796
+	AddMount(63796, 45693, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 63796, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(MountDB, 63796, A_MOB, 33288)
 
 	-- Reins of the Bronze Drake - 59569
 	AddMount(59569, 43951, 1, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB,59569,1,2,6,16)
-	--self:AddCompanionAcquire(MountDB,59569,4,26532,4,32273)
+	self:AddCompanionAcquire(MountDB,59569, A_MOB ,26532, A_MOB, 32273)
 
 	-- Black Drake
 	AddMount(59650, 43986, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,
-	--self:AddCompanionAcquire(MountDB,
+	self:AddCompanionFlags(MountDB, 59650, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
+	--self:AddCompanionAcquire(MountDB, 59650, 
 
 	-- Twilight Drake
 	AddMount(59571, 43954, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,
-	--self:AddCompanionAcquire(MountDB,
+	self:AddCompanionFlags(MountDB, 59571, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
+	--self:AddCompanionAcquire(MountDB, 59571, 
 
 	-- Reins of the Azure Drake - 59567
-	AddMount(59567, 43952, 1, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,59567,16)
-	--self:AddCompanionAcquire(MountDB,
+	AddMount(59567, 43952, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 59567, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
+	--self:AddCompanionAcquire(MountDB, 59567, 
 
 	-- Reins of the Blue Drake - 59568
-	AddMount(59568, 43953, 1, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,59568,16)
-	--self:AddCompanionAcquire(MountDB,
+	AddMount(59568, 43953, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 59568, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
+	--self:AddCompanionAcquire(MountDB, 59568, 
 
 	-- Reins of the Blue Proto-Drake - 59996
-	AddMount(59996, 44151, 1, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,59996,1,2,10,16)
-	--self:AddCompanionAcquire(MountDB,59996,4,26693)
+	AddMount(59996, 44151, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 59996, F_ALLIANCE, F_HORDE, F_INSTANCE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(MountDB, 59996, A_MOB, 26693)
 
 	-- Reins of the Time-Lost Proto-Drake - 60002
-	AddMount(60002, 44168, 1, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,60002,1,2,10,16)
-	--self:AddCompanionAcquire(MountDB,60002,4,32491)
+	AddMount(60002, 44168, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 60002, F_ALLIANCE, F_HORDE, F_INSTANCE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(MountDB, 60002, A_MOB, 32491)
 
-	 -- Green Proto-Drake - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Green Proto-Drake - 61294
+	AddMount(61294, 44707, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB, 61294, 
+	--self:AddCompanionAcquire(MountDB, 61294,
 
 	-- Ashes of Al'ar - 40192
-	AddMount(40192, 32458, 1, GAME_BC)
-	--self:AddCompanionFlags(MountDB,40192,1,2,7,16)
-	--self:AddCompanionAcquire(MountDB,40192,4,19622)
+	AddMount(40192, 32458, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(MountDB, 40192, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(MountDB, 40192, A_MOB, 19622)
 
 	-- Reins of the White Polar Bear - 54753
-	AddMount(54753, 43962, 1, GAME_WOTLK)
+	AddMount(54753, 43962, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB,54753,16)
 	--self:AddCompanionAcquire(MountDB,
 
 	-- Swift White Hawkstrider - 46628
-	AddMount(46628, 35513, 1, GAME_BC)
+	AddMount(46628, 35513, R_EPIC, GAME_BC)
 	--self:AddCompanionFlags(MountDB,46628,1,2,10,16)
 	--self:AddCompanionAcquire(MountDB,46628,4,24664)
 
