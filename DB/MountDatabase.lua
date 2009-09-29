@@ -96,45 +96,45 @@ function addon:GetMountTotal(MountDB)
 -- ACHIVEMENTS
 	-- Reins of the Albino Drake - 60025
 	AddMount(60025, 44178, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,60025,16)
-	--self:AddCompanionAcquire(MountDB, ["Leading the Cavalry"]
+	self:AddCompanionFlags(MountDB, 60025, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	--self:AddCompanionAcquire(MountDB, 60025, A_ACHIEVEMENT, ["Leading the Cavalry"]
 
-	-- Blue Dragonhawk - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, ["Mountain o' Mounts"]
+	-- Blue Dragonhawk - 61996
+	AddMount(61996, 44843, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 61996, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	--self:AddCompanionAcquire(MountDB, 61996, A_ACHIEVEMENT, ["Mountain o' Mounts"]
 
-	-- Red Dragonhawk
+	-- Red Dragonhawk -- 61997
 	AddMount(61997, 44842, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,
-	--self:AddCompanionAcquire(MountDB, ["Mountain o' Mounts"]
+	self:AddCompanionFlags(MountDB, 61997, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	--self:AddCompanionAcquire(MountDB, 61997, A_ACHIEVEMENT, ["Mountain o' Mounts"]
 
 	-- Reins of the Black War Bear - 60118
 	AddMount(60118, 44223, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,60118,16)
-	--self:AddCompanionAcquire(MountDB, ["For the Alliance!"]
+	self:AddCompanionFlags(MountDB, 60118, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	--self:AddCompanionAcquire(MountDB, 60118, A_ACHIEVEMENT, ["For the Alliance!"]
 
-	-- Black War Bear
+	-- Reins of the Black War Bear - 60119
 	AddMount(60119, 44224, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,
-	--self:AddCompanionAcquire(MountDB, ["For the Horde!"]
+	self:AddCompanionFlags(MountDB, 60119, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	--self:AddCompanionAcquire(MountDB, 60119, A_ACHIEVEMENT, ["For the Horde!"]
 
 	-- Reins of the Red Proto-Drake - 59961
 	AddMount(59961, 44160, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,59961,16)
-	--self:AddCompanionAcquire(MountDB, ["Glory of the Hero"]
+	self:AddCompanionFlags(MountDB, 59961, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	--self:AddCompanionAcquire(MountDB, 59961, A_ACHIEVEMENT, ["Glory of the Hero"]
 
-	-- Rusted Proto-Drake - XX
-	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, ["Glory of the Ulduar Raider"]
+	-- Rusted Proto-Drake - 63963
+	AddMount(63963, 45802, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 63963, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	--self:AddCompanionAcquire(MountDB, 63963, A_ACHIEVEMENT ["Glory of the Ulduar Raider"]
 
-	-- Ironbound Proto-Drake - XX
-	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, ["Heroic: Glory of the Ulduar Raider"]
+	-- Ironbound Proto-Drake - 63956
+	AddMount(63956, 45801, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 63956, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	--self:AddCompanionAcquire(MountDB, 63956, A_ACHIEVEMENT, ["Heroic: Glory of the Ulduar Raider"]
 
-	-- Violet Proto-Drake - XX
+	-- Violet Proto-Drake - 60024
 	AddMount(60024, 44177, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(MountDB, 60024, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(MountDB, 60024, A_ACHIEVEMENT, 2145)
