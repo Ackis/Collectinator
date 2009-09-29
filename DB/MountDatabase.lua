@@ -41,6 +41,10 @@ local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_UNUSED, F_INSTANCE, F_RAID, F_SE
 local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP = 11, 12, 13, 14, 15, 16
 local F_BOE, F_BOP, F_BOA = 20, 21, 22
 local F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36
+
+-------------------------------------------------------------------------------
+-- Reputation Flags
+-------------------------------------------------------------------------------
 local F_ARGENT_DAWN, F_BLOODSAIL, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_TIMBERMAW, F_WINTERSPRING, F_ZANDALAR = 40, 41, 42, 43, 44, 100, 45
 local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPIDITION, F_HELLFIRE, F_CONSORTIUM, F_KOT, F_LOWER_CITY, F_NAGRAND = 46, 47, 48, 49, 50, 51, 52, 53
 local F_NETHERWING, F_SCALE_SANDS, F_SCRYER, F_SHATAR, F_SKYGUARD, F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLET_EYE = 54, 55, 56, 57, 90, 58, 59, 60
@@ -50,10 +54,17 @@ local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALU
 local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79, 80, 81, 82, 83
 
 -------------------------------------------------------------------------------
--- Reputation Flags
+-- Reputation Acquire Flags
 -------------------------------------------------------------------------------
 local R_WINTERSPRING = 589
 
+-------------------------------------------------------------------------------
+-- Reputation Levels
+-------------------------------------------------------------------------------
+
+local FRIENDLY = 1
+local HONORED = 2
+local REVERED = 3
 local EXALTED = 4
 
 -------------------------------------------------------------------------------
