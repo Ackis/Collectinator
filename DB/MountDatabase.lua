@@ -269,19 +269,19 @@ function addon:GetMountTotal(MountDB)
 
 	-- Black War Mammoth
 	AddMount(59788, 44077, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,
-	--self:AddCompanionAcquire(MountDB,
+	--self:AddCompanionFlags(MountDB, 59788, 
+	--self:AddCompanionAcquire(MountDB, 59788, 
 
 --PVP DROP
-	 -- Grand Black War Mammoth ?Horde - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	-- Grand Black War Mammoth - Horde - 61467
+	AddMount(61467, 44083, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 61467, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
+	self:AddCompanionAcquire(MountDB, 61467,
 
-	 -- Grand Black War Mammoth - Alliance - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	-- Grand Black War Mammoth - Alliance - 61465
+	AddMount(61465, 43959, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 61465, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP)
+	self:AddCompanionAcquire(MountDB, 61465, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125)
 
 --WORLD EVENT DROP
 	-- Brewfest Ram - 43899
@@ -399,22 +399,22 @@ function addon:GetMountTotal(MountDB)
 	-- Felsteed - 5784
 	AddMount(5784, nil, R_RARE, GAME_ORIG, C_WARLOCK)
 	--self:AddCompanionFlags(MountDB, 5784, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	--self:AddCompanionAcquire(MountDB, 5784,
 
 	-- Dreadsteed - 23161
 	AddMount(23161, nil, R_RARE, GAME_ORIG, C_WARLOCK)
 	--self:AddCompanionFlags(MountDB, 23161, 
 	--self:AddCompanionAcquire(MountDB, 23161,
 
-	-- Warhorse - Alliance - XX
-	--AddMount(XX, YY, R_RARE, GAME_ORIG, C_PALADIN)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	-- Warhorse - Alliance - 13819
+	AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
+	--self:AddCompanionFlags(MountDB, 13819, 
+	--self:AddCompanionAcquire(MountDB, 13819,
 
-	-- Charger - Alliance - XX
-	--AddMount(XX, YY, R_RARE, GAME_ORIG, C_PALADIN)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	-- Charger - Alliance - 23214
+	AddMount(23214, nil, R_RARE, GAME_ORIG, C_PALADIN)
+	--self:AddCompanionFlags(MountDB, 23214, 
+	--self:AddCompanionAcquire(MountDB, 23214,
 
 	-- Warhorse - Horde - 34769
 	AddMount(34769, nil, R_RARE, GAME_BC, C_PALADIN)
@@ -467,15 +467,15 @@ function addon:GetMountTotal(MountDB)
 	--self:AddCompanionFlags(MountDB,
 	--self:AddCompanionAcquire(MountDB,
 
-	-- Traveler's Tundra Mammoth
+	-- Traveler's Tundra Mammoth (Horde) - 61447
 	AddMount(61447, 44234, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,
-	--self:AddCompanionAcquire(MountDB,
+	--self:AddCompanionFlags(MountDB, 61447, 
+	--self:AddCompanionAcquire(MountDB, 61447, A_VENDOR, 32216)
 
-	--Traveler's Tundra Mammoth H/A?
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	--Traveler's Tundra Mammoth (Alliance) - 61425
+	AddMount(61425, 44235, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB, 61425, 
+	--self:AddCompanionAcquire(MountDB, 61425, A_VENDOR, 32216)
 
 	-- Golden Gryphon - 32235
 	AddMount(32235, 25470, 1, GAME_BC)
@@ -1275,79 +1275,79 @@ function addon:GetMountTotal(MountDB)
 
 --OTHERS
 	 -- Frostsaber - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
+	--AddMount(XX, YY, R_RARE, GAME_ORIG)
 	--self:AddCompanionFlags(MountDB, XX, 
 	--self:AddCompanionAcquire(MountDB, XX,
 
-	 -- Spotted Nightsaber - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	-- Spotted Nightsaber - 10792 (Never added to the game)
+	--AddMount(10792, 8628, R_COMMON, GAME_ORIG)
+	--self:AddCompanionFlags(MountDB, 10792, 
+	--self:AddCompanionAcquire(MountDB, 10792, 
 
-	 -- Fluorescent Green Mechanostrider - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Fluorescent Green Mechanostrider - 17458 (Never added to the game)
+	--AddMount(17458, nil, R_RARE, GAME_ORIG)
+	--self:AddCompanionFlags(MountDB, 17458, 
+	--self:AddCompanionAcquire(MountDB, 17458,
 
 	-- Blue Qiraji Battle Tank -- 25953
-	AddMount(25953, 21218, 1, GAME_ORIG)
+	AddMount(25953, 21218, R_RARE, GAME_ORIG)
 	----self:AddCompanionFlags(MountDB,
 	----self:AddCompanionAcquire(MountDB,
 
 	-- Red Qiraji Battle Tank -- 26054
-	AddMount(26054, 21321, 1, GAME_ORIG)
+	AddMount(26054, 21321, R_RARE, GAME_ORIG)
 	----self:AddCompanionFlags(MountDB,
 	----self:AddCompanionAcquire(MountDB,
 
 	-- Yellow Qiraji Battle Tank -- 26055
-	AddMount(26055, 21324, 1, GAME_ORIG)
+	AddMount(26055, 21324, R_RARE, GAME_ORIG)
 	----self:AddCompanionFlags(MountDB,
 	----self:AddCompanionAcquire(MountDB,
 
 	-- Green Qiraji Battle Tank -- 26056
-	AddMount(26056, 21323, 1, GAME_ORIG)
+	AddMount(26056, 21323, R_RARE, GAME_ORIG)
 	----self:AddCompanionFlags(MountDB,
 	----self:AddCompanionAcquire(MountDB,
 
 	-- Black Qiraji Resonating Crystal - 26656
-	AddMount(26656, 21176, 1, GAME_ORIG)
+	AddMount(26656, 21176, R_LEGENDARY, GAME_ORIG)
 	--self:AddCompanionFlags(MountDB,26656,4,16)
 	--self:AddCompanionAcquire(MountDB,26656,2,8743)
 
 --PROMO
 	-- Swift Zhevra - 49322
-	AddMount(49322, 37719, 1, GAME_BC)
+	AddMount(49322, 37719, R_EPIC, GAME_BC)
 	--self:AddCompanionFlags(MountDB,49322,16)
 	--self:AddCompanionAcquire(MountDB,
 
 	-- Big Blizzard Bear - 58983
-	AddMount(58983, 43599, 1, GAME_WOTLK)
+	AddMount(58983, 43599, R_RARE, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB,58983,16)
 	--self:AddCompanionAcquire(MountDB,
 
 --TCG
 	-- Riding Tutle - 30174
-	AddMount(30174, 23720, 1, GAME_ORIG)
+	AddMount(30174, 23720, R_EPIC, GAME_ORIG)
 	--self:AddCompanionFlags(MountDB,30174,21) 
 
 	-- Reins of the Spectral Tiger - 42776
-	AddMount(42776, 33224, 1, GAME_BC)
+	AddMount(42776, 33224, R_RARE, GAME_BC)
 	--self:AddCompanionFlags(MountDB,42776,16)
 	--self:AddCompanionAcquire(MountDB,
 
 	-- Reins of the Swift Spectral Tiger - 42777
-	AddMount(42777, 33225, 1, GAME_BC)
+	AddMount(42777, 33225, R_EPIC, GAME_BC)
 	--self:AddCompanionFlags(MountDB,42777,16)
 	--self:AddCompanionAcquire(MountDB,
 
 	-- X-51 Nether-Rocket - 46197
-	AddMount(46197, 35225, 1, GAME_BC)
+	AddMount(46197, 35225, R_RARE, GAME_BC)
 
 	-- X-51 Nether-Rocket X-TREME-- 46199
-	AddMount(46199, 35226, 1, GAME_BC)
+	AddMount(46199, 35226, R_EPIC, GAME_BC)
 
 	-- Big Battle Bear - 51412
-	AddMount(51412, 38576, 1, GAME_WOTLK)
+	AddMount(51412, 38576, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB,51412,1,2,3,16)
 	--self:AddCompanionAcquire(MountDB,51412,1,17249)
 
