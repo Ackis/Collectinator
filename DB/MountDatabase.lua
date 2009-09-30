@@ -558,49 +558,49 @@ function addon:GetMountTotal(MountDB)
 	self:AddCompanionFlags(MountDB, 63639, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 63639, A_VENDOR, 33657)
 
-	 -- Gnomeregan Mechanostrider - XX
-	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Gnomeregan Mechanostrider - 63638
+	AddMount(63638, 45589, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 63638, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(MountDB, 63638, A_VENDOR, 33650)
 
 	 -- Stormwind Steed - XX
 	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	--self:AddCompanionFlags(MountDB, XX, F_ALLIANCE, F_VENDOR, F_BOP)
+	--self:AddCompanionAcquire(MountDB, XX, A_VENDOR, 
 
 	 -- Ironforge Ram - XX
 	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	--self:AddCompanionFlags(MountDB, XX, F_ALLIANCE, F_VENDOR, F_BOP)
+	--self:AddCompanionAcquire(MountDB, XX, A_VENDOR, 
 
-	 -- Orgrimmar Wolf - XX
-	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Orgrimmar Wolf - 63640
+	AddMount(63640, 45595, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 63640, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(MountDB, 63640, A_VENDOR, 33553)
 
 	 -- Thunder Bluff Kodo - XX
 	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	--self:AddCompanionFlags(MountDB, XX, F_HORDE, F_VENDOR, F_BOP)
+	--self:AddCompanionAcquire(MountDB, XX, A_VENDOR, 
 
 	-- Silvermoon Hawkstrider
 	AddMount(63642, 45596, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,
+	self:AddCompanionFlags(MountDB, 63642, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 63642, A_VENDOR, 33557)
 
 	-- Forsaken Warhorse
 	AddMount(63643, 45597, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,
+	self:AddCompanionFlags(MountDB, 63643, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 63643, A_VENDOR, 33355)
 
 	-- Darkspear Raptor
 	AddMount(63635, 45593, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,
+	self:AddCompanionFlags(MountDB, 63635, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 63635, A_VENDOR, 33554)
 
 	 -- Argent Hippogryph - 63844
 	AddMount(63844, 45725, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, 63844, 
+	self:AddCompanionFlags(MountDB, 63844, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 	--self:AddCompanionAcquire(MountDB, 63844,
 
 --REP VENDOR ARGENT
