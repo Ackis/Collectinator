@@ -578,10 +578,10 @@ function addon:GetMountTotal(MountDB)
 	self:AddCompanionFlags(MountDB, 63640, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 63640, A_VENDOR, 33553)
 
-	 -- Thunder Bluff Kodo - XX
-	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(MountDB, XX, A_VENDOR, 
+	 -- Thunder Bluff Kodo - 63641
+	AddMount(63641, 45592, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 63641, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(MountDB, 63641, A_VENDOR, 33556)
 
 	-- Silvermoon Hawkstrider
 	AddMount(63642, 45596, R_EPIC, GAME_WOTLK)
@@ -601,7 +601,7 @@ function addon:GetMountTotal(MountDB)
 	 -- Argent Hippogryph - 63844
 	AddMount(63844, 45725, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(MountDB, 63844, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(MountDB, 63844,
+	self:AddCompanionAcquire(MountDB, 63844, A_VENDOR, 33307, A_VENDOR, 33310, A_VENDOR, 33556, A_VENDOR, 33555, A_VENDOR, 33553, A_VENDOR, 33657, A_VENDOR, 33650, A_VENDOR, 33653, A_VENDOR, 33554, A_VENDOR, 33557)
 
 --REP VENDOR ARGENT
 	-- Great Golden Kodo
