@@ -396,35 +396,35 @@ function addon:GetMountTotal(MountDB)
 	self:AddCompanionAcquire(MountDB,17481,A_MOB,10440)
 
 --CLASS
-	 -- Felsteed - 5784
+	-- Felsteed - 5784
 	AddMount(5784, nil, R_RARE, GAME_ORIG, C_WARLOCK)
 	--self:AddCompanionFlags(MountDB, 5784, 
 	--self:AddCompanionAcquire(MountDB, XX,
 
-	 -- Dreadsteed - 23161
+	-- Dreadsteed - 23161
 	AddMount(23161, nil, R_RARE, GAME_ORIG, C_WARLOCK)
 	--self:AddCompanionFlags(MountDB, 23161, 
 	--self:AddCompanionAcquire(MountDB, 23161,
 
-	 -- Warhorse - Alliance - XX
+	-- Warhorse - Alliance - XX
 	--AddMount(XX, YY, R_RARE, GAME_ORIG)
 	--self:AddCompanionFlags(MountDB, XX, 
 	--self:AddCompanionAcquire(MountDB, XX,
 
-	 -- Charger - Alliance - XX
+	-- Charger - Alliance - XX
 	--AddMount(XX, YY, R_RARE, GAME_ORIG)
 	--self:AddCompanionFlags(MountDB, XX, 
 	--self:AddCompanionAcquire(MountDB, XX,
 
-	 -- Warhorse - Horde - XX
-	--AddMount(XX, YY, R_RARE, GAME_BC)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	-- Warhorse - Horde - 34769
+	AddMount(34769, nil, R_RARE, GAME_BC)
+	--self:AddCompanionFlags(MountDB, 34769, 
+	--self:AddCompanionAcquire(MountDB, 34769,
 
-	 -- Charger ?Horde - XX
-	--AddMount(XX, YY, R_RARE, GAME_BC)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	-- Charger - Horde - 34767
+	AddMount(34767, nil, R_RARE, GAME_BC)
+	--self:AddCompanionFlags(MountDB, 34767, 
+	--self:AddCompanionAcquire(MountDB, 34767,
 
 	-- Acherus Deathcharger - 48778
 	AddMount(48778, nil, 1, GAME_WOTLK, C_DK)
