@@ -296,7 +296,7 @@ function addon:GetMountTotal(MountDB)
 
 	-- Swift Brewfest Ram - 43900
 	AddMount(43900, 33977, R_EPIC, GAME_BC)
-	self:AddCompanionFlags(MountDB,43900,, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_MOB_DROP, F_BOP)
+	self:AddCompanionFlags(MountDB,43900, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(MountDB,43900,1,24468,1,24510,4,23795,4,23872)
 
 	-- The Horseman's Reins - 48025
