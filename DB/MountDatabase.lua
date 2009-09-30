@@ -550,13 +550,13 @@ function addon:GetMountTotal(MountDB)
 --WORLD EVENT VENDOR
 	 -- Darnassian Nightsaber - 63637
 	AddMount(63637, 45591, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, 63637, 
+	self:AddCompanionFlags(MountDB, 63637, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 63637, A_VENDOR, 33653)
 
-	 -- Exodar Elekk - XX
-	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Exodar Elekk - 63639
+	AddMount(63639, 45590, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 63639, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(MountDB, 63639, A_VENDOR, 33657)
 
 	 -- Gnomeregan Mechanostrider - XX
 	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
