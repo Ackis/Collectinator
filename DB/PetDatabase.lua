@@ -455,7 +455,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Shimmering Wyrmling -- 66096
 	AddPet(66096, 46820, R_UNCOMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 66096, F_HORDE, F_VENDOR, F_BOE,)
+	self:AddCompanionFlags(PetDB, 66096, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, A_MOB, 34881, A_REPUTATION, 1124, A_MOB, 34772)
 
 	-- Shimmering Wyrmling -- 66096
@@ -625,37 +625,37 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Cat Carrier (White Kitten) - 10679
 	AddPet(10679, 8489, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10679, F_ALLIANCE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10679, A_VENDOR,8666)
+	self:AddCompanionAcquire(PetDB, 10679, A_VENDOR, 8666)
 
 	-- Hawk Owl - 10706
 	AddPet(10706, 8501, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10706, F_ALLIANCE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10706, A_VENDOR,8665)
+	self:AddCompanionAcquire(PetDB, 10706, A_VENDOR, 8665)
 
 	-- Great Horned Owl - 10707
 	AddPet(10707, 8500, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10707, F_ALLIANCE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10707, A_VENDOR,8665)
+	self:AddCompanionAcquire(PetDB, 10707, A_VENDOR, 8665)
 
 	-- Rabbit Crate (Snowshoe) - 10711
 	AddPet(10711, 8497, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10711, F_ALLIANCE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10711, A_VENDOR,1263)
+	self:AddCompanionAcquire(PetDB, 10711, A_VENDOR, 1263)
 
 	-- Blue Moth Egg - 35907
 	AddPet(35907, 29901, R_COMMON, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 35907, F_ALLIANCE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 35907, A_VENDOR,21019)
+	self:AddCompanionAcquire(PetDB, 35907, A_VENDOR, 21019)
 
 	-- Yellow Moth Egg - 35910
 	AddPet(35910, 29903, R_COMMON, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 35910, F_ALLIANCE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 35910, A_VENDOR,21019)
+	self:AddCompanionAcquire(PetDB, 35910, A_VENDOR, 21019)
 
 	-- White Moth Egg - 35911
 	AddPet(35911, 29904, R_COMMON, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 35911, F_ALLIANCE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 35911, A_VENDOR,21019)
+	self:AddCompanionAcquire(PetDB, 35911, A_VENDOR, 21019)
 
 --RETIRED
 	-- Spirit of Competition - 48406
