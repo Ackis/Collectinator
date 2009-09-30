@@ -568,10 +568,10 @@ function addon:GetMountTotal(MountDB)
 	--self:AddCompanionFlags(MountDB, XX, F_ALLIANCE, F_VENDOR, F_BOP)
 	--self:AddCompanionAcquire(MountDB, XX, A_VENDOR, 
 
-	 -- Ironforge Ram - XX
-	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(MountDB, XX, A_VENDOR, 
+	 -- Ironforge Ram - 63636
+	AddMount(63636, 45586, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 63636, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(MountDB, 63636, A_VENDOR, 33310)
 
 	 -- Orgrimmar Wolf - 63640
 	AddMount(63640, 45595, R_EPIC, GAME_WOTLK)
