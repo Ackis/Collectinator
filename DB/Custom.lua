@@ -56,6 +56,7 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 23, "Original Epic Mount")
 	self:addLookupList(CustomDB, 24, "Battlebot")
 	self:addLookupList(CustomDB, 25, "Fishing in pools Northrend")
+	self:addLookupList(CustomDB, 26, "5th Year Anniversary")
 
 end
 
