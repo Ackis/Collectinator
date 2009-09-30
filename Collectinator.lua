@@ -298,7 +298,8 @@ function addon:OnEnable()
 	button:Enable()
 	button:ClearAllPoints()
 
-	button:SetPoint("LEFT", CompanionNextPageButton, "RIGHT", 0, 0)
+	button:SetPoint("RIGHT", CharacterFrameCloseButton, "LEFT", 4, 0)
+--	button:SetPoint("LEFT", CompanionNextPageButton, "RIGHT", 0, 0)
 	button:SetWidth(addon.ScanButton:GetTextWidth() + 10)
 
 	button:Show()
@@ -453,6 +454,10 @@ function addon:AddCompanionFlags(DB, SpellID, ...)
 	for i = 1, numvars, 1 do
 		-- Get the value of the current flag
 		local flag = select(i, ...)
+
+		if not flag then
+			break
+		end
 		flags[flag] = true
 	end
 end
