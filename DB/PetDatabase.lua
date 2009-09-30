@@ -77,7 +77,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 --ACHIVEMENTS
 	-- Pilgrim Turkey - 61771
-	AddPet(61771, nil, , GAME_WOTLK)
+	AddPet(61771, nil, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61771, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT)
 	self:AddCompanionAcquire(PetDB, 61771, A_ACHIEVEMENT, 3478, A_ACHIEVEMENT, 3656)
 
