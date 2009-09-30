@@ -1328,33 +1328,38 @@ function addon:GetMountTotal(MountDB)
 --TCG
 	-- Riding Tutle - 30174
 	AddMount(30174, 23720, R_EPIC, GAME_ORIG)
-	--self:AddCompanionFlags(MountDB,30174,21) 
+	self:AddCompanionFlags(MountDB, 30174,  F_ALLIANCE, F_HORDE, F_TCG)
+	self:AddCompanionAcquire(MountDB, 30174, A_CUSTOM, 1)
 
 	-- Reins of the Spectral Tiger - 42776
 	AddMount(42776, 33224, R_RARE, GAME_BC)
-	--self:AddCompanionFlags(MountDB,42776,16)
-	--self:AddCompanionAcquire(MountDB,
+	self:AddCompanionFlags(MountDB, 42776, F_ALLIANCE, F_HORDE, F_TCG)
+	self:AddCompanionAcquire(MountDB, 42776, A_CUSTOM, 1)
 
 	-- Reins of the Swift Spectral Tiger - 42777
 	AddMount(42777, 33225, R_EPIC, GAME_BC)
-	--self:AddCompanionFlags(MountDB,42777,16)
-	--self:AddCompanionAcquire(MountDB,
+	self:AddCompanionFlags(MountDB, 42777, F_ALLIANCE, F_HORDE, F_TCG)
+	self:AddCompanionAcquire(MountDB, 42777, A_CUSTOM, 1)
 
 	-- X-51 Nether-Rocket - 46197
 	AddMount(46197, 35225, R_RARE, GAME_BC)
+	self:AddCompanionFlags(MountDB, 46197, F_ALLIANCE, F_HORDE, F_TCG)
+	self:AddCompanionAcquire(MountDB, 46197, A_CUSTOM, 1)
 
 	-- X-51 Nether-Rocket X-TREME-- 46199
 	AddMount(46199, 35226, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(MountDB, 46199, F_ALLIANCE, F_HORDE, F_TCG)
+	self:AddCompanionAcquire(MountDB, 46199, A_CUSTOM, 1)
 
 	-- Big Battle Bear - 51412
 	AddMount(51412, 38576, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB,51412,1,2,3,16)
-	--self:AddCompanionAcquire(MountDB,51412,1,17249)
+	self:AddCompanionFlags(MountDB, 51412,  F_ALLIANCE, F_HORDE, F_TCG)
+	self:AddCompanionAcquire(MountDB, 51412, A_CUSTOM, 1)
 
 	-- Magic Rooster - 66872
 	AddMount(66872, 49290, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(MountDB, 66872)
-	self:AddCompanionAcquire(MountDB, 66872)
+	self:AddCompanionFlags(MountDB, 66872, F_ALLIANCE, F_HORDE, F_TCG)
+	self:AddCompanionAcquire(MountDB, 66872, A_CUSTOM, 1)
 
 	return num_mounts
 
