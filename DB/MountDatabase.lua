@@ -631,57 +631,57 @@ function addon:GetMountTotal(MountDB)
 
 	 -- Great Red Elekk - 65637
 	AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, 65637, 
+	self:AddCompanionFlags(MountDB, 65637, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 65637, A_VENDOR, 33657)
 
 	 -- Turbostrider - 65642
 	AddMount(65642, 46747, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, 65642, 
+	self:AddCompanionFlags(MountDB, 65642, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 65642, A_VENDOR, 33650)
 
 	-- Swift Violet Ram - 65643
 	AddMount(65643, 46748, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, 65643, 
+	self:AddCompanionFlags(MountDB, 65643, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 65643, A_VENDOR, 33310)
 
 	-- Swift Moonsaber - 65638
 	AddMount(65638, 46744, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, 65638, 
+	self:AddCompanionFlags(MountDB, 65638, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 65638, A_VENDOR, 33653)
 
 	-- Swift Gray Steed - 65640
 	AddMount(65640, 46752, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, 65640, 
+	self:AddCompanionFlags(MountDB, 65640, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 65640, A_VENDOR, 33307)
 
 	-- Argent Charger - 66906
 	AddMount(66906, 47179, R_EPIC, GAME_WOTLK, C_PALADIN)
-	--self:AddCompanionFlags(MountDB, 66906, 
+	self:AddCompanionFlags(MountDB, 66906, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 66906, A_VENDOR, 34885)
 
 	-- Argent Warhorse - 67466
 	AddMount(67466, 47180, R_EPIC, GAME_WOTLK, C_PALADIN)
-	--self:AddCompanionFlags(MountDB, 67466, 
+	self:AddCompanionFlags(MountDB, 67466, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 67466, A_VENDOR, 34885)
 
 	-- Quel'dorei Steed - 66090
 	AddMount(66090, 46815, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, 66090, 
+	self:AddCompanionFlags(MountDB, 66090, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 66090, A_VENDOR, 34881)
 
 	-- Silver Covenant Hippogryph - 66087
 	AddMount(66087, 46813, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, 66087, 
+	self:AddCompanionFlags(MountDB, 66087, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 66087, A_VENDOR, 34881)
 
 	 -- Sunreaver Hawkstrider - 66091
 	AddMount(66091, 46816, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, 66091, 
+	self:AddCompanionFlags(MountDB, 66091, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 66091, A_VENDOR, 34772)
 
 	 -- Sunreaver Dragonhawk - 66088
 	AddMount(66088, 46814, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, 66088, 
+	self:AddCompanionFlags(MountDB, 66088, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 66088, A_VENDOR, 34772)
 
 --REP VENDOR NEUTRAL
@@ -1132,10 +1132,10 @@ function addon:GetMountTotal(MountDB)
 	--self:AddCompanionFlags(MountDB,23338,1,3,4,16)
 	--self:AddCompanionAcquire(MountDB,23338,1,4730,2,7671,2,7672)
 
-	-- Striped Dawnsaber - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	-- Striped Dawnsaber - 66847
+	AddMount(66847, 47100, R_RARE, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB, 66847, 
+	self:AddCompanionAcquire(MountDB, 66847, A_VENDOR, 4730)
 
 	-- Reins of the Striped Frostsaber - 8394
 	AddMount(8394, 8631, R_RARE, GAME_ORIG)
@@ -1223,45 +1223,55 @@ function addon:GetMountTotal(MountDB)
 	self:AddCompanionFlags(MountDB,17450, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 17450, A_CUSTOM, 23)
 
-	 -- Black Proto-Drake - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Black Proto-Drake - 59976
+	AddMount(59976, 44164, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB, 59976, 
+	--self:AddCompanionAcquire(MountDB, 59976,
 
-	 -- Plagued Proto-Drake - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Plagued Proto-Drake - 60021
+	AddMount(60021, 44175, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB, 60021, 
+	--self:AddCompanionAcquire(MountDB, 60021,
 
 	-- Amani War Bear - 43688
-	AddMount(43688, 33809, 1, GAME_BC)
+	AddMount(43688, 33809, R_EPIC, GAME_BC)
 	--self:AddCompanionFlags(MountDB,43688,1,2,4,16)
 	--self:AddCompanionAcquire(MountDB,43688,2,27704)
 
 	-- Swift Nether Drake - 37015
-	AddMount(37015, 30609, 1, GAME_BC)
+	AddMount(37015, 30609, R_EPIC, GAME_BC)
 	--self:AddCompanionFlags(MountDB,37015,16)
 	--self:AddCompanionAcquire(MountDB,
 
 	-- Merciless Nether Drake - 44744
-	AddMount(44744, 34092, 1, GAME_BC)
+	AddMount(44744, 34092, R_EPIC, GAME_BC)
 	--self:AddCompanionFlags(MountDB,44744,16)
 	--self:AddCompanionAcquire(MountDB,
 
 	-- Vengeful Nether Drake - 49193
-	AddMount(49193, 37676, 1, GAME_BC)
+	AddMount(49193, 37676, R_EPIC, GAME_BC)
 	--self:AddCompanionFlags(MountDB,49193,16)
 	--self:AddCompanionAcquire(MountDB,
 
 	-- Brutal Nether Drake - 58615
-	AddMount(58615, 43516, 1, GAME_WOTLK)
+	AddMount(58615, 43516, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB,58615,16)
 	--self:AddCompanionAcquire(MountDB,
 
-	 -- Deadly Gladiator's Frostwyrm - XX
-	--AddMount(XX, YY, R_RARE, GAME_)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	-- Deadly Gladiator's Frostwyrm - 64927
+	AddMount(64927, nil, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB, 64927, 
+	--self:AddCompanionAcquire(MountDB, 64927,
+
+	-- Furious Gladiator's Frostwyrm - 65439
+	AddMount(65439, 46171, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB, 65439, 
+	--self:AddCompanionAcquire(MountDB, 65439,
+
+	-- Relentless Gladiator's Frostwyrm - 67336
+	AddMount(67336, nil, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB, 67336, 
+	--self:AddCompanionAcquire(MountDB, 67336,
 
 --OTHERS
 	 -- Frostsaber - XX
