@@ -563,10 +563,10 @@ function addon:GetMountTotal(MountDB)
 	self:AddCompanionFlags(MountDB, 63638, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 63638, A_VENDOR, 33650)
 
-	 -- Stormwind Steed - XX
-	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(MountDB, XX, A_VENDOR, 
+	 -- Stormwind Steed - 63232
+	AddMount(63232, 45125, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(MountDB, 63232, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(MountDB, 63232, A_VENDOR, 33307)
 
 	 -- Ironforge Ram - 63636
 	AddMount(63636, 45586, R_EPIC, GAME_WOTLK)
