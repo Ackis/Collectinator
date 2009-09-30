@@ -460,7 +460,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Shimmering Wyrmling -- 66096
 	AddPet(66096, 46820, R_UNCOMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 66096, F_ALLIANCE, F_VENDOR, F_BOE,)
+	self:AddCompanionFlags(PetDB, 66096, F_ALLIANCE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, A_MOB, 34881, A_REPUTATION, 1124, A_MOB, 34772)
 
 --REP VENDOR NEUTRAL
