@@ -598,10 +598,10 @@ function addon:GetMountTotal(MountDB)
 	--self:AddCompanionFlags(MountDB,
 	self:AddCompanionAcquire(MountDB, 63635, A_VENDOR, 33554)
 
-	 -- Argent Hippogryph - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Argent Hippogryph - 63844
+	AddMount(63844, 45725, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB, 63844, 
+	--self:AddCompanionAcquire(MountDB, 63844,
 
 --REP VENDOR ARGENT
 	-- Great Golden Kodo
