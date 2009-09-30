@@ -38,6 +38,6 @@ function addon:InitSeasons(SeasonDB)
 	self:addLookupList(SeasonDB, 6, "Brewfest")
 	self:addLookupList(SeasonDB, 7, "Halloween")
 	self:addLookupList(SeasonDB, 8, "Children's week")
-	self:addLookupList(SeasonDB, 9, "Nobelgarden")
+	self:addLookupList(SeasonDB, 9, "Noblegarden")
 
 end
