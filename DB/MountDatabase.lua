@@ -548,38 +548,38 @@ function addon:GetMountTotal(MountDB)
 	--self:AddCompanionAcquire(MountDB,32297,1,20494)
 
 --WORLD EVENT VENDOR
-	 -- Darnassian Nightsaber - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(MountDB, XX, 
-	--self:AddCompanionAcquire(MountDB, XX,
+	 -- Darnassian Nightsaber - 63637
+	AddMount(63637, 45591, R_EPIC, GAME_WOTLK)
+	--self:AddCompanionFlags(MountDB, 63637, 
+	self:AddCompanionAcquire(MountDB, 63637, A_VENDOR, 33653)
 
 	 -- Exodar Elekk - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
+	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB, XX, 
 	--self:AddCompanionAcquire(MountDB, XX,
 
 	 -- Gnomeregan Mechanostrider - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
+	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB, XX, 
 	--self:AddCompanionAcquire(MountDB, XX,
 
 	 -- Stormwind Steed - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
+	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB, XX, 
 	--self:AddCompanionAcquire(MountDB, XX,
 
 	 -- Ironforge Ram - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
+	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB, XX, 
 	--self:AddCompanionAcquire(MountDB, XX,
 
 	 -- Orgrimmar Wolf - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
+	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB, XX, 
 	--self:AddCompanionAcquire(MountDB, XX,
 
 	 -- Thunder Bluff Kodo - XX
-	--AddMount(XX, YY, R_RARE, GAME_WOTLK)
+	--AddMount(XX, YY, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(MountDB, XX, 
 	--self:AddCompanionAcquire(MountDB, XX,
 
