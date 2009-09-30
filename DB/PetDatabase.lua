@@ -27,7 +27,7 @@ local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 -------------------------------------------------------------------------------
 -- Item "rarity"
 -------------------------------------------------------------------------------
-local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
+local R_COMMON, R_UNCOMMON, F_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
 
 -------------------------------------------------------------------------------
 -- Origin
@@ -43,7 +43,7 @@ local F_BOE, F_BOP, F_BOA = 20, 21, 22
 local F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36
 
 -------------------------------------------------------------------------------
--- Reputation Filter Flags
+-- Reputation Flags
 -------------------------------------------------------------------------------
 local F_ARGENT_DAWN, F_BLOODSAIL, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_TIMBERMAW, F_WINTERSPRING, F_ZANDALAR = 40, 41, 42, 43, 44, 100, 45
 local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPIDITION, F_HELLFIRE, F_CONSORTIUM, F_KOT, F_LOWER_CITY, F_NAGRAND = 46, 47, 48, 49, 50, 51, 52, 53
@@ -57,6 +57,19 @@ local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79,
 -- Acquire types
 -------------------------------------------------------------------------------
 local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT = 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+-------------------------------------------------------------------------------
+-- Reputation Acquire Flags
+-------------------------------------------------------------------------------
+local R_WINTERSPRING = 589
+
+-------------------------------------------------------------------------------
+-- Reputation Levels
+-------------------------------------------------------------------------------
+local FRIENDLY = 1
+local HONORED = 2
+local REVERED = 3
+local EXALTED = 4
 
 local initialized = false
 local num_pets = 0
@@ -456,48 +469,48 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Shimmering Wyrmling -- 66096
 	AddPet(66096, 46820, R_UNCOMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 66096, F_HORDE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, A_MOB, 34881, A_REPUTATION, 1124, A_MOB, 34772)
+	self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, EXALTED, 34881, A_REPUTATION, 1124, EXALTED, 34772)
 
 	-- Shimmering Wyrmling -- 66096
 	AddPet(66096, 46820, R_UNCOMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 66096, F_ALLIANCE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, A_MOB, 34881, A_REPUTATION, 1124, A_MOB, 34772)
+	self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, EXALTED, 34881, A_REPUTATION, 1124, EXALTED, 34772)
 
 --REP VENDOR NEUTRAL
 	-- Tiny Sporebat - 45082
 	AddPet(45082, 34478, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 45082, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 58)
-	self:AddCompanionAcquire(PetDB, 45082, A_REPUTATION, 970, A_MOB, 18382)
+	self:AddCompanionAcquire(PetDB, 45082, A_REPUTATION, 970, EXALTED, 18382)
 
 	-- Nether Ray Fry - 51716
 	AddPet(51716, 38628, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 51716, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 90)
-	self:AddCompanionAcquire(PetDB, 51716, A_REPUTATION, 1031, A_MOB, 23367)
+	self:AddCompanionAcquire(PetDB, 51716, A_REPUTATION, 1031, EXALTED, 23367)
 
 	-- Tickbird Hatchling -- 61348
 	AddPet(61348, 39896, R_COMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61348, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 77)
-	self:AddCompanionAcquire(PetDB, 61348, A_REPUTATION, 1105, 3, 31910, A_CUSTOM, 16)
+	self:AddCompanionAcquire(PetDB, 61348, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
 
 	-- White Tickbird Hatchling -- 61349
 	AddPet(61349, 39899, R_COMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61349, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 77)
-	self:AddCompanionAcquire(PetDB, 61349, A_REPUTATION, 1105, 3, 31910, A_CUSTOM, 16)
+	self:AddCompanionAcquire(PetDB, 61349, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
 
 	-- Proto-Drake Whelp -- 61350
 	AddPet(61350, 44721, R_COMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61350, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 77)
-	self:AddCompanionAcquire(PetDB, 61350, A_REPUTATION, 1105, 3, 31910, A_CUSTOM, 16)
+	self:AddCompanionAcquire(PetDB, 61350, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
 
 	-- Cobra Hatchling -- 61351
 	AddPet(61351, 39898, R_COMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61351, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 77)
-	self:AddCompanionAcquire(PetDB, 61351, A_REPUTATION, 1105, 3, 31910, A_CUSTOM, 16)
+	self:AddCompanionAcquire(PetDB, 61351, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
 
 	-- Nurtured Penguin Egg - 61357
 	AddPet(61357, 44723, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61357, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 65)
-	self:AddCompanionAcquire(PetDB, 61357, A_REPUTATION, 1073, A_MOB, 31916, A_REPUTATION, 1073, A_MOB, 32763)
+	self:AddCompanionAcquire(PetDB, 61357, A_REPUTATION, 1073, EXALTED, 31916, A_REPUTATION, 1073, EXALTED, 32763)
 
 	-- Penguin Egg - 58636
 	--AddPet(58636, 43517, R_RARE, GAME_WOTLK)
@@ -513,7 +526,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Parrot Cage (Senegal) - 10684
 	AddPet(10684, 8495, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10684, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10684, A_VENDOR, 2663, 1, 20980)
+	self:AddCompanionAcquire(PetDB, 10684, A_VENDOR, 2663, A_VENDOR, 20980)
 
 	-- Ancona Chicken - 10685
 	AddPet(10685, 11023, R_COMMON, GAME_ORIG)
