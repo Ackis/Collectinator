@@ -1175,12 +1175,12 @@ function addon:GetMountTotal(MountDB)
 
 	-- Frost Ram - 17460
 	AddMount(17460, 13329, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17460, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+	self:AddCompanionFlags(MountDB,17460, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 17460, A_CUSTOM, 23)
 
 	-- Black Ram - 17461
 	AddMount(17461, 13328, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(MountDB,17461, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+	self:AddCompanionFlags(MountDB,17461, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(MountDB, 17461, A_CUSTOM, 23)
 
 	-- Reins of the Nightsaber - 16055
