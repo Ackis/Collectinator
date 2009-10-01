@@ -276,7 +276,7 @@ function addon:GetMountTotal(MountDB)
 	-- Grand Black War Mammoth - Horde - 61467
 	AddMount(61467, 44083, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(MountDB, 61467, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
-	self:AddCompanionAcquire(MountDB, 61467,
+	self:AddCompanionAcquire(MountDB, 61467, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125)
 
 	-- Grand Black War Mammoth - Alliance - 61465
 	AddMount(61465, 43959, R_EPIC, GAME_WOTLK)
