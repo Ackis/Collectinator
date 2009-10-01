@@ -606,7 +606,7 @@ function addon:GetMountTotal(MountDB)
 --REP VENDOR ARGENT
 	-- Great Golden Kodo
 	AddMount(65641, 46750, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(MountDB, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionFlags(MountDB, 65641, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(MountDB, 65641, A_VENDOR, 33556)
 
 	-- Swift Burgandy Wolf
