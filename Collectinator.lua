@@ -1363,18 +1363,18 @@ end
 -------------------------------------------------------------------------------
 
 -- Scans through the item database providing a string of comma seperated values for all item information
-function addon:GetTextDump(DB, profession)
+function addon:GetTextDump(DB, collectible_type)
 	local texttable = {}
 
 	-- Add a header to the text table
-	tinsert(texttable, format("Collectinator Text Dump for %s", profession))
+	tinsert(texttable, format("Collectinator Text Dump for %s", collectible_type))
 	tinsert(texttable, "Text output of all items and acquire information.  Output is in the form of comma seperated values.\n")
-	tinsert(texttable, "Spell ID, item Name, Skill Level, ARL Filter Flags, Acquire Methods, Known\n")
+	tinsert(texttable, "Spell ID, item Name, Skill Level, Filter Flags, Acquire Methods, Known\n")
 
 	for SpellID in pairs(DB) do
-		local itemprof = GetSpellInfo(DB[SpellID]["Profession"])
+		local spell_type = GetSpellInfo(DB[SpellID]["Type"])
 
-		if itemprof == profession then
+		if spell_type == collectible_type then
 			-- Add Spell ID, Name and Skill Level to the list
 			tinsert(texttable, SpellID)
 			tinsert(texttable, ", ")
