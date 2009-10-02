@@ -1012,19 +1012,18 @@ function addon:ChatCommand(input)
 end
 
 do
-	local UnitClass = UnitClass
-	local UnitFactionGroup = UnitFactionGroup
+	local UnitClass = _G.UnitClass
+	local UnitFactionGroup = _G.UnitFactionGroup
 
-	local CompanionDB
+	local CompanionDB = {}
 
-	local VendorList = nil
-	local QuestList = nil
-	local MobList = nil
-	local CustomList = nil
-	local QuestList = nil
-	local ReputationList = nil
-	local SeasonalList = nil
-	local RepFilters = nil
+	local CustomList = {}
+	local MobList = {}
+	local QuestList = {}
+	local ReputationList = {}
+	local SeasonalList = {}
+	local VendorList = {}
+	local RepFilters = {}		-- These are assigned during a scan, not in InitDatabases()
 
 	local playerData = nil
 	--- Data which is stored regarding a players statistics
