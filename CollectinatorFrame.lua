@@ -1671,56 +1671,6 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 	end
 end
 
-do
-	local current_tab_name = nil
-
-	-- Description: Provides logic for when you are clicking the scan button.
-	-- Expected result: Does appropiate task depending on what button has been clicked and the current state.
-	-- Input: None.
-	-- Output: Frame is toggled, etc depending on state.
-
-	function addon:ToggleFrame()
-
-		-- What profession is opened?
-		local cprof = GetTradeSkillLine()
-
-		-- The frame is visible
-		if (addon.Frame and addon.Frame:IsVisible()) then
-			-- Shift only (Text dump)
-			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:Scan(true)
-			-- Alt only (Wipe icons from map)
-			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
-				self:ClearMap()
-			-- If we have the same profession open, then we close the scanned window
-			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) and (current_tab_name == cprof) then
-				addon.Frame:Hide()
-			-- If we have a different profession open we do a scan
-			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:Scan(false)
-				self:SetupMap()
-				current_tab_name = cprof
-			end
-		-- Frame is hidden
-		else
-			current_tab_name = cprof
-			-- Shift only (Text dump)
-			if (IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:Scan(true)
-			-- Alt only (Wipe icons from map)
-			elseif (not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown()) then
-				self:ClearMap()
-			-- No modification
-			elseif (not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown()) then
-				self:Scan(false)
-				self:SetupMap()
-			end
-		end
-
-	end
-
-end
-
 -- Description: Set the texture on the switcher button.
 
 local function SetSwitcherTexture(tex)

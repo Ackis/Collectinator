@@ -277,7 +277,6 @@ function addon:OnEnable()
 						  current_tab = companion_frame.mode
 					  end
 					  addon:Scan(false, false, current_tab)
-					  --addon:ToggleFrame()
 				  end)
 
 	button:SetScript("OnEnter",
