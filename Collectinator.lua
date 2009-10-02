@@ -558,37 +558,6 @@ local function GetIDFromLink(SpellLink)
 	return smatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
 end
 
---- Scans all companions you have (mounts and mini-pets) and adds them to the saved variables.
--- @name ScanCompanions
--- @usage Collectinator:ScanCompanions(DB, playerData["totalknownpets"], playerData["totalknownmounts"])
--- @param numminipets The number of mini-pets which you know.
--- @param nummounts The number of mini-pets which you know.
--- @return The entries in the DB are flagged as known
-function addon:ScanCompanions(DB, numminipets, nummounts)
-	-- Parse all the mini-pets you currently have
-	for i = 1, numminipets, 1 do
-		local _, _, petspell, _, _ = GetCompanionInfo("CRITTER", i)	-- Get the pet's name and spell ID
-
-		if (DB[petspell]) then
-			DB[petspell]["Known"] = true
-		elseif petspell then
-			self:Print("Error: Pet with ID " .. petspell .. " not in database.")
-		end
-	end
-
-	-- Parse all the mounts you currently have
-	for i=1, nummounts, 1 do
-		-- Get the pet's name and spell ID
-		local _, _, mountspell = GetCompanionInfo("MOUNT", i)
-		if (DB[mountspell]) then
-			DB[mountspell]["Known"] = true
-		elseif mountspell then
-			self:Print("Error: Mount with ID ".. tostring(mountspell) .. " not in database.")
-		end
-	end
-
-end
-
 --- Scans the database and the local list of companions and flags which ones you know
 -- @name CheckForKnownCompanions
 -- @usage Collectinator:CheckForKnownCompanions(DB)
@@ -961,7 +930,7 @@ local function PopulateRepFilters(RepTable)
 end
 
 -- Description: Scans the item listing and updates the filters according to user preferences
-function addon:UpdateFilters(DB,  playerData, scantype)
+function addon:UpdateFilters(DB, playerData, scantype)
 	local playerFaction = playerData.playerFaction
 	local playerClass = playerData.playerClass
 	local can_show = false
@@ -1290,11 +1259,28 @@ do
 		if not CompanionDB then
 			InitDatabases()
 		end
-		playerData["critter_total"] = addon:GetMiniPetTotal(CompanionDB)
-		playerData["mount_total"] = addon:GetMountTotal(CompanionDB)
+		local critter_total = addon:GetMiniPetTotal(CompanionDB)
+		local mount_total = addon:GetMountTotal(CompanionDB)
 
-		-- Scan for all known companions
-		self:ScanCompanions(CompanionDB, playerData["critter_total"], playerData["mount_total"])
+		-- Scan for all known critters and mounts
+		for i = 1, critter_total, 1 do
+			local _, _, spell, _, _ = GetCompanionInfo("CRITTER", i)
+
+			if CompanionDB[spell] then
+				CompanionDB[spell]["Known"] = true
+			elseif spell then
+				self:Print("Error: Pet with ID " .. spell .. " not in database.")
+			end
+		end
+
+		for i = 1, mount_total, 1 do
+			local _, _, spell = GetCompanionInfo("MOUNT", i)
+			if CompanionDB[spell] then
+				CompanionDB[spell]["Known"] = true
+			elseif spell then
+				self:Print("Error: Mount with ID ".. tostring(spell) .. " not in database.")
+			end
+		end
 
 		if not autoupdatescan and scantype then
 			PopulateRepFilters(RepFilters)	-- Update the table containing which reps to display
