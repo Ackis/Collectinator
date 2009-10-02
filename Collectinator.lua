@@ -1432,9 +1432,29 @@ function addon:GetTextDump(DB, collectible_type)
 			else
 				tinsert(texttable, "], false\n")
 			end
-
 		end
 	end
-
 	return tconcat(texttable, "")
 end
+
+do
+	local output = {}
+
+	function addon:DumpMembers(match)
+		twipe(output)
+		tinsert(output, "Addon Object members.\n")
+
+		local count = 0
+
+		for key, value in pairs(self) do
+			local val_type = type(value)
+
+			if not match or val_type == match then
+				tinsert(output, key.. " ("..val_type..")")
+				count = count + 1
+			end
+		end
+		tinsert(output, string.format("\n%d found\n", count))
+		self:DisplayTextDump(nil, nil, tconcat(output, "\n"))
+	end
+end	-- do
