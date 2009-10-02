@@ -322,6 +322,9 @@ function addon:OnEnable()
 						GameTooltip:Show()
 					end)
 	PetPaperDollFrameTab3:SetScript("OnLeave", function() GameTooltip:Hide() end)
+
+	self:InitDatabases()
+	self.InitDatabases = nil
 end
 
 -- Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
@@ -1215,15 +1218,8 @@ do
 		playerData["critter_known"] = GetNumCompanions("CRITTER")
 		playerData["mount_known"] = GetNumCompanions("MOUNT")
 
-		-- Lets create all the databases needed if this is the first time everything has been run.
-		if not CompanionDB then
-			InitDatabases()
-		end
-		local critter_total = addon:GetMiniPetTotal(CompanionDB)
-		local mount_total = addon:GetMountTotal(CompanionDB)
-
 		-- Scan for all known critters and mounts
-		for i = 1, critter_total, 1 do
+		for i = 1, self:GetMiniPetTotal(CompanionDB), 1 do
 			local _, _, spell, _, _ = GetCompanionInfo("CRITTER", i)
 
 			if CompanionDB[spell] then
@@ -1233,8 +1229,9 @@ do
 			end
 		end
 
-		for i = 1, mount_total, 1 do
+		for i = 1, self:GetMountTotal(CompanionDB), 1 do
 			local _, _, spell = GetCompanionInfo("MOUNT", i)
+
 			if CompanionDB[spell] then
 				CompanionDB[spell]["Known"] = true
 			elseif spell then
