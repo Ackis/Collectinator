@@ -3799,67 +3799,55 @@ function addon:DisplayFrame(
 end
 
 
--- Description: Creates a new frame with the contents of a text dump so you can copy and paste
--- Expected result: New frame with all collectibles listed and acquire info
--- Input: A text string of what to paste
--- Output: None
--- Creates a frame where you can copy and paste contents from.  Adds the textdump text into that frame.
--- Code stolen from Antiarc and Chatter
+-------------------------------------------------------------------------------
+-- Creates a new frame with the contents of a text dump so you can copy and paste
+-- Based on code borrowed (with permission) from Antiarc's Chatter
+-- @name Collectinator:DisplayTextDump
+-- @param CollectibleDB The database table you wish read data from.
+-- @param collectible_type The type of collectible are you displaying data for
+-- @param text The text to be dumped
+-------------------------------------------------------------------------------
+do
+	local copy_frame = CreateFrame("Frame", "CollectinatorCopyFrame", UIParent)
+	copy_frame:SetBackdrop({
+				       bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
+				       edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
+				       tile = true, tileSize = 16, edgeSize = 16,
+				       insets = { left = 3, right = 3, top = 5, bottom = 3 }
+			       })
+	copy_frame:SetBackdropColor(0, 0, 0, 1)
+	copy_frame:SetWidth(750)
+	copy_frame:SetHeight(400)
+	copy_frame:SetPoint("CENTER", UIParent, "CENTER")
+	copy_frame:SetFrameStrata("DIALOG")
 
-function addon:DisplayTextDump(CollectibleDB, text)
-	local textdump
+	tinsert(UISpecialFrames, "CollectinatorCopyFrame")
 
-	-- If we don't send in a CollectibleDB and profession, just dump the text
-	if not CollectibleDB then
-		textdump = text
-	else
-		textdump = self:GetTextDump(CollectibleDB, profession)
+	local scrollArea = CreateFrame("ScrollFrame", "CollectinatorCopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
+	scrollArea:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 8, -30)
+	scrollArea:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -30, 8)
+
+	local edit_box = CreateFrame("EditBox", nil, copy_frame)
+	edit_box:SetMultiLine(true)
+	edit_box:SetMaxLetters(0)
+	edit_box:EnableMouse(true)
+	edit_box:SetAutoFocus(true)
+	edit_box:SetFontObject(ChatFontNormal)
+	edit_box:SetWidth(650)
+	edit_box:SetHeight(270)
+	edit_box:SetScript("OnEscapePressed", function() copy_frame:Hide() end)
+	edit_box:HighlightText(0)
+
+	scrollArea:SetScrollChild(edit_box)
+
+	local close = CreateFrame("Button", nil, copy_frame, "UIPanelCloseButton")
+	close:SetPoint("TOPRIGHT", copy_frame, "TOPRIGHT")
+
+	copy_frame:Hide()
+
+	function addon:DisplayTextDump(CollectibleDB, collectible_type, text)
+		edit_box:SetText((not RecipeDB and not collectible_type) and text or self:GetTextDump(CollectibleDB, collectible_type))
+		edit_box:HighlightText(0)
+		copy_frame:Show()
 	end
-
-	local PaneBackdrop  = {
-		bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]], 
-		edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]], 
-		tile = true, tileSize = 16, edgeSize = 16, 
-		insets = { left = 3, right = 3, top = 5, bottom = 3 }
-	}
-
-	-- If we haven't created these frames, then lets do so now.
-	if (not addon.CollectinatorCopyFrame) then
-		addon.CollectinatorCopyFrame = CreateFrame("Frame", "CollectinatorCopyFrame", UIParent)
-		tinsert(UISpecialFrames, "CollectinatorCopyFrame")
-		addon.CollectinatorCopyFrame:SetBackdrop(PaneBackdrop)
-		addon.CollectinatorCopyFrame:SetBackdropColor(0, 0, 0, 1)
-		addon.CollectinatorCopyFrame:SetWidth(750)
-		addon.CollectinatorCopyFrame:SetHeight(400)
-		addon.CollectinatorCopyFrame:SetPoint("CENTER", UIParent, "CENTER")
-		addon.CollectinatorCopyFrame:SetFrameStrata("DIALOG")
-		
-		local scrollArea = CreateFrame("ScrollFrame", "CollectinatorCopyScroll", addon.CollectinatorCopyFrame, "UIPanelScrollFrameTemplate")
-		scrollArea:SetPoint("TOPLEFT", addon.CollectinatorCopyFrame, "TOPLEFT", 8, -30)
-		scrollArea:SetPoint("BOTTOMRIGHT", addon.CollectinatorCopyFrame, "BOTTOMRIGHT", -30, 8)
-		
-		addon.CollectinatorCopyFrame.editBox = CreateFrame("EditBox", "CollectinatorCopyEdit", addon.CollectinatorCopyFrame)
-		addon.CollectinatorCopyFrame.editBox:SetMultiLine(true)
-		addon.CollectinatorCopyFrame.editBox:SetMaxLetters(99999)
-		addon.CollectinatorCopyFrame.editBox:EnableMouse(true)
-		addon.CollectinatorCopyFrame.editBox:SetAutoFocus(true)
-		addon.CollectinatorCopyFrame.editBox:SetFontObject(ChatFontNormal)
-		addon.CollectinatorCopyFrame.editBox:SetWidth(650)
-		addon.CollectinatorCopyFrame.editBox:SetHeight(270)
-		addon.CollectinatorCopyFrame.editBox:SetScript("OnEscapePressed", function() addon.CollectinatorCopyFrame:Hide() end)
-		addon.CollectinatorCopyFrame.editBox:SetText(textdump)
-		addon.CollectinatorCopyFrame.editBox:HighlightText(0)
-		
-		scrollArea:SetScrollChild(addon.CollectinatorCopyFrame.editBox)
-		
-		local close = CreateFrame("Button", nil, addon.CollectinatorCopyFrame, "UIPanelCloseButton")
-		close:SetPoint("TOPRIGHT", addon.CollectinatorCopyFrame, "TOPRIGHT")
-		
-		addon.CollectinatorCopyFrame:Show()
-	else
-		addon.CollectinatorCopyFrame.editBox:SetText(textdump)
-		addon.CollectinatorCopyFrame.editBox:HighlightText(0)
-		addon.CollectinatorCopyFrame:Show()
-	end
-
-end
+end	-- do
