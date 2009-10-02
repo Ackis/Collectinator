@@ -1698,83 +1698,6 @@ local function SetSwitcherTexture(tex)
 
 end
 
--- Description: Switch the displayed profession in the main panel
-
-function addon:SwitchProfs(button)
-	-- Known professions should be in playerData["Professions"]
-
-	-- This loop is gonna be weird. The reason is because we need to
-	-- ensure that we cycle through all the known professions, but also
-	-- that we do so in order. That means that if the currently displayed
-	-- profession is the last one in the list, we're actually going to
-	-- iterate completely once to get to the currently displayed profession
-	-- and then iterate again to make sure we display the next one in line.
-	-- Further, there is the nuance that the person may not know any
-	-- professions yet at all. User are so annoying.
-	local startLoop = 0
-	local endLoop = 0
-	local displayProf = 0
-
-	-- Close all possible pop-up windows
-	StaticPopup_Hide("Collectinator_NOTSCANNED")
-	StaticPopup_Hide("Collectinator_ALLFILTERED")
-	StaticPopup_Hide("Collectinator_ALLKNOWN")
-	StaticPopup_Hide("Collectinator_ALLEXCLUDED")
-	StaticPopup_Hide("Collectinator_SEARCHFILTERED")
-
-	-- ok, so first off, if we've never done this before, there is no "current"
-	-- and a single iteration will do nicely, thank you
-	if button == "LeftButton" then
-		-- normal profession switch
-		if (current_tab == 0) then
-			startLoop = 1
-			endLoop = addon.MaxCollections + 1
-		else
-			startLoop = current_tab + 1
-			endLoop = current_tab
-		end
-		local index = startLoop
-	
-		while (index ~= endLoop) do
-			if (index > MaxCollections) then
-				index = 1
-			else
-				displayProf = index
-				current_tab = index
-			end
-		end
-	elseif button == "RightButton" then
-		-- reverse profession switch
-		if (current_tab == 0) then
-			startLoop = addon.MaxCollections + 1
-			endLoop = 0
-		else
-			startLoop = current_tab - 1
-			endLoop = current_tab
-		end
-		local index = startLoop
-	
-		while (index ~= endLoop) do
-			if (index < 1) then
-				index = MaxCollections
-			else
-				displayProf = index
-				current_tab = index
-				break
-			end
-		end
-	end
-
-	-- Redisplay the button with the new skill
-	SetSwitcherTexture(SortedCollections[current_tab].texture)
-	playerData.playerProfession = SortedCollections[current_tab].name
-	current_tab_name = playerData.playerProfession
-
-	ReDisplay(current_tab)
-	addon.resetTitle()
-
-end
-
 local faction_strings	-- This is populated in expandEntry()
 
 local function expandEntry(dsIndex)
@@ -2753,7 +2676,70 @@ local function InitializeFrame()
 	Collectinator_SwitcherButton:SetHeight(64)
 	Collectinator_SwitcherButton:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 1, -2)
 	Collectinator_SwitcherButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	Collectinator_SwitcherButton:SetScript("OnClick", function(self, button) addon:SwitchProfs(button) end)
+	Collectinator_SwitcherButton:SetScript("OnClick",
+					       function(self, button, down)
+						       -- We need to ensure that we cycle through all the collectible types, but also
+						       -- that we do so in order. That means that if the currently displayed type is
+						       -- the last one in the list, we're actually going to iterate completely once to
+						       -- get to the currently displayed type and then iterate again to make sure we
+						       -- display the next one in line.
+						       local startLoop = 0
+						       local endLoop = 0
+						       local displayProf = 0
+
+						       addon:ClosePopups()
+
+						       -- ok, so first off, if we've never done this before, there is no "current"
+						       -- and a single iteration will do nicely, thank you
+						       if button == "LeftButton" then
+							       -- normal profession switch
+							       if current_tab == 0 then
+								       startLoop = 1
+								       endLoop = MaxCollections + 1
+							       else
+								       startLoop = current_tab + 1
+								       endLoop = current_tab
+							       end
+							       local index = startLoop
+	
+							       while index ~= endLoop do
+								       if index > MaxCollections then
+									       index = 1
+								       else
+									       displayProf = index
+									       current_tab = index
+									       break
+								       end
+							       end
+						       elseif button == "RightButton" then
+							       -- reverse profession switch
+							       if current_tab == 0 then
+								       startLoop = MaxCollections + 1
+								       endLoop = 0
+							       else
+								       startLoop = current_tab - 1
+								       endLoop = current_tab
+							       end
+							       local index = startLoop
+
+							       while index ~= endLoop do
+								       if index < 1 then
+									       index = MaxCollections
+								       else
+									       displayProf = index
+									       current_tab = index
+									       break
+								       end
+							       end
+						       end
+						       -- Redisplay the button with the new skill
+						       SetSwitcherTexture(SortedCollections[current_tab].texture)
+						       playerData.playerProfession = SortedCollections[current_tab].name
+						       current_tab_name = playerData.playerProfession
+
+						       ReDisplay(current_tab)
+						       addon.resetTitle()
+					       end)
 
 	-------------------------------------------------------------------------------
 	-- Stuff in the non-expanded frame (or both)
