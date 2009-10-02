@@ -948,14 +948,14 @@ local function fullOptions()
 							type	= "execute",
 							name	= L["Scan"],
 							desc	= L["SCAN_RECIPES_DESC"],
-							func	= function(info) addon:Collectinator_Command(false) end,
+							func	= function(info) addon:Scan(false) end,
 						},
 						textdump = {
 							order	= 13,
 							type	= "execute",
 							name	= L["Text Dump"],
 							desc	= L["TEXT_DUMP_DESC"],
-							func	= function(info) addon:Collectinator_Command(true) end,
+							func	= function(info) addon:Scan(true) end,
 						},
 						exclusionlist = {
 							order	= 14,
