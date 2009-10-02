@@ -1188,54 +1188,15 @@ do
 		return pData
 	end
 
-	local function InitDatabases()
-		-- Initializes the custom entry list
-		if not CustomList then
-			CustomList = {}
-			addon:InitCustom(CustomList)
-		end
+	function addon:InitDatabases()
+		addon.data_table = CompanionDB
 
-		-- Initializes the mob list
-		if not MobList then
-			MobList = {}
-			addon:InitMob(MobList)
-		end
-
-		-- Initializes the quest list
-		if not QuestList then
-			QuestList = {}
-			addon:InitQuest(QuestList)
-		end
-
-		-- Initializes the reputation list
-		if not ReputationList then
-			ReputationList = {}
-			addon:InitReputation(ReputationList)
-		end
-
-		-- Initializes the season list
-		if not SeasonalList then
-			SeasonalList = {}
-			addon:InitSeasons(SeasonalList)
-		end
-
-		-- Initializes the vendor list
-		if not VendorList then
-			VendorList = {}
-			addon:InitVendor(VendorList)
-		end
-
-		-- Initializes the reputation filters
-		-- Don't assign values no because we do a scan later on
-		if not RepFilters then
-			RepFilters = {}
-		end
-
-		-- Initializes the companion list
-		if not CompanionDB then
-			CompanionDB = {}
-			addon.data_table = CompanionDB
-		end
+		addon:InitCustom(CustomList)
+		addon:InitMob(MobList)
+		addon:InitQuest(QuestList)
+		addon:InitReputation(ReputationList)
+		addon:InitSeasons(SeasonalList)
+		addon:InitVendor(VendorList)
 	end
 
 	--- Causes a scan of the companions to be conducted.
