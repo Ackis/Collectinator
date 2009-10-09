@@ -486,14 +486,14 @@ function addon:AddCompanionAcquire(DB, SpellID, ...)
 		i = i + 2
 
 		-- Crafted
-		if (AcquireType == A_CRAFTED) then
+		if AcquireType == A_CRAFTED then
 			local craftedby = select(i, ...)
 			acquire[index]["Crafted"] = craftedby
 			i = i + 1
 		end
 
 		-- Reputation
-		if (AcquireType == A_REPUTATION) then
+		if AcquireType == A_REPUTATION then
 			local RepLevel, RepVendor = select(i, ...)
 			acquire[index]["RepLevel"] = RepLevel
 			acquire[index]["RepVendor"] = RepVendor
