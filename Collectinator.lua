@@ -251,13 +251,12 @@ function addon:OnInitialize()
 		return
 	end
 	self:SetupOptions()
-	self:RegisterChatCommand("collectinator", "ChatCommand")	-- Register slash commands
+	self:RegisterChatCommand("collectinator", "ChatCommand")
 end
 
 -- Registers events and pre-loads certain variables.
 function addon:OnEnable()
-	self:RegisterEvent("COMPANION_LEARNED")	-- Watch for Companion Learned events
-	self:GetFactionLevels()			-- Populate the repuatation level
+	self:RegisterEvent("COMPANION_LEARNED")
 
 	-------------------------------------------------------------------------------
 	-- Create the scan button.
@@ -349,48 +348,44 @@ do
 	local GetFactionInfo = _G.GetFactionInfo
 	local CollapseFactionHeader = _G.CollapseFactionHeader
 	local ExpandFactionHeader = _G.ExpandFactionHeader
+	local rep_list = {}
 
 	-------------------------------------------------------------------------------
 	-- Scans all reputations to get reputation levels to determine if the player can learn a reputation item
 	-------------------------------------------------------------------------------
 	function addon:GetFactionLevels(RepTable)
-		-- Bug here when I reload UI
 		if not RepTable then
 			return
 		end
+		twipe(rep_list)
 
-		local t = {}
+		-- Count the number of factions, then use that to expand the headers for the final count
+		local num_factions = GetNumFactions()
 
-		-- Number of factions before we expand
-		local numfactions = GetNumFactions()
-
-		-- Lets expand all the headers
-		for i = numfactions, 1, -1 do
+		for i = num_factions, 1, -1 do
 			local name, _, _, _, _, _, _, _, _, isCollapsed = GetFactionInfo(i)
 
 			if isCollapsed then
 				ExpandFactionHeader(i)
-				t[name] = true
+				rep_list[name] = true
 			end
 		end
-		numfactions = GetNumFactions()	-- Number of factions with everything expanded
+		num_factions = GetNumFactions()
 
 		-- Get the rep levels
-		for i = 1, numfactions, 1 do
-			local name, _, replevel = GetFactionInfo(i)
+		for i = 1, num_factions, 1 do
+			local name, _, rep_level = GetFactionInfo(i)
 
 			-- If the rep is greater than neutral
-			if (replevel > 4) then
+			if rep_level > 4 then
 				-- We use levels of 0, 1, 2, 3, 4 internally for reputation levels, make it corrospond here
-				RepTable[name] = replevel - 4
+				RepTable[name] = rep_level - 4
 			end
 		end
 
 		-- Collapse the headers again
-		for i = numfactions, 1, -1 do
-			local name = GetFactionInfo(i)
-
-			if t[name] then
+		for i = num_factions, 1, -1 do
+			if rep_list[GetFactionInfo(i)] then
 				CollapseFactionHeader(i)
 			end
 		end
