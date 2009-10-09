@@ -518,33 +518,37 @@ end
 -- @param Coordy Y coordinate of where the entry is found.
 -- @param Faction Faction identifier for the entry.
 -- @return None, array is passed as a reference.
-function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
-
-	DB[ID] = {}
-	DB[ID]["Name"] = Name
-
-	if Loc then
-		DB[ID]["Location"] = Loc
-	else
-		DB[ID]["Location"] = L["Unknown Zone"]
-	end
-
-	if Coordx and Coordy then
-		DB[ID]["Coordx"] = Coordx
-		DB[ID]["Coordy"] = Coordy
-	end
-
-	if Faction then
-		if (Faction == 0) then
-			DB[ID]["Faction"] = BFAC["Neutral"]
-		elseif (Faction == 1) then
-			DB[ID]["Faction"] = BFAC["Alliance"]
-		elseif (Faction == 2) then
-			DB[ID]["Faction"] = BFAC["Horde"]
+do
+	local FACTION_NAMES = {
+		[1]	= BFAC["Neutral"],
+		[2]	= BFAC["Alliance"],
+		[3]	= BFAC["Horde"]
+	}
+	function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
+		if DB[ID] then
+			--@alpha@
+			self:Print("Duplicate lookup: "..tostring(ID).." "..Name)
+			--@end-alpha@
+			return
 		end
-	end
 
-end
+		DB[ID] = {
+			["Name"]	= Name,
+			["Location"]	= Loc or L["Unknown Zone"],
+			["Faction"]	= Faction and FACTION_NAMES[Faction + 1] or nil
+		}
+		if Coordx and Coordy then
+			DB[ID]["Coordx"] = Coordx
+			DB[ID]["Coordy"] = Coordy
+		end
+
+		--@alpha@
+		if not Loc then
+			self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")
+		end
+		--@end-alpha@
+	end
+end	-- do
 
 -------------------------------------------------------------------------------
 -- Scanning Functions
