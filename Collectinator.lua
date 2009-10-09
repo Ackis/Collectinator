@@ -14,26 +14,11 @@ Author: Ackis
 ]]--
 
 --- **Collectinator** provides an interface for scanning companions and moutns to find what is missing.
--- There are a set of functions which allow you make use of the Collectinator database outside of Collectinator.\\
--- Collectinator supports all mounts/pets currently in World of Warcraft 3.1.
+-- There are a set of functions which allow you make use of the Collectinator database outside of Collectinator.
+-- Collectinator supports all mounts/pets currently in World of Warcraft 3.2.
 -- @class file
 -- @name Collectinator.lua
 -- @release @file-revision@
-
--------------------------------------------------------------------------------
--- Constants
--------------------------------------------------------------------------------
-local maxfilterflags = 90
-
--------------------------------------------------------------------------------
--- Constants for acquire types.
--------------------------------------------------------------------------------
-local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
-
--------------------------------------------------------------------------------
--- Class types
--------------------------------------------------------------------------------
-local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C_WARLOCK, C_WARRIOR = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 -------------------------------------------------------------------------------
 -- Localized Lua globals
@@ -75,6 +60,23 @@ _G["Collectinator"] = addon
 
 local L = LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
+addon.optionsFrame = {}
+
+-------------------------------------------------------------------------------
+-- Constants
+-------------------------------------------------------------------------------
+local NUM_FILTER_FLAGS = 90
+
+-------------------------------------------------------------------------------
+-- Constants for acquire types.
+-------------------------------------------------------------------------------
+local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT, A_MAX = 1, 2, 3, 4, 5, 6, 7, 8, 9, 9
+
+-------------------------------------------------------------------------------
+-- Class types
+-------------------------------------------------------------------------------
+local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C_WARLOCK, C_WARRIOR = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
 ------------------------------------------------------------------------------
 -- Check to see if we have mandatory libraries loaded. If not, notify the user
 -- which are missing and return.
@@ -114,9 +116,6 @@ do
 end	-- do
 
 local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-
--- Global Frame Variables
-addon.optionsFrame = {}
 
 -------------------------------------------------------------------------------
 -- Initialization functions
