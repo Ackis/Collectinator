@@ -408,28 +408,30 @@ end	-- do
 -- @return None, array is passed as a reference.
 function addon:AddCompanion(DB, CompanionType, SpellID, ItemID, Rarity, Game)
 	if DB[SpellID] then	-- If the entry already exists, abort.
+		--@alpha@
 		self:Print("Duplicate companion - "..SpellID.." "..ItemID)
+		--@end-alpha@
 		return
 	end
 
 	DB[SpellID] = {
-		["Name"] = GetSpellInfo(SpellID) or "Unknown ("..SpellID..")",
-		["ItemID"] = ItemID,
-		["Rarity"] = Rarity,
-		["Type"] = CompanionType,
-		["Game"] = Game or 0,
-		["Owned"] = false,
-		["Display"] = true,
-		["Search"] = true,
-		["Known"] = false,
-		["Flags"] = {},
-		["Acquire"] = {},
-		["Location"] = "Unknown",
+		["Name"]	= GetSpellInfo(SpellID) or "Unknown ("..SpellID..")",
+		["ItemID"]	= ItemID,
+		["Rarity"]	= Rarity,
+		["Type"]	= CompanionType,
+		["Game"]	= Game or 0,
+		["Owned"]	= false,
+		["Display"]	= true,
+		["Search"]	= true,
+		["Known"]	= false,
+		["Flags"]	= {},
+		["Acquire"]	= {},
+		["Location"]	= "Unknown",
 	}
 	local flag = DB[SpellID]["Flags"]
 
 	-- Set the filter flags to all false
-	for i=1, maxfilterflags, 1 do
+	for i = 1, NUM_FILTER_FLAGS, 1 do
 		flag[i] = false
 	end
 end
