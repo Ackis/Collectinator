@@ -48,7 +48,7 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB,1263,L["Yarlyn Amberstill"],BZONE["Dun Morogh"],63.2,50.0,1)
 	self:addLookupList(VendorDB,8665,L["Shylenai"],BZONE["Darnassus"],69.8,45.4,1)
 	self:addLookupList(VendorDB,21019,L["Sixx"],BZONE["The Exodar"],30.3,34.0,1)
-	self:addLookupList(VendorDB,8666,L["Lil Timmy"],BZONE["Stormwind City"],46.4.,55.5,1) -- Wanders
+	self:addLookupList(VendorDB,8666,L["Lil Timmy"],BZONE["Stormwind City"],46.4,55.5,1) -- Wanders
 	self:addLookupList(VendorDB,8404,L["Xan'tish"],BZONE["Orgrimmar"],37.5,74.6,2) -- Wanders
 	self:addLookupList(VendorDB,8403,L["Jeremiah Payson"],BZONE["Undercity"],67.5,44.6,2)
 	self:addLookupList(VendorDB,8401,L["Halpa"],BZONE["Thunder Bluff"],62.2,58.5,2)
