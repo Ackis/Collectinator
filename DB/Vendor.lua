@@ -59,10 +59,10 @@ function addon:InitVendor(VendorDB)
 	self:addLookupList(VendorDB,24495,L["Blix Fixwidget"],BZONE["Durotar"],44.1,17.9,2)
 
 	self:addLookupList(VendorDB,14860,L["Flik"],BZONE["Terokkar Forest"],33.7,35.9,0) --several places, Darkmoon, Wanders
-	self:addLookupList(VendorDB,32837,L["Noblegarden Merchant"],BZONE[""],,,2) --several places
-	self:addLookupList(VendorDB,32836,L["Noblegarden Vendor"],BZONE[""],,,1) --several places
- 	self:addLookupList(VendorDB,26124,L["Midsummer Merchant"],BZONE[""],,,2) --several places
-	self:addLookupList(VendorDB,26123,L["Midsummer Supplier"],BZONE[""],,,1) --several places
+	--self:addLookupList(VendorDB,32837,L["Noblegarden Merchant"],BZONE[""],,,2) --several places
+	--self:addLookupList(VendorDB,32836,L["Noblegarden Vendor"],BZONE[""],,,1) --several places
+ 	--self:addLookupList(VendorDB,26124,L["Midsummer Merchant"],BZONE[""],,,2) --several places
+	--self:addLookupList(VendorDB,26123,L["Midsummer Supplier"],BZONE[""],,,1) --several places
 
 	self:addLookupList(VendorDB,33657,L["Irisee"],BZONE["Icecrown"],76.2,19.3,1)
 	self:addLookupList(VendorDB,33653,L["Rook Hawkfist"],BZONE["Icecrown"],76.3,49.2,1)
