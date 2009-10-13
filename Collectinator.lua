@@ -1058,8 +1058,8 @@ do
 	-- @field excluded_known Number of known items excluded.
 
 	-- Variables for getting the locations
-	local locationlist = nil
-	local locationchecklist = nil
+	local location_list = {}
+	local location_checklist = {}
 
 	--- Scans the acquire methods for the location and update the entry in the database with them.
 	-- @name Collectinator:GetLocations
@@ -1067,82 +1067,77 @@ do
 	-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the item being entry to the database.
 	-- @return Locations are populated for the given spell.
 	function addon:GetLocations(SpellID)
-		if CompanionDB and CompanionDB[SpellID] then
-			locationlist = {}
-			locationchecklist = {}
+		if not CompanionDB or not CompanionDB[SpellID] then
+			return ""
+		end
 
-			local acquire = CompanionDB[SpellID]["Acquire"]
+		if not VendorList or not QuestList or not MobList then
+			--@debug@
+			self:Print("Databases not loaded, locations not updated.")
+			--@end-debug@
+			return
+		end
+		local acquire = CompanionDB[SpellID]["Acquire"]
 
-			if not VendorList or not QuestList or not MobList then
-				--@debug@
-				self:Print("Databases not loaded, locations not updated.")
-				--@end-debug@
-				return
-			end
+		twipe(location_list)
+		twipe(location_checklist)
 
-			for i in pairs(acquire) do
-				-- Vendor
-				if (acquire[i]["Type"] == A_VENDOR) then
-					if not VendorList[acquire[i]["ID"]] then
-						--@debug@
-						self:Print("Missing vendor in database: " .. acquire[i]["ID"])
-						--@end-debug@
-					else
-						local location = VendorList[acquire[i]["ID"]]["Location"]
-						if (not locationchecklist[location]) then
-							-- Add the location to the list
-							tinsert(locationlist, location)
-							locationchecklist[location] = true
-						end
+		for i in pairs(acquire) do
+			local acquire_type = acquire[i]["Type"]
+			local location
+
+			if acquire_type == A_VENDOR then
+				if not VendorList[acquire[i]["ID"]] then
+					--@debug@
+					self:Print("Missing vendor in database: " .. acquire[i]["ID"])
+					--@end-debug@
+				else
+					location = VendorList[acquire[i]["ID"]]["Location"]
+
+					if not location_checklist[location] then
+						tinsert(location_list, location)
+						location_checklist[location] = true
 					end
-				-- Quest
-				elseif (acquire[i]["Type"] == A_QUEST) then
-					if not QuestList[acquire[i]["ID"]] then
-						--@debug@
-						self:Print("Missing quest in database: " .. acquire[i]["ID"])
-						--@end-debug@
-					else
-						local location = QuestList[acquire[i]["ID"]]["Location"]
-						if (not locationchecklist[location]) then
-							-- Add the location to the list
-							tinsert(locationlist, location)
-							locationchecklist[location] = true
-						end
+				end
+			elseif acquire_type == A_QUEST then
+				if not QuestList[acquire[i]["ID"]] then
+					--@debug@
+					self:Print("Missing quest in database: " .. acquire[i]["ID"])
+					--@end-debug@
+				else
+					location = QuestList[acquire[i]["ID"]]["Location"]
+
+					if not location_checklist[location] then
+						tinsert(location_list, location)
+						location_checklist[location] = true
 					end
-				-- Mob Drop
-				elseif (acquire[i]["Type"] == A_MOB) then
-					if not MobList[acquire[i]["ID"]] then
-						--@debug@
-						self:Print("Missing mob in database: " .. acquire[i]["ID"])
-						--@end-debug@
-					else
-						local location = MobList[acquire[i]["ID"]]["Location"]
-						if (not locationchecklist[location]) then
-							-- Add the location to the list
-							tinsert(locationlist, location)
-							locationchecklist[location] = true
-						end
+				end
+			elseif acquire_type == A_MOB then
+				if not MobList[acquire[i]["ID"]] then
+					--@debug@
+					self:Print("Missing mob in database: " .. acquire[i]["ID"])
+					--@end-debug@
+				else
+					location = MobList[acquire[i]["ID"]]["Location"]
+
+					if not location_checklist[location] then
+						tinsert(location_list, location)
+						location_checklist[location] = true
 					end
 				end
 			end
-
-			-- Sort the list by the name
-			tsort(locationlist, function(a, b) return a < b end)
-
-			-- Return the list as a string
-			-- If we have no locations return an emptry string
-			if (#locationlist == 0) then
-				return ""
-			else
-				return tconcat(locationlist, ", ")
-			end
-		else
-			return ""
 		end
+
+		-- Sort the list by the name
+		tsort(location_list, function(a, b) return a < b end)
+
+		-- Return the list as a string
+		-- If we have no locations return an emptry string
+		return (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
 
 	function addon:SetRepDB()
-		if (playerData and playerData["Reputation"]) then
+		if playerData and playerData["Reputation"] then
 			self:GetFactionLevels(playerData["Reputation"])
 		end
 	end
