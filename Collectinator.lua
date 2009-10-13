@@ -1359,79 +1359,85 @@ end
 -------------------------------------------------------------------------------
 
 -- Scans through the item database providing a string of comma seperated values for all item information
-function addon:GetTextDump(DB, collectible_type)
+do
 	local texttable = {}
 
-	-- Add a header to the text table
-	tinsert(texttable, format("Collectinator Text Dump for %s", collectible_type))
-	tinsert(texttable, "Text output of all items and acquire information.  Output is in the form of comma seperated values.\n")
-	tinsert(texttable, "Spell ID, item Name, Skill Level, Filter Flags, Acquire Methods, Known\n")
+	function addon:GetTextDump(DB, collectible_type)
+		twipe(texttable)
 
-	for SpellID in pairs(DB) do
-		local spell_type = GetSpellInfo(DB[SpellID]["Type"])
+		-- Add a header to the text table
+		tinsert(texttable, format("Collectinator Text Dump for %s", collectible_type))
+		tinsert(texttable, "Text output of all items and acquire information.  Output is in the form of comma seperated values.\n")
+		tinsert(texttable, "Spell ID, item Name, Skill Level, Filter Flags, Acquire Methods, Known\n")
 
-		if spell_type == collectible_type then
-			-- Add Spell ID, Name and Skill Level to the list
-			tinsert(texttable, SpellID)
-			tinsert(texttable, ", ")
-			tinsert(texttable, DB[SpellID]["Name"])
-			tinsert(texttable, ", ")
-			tinsert(texttable, DB[SpellID]["Level"])
-			tinsert(texttable, ", [")
+		for SpellID in pairs(DB) do
+			local spell_type = GetSpellInfo(DB[SpellID]["Type"])
 
-			-- Add in all the filter flags
-			local flags = DB[SpellID]["Flags"]
+			if spell_type == collectible_type then
+				-- Add Spell ID, Name and Skill Level to the list
+				tinsert(texttable, SpellID)
+				tinsert(texttable, ", ")
+				tinsert(texttable, DB[SpellID]["Name"])
+				tinsert(texttable, ", ")
+				tinsert(texttable, DB[SpellID]["Level"])
+				tinsert(texttable, ", [")
 
-			-- Find out which flags are marked as "true"
-			for i = 1, 127, 1 do
-				if flags[i] then
+				-- Add in all the filter flags
+				local flags = DB[SpellID]["Flags"]
+
+				-- Find out which flags are marked as "true"
+				for i = 1, 127, 1 do
+					if flags[i] then
+						tinsert(texttable, i)
+						tinsert(texttable, ", ")
+					end
+				end
+				tinsert(texttable, "], [")
+
+				-- Find out which unique acquire methods we have
+				local acquire = DB[SpellID]["Acquire"]
+				local acquirelist = {}
+
+				for i in pairs(acquire) do
+					local acquire_type = acquire[i]["Type"]
+
+					if acquire_type == A_VENDOR then
+						acquirelist["Vendor"] = true
+					elseif acquire_type == A_QUEST then
+						acquirelist["Quest"] = true
+					elseif acquire_type == A_CRAFTED then
+						acquirelist["Crafted"] = true
+					elseif acquire_type == A_MOB then
+						acquirelist["Mob Drop"] = true
+					elseif acquire_type == A_SEASONAL then
+						acquirelist["Seasonal"] = true
+					elseif acquire_type == A_REPUTATION then
+						acquirelist["Reputation"] = true
+					elseif acquire_type == A_WORLD_DROP then
+						acquirelist["World Drop"] = true
+					elseif acquire_type == A_CUSTOM then
+						acquirelist["Custom"] = true
+					elseif acquire_type == A_ACHIEVEMENT then
+						acquirelist["Achivement"] = true
+					end
+				end
+
+				-- Add all the acquire methods in
+				for i in pairs(acquirelist) do
 					tinsert(texttable, i)
 					tinsert(texttable, ", ")
 				end
-			end
-			tinsert(texttable, "], [")
 
-			-- Find out which unique acquire methods we have
-			local acquire = DB[SpellID]["Acquire"]
-			local acquirelist = {}
-
-			for i in pairs(acquire) do
-				if (acquire[i]["Type"] == A_VENDOR) then
-					acquirelist["Vendor"] = true
-				elseif (acquire[i]["Type"] == A_QUEST) then
-					acquirelist["Quest"] = true
-				elseif (acquire[i]["Type"] == A_CRAFTED) then
-					acquirelist["Crafted"] = true
-				elseif (acquire[i]["Type"] == A_MOB) then
-					acquirelist["Mob Drop"] = true
-				elseif (acquire[i]["Type"] == A_SEASONAL) then
-					acquirelist["Seasonal"] = true
-				elseif (acquire[i]["Type"] == A_REPUTATION) then
-					acquirelist["Reputation"] = true
-				elseif (acquire[i]["Type"] == A_WORLD_DROP) then
-					acquirelist["World Drop"] = true
-				elseif (acquire[i]["Type"] == A_CUSTOM) then
-					acquirelist["Custom"] = true
-				elseif (acquire[i]["Type"] == A_ACHIEVEMENT) then
-					acquirelist["Achivement"] = true
+				if DB[SpellID]["Known"] then
+					tinsert(texttable, "], true\n")
+				else
+					tinsert(texttable, "], false\n")
 				end
 			end
-
-			-- Add all the acquire methods in
-			for i in pairs(acquirelist) do
-				tinsert(texttable, i)
-				tinsert(texttable, ", ")
-			end
-
-			if (DB[SpellID]["Known"]) then
-				tinsert(texttable, "], true\n")
-			else
-				tinsert(texttable, "], false\n")
-			end
 		end
+		return tconcat(texttable, "")
 	end
-	return tconcat(texttable, "")
-end
+end	-- do
 
 do
 	local output = {}
