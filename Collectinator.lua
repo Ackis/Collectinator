@@ -493,36 +493,52 @@ function addon:AddCompanionAcquire(DB, SpellID, ...)
 	local numvars = select('#', ...)-- Find out how many flags we're adding
 	local index = 1			-- Index for the number of Acquire entries we have
 	local i = 1			-- Index for which variables we're parsing through
-
 	local acquire = DB[SpellID]["Acquire"]
 
 	while i < numvars do
-		-- Create the space for the current Acquire method
-		acquire[index] = {}
-
-		-- Get the Type and ID of the values
-		local AcquireType, AcquireID = select(i, ...)
-
-		acquire[index]["Type"] = AcquireType
-		acquire[index]["ID"] = AcquireID
+		local acquire_type, acquire_id = select(i, ...)
 		i = i + 2
 
-		-- Crafted
-		if AcquireType == A_CRAFTED then
-			local craftedby = select(i, ...)
-			acquire[index]["Crafted"] = craftedby
+		acquire[index] = {
+			["Type"] = acquire_type,
+			["ID"] = acquire_id
+		}
+
+		if acquire_type == A_CRAFTED then
+			local crafted_by = select(i, ...)
 			i = i + 1
+
+			--@alpha@
+			self:Print("SpellID "..SpellID..": Crafted by is "..crafted_by)
+			--@end-alpha@
+			acquire[index]["Crafted"] = crafted_by
 		end
 
-		-- Reputation
-		if AcquireType == A_REPUTATION then
+		--@alpha@
+		if acquire_type == A_MOB then
+			local mob_id = select(i, ...)
+			i = i + 1
+
+			if not mob_id then
+				self:Print("SpellID "..SpellID..": MobID is nil.")
+			elseif not MobList[mob_id] then
+				self:Print("SpellID "..SpellID..": Mob ID "..mob_id.." does not exist in the database.")
+			end
+		end
+		--@end-alpha@
+
+		if acquire_type == A_REPUTATION then
 			local RepLevel, RepVendor = select(i, ...)
+			i = i + 2
+
+			--@alpha@
+			self:Print("SpellID "..SpellID..": Replevel is "..RepLevel..". RepVendor is "..RepVendor)
+			--@end-alpha@
 			acquire[index]["RepLevel"] = RepLevel
 			acquire[index]["RepVendor"] = RepVendor
-			i = i + 2
 		end
 		index = index + 1
-	end	-- end-while
+	end
 end
 
 --- Adds an item to a specific database listing (ie: vendor, mob, etc)
