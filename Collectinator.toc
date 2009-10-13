@@ -22,6 +22,9 @@
 
 ## SavedVariables: CollectinatorDB
 
+## LoadManagers: AddonLoader
+## X-LoadOn-Always: Delayed
+
 #@no-lib-strip@
 embeds.xml
 #@end-no-lib-strip@
