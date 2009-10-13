@@ -333,8 +333,17 @@ function addon:OnEnable()
 					end)
 	PetPaperDollFrameTab3:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
-	self:InitDatabases()
-	self.InitDatabases = nil
+	-------------------------------------------------------------------------------
+	-- Initialize the databases
+	-------------------------------------------------------------------------------
+	self.data_table = CompanionDB
+
+	self:InitCustom(CustomList)
+	self:InitMob(MobList)
+	self:InitQuest(QuestList)
+	self:InitReputation(ReputationList)
+	self:InitSeasons(SeasonalList)
+	self:InitVendor(VendorList)
 end
 
 -- Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
@@ -1191,17 +1200,6 @@ do
 		GetPlayerProfessions(pData["Professions"])
 
 		return pData
-	end
-
-	function addon:InitDatabases()
-		addon.data_table = CompanionDB
-
-		addon:InitCustom(CustomList)
-		addon:InitMob(MobList)
-		addon:InitQuest(QuestList)
-		addon:InitReputation(ReputationList)
-		addon:InitSeasons(SeasonalList)
-		addon:InitVendor(VendorList)
 	end
 
 	--- Causes a scan of the companions to be conducted.
