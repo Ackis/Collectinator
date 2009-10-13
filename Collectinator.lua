@@ -77,6 +77,19 @@ local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DRO
 -------------------------------------------------------------------------------
 local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C_WARLOCK, C_WARRIOR = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
+
+------------------------------------------------------------------------------
+-- Database tables
+------------------------------------------------------------------------------
+local CompanionDB = {}
+local CustomList = {}
+local MobList = {}
+local QuestList = {}
+local ReputationList = {}
+local SeasonalList = {}
+local VendorList = {}
+local RepFilters = {}		-- These are assigned during a scan, not in InitDatabases()
+
 ------------------------------------------------------------------------------
 -- Check to see if we have mandatory libraries loaded. If not, notify the user
 -- which are missing and return.
@@ -1016,16 +1029,6 @@ end
 do
 	local UnitClass = _G.UnitClass
 	local UnitFactionGroup = _G.UnitFactionGroup
-
-	local CompanionDB = {}
-
-	local CustomList = {}
-	local MobList = {}
-	local QuestList = {}
-	local ReputationList = {}
-	local SeasonalList = {}
-	local VendorList = {}
-	local RepFilters = {}		-- These are assigned during a scan, not in InitDatabases()
 
 	local playerData = nil
 	--- Data which is stored regarding a players statistics
