@@ -510,13 +510,10 @@ function addon:AddCompanionAcquire(DB, SpellID, ...)
 
 		--@alpha@
 		if acquire_type == A_MOB then
-			local mob_id = select(i, ...)
-			i = i + 1
-
-			if not mob_id then
+			if not acquire_id then
 				self:Print("SpellID "..SpellID..": MobID is nil.")
 			elseif not MobList[mob_id] then
-				self:Print("SpellID "..SpellID..": Mob ID "..mob_id.." does not exist in the database.")
+				self:Print("SpellID "..SpellID..": Mob ID "..acquire_id.." does not exist in the database.")
 			end
 		end
 		--@end-alpha@
