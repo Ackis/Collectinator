@@ -778,10 +778,10 @@ do
 		return display
 	end
 
-	-- Description: Scans a specific item to determine if it is to be displayed or not.
+	-- Scans a specific item to determine if it is to be displayed or not.
 	function addon:CheckDisplay(Entry, playerFaction)
 		-- For flag info see comments at start of file in comments
-		local filterdb = addon.db.profile.filters
+		local filter_db = addon.db.profile.filters
 		local flags = Entry["Flags"]
 
 		-- See Documentation file for logic explanation
@@ -789,174 +789,161 @@ do
 		-- Loop through exclusive flags (hard filters)
 		-- If one of these does not pass we do not display the item
 		-- So to be more effecient we'll just leave this function if there's a false
-		local generaldb = filterdb.general
-		local obtaindb = filterdb.obtain
+		local general_db = filter_db.general
 
-		-- Display both horde and alliance factions?
-		if (not generaldb.faction) then
-			-- We want to filter out all the Horde only items
-			if (playerFaction == BFAC["Alliance"]) then
-				-- Filter out Horde only
-				if (flags[F_HORDE]) then
-					return false
-				end
-			-- We want to filter out all the Alliance only items
-			else
-				-- Filter out Alliance only
-				if (flags[F_ALLIANCE]) then
-					return false
-				end
+		if not general_db.faction then
+			if playerFaction == BFAC["Alliance"] and flags[F_HORDE] then
+				return false
+			elseif playerFaction == BFAC["Horde"] and flags[F_ALLIANCE] then
+				return false
 			end
 		end
+		local obtain_db = filter_db.obtain
 
 		-- Filter out "era" items
-		if ((obtaindb.originalwow == false) and (Entry["Game"] == GAME_ORIG)) then
-			return false
-		end
-		if ((obtaindb.bc == false) and (Entry["Game"] == GAME_BC)) then
-			return false
-		end
-		if ((obtaindb.wrath == false) and (Entry["Game"] == GAME_WOTLK)) then
+		if not obtain_db.originalwow and Entry["Game"] == GAME_ORIG then
 			return false
 		end
 
-		local profdb = filterdb.profs
-
-		if ((profdb.alch == false) and (flags[F_ALCH] == true)) then
-			return false
-		end
-		if ((profdb.bs == false) and (flags[F_BS] == true)) then
-			return false
-		end
-		if ((profdb.cook == false) and (flags[F_COOKING] == true)) then
-			return false
-		end
-		if ((profdb.ench == false) and (flags[F_ENCH] == true)) then
-			return false
-		end
-		if ((profdb.eng == false) and (flags[F_ENG] == true)) then
-			return false
-		end
-		if ((profdb.fa == false) and (flags[F_FIRST_AID] == true)) then
-			return false
-		end
-		if ((profdb.insc == false) and (flags[F_INSC] == true)) then
-			return false
-		end
-		if ((profdb.jc == false) and (flags[F_JC] == true)) then
-			return false
-		end
-		if ((profdb.lw == false) and (flags[F_LW] == true)) then
-			return false
-		end
-		if ((profdb.smelt == false) and (flags[F_SMELT] == true)) then
-			return false
-		end
-		if ((profdb.tailor == false) and (flags[F_TAILOR] == true)) then
-			return false
-		end
-		if ((profdb.fish == false) and (flags[F_FISHING] == true)) then
+		if not obtain_db.bc and Entry["Game"] == GAME_BC then
 			return false
 		end
 
-		local bindingdb = filterdb.binding
+		if not obtain_db.wrath and Entry["Game"] == GAME_WOTLK then
+			return false
+		end
+		local profession_db = filter_db.profs
+
+		if not profession_db.alch and flags[F_ALCH] then
+			return false
+		end
+
+		if not profession_db.bs and flags[F_BS] then
+			return false
+		end
+
+		if not profession_db.cook and flags[F_COOKING] then
+			return false
+		end
+
+		if not profession_db.ench and flags[F_ENCH] then
+			return false
+		end
+
+		if not profession_db.eng and flags[F_ENG] then
+			return false
+		end
+
+		if not profession_db.fa and flags[F_FIRST_AID] then
+			return false
+		end
+
+		if not profession_db.insc and flags[F_INSC] then
+			return false
+		end
+
+		if not profession_db.jc and flags[F_JC] then
+			return false
+		end
+
+		if not profession_db.lw and flags[F_LW] then
+			return false
+		end
+
+		if not profession_db.smelt and flags[F_SMELT] then
+			return false
+		end
+
+		if not profession_db.tailor and flags[F_TAILOR] then
+			return false
+		end
+
+		if not profession_db.fish and flags[F_FISHING] then
+			return false
+		end
+
+		local binding_db = filter_db.binding
 
 		-- Include BoE Items in the scan? (if I want to see BoE items, only filter those that are not BoE)
-		if (bindingdb.itemboe == false) and (flags[F_BOE] == true) then
+		if not binding_db.itemboe and flags[F_BOE] then
 			return false
 		end
 
 		-- Include BoP Items in the scan? (if I want to see BoP items, only filter those that are not BoP)
-		if (bindingdb.itembop == false) and (flags[F_BOP] == true) then
+		if not binding_db.itembop and flags[F_BOP] then
 			return false
 		end
 
 		-- Include BoA Items in the scan? (if I want to see BoA items, only filter those that are not BoA)
-		if (bindingdb.itemboa == false) and (flags[F_BOA] == true) then
+		if not binding_db.itemboa and flags[F_BOA] then
 			return false
 		end
 
-		if (not CheckReputationDisplay(flags)) then
+		if not CanDisplayReputation(flags) then
 			return false
 		end
 
 		-- Stage 2
 		-- loop through nonexclusive (soft filters) flags until one is true
 		-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the item
-
-		-- Display vendor items
-		if (obtaindb.vendor == true) and (flags[F_VENDOR] == true) then
+		if obtain_db.vendor and flags[F_VENDOR] then
 			return true
 		end
 
-		-- Display quest items
-		if (obtaindb.quest == true) and (flags[F_QUEST] == true) then
+		if obtain_db.quest and flags[F_QUEST] then
 			return true
 		end
 
-		-- Display instance items
-		if (obtaindb.instance == true) and (flags[F_INSTANCE] == true) then
+		if obtain_db.instance and flags[F_INSTANCE] then
 			return true
 		end
 
-		-- Display raid items
-		if (obtaindb.raid == true) and (flags[F_RAID] == true) then
+		if obtain_db.raid and flags[F_RAID] then
 			return true
 		end
 
-		-- Display seasonal items
-		if (obtaindb.seasonal == true) and (flags[F_SEASONAL] == true) then
+		if obtain_db.seasonal and flags[F_SEASONAL] then
 			return true
 		end
 
-		-- Display world drop items
-		if (obtaindb.worlddrop == true) and (flags[F_WORLD_DROP] == true) then
+		if obtain_db.worlddrop and flags[F_WORLD_DROP] then
 			return true
 		end
 
-		-- Display mob drop items
-		if (obtaindb.mobdrop == true) and (flags[F_MOB_DROP] == true) then
+		if obtain_db.mobdrop and flags[F_MOB_DROP] then
 			return true
 		end
 
-		-- Display TCG items
-		if (obtaindb.tcg == true) and (flags[F_TCG] == true) then
+		if obtain_db.tcg and flags[F_TCG] then
 			return true
 		end
 
-		-- Display Special Event items
-		if (obtaindb.event == true) and (flags[F_SPEC_EVENT] == true) then
+		if obtain_db.event and flags[F_SPEC_EVENT] then
 			return true
 		end
 
-		-- Display CE items
-		if (obtaindb.ce == true) and (flags[F_COLLECTORS] == true) then
+		if obtain_db.ce and flags[F_COLLECTORS] then
 			return true
 		end
 
-		-- Display removed items
-		if (obtaindb.removed == true) and (flags[F_REMOVED] == true) then
+		if obtain_db.removed and flags[F_REMOVED] then
 			return true
 		end
 
-		-- Display achievement items
-		if (obtaindb.achievement == true) and (flags[F_ACHIEVEMENT] == true) then
+		if obtain_db.achievement and flags[F_ACHIEVEMENT] then
 			return true
 		end
 
-		-- Display PVP items
-		if (obtaindb.PVP == true) and (flags[F_PVP] == true) then
+		if obtain_db.PVP and flags[F_PVP] then
 			return true
 		end
 
 		-- If we get here it means that no flags matched our values
 		return false
-
 	end
-
 end
 
--- Description: Creates an array of which factions we want to include in our display and which ones to ignore
+-- Creates an array of which factions we want to include in our display and which ones to ignore
 local function PopulateRepFilters(RepTable)
 
 	local repfilters = addon.db.profile.filters.rep
