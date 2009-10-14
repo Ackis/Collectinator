@@ -360,12 +360,44 @@ function addon:OnEnable()
 	self:InitVendor(VendorList)
 end
 
+
+-- Registers events and pre-loads certain variables.
+function addon:OnEnable()
+	self:RegisterEvent("COMPANION_LEARNED")
+
+	-------------------------------------------------------------------------------
+	-- Initialize the player's data
+	-------------------------------------------------------------------------------
+	local _
+
+	_, playerData.playerClass = UnitClass("player")
+	playerData.playerFaction = UnitFactionGroup("player")
+
+	playerData["Reputation"] = {}
+
+	addon:GetFactionLevels(playerData["Reputation"])
+
+	playerData["Professions"] = {
+		[GetSpellInfo(51304)] = false, -- Alchemy
+		[GetSpellInfo(51300)] = false, -- Blacksmithing
+		[GetSpellInfo(51296)] = false, -- Cooking
+		[GetSpellInfo(51313)] = false, -- Enchanting
+		[GetSpellInfo(51306)] = false, -- Engineering
+		[GetSpellInfo(45542)] = false, -- First Aid
+		[GetSpellInfo(51302)] = false, -- Leatherworking
+		[GetSpellInfo(32606)] = false, -- Mining
+		[GetSpellInfo(51309)] = false, -- Tailoring
+		[GetSpellInfo(51311)] = false, -- Jewelcrafting
+		[GetSpellInfo(45363)] = false, -- Inscription
+		[GetSpellInfo(53428)] = false, -- Runeforging
+	}
+	GetPlayerProfessions(playerData["Professions"])
+end
+
 -- Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
 function addon:OnDisable()
 	-- If we disable the addon when the GUI is up, hide it.
-	if addon.Frame then
-		addon.Frame:Hide()
-	end
+	addon.Frame:Hide()
 end
 
 -------------------------------------------------------------------------------
@@ -1179,7 +1211,8 @@ do
 				-- Nothing found
 				break
 			end
-			if (ProfTable[spellName] == false or spellName == GetSpellInfo(2656)) then
+
+			if not ProfTable[spellName] or spellName == GetSpellInfo(2656) then
 				if spellName == GetSpellInfo(2656) then
 					ProfTable[GetSpellInfo(2575)] = true
 				else
@@ -1190,36 +1223,6 @@ do
 
 	end
 
-	local function InitPlayerData()
-		local pData = {}
-
-		pData.playerFaction = UnitFactionGroup("player")
-		local _
-		_, pData.playerClass = UnitClass("player")
-
-		pData["Reputation"] = {}
-
-		addon:GetFactionLevels(pData["Reputation"])
-
-		pData["Professions"] = {
-			[GetSpellInfo(51304)] = false, -- Alchemy
-			[GetSpellInfo(51300)] = false, -- Blacksmithing
-			[GetSpellInfo(51296)] = false, -- Cooking
-			[GetSpellInfo(51313)] = false, -- Enchanting
-			[GetSpellInfo(51306)] = false, -- Engineering
-			[GetSpellInfo(45542)] = false, -- First Aid
-			[GetSpellInfo(51302)] = false, -- Leatherworking
-			[GetSpellInfo(32606)] = false, -- Mining
-			[GetSpellInfo(51309)] = false, -- Tailoring
-			[GetSpellInfo(51311)] = false, -- Jewelcrafting
-			[GetSpellInfo(45363)] = false, -- Inscription
-			[GetSpellInfo(53428)] = false, -- Runeforging
-		}
-		GetPlayerProfessions(pData["Professions"])
-
-		return pData
-	end
-
 	--- Causes a scan of the companions to be conducted.
 	-- @name Collectinator:Scan
 	-- @usage Collectinator:Scan(true)
@@ -1228,10 +1231,6 @@ do
 	-- @param scantype CRITTER for pets, MOUNT for mounts
 	-- @return A frame with either the text dump, or the GUI frame.
 	function addon:Scan(textdump, autoupdatescan, scantype)
-		-- First time a scan has been run, we need to get the player specifc data
-		-- specifically faction information, profession information and other pertinant data.
-		playerData = playerData or InitPlayerData()
-
 		-- Update the pet/mount totals:
 		playerData["critter_known"] = GetNumCompanions("CRITTER")
 		playerData["mount_known"] = GetNumCompanions("MOUNT")
