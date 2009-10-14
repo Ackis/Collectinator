@@ -516,6 +516,20 @@ function addon:AddCompanionAcquire(DB, SpellID, ...)
 				self:Print("SpellID "..SpellID..": Mob ID "..acquire_id.." does not exist in the database.")
 			end
 		end
+		if acquire_type == A_QUEST then
+			if not acquire_id then
+				self:Print("SpellID "..SpellID..": QuestID is nil.")
+			elseif not QuestList[mob_id] then
+				self:Print("SpellID "..SpellID..": Quest ID "..acquire_id.." does not exist in the database.")
+			end
+		end
+		if acquire_type == A_VENDOR then
+			if not acquire_id then
+				self:Print("SpellID "..SpellID..": VendorID is nil.")
+			elseif not VendorList[mob_id] then
+				self:Print("SpellID "..SpellID..": Vendor ID "..acquire_id.." does not exist in the database.")
+			end
+		end
 		--@end-alpha@
 
 		if acquire_type == A_REPUTATION then
