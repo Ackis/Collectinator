@@ -1,17 +1,11 @@
---[[
+-------------------------------------------------------------------------------
+-- Collectinator
 
-****************************************************************************************
+-- File date: @file-date-iso@
+-- Project version: @project-version@
 
-Collectinator
-
-File date: @file-date-iso@
-Project version: @project-version@
-
-Author: Ackis
-
-****************************************************************************************
-
-]]--
+-- Author: Ackis, Torhal
+-------------------------------------------------------------------------------
 
 --- **Collectinator** provides an interface for scanning companions and moutns to find what is missing.
 -- There are a set of functions which allow you make use of the Collectinator database outside of Collectinator.

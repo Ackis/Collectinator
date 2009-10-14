@@ -2,7 +2,7 @@
 
 ## Notes: Will scan your mini-pets and mounts and provide a check list for what you're missing.  In addition, a tabard check list, a title check list and "fun items" check list will be offered.
 
-## Author: Ackis
+## Author: Ackis, Torhal
 ## eMail: ackis AT shaw DOT ca
 ## X-Donate: http://www.wowace.com/projects/collectinator/#w_donations
 
