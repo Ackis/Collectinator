@@ -659,12 +659,9 @@ end
 function addon:CheckForKnownCompanions(DB)
 	local companionlist = addon.db.profile.companionlist
 
-	-- Scan through all the entries we've saved
 	for i, SpellID in pairs(companionlist) do
-		-- If the entry exists, mark it as known
-		if (DB[SpellID]) then
+		if DB[SpellID] then
 			DB[SpellID]["Known"] = true
-		-- If the entry doesn't exist raise an error
 		else
 			local name = GetSpellInfo(SpellID)
 			self:Print("Companion: " .. name .. " (" .. SpellID .. ") not found in database.")
@@ -696,7 +693,7 @@ do
 	local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALUAK, F_ORACLES, F_WYRMREST = 71, 72, 73, 74, 75, 76, 77, 78
 	local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79, 80, 81, 82, 83
 
-	local reptable = nil
+	local reptable
 
 	local function CreateRepTable()
 
@@ -1009,7 +1006,7 @@ local function PopulateRepFilters(RepTable)
 
 end
 
--- Description: Scans the item listing and updates the filters according to user preferences
+-- Scans the item listing and updates the filters according to user preferences
 function addon:UpdateFilters(DB, playerData, scantype)
 	local playerFaction = playerData.playerFaction
 	local playerClass = playerData.playerClass
@@ -1038,11 +1035,12 @@ function addon:UpdateFilters(DB, playerData, scantype)
 				playerData[known_filtered_str] = playerData[known_filtered_str] + (item["Known"] == true and 1 or 0)
 
 				-- Include known
-				if (addon.db.profile.filters.general.known == false) and (item["Known"] == true) then
+				if not addon.db.profile.filters.general.known and item["Known"] then
 					can_show = false
 				end
+
 				-- Include unknown
-				if (addon.db.profile.filters.general.unknown == false) and (item["Known"] == false) then
+				if not addon.db.profile.filters.general.unknown and not item["Known"] then
 					can_show = false
 				end
 			end
@@ -1054,16 +1052,13 @@ function addon:UpdateFilters(DB, playerData, scantype)
 	self:ClearRepTable()
 end
 
---[[
 
-	Collectinator Logic Functions
+-------------------------------------------------------------------------------
+-- Collectinator Logic Functions
+-------------------------------------------------------------------------------
 
-]]--
-
--- Description: Determines what to do when the slash command is called.
-
+-- Determines what to do when the slash command is called.
 function addon:ChatCommand(input)
-
 	InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 --[[
 	if (not input) or (input and input:trim() == "") or (input == strlower(L["Sorting"])) or (input == strlower(L["Sort"]))  or (input == strlower(L["Display"])) then
