@@ -147,10 +147,11 @@ local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 -------------------------------------------------------------------------------
 -- Initialization functions
 -------------------------------------------------------------------------------
-
 --  Registers the slash commands, options, and database
 function addon:OnInitialize()
+	-------------------------------------------------------------------------------
 	-- Set default options, which are to include everything in the scan
+	-------------------------------------------------------------------------------
 	local defaults = {
 		profile = {
 			-- Frame options
@@ -279,11 +280,6 @@ function addon:OnInitialize()
 	end
 	self:SetupOptions()
 	self:RegisterChatCommand("collectinator", "ChatCommand")
-end
-
--- Registers events and pre-loads certain variables.
-function addon:OnEnable()
-	self:RegisterEvent("COMPANION_LEARNED")
 
 	-------------------------------------------------------------------------------
 	-- Create the scan button.
