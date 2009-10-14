@@ -15,12 +15,6 @@ Project version: @project-version@
 
 ************************************************************************
 
-Format:
-
-	self:addLookupList(MobDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
-
-************************************************************************
-
 ]]--
 
 local MODNAME	= "Collectinator"
