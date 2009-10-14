@@ -554,68 +554,99 @@ end
 -- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the item being entered to the database.
 -- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
 -- @return None, array is passed as a reference.
-function addon:AddCompanionAcquire(DB, SpellID, ...)
-	local numvars = select('#', ...)-- Find out how many flags we're adding
-	local index = 1			-- Index for the number of Acquire entries we have
-	local i = 1			-- Index for which variables we're parsing through
-	local acquire = DB[SpellID]["Acquire"]
+do
+	-- Variables for getting the locations
+	local location_list = {}
+	local location_checklist = {}
 
-	while i < numvars do
-		local acquire_type, acquire_id = select(i, ...)
-		i = i + 2
+	function addon:AddCompanionAcquire(DB, SpellID, ...)
+		local numvars = select('#', ...)-- Find out how many flags we're adding
+		local index = 1			-- Index for the number of Acquire entries we have
+		local i = 1			-- Index for which variables we're parsing through
+		local acquire = DB[SpellID]["Acquire"]
 
-		acquire[index] = {
-			["Type"] = acquire_type,
-			["ID"] = acquire_id
-		}
+		twipe(location_list)
+		twipe(location_checklist)
 
-		if acquire_type == A_CRAFTED then
-			local crafted_by = select(i, ...)
-			i = i + 1
-
-			--@alpha@
-			self:Print("SpellID "..SpellID..": Crafted by is "..crafted_by)
-			--@end-alpha@
-			acquire[index]["Crafted"] = crafted_by
-		end
-
-		--@alpha@
-		if acquire_type == A_MOB then
-			if not acquire_id then
-				self:Print("SpellID "..SpellID..": MobID is nil.")
-			elseif not MobList[mob_id] then
-				self:Print("SpellID "..SpellID..": Mob ID "..acquire_id.." does not exist in the database.")
-			end
-		end
-		if acquire_type == A_QUEST then
-			if not acquire_id then
-				self:Print("SpellID "..SpellID..": QuestID is nil.")
-			elseif not QuestList[mob_id] then
-				self:Print("SpellID "..SpellID..": Quest ID "..acquire_id.." does not exist in the database.")
-			end
-		end
-		if acquire_type == A_VENDOR then
-			if not acquire_id then
-				self:Print("SpellID "..SpellID..": VendorID is nil.")
-			elseif not VendorList[mob_id] then
-				self:Print("SpellID "..SpellID..": Vendor ID "..acquire_id.." does not exist in the database.")
-			end
-		end
-		--@end-alpha@
-
-		if acquire_type == A_REPUTATION then
-			local RepLevel, RepVendor = select(i, ...)
+		while i < numvars do
+			local acquire_type, acquire_id = select(i, ...)
 			i = i + 2
 
-			--@alpha@
-			self:Print("SpellID "..SpellID..": Replevel is "..RepLevel..". RepVendor is "..RepVendor)
-			--@end-alpha@
-			acquire[index]["RepLevel"] = RepLevel
-			acquire[index]["RepVendor"] = RepVendor
+			acquire[index] = {
+				["Type"] = acquire_type,
+				["ID"] = acquire_id
+			}
+
+			if acquire_type == A_CRAFTED then
+				local crafted_by = select(i, ...)
+				i = i + 1
+
+				--@alpha@
+				self:Print("SpellID "..SpellID..": Crafted by is "..crafted_by)
+				--@end-alpha@
+				acquire[index]["Crafted"] = crafted_by
+			elseif acquire_type == A_MOB then
+				--@alpha@
+				if not acquire_id then
+					self:Print("SpellID "..SpellID..": MobID is nil.")
+				elseif not MobList[acquire_id] then
+					self:Print("SpellID "..SpellID..": Mob ID "..acquire_id.." does not exist in the database.")
+				else
+					location = MobList[acquire_id]["Location"]
+
+					if not location_checklist[location] then
+						tinsert(location_list, location)
+						location_checklist[location] = true
+					end
+				end
+				--@end-alpha@
+			elseif acquire_type == A_QUEST then
+				--@alpha@
+				if not acquire_id then
+					self:Print("SpellID "..SpellID..": QuestID is nil.")
+				elseif not QuestList[acquire_id] then
+					self:Print("SpellID "..SpellID..": Quest ID "..acquire_id.." does not exist in the database.")
+				else
+					location = QuestList[acquire_id]["Location"]
+
+					if not location_checklist[location] then
+						tinsert(location_list, location)
+						location_checklist[location] = true
+					end
+				end
+				--@end-alpha@
+			elseif acquire_type == A_VENDOR then
+				--@alpha@
+				if not acquire_id then
+					self:Print("SpellID "..SpellID..": VendorID is nil.")
+				elseif not VendorList[acquire_id] then
+					self:Print("SpellID "..SpellID..": Vendor ID "..acquire_id.." does not exist in the database.")
+				else
+					location = VendorList[acquire_id]["Location"]
+
+					if not location_checklist[location] then
+						tinsert(location_list, location)
+						location_checklist[location] = true
+					end
+				end
+				--@end-alpha@
+			elseif acquire_type == A_REPUTATION then
+				local RepLevel, RepVendor = select(i, ...)
+				i = i + 2
+
+				--@alpha@
+				self:Print("SpellID "..SpellID..": Replevel is "..RepLevel..". RepVendor is "..RepVendor)
+				--@end-alpha@
+				acquire[index]["RepLevel"] = RepLevel
+				acquire[index]["RepVendor"] = RepVendor
+			end
+			index = index + 1
 		end
-		index = index + 1
+		-- Assign acquire locations
+		tsort(location_list, function(a, b) return a < b end)
+		DB[SpellID]["Locations"] = (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
-end
+end	-- do
 
 --- Adds an item to a specific database listing (ie: vendor, mob, etc)
 -- @name Collectinator:addLookupList
@@ -1109,166 +1140,50 @@ function addon:ChatCommand(input)
 ]]--
 end
 
-do
-	local UnitClass = _G.UnitClass
-	local UnitFactionGroup = _G.UnitFactionGroup
+--- Causes a scan of the companions to be conducted.
+-- @name Collectinator:Scan
+-- @usage Collectinator:Scan(true)
+-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the GUI.
+-- @param autoupdatescan Boolean, true if we're triggering this from an event (aka we learned a new pet), false otherwise.
+-- @param scantype CRITTER for pets, MOUNT for mounts
+-- @return A frame with either the text dump, or the GUI frame.
+function addon:Scan(textdump, autoupdatescan, scantype)
+	-- Update the pet/mount totals:
+	playerData["critter_known"] = GetNumCompanions("CRITTER")
+	playerData["mount_known"] = GetNumCompanions("MOUNT")
 
-	-- Variables for getting the locations
-	local location_list = {}
-	local location_checklist = {}
+	-- Scan for all known critters and mounts
+	for i = 1, self:GetMiniPetTotal(CompanionDB), 1 do
+		local _, _, spell, _, _ = GetCompanionInfo("CRITTER", i)
 
-	--- Scans the acquire methods for the location and update the entry in the database with them.
-	-- @name Collectinator:GetLocations
-	-- @usage Collectinator:GetLocations([http://www.wowwiki.com/SpellLink Spell ID])
-	-- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the item being entry to the database.
-	-- @return Locations are populated for the given spell.
-	function addon:GetLocations(SpellID)
-		if not CompanionDB or not CompanionDB[SpellID] then
-			return ""
-		end
-
-		if not VendorList or not QuestList or not MobList then
-			--@debug@
-			self:Print("Databases not loaded, locations not updated.")
-			--@end-debug@
-			return
-		end
-		local acquire = CompanionDB[SpellID]["Acquire"]
-
-		twipe(location_list)
-		twipe(location_checklist)
-
-		for i in pairs(acquire) do
-			local acquire_type = acquire[i]["Type"]
-			local location
-
-			if acquire_type == A_VENDOR then
-				if not VendorList[acquire[i]["ID"]] then
-					--@debug@
-					self:Print("Missing vendor in database: " .. acquire[i]["ID"])
-					--@end-debug@
-				else
-					location = VendorList[acquire[i]["ID"]]["Location"]
-
-					if not location_checklist[location] then
-						tinsert(location_list, location)
-						location_checklist[location] = true
-					end
-				end
-			elseif acquire_type == A_QUEST then
-				if not QuestList[acquire[i]["ID"]] then
-					--@debug@
-					self:Print("Missing quest in database: " .. acquire[i]["ID"])
-					--@end-debug@
-				else
-					location = QuestList[acquire[i]["ID"]]["Location"]
-
-					if not location_checklist[location] then
-						tinsert(location_list, location)
-						location_checklist[location] = true
-					end
-				end
-			elseif acquire_type == A_MOB then
-				if not MobList[acquire[i]["ID"]] then
-					--@debug@
-					self:Print("Missing mob in database: " .. acquire[i]["ID"])
-					--@end-debug@
-				else
-					location = MobList[acquire[i]["ID"]]["Location"]
-
-					if not location_checklist[location] then
-						tinsert(location_list, location)
-						location_checklist[location] = true
-					end
-				end
-			end
-		end
-
-		-- Sort the list by the name
-		tsort(location_list, function(a, b) return a < b end)
-
-		-- Return the list as a string
-		-- If we have no locations return an emptry string
-		return (#location_list == 0 and "" or tconcat(location_list, ", "))
-	end
-
-	function addon:SetRepDB()
-		if playerData and playerData["Reputation"] then
-			self:GetFactionLevels(playerData["Reputation"])
+		if CompanionDB[spell] then
+			CompanionDB[spell]["Known"] = true
+		elseif spell then
+			self:Print("Error: Pet with ID " .. spell .. " not in database.")
 		end
 	end
 
-	--- Scans the players professions and populates which ones they have
-	local function GetPlayerProfessions(ProfTable)
-		-- Reset the table, they may have unlearnt a profession
-		for i in pairs(ProfTable) do
-			ProfTable[i] = false
+	for i = 1, self:GetMountTotal(CompanionDB), 1 do
+		local _, _, spell = GetCompanionInfo("MOUNT", i)
+
+		if CompanionDB[spell] then
+			CompanionDB[spell]["Known"] = true
+		elseif spell then
+			self:Print("Error: Mount with ID ".. tostring(spell) .. " not in database.")
 		end
-
-		-- Scan through the spell book getting the spell names
-		for index=1, 25, 1 do
-			local spellName = GetSpellName(index, BOOKTYPE_SPELL)
-			if (not spellName) or (index == 25) then
-				-- Nothing found
-				break
-			end
-
-			if not ProfTable[spellName] or spellName == GetSpellInfo(2656) then
-				if spellName == GetSpellInfo(2656) then
-					ProfTable[GetSpellInfo(2575)] = true
-				else
-					ProfTable[spellName] = true
-				end
-			end
-		end
-
 	end
 
-	--- Causes a scan of the companions to be conducted.
-	-- @name Collectinator:Scan
-	-- @usage Collectinator:Scan(true)
-	-- @param textdump Boolean indicating if we want the output to be a text dump, or if we want to use the GUI.
-	-- @param autoupdatescan Boolean, true if we're triggering this from an event (aka we learned a new pet), false otherwise.
-	-- @param scantype CRITTER for pets, MOUNT for mounts
-	-- @return A frame with either the text dump, or the GUI frame.
-	function addon:Scan(textdump, autoupdatescan, scantype)
-		-- Update the pet/mount totals:
-		playerData["critter_known"] = GetNumCompanions("CRITTER")
-		playerData["mount_known"] = GetNumCompanions("MOUNT")
+	if not autoupdatescan and scantype then
+		PopulateRepFilters(RepFilters)	-- Update the table containing which reps to display
+		self:UpdateFilters(CompanionDB, playerData, scantype)	-- Add filtering flags to the items
 
-		-- Scan for all known critters and mounts
-		for i = 1, self:GetMiniPetTotal(CompanionDB), 1 do
-			local _, _, spell, _, _ = GetCompanionInfo("CRITTER", i)
+		-- Mark excluded items
+		playerData.excluded_known, playerData.excluded_unknown = self:MarkExclusions(CompanionDB, scantype)
 
-			if CompanionDB[spell] then
-				CompanionDB[spell]["Known"] = true
-			elseif spell then
-				self:Print("Error: Pet with ID " .. spell .. " not in database.")
-			end
-		end
-
-		for i = 1, self:GetMountTotal(CompanionDB), 1 do
-			local _, _, spell = GetCompanionInfo("MOUNT", i)
-
-			if CompanionDB[spell] then
-				CompanionDB[spell]["Known"] = true
-			elseif spell then
-				self:Print("Error: Mount with ID ".. tostring(spell) .. " not in database.")
-			end
-		end
-
-		if not autoupdatescan and scantype then
-			PopulateRepFilters(RepFilters)	-- Update the table containing which reps to display
-			self:UpdateFilters(CompanionDB, playerData, scantype)	-- Add filtering flags to the items
-
-			-- Mark excluded items
-			playerData.excluded_known, playerData.excluded_unknown = self:MarkExclusions(CompanionDB, scantype)
-
-			if textdump then
-				self:DisplayTextDump(CompanionDB)
-			else
-				self:DisplayFrame(playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
-			end
+		if textdump then
+			self:DisplayTextDump(CompanionDB)
+		else
+			self:DisplayFrame(playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
 		end
 	end
 end
