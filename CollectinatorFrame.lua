@@ -713,15 +713,13 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	for k, v in pairs(collectibleDB[rIndex]["Acquire"]) do
 		acquire_type = v["Type"]
 
-		if (acquire_type == A_VENDOR) then
-			-- Vendor:					VendorName
-			-- VendorZone				VendorCoords
-			local vndr = vendorDB[v["ID"]]
+		if acquire_type == A_VENDOR then
+			local vendor = vendorDB[v["ID"]]
 			local cStr = ""
 
 			clr1 = addon:hexcolor("VENDOR")
-			-- If we don't have the vendor in the db
-			if (not vndr) then
+
+			if not vendor then
 				clr2 = addon:hexcolor("NEUTRAL")
 				ttAdd(0, -1, 0, L["Vendor"], clr1, UNKNOWN, clr2)
 				clr1 = addon:hexcolor("NORMAL")
@@ -732,14 +730,14 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				local displaytt = false
 				local faction
 
-				if (vndr["Faction"] == factionHorde) then
+				if (vendor["Faction"] == factionHorde) then
 					clr2 = addon:hexcolor("HORDE")
 					if (playerFaction == factionHorde) then
 						displaytt = true
 					else
 						faction = factionHorde
 					end
-				elseif (vndr["Faction"] == factionAlliance) then
+				elseif (vendor["Faction"] == factionAlliance) then
 					clr2 = addon:hexcolor("ALLIANCE")
 					if (playerFaction == factionAlliance) then
 						displaytt = true
@@ -752,14 +750,14 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				end
 
 				if displaytt then
-					if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
-						cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
+					if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
+						cStr = "(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")"
 					end
 
-					ttAdd(0, -1, 0, L["Vendor"], clr1, vndr["Name"], clr2)
+					ttAdd(0, -1, 0, L["Vendor"], clr1, vendor["Name"], clr2)
 					clr1 = addon:hexcolor("NORMAL")
 					clr2 = addon:hexcolor("HIGH")
-					ttAdd(1, -2, 1, vndr["Location"], clr1, cStr, clr2)
+					ttAdd(1, -2, 1, vendor["Location"], clr1, cStr, clr2)
 				elseif faction then
 					ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
 				end
@@ -854,43 +852,47 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(1, -2, 1, v["ID"], clr1, cStr, clr2)
 			else
-				local repfac = repDB[v["ID"]]
-				local repname = repfac["Name"] -- name
 				local rep_level = v["RepLevel"]
 
-				if (rep_vendor["Coordx"] ~= 0) and (rep_vendor["Coordy"] ~= 0) then
+				if rep_vendor["Coordx"] ~= 0 and rep_vendor["Coordy"] ~= 0 then
 					cStr = "(" .. rep_vendor["Coordx"] .. ", " .. rep_vendor["Coordy"] .. ")"
 				end
+				local rep_faction = repDB[v["ID"]]
+				local repname = rep_faction and rep_faction["Name"] or "Unknown Faction"	-- name
+
 				clr1 = addon:hexcolor("REP")
 				clr2 = addon:hexcolor("NORMAL")
 				ttAdd(0, -1, 0, L["Reputation"], clr1, repname, clr2)
 
 				local rStr = ""
-				if (rep_level == 0) then
+
+				if rep_level == 0 then
 					rStr = factionNeutral
 					clr1 = addon:hexcolor("NEUTRAL")
-				elseif (rep_level == 1) then
+				elseif rep_level == 1 then
 					rStr = BFAC["Friendly"]
 					clr1 = addon:hexcolor("FRIENDLY")
-				elseif (rep_level == 2) then
+				elseif rep_level == 2 then
 					rStr = BFAC["Honored"]
 					clr1 = addon:hexcolor("HONORED")
-				elseif (rep_level == 3) then
+				elseif rep_level == 3 then
 					rStr = BFAC["Revered"]
 					clr1 = addon:hexcolor("REVERED")
 				else
 					rStr = BFAC["Exalted"]
 					clr1 = addon:hexcolor("EXALTED")
 				end
-
 				local displaytt = false
-				if (rep_vendor["Faction"] == factionHorde) then
+
+				if rep_vendor["Faction"] == factionHorde then
 					clr2 = addon:hexcolor("HORDE")
-					if (playerFaction == factionHorde) then
+
+					if playerFaction == factionHorde then
 						displaytt = true
 					end
-				elseif (rep_vendor["Faction"] == factionAlliance) then
+				elseif rep_vendor["Faction"] == factionAlliance then
 					clr2 = addon:hexcolor("ALLIANCE")
+
 					if (playerFaction == factionAlliance) then
 						displaytt = true
 					end
@@ -899,14 +901,14 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					displaytt = true
 				end
 
-				if (displaytt) then
+				if displaytt then
 					ttAdd(1, -2, 0, rStr, clr1, rep_vendor["Name"], clr2)
 					clr1 = addon:hexcolor("NORMAL")
 					clr2 = addon:hexcolor("HIGH")
 					ttAdd(2, -2, 1, rep_vendor["Location"], clr1, cStr, clr2)
 				end
 			end
-		elseif (acquire_type == A_WORLD_DROP) then
+		elseif acquire_type == A_WORLD_DROP then
 			-- World Drop				RarityLevel
 			if (v["ID"] == 1) then
 				clr1 = addon:hexcolor("COMMON")
@@ -920,14 +922,14 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr1 = addon:hexcolor("NORMAL")
 			end
 			ttAdd(0, -1, 0, L["World Drop"], clr1)
-		elseif (acquire_type == A_CUSTOM) then
+		elseif acquire_type == A_CUSTOM then
 			local customname = customDB[v["ID"]]["Name"]
 
 			ttAdd(0, -1, 0, customname, addon:hexcolor("NORMAL"))
-		elseif (acquire_type == ACQUIRE_PVP) then
+		elseif acquire_type == ACQUIRE_PVP then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
-			local vndr = vendorDB[v["ID"]]
+			local vendor = vendorDB[v["ID"]]
 			local cStr = ""
 
 			clr1 = addon:hexcolor("VENDOR")
@@ -935,14 +937,14 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			local displaytt = false
 			local faction
 
-			if (vndr["Faction"] == factionHorde) then
+			if (vendor["Faction"] == factionHorde) then
 				clr2 = addon:hexcolor("HORDE")
 				if (playerFaction == factionHorde) then
 					displaytt = true
 				else
 					faction = factionHorde
 				end
-			elseif (vndr["Faction"] == factionAlliance) then
+			elseif (vendor["Faction"] == factionAlliance) then
 				clr2 = addon:hexcolor("ALLIANCE")
 				if (playerFaction == factionAlliance) then
 					displaytt = true
@@ -955,13 +957,13 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			end
 
 			if displaytt then
-				if (vndr["Coordx"] ~= 0) and (vndr["Coordy"] ~= 0) then
-					cStr = "(" .. vndr["Coordx"] .. ", " .. vndr["Coordy"] .. ")"
+				if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
+					cStr = "(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")"
 				end
-				ttAdd(0, -1, 0, L["Vendor"], clr1, vndr["Name"], clr2)
+				ttAdd(0, -1, 0, L["Vendor"], clr1, vendor["Name"], clr2)
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
-				ttAdd(1, -2, 1, vndr["Location"], clr1, cStr, clr2)
+				ttAdd(1, -2, 1, vendor["Location"], clr1, cStr, clr2)
 			elseif faction then
 				ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
 			end
