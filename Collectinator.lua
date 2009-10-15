@@ -582,6 +582,15 @@ do
 				i = i + 1
 
 				acquire[index]["Crafted"] = crafted_by
+			elseif acquire_type == A_ACHIEVEMENT then
+				if not acquire_id then
+					--@alpha@
+					self:Print("SpellID "..SpellID..": AchievementID is nil.")
+					--@end-alpha@
+				else
+					local _, achievement_name = GetAchievementInfo(acquire_id)
+					acquire[index]["Achievement"] = achievement_name
+				end
 			elseif acquire_type == A_MOB then
 				if not acquire_id then
 					--@alpha@
