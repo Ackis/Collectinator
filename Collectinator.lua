@@ -581,16 +581,16 @@ do
 				local crafted_by = select(i, ...)
 				i = i + 1
 
-				--@alpha@
-				self:Print("SpellID "..SpellID..": Crafted by is "..crafted_by)
-				--@end-alpha@
 				acquire[index]["Crafted"] = crafted_by
 			elseif acquire_type == A_MOB then
-				--@alpha@
 				if not acquire_id then
+					--@alpha@
 					self:Print("SpellID "..SpellID..": MobID is nil.")
+					--@end-alpha@
 				elseif not MobList[acquire_id] then
+					--@alpha@
 					self:Print("SpellID "..SpellID..": Mob ID "..acquire_id.." does not exist in the database.")
+					--@end-alpha@
 				else
 					location = MobList[acquire_id]["Location"]
 
@@ -599,13 +599,15 @@ do
 						location_checklist[location] = true
 					end
 				end
-				--@end-alpha@
 			elseif acquire_type == A_QUEST then
-				--@alpha@
 				if not acquire_id then
+					--@alpha@
 					self:Print("SpellID "..SpellID..": QuestID is nil.")
+					--@end-alpha@
 				elseif not QuestList[acquire_id] then
+					--@alpha@
 					self:Print("SpellID "..SpellID..": Quest ID "..acquire_id.." does not exist in the database.")
+					--@end-alpha@
 				else
 					location = QuestList[acquire_id]["Location"]
 
@@ -614,13 +616,15 @@ do
 						location_checklist[location] = true
 					end
 				end
-				--@end-alpha@
 			elseif acquire_type == A_VENDOR then
-				--@alpha@
 				if not acquire_id then
+					--@alpha@
 					self:Print("SpellID "..SpellID..": VendorID is nil.")
+					--@end-alpha@
 				elseif not VendorList[acquire_id] then
+					--@alpha@
 					self:Print("SpellID "..SpellID..": Vendor ID "..acquire_id.." does not exist in the database.")
+					--@end-alpha@
 				else
 					location = VendorList[acquire_id]["Location"]
 
@@ -629,14 +633,10 @@ do
 						location_checklist[location] = true
 					end
 				end
-				--@end-alpha@
 			elseif acquire_type == A_REPUTATION then
 				local RepLevel, RepVendor = select(i, ...)
 				i = i + 2
 
-				--@alpha@
-				self:Print("SpellID "..SpellID..": Replevel is "..RepLevel..". RepVendor is "..RepVendor)
-				--@end-alpha@
 				acquire[index]["RepLevel"] = RepLevel
 				acquire[index]["RepVendor"] = RepVendor
 			end
