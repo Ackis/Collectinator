@@ -338,7 +338,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Sprite Darter Egg - 15067
 	AddPet(15067, 11474, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 15067, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(PetDB, 15067, A_QUEST, 4298)
+	self:AddCompanionAcquire(PetDB, 15067, A_QUEST, 4298, A_MOB, 5278, A_CUSTOM, 27)
 
 	-- Worg Carrier - 15999
 	AddPet(15999, 12264, R_COMMON, GAME_ORIG)
