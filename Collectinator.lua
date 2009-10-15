@@ -1357,7 +1357,7 @@ do
 					elseif acquire_type == A_CUSTOM then
 						acquirelist["Custom"] = true
 					elseif acquire_type == A_ACHIEVEMENT then
-						acquirelist["Achivement"] = true
+						acquirelist["Achievement"] = true
 					end
 				end
 
