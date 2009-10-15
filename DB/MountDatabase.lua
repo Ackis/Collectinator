@@ -292,17 +292,17 @@ function addon:GetMountTotal(DB)
 	-- Great Brewfest Kodo - 49379
 	AddMount(49379, 37828, R_EPIC, GAME_BC)
 	self:AddCompanionFlags(DB, 49379, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_BOP)
-	self:AddCompanionAcquire(DB,49379,4,23795,4,23872)
+	self:AddCompanionAcquire(DB, 49379, A_MOB, 23795, A_MOB, 23872)
 
 	-- Swift Brewfest Ram - 43900
 	AddMount(43900, 33977, R_EPIC, GAME_BC)
-	self:AddCompanionFlags(DB,43900, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_MOB_DROP, F_BOP)
-	self:AddCompanionAcquire(DB,43900,1,24468,1,24510,4,23795,4,23872)
+	self:AddCompanionFlags(DB, 43900, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 43900, A_VENDOR, 24468, A_VENDOR, 24510, A_MOB, 23795, A_MOB, 23872)
 
 	-- The Horseman's Reins - 48025
 	AddMount(48025, 37012, R_EPIC, GAME_BC)
-	self:AddCompanionFlags(DB,48025, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_BOP)
-	--self:AddCompanionAcquire(DB,
+	self:AddCompanionFlags(DB, 48025, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 48025, A_MOB, 23682)
 
 --DROP
 	 -- Reins of the Onyxian Drake - 69395
@@ -338,7 +338,7 @@ function addon:GetMountTotal(DB)
 	-- Reins of the Blue Drake - 59568
 	AddMount(59568, 43953, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(DB, 59568, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
-	--self:AddCompanionAcquire(DB, 59568, 
+	self:AddCompanionAcquire(DB, 59568, F_MOB, 28859)
 
 	-- Reins of the Blue Proto-Drake - 59996
 	AddMount(59996, 44151, R_EPIC, GAME_WOTLK)
@@ -371,24 +371,24 @@ function addon:GetMountTotal(DB)
 	--self:AddCompanionAcquire(DB,46628,4,24664)
 
 	-- Reins of the Raven Lord - 41252
-	AddMount(41252, 32768, 1, GAME_BC)
-	--self:AddCompanionFlags(DB,41252,1,2,6,16)
-	--self:AddCompanionAcquire(DB,41252,4,23035)
+	AddMount(41252, 32768, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 41252, F_ALLIANCE, F_HORDE, F_INSTANCE)
+	self:AddCompanionAcquire(DB, 41252, A_MOB, 23035)
 
 	-- Fiery Warhorse's Reins - 36702
-	AddMount(36702, 30480, 1, GAME_BC)
-	--self:AddCompanionFlags(DB,36702,1,2,7,16)
-	--self:AddCompanionAcquire(DB,36702,4,16152)
+	AddMount(36702, 30480, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 36702, F_ALLIANCE, F_HORDE, F_RAID, F_BOP)
+	self:AddCompanionAcquire(DB, 36702, A_MOB, 15550)
 
 	-- Swift Zulian Tiger - 24252
-	AddMount(24252, 19902, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB,24252,1,2,7,16)
-	--self:AddCompanionAcquire(DB,24252,4,14509)
+	AddMount(24252, 19902, R_EPIC, GAME_ORIG)
+	self:AddCompanionFlags(DB, 24252, F_ALLIANCE, F_HORDE, F_RAID, F_BOP)
+	self:AddCompanionAcquire(DB, 24252, A_MOB, 14509)
 
 	-- Swift Razzashi Raptor - 24242
-	AddMount(24242, 19872, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB,24242,1,2,7,16)
-	--self:AddCompanionAcquire(DB,24242,4,11382)
+	AddMount(24242, 19872, R_EPIC, GAME_ORIG)
+	self:AddCompanionFlags(DB, 24242, F_ALLIANCE, F_HORDE, F_RAID, F_BOP)
+	self:AddCompanionAcquire(DB, 24242, A_MOB, 11382)
 
 	-- Deathcharger's Reins - 17481
 	AddMount(17481, 13335, R_EPIC, GAME_ORIG)
