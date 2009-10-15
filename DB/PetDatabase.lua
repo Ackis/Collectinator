@@ -209,8 +209,8 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Clockwork Rocket Bot - 54187
 	AddPet(54187, 34425, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_REMOVED) -- spec_event 2207 only
-	--self:AddCompanionAcquire(PetDB, 54187, A_SEASONAL, )
+	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_REMOVED) -- spec_event 2007 only
+	self:AddCompanionAcquire(PetDB, 54187, A_SEASONAL, 1)
 
 	-- Spring Rabbit - 61725
 	AddPet(61725, 44794, R_COMMON, GAME_WOTLK)
