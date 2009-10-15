@@ -32,8 +32,8 @@ embeds.xml
 local.xml
 
 Collectinator.lua
-CollectinatorConfig.lua
-CollectinatorFrame.lua
-CollectinatorColour.lua
+Config.lua
+Frame.lua
+Colour.lua
 
 database.xml
