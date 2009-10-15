@@ -44,6 +44,6 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 24, "Warbot")
 	self:addLookupList(CustomDB, 25, "Fishing in pools Northrend")
 	self:addLookupList(CustomDB, 26, "5th Year Anniversary")
-
+	self:addLookupList(CustomDB, 27, "Mob drop is Horde-only.")
 end
 
