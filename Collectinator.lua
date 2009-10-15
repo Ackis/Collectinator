@@ -186,6 +186,7 @@ function addon:OnInitialize()
 					faction = true,
 					known = false,
 					unknown = true,
+					removed = false,
 				},
 				obtain = {
 					vendor = true,
@@ -199,7 +200,6 @@ function addon:OnInitialize()
 					tcg = true,
 					event = true,
 					ce = true,
-					removed = true,
 					achievement = true,
 					originalwow = true,
 					bc = true,
