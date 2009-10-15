@@ -845,6 +845,11 @@ do
 				return false
 			end
 		end
+	
+		if not general_db.removed and flags[F_REMOVED] then
+			return false
+		end
+
 		local obtain_db = filter_db.obtain
 
 		-- Filter out "era" items
@@ -973,15 +978,11 @@ do
 			return true
 		end
 
-		if obtain_db.removed and flags[F_REMOVED] then
-			return true
-		end
-
 		if obtain_db.achievement and flags[F_ACHIEVEMENT] then
 			return true
 		end
 
-		if obtain_db.PVP and flags[F_PVP] then
+		if obtain_db.pvp and flags[F_PVP] then
 			return true
 		end
 
