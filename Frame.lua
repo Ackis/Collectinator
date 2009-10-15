@@ -762,21 +762,19 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
 				end
 			end
-		elseif (acquire_type == A_MOB) then
-			-- Mob Drop:			Mob Name
-			-- MoBZ				MobCoords
+		elseif acquire_type == A_MOB then
 			local mob = mobDB[v["ID"]]
 			local cStr = ""
 
-			if (not mob) then
+			if not mob then
 				clr1 = addon:hexcolor("MOBDROP")
-				clr2 = addon:hexcolor("HORDE")
+				clr2 = addon:hexcolor("NEUTRAL")
 				ttAdd(0, -1, 0, L["Mob Drop"], clr1, UNKNOWN, clr2)
 				clr1 = addon:hexcolor("NORMAL")
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(1, -2, 1, v["ID"], clr1, cStr, clr2)
 			else
-				if (mob["Coordx"] ~= 0) and (mob["Coordy"] ~= 0) then
+				if mob["Coordx"] ~= 0 and mob["Coordy"] ~= 0 then
 					cStr = "(" .. mob["Coordx"] .. ", " .. mob["Coordy"] .. ")"
 				end
 
@@ -787,9 +785,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				clr2 = addon:hexcolor("HIGH")
 				ttAdd(1, -2, 1, mob["Location"], clr1, cStr, clr2)
 			end
-		elseif (acquire_type == A_QUEST) then
-			-- Quest:				QuestName
-			-- QuestZone				QuestCoords
+		elseif acquire_type == A_QUEST then
 			local qst = questDB[v["ID"]]
 
 			if qst then
@@ -805,9 +801,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					else
 						faction = factionHorde
 					end
-				elseif (qst["Faction"] == factionAlliance) then
+				elseif qst["Faction"] == factionAlliance then
 					clr2 = addon:hexcolor("ALLIANCE")
-					if (playerFaction == factionAlliance) then
+
+					if playerFaction == factionAlliance then
 						displaytt = true
 					else
 						faction = factionAlliance
@@ -817,8 +814,9 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					displaytt = true
 				end
 
-				if (displaytt) then
+				if displaytt then
 					local cStr = ""
+
 					if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
 						cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
 					end
@@ -831,17 +829,12 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					ttAdd(0, -1, 0, faction.." "..L["Quest"], clr1)
 				end
 			end
-		elseif (acquire_type == A_SEASONAL) then
-			-- Seasonal:				SeasonEventName
+		elseif acquire_type == A_SEASONAL then
 			local ssnname = seasonDB[v["ID"]]["Name"]
 
 			clr1 = addon:hexcolor("SEASON")
 			ttAdd(0, -1, 0, seasonal, clr1, ssnname, clr1)
-		elseif (acquire_type == A_REPUTATION) then
-			-- Reputation:				Faction
-			-- FactionLevel				RepVendor				
-			-- RepVendorZone			RepVendorCoords
-
+		elseif acquire_type == A_REPUTATION then
 			local rep_vendor = vendorDB[v["RepVendor"]]
 			local cStr = ""
 
@@ -858,7 +851,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					cStr = "(" .. rep_vendor["Coordx"] .. ", " .. rep_vendor["Coordy"] .. ")"
 				end
 				local rep_faction = repDB[v["ID"]]
-				local repname = rep_faction and rep_faction["Name"] or "Unknown Faction"	-- name
+				local repname = rep_faction and rep_faction["Name"] or "Unknown Faction"
 
 				clr1 = addon:hexcolor("REP")
 				clr2 = addon:hexcolor("NORMAL")
@@ -926,38 +919,47 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			local customname = customDB[v["ID"]]["Name"]
 
 			ttAdd(0, -1, 0, customname, addon:hexcolor("NORMAL"))
-		elseif acquire_type == ACQUIRE_PVP then
+		elseif acquire_type == A_PVP then
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
 			local vendor = vendorDB[v["ID"]]
-			local cStr = ""
 
-			clr1 = addon:hexcolor("VENDOR")
-			-- Don't display vendors of opposite faction
-			local displaytt = false
-			local faction
-
-			if (vendor["Faction"] == factionHorde) then
-				clr2 = addon:hexcolor("HORDE")
-				if (playerFaction == factionHorde) then
-					displaytt = true
-				else
-					faction = factionHorde
-				end
-			elseif (vendor["Faction"] == factionAlliance) then
-				clr2 = addon:hexcolor("ALLIANCE")
-				if (playerFaction == factionAlliance) then
-					displaytt = true
-				else
-					faction = factionAlliance
-				end
-			else
+			if not vendor then
 				clr2 = addon:hexcolor("NEUTRAL")
-				displaytt = true
+				ttAdd(0, -1, 0, L["Vendor"], clr1, UNKNOWN, clr2)
+				clr1 = addon:hexcolor("NORMAL")
+				clr2 = addon:hexcolor("HIGH")
+				ttAdd(1, -2, 1, v["ID"], clr1, cStr, clr2)
+			else
+				local cStr = ""
+
+				clr1 = addon:hexcolor("VENDOR")
+				-- Don't display vendors of opposite faction
+				local displaytt = false
+				local faction
+
+				if (vendor["Faction"] == factionHorde) then
+					clr2 = addon:hexcolor("HORDE")
+					if (playerFaction == factionHorde) then
+						displaytt = true
+					else
+						faction = factionHorde
+					end
+				elseif (vendor["Faction"] == factionAlliance) then
+					clr2 = addon:hexcolor("ALLIANCE")
+					if (playerFaction == factionAlliance) then
+						displaytt = true
+					else
+						faction = factionAlliance
+					end
+				else
+					clr2 = addon:hexcolor("NEUTRAL")
+					displaytt = true
+				end
 			end
 
 			if displaytt then
-				if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
+				if vendor["Coordx"] ~= 0 and vendor["Coordy"] ~= 0 then
 					cStr = "(" .. vendor["Coordx"] .. ", " .. vendor["Coordy"] .. ")"
 				end
 				ttAdd(0, -1, 0, L["Vendor"], clr1, vendor["Name"], clr2)
@@ -967,6 +969,8 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			elseif faction then
 				ttAdd(0, -1, 0, faction.." "..L["Vendor"], clr1)
 			end
+		elseif acquire_type == A_ACHIEVEMENT then
+			ttAdd(0, -1, 0, L["Achievement"], addon:hexcolor("NEUTRAL"), v["Achievement"], addon:hexcolor("NORMAL"))
 		--@alpha@
 		else	-- Unhandled
 			ttAdd(0, -1, 0, L["Unhandled Collectible"], addon:hexcolor("NORMAL"))
@@ -1882,7 +1886,11 @@ local function expandEntry(dsIndex)
 			t.String = pad .. addon:Normal(customDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
-		elseif (acquire_type == ACQUIRE_PVP) and obtainDB.pvp then
+		elseif acquire_type == A_ACHIEVEMENT then
+			t.String = pad .. addon:Normal(v["Achievement"])
+			tinsert(DisplayStrings, dsIndex, t)
+			dsIndex = dsIndex + 1
+		elseif acquire_type == A_PVP and obtainDB.pvp then
 			local vendor = vendorDB[v["ID"]]
 
 			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
