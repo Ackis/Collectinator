@@ -640,10 +640,10 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local acquire_tip_loc = addon.db.profile.acquiretooltiplocation
 	local spellLink = collectibleDB[rIndex]["CollectibleLink"]
 
-	if (acquire_tip_loc == L["Off"]) then
+	if acquire_tip_loc == L["Off"] then
 		QTip:Release(CollectinatorTooltip)
 		-- If we have the spell link tooltip, anchor it to addon.Frame instead so it shows
-		if (spell_tip_loc ~= L["Off"]) and spellLink then
+		if spell_tip_loc ~= L["Off"] and spellLink then
 			SetSpellTooltip(addon.Frame, spell_tip_loc, spellLink)
 		else
 			CollectinatorSpellTooltip:Hide()
@@ -671,7 +671,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		CollectinatorTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
 	end
 
-	if (TipTac and TipTac.AddModifiedTip) then
+	if TipTac and TipTac.AddModifiedTip then
 		-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
 		TipTac:AddModifiedTip(CollectinatorTooltip, true)
 	end
@@ -3101,6 +3101,10 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_UnknownCB, addon.Fly_General, L["UNKNOWN_DESC"], "unknown", 3, 1, 0)
 	Collectinator_UnknownCBText:SetText(L["Unknown"])
 
+	local Collectinator_RemovedCB = CreateFrame("CheckButton", "Collectinator_RemovedCB", addon.Fly_General, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RemovedCB, addon.Fly_General, L["Removed from Game"], "removed", 4, 1, 0)
+	Collectinator_RemovedCBText:SetText(L["Unavailable"])
+
 	-------------------------------------------------------------------------------
 	--			() Instance	() Raid
 	--			() Quest		() Seasonal
@@ -3638,6 +3642,7 @@ local function InitializeFrame()
 		["faction"]		= { cb = Collectinator_FactionCB,		svroot = filterdb.general },
 		["known"]		= { cb = Collectinator_KnownCB,			svroot = filterdb.general },
 		["unknown"]		= { cb = Collectinator_UnknownCB,		svroot = filterdb.general },
+		["removed"]		= { cb = Collectinator_RemovedCB,		svroot = filterdb.general },
 		------------------------------------------------------------------------------------------------
 		-- Obtain Options
 		------------------------------------------------------------------------------------------------
