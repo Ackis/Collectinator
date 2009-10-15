@@ -2,7 +2,7 @@
 
 ****************************************************************************************
 
-CollectinatorConfig.lua
+Config.lua
 
 Ace3 Configuration options for Collectinator
 

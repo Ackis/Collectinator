@@ -2,7 +2,7 @@
 
 ****************************************************************************************
 
-CollectinatorColour.lua
+Colour.lua
 
 Colouring functions for Collectinator
 
