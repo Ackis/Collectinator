@@ -193,6 +193,7 @@ function addon:OnInitialize()
 					quest = true,
 					instance = true,
 					raid = true,
+					craft = true,
 					seasonal = true,
 					worlddrop = true,
 					mobdrop = true,
@@ -974,6 +975,10 @@ do
 		end
 
 		if obtain_db.instance and flags[F_INSTANCE] then
+			return true
+		end
+
+		if obtain_db.craft and flags[F_CRAFT] then
 			return true
 		end
 
