@@ -25,25 +25,25 @@ function addon:InitCustom(CustomDB)
 	self:addLookupList(CustomDB, 5, "Lurky") -- EU BC CE
 	self:addLookupList(CustomDB, 6, "Pink Murloc") -- EU Contest
 	self:addLookupList(CustomDB, 7, "Polar Bear Collar") -- Asian Coke Promotion
-	self:addLookupList(CustomDB, 8, "Original CE")
+	self:addLookupList(CustomDB, 8, "Original Collector's Edition")
 	self:addLookupList(CustomDB, 9, "Crawdad")
-	self:addLookupList(CustomDB, 10, "BC CE")
-	self:addLookupList(CustomDB, 11, "Wrath CE")
+	self:addLookupList(CustomDB, 10, "Burning Crusade Collector's Edition")
+	self:addLookupList(CustomDB, 11, "Wrath of The Lich King Collector's Edition")
 	self:addLookupList(CustomDB, 12, "WWI Korea") -- Lucky Golden Pig
 	self:addLookupList(CustomDB, 13, "China Olypmics")
 	self:addLookupList(CustomDB, 14, "WWI France")
 	self:addLookupList(CustomDB, 15, "4th Year Anniversary")
-	self:addLookupList(CustomDB, 16, "Random drop from the egg")
+	self:addLookupList(CustomDB, 16, "Random drop from the Cracked Egg, which hatches from the Mysterious Egg.")
 	self:addLookupList(CustomDB, 17, "Giant Rat", BZONE["Dalaran"])
 	self:addLookupList(CustomDB, 18, "BC Fishing Daily")
-	self:addLookupList(CustomDB, 19, "Mojo ZA", BZONE["Zul'Aman"])
+	self:addLookupList(CustomDB, 19, "Use an Amani Hex Stick on the frog for a chance to obtain Mojo.")
 	self:addLookupList(CustomDB, 20, "Wrath Fishing Daily")
 	self:addLookupList(CustomDB, 21, "PVP Pet")
-	self:addLookupList(CustomDB, 22, "Grunty") -- Blizzcon 2009
+	self:addLookupList(CustomDB, 22, "Blizzcon 2009")
 	self:addLookupList(CustomDB, 23, "Original Epic Mount")
 	self:addLookupList(CustomDB, 24, "Warbot")
 	self:addLookupList(CustomDB, 25, "Fishing in pools Northrend")
 	self:addLookupList(CustomDB, 26, "5th Year Anniversary")
-	self:addLookupList(CustomDB, 27, "Mob drop is Horde-only.")
+	self:addLookupList(CustomDB, 27, "Mob Drop is Horde-only.")
 end
 
