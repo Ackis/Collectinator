@@ -711,7 +711,7 @@ do
 		end
 
 		--@alpha@
-		if not Loc then
+		if not Loc and DB ~= ReputationList and DB ~= CustomList and DB ~= SeasonalList then
 			self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")
 		end
 		--@end-alpha@
