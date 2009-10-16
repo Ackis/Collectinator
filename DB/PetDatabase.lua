@@ -118,27 +118,27 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Toothy's Bucket - 43697
 	AddPet(43697, 33816, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 43697, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 43697, A_QUEST, 11665, 8, 18)
+	self:AddCompanionAcquire(PetDB, 43697, A_QUEST, 11665, A_CUSTOM, 18)
 
 	-- Muckbreath's Bucket - 43698
 	AddPet(43698, 33818, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 43698, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 43698, A_QUEST, 11665, 8, 18)
+	self:AddCompanionAcquire(PetDB, 43698, A_QUEST, 11665, A_CUSTOM, 18)
 
 	-- Snarly's Bucket - 46425
 	AddPet(46425, 35349, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 46425, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 46425, A_QUEST, 11665, 8, 18)
+	self:AddCompanionAcquire(PetDB, 46425, A_QUEST, 11665, A_CUSTOM, 18)
 
 	-- Chuck's Bucket - 46426
 	AddPet(46426, 35350, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 46426, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 46426, A_QUEST, 11665, 8, 18)
+	self:AddCompanionAcquire(PetDB, 46426, A_QUEST, 11665, A_CUSTOM, 18)
 
 	-- Giant Sewer Rat - 59250
 	AddPet(59250, 43698, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 59250, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOP, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 59250, 7, A_QUEST, 8, 17)
+	self:AddCompanionAcquire(PetDB, 59250, 7, A_QUEST, A_CUSTOM, 17)
 
 	-- Strand Crawler -- 62561
 	AddPet(62561, 44983, R_COMMON, GAME_WOTLK)
@@ -694,7 +694,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Murkimus
 	AddPet(63318, 45180, R_UNCOMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 63318, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_PVP, F_BOA)
+	self:AddCompanionFlags(PetDB, 63318, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_PVP, F_BOA)
 	self:AddCompanionAcquire(PetDB, 63318, A_CUSTOM, 21)
 
 	-- Onyxian Whelpling - 69002
@@ -791,7 +791,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, XX, F_ALLIANCE, F_HORDE, F_REMOVED, SPEC_EVENT)
 	self:AddCompanionAcquire(PetDB, XX,
 ]]--
-	-- Battle-Bot
+	-- Warbot
 	AddPet(65682, 46767, R_UNCOMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 65682, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOP)
 	self:AddCompanionAcquire(PetDB, 65682, A_CUSTOM, 24)
