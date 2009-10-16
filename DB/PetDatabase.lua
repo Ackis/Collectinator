@@ -53,6 +53,14 @@ local F_PVP1, F_PVP2, F_PVP3 = 66, 67, 68
 local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALUAK, F_ORACLES, F_WYRMREST = 71, 72, 73, 74, 75, 76, 77, 78
 local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79, 80, 81, 82, 83
 
+-- City 1 Darnassus/Darkspear
+-- City 2 Stormwind/Orgrimmar
+-- City 3 Gnomerga/Thunder Bluff
+-- City 4 Ironforge/Undercity
+-- City 5 Exodar/Silvermoon 
+-- PVP 1 WSG
+-- PVP 2 AV
+-- PVP 3 AB 
 --Wrath Common Factions 1 (The Silver Convenant/The Sunreavers)
 --Wrath Common Factions 2 (Explorer's League/Hand of Vengance)
 --Wrath Common Factions 3 (Explorer's League/Valiance Expedition)
@@ -215,7 +223,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Clockwork Rocket Bot - 54187
 	AddPet(54187, 34425, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_REMOVED) -- spec_event 2007 only
+	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(PetDB, 54187, A_SEASONAL, 1)
 
 	-- Spring Rabbit - 61725
@@ -505,7 +513,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Nurtured Penguin Egg - 61357
 	AddPet(61357, 44723, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61357, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, WRATHCOMMON1)
+	self:AddCompanionFlags(PetDB, 61357, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_KALUAK)
 	self:AddCompanionAcquire(PetDB, 61357, A_REPUTATION, 1073, EXALTED, 31916, A_REPUTATION, 1073, EXALTED, 32763)
 
 --VENDOR NEUTRAL
