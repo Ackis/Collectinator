@@ -41,7 +41,7 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 21019,	L["Sixx"],				BZ["The Exodar"],		30.3, 34.0,	ALLIANCE)
 	self:addLookupList(DB, 23367,	L["Grella"],				BZ["Terokkar Forest"],		64.3, 66.3,	NEUTRAL)
 	self:addLookupList(DB, 28951,	L["Breanni"],				BZ["Dalaran"],			58.7, 39.5,	NEUTRAL)
-	self:addLookupList(DB, 29537,	L["Darahir"],				BZ["Undercity"],		63.7, 16.5,	NEUTRAL)
+	self:addLookupList(DB, 29537,	L["Darahir"],				BZ["Dalaran"],			63.7, 16.5,	NEUTRAL)
 	self:addLookupList(DB, 31916,	L["Tanaika"],				BZ["Howling Fjord"],		25.5, 58.7,	NEUTRAL)
 	self:addLookupList(DB, 32763,	L["Sairuk"],				BZ["Dragonblight"],		48.5, 75.7,	NEUTRAL)
 
