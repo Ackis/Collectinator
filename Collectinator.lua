@@ -656,13 +656,9 @@ do
 
 				--@alpha@
 				if not acquire_id then
-					--@alpha@
 					self:Print("SpellID "..SpellID..": ReputationID is nil.")
-					--@end-alpha@
 				elseif not ReputationList[acquire_id] then
-					--@alpha@
 					self:Print("SpellID "..SpellID..": ReputationID "..acquire_id.." does not exist in the database.")
-					--@end-alpha@
 				end
 
 				if not RepVendor then
