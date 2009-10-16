@@ -1832,7 +1832,7 @@ local function expandEntry(dsIndex)
 			local rep_vendor = vendorDB[v["RepVendor"]]
 
 			if rep_vendor and CheckDisplayFaction(filterDB, rep_vendor["Faction"]) then
-				t.String = pad .. addon:Rep(L["Reputation"] .. " : ") .. repDB[v["ID"]]["Name"]
+				t.String = pad .. addon:Rep(L["Reputation"] .. " : ") .. (repDB[v["ID"]] and repDB[v["ID"]]["Name"] or "Unknown Faction")
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 
