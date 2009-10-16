@@ -241,7 +241,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Cat Carrier (Black Tabby) - 10675
 	AddPet(10675, 8491, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 10675, A_QUEST, 10, F_BOE)
+	self:AddCompanionFlags(PetDB, 10675, F_QUEST, F_MOB_DROP, F_BOE)
 	self:AddCompanionAcquire(PetDB, 10675, A_MOB, 1920, A_MOB, 2271, A_MOB, 2272, A_MOB, 2358)
 
 	-- Cat Carrier (Siamese) - 10677
@@ -466,57 +466,41 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 63712, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 63712, A_VENDOR, 33554)
 
-	-- Shimmering Wyrmling -- 66096
-	AddPet(66096, 46821, R_UNCOMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 66096, F_HORDE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, EXALTED, 34881, A_REPUTATION, 1124, EXALTED, 34772)
---[[
-	-- Shimmering Wyrmling -- 66096
-	AddPet(66096, 46820, R_UNCOMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 66096, F_ALLIANCE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, EXALTED, 34881, A_REPUTATION, 1124, EXALTED, 34772)
-]]--
-
 --REP VENDOR NEUTRAL
 	-- Tiny Sporebat - 45082
 	AddPet(45082, 34478, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 45082, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 58)
+	self:AddCompanionFlags(PetDB, 45082, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_SPOREGGAR)
 	self:AddCompanionAcquire(PetDB, 45082, A_REPUTATION, 970, EXALTED, 18382)
 
 	-- Nether Ray Fry - 51716
 	AddPet(51716, 38628, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 51716, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 90)
+	self:AddCompanionFlags(PetDB, 51716, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_SKYGUARD)
 	self:AddCompanionAcquire(PetDB, 51716, A_REPUTATION, 1031, EXALTED, 23367)
 
 	-- Tickbird Hatchling -- 61348
 	AddPet(61348, 39896, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61348, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 77)
+	self:AddCompanionFlags(PetDB, 61348, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ORACLES)
 	self:AddCompanionAcquire(PetDB, 61348, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
 
 	-- White Tickbird Hatchling -- 61349
 	AddPet(61349, 39899, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61349, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 77)
+	self:AddCompanionFlags(PetDB, 61349, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ORACLES)
 	self:AddCompanionAcquire(PetDB, 61349, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
 
 	-- Proto-Drake Whelp -- 61350
 	AddPet(61350, 44721, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61350, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 77)
+	self:AddCompanionFlags(PetDB, 61350, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ORACLES)
 	self:AddCompanionAcquire(PetDB, 61350, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
 
 	-- Cobra Hatchling -- 61351
 	AddPet(61351, 39898, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61351, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 77)
+	self:AddCompanionFlags(PetDB, 61351, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ORACLES)
 	self:AddCompanionAcquire(PetDB, 61351, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
 
 	-- Nurtured Penguin Egg - 61357
 	AddPet(61357, 44723, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61357, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 65)
+	self:AddCompanionFlags(PetDB, 61357, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, WRATHCOMMON1)
 	self:AddCompanionAcquire(PetDB, 61357, A_REPUTATION, 1073, EXALTED, 31916, A_REPUTATION, 1073, EXALTED, 32763)
-
-	-- Penguin Egg - 58636
-	--AddPet(58636, 43517, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(PetDB, 58636, F_ALLIANCE, F_HORDE, F_BOP, 
-	--self:AddCompanionAcquire(PetDB, 
 
 --VENDOR NEUTRAL
 	-- Parrot Cage (Cockatiel) - 10680
@@ -692,7 +676,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 61855, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 61855, A_CUSTOM, 15)
 
-	-- Murkimus
+	-- Murkimus - 63318
 	AddPet(63318, 45180, R_UNCOMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 63318, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_PVP, F_BOA)
 	self:AddCompanionAcquire(PetDB, 63318, A_CUSTOM, 21)
@@ -832,16 +816,25 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 68810, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 68810, A_CUSTOM, 1)
 
---NEW ONES - just to remember them...
---Pandaren Monk
---Lil' K.T.
---Zipao Tiger
---Core Hound Pup
---Wind Rider Cub
---Gryphon Hatchling
+	-- We only add the faction specific pets if the user is part of that faction
+	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+	local _,faction = UnitFactionGroup("player")
 
---Blood Parrot - hat (F_REMOVED as normal companion)
---Coyote Spirit - hat (F_REMOVED as normal companion)
+	if (faction == BFAC["Alliance"]) then
+
+		-- Shimmering Wyrmling -- 66096
+		AddPet(66096, 46820, R_UNCOMMON, GAME_WOTLK)
+		self:AddCompanionFlags(PetDB, 66096, F_ALLIANCE, F_VENDOR, F_BOE)
+		self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, EXALTED, 34881)
+
+	elseif (faction == BFAC["Horde"]) then
+
+		-- Shimmering Wyrmling -- 66096
+		AddPet(66096, 46821, R_UNCOMMON, GAME_WOTLK)
+		self:AddCompanionFlags(PetDB, 66096, F_HORDE, F_VENDOR, F_BOE)
+		self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1124, EXALTED, 34772)
+
+	end
 
 	return num_pets
 
