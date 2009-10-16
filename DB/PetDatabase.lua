@@ -53,6 +53,12 @@ local F_PVP1, F_PVP2, F_PVP3 = 66, 67, 68
 local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALUAK, F_ORACLES, F_WYRMREST = 71, 72, 73, 74, 75, 76, 77, 78
 local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79, 80, 81, 82, 83
 
+--Wrath Common Factions 1 (The Silver Convenant/The Sunreavers)
+--Wrath Common Factions 2 (Explorer's League/Hand of Vengance)
+--Wrath Common Factions 3 (Explorer's League/Valiance Expedition)
+--Wrath Common Factions 4 (The Frostborn/The Taunka)
+--Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition) 
+
 -------------------------------------------------------------------------------
 -- Acquire types
 -------------------------------------------------------------------------------
@@ -824,14 +830,14 @@ function addon:GetMiniPetTotal(PetDB)
 
 		-- Shimmering Wyrmling -- 66096
 		AddPet(66096, 46820, R_UNCOMMON, GAME_WOTLK)
-		self:AddCompanionFlags(PetDB, 66096, F_ALLIANCE, F_VENDOR, F_BOE)
+		self:AddCompanionFlags(PetDB, 66096, F_ALLIANCE, F_VENDOR, F_BOE, WRATHCOMMON1)
 		self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, EXALTED, 34881)
 
 	elseif (faction == BFAC["Horde"]) then
 
 		-- Shimmering Wyrmling -- 66096
 		AddPet(66096, 46821, R_UNCOMMON, GAME_WOTLK)
-		self:AddCompanionFlags(PetDB, 66096, F_HORDE, F_VENDOR, F_BOE)
+		self:AddCompanionFlags(PetDB, 66096, F_HORDE, F_VENDOR, F_BOE, WRATHCOMMON1)
 		self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1124, EXALTED, 34772)
 
 	end
