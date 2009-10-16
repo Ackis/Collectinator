@@ -1360,8 +1360,6 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionFlags(DB, 65917, F_ALLIANCE, F_HORDE, F_TCG)
 	self:AddCompanionAcquire(DB, 65917, A_CUSTOM, 1)
 
-	return num_mounts
-
 	-- We only add the faction specific pets if the user is part of that faction
 	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 	local _,faction = UnitFactionGroup("player")
@@ -1382,4 +1380,5 @@ function addon:GetMountTotal(DB)
 
 	end
 
+	return num_mounts
 end
