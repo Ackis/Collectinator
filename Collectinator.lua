@@ -1159,7 +1159,6 @@ function addon:UpdateFilters(DB, playerData, scantype)
 	self:ClearRepTable()
 end
 
-
 -------------------------------------------------------------------------------
 -- Collectinator Logic Functions
 -------------------------------------------------------------------------------

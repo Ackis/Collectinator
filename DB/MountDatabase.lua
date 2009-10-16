@@ -157,47 +157,47 @@ function addon:GetMountTotal(DB)
 -- PLAYERMADE
 	 -- Turbo-Charged Flying Machine Control - 44151
 	AddMount(44151, 34061, R_EPIC, GAME_BC)
-	self:AddCompanionFlags(DB, 44151, F_ALLIANCE, F_HORDE, F_BOP, F_ENG, F_CRAFTED)
+	self:AddCompanionFlags(DB, 44151, F_ALLIANCE, F_HORDE, F_BOP, F_ENG, F_CRAFT)
 	--self:AddCompanionAcquire(DB, 44151, 
 
 	 -- Flying Machine Control - 44155
 	AddMount(44155, 34060, R_RARE, GAME_BC)
-	self:AddCompanionFlags(DB, 44155, F_ALLIANCE, F_HORDE, F_BOE, F_ENG, F_CRAFTED)
+	self:AddCompanionFlags(DB, 44155, F_ALLIANCE, F_HORDE, F_BOE, F_ENG, F_CRAFT)
 	--self:AddCompanionAcquire(DB, 44155,
 
 	 -- Mekgineer's Chopper - 60867
 	AddMount(60867, 44413, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60867, F_ALLIANCE, F_BOE, F_CRAFTED)
+	self:AddCompanionFlags(DB, 60867, F_ALLIANCE, F_BOE, F_CRAFT)
 	--self:AddCompanionAcquire(DB, 60867,
 
 	 -- Mechano-Hog - 60866
 	AddMount(60866, 41508, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60866, F_HORDE, F_BOE, F_CRAFTED)
+	self:AddCompanionFlags(DB, 60866, F_HORDE, F_BOE, F_CRAFT)
 	--self:AddCompanionAcquire(DB, 60866,
 
 	-- Flying Carpet - 60969
 	AddMount(60969, 44554, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60969, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFTED)
+	self:AddCompanionFlags(DB, 60969, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
 	--self:AddCompanionAcquire(DB, 60969,
 
 	 -- Magnificent Flying Carpet - 60971
 	AddMount(60971, 44558, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60971, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFTED)
+	self:AddCompanionFlags(DB, 60971, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
 	--self:AddCompanionAcquire(DB, 60971,
 
 	 -- Swift Mooncloth Carpet - 60974
 	AddMount(60974, 44555, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60974, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFTED)
+	self:AddCompanionFlags(DB, 60974, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
 	--self:AddCompanionAcquire(DB, 60974,
 
 	 -- Swift Spellfire Carpet - 60976
 	AddMount(60976, 44556, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60976, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFTED)
+	self:AddCompanionFlags(DB, 60976, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
 	--self:AddCompanionAcquire(DB, 60976,
 
 	 -- Swift Ebonweave Carpet - 60975
 	AddMount(60975, 44557, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60975, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFTED)
+	self:AddCompanionFlags(DB, 60975, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
 	--self:AddCompanionAcquire(DB, 60975,
 
 --PVP VENDOR
