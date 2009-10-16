@@ -105,6 +105,7 @@ function addon:InitReputation(RepDB)
 	self:addLookupList(RepDB, 1105, BFAC["The Oracles"]) -- Acquire Flag: 121
 	self:addLookupList(RepDB, 1106, BFAC["Argent Crusade"]) -- Acquire Flag: 115
 	self:addLookupList(RepDB, 1119, BFAC["The Sons of Hodir"]) -- Acquire Flag: 119
+	self:addLookupList(RepDB, 1124, BFAC["The Sunreavers"])
 	self:addLookupList(RepDB, 1126, BFAC["The Frostborn"]) -- Acquire Flag: 
 
 end
