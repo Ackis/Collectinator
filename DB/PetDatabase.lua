@@ -702,6 +702,12 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 69002, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOA)
 	self:AddCompanionAcquire(PetDB, 69002, A_CUSTOM, 26)
 
+	-- Mr. Chilly - 55068
+	AddPet(55068, 41133, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 55068, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOA)
+	self:AddCompanionAcquire(PetDB, 55068, A_CUSTOM, 28)
+
+
 --COLLECTORS EDITION
 	-- Panda Collar - 17707
 	AddPet(17707, 13583, R_RARE, GAME_ORIG)
