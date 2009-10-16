@@ -59,11 +59,6 @@ local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79,
 local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT = 1, 2, 3, 4, 5, 6, 7, 8, 9
 
 -------------------------------------------------------------------------------
--- Reputation Acquire Flags
--------------------------------------------------------------------------------
-local R_WINTERSPRING = 589
-
--------------------------------------------------------------------------------
 -- Reputation Levels
 -------------------------------------------------------------------------------
 local FRIENDLY = 1
@@ -985,7 +980,7 @@ function addon:GetMountTotal(DB)
 	-- Reins of the Winterspring Frostsaber - 17229
 	AddMount(17229, 13086, R_EPIC, GAME_ORIG)
 	self:AddCompanionFlags(DB, 17229, F_ALLIANCE, F_VENDOR, F_BOP, F_WINTERSPRING)
-	self:AddCompanionAcquire(DB,17229, A_REPUTATION, R_WINTERSPRING, EXALTED, 10618)
+	self:AddCompanionAcquire(DB,17229, A_REPUTATION, 589, EXALTED, 10618)
 
 	-- Brown Horse Bridle - 458
 	AddMount(458, 5656, R_RARE, GAME_ORIG)

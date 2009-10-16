@@ -73,11 +73,6 @@ local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79,
 local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT = 1, 2, 3, 4, 5, 6, 7, 8, 9
 
 -------------------------------------------------------------------------------
--- Reputation Acquire Flags
--------------------------------------------------------------------------------
-local R_WINTERSPRING = 589
-
--------------------------------------------------------------------------------
 -- Reputation Levels
 -------------------------------------------------------------------------------
 local FRIENDLY = 1
