@@ -1357,9 +1357,9 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 51412, A_CUSTOM, 1)
 
 	-- Magic Rooster - 66872
-	AddMount(66872, 49290, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 66872, F_ALLIANCE, F_HORDE, F_TCG)
-	self:AddCompanionAcquire(DB, 66872, A_CUSTOM, 1)
+	AddMount(65917, 49290, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 65917, F_ALLIANCE, F_HORDE, F_TCG)
+	self:AddCompanionAcquire(DB, 65917, A_CUSTOM, 1)
 
 	return num_mounts
 
