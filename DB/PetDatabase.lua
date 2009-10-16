@@ -282,7 +282,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Mojo - 43918
 	AddPet(43918, 33993, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 43918, F_ALLIANCE, F_HORDE, F_RAID, F_BOP)
-	self:AddCompanionAcquire(PetDB, 43918, A_CUSTOM, 19)
+	self:AddCompanionAcquire(PetDB, 43918, A_MOB, 24396, A_CUSTOM, 19)
 
 	-- Phoenix Hatchling - 46599
 	AddPet(46599, 35504, R_RARE, GAME_TBC)
