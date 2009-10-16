@@ -193,6 +193,7 @@ function addon:OnInitialize()
 					quest = true,
 					instance = true,
 					raid = true,
+					craft = true,
 					seasonal = true,
 					worlddrop = true,
 					mobdrop = true,
@@ -763,10 +764,11 @@ do
 	-------------------------------------------------------------------------------
 	-- Filter flags
 	-------------------------------------------------------------------------------
-	local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_UNUSED, F_INSTANCE, F_RAID, F_SEASONAL, F_WORLD_DROP, F_MOB_DROP = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+	local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_CRAFT, F_INSTANCE, F_RAID, F_SEASONAL, F_WORLD_DROP, F_MOB_DROP = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 	local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP = 11, 12, 13, 14, 15, 16
 	local F_BOE, F_BOP, F_BOA = 20, 21, 22
 	local F_ALCH, F_BS, F_COOKING, F_ENCH, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
+
 	-------------------------------------------------------------------------------
 	-- Reputation Filter Flags
 	-------------------------------------------------------------------------------
@@ -777,6 +779,20 @@ do
 	local F_PVP1, F_PVP2, F_PVP3 = 66, 67, 68
 	local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALUAK, F_ORACLES, F_WYRMREST = 71, 72, 73, 74, 75, 76, 77, 78
 	local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79, 80, 81, 82, 83
+
+	-- City 1 Darnassus/Darkspear
+	-- City 2 Stormwind/Orgrimmar
+	-- City 3 Gnomerga/Thunder Bluff
+	-- City 4 Ironforge/Undercity
+	-- City 5 Exodar/Silvermoon 
+	-- PVP 1 WSG
+	-- PVP 2 AV
+	-- PVP 3 AB 
+	--Wrath Common Factions 1 (The Silver Convenant/The Sunreavers)
+	--Wrath Common Factions 2 (Explorer's League/Hand of Vengance)
+	--Wrath Common Factions 3 (Explorer's League/Valiance Expedition)
+	--Wrath Common Factions 4 (The Frostborn/The Taunka)
+	--Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition) 
 
 	local reptable
 
@@ -895,6 +911,7 @@ do
 		if not obtain_db.wrath and Entry["Game"] == GAME_WOTLK then
 			return false
 		end
+
 		local profession_db = filter_db.profs
 
 		if not profession_db.alch and flags[F_ALCH] then
@@ -981,6 +998,10 @@ do
 			return true
 		end
 
+		if obtain_db.craft and flags[F_CRAFT] then
+			return true
+		end
+
 		if obtain_db.raid and flags[F_RAID] then
 			return true
 		end
@@ -1006,6 +1027,10 @@ do
 		end
 
 		if obtain_db.ce and flags[F_COLLECTORS] then
+			return true
+		end
+
+		if obtain_db.achievement and flags[F_REMOVED] then
 			return true
 		end
 
@@ -1431,7 +1456,9 @@ do
 	end
 end	-- do
 
+-------------------------------------------------------------------------------
 -- Warcraft Pets Integration
+-------------------------------------------------------------------------------
 
 do
 
@@ -1497,4 +1524,5 @@ do
 
 		return tconcat(t,",")
 	end
+
 end

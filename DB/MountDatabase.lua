@@ -37,7 +37,7 @@ local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
 -------------------------------------------------------------------------------
 -- Filter flags
 -------------------------------------------------------------------------------
-local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_UNUSED, F_INSTANCE, F_RAID, F_SEASONAL, F_WORLD_DROP, F_MOB_DROP = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_CRAFT, F_INSTANCE, F_RAID, F_SEASONAL, F_WORLD_DROP, F_MOB_DROP = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP = 11, 12, 13, 14, 15, 16
 local F_BOE, F_BOP, F_BOA = 20, 21, 22
 local F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36
@@ -53,15 +53,24 @@ local F_PVP1, F_PVP2, F_PVP3 = 66, 67, 68
 local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALUAK, F_ORACLES, F_WYRMREST = 71, 72, 73, 74, 75, 76, 77, 78
 local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79, 80, 81, 82, 83
 
+-- City 1 Darnassus/Darkspear
+-- City 2 Stormwind/Orgrimmar
+-- City 3 Gnomerga/Thunder Bluff
+-- City 4 Ironforge/Undercity
+-- City 5 Exodar/Silvermoon 
+-- PVP 1 WSG
+-- PVP 2 AV
+-- PVP 3 AB 
+--Wrath Common Factions 1 (The Silver Convenant/The Sunreavers)
+--Wrath Common Factions 2 (Explorer's League/Hand of Vengance)
+--Wrath Common Factions 3 (Explorer's League/Valiance Expedition)
+--Wrath Common Factions 4 (The Frostborn/The Taunka)
+--Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition) 
+
 -------------------------------------------------------------------------------
 -- Acquire types
 -------------------------------------------------------------------------------
 local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT = 1, 2, 3, 4, 5, 6, 7, 8, 9
-
--------------------------------------------------------------------------------
--- Reputation Acquire Flags
--------------------------------------------------------------------------------
-local R_WINTERSPRING = 589
 
 -------------------------------------------------------------------------------
 -- Reputation Levels
@@ -985,7 +994,7 @@ function addon:GetMountTotal(DB)
 	-- Reins of the Winterspring Frostsaber - 17229
 	AddMount(17229, 13086, R_EPIC, GAME_ORIG)
 	self:AddCompanionFlags(DB, 17229, F_ALLIANCE, F_VENDOR, F_BOP, F_WINTERSPRING)
-	self:AddCompanionAcquire(DB,17229, A_REPUTATION, R_WINTERSPRING, EXALTED, 10618)
+	self:AddCompanionAcquire(DB,17229, A_REPUTATION, 589, EXALTED, 10618)
 
 	-- Brown Horse Bridle - 458
 	AddMount(458, 5656, R_RARE, GAME_ORIG)

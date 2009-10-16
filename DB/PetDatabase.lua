@@ -37,7 +37,7 @@ local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
 -------------------------------------------------------------------------------
 -- Filter flags
 -------------------------------------------------------------------------------
-local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_UNUSED, F_INSTANCE, F_RAID, F_SEASONAL, F_WORLD_DROP, F_MOB_DROP = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_CRAFT, F_INSTANCE, F_RAID, F_SEASONAL, F_WORLD_DROP, F_MOB_DROP = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP = 11, 12, 13, 14, 15, 16
 local F_BOE, F_BOP, F_BOA = 20, 21, 22
 local F_ALCH, F_BS, F_COOKING, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36
@@ -53,15 +53,24 @@ local F_PVP1, F_PVP2, F_PVP3 = 66, 67, 68
 local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALUAK, F_ORACLES, F_WYRMREST = 71, 72, 73, 74, 75, 76, 77, 78
 local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79, 80, 81, 82, 83
 
+-- City 1 Darnassus/Darkspear
+-- City 2 Stormwind/Orgrimmar
+-- City 3 Gnomerga/Thunder Bluff
+-- City 4 Ironforge/Undercity
+-- City 5 Exodar/Silvermoon 
+-- PVP 1 WSG
+-- PVP 2 AV
+-- PVP 3 AB 
+--Wrath Common Factions 1 (The Silver Convenant/The Sunreavers)
+--Wrath Common Factions 2 (Explorer's League/Hand of Vengance)
+--Wrath Common Factions 3 (Explorer's League/Valiance Expedition)
+--Wrath Common Factions 4 (The Frostborn/The Taunka)
+--Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition) 
+
 -------------------------------------------------------------------------------
 -- Acquire types
 -------------------------------------------------------------------------------
 local A_VENDOR, A_QUEST, A_CRAFTED, A_MOB, A_SEASONAL, A_REPUTATION, A_WORLD_DROP, A_CUSTOM, A_ACHIEVEMENT = 1, 2, 3, 4, 5, 6, 7, 8, 9
-
--------------------------------------------------------------------------------
--- Reputation Acquire Flags
--------------------------------------------------------------------------------
-local R_WINTERSPRING = 589
 
 -------------------------------------------------------------------------------
 -- Reputation Levels
@@ -148,27 +157,27 @@ function addon:GetMiniPetTotal(PetDB)
 --PLAYERMADE
 	-- Mechanical Squirrel Box - 4055
 	AddPet(4055, 4401, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 4055, F_ALLIANCE, F_HORDE, F_BOE)
+	self:AddCompanionFlags(PetDB, 4055, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOE)
 	self:AddCompanionAcquire(PetDB, 4055, A_CRAFTED, 4036, 3928)
 
 	-- Pet Bombling - 15048
 	AddPet(15048, 11825, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 15048, F_ALLIANCE, F_HORDE, F_BOP, F_ENG)
+	self:AddCompanionFlags(PetDB, 15048, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP, F_ENG)
 	self:AddCompanionAcquire(PetDB, 15048, A_CRAFTED, 4036, 15628)
 
 	-- Lil' Smoky - 15049
 	AddPet(15049, 11826, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 15049, F_ALLIANCE, F_HORDE, F_BOP, F_ENG)
+	self:AddCompanionFlags(PetDB, 15049, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP, F_ENG)
 	self:AddCompanionAcquire(PetDB, 15049, A_CRAFTED, 4036, 15633)
 
 	-- Lifelike Mechanical Toad - 19772
 	AddPet(19772, 15996, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 19772, F_ALLIANCE, F_HORDE, F_BOE)
+	self:AddCompanionFlags(PetDB, 19772, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOE)
 	self:AddCompanionAcquire(PetDB, 19772, A_CRAFTED, 4036, 19793)
 
 	-- Tranquil Mechanical Yeti - 26010
 	AddPet(26010, 21277, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 26010, F_ALLIANCE, F_HORDE, F_UNUSED, F_BOE)
+	self:AddCompanionFlags(PetDB, 26010, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOE)
 	self:AddCompanionAcquire(PetDB, 26010, A_CRAFTED, 4036, 26011)
 
 --WORLD EVENT DROP
@@ -209,7 +218,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Clockwork Rocket Bot - 54187
 	AddPet(54187, 34425, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_REMOVED) -- spec_event 2007 only
+	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(PetDB, 54187, A_SEASONAL, 1)
 
 	-- Spring Rabbit - 61725
@@ -241,7 +250,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Cat Carrier (Black Tabby) - 10675
 	AddPet(10675, 8491, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 10675, A_QUEST, 10, F_BOE)
+	self:AddCompanionFlags(PetDB, 10675, F_QUEST, F_MOB_DROP, F_BOE)
 	self:AddCompanionAcquire(PetDB, 10675, A_MOB, 1920, A_MOB, 2271, A_MOB, 2272, A_MOB, 2358)
 
 	-- Cat Carrier (Siamese) - 10677
@@ -466,57 +475,41 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 63712, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 63712, A_VENDOR, 33554)
 
-	-- Shimmering Wyrmling -- 66096
-	AddPet(66096, 46821, R_UNCOMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 66096, F_HORDE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, EXALTED, 34881, A_REPUTATION, 1124, EXALTED, 34772)
---[[
-	-- Shimmering Wyrmling -- 66096
-	AddPet(66096, 46820, R_UNCOMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 66096, F_ALLIANCE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, EXALTED, 34881, A_REPUTATION, 1124, EXALTED, 34772)
-]]--
-
 --REP VENDOR NEUTRAL
 	-- Tiny Sporebat - 45082
 	AddPet(45082, 34478, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 45082, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 58)
+	self:AddCompanionFlags(PetDB, 45082, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_SPOREGGAR)
 	self:AddCompanionAcquire(PetDB, 45082, A_REPUTATION, 970, EXALTED, 18382)
 
 	-- Nether Ray Fry - 51716
 	AddPet(51716, 38628, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 51716, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 90)
+	self:AddCompanionFlags(PetDB, 51716, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_SKYGUARD)
 	self:AddCompanionAcquire(PetDB, 51716, A_REPUTATION, 1031, EXALTED, 23367)
 
 	-- Tickbird Hatchling -- 61348
 	AddPet(61348, 39896, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61348, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 77)
+	self:AddCompanionFlags(PetDB, 61348, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ORACLES)
 	self:AddCompanionAcquire(PetDB, 61348, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
 
 	-- White Tickbird Hatchling -- 61349
 	AddPet(61349, 39899, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61349, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 77)
+	self:AddCompanionFlags(PetDB, 61349, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ORACLES)
 	self:AddCompanionAcquire(PetDB, 61349, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
 
 	-- Proto-Drake Whelp -- 61350
 	AddPet(61350, 44721, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61350, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 77)
+	self:AddCompanionFlags(PetDB, 61350, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ORACLES)
 	self:AddCompanionAcquire(PetDB, 61350, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
 
 	-- Cobra Hatchling -- 61351
 	AddPet(61351, 39898, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61351, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 77)
+	self:AddCompanionFlags(PetDB, 61351, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_ORACLES)
 	self:AddCompanionAcquire(PetDB, 61351, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
 
 	-- Nurtured Penguin Egg - 61357
 	AddPet(61357, 44723, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61357, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, 65)
+	self:AddCompanionFlags(PetDB, 61357, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_KALUAK)
 	self:AddCompanionAcquire(PetDB, 61357, A_REPUTATION, 1073, EXALTED, 31916, A_REPUTATION, 1073, EXALTED, 32763)
-
-	-- Penguin Egg - 58636
-	--AddPet(58636, 43517, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(PetDB, 58636, F_ALLIANCE, F_HORDE, F_BOP, 
-	--self:AddCompanionAcquire(PetDB, 
 
 --VENDOR NEUTRAL
 	-- Parrot Cage (Cockatiel) - 10680
@@ -692,7 +685,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 61855, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 61855, A_CUSTOM, 15)
 
-	-- Murkimus
+	-- Murkimus - 63318
 	AddPet(63318, 45180, R_UNCOMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 63318, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_PVP, F_BOA)
 	self:AddCompanionAcquire(PetDB, 63318, A_CUSTOM, 21)
@@ -832,16 +825,25 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 68810, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 68810, A_CUSTOM, 1)
 
---NEW ONES - just to remember them...
---Pandaren Monk
---Lil' K.T.
---Zipao Tiger
---Core Hound Pup
---Wind Rider Cub
---Gryphon Hatchling
+	-- We only add the faction specific pets if the user is part of that faction
+	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+	local _,faction = UnitFactionGroup("player")
 
---Blood Parrot - hat (F_REMOVED as normal companion)
---Coyote Spirit - hat (F_REMOVED as normal companion)
+	if (faction == BFAC["Alliance"]) then
+
+		-- Shimmering Wyrmling -- 66096
+		AddPet(66096, 46820, R_UNCOMMON, GAME_WOTLK)
+		self:AddCompanionFlags(PetDB, 66096, F_ALLIANCE, F_VENDOR, F_BOE, WRATHCOMMON1)
+		self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, EXALTED, 34881)
+
+	elseif (faction == BFAC["Horde"]) then
+
+		-- Shimmering Wyrmling -- 66096
+		AddPet(66096, 46821, R_UNCOMMON, GAME_WOTLK)
+		self:AddCompanionFlags(PetDB, 66096, F_HORDE, F_VENDOR, F_BOE, WRATHCOMMON1)
+		self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1124, EXALTED, 34772)
+
+	end
 
 	return num_pets
 
