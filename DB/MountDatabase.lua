@@ -1375,10 +1375,10 @@ function addon:GetMountTotal(DB)
 
 	elseif (faction == BFAC["Horde"]) then
 
-		 -- Mechano-Hog - 60866
-		AddMount(60866, 41508, R_EPIC, GAME_WOTLK)
-		self:AddCompanionFlags(DB, 60866, F_HORDE, F_BOE, F_CRAFT)
-		self:AddCompanionAcquire(DB, 60866, A_CRAFTED, 4036, 41508)
+		 -- Mechano-Hog - 55531
+		AddMount(55531, 41508, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 55531, F_HORDE, F_BOE, F_CRAFT)
+		self:AddCompanionAcquire(DB, 55531, A_CRAFTED, 4036, 60866)
 
 	end
 
