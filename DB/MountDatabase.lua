@@ -165,30 +165,30 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionFlags(DB, 44153, F_ALLIANCE, F_HORDE, F_BOE, F_ENG, F_CRAFT)
 	self:AddCompanionAcquire(DB, 44153, A_CRAFTED, 4036, 44155)
 
-	-- Flying Carpet - 60969
-	AddMount(60969, 44554, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60969, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 60969, A_CRAFTED, 
+	-- Flying Carpet - 61451
+	AddMount(61451, 44554, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 61451, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
+	self:AddCompanionAcquire(DB, 61451, A_CRAFTED, 3908, 60969)
 
-	 -- Magnificent Flying Carpet - 60971
-	AddMount(60971, 44558, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60971, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 60971, A_CRAFTED, 
+	 -- Magnificent Flying Carpet - 61309
+	AddMount(61309, 44558, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 61309, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
+	self:AddCompanionAcquire(DB, 61309, A_CRAFTED, 3908, 60971)
 
-	 -- Swift Mooncloth Carpet - 60974
-	AddMount(60974, 44555, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60974, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 60974, A_CRAFTED, 
+	 -- Swift Mooncloth Carpet - 61442
+	AddMount(61442, 44555, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 61442, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
+	self:AddCompanionAcquire(DB, 61442, A_CRAFTED, 3908, 60974)
 
 	 -- Swift Spellfire Carpet - 60976
-	AddMount(60976, 44556, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60976, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 60976, A_CRAFTED, 
+	AddMount(61446, 44556, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 61446, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
+	self:AddCompanionAcquire(DB, 61446, A_CRAFTED, 3908, 60976)
 
 	 -- Swift Ebonweave Carpet - 60975
-	AddMount(60975, 44557, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60975, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 60975, A_CRAFTED, 
+	AddMount(61444, 44557, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 61444, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
+	self:AddCompanionAcquire(DB, 61444, A_CRAFTED, 3908, 60975)
 
 --PVP VENDOR
 	-- Horn of the Frostwolf Howler - 23509
