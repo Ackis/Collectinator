@@ -148,27 +148,27 @@ function addon:GetMiniPetTotal(PetDB)
 --PLAYERMADE
 	-- Mechanical Squirrel Box - 4055
 	AddPet(4055, 4401, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 4055, F_ALLIANCE, F_HORDE, F_BOE)
+	self:AddCompanionFlags(PetDB, 4055, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOE)
 	self:AddCompanionAcquire(PetDB, 4055, A_CRAFTED, 4036, 3928)
 
 	-- Pet Bombling - 15048
 	AddPet(15048, 11825, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 15048, F_ALLIANCE, F_HORDE, F_BOP, F_ENG)
+	self:AddCompanionFlags(PetDB, 15048, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP, F_ENG)
 	self:AddCompanionAcquire(PetDB, 15048, A_CRAFTED, 4036, 15628)
 
 	-- Lil' Smoky - 15049
 	AddPet(15049, 11826, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 15049, F_ALLIANCE, F_HORDE, F_BOP, F_ENG)
+	self:AddCompanionFlags(PetDB, 15049, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP, F_ENG)
 	self:AddCompanionAcquire(PetDB, 15049, A_CRAFTED, 4036, 15633)
 
 	-- Lifelike Mechanical Toad - 19772
 	AddPet(19772, 15996, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 19772, F_ALLIANCE, F_HORDE, F_BOE)
+	self:AddCompanionFlags(PetDB, 19772, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOE)
 	self:AddCompanionAcquire(PetDB, 19772, A_CRAFTED, 4036, 19793)
 
 	-- Tranquil Mechanical Yeti - 26010
 	AddPet(26010, 21277, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 26010, F_ALLIANCE, F_HORDE, F_UNUSED, F_BOE)
+	self:AddCompanionFlags(PetDB, 26010, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOE)
 	self:AddCompanionAcquire(PetDB, 26010, A_CRAFTED, 4036, 26011)
 
 --WORLD EVENT DROP
