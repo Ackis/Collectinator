@@ -19,7 +19,7 @@ local BZONE	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 function addon:InitCustom(CustomDB)
 
 	self:addLookupList(CustomDB, 1, "TCG", BZONE["Booty Bay"])
-	self:addLookupList(CustomDB, 2, "Chicken Egg", BZONE["Westfall"])
+	self:addLookupList(CustomDB, 2, "Chicken Egg")
 	self:addLookupList(CustomDB, 3, "Learned from Oozing Bag, dropped by level 50 to 57 ooze & slime mobs", "Various Zones")
 	self:addLookupList(CustomDB, 4, "Promotional pet: BlizzCon 2005") -- Blue Murloc
 	self:addLookupList(CustomDB, 5, "Burning Crusade Collector's Edition (EU).")
