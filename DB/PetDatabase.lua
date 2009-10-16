@@ -332,8 +332,8 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Chicken Egg - 13548
 	AddPet(13548, 11110, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 13548, F_ALLIANCE, F_HORDE, F_BOP)
-	self:AddCompanionAcquire(PetDB, 13548, A_CUSTOM, 2)
+	self:AddCompanionFlags(PetDB, 13548, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
+	self:AddCompanionAcquire(PetDB, 13548, A_QUEST, 3861, A_CUSTOM, 2)
 
 	-- Sprite Darter Egg - 15067
 	AddPet(15067, 11474, R_COMMON, GAME_ORIG)
