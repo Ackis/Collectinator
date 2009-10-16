@@ -578,6 +578,10 @@ do
 				["ID"] = acquire_id
 			}
 
+			if not acquire_type then
+				self:Print("SpellID: "..SpellID.." has no acquire type.")
+			end
+
 			if acquire_type == A_CRAFTED then
 				local crafted_by = select(i, ...)
 				i = i + 1
@@ -712,7 +716,7 @@ do
 		end
 
 		--@alpha@
-		if not Loc then
+		if not Loc and DB ~= ReputationList and DB ~= CustomList and DB ~= SeasonalList then
 			self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")
 		end
 		--@end-alpha@
