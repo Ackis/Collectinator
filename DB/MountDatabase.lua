@@ -53,6 +53,20 @@ local F_PVP1, F_PVP2, F_PVP3 = 66, 67, 68
 local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALUAK, F_ORACLES, F_WYRMREST = 71, 72, 73, 74, 75, 76, 77, 78
 local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 79, 80, 81, 82, 83
 
+-- City 1 Darnassus/Darkspear
+-- City 2 Stormwind/Orgrimmar
+-- City 3 Gnomerga/Thunder Bluff
+-- City 4 Ironforge/Undercity
+-- City 5 Exodar/Silvermoon 
+-- PVP 1 WSG
+-- PVP 2 AV
+-- PVP 3 AB 
+--Wrath Common Factions 1 (The Silver Convenant/The Sunreavers)
+--Wrath Common Factions 2 (Explorer's League/Hand of Vengance)
+--Wrath Common Factions 3 (Explorer's League/Valiance Expedition)
+--Wrath Common Factions 4 (The Frostborn/The Taunka)
+--Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition) 
+
 -------------------------------------------------------------------------------
 -- Acquire types
 -------------------------------------------------------------------------------
