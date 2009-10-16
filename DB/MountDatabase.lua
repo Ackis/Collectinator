@@ -158,37 +158,37 @@ function addon:GetMountTotal(DB)
 	 -- Turbo-Charged Flying Machine Control - 44151
 	AddMount(44151, 34061, R_EPIC, GAME_BC)
 	self:AddCompanionFlags(DB, 44151, F_ALLIANCE, F_HORDE, F_BOP, F_ENG, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 44151, 
+	self:AddCompanionAcquire(DB, 44151, A_CRAFTED, 4036, 41157)
 
-	 -- Flying Machine Control - 44155
-	AddMount(44155, 34060, R_RARE, GAME_BC)
-	self:AddCompanionFlags(DB, 44155, F_ALLIANCE, F_HORDE, F_BOE, F_ENG, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 44155,
+	 -- Flying Machine Control - 44153
+	AddMount(44153, 34060, R_RARE, GAME_BC)
+	self:AddCompanionFlags(DB, 44153, F_ALLIANCE, F_HORDE, F_BOE, F_ENG, F_CRAFT)
+	self:AddCompanionAcquire(DB, 44153, A_CRAFTED, 4036, 44155)
 
 	-- Flying Carpet - 60969
 	AddMount(60969, 44554, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(DB, 60969, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 60969,
+	--self:AddCompanionAcquire(DB, 60969, A_CRAFTED, 
 
 	 -- Magnificent Flying Carpet - 60971
 	AddMount(60971, 44558, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(DB, 60971, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 60971,
+	--self:AddCompanionAcquire(DB, 60971, A_CRAFTED, 
 
 	 -- Swift Mooncloth Carpet - 60974
 	AddMount(60974, 44555, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(DB, 60974, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 60974,
+	--self:AddCompanionAcquire(DB, 60974, A_CRAFTED, 
 
 	 -- Swift Spellfire Carpet - 60976
 	AddMount(60976, 44556, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(DB, 60976, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 60976,
+	--self:AddCompanionAcquire(DB, 60976, A_CRAFTED, 
 
 	 -- Swift Ebonweave Carpet - 60975
 	AddMount(60975, 44557, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(DB, 60975, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 60975,
+	--self:AddCompanionAcquire(DB, 60975, A_CRAFTED, 
 
 --PVP VENDOR
 	-- Horn of the Frostwolf Howler - 23509
