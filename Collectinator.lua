@@ -632,7 +632,7 @@ do
 					--@end-alpha@
 				elseif not VendorList[acquire_id] then
 					--@alpha@
-					self:Print("SpellID "..SpellID..": Vendor ID "..acquire_id.." does not exist in the database.")
+					self:Print("SpellID "..SpellID..": VendorID "..acquire_id.." does not exist in the database.")
 					--@end-alpha@
 				else
 					location = VendorList[acquire_id]["Location"]
@@ -648,6 +648,24 @@ do
 
 				acquire[index]["RepLevel"] = RepLevel
 				acquire[index]["RepVendor"] = RepVendor
+
+				--@alpha@
+				if not acquire_id then
+					--@alpha@
+					self:Print("SpellID "..SpellID..": ReputationID is nil.")
+					--@end-alpha@
+				elseif not ReputationList[acquire_id] then
+					--@alpha@
+					self:Print("SpellID "..SpellID..": ReputationID "..acquire_id.." does not exist in the database.")
+					--@end-alpha@
+				end
+
+				if not RepVendor then
+					self:Print("SpellID "..SpellID..": Reputation VendorID is nil.")
+				elseif not VendorList[RepVendor] then
+					self:Print("SpellID "..SpellID..": Reputation VendorID "..RepVendor.." does not exist in the database.")
+				end
+				--@end-alpha@
 			end
 			index = index + 1
 		end
