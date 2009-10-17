@@ -125,7 +125,7 @@ local playerData
 
 local sortedCollectibleIndex
 
-local seasonal = GetCategoryInfo(155)
+local SEASONAL_CATEGORY = GetCategoryInfo(155)
 
 -------------------------------------------------------------------------------
 -- Fonts
