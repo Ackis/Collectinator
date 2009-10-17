@@ -1369,25 +1369,17 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionFlags(DB, 65917, F_ALLIANCE, F_HORDE, F_TCG)
 	self:AddCompanionAcquire(DB, 65917, A_CUSTOM, 1)
 
-	-- We only add the faction specific pets if the user is part of that faction
-	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-	local _,faction = UnitFactionGroup("player")
+	-- Mekgineer's Chopper - 60424
+	AddMount(60424, 44413, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 60424, F_ALLIANCE, F_BOE, F_CRAFT)
+	self:AddCompanionAcquire(DB, 60424, A_CRAFTED, 4036, 60867)
 
-	if (faction == BFAC["Alliance"]) then
 
-		 -- Mekgineer's Chopper - 60424
-		AddMount(60424, 44413, R_EPIC, GAME_WOTLK)
-		self:AddCompanionFlags(DB, 60424, F_ALLIANCE, F_BOE, F_CRAFT)
-		self:AddCompanionAcquire(DB, 60424, A_CRAFTED, 4036, 60867)
+	-- Mechano-Hog - 55531
+	AddMount(55531, 41508, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 55531, F_HORDE, F_BOE, F_CRAFT)
+	self:AddCompanionAcquire(DB, 55531, A_CRAFTED, 4036, 60866)
 
-	elseif (faction == BFAC["Horde"]) then
-
-		 -- Mechano-Hog - 55531
-		AddMount(55531, 41508, R_EPIC, GAME_WOTLK)
-		self:AddCompanionFlags(DB, 55531, F_HORDE, F_BOE, F_CRAFT)
-		self:AddCompanionAcquire(DB, 55531, A_CRAFTED, 4036, 60866)
-
-	end
 
 	return num_mounts
 end
