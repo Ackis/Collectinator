@@ -1828,7 +1828,7 @@ local function expandEntry(dsIndex)
 				dsIndex = dsIndex + 1
 			end
 		elseif acquire_type == A_SEASONAL and obtainDB.seasonal then
-			t.String = pad .. addon:Season(seasonal .. " : " .. seasonDB[v["ID"]]["Name"])
+			t.String = pad .. addon:Season(SEASONAL_CATEGORY .. " : " .. seasonDB[v["ID"]]["Name"])
 			tinsert(DisplayStrings, dsIndex, t)
 			dsIndex = dsIndex + 1
 		elseif acquire_type == A_REPUTATION then -- Need to check if we're displaying the currently id'd rep or not as well
@@ -3150,7 +3150,7 @@ local function InitializeFrame()
 
 	local Collectinator_SeasonalCB = CreateFrame("CheckButton", "Collectinator_SeasonalCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_SeasonalCB, addon.Fly_Obtain, L["SEASONAL_DESC"], "seasonal", 4, 1, 0)
-	Collectinator_SeasonalCBText:SetText(seasonal)
+	Collectinator_SeasonalCBText:SetText(SEASONAL_CATEGORY)
 
 	local Collectinator_EventCB = CreateFrame("CheckButton", "Collectinator_EventCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_EventCB, addon.Fly_Obtain, L["EVENT_DESC"], "event", 5, 1, 0)
