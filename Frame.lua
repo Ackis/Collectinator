@@ -638,7 +638,8 @@ end
 local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local spell_tip_loc = addon.db.profile.spelltooltiplocation
 	local acquire_tip_loc = addon.db.profile.acquiretooltiplocation
-	local spellLink = collectibleDB[rIndex]["CollectibleLink"]
+	local companion = collectibleDB[rIndex]
+	local spellLink = companion["CollectibleLink"]
 
 	if acquire_tip_loc == L["Off"] then
 		QTip:Release(CollectinatorTooltip)
@@ -679,12 +680,13 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 
 	CollectinatorTooltip:Clear()
 	CollectinatorTooltip:AddHeader()
-	CollectinatorTooltip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..collectibleDB[rIndex]["Name"], "CENTER", 2)
+	CollectinatorTooltip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..companion["Name"], "CENTER", 2)
 
 	-- check if the collectible is excluded
 	if exclude[rIndex] then
 		ttAdd(0, -1, 1, L["COLLECTIBLE_EXCLUDED"], addon:hexcolor("RED"))
 	end
+	local flags = companion["Flags"]
 
 	-- Add in skill level requirement, colored correctly
 	clr1 = addon:hexcolor("NORMAL")
@@ -693,15 +695,15 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	-- Binding info
 	clr1 = addon:hexcolor("NORMAL")
 
-	if (collectibleDB[rIndex]["Flags"][F_BOE]) then
+	if flags[F_BOE] then
 		ttAdd(0, -1, 1, L["BOEFilter"], clr1)
 	end
 
-	if (collectibleDB[rIndex]["Flags"][F_BOP]) then
+	if flags[F_BOP] then
 		ttAdd(0, -1, 1, L["BOPFilter"], clr1)
 	end
 
-	if (collectibleDB[rIndex]["Flags"][F_BOA]) then
+	if flags[F_BOA] then
 		ttAdd(0, -1, 1, L["BOAFilter"], clr1)
 	end
 	CollectinatorTooltip:AddSeparator()
@@ -710,7 +712,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local factiondisp = addon.db.profile.filters.general.faction
 	local acquire_type
 
-	for k, v in pairs(collectibleDB[rIndex]["Acquire"]) do
+	for k, v in pairs(companion["Acquire"]) do
 		acquire_type = v["Type"]
 
 		if acquire_type == A_VENDOR then
@@ -830,10 +832,8 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				end
 			end
 		elseif acquire_type == A_SEASONAL then
-			local ssnname = seasonDB[v["ID"]]["Name"]
-
 			clr1 = addon:hexcolor("SEASON")
-			ttAdd(0, -1, 0, seasonal, clr1, ssnname, clr1)
+			ttAdd(0, -1, 0, SEASONAL_CATEGORY, clr1, seasonDB[v["ID"]]["Name"], clr1)
 		elseif acquire_type == A_REPUTATION then
 			local rep_vendor = vendorDB[v["RepVendor"]]
 			local cStr = ""
