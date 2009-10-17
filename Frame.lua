@@ -545,7 +545,8 @@ local function initDisplayStrings()
 			if exclude[collectibleIndex] then
 				recStr = "** " .. collectibleEntry["Name"] .. " **"
 			else
-				recStr = collectibleEntry["Name"]
+				local _, _, _, hex = GetItemQualityColor(collectibleEntry["Rarity"])
+				recStr = hex..collectibleEntry["Name"].."|r"
 			end
 			local hasFaction = checkFactions(collectibleDB, collectibleIndex, playerData.playerFaction, playerData["Reputation"])
 			local str = AcquireTable()
