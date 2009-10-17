@@ -121,8 +121,8 @@ function addon:GetMiniPetTotal(PetDB)
 --FISHING
 	-- Magical Crawdad Box - 33050
 	AddPet(33050, 27445, R_COMMON, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 33050, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOP, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 33050, A_CUSTOM, 9)
+	self:AddCompanionFlags(PetDB, 33050, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_WORLD_DROP, F_BOP, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 33050, A_ACHIEVEMENT, 726, A_CUSTOM, 9)
 
 	-- Toothy's Bucket - 43697
 	AddPet(43697, 33816, R_RARE, GAME_TBC)
@@ -218,8 +218,8 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Clockwork Rocket Bot - 54187
 	AddPet(54187, 34425, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(PetDB, 54187, A_SEASONAL, 1)
+	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SEASONAL, F_BOP, F_REMOVED)
+	self:AddCompanionAcquire(PetDB, 54187, A_ACHIEVEMENT, 1705)
 
 	-- Spring Rabbit - 61725
 	AddPet(61725, 44794, R_COMMON, GAME_WOTLK)
@@ -682,13 +682,13 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Baby Blizzard Bear - 61855
 	AddPet(61855, 44819, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61855, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
-	self:AddCompanionAcquire(PetDB, 61855, A_CUSTOM, 15)
+	self:AddCompanionFlags(PetDB, 61855, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SPEC_EVENT, F_REMOVED, F_BOA)
+	self:AddCompanionAcquire(PetDB, 61855, A_ACHIEVEMENT, 2398)
 
-	-- Murkimus - 63318
+	-- Murkimus' Little Spear - 63318
 	AddPet(63318, 45180, R_UNCOMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 63318, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_PVP, F_BOA)
-	self:AddCompanionAcquire(PetDB, 63318, A_CUSTOM, 21)
+	self:AddCompanionFlags(PetDB, 63318, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SPEC_EVENT, F_REMOVED, F_PVP, F_BOA)
+	self:AddCompanionAcquire(PetDB, 63318, A_ACHIEVEMENT, 3618, A_CUSTOM, 21)
 
 	-- Onyxian Whelpling - 69002
 	AddPet(69002, nil, R_EPIC, GAME_WOTLK)
