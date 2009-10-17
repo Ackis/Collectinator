@@ -1039,7 +1039,7 @@ do
 			return true
 		end
 
-		if obtain_db.achievement and flags[F_REMOVED] then
+		if obtain_db.removed and flags[F_REMOVED] then
 			return true
 		end
 
