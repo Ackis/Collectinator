@@ -163,48 +163,38 @@ function addon:GetMountTotal(DB)
 -- PLAYERMADE
 	 -- Turbo-Charged Flying Machine Control - 44151
 	AddMount(44151, 34061, R_EPIC, GAME_BC)
-	self:AddCompanionFlags(DB, 44151, F_ALLIANCE, F_HORDE, F_BOP, F_ENG, F_CRAFTED)
-	--self:AddCompanionAcquire(DB, 44151, 
+	self:AddCompanionFlags(DB, 44151, F_ALLIANCE, F_HORDE, F_BOP, F_ENG, F_CRAFT)
+	self:AddCompanionAcquire(DB, 44151, A_CRAFTED, 4036, 41157)
 
-	 -- Flying Machine Control - 44155
-	AddMount(44155, 34060, R_RARE, GAME_BC)
-	self:AddCompanionFlags(DB, 44155, F_ALLIANCE, F_HORDE, F_BOE, F_ENG, F_CRAFTED)
-	--self:AddCompanionAcquire(DB, 44155,
+	 -- Flying Machine Control - 44153
+	AddMount(44153, 34060, R_RARE, GAME_BC)
+	self:AddCompanionFlags(DB, 44153, F_ALLIANCE, F_HORDE, F_BOE, F_ENG, F_CRAFT)
+	self:AddCompanionAcquire(DB, 44153, A_CRAFTED, 4036, 44155)
 
-	 -- Mekgineer's Chopper - 60867
-	AddMount(60867, 44413, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60867, F_ALLIANCE, F_BOE, F_CRAFTED)
-	--self:AddCompanionAcquire(DB, 60867,
+	-- Flying Carpet - 61451
+	AddMount(61451, 44554, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 61451, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
+	self:AddCompanionAcquire(DB, 61451, A_CRAFTED, 3908, 60969)
 
-	 -- Mechano-Hog - 60866
-	AddMount(60866, 41508, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60866, F_HORDE, F_BOE, F_CRAFTED)
-	--self:AddCompanionAcquire(DB, 60866,
+	 -- Magnificent Flying Carpet - 61309
+	AddMount(61309, 44558, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 61309, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
+	self:AddCompanionAcquire(DB, 61309, A_CRAFTED, 3908, 60971)
 
-	-- Flying Carpet - 60969
-	AddMount(60969, 44554, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60969, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFTED)
-	--self:AddCompanionAcquire(DB, 60969,
-
-	 -- Magnificent Flying Carpet - 60971
-	AddMount(60971, 44558, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60971, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFTED)
-	--self:AddCompanionAcquire(DB, 60971,
-
-	 -- Swift Mooncloth Carpet - 60974
-	AddMount(60974, 44555, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60974, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFTED)
-	--self:AddCompanionAcquire(DB, 60974,
+	 -- Swift Mooncloth Carpet - 61442
+	AddMount(61442, 44555, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 61442, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
+	self:AddCompanionAcquire(DB, 61442, A_CRAFTED, 3908, 60974)
 
 	 -- Swift Spellfire Carpet - 60976
-	AddMount(60976, 44556, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60976, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFTED)
-	--self:AddCompanionAcquire(DB, 60976,
+	AddMount(61446, 44556, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 61446, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
+	self:AddCompanionAcquire(DB, 61446, A_CRAFTED, 3908, 60976)
 
 	 -- Swift Ebonweave Carpet - 60975
-	AddMount(60975, 44557, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 60975, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFTED)
-	--self:AddCompanionAcquire(DB, 60975,
+	AddMount(61444, 44557, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 61444, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
+	self:AddCompanionAcquire(DB, 61444, A_CRAFTED, 3908, 60975)
 
 --PVP VENDOR
 --	if MY_FACTION == FACTION_HORDE then
@@ -1379,6 +1369,25 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionFlags(DB, 65917, F_ALLIANCE, F_HORDE, F_TCG)
 	self:AddCompanionAcquire(DB, 65917, A_CUSTOM, 1)
 
-	return num_mounts
+	-- We only add the faction specific pets if the user is part of that faction
+	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+	local _,faction = UnitFactionGroup("player")
 
+	if (faction == BFAC["Alliance"]) then
+
+		 -- Mekgineer's Chopper - 60424
+		AddMount(60424, 44413, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 60424, F_ALLIANCE, F_BOE, F_CRAFT)
+		self:AddCompanionAcquire(DB, 60424, A_CRAFTED, 4036, 60867)
+
+	elseif (faction == BFAC["Horde"]) then
+
+		 -- Mechano-Hog - 55531
+		AddMount(55531, 41508, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 55531, F_HORDE, F_BOE, F_CRAFT)
+		self:AddCompanionAcquire(DB, 55531, A_CRAFTED, 4036, 60866)
+
+	end
+
+	return num_mounts
 end
