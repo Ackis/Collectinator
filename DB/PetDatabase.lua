@@ -362,7 +362,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- A Jubling's Tiny Home - 23811
 	AddPet(23811, 19450, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 23811, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
-	self:AddCompanionAcquire(PetDB, 23811, 7, 3)
+	self:AddCompanionAcquire(PetDB, 23811, A_QUEST, 7946, A_SEASONAL, 3)
 
 	-- Miniwing - 39181
 	AddPet(39181, 31760, R_COMMON, GAME_TBC)
