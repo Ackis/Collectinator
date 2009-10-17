@@ -1223,10 +1223,10 @@ do
 				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
 				local reca = DB[a]["Locations"] or ""
 				local recb = DB[b]["Locations"] or ""
-				reca = smatch(reca,"(%w+),") or ""
-				recb = smatch(recb,"(%w+),") or ""
+				reca = string.match(reca,"(%w+),") or ""
+				recb = string.match(recb,"(%w+),") or ""
 
-				if (reca == recb) then
+				if reca == recb then
 					return DB[a]["Name"] < DB[b]["Name"]
 				else
 					return (reca < recb)
