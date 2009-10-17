@@ -203,8 +203,8 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Truesilver Shafted Arrow - 27570
 	AddPet(27570, 22235, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 27570, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
-	self:AddCompanionAcquire(PetDB, 26541, A_SEASONAL, 5)
+	self:AddCompanionFlags(PetDB, 27570, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(PetDB, 27570, A_ACHIEVEMENT, 1700, A_SEASONAL, 5)
 
 	-- Sinister Squashling - 42609
 	AddPet(42609, 33154, R_RARE, GAME_TBC)
