@@ -48,11 +48,6 @@ function addon:InitQuest(DB)
 	self:addLookupList(DB,	11665,	L["Crocolisks in the City"],			BZ["Terokkar Forest"],		38.7,	12.8,	0)
 	self:addLookupList(DB,	13959,	L["Back to the Orphanage"],			BZ["Dalaran"],			49.5,	62.3,	0)
 	self:addLookupList(DB,	13960,	L["Back to the Orphanage"],			BZ["Dalaran"],			49.5,	62.3,	0)
-	self:addLookupList(DB,	13830,	L["The Ghostfish"],				BZ["Dalaran"],			52.8,	64.9,	0)
-	self:addLookupList(DB,	13832,	L["Jewel Of The Sewers"],			BZ["Dalaran"],			52.8,	64.9,	0)
-	self:addLookupList(DB,	13833,	L["Blood Is Thicker"],				BZ["Dalaran"],			52.8,	64.9,	0)
-	self:addLookupList(DB,	13834,	L["Dangerously Delicious"],			BZ["Dalaran"],			52.8,	64.9,	0)
-	self:addLookupList(DB,	13836,	L["Monsterbelly Appetite"],			BZ["Dalaran"],			52.8,	64.9,	0)
 	self:addLookupList(DB,	13736,	L["A Champion Rises"],				BZ["Icecrown"],			76.5,	24.5,	2)
 	self:addLookupList(DB,	13737,	L["A Champion Rises"],				BZ["Icecrown"],			76.0,	24.5,	2)
 	self:addLookupList(DB,	13738,	L["A Champion Rises"],				BZ["Icecrown"],			76.2,	24.6,	2)
@@ -64,19 +59,26 @@ function addon:InitQuest(DB)
 	self:addLookupList(DB,	13734,	L["A Champion Rises"],				BZ["Icecrown"],			76.1,	19.2,	1)
 	self:addLookupList(DB,	13735,	L["A Champion Rises"],				BZ["Icecrown"],			76.3,	19.1,	1)
 
---Class
+	--Class
 	self:addLookupList(DB,	7631,	L["Dreadsteed of Xoroth"],			BZ["Burning Steppes"],		12.6,	31.6,	0)
 	self:addLookupList(DB,	7647,	L["Judgment and Redemption"],			BZ["Stormwind City"],		48.5,	50.1,	1)
 	self:addLookupList(DB,	9737,	L["True Masters of the Light"],			BZ["Silvermoon City"],		91.8,	37.5,	2)
 	self:addLookupList(DB,	12687,	L["Into the Realm of Shadows"],			BZ["The Scarlet Enclave"],	51.9,	35.5,	0)
 
---Hyldnir Spoils
+	-- Bag of Fishing Treasures
+	self:addLookupList(DB,	13830,	L["The Ghostfish"],				BZ["Dalaran"],			52.8,	64.9,	0)
+	self:addLookupList(DB,	13832,	L["Jewel Of The Sewers"],			BZ["Dalaran"],			52.8,	64.9,	0)
+	self:addLookupList(DB,	13833,	L["Blood Is Thicker"],				BZ["Dalaran"],			52.8,	64.9,	0)
+	self:addLookupList(DB,	13834,	L["Dangerously Delicious"],			BZ["Dalaran"],			52.8,	64.9,	0)
+	self:addLookupList(DB,	13836,	L["Monsterbelly Appetite"],			BZ["Dalaran"],			52.8,	64.9,	0)
+
+	--Hyldnir Spoils
 	self:addLookupList(DB,	13422,	L["Maintaining Discipline"],			BZ["The Storm Peaks"],		50.9,	65.6,	0)
 	self:addLookupList(DB,	13423,	L["Defending Your Title"],			BZ["The Storm Peaks"],		50.9,	65.6,	0)
 	self:addLookupList(DB,	13424,	L["Back to the Pit"],				BZ["The Storm Peaks"],		50.9,	65.6,	0)
 	self:addLookupList(DB,	13425,	L["The Aberrations Must Die "],			BZ["The Storm Peaks"],		50.9,	65.6,	0)
 
---Trade Old
+	--Trade Old
 	self:addLookupList(DB,	7660,	L["Wolf Swapping - Arctic Wolf"],		BZ["Orgrimmar"],		69.3,	12.7,	2)
 	self:addLookupList(DB,	7661,	L["Wolf Swapping - Red Wolf"],			BZ["Orgrimmar"],		69.3,	12.7,	2)
 	self:addLookupList(DB,	7662,	L["New Kodo - Teal"],				BZ["Mulgore"],			47.5,	58.5,	2)
