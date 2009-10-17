@@ -593,14 +593,21 @@ do
 				i = i + 1
 
 				acquire[index]["Crafted"] = crafted_by
+				--@alpha@
+			elseif acquire_type == A_SEASONAL then
+				if not acquire_id then
+					self:Print("SpellID "..SpellID..": SeasonalID is nil.")
+				end
+				--@end-alpha@
 			elseif acquire_type == A_ACHIEVEMENT then
 				if not acquire_id then
 					--@alpha@
 					self:Print("SpellID "..SpellID..": AchievementID is nil.")
 					--@end-alpha@
 				else
-					local _, achievement_name = GetAchievementInfo(acquire_id)
+					local _, achievement_name, _, _, _, _, _, achievement_desc = GetAchievementInfo(acquire_id)
 					acquire[index]["Achievement"] = achievement_name
+					acquire[index]["AchievementDesc"] = achievement_desc
 				end
 			elseif acquire_type == A_MOB then
 				if not acquire_id then
