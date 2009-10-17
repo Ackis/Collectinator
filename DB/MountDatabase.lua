@@ -21,8 +21,14 @@ Format:
 
 ]]--
 
-local MODNAME	= "Collectinator"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Collectinator"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local BF		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+
+local FACTION_ALLIANCE	= BF["Alliance"]
+local FACTION_HORDE	= BF["Horde"]
+
+local MY_FACTION	= select(2, UnitFactionGroup("player"))
 
 -------------------------------------------------------------------------------
 -- Item "rarity"
@@ -201,50 +207,53 @@ function addon:GetMountTotal(DB)
 	--self:AddCompanionAcquire(DB, 60975,
 
 --PVP VENDOR
-	-- Horn of the Frostwolf Howler - 23509
-	AddMount(23509, 19029, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB,23509,2,3,16)
-	--self:AddCompanionAcquire(DB,23509,1,13218,1,13219)
+--	if MY_FACTION == FACTION_HORDE then
+		-- Black War Kodo - 22718
+		AddMount(22718, 18247, 1, GAME_ORIG)
+		--self:AddCompanionFlags(DB,22718,16)
+		--self:AddCompanionAcquire(DB,
 
-	-- Stormpike Battle Charger - 23510
-	AddMount(23510, 19030, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB,23510,1,3,16)
-	--self:AddCompanionAcquire(DB,23510,1,13216,1,13217)
+		-- Whistle of the Black War Raptor - 22721
+		AddMount(22721, 18246, 1, GAME_ORIG)
+		--self:AddCompanionFlags(DB,22721,16)
+		--self:AddCompanionAcquire(DB,
 
-	-- Black War Steed Bridle - 22717
-	AddMount(22717, 18241, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB,22717,16)
-	--self:AddCompanionAcquire(DB,
+		-- Red Skeletal Warhorse - 22722
+		AddMount(22722, 18248, R_EPIC, GAME_ORIG)
+		--self:AddCompanionFlags(DB,22722,16)
+		--self:AddCompanionAcquire(DB,
 
-	-- Black War Kodo - 22718
-	AddMount(22718, 18247, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB,22718,16)
-	--self:AddCompanionAcquire(DB,
+		-- Horn of the Black War Wolf - 22724
+		AddMount(22724, 18245, 1, GAME_ORIG)
+		--self:AddCompanionFlags(DB,22724,16)
+		--self:AddCompanionAcquire(DB,
 
-	-- Black Battlestrider - 22719
-	AddMount(22719, 18243, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB,22719,16)
-	--self:AddCompanionAcquire(DB,
+		-- Horn of the Frostwolf Howler - 23509
+		AddMount(23509, 19029, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23509, F_HORDE, F_VENDOR, F_PVP, F_BOP)
+		self:AddCompanionAcquire(DB, 23509, A_VENDOR, 13218, A_VENDOR, 13219)
+--	elseif MY_FACTION == FACTION_ALLIANCE then
+		-- Black War Steed Bridle - 22717
+		AddMount(22717, 29468, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 22717, F_ALLIANCE, F_VENDOR, F_PVP, F_BOP)
+		self:AddCompanionAcquire(DB, 22717, A_VENDOR, 12783)
 
-	-- Black War Ram - 22720
-	AddMount(22720, 18244, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB,22720,16)
-	--self:AddCompanionAcquire(DB,
+		-- Black Battlestrider - 22719
+		AddMount(22719, 29465, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 22719, F_ALLIANCE, F_VENDOR, F_PVP, F_BOP)
+		self:AddCompanionAcquire(DB, 22719, A_VENDOR, 12783)
 
-	-- Whistle of the Black War Raptor - 22721
-	AddMount(22721, 18246, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB,22721,16)
-	--self:AddCompanionAcquire(DB,
+		-- Black War Ram - 22720
+		AddMount(22720, 18244, 1, GAME_ORIG)
+		--self:AddCompanionFlags(DB,22720,16)
+		--self:AddCompanionAcquire(DB,
 
-	-- Horn of the Black War Wolf - 22724
-	AddMount(22724, 18245, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB,22724,16)
-	--self:AddCompanionAcquire(DB,
+		-- Stormpike Battle Charger - 23510
+		AddMount(23510, 19030, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23510, F_ALLIANCE, F_VENDOR, F_PVP, F_BOP)
+		self:AddCompanionAcquire(DB, 23510, A_VENDOR, 13216, A_VENDOR, 13217)
+--	end
 
-	-- Red Skeletal Warhorse - 22722
-	AddMount(22722, 18248, R_EPIC, GAME_ORIG)
-	--self:AddCompanionFlags(DB,22722,16)
-	--self:AddCompanionAcquire(DB,
 
 	-- Reins of the Black War Tiger - 22723
 	AddMount(22723, 18242, 1, GAME_ORIG)
