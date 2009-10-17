@@ -678,10 +678,11 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 		TipTac:AddModifiedTip(CollectinatorTooltip, true)
 	end
 	local clr1, clr2 = "", ""
+	local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
 
 	CollectinatorTooltip:Clear()
 	CollectinatorTooltip:AddHeader()
-	CollectinatorTooltip:SetCell(1, 1, "|cff"..addon:hexcolor("HIGH")..companion["Name"], "CENTER", 2)
+	CollectinatorTooltip:SetCell(1, 1, hex..companion["Name"], "CENTER", 2)
 
 	-- check if the collectible is excluded
 	if exclude[rIndex] then
