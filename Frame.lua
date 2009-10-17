@@ -1718,8 +1718,7 @@ local function expandEntry(dsIndex)
 	-- to expand. Since we are expanding the current entry, the return
 	-- value should be the index of the next button after the expansion
 	-- occurs
-	local filterDB = addon.db.profile.filters
-	local obtainDB = filterDB.obtain
+	local obtainDB = addon.db.profile.filters.obtain
 	local collectibleIndex = DisplayStrings[dsIndex].sID
 	local pad = "  "
 	local acquire_type
