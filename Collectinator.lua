@@ -423,9 +423,15 @@ end
 -------------------------------------------------------------------------------
 -- Event handling functions
 -------------------------------------------------------------------------------
+-- When we learn a new pet, we want to automatically scan the companions and update our saved variables
 function addon:COMPANION_LEARNED()
-	-- When we learn a new pet, we want to automatically scan the companions and update our saved variables
-	self:Scan(false, false)
+	local companion_frame = PetPaperDollFrameCompanionFrame
+
+	if companion_frame:IsVisible() then
+		self:Scan(false, false, companion_frame.mode)
+	else
+		self:Scan(false, true, companion_frame.mode)
+	end
 end
 
 -------------------------------------------------------------------------------
