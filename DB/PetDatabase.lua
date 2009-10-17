@@ -146,15 +146,15 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Giant Sewer Rat - 59250
 	AddPet(59250, 43698, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 59250, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOP, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 59250, 7, A_QUEST, A_CUSTOM, 17)
+	self:AddCompanionFlags(PetDB, 59250, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP, F_FISHING)
+	self:AddCompanionAcquire(PetDB, 59250, A_ACHIEVEMENT, 1958)
 
 	-- Strand Crawler -- 62561
 	AddPet(62561, 44983, R_COMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62561, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
-	self:AddCompanionAcquire(PetDB, 62561, A_CUSTOM, 20)
+	self:AddCompanionAcquire(PetDB, 62561, A_QUEST, 13830, A_QUEST, 13832, A_QUEST, 13833, A_QUEST, 13834, A_QUEST, 13836)
 
---PLAYERMADE
+	--PLAYERMADE
 	-- Mechanical Squirrel Box - 4055
 	AddPet(4055, 4401, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 4055, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOE)
