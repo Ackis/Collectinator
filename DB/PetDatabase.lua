@@ -27,7 +27,7 @@ local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 -------------------------------------------------------------------------------
 -- Item "rarity"
 -------------------------------------------------------------------------------
-local R_COMMON, R_UNCOMMON, F_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
+local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4, 5, 6
 
 -------------------------------------------------------------------------------
 -- Origin
