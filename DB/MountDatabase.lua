@@ -634,8 +634,8 @@ function addon:GetMountTotal(DB)
 
 	-- White Skeletal Warhorse
 	AddMount(65645, 46746, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65645, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 65645, 
+	self:AddCompanionFlags(DB, 65645, F_HORDE, F_VENDOR, F_BOP, F_CITY4)
+	self:AddCompanionAcquire(DB, 65645, A_REPUTATION, 68, EXALTED, 33555)
 
 	 -- Great Red Elekk - 65637
 	AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
