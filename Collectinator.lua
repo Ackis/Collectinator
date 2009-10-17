@@ -573,6 +573,12 @@ do
 			local acquire_type, acquire_id = select(i, ...)
 			i = i + 2
 
+			--@alpha@
+			if acquire[index] then
+				self:Print("AddCompanionAcquire called more than once for SpellID "..SpellID)
+			end
+			--@end-alpha@
+
 			acquire[index] = {
 				["Type"] = acquire_type,
 				["ID"] = acquire_id
