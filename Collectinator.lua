@@ -502,6 +502,12 @@ function addon:AddCompanion(DB, CompanionType, SpellID, ItemID, Rarity, Game)
 		return
 	end
 
+	if not Rarity then
+		Rarity = 0
+		--@alpha@
+		self:Print("SpellID "..SpellID..": ("..CompanionType..") Rarity is nil, setting to 0.")
+		--@end-alpha@
+	end
 	DB[SpellID] = {
 		["Name"]	= GetSpellInfo(SpellID) or "Unknown ("..SpellID..")",
 		["ItemID"]	= ItemID,
