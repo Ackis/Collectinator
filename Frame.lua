@@ -3145,32 +3145,40 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_SeasonalCB, addon.Fly_Obtain, L["SEASONAL_DESC"], "seasonal", 4, 1, 0)
 	Collectinator_SeasonalCBText:SetText(seasonal)
 
+	local Collectinator_EventCB = CreateFrame("CheckButton", "Collectinator_EventCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_EventCB, addon.Fly_Obtain, L["EVENT_DESC"], "event", 5, 1, 0)
+	Collectinator_EventCBText:SetText(L["Special Event"])
+
 	local Collectinator_VendorCB = CreateFrame("CheckButton", "Collectinator_VendorCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_VendorCB, addon.Fly_Obtain, L["VENDOR_DESC"], "vendor", 5, 1, 0)
+	addon:GenericMakeCB(Collectinator_VendorCB, addon.Fly_Obtain, L["VENDOR_DESC"], "vendor", 6, 1, 0)
 	Collectinator_VendorCBText:SetText(L["Vendor"])
 
 	local Collectinator_PVPCB = CreateFrame("CheckButton", "Collectinator_PVPCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_PVPCB, addon.Fly_Obtain, L["PVP_DESC"], "pvp", 6, 1, 0)
+	addon:GenericMakeCB(Collectinator_PVPCB, addon.Fly_Obtain, L["PVP_DESC"], "pvp", 7, 1, 0)
 	Collectinator_PVPCBText:SetText(L["PVP"])
 
 	local Collectinator_WorldDropCB = CreateFrame("CheckButton", "Collectinator_WorldDropCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_WorldDropCB, addon.Fly_Obtain, L["WORLD_DROP_DESC"], "worlddrop", 7, 1, 0)
+	addon:GenericMakeCB(Collectinator_WorldDropCB, addon.Fly_Obtain, L["WORLD_DROP_DESC"], "worlddrop", 8, 1, 0)
 	Collectinator_WorldDropCBText:SetText(L["World Drop"])
 
 	local Collectinator_MobDropCB = CreateFrame("CheckButton", "Collectinator_MobDropCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_MobDropCB, addon.Fly_Obtain, L["MOB_DROP_DESC"], "mobdrop", 8, 1, 0)
+	addon:GenericMakeCB(Collectinator_MobDropCB, addon.Fly_Obtain, L["MOB_DROP_DESC"], "mobdrop", 9, 1, 0)
 	Collectinator_MobDropCBText:SetText(L["Mob Drop"])
 
+	local Collectinator_AchievementCB = CreateFrame("CheckButton", "Collectinator_AchievementCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_AchievementCB, addon.Fly_Obtain, L["ACHIEVEMENT_DESC"], "achievement", 10, 1, 0)
+	Collectinator_AchievementCBText:SetText(L["Achievement"])
+
 	local Collectinator_OriginalWoWCB = CreateFrame("CheckButton", "Collectinator_OriginalWoWCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_OriginalWoWCB, addon.Fly_Obtain, L["ORIGINAL_WOW_DESC"], "originalwow", 9, 1, 0)
+	addon:GenericMakeCB(Collectinator_OriginalWoWCB, addon.Fly_Obtain, L["ORIGINAL_WOW_DESC"], "originalwow", 11, 1, 0)
 	Collectinator_OriginalWoWCBText:SetText(L["Old World"])
 
 	local Collectinator_BCCB = CreateFrame("CheckButton", "Collectinator_BCCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_BCCB, addon.Fly_Obtain, L["BC_WOW_DESC"], "bc", 10, 1, 0)
+	addon:GenericMakeCB(Collectinator_BCCB, addon.Fly_Obtain, L["BC_WOW_DESC"], "bc", 12, 1, 0)
 	Collectinator_BCCBText:SetText(L["Burning Crusade"])
 
 	local Collectinator_WrathCB = CreateFrame("CheckButton", "Collectinator_WrathCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], "wrath", 11, 1, 0)
+	addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], "wrath", 13, 1, 0)
 	Collectinator_WrathCBText:SetText(L["Lich King"])
 
 	-------------------------------------------------------------------------------
@@ -3659,9 +3667,11 @@ local function InitializeFrame()
 		["quest"]		= { cb = Collectinator_QuestCB,			svroot = filterdb.obtain },
 		["seasonal"]		= { cb = Collectinator_SeasonalCB,		svroot = filterdb.obtain },
 		["vendor"]		= { cb = Collectinator_VendorCB,		svroot = filterdb.obtain },
+		["event"]		= { cb = Collectinator_EventCB,			svroot = filterdb.obtain },
 		["pvp"]			= { cb = Collectinator_PVPCB,			svroot = filterdb.obtain },
 		["worlddrop"]		= { cb = Collectinator_WorldDropCB,		svroot = filterdb.obtain },
 		["mobdrop"]		= { cb = Collectinator_MobDropCB,		svroot = filterdb.obtain },
+		["achievement"]		= { cb = Collectinator_AchievementCB,		svroot = filterdb.obtain },
 		["originalwow"]		= { cb = Collectinator_OriginalWoWCB,		svroot = filterdb.obtain },
 		["bc"]			= { cb = Collectinator_BCCB,			svroot = filterdb.obtain },
 		["wrath"]		= { cb = Collectinator_WrathCB,			svroot = filterdb.obtain },
