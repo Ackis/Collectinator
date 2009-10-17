@@ -273,7 +273,7 @@ function addon:OnInitialize()
 			} -- filters
 		} -- profile
 	} --defaults
-	addon.db = LibStub("AceDB-3.0"):New("CollectinatorDB2", defaults)
+	addon.db = LibStub("AceDB-3.0"):New("CollectinatorDB", defaults)
 
 	if not addon.db then
 		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the Collectinator database file (Collectinator.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
