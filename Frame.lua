@@ -1442,8 +1442,14 @@ do
 		cButton:SetWidth(24)
 
 		-- depending if we're on the misc panel thingers or not, set an alternative OnClick method
-		if (misc == 0) then
+		if misc == 0 then
 			cButton:SetScript("OnClick", function()
+							     if not FilterValueMap[scriptVal] then
+								     --@alpha@
+								     self:Print("No entry for "..scriptVal.." in FilterValueMap.")
+								     --@end-alpha@
+								     return
+							     end
 							     FilterValueMap[scriptVal].svroot[scriptVal] = FilterValueMap[scriptVal].cb:GetChecked() and true or false
 							     addon.resetTitle()
 							     ReDisplay(current_tab)
