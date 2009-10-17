@@ -1326,18 +1326,18 @@ function addon:GetMountTotal(DB)
 --PROMO
 	-- Swift Zhevra - 49322
 	AddMount(49322, 37719, R_EPIC, GAME_BC)
-	--self:AddCompanionFlags(DB,49322,16)
-	--self:AddCompanionAcquire(DB,
+	self:AddCompanionFlags(DB, 49322, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 49322, A_ACHIEVEMENT, 1436)
 
 	-- Big Blizzard Bear - 58983
 	AddMount(58983, 43599, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(DB,58983,16)
-	--self:AddCompanionAcquire(DB,
+	self:AddCompanionFlags(DB, 58983, 16, F_ALLIANCE, F_HORDE, F_BOA, F_REMOVED)
+	self:AddCompanionAcquire(DB, 58983, A_ACHIEVEMENT, 415)
 
 --TCG
 	-- Riding Tutle - 30174
 	AddMount(30174, 23720, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 30174,  F_ALLIANCE, F_HORDE, F_TCG)
+	self:AddCompanionFlags(DB, 30174,  F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(DB, 30174, A_CUSTOM, 1)
 
 	-- Reins of the Spectral Tiger - 42776
