@@ -350,9 +350,9 @@ do
 	end
 end	-- do
 
-local function CheckDisplayFaction(filterDB, faction)
-	if not filterDB.general.faction then
-		return ((faction == BFAC[myFaction]) or (faction == BFAC["Neutral"]) or not faction) and true or false
+local function CanDisplayFaction(faction)
+	if not addon.db.profile.filters.rep[faction] then
+		return (faction == BFAC[myFaction] or faction == BFAC["Neutral"] or not faction) and true or false
 	else
 		return true
 	end
@@ -1742,7 +1742,7 @@ local function expandEntry(dsIndex)
 			-- This allows us to select PVP only and to see just the PVP collectibles
 			local vendor = vendorDB[v["ID"]]
 
-			if vendor and CheckDisplayFaction(filterDB, vendor["Faction"]) then
+			if vendor and CanDisplayFaction(vendor["Faction"]) then
 				local nStr = ""
 
 				if vendor["Faction"] == factionHorde then
@@ -1798,7 +1798,7 @@ local function expandEntry(dsIndex)
 		elseif acquire_type == A_QUEST and obtainDB.quest then
 			local quest = questDB[v["ID"]]
 
-			if quest and CheckDisplayFaction(filterDB, quest["Faction"]) then
+			if quest and CanDisplayFaction(quest["Faction"]) then
 				local nStr = ""
 
 				if (quest["Faction"] == factionHorde) then
@@ -1838,7 +1838,7 @@ local function expandEntry(dsIndex)
 			-- RepVendor - VendorID
 			local rep_vendor = vendorDB[v["RepVendor"]]
 
-			if rep_vendor and CheckDisplayFaction(filterDB, rep_vendor["Faction"]) then
+			if rep_vendor and CanDisplayFaction(rep_vendor["Faction"]) then
 				t.String = pad .. addon:Rep(L["Reputation"] .. " : ") .. (repDB[v["ID"]] and repDB[v["ID"]]["Name"] or "Unknown Faction")
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
@@ -1900,7 +1900,7 @@ local function expandEntry(dsIndex)
 		elseif acquire_type == A_PVP and obtainDB.pvp then
 			local vendor = vendorDB[v["ID"]]
 
-			if CheckDisplayFaction(filterDB, vendor["Faction"]) then
+			if CanDisplayFaction(vendor["Faction"]) then
 				local cStr = ""
 
 				if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
