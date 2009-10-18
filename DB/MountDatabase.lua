@@ -612,6 +612,16 @@ function addon:GetMountTotal(DB)
 	-------------------------------------------------------------------------------
 	-- Mounts for Alliance AND Horde.
 	-------------------------------------------------------------------------------
+	-- Swift Zhevra - 49322
+	AddMount(49322, 37719, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 49322, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 49322, A_ACHIEVEMENT, 1436)
+
+	-- Big Blizzard Bear - 58983
+	AddMount(58983, 43599, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 58983, 16, F_ALLIANCE, F_HORDE, F_BOA, F_REMOVED)
+	self:AddCompanionAcquire(DB, 58983, A_ACHIEVEMENT, 415)
+
 	 -- Argent Hippogryph - 63844
 	AddMount(63844, 45725, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(DB, 63844, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
@@ -1327,17 +1337,6 @@ function addon:GetMountTotal(DB)
 	AddMount(26656, 21176, R_LEGENDARY, GAME_ORIG)
 	--self:AddCompanionFlags(DB, 26656, 4, 16)
 	--self:AddCompanionAcquire(DB, 26656, 2, 8743)
-
---PROMO
-	-- Swift Zhevra - 49322
-	AddMount(49322, 37719, R_EPIC, GAME_BC)
-	self:AddCompanionFlags(DB, 49322, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(DB, 49322, A_ACHIEVEMENT, 1436)
-
-	-- Big Blizzard Bear - 58983
-	AddMount(58983, 43599, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 58983, 16, F_ALLIANCE, F_HORDE, F_BOA, F_REMOVED)
-	self:AddCompanionAcquire(DB, 58983, A_ACHIEVEMENT, 415)
 
 --TCG
 	-- Riding Tutle - 30174
