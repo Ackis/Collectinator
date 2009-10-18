@@ -190,6 +190,66 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Horde.
 		-------------------------------------------------------------------------------
+		-- Venomhide Ravasaur
+		AddMount(64659, 46102, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 64659, F_HORDE, F_QUEST, F_ACHIEVEMENT, F_BOP)
+		self:AddCompanionAcquire(DB, 64659, A_ACHIEVEMENT, 3357, A_QUEST, 13906)
+
+		-- Black Skeletal Horse
+		AddMount(64977, 46308, R_RARE, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 64977, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 64977, A_VENDOR, 4731)
+
+		-- Red Skeletal Horse - 17462
+		AddMount(17462, 13331, R_RARE, GAME_ORIG)
+		self:AddCompanionFlags(DB, 17462, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 17462, A_VENDOR, 4731)
+
+		-- Blue Skeletal Horse - 17463
+		AddMount(17463, 13332, R_RARE, GAME_ORIG)
+		self:AddCompanionFlags(DB, 17463, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 17463, A_VENDOR, 4731)
+
+		-- Brown Skeletal Horse - 17464
+		AddMount(17464, 13333, R_RARE, GAME_ORIG)
+		self:AddCompanionFlags(DB, 17464, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 17464, A_VENDOR, 4731)
+
+		-- Ochre Skeletal Warhorse - 66846
+		AddMount(66846, 47101, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 66846, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 66846, A_VENDOR, 4731)
+
+		-- Purple Skeletal Warhorse - 23246
+		AddMount(23246, 18791, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23246, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 23246, A_VENDOR, 4731)
+
+		-- Green Skeletal Warhorse - 17465
+		AddMount(17465, 13334, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 17465, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 17465, A_VENDOR, 4731)
+
+		-- Black Wolf
+		AddMount(64658, 46099, R_RARE, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 64658, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 64658, A_VENDOR, 3362)
+
+		-- Horn of the Timber Wolf - 580
+		AddMount(580, 1132, R_RARE, GAME_ORIG)
+		self:AddCompanionFlags(DB, 580, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 580, A_VENDOR, 3362)
+
+		-- Horn of the Dire Wolf - 6653
+		AddMount(6653, 5665, R_RARE, GAME_ORIG)
+		self:AddCompanionFlags(DB, 6653, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 6653, A_VENDOR, 3362)
+
+		-- Horn of the Brown Wolf - 6654
+		AddMount(6654, 5668, R_RARE, GAME_ORIG)
+		self:AddCompanionFlags(DB, 6654, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 6654, A_VENDOR, 3362)
+
 		-- Reins of the Wooly Mammoth - Horde - 59793
 		AddMount(59793, 44231, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 59793, F_HORDE, F_VENDOR, F_BOP)
@@ -994,66 +1054,6 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 34899, A_REPUTATION, 978, EXALTED, 20240, A_REPUTATION, 941, EXALTED, 20241)
 
 --REP VENDOR HORDE
-	-- Venomhide Ravasaur
-	AddMount(64659, 46102, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 64659, F_HORDE, F_QUEST, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(DB, 64659, A_ACHIEVEMENT, 3357, A_QUEST, 13906)
-
-	-- Black Skeletal Horse
-	AddMount(64977, 46308, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 64977, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 64977, A_VENDOR, 4731)
-
-	-- Red Skeletal Horse - 17462
-	AddMount(17462, 13331, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(DB, 17462, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 17462, A_VENDOR, 4731)
-
-	-- Blue Skeletal Horse - 17463
-	AddMount(17463, 13332, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(DB, 17463, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 17463, A_VENDOR, 4731)
-
-	-- Brown Skeletal Horse - 17464
-	AddMount(17464, 13333, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(DB, 17464, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 17464, A_VENDOR, 4731)
-
-	 -- Ochre Skeletal Warhorse - 66846
-	AddMount(66846, 47101, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 66846, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 66846, A_VENDOR, 4731)
-
-	-- Purple Skeletal Warhorse - 23246
-	AddMount(23246, 18791, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 23246, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 23246, A_VENDOR, 4731)
-
-	-- Green Skeletal Warhorse - 17465
-	AddMount(17465, 13334, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 17465, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 17465, A_VENDOR, 4731)
-
-	-- Black Wolf
-	AddMount(64658, 46099, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 
-	self:AddCompanionAcquire(DB, 64658, A_VENDOR, 3362)
-
-	-- Horn of the Timber Wolf - 580
-	AddMount(580, 1132, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(DB, 580, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 580, A_VENDOR, 3362)
-
-	-- Horn of the Dire Wolf - 6653
-	AddMount(6653, 5665, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(DB, 6653, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 6653, A_VENDOR, 3362)
-
-	-- Horn of the Brown Wolf - 6654
-	AddMount(6654, 5668, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(DB, 6654, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 6654, A_VENDOR, 3362)
-
 	-- Swift Pink Hawkstrider - 33660
 	AddMount(33660, 28936, 1, GAME_BC)
 	--self:AddCompanionFlags(DB, 33660, 2, 3, 4, 16)
