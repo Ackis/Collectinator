@@ -190,6 +190,21 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Horde.
 		-------------------------------------------------------------------------------
+		-- Reins of the Wooly Mammoth - Horde - 59793
+		AddMount(59793, 44231, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 59793, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 59793, A_VENDOR, 32216)
+
+		-- Armored Blue Wind Rider - 61230
+		AddMount(61230, 44690, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 61230, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 61230, A_VENDOR, 32216)
+
+		-- Reins of the Armored Brown Bear - Horde - 60116
+		AddMount(60116, 44226, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 60116, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 60116, A_VENDOR, 32216)
+
 		-- Orgrimmar Wolf - 63640
 		AddMount(63640, 45595, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 63640, F_HORDE, F_VENDOR, F_BOP)
@@ -263,6 +278,36 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Alliance.
 		-------------------------------------------------------------------------------
+		-- Reins of the Wooly Mammoth - 59791
+		AddMount(59791, 44230, 1, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 59791, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 59791, A_VENDOR, 32216)
+
+		-- Armored Snowy Gryphon - 61229
+		AddMount(61229, 44689, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 61229, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 61229, A_VENDOR, 32216)
+
+		-- Reins of the Armored Brown Bear - Alliance - 60114
+		AddMount(60114, 44225, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 60114, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 60114, A_VENDOR, 32216)
+
+		-- Great Green Elekk - 35712
+		AddMount(35712, 29746, R_EPIC, GAME_BC)
+		self:AddCompanionFlags(DB, 35712, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35712, A_VENDOR, 17584)
+
+		-- Great Blue Elekk - 35713
+		AddMount(35713, 29745, 1, GAME_BC)
+		self:AddCompanionFlags(DB, 35713, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35713, A_VENDOR, 17584)
+
+		-- Great Purple Elekk - 35714
+		AddMount(35714, 29747, 1, GAME_BC)
+		self:AddCompanionFlags(DB, 35714, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35714, A_VENDOR, 17584)
+
 		-- Reins of the Winterspring Frostsaber - 17229
 		AddMount(17229, 13086, R_EPIC, GAME_ORIG)
 		self:AddCompanionFlags(DB, 17229, F_ALLIANCE, F_VENDOR, F_BOP, F_WINTERSPRING)
@@ -322,21 +367,6 @@ function addon:GetMountTotal(DB)
 		AddMount(17454, 13322, R_EPIC, GAME_ORIG)
 		self:AddCompanionFlags(DB, 17454, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
 		self:AddCompanionAcquire(DB, 17454, A_CUSTOM, 23)
-
-		-- Great Green Elekk - 35712
-		AddMount(35712, 29746, 1, GAME_BC)
-		--self:AddCompanionFlags(DB, 35712, F_ALLIANCE, F_HORDE, F_VENDOR, 4, 16)
-		--self:AddCompanionAcquire(DB, 35712, 1, 17584, 2, 27717)
-
-		-- Great Blue Elekk - 35713
-		AddMount(35713, 29745, 1, GAME_BC)
-		--self:AddCompanionFlags(DB, 35713, F_ALLIANCE, F_HORDE, F_VENDOR, 16)
-		--self:AddCompanionAcquire(DB, 35713, 1, 17584)
-
-		-- Great Purple Elekk - 35714
-		AddMount(35714, 29747, 1, GAME_BC)
-		--self:AddCompanionFlags(DB, 35714, F_ALLIANCE, F_HORDE, F_VENDOR, 16)
-		--self:AddCompanionAcquire(DB, 35714, 1, 17584)
 
 		-- Swift Yellow Mechanostrider - 23222
 		AddMount(23222, 18774, 1, GAME_ORIG)
@@ -522,7 +552,6 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionFlags(DB, 34790, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_NAGRAND, F_PVP)
 	self:AddCompanionAcquire(DB, 34790, A_REPUTATION, 978, EXALTED, 21485, A_REPUTATION, 941, EXALTED, 21474)
 
-	--WORLD EVENT DROP
 	-- Brewfest Ram - 43899
 	AddMount(43899, 33976, R_RARE, GAME_BC)
 	self:AddCompanionFlags(DB, 43899, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_REMOVED, F_ACHIEVEMENT, F_BOP)
@@ -601,32 +630,32 @@ function addon:GetMountTotal(DB)
 
 	-- Reins of the White Polar Bear - 54753
 	AddMount(54753, 43962, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 54753, 16)
-	--self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 54753, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
+	self:AddCompanionAcquire(DB, 54753, A_QUEST, 13422, A_QUEST, 13423, A_QUEST, 13424, A_QUEST, 13425)
 
 	-- Swift White Hawkstrider - 46628
 	AddMount(46628, 35513, R_EPIC, GAME_BC)
-	--self:AddCompanionFlags(DB, 46628, 1, 2, 10, 16)
-	--self:AddCompanionAcquire(DB, 46628, 4, 24664)
+	self:AddCompanionFlags(DB, 46628, F_ALLIANCE, F_HORDE, F_INSTANCE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 46628, A_MOB, 24664)
 
 	-- Reins of the Raven Lord - 41252
 	AddMount(41252, 32768, R_EPIC, GAME_BC)
-	self:AddCompanionFlags(DB, 41252, F_ALLIANCE, F_HORDE, F_INSTANCE)
-	self:AddCompanionAcquire(DB, 41252, A_MOB, 23035)
+	self:AddCompanionFlags(DB, 41252, F_ALLIANCE, F_HORDE, F_INSTANCE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 41252, A_MOB, 23035, A_ACHIEVEMENT, 883)
 
 	-- Fiery Warhorse's Reins - 36702
 	AddMount(36702, 30480, R_EPIC, GAME_BC)
-	self:AddCompanionFlags(DB, 36702, F_ALLIANCE, F_HORDE, F_RAID, F_BOP)
+	self:AddCompanionFlags(DB, 36702, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 36702, A_MOB, 15550)
 
 	-- Swift Zulian Tiger - 24252
 	AddMount(24252, 19902, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 24252, F_ALLIANCE, F_HORDE, F_RAID, F_BOP)
+	self:AddCompanionFlags(DB, 24252, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 24252, A_MOB, 14509)
 
 	-- Swift Razzashi Raptor - 24242
 	AddMount(24242, 19872, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 24242, F_ALLIANCE, F_HORDE, F_RAID, F_BOP)
+	self:AddCompanionFlags(DB, 24242, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 24242, A_MOB, 11382)
 
 	-- Deathcharger's Reins - 17481
@@ -637,7 +666,7 @@ function addon:GetMountTotal(DB)
 --CLASS
 	-- Felsteed - 5784
 	AddMount(5784, nil, R_RARE, GAME_ORIG, C_WARLOCK)
-	--self:AddCompanionFlags(DB, 5784, 
+	self:AddCompanionFlags(DB, 5784, F_ALLIANCE, F_HORDE, F_BOP)
 	--self:AddCompanionAcquire(DB, 5784, 
 
 	-- Dreadsteed - 23161
@@ -676,36 +705,6 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 54729, A_VENDOR, 29587)
 
 --VENDOR
-	-- Reins of the Armored Brown Bear - 60114
-	AddMount(60114, 44225, 1, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 60114, 16)
-	--self:AddCompanionAcquire(DB, 
-
-	-- Reins of the Armored Brown Bear - 60116
-	AddMount(60116, 44225, 1, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 60116, 16)
-	--self:AddCompanionAcquire(DB, 
-
-	-- Armored Snowy Gryphon - 61229
-	AddMount(61229, 44689, 1, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 61229, 16)
-	--self:AddCompanionAcquire(DB, 
-
-	-- Armored Blue Wind Rider - 61230
-	AddMount(61230, 44690, 1, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 61230, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 61230, 1, 32216)
-
-	-- Reins of the Wooly Mammoth - 59791
-	AddMount(59791, 44230, 1, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 59791, 16)
-	--self:AddCompanionAcquire(DB, 
-
-	-- Wooly Mammoth
-	AddMount(59793, 44231, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 
-	--self:AddCompanionAcquire(DB, 
-
 	-- Traveler's Tundra Mammoth (Horde) - 61447
 	AddMount(61447, 44234, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(DB, 61447, 
