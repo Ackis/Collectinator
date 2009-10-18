@@ -633,6 +633,8 @@ do
 						tinsert(location_list, location)
 						location_checklist[location] = true
 					end
+					MobList[acquire_id]["DropList"] = MobList[acquire_id]["DropList"] or {}
+					MobList[acquire_id]["DropList"][SpellID] = true
 				end
 			elseif acquire_type == A_QUEST then
 				if not acquire_id then
