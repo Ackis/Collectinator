@@ -351,6 +351,33 @@ function addon:OnInitialize()
 	self:InitReputation(ReputationList)
 	self:InitSeasons(SeasonalList)
 	self:InitVendor(VendorList)
+
+	-------------------------------------------------------------------------------
+	-- Hook GameTooltip so we can show information on mobs that drop companions
+	-------------------------------------------------------------------------------
+        GameTooltip:HookScript("OnTooltipSetUnit",
+		       function(self)
+			       local name, unit = self:GetUnit()
+
+			       if not unit then
+				       return
+			       end
+			       local mob = MobList[MOB_ID_MAP[name]]
+
+			       if not mob or not mob["DropList"] then
+				       return
+			       end
+
+			       for spell_id in pairs(mob["DropList"]) do
+				       local companion = CompanionDB[spell_id]
+
+				       if not companion["Owned"] then
+					       local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
+
+					       self:AddLine("Drops: "..hex..companion["Name"].."|r")
+				       end
+			       end
+		       end)
 end
 
 
