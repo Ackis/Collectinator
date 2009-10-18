@@ -293,12 +293,7 @@ function addon:OnInitialize()
 	button:SetScript("OnClick",
 				  function()
 					  local companion_frame = PetPaperDollFrameCompanionFrame
-					  local current_tab = "CRITTER"
-
-					  if companion_frame:IsVisible() then
-						  current_tab = companion_frame.mode
-					  end
-					  addon:Scan(false, false, current_tab)
+					  addon:Scan(false, false, companion_frame:IsVisible() and companion_frame.mode or "CRITTER")
 				  end)
 
 	button:SetScript("OnEnter",
