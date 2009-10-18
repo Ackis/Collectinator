@@ -900,29 +900,29 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 43927, A_REPUTATION, 942, EXALTED, 17904)
 
 	-- Green Riding Nether Ray - 39798
-	AddMount(39798, 32314, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 39798, F_ALLIANCE, F_HORDE, F_VENDOR, 16)
-	--self:AddCompanionAcquire(DB, 39798, 1, 23367)
+	AddMount(39798, 32314, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 39798, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_SKYGUARD)
+	self:AddCompanionAcquire(DB, 39798, A_REPUTATION, 1031, EXALTED, 23367)
 
 	-- Red Riding Nether Ray - 39800
-	AddMount(39800, 32317, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 39800, F_ALLIANCE, F_HORDE, F_VENDOR, 16)
-	--self:AddCompanionAcquire(DB, 39800, 1, 23367)
+	AddMount(39800, 32317, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 39800, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_SKYGUARD)
+	self:AddCompanionAcquire(DB, 39800, A_REPUTATION, 1031, EXALTED, 23367)
 
 	-- Purple Riding Nether Ray - 39801
-	AddMount(39801, 32316, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 39801, F_ALLIANCE, F_HORDE, F_VENDOR, 16)
-	--self:AddCompanionAcquire(DB, 39801, 1, 23367)
+	AddMount(39801, 32316, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 39801, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_SKYGUARD)
+	self:AddCompanionAcquire(DB, 39801, A_REPUTATION, 1031, EXALTED, 23367)
 
 	-- Silver Riding Nether Ray - 39802
-	AddMount(39802, 32318, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 39802, F_ALLIANCE, F_HORDE, F_VENDOR, 16)
-	--self:AddCompanionAcquire(DB, 39802, 1, 23367)
+	AddMount(39802, 32318, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 39802, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_SKYGUARD)
+	self:AddCompanionAcquire(DB, 39802, A_REPUTATION, 1031, EXALTED, 23367)
 
 	-- Blue Riding Nether Ray - 39803
-	AddMount(39803, 32319, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 39803, F_ALLIANCE, F_HORDE, F_VENDOR, 16)
-	--self:AddCompanionAcquire(DB, 39803, 1, 23367)
+	AddMount(39803, 32319, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 39803, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_SKYGUARD)
+	self:AddCompanionAcquire(DB, 39803, A_REPUTATION, 1031, EXALTED, 23367)
 
 	-- Reins of the Onyx Netherwing Drake - 41513
 	AddMount(41513, 32857, 1, GAME_BC)
