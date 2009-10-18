@@ -924,34 +924,34 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 39803, A_REPUTATION, 1031, EXALTED, 23367)
 
 	-- Reins of the Onyx Netherwing Drake - 41513
-	AddMount(41513, 32857, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 41513, F_ALLIANCE, F_HORDE, F_VENDOR, 4, 16)
-	--self:AddCompanionAcquire(DB, 41513, 1, 23489, 2, 11111)
+	AddMount(41513, 32857, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 41513, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_NETHERWING)
+	self:AddCompanionAcquire(DB, 41513, A_REPUTATION, 1015, EXALTED, 23489, A_QUEST, 11111)
 
 	-- Reins of the Azure Netherwing Drake - 41514
-	AddMount(41514, 32858, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 41514, F_ALLIANCE, F_HORDE, F_VENDOR, 4, 16)
-	--self:AddCompanionAcquire(DB, 41514, 1, 23489, 2, 11112)
+	AddMount(41514, 32858, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 41514, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_NETHERWING)
+	self:AddCompanionAcquire(DB, 41514, A_REPUTATION, 1015, EXALTED, 23489, A_QUEST, 11111)
 
 	-- Reins of the Cobalt Netherwing Drake - 41515
-	AddMount(41515, 32859, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 41515, F_ALLIANCE, F_HORDE, F_VENDOR, 4, 16)
-	--self:AddCompanionAcquire(DB, 41515, 1, 23489, 2, 11109)
+	AddMount(41515, 32859, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 41515, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_NETHERWING)
+	self:AddCompanionAcquire(DB, 41515, A_REPUTATION, 1015, EXALTED, 23489, A_QUEST, 11111)
 
 	-- Reins of the Purple Netherwing Drake - 41516
-	AddMount(41516, 32860, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 41516, F_ALLIANCE, F_HORDE, F_VENDOR, 4, 16)
-	--self:AddCompanionAcquire(DB, 41516, 1, 23489, 2, 11110)
+	AddMount(41516, 32860, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 41516, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_NETHERWING)
+	self:AddCompanionAcquire(DB, 41516, A_REPUTATION, 1015, EXALTED, 23489, A_QUEST, 11111)
 
 	-- Reins of the Veridian Netherwing Drake - 41517
-	AddMount(41517, 32861, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 41517, F_ALLIANCE, F_HORDE, F_VENDOR, 4, 16)
-	--self:AddCompanionAcquire(DB, 41517, 1, 23489, 2, 11114)
+	AddMount(41517, 32861, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 41517, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_NETHERWING)
+	self:AddCompanionAcquire(DB, 41517, A_REPUTATION, 1015, EXALTED, 23489, A_QUEST, 11111)
 
 	-- Reins of the Violet Netherwing Drake - 41518
-	AddMount(41518, 32862, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 41518, F_ALLIANCE, F_HORDE, F_VENDOR, 4, 16)
-	--self:AddCompanionAcquire(DB, 41518, 1, 23489, 2, 11113)
+	AddMount(41518, 32862, R_EPIC, GAME_BC)
+	self:AddCompanionFlags(DB, 41518, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_NETHERWING)
+	self:AddCompanionAcquire(DB, 41518, A_REPUTATION, 1015, EXALTED, 23489, A_QUEST, 11111)
 
 	-- Reins of the Cobalt Riding Talbuk - 39315
 	AddMount(39315, 31829, R_EPIC, GAME_BC)
