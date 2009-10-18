@@ -190,6 +190,21 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Horde.
 		-------------------------------------------------------------------------------
+		-- Whistle of the Turquoise Raptor - 10796
+		AddMount(10796, 8591, R_RARE, GAME_ORIG)
+		self:AddCompanionFlags(DB, 10796, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 10796, A_VENDOR, 7952)
+
+		-- Whistle of the Emerald Raptor - 8395
+		AddMount(8395, 8588, R_RARE, GAME_ORIG)
+		self:AddCompanionFlags(DB, 8395, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 8395, A_VENDOR, 7952)
+
+		-- Whistle of the Violet Raptor - 10799
+		AddMount(10799, 8592, R_RARE, GAME_ORIG)
+		self:AddCompanionFlags(DB, 10799, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 10799, A_VENDOR, 7952)
+
 		-- Venomhide Ravasaur
 		AddMount(64659, 46102, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 64659, F_HORDE, F_QUEST, F_ACHIEVEMENT, F_BOP)
@@ -1133,21 +1148,6 @@ function addon:GetMountTotal(DB)
 	AddMount(23252, 18798, 1, GAME_ORIG)
 	--self:AddCompanionFlags(DB, 23252, 2, 3, 4, 16)
 	--self:AddCompanionAcquire(DB, 23252, 1, 3362, 2, 7660, 2, 7661, 2, 27716)
-
-	-- Whistle of the Turquoise Raptor - 10796
-	AddMount(10796, 8591, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(DB, 10796, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 10796, A_VENDOR, 7952)
-
-	-- Whistle of the Emerald Raptor - 8395
-	AddMount(8395, 8588, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(DB, 8395, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 8395, A_VENDOR, 7952)
-
-	-- Whistle of the Violet Raptor - 10799
-	AddMount(10799, 8592, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(DB, 10799, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 10799, A_VENDOR, 7952)
 
 	-- White Kodo
 	AddMount(64657, 46100, R_RARE, GAME_WOTLK)
