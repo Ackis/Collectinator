@@ -40,7 +40,7 @@ L["CLEAR_EXCLUSION_LIST_DESC"] = "Removes all entries from the exclusion list."
 L["Close GUI"] = true
 L["CLOSE_DESC"] = "Close the Collectinator Window."
 --L["CLOSEGUI_DESC"] remove ref
-L["COLLECTIBLE_EXCLUDED"] = 
+--L["COLLECTIBLE_EXCLUDED"]
 L["Collectinator_ALLEXCLUDED"] = "Your exclusions are currently preventing any entries from being displayed. Please change your exclusions and try again."
 L["Collectinator_ALLKNOWN"] = "You know all the entries, there is nothing left for you to collect."
 L["Collectinator_SEARCHFILTERED"] = "Your search has no results."
