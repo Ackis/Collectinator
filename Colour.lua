@@ -1,45 +1,35 @@
---[[
+-------------------------------------------------------------------------------
+-- Colour.lua
+-------------------------------------------------------------------------------
+-- Colouring functions for Collectinator
+-------------------------------------------------------------------------------
+-- File date: @file-date-iso@ 
+-- File revision: @file-revision@ 
+-- Project revision: @project-revision@
+-- Project version: @project-version@
+-------------------------------------------------------------------------------
+-- Code adopted from Crayon library
+-------------------------------------------------------------------------------
 
-****************************************************************************************
+local MODNAME	= "Collectinator"
+local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-Colour.lua
-
-Colouring functions for Collectinator
-
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
-Project revision: @project-revision@
-Project version: @project-version@
-
-Code adopted from Crayon library
-
-****************************************************************************************
-
-]]--
-
-
-local MODNAME			= "Collectinator"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-
---[[
-
-	Colour constants
-
-]]--
-
-local RED		= "ff0000"
+-------------------------------------------------------------------------------
+-- Colour constants
+-------------------------------------------------------------------------------
+local RED	= "ff0000"
 local ORANGE	= "ff7f00"
 local YELLOW	= "ffff00"
-local GREEN		= "00ff00"
-local WHITE		= "ffffff"
+local GREEN	= "00ff00"
+local WHITE	= "ffffff"
 local COPPER	= "eda55f"
 local SILVER	= "c7c7cf"
-local GOLD		= "ffd700"
+local GOLD	= "ffd700"
 local PURPLE	= "9980CC"
-local BLUE		= "0000ff"
-local CYAN		= "00ffff"
-local BLACK		= "000000"
-local GREY		= "666666"
+local BLUE	= "0000ff"
+local CYAN	= "00ffff"
+local BLACK	= "000000"
+local GREY	= "666666"
 local MIDGREY	= "858585"
 local NEUTRAL	= "bfbfbf"
 local FRIENDLY	= WHITE
@@ -49,30 +39,28 @@ local EXALTED	= "9933cc"
 
 local TRAINER	= "d9cb9e"
 local VENDOR	= "aad372"
-local QUEST		= "2359ff"
-local REP		= "ff7c0a"
+local QUEST	= "2359ff"
+local REP	= "ff7c0a"
 local SEASON	= "80590e"
 local MOBDROP	= "ffffc0"
 
-local POOR		= "919191"
+local POOR	= "919191"
 local COMMON	= WHITE
 local UNCOMMON	= "00A900"
-local RARE		= "0062C3"
-local EPIC		= "B343FF"
+local RARE	= "0062C3"
+local EPIC	= "B343FF"
 local LEGENDARY	= "FA9900"
 local ARTIFACT	= "e5cc80"
 
-local HIGH		= WHITE
+local HIGH	= WHITE
 local NORMAL	= "ffd100"
 
-local HORDE		= RED
+local HORDE	= RED
 local ALLIANCE	= "00ffff"
 
---[[
-
-	Text colourization functions
-
-]]--
+-------------------------------------------------------------------------------
+-- Text colourization functions
+-------------------------------------------------------------------------------
 
 function addon:RGBtoHEX(r,g,b)
 	return string.format("%2x%2x%2x", r*255, g*255, b*255)
@@ -271,21 +259,21 @@ end
 
 -- used for tooltip rgb stuff
 function addon:hexcolor(colorstring)
-	if (colorstring == "NEUTRAL")			then return NEUTRAL
+	if (colorstring == "NEUTRAL")		then return NEUTRAL
 	elseif (colorstring == "FRIENDLY")	then return FRIENDLY
-	elseif (colorstring == "HONORED")		then return HONORED
-	elseif (colorstring == "REVERED")		then return REVERED
-	elseif (colorstring == "EXALTED")		then return EXALTED
+	elseif (colorstring == "HONORED")	then return HONORED
+	elseif (colorstring == "REVERED")	then return REVERED
+	elseif (colorstring == "EXALTED")	then return EXALTED
 
-	elseif (colorstring == "TRAINER")		then return TRAINER
-	elseif (colorstring == "VENDOR")		then return VENDOR
+	elseif (colorstring == "TRAINER")	then return TRAINER
+	elseif (colorstring == "VENDOR")	then return VENDOR
 	elseif (colorstring == "QUEST")		then return QUEST
-	elseif (colorstring == "REP")			then return REP
-	elseif (colorstring == "SEASON")		then return SEASON
-	elseif (colorstring == "MOBDROP")		then return MOBDROP
+	elseif (colorstring == "REP")		then return REP
+	elseif (colorstring == "SEASON")	then return SEASON
+	elseif (colorstring == "MOBDROP")	then return MOBDROP
 
 	elseif (colorstring == "POOR")		then return POOR
-	elseif (colorstring == "COMMON")		then return COMMON
+	elseif (colorstring == "COMMON")	then return COMMON
 	elseif (colorstring == "UNCOMMON")	then return UNCOMMON
 	elseif (colorstring == "RARE")		then return RARE
 	elseif (colorstring == "EPIC")		then return EPIC
@@ -296,15 +284,15 @@ function addon:hexcolor(colorstring)
 	elseif (colorstring == "ALLIANCE")	then return ALLIANCE
 
 	elseif (colorstring == "BLACK")		then return BLACK
-	elseif (colorstring == "ORANGE")		then return ORANGE
+	elseif (colorstring == "ORANGE")	then return ORANGE
 	elseif (colorstring == "GREEN")		then return GREEN
-	elseif (colorstring == "YELLOW")		then return YELLOW
-	elseif (colorstring == "GREY")			then return GREY
-	elseif (colorstring == "MIDGREY")		then return MIDGREY
-	elseif (colorstring == "RED")			then return RED
+	elseif (colorstring == "YELLOW")	then return YELLOW
+	elseif (colorstring == "GREY")		then return GREY
+	elseif (colorstring == "MIDGREY")	then return MIDGREY
+	elseif (colorstring == "RED")		then return RED
 
 	elseif (colorstring == "HIGH")		then return HIGH
---	elseif (colorstring == "NORMAL")		then return NORMAL
+--	elseif (colorstring == "NORMAL")	then return NORMAL
 	else
 		return NORMAL
 	end

@@ -1380,7 +1380,7 @@ function addon.ToggleFilters()
 		addon.Frame.progress_bar:SetWidth(195)
 
 		-- Change the text and tooltip for the filter button
-		Collectinator_FilterButton:SetText(L["FILTER_OPEN"])
+		Collectinator_FilterButton:SetText(L["Filter"] .. ">>>")
 		TooltipDisplay(Collectinator_FilterButton, L["FILTER_OPEN_DESC"])
 
 		-- Hide my 7 buttons
@@ -1411,7 +1411,7 @@ function addon.ToggleFilters()
 		addon.Frame.progress_bar:SetWidth(345)
 
 		-- Change the text and tooltip for the filter button
-		Collectinator_FilterButton:SetText(L["FILTER_CLOSE"])
+		Collectinator_FilterButton:SetText("<<< " .. L["Filter"])
 		TooltipDisplay(Collectinator_FilterButton, L["FILTER_CLOSE_DESC"])
 
 		-- Show my buttons
@@ -2770,7 +2770,7 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	local Collectinator_FilterButton = addon:GenericCreateButton("Collectinator_FilterButton", addon.Frame, 
 								     25, 90, "TOPRIGHT", addon.Frame, "TOPRIGHT", -8, -40, "GameFontNormalSmall", 
-								     "GameFontHighlightSmall", L["FILTER_OPEN"], "CENTER", L["FILTER_OPEN_DESC"], 1)
+								     "GameFontHighlightSmall", L["Filter"] .. ">>>", "CENTER", L["FILTER_OPEN_DESC"], 1)
 	Collectinator_FilterButton:SetScript("OnClick", addon.ToggleFilters)
 
 	-------------------------------------------------------------------------------
