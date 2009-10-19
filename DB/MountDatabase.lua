@@ -190,6 +190,41 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Horde.
 		-------------------------------------------------------------------------------
+		-- Tawny Wind Rider - 32243
+		AddMount(32243, 25474, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 32243, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32243, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Blue Wind Rider - 32244
+		AddMount(32244, 25475, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 32244, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32244, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Green Wind Rider - 32245
+		AddMount(32245, 25476, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 32245, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32245, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Swift Red Wind Rider - 32246
+		AddMount(32246, 25477, R_EPIC, GAME_BC)
+		self:AddCompanionFlags(DB, 32246, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32246, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Swift Green Wind Rider - 32295
+		AddMount(32295, 25531, R_EPIC, GAME_BC)
+		self:AddCompanionFlags(DB, 32295, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32295, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Swift Yellow Wind Rider - 32296
+		AddMount(32296, 25532, R_EPIC, GAME_BC)
+		self:AddCompanionFlags(DB, 32296, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32296, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Swift Purple Wind Rider - 32297
+		AddMount(32297, 25533, R_EPIC, GAME_BC)
+		self:AddCompanionFlags(DB, 32297, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32297, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
 		-- Swift Purple Raptor
 		AddMount(65644, 46743, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 65644, F_HORDE, F_VENDOR, F_BOP, F_CITY1)
@@ -850,26 +885,6 @@ function addon:GetMountTotal(DB)
 	--self:AddCompanionFlags(DB, 32242, 1, 2, 3, 16)
 	--self:AddCompanionAcquire(DB, 32242, 1, 20510)
 
-	-- Tawny Wind Rider - 32243
-	AddMount(32243, 25474, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32243, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32243, 1, 20494)
-
-	-- Blue Wind Rider - 32244
-	AddMount(32244, 25475, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32244, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32244, 1, 20494)
-
-	-- Green Wind Rider - 32245
-	AddMount(32245, 25476, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32245, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32245, 1, 20494)
-
-	-- Swift Red Wind Rider - 32246
-	AddMount(32246, 25477, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32246, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32246, 1, 20494)
-
 	-- Swift Red Gryphon - 32289
 	AddMount(32289, 25527, 1, GAME_BC)
 	--self:AddCompanionFlags(DB, 32289, 1, 2, 3, 16)
@@ -885,20 +900,6 @@ function addon:GetMountTotal(DB)
 	--self:AddCompanionFlags(DB, 32292, 1, 2, 3, 16)
 	--self:AddCompanionAcquire(DB, 32292, 1, 20510)
 
-	-- Swift Green Wind Rider - 32295
-	AddMount(32295, 25531, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32295, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32295, 1, 20494)
-
-	-- Swift Yellow Wind Rider - 32296
-	AddMount(32296, 25532, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32296, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32296, 1, 20494)
-
-	-- Swift Purple Wind Rider - 32297
-	AddMount(32297, 25533, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32297, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32297, 1, 20494)
 
 
 --REP VENDOR ARGENT
