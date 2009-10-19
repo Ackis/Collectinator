@@ -15,11 +15,11 @@ local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true, true)
 if not L then return end
 
 --[[
-L["About"]
-L["Achievement"]
+L["About"] = true
+L["Achievement"] = true
 L["ACHIEVEMENT_DESC"]
-L["ACQUIRETOOLTIPPOSITION_DESC"]
-L["Acquisition"]
+L["ACQUIRETOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing the acquire information."
+L["Acquisition"] = true
 L["ALL_FILTERED"]
 L["ALT_CLICK"]
 L["ALT_TRADESKILL_DESC"]
@@ -183,6 +183,8 @@ L["View Exclusion List"]
 L["VIEW_EXCLUSION_LIST_DESC"]
 L["World Drop"]
 L["WORLD_DROP_DESC"]
+
+]]--
 
 -- Mobs
 L["Blue Dragonspawn"] = true
@@ -375,18 +377,14 @@ L["Thistleheart"] = true
 L["Ursula Deline"] = true
 L["Zanien"] = true
 L["Zevrost"] = true
-]]--
 
 
--- General strings
+--[[
+
 L["Filters"]				= true
 L["Ok"]						= true
-
--- Command line options
 L["Profile"]				= true
 L["Filter"]					= true
-
--- Config Options
 L["About"]					= true
 L["Main Options"]			= true
 L["General Options"]		= true
@@ -764,3 +762,4 @@ L["Lich King"] = true
 L["ALT_TRADESKILL_DESC"] = "This will display a list of alts which have had trade skills scanned.  Clicking on the alt's name will output the tradeskill to chat."
 L["Other Realms"] = true
 L["DATAMINE_WARNING_DESC"] = "Please note that enabling Auto Load Recipe Database will increase the amount of memory used by ARL.  Enabling Auto Scan Trainers may cause a slight bit of lag when the trainer is opened.  This will be more noticeable on the first scan of a trainer."
+]]--
