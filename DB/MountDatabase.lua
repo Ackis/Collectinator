@@ -190,6 +190,31 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Horde.
 		-------------------------------------------------------------------------------
+		-- Swift Purple Raptor
+		AddMount(65644, 46743, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 65644, F_HORDE, F_VENDOR, F_BOP, F_CITY1)
+		self:AddCompanionAcquire(DB, 65644, A_REPUTATION, 530, EXALTED, 33554)
+
+		-- Swift Burgandy Wolf
+		AddMount(65646, 46749, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 65646, F_HORDE, F_VENDOR, F_BOP, F_CITY2)
+		self:AddCompanionAcquire(DB, 65646, A_REPUTATION, 76, EXALTED, 33553)
+
+		-- Great Golden Kodo
+		AddMount(65641, 46750, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 65641, F_HORDE, F_VENDOR, F_BOP, F_CITY3)
+		self:AddCompanionAcquire(DB, 65641, A_REPUTATION, 81, EXALTED, 33556)
+
+		-- White Skeletal Warhorse
+		AddMount(65645, 46746, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 65645, F_HORDE, F_VENDOR, F_BOP, F_CITY4)
+		self:AddCompanionAcquire(DB, 65645, A_REPUTATION, 68, EXALTED, 33555)
+
+		-- Swift Red Hawkstrider
+		AddMount(65639, 46751, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 65639, F_HORDE, F_VENDOR, F_BOP, F_CITY5)
+		self:AddCompanionAcquire(DB, 65639, A_REPUTATION, 911, EXALTED, 33557)
+
 		-- Whistle of the Turquoise Raptor - 10796
 		AddMount(10796, 8591, R_RARE, GAME_ORIG)
 		self:AddCompanionFlags(DB, 10796, F_HORDE, F_VENDOR, F_BOP)
@@ -877,31 +902,6 @@ function addon:GetMountTotal(DB)
 
 
 --REP VENDOR ARGENT
-	-- Great Golden Kodo
-	AddMount(65641, 46750, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65641, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 65641, A_VENDOR, 33556)
-
-	-- Swift Burgandy Wolf
-	AddMount(65646, 46749, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65646, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 65646, A_VENDOR, 33553)
-
-	-- Swift Purple Raptor
-	AddMount(65644, 46743, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65644, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 65644
-
-	-- Swift Red Hawkstrider
-	AddMount(65639, 46751, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65639, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 65639, 
-
-	-- White Skeletal Warhorse
-	AddMount(65645, 46746, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65645, F_HORDE, F_VENDOR, F_BOP, F_CITY4)
-	self:AddCompanionAcquire(DB, 65645, A_REPUTATION, 68, EXALTED, 33555)
-
 	 -- Great Red Elekk - 65637
 	AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(DB, 65637, F_ALLIANCE, F_VENDOR, F_BOP)
