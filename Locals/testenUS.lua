@@ -1,30 +1,34 @@
---[[
-
-testenUS.lua
-
-enUS localization strings for Collectinator
-
-File date: @file-date-iso@
-File revision: @file-revision@
-Project revision: @project-revision@
-Project version: @project-version@
-
-Original translated by: Ackis
-Currently maintained by: Ackis
-
-Please make sure you update the ToC file with any translations.
-
-Please update http://www.wowace.com/projects/collectinator/localization/enUS/ 
-for any translation additions or changes.
-
-****************************************************************************************
-]]--
-
+-------------------------------------------------------------------------------
+-- testenUS.lua
+-------------------------------------------------------------------------------
+-- enUS localization strings for Collectinator (Repository Version)
+-------------------------------------------------------------------------------
+-- File date: @file-date-iso@ 
+-- File revision: @file-revision@ 
+-- Project revision: @project-revision@
+-- Project version: @project-version@
+-------------------------------------------------------------------------------
 local MODNAME	= "Collectinator"
 
 local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true, true)
 
 if not L then return end
+
+--[[
+L["MISSING_LIBRARY"]
+L["SCAN_COMPANIONS_DESC"]
+L["Scan"]
+L["Unknown Zone"]
+L["Sorting"]
+L["Sort"]
+L["Display"]
+L["About"]
+L["Profile"]
+L["Filter"]
+L["Documentation"]
+L["Scan"]
+]]--
+
 
 -- General strings
 L["Filters"]				= true
