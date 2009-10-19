@@ -232,7 +232,7 @@ function addon:GetMountTotal(DB)
 
 		-- Venomhide Ravasaur
 		AddMount(64659, 46102, R_EPIC, GAME_WOTLK)
-		self:AddCompanionFlags(DB, 64659, F_HORDE, F_QUEST, F_ACHIEVEMENT, F_BOP)
+		self:AddCompanionFlags(DB, 64659, F_HORDE, F_QUEST, F_BOP)
 		self:AddCompanionAcquire(DB, 64659, A_ACHIEVEMENT, 3357, A_QUEST, 13906)
 
 		-- Black Skeletal Horse
