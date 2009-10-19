@@ -58,17 +58,15 @@ L["DISPLAY_EXCLUSION_DESC"] = "Display entries that are in the exclusion list."
 L["DISPLAY_OPTIONS_DESC"] = "Allows you to customize how the GUI behaves."
 L["Documentation"] = true
 --L["EVENT_DESC"]
-L["EXCLUDECOUNT_DESC"]
-L["Exclusion Issues"]
-L["EXCLUSION_ISSUES_DESC"]
-L["EXPANDALL"]
-L["EXPANDALL_DESC"]
+L["EXCLUDECOUNT_DESC"] = "Include excluded entries in the count of total entries."
+L["Exclusion Issues"] = true
+L["EXCLUSION_ISSUES_DESC"] = "To add a entry to the exclusion (ignore) list, just alt-click on it from the scan window.  To get this entry back, open up the options and set the toggle of \"Show Excluded\" to be on.  This will show all the entries you've excluded in your scan during your next scan.  Once you have done this, Alt-Click on the entry again to remove it from the exclusion list."
+L["EXPANDALL"] = "+ All"
+L["EXPANDALL_DESC"] = "Expand all entries listed below."
 L["Faction"] = true
-L["FACTION_DESC"]
+L["FACTION_DESC"] = "Include both horde and alliance faction collectibles in the scan."
 L["Filter"] = true
-L["FILTER_CLOSE"]
 L["FILTER_CLOSE_DESC"]
-L["FILTER_OPEN"]
 L["FILTER_OPEN_DESC"]
 L["FILTERCOUNT_DESC"]
 L["FILTERING_BC_DESC"]
