@@ -15,18 +15,214 @@ local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true, true)
 if not L then return end
 
 --[[
-L["MISSING_LIBRARY"]
-L["SCAN_COMPANIONS_DESC"]
-L["Scan"]
-L["Unknown Zone"]
-L["Sorting"]
-L["Sort"]
-L["Display"]
 L["About"]
-L["Profile"]
-L["Filter"]
+L["Achievement"]
+L["ACHIEVEMENT_DESC"]
+L["ACQUIRETOOLTIPPOSITION_DESC"]
+L["Acquisition"]
+L["ALL_FILTERED"]
+L["ALT_CLICK"]
+L["ALT_TRADESKILL_DESC"]
+L["Alt-Tradeskills"]
+L["ARL_DOC_DESC"]
+L["BC_WOW_DESC"]
+L["Binding"]
+L["BOA_DESC"]
+L["BOAFilter"]
+L["BOE_DESC"]
+L["BOEFilter"]
+L["BOP_DESC"]
+L["BOPFilter"]
+L["Bottom Left"]
+L["Burning Crusade"]
+L["Clear Exclusion List"]
+L["CLEAR_DESC"]
+L["CLEAR_EXCLUSION_LIST_DESC"]
+L["Close GUI"]
+L["CLOSE_DESC"]
+L["CLOSEGUI_DESC"]
+L["COLLECTIBLE_EXCLUDED"]
+L["Collectinator_ALLEXCLUDED"]
+L["Collectinator_ALLKNOWN"]
+L["Collectinator_SEARCHFILTERED"]
+L["Common Issues"]
+L["COMMON_ISSUES_DESC"]
+L["CONTRACTALL"]
+L["CONTRACTALL_DESC"]
+L["CTRL_CLICK"]
+L["CTRL_SHIFT_CLICK"]
+L["Display Exclusions"]
+L["Display Options"]
+L["Display"]
+L["DISPLAY_EXCLUSION_DESC"]
+L["DISPLAY_EXCLUSION_DESC"]
+L["DISPLAY_OPTIONS_DESC"]
 L["Documentation"]
+L["EVENT_DESC"]
+L["EXCLUDECOUNT_DESC"]
+L["Exclusion Issues"]
+L["EXCLUSION_ISSUES_DESC"]
+L["EXPANDALL"]
+L["EXPANDALL_DESC"]
+L["Faction"]
+L["FACTION_DESC"]
+L["Filter"]
+L["FILTER_CLOSE"]
+L["FILTER_CLOSE_DESC"]
+L["FILTER_OPEN"]
+L["FILTER_OPEN_DESC"]
+L["FILTERCOUNT_DESC"]
+L["FILTERING_BC_DESC"]
+L["FILTERING_BINDING_DESC"]
+L["FILTERING_GENERAL_DESC"]
+L["FILTERING_ITEM_DESC"]
+L["FILTERING_MISC_DESC"]
+L["FILTERING_OBTAIN_DESC"]
+L["FILTERING_OLDWORLD_DESC"]
+L["FILTERING_REP_DESC"]
+L["FILTERING_WOTLK_DESC"]
+L["Filters"]
+L["Font Size"]
+L["FONT_SIZE_DESC"]
+L["Game Commands"]
+L["GAME_COMMANDS_DESC"]
+L["General Options"]
+L["General"]
+L["Hide Pop-Up"]
+L["HIDEPOPUP_DESC"]
+L["Include Excluded"]
+L["Include Filtered"]
+L["Instance"]
+L["INSTANCE_DESC"]
+L["Item"]
+L["Known"]
+L["KNOWN_DESC"]
+L["Lich King"]
+L["LK_WOW_DESC"]
+L["Location"]
+L["Main Filter Options"]
+L["Main Options"]
+L["MAIN_OPTIONS_DESC"]
+L["MAINFILTER_OPTIONS_DESC"]
+L["Map Issues"]
+L["MAP_ISSUES_DESC"]
+L["MAP_OPTIONS_DESC"]
+L["Misc"]
+L["Miscellaneous"]
+L["MISSING_LIBRARY"]
+L["Mob Drop"]
+L["MOB_DROP_DESC"]
+L["Mouse"]
+L["Name"]
+L["NO_DISPLAY"]
+L["NoItemLink"]
+L["NOT_YET_SCANNED"]
+L["NOTSCANNED"]
+L["Obtain"]
+L["Obtained From"]
+L["Off"]
+L["Ok"]
+L["Old World"]
+L["ORIGINAL_WOW_DESC"]
+L["Other Realms"]
+L["Profile Options"]
+L["Profile"]
+L["PVP"]
+L["PVP_DESC"]
+L["Quest"]
+L["QUEST_DESC"]
+L["Raid"]
+L["RAID_DESC"]
+L["Removed from Game"]
+L["REP_TEXT_DESC"]
+L["Reporting Bugs"]
+L["REPORTING_BUGS_DESC"]
+L["Reputation"]
+L["Reset All Filters"]
+L["Reset Window Position"]
+L["RESET_DESC"]
+L["RESET_WINDOW_DESC"]
+L["Scan Button Position"]
 L["Scan"]
+L["SCAN_COMPANIONS_DESC"]
+L["SCAN_RECIPES_DESC"]
+L["SCANBUTTONPOSITION_DESC"]
+L["SEARCH_BOX_DESC"]
+L["SEARCH_DESC"]
+L["SEASONAL_DESC"]
+L["SHIFT_CLICK"]
+L["Sort"]
+L["Sorting Options"]
+L["Sorting"]
+L["SORTING_DESC"]
+L["SORTING_OPTIONS_DESC"]
+L["Special Event"]
+L["SPECIFIC_REP_DESC"]
+L["SPELLTOOLTIPPOSITION_DESC"]
+L["Text Dump"]
+L["TEXT_DUMP_DESC"]
+L["Tooltip (Acquire) Position"]
+L["Tooltip (Recipe) Position"]
+L["Tooltip Options"]
+L["Tooltip Scale"]
+L["TOOLTIP_OPTIONS_DESC"]
+L["TOOLTIP_SCALE_DESC"]
+L["UI Scale"]
+L["UI_SCALE_DESC"]
+L["Unavailable"]
+L["Unhandled Collectible"]
+L["Unknown Zone"]
+L["Unknown"]
+L["UNKNOWN_DESC"]
+L["Using Filters"]
+L["USING_FILTERS_DESC"]
+L["Vendor"]
+L["VENDOR_DESC"]
+L["Version"]
+L["View Exclusion List"]
+L["VIEW_EXCLUSION_LIST_DESC"]
+L["World Drop"]
+L["WORLD_DROP_DESC"]
+
+-- Mobs
+L["Blue Dragonspawn"] = true
+L["Defias Pirate"] = true
+L["Adolescent Whelp"] = true
+L["Dreaming Whelp"] = true
+L["Red Whelp"] = true
+L["Flamesnorting Whelp"] = true
+L["Crimson Whelp"] = true
+L["Razormaw Matriarch"] = true
+L["Bloodsail Raider"] = true
+L["Bloodsail Mage"] = true
+L["Bloodsail Swashbuckler"] = true
+L["Bloodsail Warlock"] = true
+L["Bloodsail Sea Dog"] = true
+L["Bloodsail Elder Magus"] = true
+L["Dalaran Spellscribe"] = true
+L["Dalaran Shield Guard"] = true
+L["Dalaran Theurgist"] = true
+L["Dalaran Summoner"] = true
+L["\"Pretty Boy\" Duncan"] = true
+L["Scalding Whelp"] = true
+L["Deviate Ravager"] = true
+L["Deviate Guardian"] = true
+L["Searing Whelp"] = true
+L["Bloodsail Deckhand"] = true
+L["Bloodsail Swabby"] = true
+L["Sprite Darter"] = true
+L["Takk the Leaper"] = true
+L["Draconic Magelord"] = true
+L["Blue Scalebane"] = true
+L["Draconic Mageweaver"] = true
+L["Ravasaur Matriarch"] = true
+L["Dart"] = true
+L["Razzashi Raptor"] = true
+L["Bogflare Needler"] = true
+L["Dark Iron Antagonist"] = true
+L["Forest Frog"] = true
+L["Gundrak Raptor"] = true
+L["Time-Lost Proto Drake"] = true
 ]]--
 
 
