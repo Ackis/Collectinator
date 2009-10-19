@@ -190,6 +190,51 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Horde.
 		-------------------------------------------------------------------------------
+		-- Green Kodo - 18991
+		AddMount(18991, 15292, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 18991, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 18991, A_CUSTOM, 23)
+
+		-- Teal Kodo - 18992
+		AddMount(18992, 15293, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 18992, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 18992, A_CUSTOM, 23)
+
+		-- Horn of the Red Wolf - 16080
+		AddMount(16080, 12330, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 16080, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16080, A_CUSTOM, 23)
+
+		-- Horn of the Arctic Wolf - 16081
+		AddMount(16081, 12351, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 16081, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16081, A_CUSTOM, 23)
+
+		-- Whistle of the Mottled Red Raptor - 16084
+		AddMount(16084, 8586, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 16084, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16084, A_CUSTOM, 23)
+
+		-- Whistle of the Ivory Raptor - 17450
+		AddMount(17450, 13317, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 17450, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 17450, A_CUSTOM, 23)
+
+		-- White Kodo
+		AddMount(64657, 46100, R_RARE, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 64657, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 64657, A_VENDOR, 3685)
+
+		-- Gray Kodo - 18989
+		AddMount(18989, 15277, R_RARE, GAME_ORIG)
+		self:AddCompanionFlags(DB, 18989, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 18989, A_VENDOR, 3685)
+
+		-- Brown Kodo - 18990
+		AddMount(18990, 15290, R_RARE, GAME_ORIG)
+		self:AddCompanionFlags(DB, 18990, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 18990, A_VENDOR, 3685)
+
 		-- Tawny Wind Rider - 32243
 		AddMount(32243, 25474, R_RARE, GAME_BC)
 		self:AddCompanionFlags(DB, 32243, F_HORDE, F_VENDOR, F_BOP)
@@ -413,6 +458,46 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Alliance.
 		-------------------------------------------------------------------------------
+		-- White Mechanostrider Mod B - 15779
+		AddMount(15779, 13326, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 15779, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 15779, A_CUSTOM, 23)
+
+		-- Icy Blue Mechanostrider Mod A - 17459
+		AddMount(17459, 13327, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 17459, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 17459, A_CUSTOM, 23)
+
+		-- Palomino Bridle - 16082
+		AddMount(16082, 12354, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 16082, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16082, A_CUSTOM, 23)
+
+		-- White Stallion Bridle - 16083
+		AddMount(16083, 12353, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 16083, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16083, A_CUSTOM, 23)
+
+		-- Frost Ram - 17460
+		AddMount(17460, 13329, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 17460, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 17460, A_CUSTOM, 23)
+
+		-- Black Ram - 17461
+		AddMount(17461, 13328, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 17461, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 17461, A_CUSTOM, 23)
+
+		-- Reins of the Nightsaber - 16055
+		AddMount(16055, 12303, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 16055, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16055, A_CUSTOM, 23)
+
+		-- Reins of the Ancient Frostsaber - 16056
+		AddMount(16056, 12302, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 16056, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16056, A_CUSTOM, 23)
+
 		-- Reins of the Wooly Mammoth - 59791
 		AddMount(59791, 44230, 1, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 59791, F_ALLIANCE, F_VENDOR, F_BOP)
@@ -1165,94 +1250,9 @@ function addon:GetMountTotal(DB)
 	--self:AddCompanionFlags(DB, 23252, 2, 3, 4, 16)
 	--self:AddCompanionAcquire(DB, 23252, 1, 3362, 2, 7660, 2, 7661, 2, 27716)
 
-	-- White Kodo
-	AddMount(64657, 46100, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 
-	--self:AddCompanionAcquire(DB, 
-
-	-- Gray Kodo - 18989
-	AddMount(18989, 15277, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(DB, 18989, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 18989, A_VENDOR, 3685)
-
-	-- Brown Kodo - 18990
-	AddMount(18990, 15290, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(DB, 18990, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 18990, A_VENDOR, 3685)
-
 --REP VENDOR ALLIANCE
 
 --RETIRED
-	-- White Mechanostrider Mod B - 15779
-	AddMount(15779, 13326, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 15779, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 15779, A_CUSTOM, 23)
-
-	-- Icy Blue Mechanostrider Mod A - 17459
-	AddMount(17459, 13327, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 17459, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 17459, A_CUSTOM, 23)
-
-	-- Palomino Bridle - 16082
-	AddMount(16082, 12354, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 16082, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16082, A_CUSTOM, 23)
-
-	-- White Stallion Bridle - 16083
-	AddMount(16083, 12353, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 16083, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16083, A_CUSTOM, 23)
-
-	-- Frost Ram - 17460
-	AddMount(17460, 13329, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 17460, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 17460, A_CUSTOM, 23)
-
-	-- Black Ram - 17461
-	AddMount(17461, 13328, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 17461, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 17461, A_CUSTOM, 23)
-
-	-- Reins of the Nightsaber - 16055
-	AddMount(16055, 12303, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 16055, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16055, A_CUSTOM, 23)
-
-	-- Reins of the Ancient Frostsaber - 16056
-	AddMount(16056, 12302, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 16056, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16056, A_CUSTOM, 23)
-
-	-- Green Kodo - 18991
-	AddMount(18991, 15292, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 18991, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 18991, A_CUSTOM, 23)
-
-	-- Teal Kodo - 18992
-	AddMount(18992, 15293, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 18992, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 18992, A_CUSTOM, 23)
-
-	-- Horn of the Red Wolf - 16080
-	AddMount(16080, 12330, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 16080, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16080, A_CUSTOM, 23)
-
-	-- Horn of the Arctic Wolf - 16081
-	AddMount(16081, 12351, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 16081, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16081, A_CUSTOM, 23)
-
-	-- Whistle of the Mottled Red Raptor - 16084
-	AddMount(16084, 8586, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 16084, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16084, A_CUSTOM, 23)
-
-	-- Whistle of the Ivory Raptor - 17450
-	AddMount(17450, 13317, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 17450, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 17450, A_CUSTOM, 23)
-
 	 -- Black Proto-Drake - 59976
 	AddMount(59976, 44164, R_EPIC, GAME_WOTLK)
 	--self:AddCompanionFlags(DB, 59976, 
@@ -1347,7 +1347,7 @@ function addon:GetMountTotal(DB)
 --TCG
 	-- Riding Tutle - 30174
 	AddMount(30174, 23720, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(DB, 30174,  F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	self:AddCompanionFlags(DB, 30174, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(DB, 30174, A_CUSTOM, 1)
 
 	-- Reins of the Spectral Tiger - 42776
@@ -1372,7 +1372,7 @@ function addon:GetMountTotal(DB)
 
 	-- Big Battle Bear - 51412
 	AddMount(51412, 38576, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 51412,  F_ALLIANCE, F_HORDE, F_TCG)
+	self:AddCompanionFlags(DB, 51412, F_ALLIANCE, F_HORDE, F_TCG)
 	self:AddCompanionAcquire(DB, 51412, A_CUSTOM, 1)
 
 	-- Magic Rooster - 66872
