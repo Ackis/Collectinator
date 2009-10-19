@@ -14,59 +14,58 @@ local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true, true)
 
 if not L then return end
 
---[[
 L["About"] = true
 L["Achievement"] = true
-L["ACHIEVEMENT_DESC"]
+--L["ACHIEVEMENT_DESC"] = ""
 L["ACQUIRETOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing the acquire information."
 L["Acquisition"] = true
-L["ALL_FILTERED"]
-L["ALT_CLICK"]
-L["ALT_TRADESKILL_DESC"]
-L["Alt-Tradeskills"]
-L["ARL_DOC_DESC"]
-L["BC_WOW_DESC"]
-L["Binding"]
-L["BOA_DESC"]
-L["BOAFilter"]
-L["BOE_DESC"]
-L["BOEFilter"]
-L["BOP_DESC"]
-L["BOPFilter"]
-L["Bottom Left"]
-L["Burning Crusade"]
-L["Clear Exclusion List"]
-L["CLEAR_DESC"]
-L["CLEAR_EXCLUSION_LIST_DESC"]
-L["Close GUI"]
-L["CLOSE_DESC"]
-L["CLOSEGUI_DESC"]
-L["COLLECTIBLE_EXCLUDED"]
-L["Collectinator_ALLEXCLUDED"]
-L["Collectinator_ALLKNOWN"]
-L["Collectinator_SEARCHFILTERED"]
-L["Common Issues"]
-L["COMMON_ISSUES_DESC"]
-L["CONTRACTALL"]
-L["CONTRACTALL_DESC"]
-L["CTRL_CLICK"]
-L["CTRL_SHIFT_CLICK"]
-L["Display Exclusions"]
-L["Display Options"]
-L["Display"]
-L["DISPLAY_EXCLUSION_DESC"]
-L["DISPLAY_EXCLUSION_DESC"]
-L["DISPLAY_OPTIONS_DESC"]
-L["Documentation"]
-L["EVENT_DESC"]
+L["ALL_FILTERED"] = "Your filters are currently preventing any entries from being displayed. Please change your filter settings and try again."
+L["ALT_CLICK"] = "Alt-Click to add/remove this entry to your ignore list."
+--L["ALT_TRADESKILL_DESC"]
+--L["Alt-Tradeskills"]
+--L["ARL_DOC_DESC"]
+L["BC_WOW_DESC"] = "Entries available with the Burning Crusade."
+L["Binding"] = true
+L["BOEFilter"] = "Entry Bind on Equip"
+L["BOE_DESC"] = "Entry that are Bind on Equip items should be included in the scan."
+L["BOPFilter"] = "Entry Bind on Pickup"
+L["BOP_DESC"] = "Entry that are Bind on Pickup items should be included in the scan."
+L["BOAFilter"] = "Entry Bind to Account"
+L["BOA_DESC"] = "Entry that are Bind to Account items should be included in the scan."
+L["Bottom Left"] = true
+L["Burning Crusade"] = true
+L["Clear Exclusion List"] = true
+L["CLEAR_DESC"] = "Clear the search text box."
+L["CLEAR_EXCLUSION_LIST_DESC"] = "Removes all entries from the exclusion list."
+L["Close GUI"] = true
+L["CLOSE_DESC"] = "Close the Collectinator Window."
+--L["CLOSEGUI_DESC"] remove ref
+L["COLLECTIBLE_EXCLUDED"] = 
+L["Collectinator_ALLEXCLUDED"] = "Your exclusions are currently preventing any entries from being displayed. Please change your exclusions and try again."
+L["Collectinator_ALLKNOWN"] = "You know all the entries, there is nothing left for you to collect."
+L["Collectinator_SEARCHFILTERED"] = "Your search has no results."
+L["Common Issues"] = true
+L["COMMON_ISSUES_DESC"] = [[Please refer to these common issues before submitting a bug report.
+1) Mount/Pet does not show up! - Check your filter settings to make sure that the entry is not being filtered.]]
+L["CONTRACTALL"] = "- All"
+L["CONTRACTALL_DESC"] = "Minimize all entries listed below."
+L["CTRL_CLICK"] = "Ctrl-Click to add this entries link to your chat."
+L["CTRL_SHIFT_CLICK"] = "Ctrl-Shift-Click to add the item to the map and mini-map."
+L["Display Exclusions"] = true
+L["Display Options"] = true
+L["Display"] = true
+L["DISPLAY_EXCLUSION_DESC"] = "Display entries that are in the exclusion list."
+L["DISPLAY_OPTIONS_DESC"] = "Allows you to customize how the GUI behaves."
+L["Documentation"] = true
+--L["EVENT_DESC"]
 L["EXCLUDECOUNT_DESC"]
 L["Exclusion Issues"]
 L["EXCLUSION_ISSUES_DESC"]
 L["EXPANDALL"]
 L["EXPANDALL_DESC"]
-L["Faction"]
+L["Faction"] = true
 L["FACTION_DESC"]
-L["Filter"]
+L["Filter"] = true
 L["FILTER_CLOSE"]
 L["FILTER_CLOSE_DESC"]
 L["FILTER_OPEN"]
@@ -81,69 +80,69 @@ L["FILTERING_OBTAIN_DESC"]
 L["FILTERING_OLDWORLD_DESC"]
 L["FILTERING_REP_DESC"]
 L["FILTERING_WOTLK_DESC"]
-L["Filters"]
-L["Font Size"]
+L["Filters"] = true
+L["Font Size"] = true
 L["FONT_SIZE_DESC"]
-L["Game Commands"]
+L["Game Commands"] = true
 L["GAME_COMMANDS_DESC"]
-L["General Options"]
-L["General"]
-L["Hide Pop-Up"]
+L["General Options"] = true
+L["General"] = true
+L["Hide Pop-Up"] = true
 L["HIDEPOPUP_DESC"]
-L["Include Excluded"]
-L["Include Filtered"]
-L["Instance"]
+L["Include Excluded"] = true
+L["Include Filtered"] = true
+L["Instance"] = true
 L["INSTANCE_DESC"]
-L["Item"]
-L["Known"]
+L["Item"] = true
+L["Known"] = true
 L["KNOWN_DESC"]
-L["Lich King"]
+L["Lich King"] = true
 L["LK_WOW_DESC"]
-L["Location"]
-L["Main Filter Options"]
-L["Main Options"]
+L["Location"] = true
+L["Main Filter Options"] = true
+L["Main Options"] = true
 L["MAIN_OPTIONS_DESC"]
 L["MAINFILTER_OPTIONS_DESC"]
-L["Map Issues"]
+L["Map Issues"] = true
 L["MAP_ISSUES_DESC"]
 L["MAP_OPTIONS_DESC"]
-L["Misc"]
-L["Miscellaneous"]
+L["Misc"] = true
+L["Miscellaneous"] = true
 L["MISSING_LIBRARY"]
-L["Mob Drop"]
+L["Mob Drop"] = true
 L["MOB_DROP_DESC"]
-L["Mouse"]
-L["Name"]
+L["Mouse"] = true
+L["Name"] = true
 L["NO_DISPLAY"]
 L["NoItemLink"]
 L["NOT_YET_SCANNED"]
 L["NOTSCANNED"]
-L["Obtain"]
-L["Obtained From"]
-L["Off"]
-L["Ok"]
-L["Old World"]
+L["Obtain"] = true
+L["Obtained From"] = true
+L["Off"] = true
+L["Ok"] = true
+L["Old World"] = true
 L["ORIGINAL_WOW_DESC"]
-L["Other Realms"]
-L["Profile Options"]
-L["Profile"]
-L["PVP"]
+L["Other Realms"] = true
+L["Profile Options"] = true
+L["Profile"] = true
+L["PVP"] = true
 L["PVP_DESC"]
-L["Quest"]
+L["Quest"] = true
 L["QUEST_DESC"]
-L["Raid"]
+L["Raid"] = true
 L["RAID_DESC"]
-L["Removed from Game"]
+L["Removed from Game"] = true
 L["REP_TEXT_DESC"]
-L["Reporting Bugs"]
+L["Reporting Bugs"] = true
 L["REPORTING_BUGS_DESC"]
-L["Reputation"]
-L["Reset All Filters"]
-L["Reset Window Position"]
+L["Reputation"] = true
+L["Reset All Filters"] = true
+L["Reset Window Position"] = true
 L["RESET_DESC"]
 L["RESET_WINDOW_DESC"]
-L["Scan Button Position"]
-L["Scan"]
+L["Scan Button Position"] = true
+L["Scan"] = true
 L["SCAN_COMPANIONS_DESC"]
 L["SCAN_RECIPES_DESC"]
 L["SCANBUTTONPOSITION_DESC"]
@@ -151,37 +150,37 @@ L["SEARCH_BOX_DESC"]
 L["SEARCH_DESC"]
 L["SEASONAL_DESC"]
 L["SHIFT_CLICK"]
-L["Sort"]
-L["Sorting Options"]
-L["Sorting"]
+L["Sort"] = true
+L["Sorting Options"] = true
+L["Sorting"] = true
 L["SORTING_DESC"]
 L["SORTING_OPTIONS_DESC"]
-L["Special Event"]
+L["Special Event"] = true
 L["SPECIFIC_REP_DESC"]
 L["SPELLTOOLTIPPOSITION_DESC"]
-L["Text Dump"]
+L["Text Dump"] = true
 L["TEXT_DUMP_DESC"]
-L["Tooltip (Acquire) Position"]
-L["Tooltip (Recipe) Position"]
-L["Tooltip Options"]
-L["Tooltip Scale"]
+L["Tooltip (Acquire) Position"] = true
+L["Tooltip (Recipe) Position"] = true
+L["Tooltip Options"] = true
+L["Tooltip Scale"] = true
 L["TOOLTIP_OPTIONS_DESC"]
 L["TOOLTIP_SCALE_DESC"]
-L["UI Scale"]
+L["UI Scale"] = true
 L["UI_SCALE_DESC"]
-L["Unavailable"]
-L["Unhandled Collectible"]
-L["Unknown Zone"]
-L["Unknown"]
+L["Unavailable"] = true
+L["Unhandled Collectible"] = true
+L["Unknown Zone"] = true
+L["Unknown"] = true
 L["UNKNOWN_DESC"]
-L["Using Filters"]
+L["Using Filters"] = true
 L["USING_FILTERS_DESC"]
-L["Vendor"]
+L["Vendor"] = true
 L["VENDOR_DESC"]
-L["Version"]
-L["View Exclusion List"]
+L["Version"] = true
+L["View Exclusion List"] = true
 L["VIEW_EXCLUSION_LIST_DESC"]
-L["World Drop"]
+L["World Drop"] = true
 L["WORLD_DROP_DESC"]
 
 ]]--
@@ -396,8 +395,6 @@ L["Tooltip Options"]		= true
 L["Map Options"]			= true
 L["ARL Documentation"]		= true
 L["Documentation"]			= true
-
--- Config UI Elements and their associated descriptions
 L["MAIN_OPTIONS_DESC"]		= "Main configuration options"
 L["Scan"]					= true
 L["SCAN_RECIPES_DESC"]		= [[Scans an open tradeskill for missing entries.
