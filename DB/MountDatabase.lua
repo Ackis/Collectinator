@@ -469,19 +469,19 @@ function addon:GetMountTotal(DB)
 		self:AddCompanionAcquire(DB, 17454, A_CUSTOM, 23)
 
 		-- Swift Yellow Mechanostrider - 23222
-		AddMount(23222, 18774, 1, GAME_ORIG)
-		--self:AddCompanionFlags(DB, 23222, 1, 3, 4, 16)
-		--self:AddCompanionAcquire(DB, 23222, 1, 7955, 2, 7675, 2, 7676, 2, 27717)
+		AddMount(23222, 18774, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23222, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23222, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
 
 		-- Swift White Mechanostrider - 23223
-		AddMount(23223, 18773, 1, GAME_ORIG)
-		--self:AddCompanionFlags(DB, 23223, 1, 3, 4, 16)
-		--self:AddCompanionAcquire(DB, 23223, 1, 7955, 2, 7675, 2, 7676)
+		AddMount(23223, 18773, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23223, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23223, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
 
 		-- Swift Green Mechanostrider - 23225
-		AddMount(23225, 18772, 1, GAME_ORIG)
-		--self:AddCompanionFlags(DB, 23225, 1, 3, 4, 16)
-		--self:AddCompanionAcquire(DB, 23225, 1, 7955, 2, 7675, 2, 7676)
+		AddMount(23225, 18772, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23225, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23225, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
 
 		-- Swift Palomino - 23227
 		AddMount(23227, 18776, 1, GAME_ORIG)
