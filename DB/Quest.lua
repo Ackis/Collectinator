@@ -15,12 +15,6 @@ Project version: @project-version@
 
 ************************************************************************
 
-Format:
-
-	self:addLookupList(QuestDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
-
-************************************************************************
-
 ]]--
 
 local MODNAME			= "Collectinator"
@@ -39,7 +33,7 @@ function addon:InitQuest(DB)
 	self:addLookupList(DB,	3721,	L["An OOX of Your Own"],			BZ["Stranglethorn Vale"],	28.3,	76.3,	0)
 	self:addLookupList(DB,	4729,	L["Kibler's Exotic Pets"],			BZ["Burning Steppes"],		65.9,	22.1,	0)
 	self:addLookupList(DB,	4862,	L["En-Ay-Es-Tee-Why"],				BZ["Burning Steppes"],		65.9,	22.1,	0)
-	--self:addLookupList(DB,	4621,	L["Avast Ye,	 Admiral!"],		BZ["Stranglethorn Vale"],	30.7,	90.4,	0)
+	self:addLookupList(DB,	4621,	L["Avast Ye,	 Admiral!"],			BZ["Stranglethorn Vale"],	30.7,	90.4,	0)
 	self:addLookupList(DB,	11431,	L["Catch the Wild Wolpertinger!"],		BZ["Durotar"],			45.0,	17.3,	2)
 	self:addLookupList(DB,	11111,	L["Onyxien the Onyx Netherwing Drake"],		BZ["Shattrath City"],		67.5,	18.10,	0)
 	self:addLookupList(DB,	11117,	L["Catch the Wild Wolpertinger!"],		BZ["Dun Morogh"],		48.0,	39.5,	1)
