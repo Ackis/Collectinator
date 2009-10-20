@@ -520,8 +520,8 @@ function addon:GetMountTotal(DB)
 
 		--Traveler's Tundra Mammoth (Alliance) - 61425
 		AddMount(61425, 44235, R_EPIC, GAME_WOTLK)
-		--self:AddCompanionFlags(DB, 61425, 
-		--self:AddCompanionAcquire(DB, 61425, A_VENDOR, 32216)
+		self:AddCompanionFlags(DB, 61425, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 61425, A_VENDOR, 32216)
 
 		-- White Mechanostrider Mod B - 15779
 		AddMount(15779, 13326, R_EPIC, GAME_ORIG)
@@ -669,68 +669,68 @@ function addon:GetMountTotal(DB)
 		self:AddCompanionAcquire(DB, 23225, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
 
 		-- Swift Palomino - 23227
-		AddMount(23227, 18776, 1, GAME_ORIG)
-		--self:AddCompanionFlags(DB, 23227, 1, 3, 4, 16)
-		--self:AddCompanionAcquire(DB, 23227, 1, 384, 1, 2357, 1, 4885, 2, 7677, 2, 7678, 2, 27717)
+		AddMount(23227, 18776, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23227, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23227, A_VENDOR, 384, A_VENDOR, 2357, A_VENDOR, 4885, A_QUEST, 7677, A_QUEST, 7678)
 
 		-- Swift White Steed - 23228
-		AddMount(23228, 18778, 1, GAME_ORIG)
-		--self:AddCompanionFlags(DB, 23228, 1, 3, 4, 16)
-		--self:AddCompanionAcquire(DB, 23228, 1, 384, 1, 2357, 1, 4885, 2, 7677, 2, 7678)
+		AddMount(23228, 18778, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23228, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23228, A_VENDOR, 384, A_VENDOR, 2357, A_VENDOR, 4885, A_QUEST, 7677, A_QUEST, 7678)
 
 		-- Swift Brown Steed - 23229
-		AddMount(23229, 18777, 1, GAME_ORIG)
-		--self:AddCompanionFlags(DB, 23229, 1, 3, 4, 16)
-		--self:AddCompanionAcquire(DB, 23229, 1, 384, 1, 2357, 1, 4885, 2, 7677, 2, 7678)
+		AddMount(23229, 18777, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23229, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23229, A_VENDOR, 384, A_VENDOR, 2357, A_VENDOR, 4885, A_QUEST, 7677, A_QUEST, 7678)
 
 		-- Swift Brown Ram - 23238
-		AddMount(23238, 18786, 1, GAME_ORIG)
-		--self:AddCompanionFlags(DB, 23238, 1, 3, 4, 16)
-		--self:AddCompanionAcquire(DB, 23238, 1, 1261, 2, 7673, 2, 7674)
+		AddMount(23238, 18786, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23238, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23238, A_VENDOR, 1261, A_QUEST, 7673, A_QUEST, 7674)
 
 		-- Swift Gray Ram - 23239
-		AddMount(23239, 18787, 1, GAME_ORIG)
-		--self:AddCompanionFlags(DB, 23239, 1, 3, 4, 16)
-		--self:AddCompanionAcquire(DB, 23239, 1, 1261, 2, 7673, 2, 7674, 2, 27717)
+		AddMount(23239, 18787, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23239, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23239, A_VENDOR, 1261, A_QUEST, 7673, A_QUEST, 7674)
 
 		-- Swift White Ram - 23240
-		AddMount(23240, 18785, 1, GAME_ORIG)
-		--self:AddCompanionFlags(DB, 23240, 1, 3, 4, 16)
-		--self:AddCompanionAcquire(DB, 23240, 1, 1261, 2, 7673, 2, 7674)
+		AddMount(23240, 18785, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23240, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23240, A_VENDOR, 1261, A_QUEST, 7673, A_QUEST, 7674)
 
 		-- Brown Elekk - 34406
-		AddMount(34406, 28481, 1, GAME_BC)
-		--self:AddCompanionFlags(DB, 34406, F_ALLIANCE, F_HORDE, F_VENDOR, 16)
-		--self:AddCompanionAcquire(DB, 34406, 1, 17584)
+		AddMount(34406, 28481, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 34406, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 34406, A_VENDOR, 17584)
 
 		-- Gray Elekk - 35710
-		AddMount(35710, 29744, 1, GAME_BC)
-		--self:AddCompanionFlags(DB, 35710, F_ALLIANCE, F_HORDE, F_VENDOR, 16)
-		--self:AddCompanionAcquire(DB, 35710, 1, 17584)
+		AddMount(35710, 29744, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 35710, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35710, A_VENDOR, 17584)
 
 		-- Purple Elekk - 35711
-		AddMount(35711, 29743, 1, GAME_BC)
-		--self:AddCompanionFlags(DB, 35711, F_ALLIANCE, F_HORDE, F_VENDOR, 16)
-		--self:AddCompanionAcquire(DB, 35711, 1, 17584)
+		AddMount(35711, 29743, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 35711, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35711, A_VENDOR, 17584)
 
 		-- Reins of the Swift Mistsaber - 23219
-		AddMount(23219, 18767, 1, GAME_ORIG)
-		--self:AddCompanionFlags(DB, 23219, 1, 3, 4, 16)
-		--self:AddCompanionAcquire(DB, 23219, 1, 4730, 2, 7671, 2, 7672, 2, 27717)
+		AddMount(23219, 18767, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23219, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23219, A_VENDOR, 4730, A_QUEST, 7671, A_QUEST, 7672)
 
 		-- Reins of the Swift Frostsaber - 23221
-		AddMount(23221, 18766, 1, GAME_ORIG)
-		--self:AddCompanionFlags(DB, 23221, 1, 3, 4, 16)
-		--self:AddCompanionAcquire(DB, 23221, 1, 4730, 2, 7671, 2, 7672)
+		AddMount(23221, 18766, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23221, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23221, A_VENDOR, 4730, A_QUEST, 7671, A_QUEST, 7672)
 
 		-- Reins of the Swift Stormsaber - 23338
-		AddMount(23338, 18902, 1, GAME_ORIG)
-		--self:AddCompanionFlags(DB, 23338, 1, 3, 4, 16)
-		--self:AddCompanionAcquire(DB, 23338, 1, 4730, 2, 7671, 2, 7672)
+		AddMount(23338, 18902, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23338, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23338, A_VENDOR, 4730, A_QUEST, 7671, A_QUEST, 7672)
 
-		-- Striped Dawnsaber - 66847
+		-- Reins of the Striped Dawnsaber - 66847
 		AddMount(66847, 47100, R_RARE, GAME_WOTLK)
-		--self:AddCompanionFlags(DB, 66847, 
+		self:AddCompanionFlags(DB, 66847, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 66847, A_VENDOR, 4730)
 
 		-- Reins of the Striped Frostsaber - 8394
