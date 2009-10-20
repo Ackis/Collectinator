@@ -200,6 +200,21 @@ function addon:GetMountTotal(DB)
 		--self:AddCompanionFlags(DB, 34767, 
 		--self:AddCompanionAcquire(DB, 34767, 
 
+		-- Horn of the Swift Brown Wolf - 23250
+		AddMount(23250, 18796, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23250, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 23250, A_VENDOR, 3362, A_QUEST, 7660, A_QUEST, 7661)
+
+		-- Horn of the Swift Timber Wolf - 23251
+		AddMount(23251, 18797, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23251, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 23251, A_VENDOR, 3362, A_QUEST, 7660, A_QUEST, 7661)
+
+		-- Horn of the Swift Gray Wolf - 23252
+		AddMount(23252, 18798, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23252, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 23252, A_VENDOR, 3362, A_QUEST, 7660, A_QUEST, 7661)
+
 		-- Swift Blue Raptor - 23241
 		AddMount(23241, 18788, R_EPIC, GAME_ORIG)
 		self:AddCompanionFlags(DB, 23241, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
@@ -1230,21 +1245,6 @@ function addon:GetMountTotal(DB)
 	AddMount(34899, 29105, R_EPIC, GAME_BC)
 	self:AddCompanionFlags(DB, 34899, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_NAGRAND)
 	self:AddCompanionAcquire(DB, 34899, A_REPUTATION, 978, EXALTED, 20240, A_REPUTATION, 941, EXALTED, 20241)
-
-	-- Horn of the Swift Brown Wolf - 23250
-	AddMount(23250, 18796, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB, 23250, 2, 3, 4, 16)
-	--self:AddCompanionAcquire(DB, 23250, 1, 3362, 2, 7660, 2, 7661)
-
-	-- Horn of the Swift Timber Wolf - 23251
-	AddMount(23251, 18797, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB, 23251, 2, 3, 4, 16)
-	--self:AddCompanionAcquire(DB, 23251, 1, 3362, 2, 7660, 2, 7661)
-
-	-- Horn of the Swift Gray Wolf - 23252
-	AddMount(23252, 18798, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB, 23252, 2, 3, 4, 16)
-	--self:AddCompanionAcquire(DB, 23252, 1, 3362, 2, 7660, 2, 7661, 2, 27716)
 
 --REP VENDOR ALLIANCE
 
