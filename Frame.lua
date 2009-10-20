@@ -657,19 +657,20 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	CollectinatorTooltip:ClearAllPoints()
 
 	if acquire_tip_loc == "Right" then
-		CollectinatorTooltip:SetPoint("TOPLEFT", addon.Frame, "TOPRIGHT")
+		CollectinatorTooltip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
 	elseif acquire_tip_loc == "Left" then
-		CollectinatorTooltip:SetPoint("TOPRIGHT", addon.Frame, "TOPLEFT")
+		CollectinatorTooltip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
 	elseif acquire_tip_loc == "Top" then
-		CollectinatorTooltip:SetPoint("BOTTOMLEFT", addon.Frame, "TOPLEFT")
+		CollectinatorTooltip:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
 	elseif acquire_tip_loc == "Bottom" then
-		CollectinatorTooltip:SetPoint("TOPLEFT", addon.Frame, "BOTTOMLEFT")
+		CollectinatorTooltip:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
 	elseif acquire_tip_loc == "Mouse" then
-		CollectinatorTooltip:ClearAllPoints()
-		local x,y = GetCursorPosition()
+		local x, y = GetCursorPosition()
 		local uiscale = UIParent:GetEffectiveScale()
-		x = x/uiscale
-		y = y/uiscale
+
+		x = x / uiscale
+		y = y / uiscale
+		CollectinatorTooltip:ClearAllPoints()
 		CollectinatorTooltip:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", x, y)
 	end
 
