@@ -114,7 +114,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 40990, A_ACHIEVEMENT, 1250)
 
 	-- Little Fawn - 61991
-	AddPet(61991, 44841, R_COMMON, GAME_WOTLK)
+	AddPet(61991, 44841, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61991, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 61991, A_ACHIEVEMENT, 2516)
 
@@ -150,7 +150,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 59250, A_ACHIEVEMENT, 1958)
 
 	-- Strand Crawler -- 62561
-	AddPet(62561, 44983, R_COMMON, GAME_WOTLK)
+	AddPet(62561, 44983, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62561, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 62561, A_QUEST, 13830, A_QUEST, 13832, A_QUEST, 13833, A_QUEST, 13834, A_QUEST, 13836)
 
@@ -222,7 +222,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 54187, A_ACHIEVEMENT, 1705)
 
 	-- Spring Rabbit - 61725
-	AddPet(61725, 44794, R_COMMON, GAME_WOTLK)
+	AddPet(61725, 44794, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61725, F_ALLIANCE, F_HORDE, F_SEASONAL)
 	self:AddCompanionAcquire(PetDB, 61725, A_SEASONAL, 9)
 
@@ -239,7 +239,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 --DROP
 	-- Parrot Cage (Hyacinth Macaw) - 10682
-	AddPet(10682, 8494, R_COMMON, GAME_ORIG)
+	AddPet(10682, 8494, R_EPIC, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10682, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
 	self:AddCompanionAcquire(PetDB, 10682, A_MOB, 1561, A_MOB, 1562, A_MOB, 1563, A_MOB, 1564, A_MOB, 1565, A_MOB, 1653, A_MOB, 2545, A_MOB, 4505, A_MOB, 4506)
 
@@ -375,12 +375,12 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 39709, A_SEASONAL, 6)
 
 	-- Argent Squire -- 62609
-	AddPet(62609, 44998, R_COMMON, GAME_WOTLK)
+	AddPet(62609, 44998, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62609, F_ALLIANCE, F_QUEST, F_BOP)
 	self:AddCompanionAcquire(PetDB, 62609, A_QUEST, 13702, A_QUEST, 13732, A_QUEST, 13733, A_QUEST, 13734, A_QUEST, 13735)
 
 	-- Argent Gruntling -- 62746
-	AddPet(62746, 45022, R_COMMON, GAME_WOTLK)
+	AddPet(62746, 45022, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62746, F_HORDE, F_QUEST, F_BOP)
 	self:AddCompanionAcquire(PetDB, 62746, A_QUEST, 13736, A_QUEST, 13737, A_QUEST, 13738, A_QUEST, 13739, A_QUEST, 13740)
 
@@ -415,63 +415,63 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 40634, A_QUEST, 10966, A_QUEST, 10967, A_SEASONAL, 8)
 
 	-- Curious Wolvar Pup
-	AddPet(65382, 46544, R_UNCOMMON, GAME_WOTLK)
+	AddPet(65382, 46544, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 65382, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
 	self:AddCompanionAcquire(PetDB, 65382, A_QUEST, 13959, A_SEASONAL, 8)
 
 	-- Curious Oracle Hatchling
-	AddPet(65381, 46545, R_UNCOMMON, GAME_WOTLK)
+	AddPet(65381, 46545, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 65381, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
 	self:AddCompanionAcquire(PetDB, 65381, A_QUEST, 13960, A_SEASONAL, 8)
 
 --REP VENDOR ARGENT
 	-- Teldrassil Sproutling -- 62491
-	AddPet(62491, 44965, R_UNCOMMON, GAME_WOTLK)
+	AddPet(62491, 44965, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62491, F_ALLIANCE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 62491, A_VENDOR, 33653)
 
 	-- Dun Morogh Cub -- 62508
-	AddPet(62508, 44970, R_UNCOMMON, GAME_WOTLK)
+	AddPet(62508, 44970, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62508, F_ALLIANCE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 62508, A_VENDOR, 33310)
 
 	-- Tirisfal Batling -- 62510
-	AddPet(62510, 44971, R_UNCOMMON, GAME_WOTLK)
+	AddPet(62510, 44971, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62510, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 62510, A_VENDOR, 33555)
 
 	-- Durotar Scorpion -- 62513
-	AddPet(62513, 44973, R_UNCOMMON, GAME_WOTLK)
+	AddPet(62513, 44973, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62513, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 62513, A_VENDOR, 33553)
 
 	-- Elwynn Lamb -- 62516
-	AddPet(62516, 44974, R_UNCOMMON, GAME_WOTLK)
+	AddPet(62516, 44974, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62516, F_ALLIANCE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 62516, A_VENDOR, 33307)
 
 	-- Mulgore Hatchling -- 62542
-	AddPet(62542, 44980, R_UNCOMMON, GAME_WOTLK)
+	AddPet(62542, 44980, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62542, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 62542, A_VENDOR, 33556)
 
 	-- Ammen Vale Lashling -- 62562
-	AddPet(62562, 44984, R_UNCOMMON, GAME_WOTLK)
+	AddPet(62562, 44984, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62562, F_ALLIANCE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 62562, A_VENDOR, 33657)
 
 	-- Enchanted Broom -- 62564
-	AddPet(62564, 44982, R_UNCOMMON, GAME_WOTLK)
+	AddPet(62564, 44982, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62564, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 62564, A_VENDOR, 33557)
 
 	-- Mechanopeep -- 62674
-	AddPet(62674, 45002, R_UNCOMMON, GAME_WOTLK)
+	AddPet(62674, 45002, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 62674, F_ALLIANCE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 62674, A_VENDOR, 33650)
 
 	-- Sen'jin Fetish -- 63712
-	AddPet(63712, 45606, R_UNCOMMON, GAME_WOTLK)
+	AddPet(63712, 45606, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 63712, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 63712, A_VENDOR, 33554)
 
@@ -666,7 +666,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 --RETIRED
 	-- Spirit of Competition - 48406
-	AddPet(48406, 37297, R_UNCOMMON, GAME_TBC)
+	AddPet(48406, 37297, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 48406, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 48406, A_CUSTOM, 13)
 
@@ -686,7 +686,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 61855, A_ACHIEVEMENT, 2398)
 
 	-- Murkimus' Little Spear - 63318
-	AddPet(63318, 45180, R_UNCOMMON, GAME_WOTLK)
+	AddPet(63318, 45180, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 63318, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SPEC_EVENT, F_REMOVED, F_PVP, F_BOA)
 	self:AddCompanionAcquire(PetDB, 63318, A_ACHIEVEMENT, 3618, A_CUSTOM, 21)
 
@@ -785,7 +785,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, XX,
 ]]--
 	-- Warbot
-	AddPet(65682, 46767, R_UNCOMMON, GAME_WOTLK)
+	AddPet(65682, 46767, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 65682, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOP)
 	self:AddCompanionAcquire(PetDB, 65682, A_CUSTOM, 24)
 
@@ -832,7 +832,7 @@ function addon:GetMiniPetTotal(PetDB)
 	if (faction == BFAC["Alliance"]) then
 
 		-- Shimmering Wyrmling -- 66096
-		AddPet(66096, 46820, R_UNCOMMON, GAME_WOTLK)
+		AddPet(66096, 46820, R_RARE, GAME_WOTLK)
 		self:AddCompanionFlags(PetDB, 66096, F_ALLIANCE, F_VENDOR, F_BOE, WRATHCOMMON1)
 		self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, EXALTED, 34881)
 
