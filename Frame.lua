@@ -640,13 +640,13 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	local spell_tip_loc = addon.db.profile.spelltooltiplocation
 	local acquire_tip_loc = addon.db.profile.acquiretooltiplocation
 	local companion = collectibleDB[rIndex]
-	local spellLink = companion["CollectibleLink"]
+	local spellLink = companion["ItemID"]
 
 	if acquire_tip_loc == L["Off"] then
 		QTip:Release(CollectinatorTooltip)
 		-- If we have the spell link tooltip, anchor it to addon.Frame instead so it shows
 		if spell_tip_loc ~= L["Off"] and spellLink then
-			SetSpellTooltip(addon.Frame, spell_tip_loc, spellLink)
+			SetSpellTooltip(owner, spell_tip_loc, spellLink)
 		else
 			CollectinatorSpellTooltip:Hide()
 		end
