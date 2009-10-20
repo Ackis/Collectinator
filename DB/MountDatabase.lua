@@ -200,6 +200,36 @@ function addon:GetMountTotal(DB)
 		--self:AddCompanionFlags(DB, 34767, 
 		--self:AddCompanionAcquire(DB, 34767, 
 
+		-- Swift Blue Raptor - 23241
+		AddMount(23241, 18788, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23241, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23241, A_VENDOR, 7952, A_QUEST, 7664, A_QUEST, 7665)
+
+		-- Swift Olive Raptor - 23242
+		AddMount(23242, 18789, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23242, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23242, A_VENDOR, 7952, A_QUEST, 7664, A_QUEST, 7665)
+
+		-- Swift Orange Raptor - 23243
+		AddMount(23243, 18790, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23243, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23243, A_VENDOR, 7952, A_QUEST, 7664, A_QUEST, 7665)
+
+		-- Great White Kodo - 23247
+		AddMount(23247, 18793, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23247, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23247, A_VENDOR, 3685, A_QUEST, 7662, A_QUEST, 7663)
+
+		-- Great Gray Kodo - 23248
+		AddMount(23248, 18795, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23248, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23248, A_VENDOR, 3685, A_QUEST, 7662, A_QUEST, 7663)
+
+		-- Great Brown Kodo - 23249
+		AddMount(23249, 18794, R_EPIC, GAME_ORIG)
+		self:AddCompanionFlags(DB, 23249, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23249, A_VENDOR, 3685, A_QUEST, 7662, A_QUEST, 7663)
+
 		-- Swift Pink Hawkstrider - 33660
 		AddMount(33660, 28936, R_EPIC, GAME_BC)
 		self:AddCompanionFlags(DB, 33660, F_HORDE, F_VENDOR, F_BOP)
@@ -1200,37 +1230,6 @@ function addon:GetMountTotal(DB)
 	AddMount(34899, 29105, R_EPIC, GAME_BC)
 	self:AddCompanionFlags(DB, 34899, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_NAGRAND)
 	self:AddCompanionAcquire(DB, 34899, A_REPUTATION, 978, EXALTED, 20240, A_REPUTATION, 941, EXALTED, 20241)
-
---REP VENDOR HORDE
-	-- Swift Blue Raptor - 23241
-	AddMount(23241, 18788, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB, 23241, 2, 3, 4, 16)
-	--self:AddCompanionAcquire(DB, 23241, 1, 7952, 2, 7664, 2, 7665, 2, 27716)
-
-	-- Swift Olive Raptor - 23242
-	AddMount(23242, 18789, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB, 23242, 2, 3, 4, 16)
-	--self:AddCompanionAcquire(DB, 23242, 1, 7952, 2, 7664, 2, 7665)
-
-	-- Swift Orange Raptor - 23243
-	AddMount(23243, 18790, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB, 23243, 2, 3, 4, 16)
-	--self:AddCompanionAcquire(DB, 23243, 1, 7952, 2, 7664, 2, 7665)
-
-	-- Great White Kodo - 23247
-	AddMount(23247, 18793, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB, 23247, 2, 3, 4, 16)
-	--self:AddCompanionAcquire(DB, 23247, 1, 3685, 2, 7662, 2, 7663)
-
-	-- Great Gray Kodo - 23248
-	AddMount(23248, 18795, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB, 23248, 2, 3, 4, 16)
-	--self:AddCompanionAcquire(DB, 23248, 1, 3685, 2, 7662, 2, 7663)
-
-	-- Great Brown Kodo - 23249
-	AddMount(23249, 18794, 1, GAME_ORIG)
-	--self:AddCompanionFlags(DB, 23249, 2, 3, 4, 16)
-	--self:AddCompanionAcquire(DB, 23249, 1, 3685, 2, 7662, 2, 7663, 2, 27716)
 
 	-- Horn of the Swift Brown Wolf - 23250
 	AddMount(23250, 18796, 1, GAME_ORIG)
