@@ -141,57 +141,60 @@ L["Mob Drop"] = true
 L["MOB_DROP_DESC"] = "Collectibles that are Mob Drops should be included in the scan."
 L["Mouse"] = true
 L["Name"] = true
---[[
-L["NO_DISPLAY"]
-L["NoItemLink"]
-L["NOT_YET_SCANNED"]
-L["NOTSCANNED"]
---]]
+L["NO_DISPLAY"] = "No entries to display.  If you get this message please submit a ticket at http://www.wowace.com/projects/collectinator/tickets listing what filters you have, what is in your exclusion list, which type of scan is being done, and the number of known/unknown entries."
+L["NoItemLink"] = "This item does not have an item link or it was not in your cache."
+L["NOT_YET_SCANNED"] = "Not yet scanned!"
+L["NOTSCANNED"] = "You have not yet scanned this collectible. Please open this the itnerface and click on Scan.  Note that mount/pet scanning is done at the same time."
 L["Obtain"] = true
 L["Obtained From"] = true
 L["Off"] = true
 L["Ok"] = true
 L["Old World"] = true
---L["ORIGINAL_WOW_DESC"]
+L["ORIGINAL_WOW_DESC"] = "Collectibles available with the original game."
 L["Other Realms"] = true
 L["Profile Options"] = true
 L["Profile"] = true
 L["PVP"] = true
---L["PVP_DESC"]
+L["PVP_DESC"] = "Collectibles obtained through PVP should be included in the scan."
 L["Quest"] = true
---L["QUEST_DESC"]
+L["QUEST_DESC"] = "Collectibles obtained as quest rewards should be included in the scan."
 L["Raid"] = true
---L["RAID_DESC"]
+L["RAID_DESC"] = "Collectibles obtained in raids (ie: Molten Core, Serpent Shrine Cavern, etc.) should be included in the scan."
 L["Removed from Game"] = true
---L["REP_TEXT_DESC"]
+L["REP_TEXT_DESC"] = [[Left-click here to select all reputation filters.
+Right-click here to deselect all reputation filters.]]
 L["Reporting Bugs"] = true
---L["REPORTING_BUGS_DESC"]
+L["REPORTING_BUGS_DESC"] = [[When reporting a bug, please make sure you do the following:
+1) Download the latest version, available from http://www.wowace.com/projects/collectinator/files/
+2) Make sure there is not a bug report filed for your issue already.  You can check these at http://www.wowace.com/projects/collectinator/tickets/
+3) Read the bug reporting documentation at http://www.wowace.com/projects/collectinator/pages/feedback-and-bug-reporting/
+4) If your problem is not listed and you are using the latest version verify your addon settings.  Verify filters, profiles, etc.
+5) You have found a bug that no one has reported before.  Create a new ticket at http://www.wowace.com/projects/collectinator/tickets/ with a descriptive heading about the problem.  In the ticket make sure you include the error message that you received (just the error message, I don't need a listing of the addons you use), the entry you were working with, and any other info that you think may help.
+When posting a bug report, do NOT include all of the addons from swatter.  This just makes it difficult to read.  If you want a good error reporting mod, get BugSack.  Do not post errors/missing items in the comments, or send them to me via a PM.  Post them as a ticket which I can address and track easily.]]
 L["Reputation"] = true
 L["Reset All Filters"] = true
 L["Reset Window Position"] = true
---L["RESET_DESC"]
---L["RESET_WINDOW_DESC"]
+L["RESET_DESC"] = "Reset All Filters to default values."
+L["RESET_WINDOW_DESC"] = "Resets the GUI to default position."
 L["Scan Button Position"] = true
 L["Scan"] = true
---[[
-L["SCAN_COMPANIONS_DESC"]
-L["SCAN_RECIPES_DESC"]
-L["SCANBUTTONPOSITION_DESC"]
-L["SEARCH_BOX_DESC"]
-L["SEARCH_DESC"]
-L["SEASONAL_DESC"]
-L["SHIFT_CLICK"]
-]]--
+--L["SCAN_COMPANIONS_DESC"]
+--L["SCAN_RECIPES_DESC"] remove ref
+L["SCANBUTTONPOSITION_DESC"] = "Allows you to customize where the scan button is placed on the companions frame."
+L["SEARCH_BOX_DESC"] = "Enter text to search."
+L["SEARCH_DESC"] = "Filter to entries that contain text at left."
+L["SEASONAL_DESC"] = "Collectibles obtained in world events should be included in the scan."
+L["SHIFT_CLICK"] = "Shift-Click to add the item crafted by this recipe's link to your chat." -- remove?
 L["Sort"] = true
 L["Sorting Options"] = true
 L["Sorting"] = true
---L["SORTING_DESC"]
---L["SORTING_OPTIONS_DESC"]
+L["SORTING_DESC"] = "Change the way in which displayed collectibles are sorted."
+L["SORTING_OPTIONS_DESC"] = "Allows you to customize the way displayed collectibles are sorted."
 L["Special Event"] = true
---L["SPECIFIC_REP_DESC"]
---L["SPELLTOOLTIPPOSITION_DESC"]
+L["SPECIFIC_REP_DESC"] = "Include %s faction."
+L["SPELLTOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing the collectible information."
 L["Text Dump"] = true
---L["TEXT_DUMP_DESC"]
+L["TEXT_DUMP_DESC"] = "Displays all collectibles in a comma separated value format which can be copied and pasted into another client."
 L["Tooltip (Acquire) Position"] = true
 L["Tooltip (Recipe) Position"] = true
 L["Tooltip Options"] = true

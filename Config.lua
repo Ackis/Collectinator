@@ -34,7 +34,6 @@ local city2 = BFAC["Exodar"] .. "\\" .. BFAC["Silvermoon City"]
 local city3 = BFAC["Gnomeregan Exiles"] .. "\\" .. BFAC["Thunder Bluff"]
 local city4 = BFAC["Ironforge"] .. "\\" .. BFAC["Undercity"]
 local city5 = BFAC["Stormwind"] .. "\\" .. BFAC["Orgrimmar"]
-
 local pvp1 = BFAC["Silverwing Sentinels"] .. "\\" .. BFAC["Warsong Outriders"]
 local pvp2 = BFAC["Stormpike Guard"] .. "\\" .. BFAC["Frostwolf Clan"]
 local pvp3 = BFAC["The League of Arathor"] .. "\\" .. BFAC["The Defilers"]
@@ -49,12 +48,10 @@ local wrathcommon4 =  BFAC["The Frostborn"] .. "\\" .. BFAC["The Taunka"]
 local wrathcommon5 = BFAC["Explorers' League"] .. "\\" .. BFAC["The Hand of Vengeance"]
 
 local addonversion = GetAddOnMetadata("Collectinator", "Version")
-addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
+addonversion = string.gsub(addonversion, "@project.revision@", "GIT")
 
 local function giveProfiles()
-
 	return LibStub("AceDBOptions-3.0"):GetOptionsTable(addon.db)
-
 end
 
 local options = nil
