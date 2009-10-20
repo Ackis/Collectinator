@@ -936,9 +936,9 @@ do
 		local general_db = filter_db.general
 
 		if not general_db.faction then
-			if playerFaction == BFAC["Alliance"] and flags[F_HORDE] then
+			if playerFaction == BFAC["Alliance"] and flags[F_HORDE] and not flags[F_ALLIANCE] then
 				return false
-			elseif playerFaction == BFAC["Horde"] and flags[F_ALLIANCE] then
+			elseif playerFaction == BFAC["Horde"] and flags[F_ALLIANCE] and not flags[F_HORDE] then
 				return false
 			end
 		end
