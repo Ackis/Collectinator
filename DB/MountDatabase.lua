@@ -695,8 +695,8 @@ function addon:GetMountTotal(DB)
 
 		-- Unpainted Mechanostrider - 17454
 		AddMount(17454, 13322, R_EPIC, GAME_ORIG)
-		self:AddCompanionFlags(DB, 17454, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-		self:AddCompanionAcquire(DB, 17454, A_CUSTOM, 23)
+		self:AddCompanionFlags(DB, 17454, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 17454, A_VENDOR, 7955)
 
 		-- Swift Yellow Mechanostrider - 23222
 		AddMount(23222, 18774, R_EPIC, GAME_ORIG)
