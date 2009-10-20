@@ -1041,8 +1041,13 @@ function addon:GetMountTotal(DB)
 --CLASS
 	-- Felsteed - 5784
 	AddMount(5784, nil, R_RARE, GAME_ORIG, C_WARLOCK)
-	self:AddCompanionFlags(DB, 5784, F_ALLIANCE, F_HORDE, F_BOP)
-	--self:AddCompanionAcquire(DB, 5784, 
+	self:AddCompanionFlags(DB, 5784, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 5784, 
+				 A_VENDOR, 16646, A_VENDOR, 5173, A_VENDOR, 23534, A_VENDOR, 5172, A_VENDOR, 16266,
+				 A_VENDOR, 461, A_VENDOR, 3172, A_VENDOR, 5612, A_VENDOR, 3324, A_VENDOR, 4563,
+				 A_VENDOR, 988, A_VENDOR, 4564, A_VENDOR, 906, A_VENDOR, 3325, A_VENDOR, 4565,
+				 A_VENDOR, 2127, A_VENDOR, 5496, A_VENDOR, 6251, A_VENDOR, 16647, A_VENDOR, 5171,
+				 A_VENDOR, 5495, A_VENDOR, 16648, A_VENDOR, 3326)
 
 	-- Dreadsteed - 23161
 	AddMount(23161, nil, R_EPIC, GAME_ORIG, C_WARLOCK)
@@ -1300,11 +1305,6 @@ function addon:GetMountTotal(DB)
 	--self:AddCompanionAcquire(DB, 67336, 
 
 --OTHERS
-	 -- Frostsaber - XX
-	--AddMount(XX, YY, R_RARE, GAME_ORIG)
-	--self:AddCompanionFlags(DB, XX, 
-	--self:AddCompanionAcquire(DB, XX, 
-
 	-- Spotted Nightsaber - 10792 (Never added to the game)
 	--AddMount(10792, 8628, R_COMMON, GAME_ORIG)
 	--self:AddCompanionFlags(DB, 10792, 
