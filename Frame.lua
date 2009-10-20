@@ -632,7 +632,7 @@ local function SetSpellTooltip(owner, loc, link)
 	elseif loc == "Right" then
 		CollectinatorSpellTooltip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
 	end
-	CollectinatorSpellTooltip:SetHyperlink(link)
+	CollectinatorSpellTooltip:SetHyperlink("item:"..link)
 	CollectinatorSpellTooltip:Show()
 end
 
