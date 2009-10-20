@@ -190,6 +190,21 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Horde.
 		-------------------------------------------------------------------------------
+		-- Warhorse - Horde - 34769
+		AddMount(34769, nil, R_RARE, GAME_BC, C_PALADIN)
+		--self:AddCompanionFlags(DB, 34769, 
+		--self:AddCompanionAcquire(DB, 34769, 
+
+		-- Charger - Horde - 34767
+		AddMount(34767, nil, R_RARE, GAME_BC, C_PALADIN)
+		--self:AddCompanionFlags(DB, 34767, 
+		--self:AddCompanionAcquire(DB, 34767, 
+
+		-- Reins of the Traveler's Tundra Mammoth (Horde) - 61447
+		AddMount(61447, 44234, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 61447, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 61447, A_VENDOR, 32216)
+
 		-- Green Kodo - 18991
 		AddMount(18991, 15292, R_EPIC, GAME_ORIG)
 		self:AddCompanionFlags(DB, 18991, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
@@ -458,6 +473,21 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Alliance.
 		-------------------------------------------------------------------------------
+		-- Warhorse - Alliance - 13819
+		AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
+		--self:AddCompanionFlags(DB, 13819, 
+		--self:AddCompanionAcquire(DB, 13819, 
+
+		-- Charger - Alliance - 23214
+		AddMount(23214, nil, R_RARE, GAME_ORIG, C_PALADIN)
+		--self:AddCompanionFlags(DB, 23214, 
+		--self:AddCompanionAcquire(DB, 23214, 
+
+		--Traveler's Tundra Mammoth (Alliance) - 61425
+		AddMount(61425, 44235, R_EPIC, GAME_WOTLK)
+		--self:AddCompanionFlags(DB, 61425, 
+		--self:AddCompanionAcquire(DB, 61425, A_VENDOR, 32216)
+
 		-- White Mechanostrider Mod B - 15779
 		AddMount(15779, 13326, R_EPIC, GAME_ORIG)
 		self:AddCompanionFlags(DB, 15779, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
@@ -752,6 +782,41 @@ function addon:GetMountTotal(DB)
 		AddMount(61465, 43959, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 61465, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP)
 		self:AddCompanionAcquire(DB, 61465, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125)
+
+		-- Golden Gryphon - 32235
+		AddMount(32235, 25470, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 32235, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32235, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Ebon Gryphon - 32239
+		AddMount(32239, 25471, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 32239, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32239, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Snowy Gryphon - 32240
+		AddMount(32240, 25472, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 32240, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32240, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Swift Blue Gryphon - 32242
+		AddMount(32242, 25473, R_EPIC, GAME_BC)
+		self:AddCompanionFlags(DB, 32242, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32242, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Swift Red Gryphon - 32289
+		AddMount(32289, 25527, R_EPIC, GAME_BC)
+		self:AddCompanionFlags(DB, 32289, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32289, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Swift Green Gryphon - 32290
+		AddMount(32290, 25528, R_EPIC, GAME_BC)
+		self:AddCompanionFlags(DB, 32290, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32290, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Swift Purple Gryphon - 32292
+		AddMount(32292, 25529, R_EPIC, GAME_BC)
+		self:AddCompanionFlags(DB, 32292, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32292, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
 	end
 
 	-------------------------------------------------------------------------------
@@ -909,26 +974,6 @@ function addon:GetMountTotal(DB)
 				 A_VENDOR, 2127, A_VENDOR, 5496, A_VENDOR, 6251, A_VENDOR, 16647, A_VENDOR, 5171,
 				 A_VENDOR, 5495, A_VENDOR, 16648, A_VENDOR, 3326)
 
-	-- Warhorse - Alliance - 13819
-	AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
-	--self:AddCompanionFlags(DB, 13819, 
-	--self:AddCompanionAcquire(DB, 13819, 
-
-	-- Charger - Alliance - 23214
-	AddMount(23214, nil, R_RARE, GAME_ORIG, C_PALADIN)
-	--self:AddCompanionFlags(DB, 23214, 
-	--self:AddCompanionAcquire(DB, 23214, 
-
-	-- Warhorse - Horde - 34769
-	AddMount(34769, nil, R_RARE, GAME_BC, C_PALADIN)
-	--self:AddCompanionFlags(DB, 34769, 
-	--self:AddCompanionAcquire(DB, 34769, 
-
-	-- Charger - Horde - 34767
-	AddMount(34767, nil, R_RARE, GAME_BC, C_PALADIN)
-	--self:AddCompanionFlags(DB, 34767, 
-	--self:AddCompanionAcquire(DB, 34767, 
-
 	-- Acherus Deathcharger - 48778
 	AddMount(48778, nil, 1, GAME_WOTLK, C_DK)
 	self:AddCompanionFlags(DB, 48778, F_ALLIANCE, F_HORDE, F_BOP)
@@ -938,54 +983,6 @@ function addon:GetMountTotal(DB)
 	AddMount(54729, 40775, R_EPIC, GAME_WOTLK, C_DK)
 	self:AddCompanionFlags(DB, 54729, F_ALLIANCE, F_HORDE, F_BOP)
 	self:AddCompanionAcquire(DB, 54729, A_VENDOR, 29587)
-
---VENDOR
-	-- Traveler's Tundra Mammoth (Horde) - 61447
-	AddMount(61447, 44234, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 61447, 
-	--self:AddCompanionAcquire(DB, 61447, A_VENDOR, 32216)
-
-	--Traveler's Tundra Mammoth (Alliance) - 61425
-	AddMount(61425, 44235, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 61425, 
-	--self:AddCompanionAcquire(DB, 61425, A_VENDOR, 32216)
-
-	-- Golden Gryphon - 32235
-	AddMount(32235, 25470, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32235, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32235, 1, 20510)
-
-	-- Ebon Gryphon - 32239
-	AddMount(32239, 25471, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32239, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32239, 1, 20510)
-
-	-- Snowy Gryphon - 32240
-	AddMount(32240, 25472, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32240, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32240, 1, 20510)
-
-	-- Swift Blue Gryphon - 32242
-	AddMount(32242, 25473, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32242, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32242, 1, 20510)
-
-	-- Swift Red Gryphon - 32289
-	AddMount(32289, 25527, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32289, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32289, 1, 20510)
-
-	-- Swift Green Gryphon - 32290
-	AddMount(32290, 25528, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32290, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32290, 1, 20510)
-
-	-- Swift Purple Gryphon - 32292
-	AddMount(32292, 25529, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 32292, 1, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 32292, 1, 20510)
-
-
 
 --REP VENDOR ARGENT
 	 -- Great Red Elekk - 65637
