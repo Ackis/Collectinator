@@ -200,6 +200,41 @@ function addon:GetMountTotal(DB)
 		--self:AddCompanionFlags(DB, 34767, 
 		--self:AddCompanionAcquire(DB, 34767, 
 
+		-- Swift Pink Hawkstrider - 33660
+		AddMount(33660, 28936, R_EPIC, GAME_BC)
+		self:AddCompanionFlags(DB, 33660, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 33660, A_VENDOR, 16264)
+
+		-- Swift Green Hawkstrider - 35025
+		AddMount(35025, 29223, R_EPIC, GAME_BC)
+		self:AddCompanionFlags(DB, 35025, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35025, A_VENDOR, 16264)
+
+		-- Swift Purple Hawkstrider - 35027
+		AddMount(35027, 29224, R_EPIC, GAME_BC)
+		self:AddCompanionFlags(DB, 35027, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35027, A_VENDOR, 16264)
+
+		-- Red Hawkstrider - 34795
+		AddMount(34795, 28927, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 34795, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 34795, A_VENDOR, 16264)
+
+		-- Purple Hawkstrider - 35018
+		AddMount(35018, 29222, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 35018, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35018, A_VENDOR, 16264)
+
+		-- Blue Hawkstrider - 35020
+		AddMount(35020, 29220, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 35020, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35020, A_VENDOR, 16264)
+
+		-- Black Hawkstrider - 35022
+		AddMount(35022, 29221, R_RARE, GAME_BC)
+		self:AddCompanionFlags(DB, 35022, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35022, A_VENDOR, 16264)
+
 		-- Reins of the Traveler's Tundra Mammoth (Horde) - 61447
 		AddMount(61447, 44234, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 61447, F_HORDE, F_VENDOR, F_BOP)
@@ -1167,41 +1202,6 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 34899, A_REPUTATION, 978, EXALTED, 20240, A_REPUTATION, 941, EXALTED, 20241)
 
 --REP VENDOR HORDE
-	-- Swift Pink Hawkstrider - 33660
-	AddMount(33660, 28936, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 33660, 2, 3, 4, 16)
-	--self:AddCompanionAcquire(DB, 33660, 1, 16264, 2, 27716)
-
-	-- Swift Green Hawkstrider - 35025
-	AddMount(35025, 29223, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 35025, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 35025, 1, 16264)
-
-	-- Swift Purple Hawkstrider - 35027
-	AddMount(35027, 29224, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 35027, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 35027, 1, 16264)
-
-	-- Red Hawkstrider - 34795
-	AddMount(34795, 28927, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 34795, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 34795, 1, 16264)
-
-	-- Purple Hawkstrider - 35018
-	AddMount(35018, 29222, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 35018, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 35018, 1, 16264)
-
-	-- Blue Hawkstrider - 35020
-	AddMount(35020, 29220, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 35020, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 35020, 1, 16264)
-
-	-- Black Hawkstrider - 35022
-	AddMount(35022, 29221, 1, GAME_BC)
-	--self:AddCompanionFlags(DB, 35022, 2, 3, 16)
-	--self:AddCompanionAcquire(DB, 35022, 1, 16264)
-
 	-- Swift Blue Raptor - 23241
 	AddMount(23241, 18788, 1, GAME_ORIG)
 	--self:AddCompanionFlags(DB, 23241, 2, 3, 4, 16)
