@@ -998,7 +998,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	CollectinatorTooltip:Show()
 
 	-- If we have the spell link tooltip, link it to the acquire tooltip.
-	if spell_tip_loc ~= L["Off"] and spellLink then
+	if spell_tip_loc ~= L["Off"] and spellLink and companion["ItemIcon"] then
 		SetSpellTooltip(CollectinatorTooltip, spell_tip_loc, spellLink)
 	else
 		CollectinatorSpellTooltip:Hide()
