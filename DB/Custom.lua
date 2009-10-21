@@ -21,8 +21,8 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 2, "Chicken Egg")
 	self:addLookupList(DB, 3, "Learned from Oozing Bag, dropped by level 50 to 57 ooze & slime mobs", "Various Zones")
 	self:addLookupList(DB, 4, "UNUSED")
-	self:addLookupList(DB, 5, "Burning Crusade Collector's Edition (EU).")
-	self:addLookupList(DB, 6, "Promotional pet: Fansite contest giveaway (EU).") -- EU Contest, Pink Murloc
+	self:addLookupList(DB, 5, "Burning Crusade Collector's Edition (EU)")
+	self:addLookupList(DB, 6, "Promotional pet: Fansite contest giveaway (EU)") -- EU Contest, Pink Murloc
 	self:addLookupList(DB, 7, "Promotional pet: iCoke (China)") -- Polar Bear Collar
 	self:addLookupList(DB, 8, "Original Collector's Edition")
 	self:addLookupList(DB, 9, "Learned randomly from Mr. Pinchy, caught via 430+ fishing nodes in Terokkar Forest.")
@@ -45,5 +45,8 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 26, "5th Year Anniversary")	-- Onyxian Whelp
 	self:addLookupList(DB, 27, "Mob Drop is Horde-only.")	-- Sprite Darter Hatchling
 	self:addLookupList(DB, 28, "Promotional pet: WoW/Battle.net Account Merger.")
+	self:addLookupList(DB, 29, "Random drop off of trash in AQ 40.")
+	self:addLookupList(DB, 30, "Obtaining Gladiator title.")
+	self:addLookupList(DB, 31, "ZA Timed Run.")
 end
 

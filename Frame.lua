@@ -38,11 +38,6 @@ local tonumber = _G.tonumber
 -- Localized Blizzard API
 -------------------------------------------------------------------------------
 local GetSpellInfo = _G.GetSpellInfo
-local GetSkillLineInfo = _G.GetSkillLineInfo
-local GetNumSkillLines = _G.GetNumSkillLines
-local ExpandSkillHeader = _G.ExpandSkillHeader
-local CollapseSkillHeader = _G.CollapseSkillHeader
-local GetTradeSkillLine = _G.GetTradeSkillLine
 local GetItemInfo = _G.GetItemInfo
 local UnitClass = _G.UnitClass
 
@@ -2503,6 +2498,131 @@ local function SetFramePosition()
 end
 
 -------------------------------------------------------------------------------
+-- Alt-Collections tooltip
+-------------------------------------------------------------------------------
+local clicktip = QTip:Acquire("Collectinator_Clickable", 1, "CENTER")
+
+-------------------------------------------------------------------------------
+-- Data used in HandleTTClick() and GenerateClickableTT()
+-------------------------------------------------------------------------------
+local click_info = {
+	anchor = nil, 
+	change_realm = nil, 
+	target_realm = nil, 
+	modified = nil, 
+	name = nil, 
+	realm = nil, 
+}
+
+-- Description: Creates a list of names/alts/etc in a tooltip which you can click on
+
+local function GenerateClickableTT(anchor)
+	local tskl_list = addon.db.global.collection
+	local tip = clicktip
+	local y, x
+	local prealm = GetRealmName()
+	local target_realm
+
+	if click_info.change_realm then
+		target_realm = click_info.target_realm
+		click_info.change_realm = nil
+	else
+		target_realm = prealm
+	end
+	tip:Clear()
+
+	if not click_info.realm then
+		local other_realms = nil
+		for realm in pairs(tskl_list) do
+			if target_realm and (realm ~= target_realm) then
+				other_realms = true
+			end
+
+			if not target_realm and (realm ~= prealm) then
+				y, x = tip:AddLine()
+				tip:SetCell(y, x, realm, realm)
+			elseif realm == target_realm then
+				y, x = tip:AddNormalLine(realm)
+				y, x = tip:AddNormalLine(" ")
+
+				click_info.realm = realm
+				for name in pairs(tskl_list[click_info.realm]) do
+					y, x = tip:AddLine()
+					tip:SetCell(y, x, name, name)
+				end
+			end
+		end
+		if other_realms then
+			tip:AddNormalLine(" ")
+			y, x = tip:AddLine()
+			tip:SetCell(y, x, L["Other Realms"], "change realm")
+		end
+	elseif not click_info.name then
+		local realm_list = tskl_list[click_info.realm]
+
+		if realm_list then
+			for name in pairs(realm_list) do
+				y, x = tip:AddLine()
+				tip:SetCell(y, x, name, name)
+			end
+		end
+	else
+		tip:AddNormalLine(click_info.name)
+		tip:AddNormalLine(" ")
+		for prof in pairs(tskl_list[click_info.realm][click_info.name]) do
+			y, x = tip:AddLine()
+			tip:SetCell(y, x, prof, prof)
+		end
+	end
+	if anchor then
+		click_info.anchor = anchor
+		tip:SetPoint("TOP", anchor, "BOTTOM")
+	else
+		tip:SetPoint("TOP", click_info.anchor, "BOTTOM")
+	end
+	tip:Show()
+end
+
+-- Description: Function called when tool tip is clicked for alt trade skills
+
+local function HandleTTClick(event, cell, arg, button)
+	click_info.modified = true
+
+	if arg == "change realm" then
+		click_info.realm = nil
+		click_info.change_realm = true
+		click_info.target_realm = nil
+		GenerateClickableTT()
+		return
+	end
+	local tskl_list = addon.db.global.collection
+
+	if not click_info.realm then
+		if click_info.change_realm then
+			click_info.target_realm = arg
+		end
+		click_info.realm = arg
+		GenerateClickableTT()
+	elseif not click_info.name then
+		click_info.name = arg
+
+		-- Wipe collection information for the selected toon. -Torhal
+		if IsAltKeyDown() and button == "LeftButton" then
+			tskl_list[click_info.realm][click_info.name] = nil
+			local anchor = click_info.anchor
+			twipe(click_info)
+			click_info.anchor = anchor
+			GenerateClickableTT()
+			return
+		end
+		GenerateClickableTT()
+	else
+		-- Print link to chat frame, then reset tip data
+		addon:Print(click_info.name .. " - " .. click_info.realm .. ": " .. tskl_list[click_info.realm][click_info.name][arg])
+	end
+end
+
+-------------------------------------------------------------------------------
 -- Creates the initial display frame for collectible info.
 -------------------------------------------------------------------------------
 local function InitializeFrame()
@@ -3493,7 +3613,7 @@ local function InitializeFrame()
 	Collectinator_IgnoreCBText:SetText(L["Display Exclusions"])
 
 	local Collectinator_MiscAltText = addon.Fly_Misc:CreateFontString("Collectinator_MiscAltBtn", "OVERLAY", "GameFontNormal")
-	Collectinator_MiscAltText:SetText(L["UNUSED"] .. ":")
+	Collectinator_MiscAltText:SetText(L["Alt-Collections"] .. ":")
 	Collectinator_MiscAltText:SetPoint("TOPLEFT", Collectinator_IgnoreCB, "BOTTOMLEFT", 4, 0)
 	Collectinator_MiscAltText:SetHeight(14)
 	Collectinator_MiscAltText:SetWidth(95)

@@ -1,25 +1,16 @@
---[[
-
-************************************************************************
-
-./DB/MountDatabase.lua
-
-Mount Database data for all of Collectinator
-
-************************************************************************
-
-File date: @file-date-iso@ 
-Project version: @project-version@
-
-************************************************************************
-
-Format:
-
-	self:AddCompanion(MountDB, SpellID, Item ID, Rarity, Companion Type)
-
-************************************************************************
-
-]]--
+--------------------------------------------------------------------------------------------------------------------
+-- ./DB/MountDatabase.lua
+-- Mount Database data for all of Collectinator
+--------------------------------------------------------------------------------------------------------------------
+-- File date: @file-date-iso@ 
+-- Project version: @project-version@
+--------------------------------------------------------------------------------------------------------------------
+-- Please see http://www.wowace.com/projects/collectinator/for more information.
+--------------------------------------------------------------------------------------------------------------------
+-- License:
+-- Please see LICENSE.txt
+-- This source code is released under All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------
 
 local MODNAME		= "Collectinator"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
@@ -192,12 +183,12 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Warhorse - Horde - 34769
 		AddMount(34769, nil, R_RARE, GAME_BC, C_PALADIN)
-		--self:AddCompanionFlags(DB, 34769, 
+		self:AddCompanionFlags(DB, 34769, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 34769, 
 
 		-- Charger - Horde - 34767
 		AddMount(34767, nil, R_RARE, GAME_BC, C_PALADIN)
-		--self:AddCompanionFlags(DB, 34767, 
+		self:AddCompanionFlags(DB, 34767, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 34767, 
 
 		-- Horn of the Swift Brown Wolf - 23250
@@ -555,12 +546,12 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Warhorse - Alliance - 13819
 		AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
-		--self:AddCompanionFlags(DB, 13819, 
+		self:AddCompanionFlags(DB, 13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 13819, 
 
 		-- Charger - Alliance - 23214
 		AddMount(23214, nil, R_RARE, GAME_ORIG, C_PALADIN)
-		--self:AddCompanionFlags(DB, 23214, 
+		self:AddCompanionFlags(DB, 23214, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 23214, 
 
 		--Traveler's Tundra Mammoth (Alliance) - 61425
@@ -609,7 +600,7 @@ function addon:GetMountTotal(DB)
 		self:AddCompanionAcquire(DB, 16056, A_CUSTOM, 23)
 
 		-- Reins of the Wooly Mammoth - 59791
-		AddMount(59791, 44230, 1, GAME_WOTLK)
+		AddMount(59791, 44230, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 59791, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 59791, A_VENDOR, 32216)
 
@@ -629,12 +620,12 @@ function addon:GetMountTotal(DB)
 		self:AddCompanionAcquire(DB, 35712, A_VENDOR, 17584)
 
 		-- Great Blue Elekk - 35713
-		AddMount(35713, 29745, 1, GAME_BC)
+		AddMount(35713, 29745, R_EPIC, GAME_BC)
 		self:AddCompanionFlags(DB, 35713, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 35713, A_VENDOR, 17584)
 
 		-- Great Purple Elekk - 35714
-		AddMount(35714, 29747, 1, GAME_BC)
+		AddMount(35714, 29747, R_EPIC, GAME_BC)
 		self:AddCompanionFlags(DB, 35714, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 35714, A_VENDOR, 17584)
 
@@ -1256,53 +1247,53 @@ function addon:GetMountTotal(DB)
 --RETIRED
 	 -- Black Proto-Drake - 59976
 	AddMount(59976, 44164, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 59976, 
-	--self:AddCompanionAcquire(DB, 59976, 
+	self:AddCompanionFlags(DB, 59976, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_ACHIEVEMENT)
+	self:AddCompanionAcquire(DB, 59976, A_ACHIEVEMENT, 2138)
 
 	 -- Plagued Proto-Drake - 60021
 	AddMount(60021, 44175, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 60021, 
-	--self:AddCompanionAcquire(DB, 60021, 
+	self:AddCompanionFlags(DB, 60021, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_ACHIEVEMENT)
+	self:AddCompanionAcquire(DB, 60021, A_ACHIEVEMENT, 2137)
 
 	-- Amani War Bear - 43688
 	AddMount(43688, 33809, R_EPIC, GAME_BC)
-	--self:AddCompanionFlags(DB, 43688, 1, 2, 4, 16)
-	--self:AddCompanionAcquire(DB, 43688, 2, 27704)
+	self:AddCompanionFlags(DB, 43688, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_RAID)
+	self:AddCompanionAcquire(DB, 43688, A_CUSTOM, 31)
 
 	-- Swift Nether Drake - 37015
 	AddMount(37015, 30609, R_EPIC, GAME_BC)
-	--self:AddCompanionFlags(DB, 37015, 16)
-	--self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 37015, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 37015, A_CUSTOM, 30)
 
 	-- Merciless Nether Drake - 44744
 	AddMount(44744, 34092, R_EPIC, GAME_BC)
-	--self:AddCompanionFlags(DB, 44744, 16)
-	--self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 44744, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 44744, A_CUSTOM, 30)
 
 	-- Vengeful Nether Drake - 49193
 	AddMount(49193, 37676, R_EPIC, GAME_BC)
-	--self:AddCompanionFlags(DB, 49193, 16)
-	--self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 49193, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 49193, A_CUSTOM, 30)
 
 	-- Brutal Nether Drake - 58615
 	AddMount(58615, 43516, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 58615, 16)
-	--self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 58615, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 58615, A_CUSTOM, 30)
 
 	-- Deadly Gladiator's Frostwyrm - 64927
 	AddMount(64927, nil, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 64927, 
-	--self:AddCompanionAcquire(DB, 64927, 
+	self:AddCompanionFlags(DB, 64927, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 64927, A_CUSTOM, 30)
 
 	-- Furious Gladiator's Frostwyrm - 65439
 	AddMount(65439, 46171, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 65439, 
-	--self:AddCompanionAcquire(DB, 65439, 
+	self:AddCompanionFlags(DB, 65439, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 65439, A_CUSTOM, 30)
 
 	-- Relentless Gladiator's Frostwyrm - 67336
 	AddMount(67336, nil, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 67336, 
-	--self:AddCompanionAcquire(DB, 67336, 
+	self:AddCompanionFlags(DB, 67336, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 67336, A_CUSTOM, 30)
 
 --OTHERS
 	-- Spotted Nightsaber - 10792 (Never added to the game)
@@ -1317,28 +1308,28 @@ function addon:GetMountTotal(DB)
 
 	-- Blue Qiraji Battle Tank -- 25953
 	AddMount(25953, 21218, R_RARE, GAME_ORIG)
-	----self:AddCompanionFlags(DB, 
-	----self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 25953, F_ALLIANCE, F_HORDE, F_BOP, F_RAID)
+	self:AddCompanionAcquire(DB, 25953, A_CUSTOM, 29)
 
 	-- Red Qiraji Battle Tank -- 26054
 	AddMount(26054, 21321, R_RARE, GAME_ORIG)
-	----self:AddCompanionFlags(DB, 
-	----self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 25953, F_ALLIANCE, F_HORDE, F_BOP, F_RAID)
+	self:AddCompanionAcquire(DB, 25953, A_CUSTOM, 29)
 
 	-- Yellow Qiraji Battle Tank -- 26055
 	AddMount(26055, 21324, R_RARE, GAME_ORIG)
-	----self:AddCompanionFlags(DB, 
-	----self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 25953, F_ALLIANCE, F_HORDE, F_BOP, F_RAID)
+	self:AddCompanionAcquire(DB, 25953, A_CUSTOM, 29)
 
 	-- Green Qiraji Battle Tank -- 26056
 	AddMount(26056, 21323, R_RARE, GAME_ORIG)
-	----self:AddCompanionFlags(DB, 
-	----self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 25953, F_ALLIANCE, F_HORDE, F_BOP, F_RAID)
+	self:AddCompanionAcquire(DB, 25953, A_CUSTOM, 29)
 
 	-- Black Qiraji Resonating Crystal - 26656
 	AddMount(26656, 21176, R_LEGENDARY, GAME_ORIG)
-	--self:AddCompanionFlags(DB, 26656, 4, 16)
-	--self:AddCompanionAcquire(DB, 26656, 2, 8743)
+	self:AddCompanionFlags(DB, 26656, F_ALLIANCE, F_HORDE, F_BOP, F_RAID, F_QUEST, F_REMOVED)
+	self:AddCompanionAcquire(DB, 26656, 2, 8743)
 
 --TCG
 	-- Riding Tutle - 30174

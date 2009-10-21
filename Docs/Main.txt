@@ -4,6 +4,7 @@ Provides methods for determining which mini-pets, mounts, and tabards you are mi
 ==Where to get it==
 * [http://www.wowace.com/projects/collectinator/files/ WoW Ace] - Alpha Quality
 * [http://wow.curse.com/downloads/wow-addons/details/collectinator.aspx Curse] - Stable release
+* [[http://www.wowinterface.com/downloads/info8512-AckisRecipeList.html|WoWInterface]] - Not yet released there, link goes to ARL. :D
 
 ==Donations==
 I have setup a donation site via [http://www.pledgie.com/campaigns/3462 Pledgie].  Feel free to donate if you like this mod.  I have put countless hours of time and effort into it along with many people who have helped me.  I did not write this mod with the intent to make any money from it.  I wrote it to help me with some needs that I saw in-game, and well with requests and my goal to make it filled with information it's become a massive project.
@@ -12,13 +13,13 @@ If you don't wish to donate money feel free to consider one of the following met
 * Volunteer time at your local animal shelter such as the [http://www.edmontonhumanesociety.com/ Society for Prevention of Cruelty for Animals (SPCA)] or drop a few bucks off for them.  If you do this, please let [mailto:ackis@shaw.ca me] know.
 * Send 	[mailto:ackis@shaw.ca me] some UDE Points.  These points are obtained from the [http://www.wowtcg.com/ World of Warcraft TCG and Mini] game.
 * Send some gold to me in-game or help out with some rarer achievements. :)
-** [http://www.wowarmory.com/character-sheet.xml?r=Azgalor&n=Ackis Ackis]
-** [http://www.wowarmory.com/character-sheet.xml?r=Hellscream&n=Zhinjio Zhinjio]
+** [[http://www.wowarmory.com/character-sheet.xml?r=Thunderlord&n=Ackis|Ackis Thunderlord (US)]] Ackis
 
 ==How to get it to work==
-
+Open up your companion window (pets or mounts) and click the scan button.  This will open up another window which will allow you to see wich companions you are missing, along with how to acquire them.
 
 ===Commands===
+There are no slash commands at this point.
 
 ==Known Issues==
 All known issues will be kept at the [http://www.wowace.com/projects/collectinator/tickets/ WoW Ace] tracker.
