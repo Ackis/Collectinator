@@ -110,7 +110,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Reeking Pet Carrier - 40990
 	AddPet(40990, 40653, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 40990, F_ALLIANCE, F_HORDE, 15, F_BOP)
+	self:AddCompanionFlags(PetDB, 40990, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 40990, A_ACHIEVEMENT, 1250)
 
 	-- Little Fawn - 61991
@@ -667,8 +667,8 @@ function addon:GetMiniPetTotal(PetDB)
 --RETIRED
 	-- Spirit of Competition - 48406
 	AddPet(48406, 37297, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 48406, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
-	self:AddCompanionAcquire(PetDB, 48406, A_CUSTOM, 13)
+	self:AddCompanionFlags(PetDB, 48406, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_ACHIEVEMENT, F_REMOVED, F_BOA)
+	self:AddCompanionAcquire(PetDB, 48406, A_ACHIEVEMENT, 1637)
 
 	-- Essence of Competition - 48408
 	AddPet(48408, nil, R_UNCOMMON, GAME_TBC)
@@ -678,7 +678,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Vampiric Batling - 51851
 	AddPet(51851, 38658, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 51851, F_ALLIANCE, F_HORDE, F_RAID, F_SEASONAL, F_MOB_DROP, F_SPEC_EVENT, F_REMOVED, F_BOP)
-	self:AddCompanionAcquire(PetDB, 51851, A_MOB, 28194, A_SEASONAL, 7)
+	self:AddCompanionAcquire(PetDB, 51851, A_ACHIEVEMENT, 2456, A_MOB, 28194, A_SEASONAL, 7)
 
 	-- Baby Blizzard Bear - 61855
 	AddPet(61855, 44819, R_COMMON, GAME_WOTLK)
