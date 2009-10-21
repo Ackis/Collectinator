@@ -3618,7 +3618,7 @@ local function InitializeFrame()
 	Collectinator_IgnoreCBText:SetText(L["Display Exclusions"])
 
 	local Collectinator_MiscAltText = addon.Fly_Misc:CreateFontString("Collectinator_MiscAltBtn", "OVERLAY", "GameFontNormal")
-	Collectinator_MiscAltText:SetText(L["Alt-Tradeskills"] .. ":")
+	Collectinator_MiscAltText:SetText(L["Alt-Collections"] .. ":")
 	Collectinator_MiscAltText:SetPoint("TOPLEFT", Collectinator_IgnoreCB, "BOTTOMLEFT", 4, 0)
 	Collectinator_MiscAltText:SetHeight(14)
 	Collectinator_MiscAltText:SetWidth(95)
@@ -3632,7 +3632,7 @@ local function InitializeFrame()
 	Collectinator_MiscAltBtn:SetPushedTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Down")
 	Collectinator_MiscAltBtn:SetDisabledTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Disabled")
 	Collectinator_MiscAltBtn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
-	TooltipDisplay(Collectinator_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
+	TooltipDisplay(Collectinator_MiscAltBtn, L["ALT_COLLECTION_DESC"], 1)
 
 	Collectinator_MiscAltBtn:RegisterForClicks("LeftButtonUp")
 	Collectinator_MiscAltBtn:SetScript("OnClick", 

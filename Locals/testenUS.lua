@@ -21,8 +21,8 @@ L["ACQUIRETOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containi
 L["Acquisition"] = true
 L["ALL_FILTERED"] = "Your filters are currently preventing any entries from being displayed. Please change your filter settings and try again."
 L["ALT_CLICK"] = "Alt-Click to add/remove this entry to your ignore list."
---L["ALT_TRADESKILL_DESC"]
---L["Alt-Tradeskills"]
+L["ALT_COLLECTION_DESC"] = "This will display a list of alts which have had their collections.  Clicking on the alt's name will output the collection to chat."
+L["Alt-Collections"] = true
 --L["ARL_DOC_DESC"]
 L["BC_WOW_DESC"] = "Entries available with the Burning Crusade."
 L["Binding"] = true
