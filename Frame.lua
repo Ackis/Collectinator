@@ -38,9 +38,6 @@ local tonumber = _G.tonumber
 -- Localized Blizzard API
 -------------------------------------------------------------------------------
 local GetSpellInfo = _G.GetSpellInfo
-local GetNumSkillLines = _G.GetNumSkillLines
-local ExpandSkillHeader = _G.ExpandSkillHeader
-local CollapseSkillHeader = _G.CollapseSkillHeader
 local GetItemInfo = _G.GetItemInfo
 local UnitClass = _G.UnitClass
 
