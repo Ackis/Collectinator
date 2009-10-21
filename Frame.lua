@@ -680,10 +680,14 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	end
 	local left_color, right_color = "", ""
 	local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
+	local item_icon = "|T"..(companion["ItemIcon"] and companion["ItemIcon"] or "Interface\\CharacterFrame\\Disconnect-Icon")..":40:40|t"
 
 	CollectinatorTooltip:Clear()
 	CollectinatorTooltip:AddHeader()
-	CollectinatorTooltip:SetCell(1, 1, hex..companion["Name"], "CENTER", 2)
+	CollectinatorTooltip:SetCell(1, 1, item_icon, "CENTER", 2)
+
+	CollectinatorTooltip:AddHeader()
+	CollectinatorTooltip:SetCell(2, 1, hex..companion["Name"], "CENTER", 2)
 
 	-- check if the collectible is excluded
 	if exclude[rIndex] then
