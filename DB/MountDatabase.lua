@@ -600,7 +600,7 @@ function addon:GetMountTotal(DB)
 		self:AddCompanionAcquire(DB, 16056, A_CUSTOM, 23)
 
 		-- Reins of the Wooly Mammoth - 59791
-		AddMount(59791, 44230, 1, GAME_WOTLK)
+		AddMount(59791, 44230, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 59791, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 59791, A_VENDOR, 32216)
 
@@ -620,12 +620,12 @@ function addon:GetMountTotal(DB)
 		self:AddCompanionAcquire(DB, 35712, A_VENDOR, 17584)
 
 		-- Great Blue Elekk - 35713
-		AddMount(35713, 29745, 1, GAME_BC)
+		AddMount(35713, 29745, R_EPIC, GAME_BC)
 		self:AddCompanionFlags(DB, 35713, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 35713, A_VENDOR, 17584)
 
 		-- Great Purple Elekk - 35714
-		AddMount(35714, 29747, 1, GAME_BC)
+		AddMount(35714, 29747, R_EPIC, GAME_BC)
 		self:AddCompanionFlags(DB, 35714, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 35714, A_VENDOR, 17584)
 
