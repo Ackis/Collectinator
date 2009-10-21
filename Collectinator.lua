@@ -557,6 +557,10 @@ function addon:AddCompanion(DB, CompanionType, SpellID, ItemID, Rarity, Game)
 	}
 	local flag = DB[SpellID]["Flags"]
 
+	if ItemID then
+		DB[SpellID]["ItemIcon"]	= select(10, GetItemInfo(ItemID))
+	end
+
 	-- Set the filter flags to all false
 	for i = 1, NUM_FILTER_FLAGS, 1 do
 		flag[i] = false
