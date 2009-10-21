@@ -45,5 +45,6 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 26, "5th Year Anniversary")	-- Onyxian Whelp
 	self:addLookupList(DB, 27, "Mob Drop is Horde-only.")	-- Sprite Darter Hatchling
 	self:addLookupList(DB, 28, "Promotional pet: WoW/Battle.net Account Merger.")
+	self:addLookupList(DB, 29, "Random drop off of trash in AQ 40.")
 end
 
