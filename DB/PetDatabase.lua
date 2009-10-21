@@ -146,7 +146,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Giant Sewer Rat - 59250
 	AddPet(59250, 43698, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 59250, F_ALLIANCE, F_HORDE, F_BOP, F_FISHING)
+	self:AddCompanionFlags(PetDB, 59250, F_ALLIANCE, F_HORDE, F_BOP, F_WORLD_DROP, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 59250, A_ACHIEVEMENT, 1958)
 
 	-- Strand Crawler -- 62561
