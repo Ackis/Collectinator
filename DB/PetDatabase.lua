@@ -703,17 +703,17 @@ function addon:GetMiniPetTotal(PetDB)
 --COLLECTORS EDITION
 	-- Diablo Stone - 17708
 	AddPet(17708, 13584, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 17708, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_COLLECTORS, F_BOA)
+	self:AddCompanionFlags(PetDB, 17708, F_ALLIANCE, F_HORDE, F_QUEST, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 17708, A_ACHIEVEMENT, 662)
 
 	-- Panda Collar - 17707
 	AddPet(17707, 13583, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 17707, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_COLLECTORS, F_BOA)
+	self:AddCompanionFlags(PetDB, 17707, F_ALLIANCE, F_HORDE, F_QUEST, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 17707, A_ACHIEVEMENT, 663)
 
 	-- Zergling Leash - 17709
 	AddPet(17709, 13582, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 17709, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_COLLECTORS, F_BOA)
+	self:AddCompanionFlags(PetDB, 17709, F_ALLIANCE, F_HORDE, F_QUEST, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 17709, A_ACHIEVEMENT, 664)
 
 	-- Lurky's Egg - 24988
@@ -723,33 +723,23 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Netherwhelp's Collar - 32298
 	AddPet(32298, 25535, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 32298, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_COLLECTORS, F_BOA)
+	self:AddCompanionFlags(PetDB, 32298, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 32298, A_ACHIEVEMENT, 665)
 
 	-- Frosty's Collar - 52615
 	AddPet(52615, 39286, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 52615, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_COLLECTORS, F_BOA)
+	self:AddCompanionFlags(PetDB, 52615, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 52615, A_ACHIEVEMENT, 683)
 
 --BLIZZ CON
 	-- Blue Murloc Egg - 24696 (Murky)
 	AddPet(24696, 20371, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 24696, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SPEC_EVENT, F_BOA)
+	self:AddCompanionFlags(PetDB, 24696, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOA)
 	self:AddCompanionAcquire(PetDB, 24696, A_ACHIEVEMENT, 411)
-
-	-- Fortune Coin - 40405 (Lucky)
-	AddPet(40405, 32498, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 40405, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
-	self:AddCompanionAcquire(PetDB, 40405, A_CUSTOM, 12)
-
-	-- Tyrael's Hilt - 53082
-	AddPet(53082, 39656, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 53082, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(PetDB, 53082, A_ACHIEVEMENT, 414)
 
 	-- Heavy Murloc Egg
 	AddPet(66030, 45180, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 66030, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionFlags(PetDB, 66030, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 66030, A_ACHIEVEMENT, 3536)
 
 --PROMO
@@ -762,6 +752,16 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(28505, 22781, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 28505, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 28505, A_CUSTOM, 7)
+
+	-- Fortune Coin - 40405 (Lucky)
+	AddPet(40405, 32498, R_RARE, GAME_TBC)
+	self:AddCompanionFlags(PetDB, 40405, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
+	self:AddCompanionAcquire(PetDB, 40405, A_CUSTOM, 12)
+
+	-- Tyrael's Hilt - 53082
+	AddPet(53082, 39656, R_RARE, GAME_TBC)
+	self:AddCompanionFlags(PetDB, 53082, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOA)
+	self:AddCompanionAcquire(PetDB, 53082, A_ACHIEVEMENT, 414)
 --[[
 	-- Tiny Red Dragon - XX
 	AddPet(XX, YY, , GAME_WOTLK)
