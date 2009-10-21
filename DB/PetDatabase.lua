@@ -1,24 +1,23 @@
+--------------------------------------------------------------------------------------------------------------------
+-- ./DB/PetDatabase.lua
+-- Pet Database data for all of Collectinator
+--------------------------------------------------------------------------------------------------------------------
+-- File date: @file-date-iso@ 
+-- Project version: @project-version@
+--------------------------------------------------------------------------------------------------------------------
+-- Please see http://www.wowace.com/projects/collectinator/for more information.
+--------------------------------------------------------------------------------------------------------------------
+-- License:
+-- Please see LICENSE.txt
+-- This source code is released under All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------
+
 --[[
-
-************************************************************************
-
-PetDatabase.lua
-
-Pet Database data for all of Collectinator
-
-************************************************************************
-
-File date: @file-date-iso@ 
-Project version: @project-version@
-
-************************************************************************
-
 http://lua-users.org/wiki/SlightlyLessSimpleLuaPreprocessor
 http://wowuidev.pastey.net/125321
 http://wowuidev.pastey.net/125322
 12:59	sylvanaar	Ackis so i saved that code to a file luapp.lua, then i did lua luapp.lua infile.lua outfile.lua
 13:00	sylvanaar	"lua luapp.lua infile.lua outfile.lua"
-
 ]]--
 
 local MODNAME = "Collectinator"

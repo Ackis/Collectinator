@@ -1,25 +1,16 @@
---[[
-
-************************************************************************
-
-./DB/MountDatabase.lua
-
-Mount Database data for all of Collectinator
-
-************************************************************************
-
-File date: @file-date-iso@ 
-Project version: @project-version@
-
-************************************************************************
-
-Format:
-
-	self:AddCompanion(MountDB, SpellID, Item ID, Rarity, Companion Type)
-
-************************************************************************
-
-]]--
+--------------------------------------------------------------------------------------------------------------------
+-- ./DB/MountDatabase.lua
+-- Mount Database data for all of Collectinator
+--------------------------------------------------------------------------------------------------------------------
+-- File date: @file-date-iso@ 
+-- Project version: @project-version@
+--------------------------------------------------------------------------------------------------------------------
+-- Please see http://www.wowace.com/projects/collectinator/for more information.
+--------------------------------------------------------------------------------------------------------------------
+-- License:
+-- Please see LICENSE.txt
+-- This source code is released under All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------
 
 local MODNAME		= "Collectinator"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
