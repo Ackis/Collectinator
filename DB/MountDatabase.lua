@@ -1308,28 +1308,28 @@ function addon:GetMountTotal(DB)
 
 	-- Blue Qiraji Battle Tank -- 25953
 	AddMount(25953, 21218, R_RARE, GAME_ORIG)
-	----self:AddCompanionFlags(DB, 
-	----self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 25953, F_ALLIANCE, F_HORDE, F_BOP, F_RAID)
+	----self:AddCompanionAcquire(DB, 25953
 
 	-- Red Qiraji Battle Tank -- 26054
 	AddMount(26054, 21321, R_RARE, GAME_ORIG)
-	----self:AddCompanionFlags(DB, 
-	----self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 25953, F_ALLIANCE, F_HORDE, F_BOP, F_RAID)
+	----self:AddCompanionAcquire(DB, 25953
 
 	-- Yellow Qiraji Battle Tank -- 26055
 	AddMount(26055, 21324, R_RARE, GAME_ORIG)
-	----self:AddCompanionFlags(DB, 
-	----self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 25953, F_ALLIANCE, F_HORDE, F_BOP, F_RAID)
+	----self:AddCompanionAcquire(DB, 25953
 
 	-- Green Qiraji Battle Tank -- 26056
 	AddMount(26056, 21323, R_RARE, GAME_ORIG)
-	----self:AddCompanionFlags(DB, 
-	----self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 25953, F_ALLIANCE, F_HORDE, F_BOP, F_RAID)
+	----self:AddCompanionAcquire(DB, 25953
 
 	-- Black Qiraji Resonating Crystal - 26656
 	AddMount(26656, 21176, R_LEGENDARY, GAME_ORIG)
-	--self:AddCompanionFlags(DB, 26656, 4, 16)
-	--self:AddCompanionAcquire(DB, 26656, 2, 8743)
+	self:AddCompanionFlags(DB, 26656, F_ALLIANCE, F_HORDE, F_BOP, F_RAID, F_QUEST, F_REMOVED)
+	self:AddCompanionAcquire(DB, 26656, 2, 8743)
 
 --TCG
 	-- Riding Tutle - 30174
