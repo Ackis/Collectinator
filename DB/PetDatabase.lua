@@ -395,7 +395,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Rat Cage - 28740
 	AddPet(28740, 23015, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 28740, F_ALLIANCE, F_HORDE, F_QUEST, F_ACHIEVEMENT, F_SEASONAL, F_BOP)
+	self:AddCompanionFlags(PetDB, 28740, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP)
 	self:AddCompanionAcquire(PetDB, 28740, A_QUEST, 171, A_QUEST, 5502, A_ACHIEVEMENT, 1792)
 
 	-- Sleepy Willy - 40613
@@ -666,7 +666,7 @@ function addon:GetMiniPetTotal(PetDB)
 --RETIRED
 	-- Spirit of Competition - 48406
 	AddPet(48406, 37297, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 48406, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_ACHIEVEMENT, F_REMOVED, F_BOA)
+	self:AddCompanionFlags(PetDB, 48406, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 48406, A_ACHIEVEMENT, 1637)
 
 	-- Essence of Competition - 48408
@@ -681,12 +681,12 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Baby Blizzard Bear - 61855
 	AddPet(61855, 44819, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61855, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SPEC_EVENT, F_REMOVED, F_BOA)
+	self:AddCompanionFlags(PetDB, 61855, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 61855, A_ACHIEVEMENT, 2398)
 
 	-- Murkimus' Little Spear - 63318
 	AddPet(63318, 45180, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 63318, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SPEC_EVENT, F_REMOVED, F_PVP, F_BOA)
+	self:AddCompanionFlags(PetDB, 63318, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_PVP, F_BOA)
 	self:AddCompanionAcquire(PetDB, 63318, A_ACHIEVEMENT, 3618, A_CUSTOM, 21)
 
 	-- Onyxian Whelpling - 69002
