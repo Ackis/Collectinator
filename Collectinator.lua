@@ -632,10 +632,10 @@ do
 			end
 
 			if acquire_type == A_CRAFTED then
-				local crafted_by = select(i, ...)
+				local craft_spell = select(i, ...)
 				i = i + 1
 
-				acquire[index]["Crafted"] = crafted_by
+				acquire[index]["Crafted"] = acquire_id
 				--@alpha@
 			elseif acquire_type == A_SEASONAL then
 				if not acquire_id then
