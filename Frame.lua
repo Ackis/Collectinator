@@ -38,11 +38,9 @@ local tonumber = _G.tonumber
 -- Localized Blizzard API
 -------------------------------------------------------------------------------
 local GetSpellInfo = _G.GetSpellInfo
-local GetSkillLineInfo = _G.GetSkillLineInfo
 local GetNumSkillLines = _G.GetNumSkillLines
 local ExpandSkillHeader = _G.ExpandSkillHeader
 local CollapseSkillHeader = _G.CollapseSkillHeader
-local GetTradeSkillLine = _G.GetTradeSkillLine
 local GetItemInfo = _G.GetItemInfo
 local UnitClass = _G.UnitClass
 
@@ -2503,7 +2501,7 @@ local function SetFramePosition()
 end
 
 -------------------------------------------------------------------------------
--- Alt-Tradeskills tooltip
+-- Alt-Collections tooltip
 -------------------------------------------------------------------------------
 local clicktip = QTip:Acquire("Collectinator_Clickable", 1, "CENTER")
 
@@ -2522,7 +2520,7 @@ local click_info = {
 -- Description: Creates a list of names/alts/etc in a tooltip which you can click on
 
 local function GenerateClickableTT(anchor)
-	local tskl_list = addon.db.global.tradeskill
+	local tskl_list = addon.db.global.collection
 	local tip = clicktip
 	local y, x
 	local prealm = GetRealmName()
@@ -2600,7 +2598,7 @@ local function HandleTTClick(event, cell, arg, button)
 		GenerateClickableTT()
 		return
 	end
-	local tskl_list = addon.db.global.tradeskill
+	local tskl_list = addon.db.global.collection
 
 	if not click_info.realm then
 		if click_info.change_realm then
@@ -2611,7 +2609,7 @@ local function HandleTTClick(event, cell, arg, button)
 	elseif not click_info.name then
 		click_info.name = arg
 
-		-- Wipe tradeskill information for the selected toon. -Torhal
+		-- Wipe collection information for the selected toon. -Torhal
 		if IsAltKeyDown() and button == "LeftButton" then
 			tskl_list[click_info.realm][click_info.name] = nil
 			local anchor = click_info.anchor
