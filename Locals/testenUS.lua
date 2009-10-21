@@ -49,7 +49,7 @@ L["COMMON_ISSUES_DESC"] = [[Please refer to these common issues before submittin
 1) Mount/Pet does not show up! - Check your filter settings to make sure that the entry is not being filtered.]]
 L["CONTRACTALL"] = "- All"
 L["CONTRACTALL_DESC"] = "Minimize all entries listed below."
-L["CTRL_CLICK"] = "Ctrl-Click to add this entries link to your chat."
+L["CTRL_CLICK"] = "Ctrl-Click to add the link for this entry to your chat."
 L["CTRL_SHIFT_CLICK"] = "Ctrl-Shift-Click to add the item to the map and mini-map."
 L["Display Exclusions"] = true
 L["Display Options"] = true
