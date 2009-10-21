@@ -1247,53 +1247,53 @@ function addon:GetMountTotal(DB)
 --RETIRED
 	 -- Black Proto-Drake - 59976
 	AddMount(59976, 44164, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 59976, 
-	--self:AddCompanionAcquire(DB, 59976, 
+	self:AddCompanionFlags(DB, 59976, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_ACHIEVEMENT)
+	self:AddCompanionAcquire(DB, 59976, A_ACHIEVEMENT, 2138)
 
 	 -- Plagued Proto-Drake - 60021
 	AddMount(60021, 44175, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 60021, 
-	--self:AddCompanionAcquire(DB, 60021, 
+	self:AddCompanionFlags(DB, 60021, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_ACHIEVEMENT)
+	self:AddCompanionAcquire(DB, 60021, A_ACHIEVEMENT, 2137)
 
 	-- Amani War Bear - 43688
 	AddMount(43688, 33809, R_EPIC, GAME_BC)
-	--self:AddCompanionFlags(DB, 43688, 1, 2, 4, 16)
+	self:AddCompanionFlags(DB, 43688, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_RAID)
 	--self:AddCompanionAcquire(DB, 43688, 2, 27704)
 
 	-- Swift Nether Drake - 37015
 	AddMount(37015, 30609, R_EPIC, GAME_BC)
-	--self:AddCompanionFlags(DB, 37015, 16)
-	--self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 37015, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 37015, A_CUSTOM, 30)
 
 	-- Merciless Nether Drake - 44744
 	AddMount(44744, 34092, R_EPIC, GAME_BC)
-	--self:AddCompanionFlags(DB, 44744, 16)
-	--self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 44744, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 44744, A_CUSTOM, 30)
 
 	-- Vengeful Nether Drake - 49193
 	AddMount(49193, 37676, R_EPIC, GAME_BC)
-	--self:AddCompanionFlags(DB, 49193, 16)
-	--self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 49193, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 49193, A_CUSTOM, 30)
 
 	-- Brutal Nether Drake - 58615
 	AddMount(58615, 43516, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 58615, 16)
-	--self:AddCompanionAcquire(DB, 
+	self:AddCompanionFlags(DB, 58615, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 58615, A_CUSTOM, 30)
 
 	-- Deadly Gladiator's Frostwyrm - 64927
 	AddMount(64927, nil, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 64927, 
-	--self:AddCompanionAcquire(DB, 64927, 
+	self:AddCompanionFlags(DB, 64927, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 64927, A_CUSTOM, 30)
 
 	-- Furious Gladiator's Frostwyrm - 65439
 	AddMount(65439, 46171, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 65439, 
-	--self:AddCompanionAcquire(DB, 65439, 
+	self:AddCompanionFlags(DB, 65439, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 65439, A_CUSTOM, 30)
 
 	-- Relentless Gladiator's Frostwyrm - 67336
 	AddMount(67336, nil, R_EPIC, GAME_WOTLK)
-	--self:AddCompanionFlags(DB, 67336, 
-	--self:AddCompanionAcquire(DB, 67336, 
+	self:AddCompanionFlags(DB, 67336, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 67336, A_CUSTOM, 30)
 
 --OTHERS
 	-- Spotted Nightsaber - 10792 (Never added to the game)
