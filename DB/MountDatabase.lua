@@ -183,12 +183,12 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Warhorse - Horde - 34769
 		AddMount(34769, nil, R_RARE, GAME_BC, C_PALADIN)
-		--self:AddCompanionFlags(DB, 34769, 
+		self:AddCompanionFlags(DB, 34769, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 34769, 
 
 		-- Charger - Horde - 34767
 		AddMount(34767, nil, R_RARE, GAME_BC, C_PALADIN)
-		--self:AddCompanionFlags(DB, 34767, 
+		self:AddCompanionFlags(DB, 34767, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 34767, 
 
 		-- Horn of the Swift Brown Wolf - 23250
@@ -546,12 +546,12 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Warhorse - Alliance - 13819
 		AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
-		--self:AddCompanionFlags(DB, 13819, 
+		self:AddCompanionFlags(DB, 13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 13819, 
 
 		-- Charger - Alliance - 23214
 		AddMount(23214, nil, R_RARE, GAME_ORIG, C_PALADIN)
-		--self:AddCompanionFlags(DB, 23214, 
+		self:AddCompanionFlags(DB, 23214, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 23214, 
 
 		--Traveler's Tundra Mammoth (Alliance) - 61425
