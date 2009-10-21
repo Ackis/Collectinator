@@ -1258,7 +1258,7 @@ function addon:GetMountTotal(DB)
 	-- Amani War Bear - 43688
 	AddMount(43688, 33809, R_EPIC, GAME_BC)
 	self:AddCompanionFlags(DB, 43688, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_RAID)
-	--self:AddCompanionAcquire(DB, 43688, 2, 27704)
+	self:AddCompanionAcquire(DB, 43688, A_CUSTOM, 31)
 
 	-- Swift Nether Drake - 37015
 	AddMount(37015, 30609, R_EPIC, GAME_BC)

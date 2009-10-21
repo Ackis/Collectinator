@@ -47,5 +47,6 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 28, "Promotional pet: WoW/Battle.net Account Merger.")
 	self:addLookupList(DB, 29, "Random drop off of trash in AQ 40.")
 	self:addLookupList(DB, 30, "Obtaining Gladiator title.")
+	self:addLookupList(DB, 31, "ZA Timed Run.")
 end
 
