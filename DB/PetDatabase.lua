@@ -120,7 +120,7 @@ function addon:GetMiniPetTotal(PetDB)
 --FISHING
 	-- Magical Crawdad Box - 33050
 	AddPet(33050, 27445, R_COMMON, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 33050, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_WORLD_DROP, F_BOP, F_FISHING)
+	self:AddCompanionFlags(PetDB, 33050, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOP, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 33050, A_ACHIEVEMENT, 726, A_CUSTOM, 9)
 
 	-- Toothy's Bucket - 43697

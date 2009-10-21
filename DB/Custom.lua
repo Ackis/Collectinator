@@ -21,8 +21,8 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 2, "Chicken Egg")
 	self:addLookupList(DB, 3, "Learned from Oozing Bag, dropped by level 50 to 57 ooze & slime mobs", "Various Zones")
 	self:addLookupList(DB, 4, "UNUSED")
-	self:addLookupList(DB, 5, "Burning Crusade Collector's Edition (EU).")
-	self:addLookupList(DB, 6, "Promotional pet: Fansite contest giveaway (EU).") -- EU Contest, Pink Murloc
+	self:addLookupList(DB, 5, "Burning Crusade Collector's Edition (EU)")
+	self:addLookupList(DB, 6, "Promotional pet: Fansite contest giveaway (EU)") -- EU Contest, Pink Murloc
 	self:addLookupList(DB, 7, "Promotional pet: iCoke (China)") -- Polar Bear Collar
 	self:addLookupList(DB, 8, "Original Collector's Edition")
 	self:addLookupList(DB, 9, "Learned randomly from Mr. Pinchy, caught via 430+ fishing nodes in Terokkar Forest.")
