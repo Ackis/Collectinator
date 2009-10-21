@@ -3122,7 +3122,7 @@ local function InitializeFrame()
 
 	local Collectinator_RemovedCB = CreateFrame("CheckButton", "Collectinator_RemovedCB", addon.Fly_General, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RemovedCB, addon.Fly_General, L["Removed from Game"], "removed", 4, 1, 0)
-	Collectinator_RemovedCBText:SetText(L["Unavailable"])
+	Collectinator_RemovedCBText:SetText(L["Retired"])
 
 	-------------------------------------------------------------------------------
 	--			() Instance	() Raid
