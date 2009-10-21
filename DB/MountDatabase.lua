@@ -181,6 +181,16 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Horde.
 		-------------------------------------------------------------------------------
+		-- Sunreaver Hawkstrider - 66091
+		AddMount(66091, 46816, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 66091, F_HORDE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
+		self:AddCompanionAcquire(DB, 66091, A_REPUTATION, 1124, EXALTED, 34772)
+
+		-- Sunreaver Dragonhawk - 66088
+		AddMount(66088, 46814, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 66088, F_HORDE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
+		self:AddCompanionAcquire(DB, 66088, A_REPUTATION, 1124, EXALTED, 34772)
+
 		-- Warhorse - Horde - 34769
 		AddMount(34769, nil, R_RARE, GAME_BC, C_PALADIN)
 		self:AddCompanionFlags(DB, 34769, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
