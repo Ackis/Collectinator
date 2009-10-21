@@ -55,6 +55,9 @@ function addon:InitQuest(DB)
 	self:addLookupList(DB,	13735,	L["A Champion Rises"],				BZ["Icecrown"],			76.3,	19.1,	1)
 	self:addLookupList(DB,	13906,	L["They Grow Up So Fast"],			BZ["Un'Goro Crater"],		71.5,   73.7,   2)
 
+	-- AQ40
+	self:addLookupList(DB,	8743,	L["Bang a Gong!"],				BZ["Ahn'Qiraj"],		0,      0,      0)
+
 	--Class
 	self:addLookupList(DB,	7631,	L["Dreadsteed of Xoroth"],			BZ["Burning Steppes"],		12.6,	31.6,	0)
 	self:addLookupList(DB,	7647,	L["Judgment and Redemption"],			BZ["Stormwind City"],		48.5,	50.1,	1)
