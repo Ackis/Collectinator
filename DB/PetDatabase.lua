@@ -202,7 +202,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Truesilver Shafted Arrow - 27570
 	AddPet(27570, 22235, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 27570, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SEASONAL, F_BOP)
+	self:AddCompanionFlags(PetDB, 27570, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
 	self:AddCompanionAcquire(PetDB, 27570, A_ACHIEVEMENT, 1700, A_SEASONAL, 5)
 
 	-- Sinister Squashling - 42609
@@ -217,7 +217,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Clockwork Rocket Bot - 54187
 	AddPet(54187, 34425, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SEASONAL, F_BOP, F_REMOVED)
+	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(PetDB, 54187, A_ACHIEVEMENT, 1705)
 
 	-- Spring Rabbit - 61725
