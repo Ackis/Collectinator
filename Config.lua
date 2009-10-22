@@ -15,14 +15,12 @@ Project version: @project-version@
 
 ]]--
 
-local MODNAME			= "Collectinator"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Collectinator"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local L			= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
 
-local BFAC				= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-
-local AceConfig 		= LibStub("AceConfig-3.0")
-local AceConfigReg 		= LibStub("AceConfigRegistry-3.0")
+local AceConfig 	= LibStub("AceConfig-3.0")
+local AceConfigReg 	= LibStub("AceConfigRegistry-3.0")
 local AceConfigDialog 	= LibStub("AceConfigDialog-3.0")
 
 local modularOptions = {}
