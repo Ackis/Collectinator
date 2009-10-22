@@ -27,26 +27,6 @@ local AceConfigDialog 	= LibStub("AceConfigDialog-3.0")
 
 local modularOptions = {}
 
--- Factions which differ depending on ally/horde
--- Original
-local city1 = BFAC["Darnassus"] .. "\\" .. BFAC["Darkspear Trolls"]
-local city2 = BFAC["Exodar"] .. "\\" .. BFAC["Silvermoon City"]
-local city3 = BFAC["Gnomeregan Exiles"] .. "\\" .. BFAC["Thunder Bluff"]
-local city4 = BFAC["Ironforge"] .. "\\" .. BFAC["Undercity"]
-local city5 = BFAC["Stormwind"] .. "\\" .. BFAC["Orgrimmar"]
-local pvp1 = BFAC["Silverwing Sentinels"] .. "\\" .. BFAC["Warsong Outriders"]
-local pvp2 = BFAC["Stormpike Guard"] .. "\\" .. BFAC["Frostwolf Clan"]
-local pvp3 = BFAC["The League of Arathor"] .. "\\" .. BFAC["The Defilers"]
--- BC
-local nagrandfac = BFAC["Kurenai"] .. "\\" .. BFAC["The Mag'har"]
-local hellfirefac = BFAC["Honor Hold"] .. "\\" .. BFAC["Thrallmar"]
--- Wrath
-local wrathcommon1 = BFAC["Alliance Vanguard"] .. "\\" .. BFAC["Horde Expedition"]
-local wrathcommon2 = BFAC["The Silver Covenant"] .. "\\" .. BFAC["The Sunreavers"]
-local wrathcommon3 = BFAC["Valiance Expedition"] .. "\\" .. BFAC["Warsong Offensive"]
-local wrathcommon4 =  BFAC["The Frostborn"] .. "\\" .. BFAC["The Taunka"]
-local wrathcommon5 = BFAC["Explorers' League"] .. "\\" .. BFAC["The Hand of Vengeance"]
-
 local addonversion = GetAddOnMetadata("Collectinator", "Version")
 addonversion = string.gsub(addonversion, "@project.revision@", "GIT")
 
