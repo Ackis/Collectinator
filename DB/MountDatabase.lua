@@ -479,7 +479,7 @@ function addon:GetMountTotal(DB)
 		self:AddCompanionFlags(DB, 6654, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 6654, A_VENDOR, 3362)
 
-		-- Reins of the Wooly Mammoth - Horde - 59793
+		-- Reins of the Wooly Mammoth - 59793
 		AddMount(59793, 44231, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 59793, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 59793, A_VENDOR, 32216)
