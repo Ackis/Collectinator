@@ -1,11 +1,9 @@
 '''Database and code documentation for Collectinator'''
 
-==Localization==
-
+==Localization
 Please see this [http://www.wowace.com/projects/collectinator/pages/localization/ page] for information on localization within the addon.
 
 ==API==
-
 All database functions are documented on the [[http://www.wowace.com/projects/collectinator/pages/api/ api] page.
 
 ==Filter Flags==

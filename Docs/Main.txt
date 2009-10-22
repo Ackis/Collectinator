@@ -37,6 +37,8 @@ Please use the [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]]
 
 ==Detailed Documentation==
 * [[http://www.wowace.com/projects/collectinator/pages/database-documentation/|Detailed Documentation]]
+* [[http://www.wowace.com/projects/arl/pages/api/localization/|Localization]]
+* [[http://www.wowace.com/projects/arl/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requestiing]]
 
 ==Wiki==
 [[http://www.wowwiki.com/Collectinator|WoW Wiki]]
