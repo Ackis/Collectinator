@@ -39,10 +39,10 @@ Read the [[http://www.wowace.com/projects/collectinator/pages/feedback-and-bug-r
 Please follow these small little instructions to make my life easier.  The easier you make development for Collectinator, the more time I will have to develop other addons.
 
 ===Bug Reports
-Please use the [[http://www.wowace.com/projects/collectinator/tickets/|wowace]] tracker to file bug reports.  Posting bugs in the comments is not the place to do it.
+Please use the [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]] tracker to file bug reports.  Posting bugs in the comments is not the place to do it.
 
 ===Feature Request
-Please use the [[http://www.wowace.com/projects/collectinator/tickets/|wowace]] tracker to add suggestions and feature requests.  Not all suggestions will be accepted, there are a lot of people using this addon and I'll try to make it as user friendly, but when a decision is made please accept it.
+Please use the [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]] tracker to add suggestions and feature requests.  Not all suggestions will be accepted, there are a lot of people using this addon and I'll try to make it as user friendly, but when a decision is made please accept it.
 ==Wish List==
 Please use the [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]] tracker to add suggestions and feature requests.
 

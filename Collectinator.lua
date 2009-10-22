@@ -153,10 +153,6 @@ function addon:OnInitialize()
 	-- Set default options, which are to include everything in the scan
 	-------------------------------------------------------------------------------
 	local defaults = {
-		global = {
-			-- Saving alts collections (needs to be global so all profiles can access it)
-			collection = {},
-		},
 		profile = {
 			-- Frame options
 			frameopts = {
