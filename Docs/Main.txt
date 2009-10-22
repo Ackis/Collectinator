@@ -2,7 +2,7 @@
 Provides methods for determining which mini-pets, mounts, and tabards you are missing. 
 
 ==Where to get it==
-* [[http://www.wowace.com/projects/collectinator/files/|WoW Ace[] - Alpha Quality
+* [[http://www.wowace.com/projects/collectinator/files/|WoW Ace]] - Alpha Quality
 * [[http://wow.curse.com/downloads/wow-addons/details/collectinator.aspx|Curse]] - Stable release
 * [[http://www.wowinterface.com/downloads/info8512-AckisRecipeList.html|WoWInterface]] - Not yet released there, link goes to ARL. :D
 
@@ -11,8 +11,8 @@ I have setup a donation site via [[http://www.pledgie.com/campaigns/3462|Pledgie
 
 If you don't wish to donate money feel free to consider one of the following methods which may be more suitable:
 * Volunteer time at your local animal shelter such as the [[http://www.aspca.org/|Society for Prevention of Cruelty for Animals (SPCA)]] or a [[http://www.edmontonhumanesociety.com/|local humane shelter]] or drop a few bucks off for them.  If you do this, please let [[mailto:ackis@shaw.ca|me]] know.
-* Send [[mailto:ackis@shaw.ca|me]] some UDE Points.  These points are obtained from the [[http://www.wowtcg.com/|World of Warcraft TCG and Mini]] game.
-* Send some gold to me in-game or help out with some rarer achievements. :)
+* Send [[http://www.wowace.com/home/send-private-message/|me]] some UDE Points.  These points are obtained from the [[http://www.wowtcg.com/|World of Warcraft TCG and Mini]] game.
+* Send some gold to one of the authors in-game or help out with some achievements, or even send a message saying thanks. :)
 ** [[http://www.wowarmory.com/character-sheet.xml?r=Thunderlord&n=Ackis|Ackis Thunderlord (US)]] Ackis
 
 ==How to get it to work==
@@ -30,7 +30,7 @@ Please use the [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]]
 Please use the [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]] tracker to add suggestions and feature requests.
 
 ==Integration==
-Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]].  There is a limted [[http://www.wowace.com/projects/collectinator/pages/API/|API]] to interface with the Collectinator database.  If you are a developer and would like more functions, please contact me on IRC.
+Collectinator strives to inegrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]].  There is a limted [[http://www.wowace.com/projects/collectinator/pages/API/|API]] to interface with the Collectinator database.  If you are a developer and would like more functions, please contact me on IRC.
 
 ==Bug Reporting==
 Please use the [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]] tracker to file bug reports.
