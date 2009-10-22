@@ -762,7 +762,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 					left_color = addon:hexcolor("NORMAL")
 					right_color = addon:hexcolor("HIGH")
 					ttAdd(1, -2, 1, vendor["Location"], left_color, cStr, right_color)
-				elseif faction then
+				elseif faction and companion["Type"] ~= "MOUNT" then
 					ttAdd(0, -1, 0, faction.." "..L["Vendor"], left_color)
 				end
 			end
