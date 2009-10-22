@@ -111,10 +111,6 @@ function addon:Coords(text)
 	return self:Colourize(WHITE, text)
 end
 
-function addon:Trainer(text)
-	return self:Colourize(TRAINER, text)
-end
-
 function addon:Vendor(text)
 	return self:Colourize(VENDOR, text)
 end
