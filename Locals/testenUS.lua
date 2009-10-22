@@ -32,7 +32,6 @@ L["BOPFilter"] = "Entry Bind on Pickup"
 L["BOP_DESC"] = "Entry that are Bind on Pickup items should be included in the scan."
 L["BOAFilter"] = "Entry Bind to Account"
 L["BOA_DESC"] = "Entry that are Bind to Account items should be included in the scan."
-L["Bottom Left"] = true
 L["Burning Crusade"] = true
 L["Clear Exclusion List"] = true
 L["CLEAR_DESC"] = "Clear the search text box."
