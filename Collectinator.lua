@@ -174,8 +174,6 @@ function addon:OnInitialize()
 			minimap = true,
 			worldmap = true,
 			autoscanmap = false,
-			scantrainers = false,
-			autoloaddb = false,
 
 			exclusionlist = {},
 
