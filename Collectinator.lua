@@ -167,7 +167,6 @@ function addon:OnInitialize()
 			sorting = "Name",
 			includefiltered = false,
 			includeexcluded = false,
-			closeguionskillclose = false,
 			ignoreexclusionlist = false,
 			scanbuttonlocation = "TR",
 			spelltooltiplocation = "Right",

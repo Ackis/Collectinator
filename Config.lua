@@ -324,14 +324,6 @@ local function giveDisplay()
 					get		= function() return addon.db.profile.frameopts.fontsize end,
 					set		= function(info, v) addon.db.profile.frameopts.fontsize = v end,
 				},
-				closegui = {
-					order	= 5,
-					type	= "toggle",
-					name	= L["Close GUI"],
-					desc	= L["CLOSEGUI_DESC"],
-					get		= function() return addon.db.profile.closeguionskillclose end,
-					set		= function() addon.db.profile.closeguionskillclose = not addon.db.profile.closeguionskillclose end,
-				},
 				hidepopup = {
 					order	= 6,
 					type	= "toggle",
