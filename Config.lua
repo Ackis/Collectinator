@@ -288,15 +288,6 @@ local function giveDisplay()
 					type	= "description",
 					name	= L["MAP_OPTIONS_DESC"] .. "\n",
 				},
-				scanbuttonlocation = {
-					order	= 2,
-					type	= "select",
-					name	= L["Scan Button Position"],
-					desc	= L["SCANBUTTONPOSITION_DESC"],
-					get		= function() return addon.db.profile.scanbuttonlocation end,
-					set		= function(info,name) addon.db.profile.scanbuttonlocation = name end,
-					values	= function() return {TR = L["Top Right"], TL = L["Top Left"], BR = L["Bottom Right"], BL = L["Bottom Left"]} end,
-				},
 				uiscale = {
 					order	= 3,
 					type	= "range",
