@@ -202,15 +202,17 @@ function addon:GetMountTotal(DB)
 		self:AddCompanionFlags(DB, 66088, F_HORDE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
 		self:AddCompanionAcquire(DB, 66088, A_REPUTATION, 1124, EXALTED, 34772)
 
-		-- Warhorse - Horde - 34769
-		AddMount(34769, nil, R_RARE, GAME_BC, C_PALADIN)
-		self:AddCompanionFlags(DB, 34769, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 34769, 
+		if MY_CLASS == "PALADIN" then
+			-- Warhorse - Horde - 34769
+			AddMount(34769, nil, R_RARE, GAME_BC, C_PALADIN)
+			self:AddCompanionFlags(DB, 34769, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+			--self:AddCompanionAcquire(DB, 34769, 
 
-		-- Charger - Horde - 34767
-		AddMount(34767, nil, R_RARE, GAME_BC, C_PALADIN)
-		self:AddCompanionFlags(DB, 34767, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 34767, 
+			-- Charger - Horde - 34767
+			AddMount(34767, nil, R_RARE, GAME_BC, C_PALADIN)
+			self:AddCompanionFlags(DB, 34767, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+			--self:AddCompanionAcquire(DB, 34767, 
+		end
 
 		-- Horn of the Swift Brown Wolf - 23250
 		AddMount(23250, 18796, R_EPIC, GAME_ORIG)
@@ -612,15 +614,18 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 65640, A_VENDOR, 33307)
 
 ------------------------
-		-- Warhorse - Alliance - 13819
-		AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
-		self:AddCompanionFlags(DB, 13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 13819, 
 
-		-- Charger - Alliance - 23214
-		AddMount(23214, nil, R_RARE, GAME_ORIG, C_PALADIN)
-		self:AddCompanionFlags(DB, 23214, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 23214, 
+		if MY_CLASS == "PALADIN" then
+			-- Warhorse - Alliance - 13819
+			AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
+			self:AddCompanionFlags(DB, 13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+			--self:AddCompanionAcquire(DB, 13819, 
+
+			-- Charger - xAlliance - 23214
+			AddMount(23214, nil, R_RARE, GAME_ORIG, C_PALADIN)
+			self:AddCompanionFlags(DB, 23214, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+			--self:AddCompanionAcquire(DB, 23214, 
+		end
 
 		--Traveler's Tundra Mammoth (Alliance) - 61425
 		AddMount(61425, 44235, R_EPIC, GAME_WOTLK)
