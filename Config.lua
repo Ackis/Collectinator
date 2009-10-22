@@ -62,7 +62,7 @@ local function fullOptions()
 							order	= 12,
 							type	= "execute",
 							name	= L["Scan"],
-							desc	= L["SCAN_RECIPES_DESC"],
+							desc	= L["SCAN_COMPANIONS_DESC"],
 							func	= function(info) addon:Scan(false) end,
 						},
 						textdump = {
@@ -188,7 +188,7 @@ local function giveDocs()
 			order = 1,
 			type = "group",
 			name = L["ARL Documentation"],
-			desc = L["ARL_DOC_DESC"],
+			desc = L["DOC_DESC"],
 			args = {
 				header1 = {
 					order	= 1,
@@ -198,7 +198,7 @@ local function giveDocs()
 				desc1 = {
 					order	= 2,
 					type	= "description",
-					name	= L["ARL_DOC_DESC"],
+					name	= L["DOC_DESC"],
 				},
 				header2 = {
 					order	= 3,
@@ -364,7 +364,7 @@ local function giveDisplay()
 				spelltooltiplocation = {
 					order	= 22,
 					type	= "select",
-					name	= L["Tooltip (Recipe) Position"],
+					name	= L["Tooltip (Collectible) Position"],
 					desc	= L["SPELLTOOLTIPPOSITION_DESC"],
 					get		= function() return addon.db.profile.spelltooltiplocation end,
 					set		= function(info,name) addon.db.profile.spelltooltiplocation = name end,

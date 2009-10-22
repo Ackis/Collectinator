@@ -16,14 +16,14 @@ if not L then return end
 
 L["About"] = true
 L["Achievement"] = true
---L["ACHIEVEMENT_DESC"] = ""
+L["ACHIEVEMENT_DESC"] = "Collectibles which are achievements should be included in the scan."
 L["ACQUIRETOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing the acquire information."
 L["Acquisition"] = true
 L["ALL_FILTERED"] = "Your filters are currently preventing any entries from being displayed. Please change your filter settings and try again."
 L["ALT_CLICK"] = "Alt-Click to add/remove this entry to your ignore list."
 L["ALT_COLLECTION_DESC"] = "This will display a list of alts which have had their collections.  Clicking on the alt's name will output the collection to chat."
 L["Alt-Collections"] = true
---L["ARL_DOC_DESC"]
+L["DOC_DESC"] = "Documentation for Collectinator"
 L["BC_WOW_DESC"] = "Entries available with the Burning Crusade."
 L["Binding"] = true
 L["BOEFilter"] = "Entry Bind on Equip"
@@ -37,7 +37,7 @@ L["Clear Exclusion List"] = true
 L["CLEAR_DESC"] = "Clear the search text box."
 L["CLEAR_EXCLUSION_LIST_DESC"] = "Removes all entries from the exclusion list."
 L["CLOSE_DESC"] = "Close the Collectinator Window."
---L["COLLECTIBLE_EXCLUDED"]
+L["COLLECTIBLE_EXCLUDED"] = "Collectible is in Exclusion list"
 L["Collectinator_ALLEXCLUDED"] = "Your exclusions are currently preventing any entries from being displayed. Please change your exclusions and try again."
 L["Collectinator_ALLKNOWN"] = "You know all the entries, there is nothing left for you to collect."
 L["Collectinator_SEARCHFILTERED"] = "Your search has no results."
@@ -54,7 +54,7 @@ L["Display"] = true
 L["DISPLAY_EXCLUSION_DESC"] = "Display entries that are in the exclusion list."
 L["DISPLAY_OPTIONS_DESC"] = "Allows you to customize how the GUI behaves."
 L["Documentation"] = true
---L["EVENT_DESC"]
+L["EVENT_DESC"] = "Collectibles which are from special events (BlizzCon, WWI, etc) should be included in the scan."
 L["EXCLUDECOUNT_DESC"] = "Include excluded entries in the count of total entries."
 L["Exclusion Issues"] = true
 L["EXCLUSION_ISSUES_DESC"] = "To add a entry to the exclusion (ignore) list, just alt-click on it from the scan window.  To get this entry back, open up the options and set the toggle of \"Show Excluded\" to be on.  This will show all the entries you've excluded in your scan during your next scan.  Once you have done this, Alt-Click on the entry again to remove it from the exclusion list."
@@ -90,7 +90,7 @@ Scan Button:
 This is the functionality that occurs when you are clicking the scan button.
 
 - Normal Click
-  Performs a scan of the current tradeskill displaying recipes in a new window.
+  Performs a scan of the current tradeskill displaying collectibles in a new window.
 - Shift Click
   Generates a text dumping of the current tradeskill in CSV format.
 - Alt Click
@@ -174,12 +174,11 @@ L["Reset Window Position"] = true
 L["RESET_DESC"] = "Reset All Filters to default values."
 L["RESET_WINDOW_DESC"] = "Resets the GUI to default position."
 L["Scan"] = true
---L["SCAN_COMPANIONS_DESC"]
---L["SCAN_RECIPES_DESC"] remove ref
+L["SCAN_COMPANIONS_DESC"] = "Scans the current opened companion window.  Requires the window to be open before working."
 L["SEARCH_BOX_DESC"] = "Enter text to search."
 L["SEARCH_DESC"] = "Filter to entries that contain text at left."
 L["SEASONAL_DESC"] = "Collectibles obtained in world events should be included in the scan."
-L["SHIFT_CLICK"] = "Shift-Click to add the item crafted by this recipe's link to your chat." -- remove?
+L["SHIFT_CLICK"] = "Shift-Click to add the item crafted by this collectible's link to your chat." -- remove?
 L["Sort"] = true
 L["Sorting Options"] = true
 L["Sorting"] = true
@@ -191,27 +190,29 @@ L["SPELLTOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing
 L["Text Dump"] = true
 L["TEXT_DUMP_DESC"] = "Displays all collectibles in a comma separated value format which can be copied and pasted into another client."
 L["Tooltip (Acquire) Position"] = true
-L["Tooltip (Recipe) Position"] = true
+L["Tooltip (collectible) Position"] = true
 L["Tooltip Options"] = true
 L["Tooltip Scale"] = true
---L["TOOLTIP_OPTIONS_DESC"]
---L["TOOLTIP_SCALE_DESC"]
+L["TOOLTIP_OPTIONS_DESC"] = "Allows you to specify how the tooltips behave.  The acquire tooltip lists the different information on how to acquire the collectible, whereas the spell tooltip lists the collectible information itself."
+L["TOOLTIP_SCALE_DESC"] = "Changes the scale of the tooltip. Ranges from .5 to 1.5 (.9 is default)"
 L["UI Scale"] = true
---L["UI_SCALE_DESC"]
+L["UI_SCALE_DESC"] = "Changes the scale of the UI. Ranges from .5 to 1.5 (1 is default)"
 L["Unavailable"] = true
 L["Unhandled Collectible"] = true
 L["Unknown Zone"] = true
 L["Unknown"] = true
---L["UNKNOWN_DESC"]
+L["UNKNOWN_DESC"] = "Include all unknown collectibles in the scan."
 L["Using Filters"] = true
---L["USING_FILTERS_DESC"]
+L["USING_FILTERS_DESC"]= [[Filters may be toggled on or off.  There are two types of filters: one which will prevent the collectible from showing up at all, and one which will prevent a specific type of acquire information from showing up.
+With the first type of filter, these match the proprieties of the collectible (ie: binding).  If you toggle Collectinator to not show BoP collectibles, no collectibles that are BoP will show up in the scan.  The second type of filter deals with acquire information.  If a collectible is available as a mob drop, or from a vendor and you toggle to not show vendor collectibles, the collectible will still show up but vendor information will be hidden for it.  The reason is that there is still another way to acquire this collectible (mob drop) so it should still be included in the scan.
+Please note that the tooltips will always hide the opposite faction methods of acquiring a collectible.  This has been done to save space in the tooltip since they can get quite large.]]
 L["Vendor"] = true
---L["VENDOR_DESC"]
+L["VENDOR_DESC"] = "Collectibles purchased from vendors should be included in the scan."
 L["Version"] = true
 L["View Exclusion List"] = true
---L["VIEW_EXCLUSION_LIST_DESC"]
+L["VIEW_EXCLUSION_LIST_DESC"] = "Prints out a list of all entries on the exclusion list."
 L["World Drop"] = true
---L["WORLD_DROP_DESC"]
+L["WORLD_DROP_DESC"] =  "Collectibles that are World Drops should be included in the scan."
 
 -- Mobs
 L["Blue Dragonspawn"] = true
