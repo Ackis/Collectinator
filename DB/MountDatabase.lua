@@ -182,6 +182,16 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Horde.
 		-------------------------------------------------------------------------------
+		-- Reins of the Ice Mammoth - 59797
+		AddMount(59797, 44080, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 59797, F_HORDE, F_VENDOR, F_BOP, F_HODIR)
+		self:AddCompanionAcquire(DB, 59797, A_REPUTATION, 1119, REVERED, 32540)
+
+		-- Reins of the Grand Ice Mammoth - 61469
+		AddMount(61469, 44086, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 61469, F_HORDE, F_VENDOR, F_BOP, F_HODIR)
+		self:AddCompanionAcquire(DB, 61469, A_REPUTATION, 1119, EXALTED, 32540)
+
 		-- Sunreaver Hawkstrider - 66091
 		AddMount(66091, 46816, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 66091, F_HORDE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
@@ -555,6 +565,14 @@ function addon:GetMountTotal(DB)
 		-------------------------------------------------------------------------------
 		-- Mounts for Alliance.
 		-------------------------------------------------------------------------------
+		-- Reins of the Ice Mammoth - 59799
+		AddMount(59799, 43958, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 59799, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
+		self:AddCompanionAcquire(DB, 59799, A_REPUTATION, 1119, REVERED, 32540)
+		-- Reins of the Grand Ice Mammoth - 61470
+		AddMount(61470, 43961, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 61470, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
+		self:AddCompanionAcquire(DB, 61470, A_REPUTATION, 1119, EXALTED, 32540)
 		-- Warhorse - Alliance - 13819
 		AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
 		self:AddCompanionFlags(DB, 13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
@@ -1146,26 +1164,6 @@ function addon:GetMountTotal(DB)
 	AddMount(59570, 43955, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(DB, 59570, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_WYRMREST)
 	self:AddCompanionAcquire(DB, 59570, A_REPUTATION, 1091, EXALTED, 32533)
-
-	-- Reins of the Ice Mammoth - 59797
-	AddMount(59797, 44080, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 59797, F_HORDE, F_VENDOR, F_BOP, F_HODIR)
-	self:AddCompanionAcquire(DB, 59797, A_REPUTATION, 1119, REVERED, 32540)
-
-	-- Reins of the Ice Mammoth - 59799
-	AddMount(59799, 43958, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 59799, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
-	self:AddCompanionAcquire(DB, 59799, A_REPUTATION, 1119, REVERED, 32540)
-
-	-- Reins of the Grand Ice Mammoth - 61469
-	AddMount(61469, 44086, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 61469, F_HORDE, F_VENDOR, F_BOP, F_HODIR)
-	self:AddCompanionAcquire(DB, 61469, A_REPUTATION, 1119, EXALTED, 32540)
-
-	-- Reins of the Grand Ice Mammoth - 61470
-	AddMount(61470, 43961, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 61470, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
-	self:AddCompanionAcquire(DB, 61470, A_REPUTATION, 1119, EXALTED, 32540)
 
 	-- Cenarion War Hippogryph - 43927
 	AddMount(43927, 33999, R_EPIC, GAME_BC)
