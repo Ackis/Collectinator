@@ -82,6 +82,7 @@ local EXALTED = 4
 -------------------------------------------------------------------------------
 local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C_WARLOCK, C_WARRIOR = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
+local MY_CLASS = select(2, UnitClass("player"))
 local initialized = false
 local num_mounts = 0
 
@@ -1040,37 +1041,46 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 17481, A_MOB, 10440)
 
 --CLASS
-	-- Felsteed - 5784
-	AddMount(5784, nil, R_RARE, GAME_ORIG, C_WARLOCK)
-	self:AddCompanionFlags(DB, 5784, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 5784, 
-				 A_VENDOR, 16646, A_VENDOR, 5173, A_VENDOR, 23534, A_VENDOR, 5172, A_VENDOR, 16266,
-				 A_VENDOR, 461, A_VENDOR, 3172, A_VENDOR, 5612, A_VENDOR, 3324, A_VENDOR, 4563,
-				 A_VENDOR, 988, A_VENDOR, 4564, A_VENDOR, 906, A_VENDOR, 3325, A_VENDOR, 4565,
-				 A_VENDOR, 2127, A_VENDOR, 5496, A_VENDOR, 6251, A_VENDOR, 16647, A_VENDOR, 5171,
-				 A_VENDOR, 5495, A_VENDOR, 16648, A_VENDOR, 3326)
+	if MY_CLASS == "WARLOCK" then
+		-- Felsteed - 5784
+		AddMount(5784, nil, R_RARE, GAME_ORIG, C_WARLOCK)
+		self:AddCompanionFlags(DB, 5784, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 5784, 
+					 A_VENDOR, 16646, A_VENDOR, 5173, A_VENDOR, 23534, A_VENDOR, 5172, A_VENDOR, 16266,
+					 A_VENDOR, 461, A_VENDOR, 3172, A_VENDOR, 5612, A_VENDOR, 3324, A_VENDOR, 4563,
+					 A_VENDOR, 988, A_VENDOR, 4564, A_VENDOR, 906, A_VENDOR, 3325, A_VENDOR, 4565,
+					 A_VENDOR, 2127, A_VENDOR, 5496, A_VENDOR, 6251, A_VENDOR, 16647, A_VENDOR, 5171,
+					 A_VENDOR, 5495, A_VENDOR, 16648, A_VENDOR, 3326)
 
-	-- Dreadsteed - 23161
-	AddMount(23161, nil, R_EPIC, GAME_ORIG, C_WARLOCK)
-	self:AddCompanionFlags(DB, 23161, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23161, A_QUEST, 7631,
-				 A_VENDOR, 16646, A_VENDOR, 5173, A_VENDOR, 23534, A_VENDOR, 5172, A_VENDOR, 16266,
-				 A_VENDOR, 461, A_VENDOR, 3172, A_VENDOR, 5612, A_VENDOR, 3324, A_VENDOR, 4563,
-				 A_VENDOR, 988, A_VENDOR, 4564, A_VENDOR, 906, A_VENDOR, 3325, A_VENDOR, 4565,
-				 A_VENDOR, 2127, A_VENDOR, 5496, A_VENDOR, 6251, A_VENDOR, 16647, A_VENDOR, 5171,
-				 A_VENDOR, 5495, A_VENDOR, 16648, A_VENDOR, 3326)
+		-- Dreadsteed - 23161
+		AddMount(23161, nil, R_EPIC, GAME_ORIG, C_WARLOCK)
+		self:AddCompanionFlags(DB, 23161, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23161, A_QUEST, 7631,
+					 A_VENDOR, 16646, A_VENDOR, 5173, A_VENDOR, 23534, A_VENDOR, 5172, A_VENDOR, 16266,
+					 A_VENDOR, 461, A_VENDOR, 3172, A_VENDOR, 5612, A_VENDOR, 3324, A_VENDOR, 4563,
+					 A_VENDOR, 988, A_VENDOR, 4564, A_VENDOR, 906, A_VENDOR, 3325, A_VENDOR, 4565,
+					 A_VENDOR, 2127, A_VENDOR, 5496, A_VENDOR, 6251, A_VENDOR, 16647, A_VENDOR, 5171,
+					 A_VENDOR, 5495, A_VENDOR, 16648, A_VENDOR, 3326)
+	end
 
-	-- Acherus Deathcharger - 48778
-	AddMount(48778, nil, 1, GAME_WOTLK, C_DK)
-	self:AddCompanionFlags(DB, 48778, F_ALLIANCE, F_HORDE, F_BOP)
-	self:AddCompanionAcquire(DB, 48778, A_QUEST, 12687)
+	if MY_CLASS == "DEATHKNIGHT" then
+		-- Acherus Deathcharger - 48778
+		AddMount(48778, nil, 1, GAME_WOTLK, C_DK)
+		self:AddCompanionFlags(DB, 48778, F_ALLIANCE, F_HORDE, F_BOP)
+		self:AddCompanionAcquire(DB, 48778, A_QUEST, 12687)
 
-	-- Winged Steed of the Ebon Blade - 54729
-	AddMount(54729, 40775, R_EPIC, GAME_WOTLK, C_DK)
-	self:AddCompanionFlags(DB, 54729, F_ALLIANCE, F_HORDE, F_BOP)
-	self:AddCompanionAcquire(DB, 54729, A_VENDOR, 29587)
+		-- Winged Steed of the Ebon Blade - 54729
+		AddMount(54729, 40775, R_EPIC, GAME_WOTLK, C_DK)
+		self:AddCompanionFlags(DB, 54729, F_ALLIANCE, F_HORDE, F_BOP)
+		self:AddCompanionAcquire(DB, 54729, A_VENDOR, 29587)
+	end
 
 --REP VENDOR ARGENT
+	if MY_CLASS == "PALADIN" then
+		-- Argent Charger - 66906
+		AddMount(66906, 47179, R_EPIC, GAME_WOTLK, C_PALADIN)
+		self:AddCompanionFlags(DB, 66906, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 66906, A_VENDOR, 34885)
 	 -- Great Red Elekk - 65637
 	AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(DB, 65637, F_ALLIANCE, F_VENDOR, F_BOP)
@@ -1091,6 +1101,11 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionFlags(DB, 65638, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 65638, A_VENDOR, 33653)
 
+		-- Argent Warhorse - 67466
+		AddMount(67466, 47180, R_EPIC, GAME_WOTLK, C_PALADIN)
+		self:AddCompanionFlags(DB, 67466, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 67466, A_VENDOR, 34885)
+	end
 	-- Swift Gray Steed - 65640
 	AddMount(65640, 46752, R_EPIC, GAME_WOTLK)
 	self:AddCompanionFlags(DB, 65640, F_ALLIANCE, F_VENDOR, F_BOP)
