@@ -20,8 +20,14 @@ http://wowuidev.pastey.net/125322
 13:00	sylvanaar	"lua luapp.lua infile.lua outfile.lua"
 ]]--
 
-local MODNAME = "Collectinator"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local MODNAME		= "Collectinator"
+local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+local BF		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
+
+local FACTION_ALLIANCE	= BF["Alliance"]
+local FACTION_HORDE	= BF["Horde"]
+
+local MY_FACTION	= select(2, UnitFactionGroup("player"))
 
 -------------------------------------------------------------------------------
 -- Item "rarity"
@@ -825,25 +831,17 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 68810, A_CUSTOM, 1)
 
 	-- We only add the faction specific pets if the user is part of that faction
-	local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-	local _,faction = UnitFactionGroup("player")
-
-	if (faction == BFAC["Alliance"]) then
-
+	if MY_FACTION == FACTION_ALLIANCE then
 		-- Shimmering Wyrmling -- 66096
 		AddPet(66096, 46820, R_RARE, GAME_WOTLK)
 		self:AddCompanionFlags(PetDB, 66096, F_ALLIANCE, F_VENDOR, F_BOE, WRATHCOMMON1)
 		self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1094, EXALTED, 34881)
 
-	elseif (faction == BFAC["Horde"]) then
-
+	elseif MY_FACTION == FACTION_HORDE then
 		-- Shimmering Wyrmling -- 66096
-		AddPet(66096, 46821, R_UNCOMMON, GAME_WOTLK)
+		AddPet(66096, 46821, R_RARE, GAME_WOTLK)
 		self:AddCompanionFlags(PetDB, 66096, F_HORDE, F_VENDOR, F_BOE, WRATHCOMMON1)
 		self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1124, EXALTED, 34772)
-
 	end
-
 	return num_pets
-
 end
