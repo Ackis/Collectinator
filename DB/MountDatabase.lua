@@ -569,10 +569,49 @@ function addon:GetMountTotal(DB)
 		AddMount(59799, 43958, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 59799, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
 		self:AddCompanionAcquire(DB, 59799, A_REPUTATION, 1119, REVERED, 32540)
+
 		-- Reins of the Grand Ice Mammoth - 61470
 		AddMount(61470, 43961, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 61470, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
 		self:AddCompanionAcquire(DB, 61470, A_REPUTATION, 1119, EXALTED, 32540)
+
+------------------------
+	-- Quel'dorei Steed - 66090
+	AddMount(66090, 46815, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 66090, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 66090, A_VENDOR, 34881)
+
+	-- Silver Covenant Hippogryph - 66087
+	AddMount(66087, 46813, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 66087, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 66087, A_VENDOR, 34881)
+
+	 -- Great Red Elekk - 65637
+	AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 65637, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 65637, A_VENDOR, 33657)
+
+	 -- Turbostrider - 65642
+	AddMount(65642, 46747, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 65642, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 65642, A_VENDOR, 33650)
+
+	-- Swift Violet Ram - 65643
+	AddMount(65643, 46748, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 65643, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 65643, A_VENDOR, 33310)
+
+	-- Swift Moonsaber - 65638
+	AddMount(65638, 46744, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 65638, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 65638, A_VENDOR, 33653)
+
+	-- Swift Gray Steed - 65640
+	AddMount(65640, 46752, R_EPIC, GAME_WOTLK)
+	self:AddCompanionFlags(DB, 65640, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 65640, A_VENDOR, 33307)
+
+------------------------
 		-- Warhorse - Alliance - 13819
 		AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
 		self:AddCompanionFlags(DB, 13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
@@ -1099,65 +1138,12 @@ function addon:GetMountTotal(DB)
 		AddMount(66906, 47179, R_EPIC, GAME_WOTLK, C_PALADIN)
 		self:AddCompanionFlags(DB, 66906, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 66906, A_VENDOR, 34885)
-	 -- Great Red Elekk - 65637
-	AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65637, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 65637, A_VENDOR, 33657)
-
-	 -- Turbostrider - 65642
-	AddMount(65642, 46747, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65642, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 65642, A_VENDOR, 33650)
-
-	-- Swift Violet Ram - 65643
-	AddMount(65643, 46748, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65643, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 65643, A_VENDOR, 33310)
-
-	-- Swift Moonsaber - 65638
-	AddMount(65638, 46744, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65638, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 65638, A_VENDOR, 33653)
 
 		-- Argent Warhorse - 67466
 		AddMount(67466, 47180, R_EPIC, GAME_WOTLK, C_PALADIN)
 		self:AddCompanionFlags(DB, 67466, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 67466, A_VENDOR, 34885)
 	end
-	-- Swift Gray Steed - 65640
-	AddMount(65640, 46752, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65640, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 65640, A_VENDOR, 33307)
-
-	-- Argent Charger - 66906
-	AddMount(66906, 47179, R_EPIC, GAME_WOTLK, C_PALADIN)
-	self:AddCompanionFlags(DB, 66906, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 66906, A_VENDOR, 34885)
-
-	-- Argent Warhorse - 67466
-	AddMount(67466, 47180, R_EPIC, GAME_WOTLK, C_PALADIN)
-	self:AddCompanionFlags(DB, 67466, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 67466, A_VENDOR, 34885)
-
-	-- Quel'dorei Steed - 66090
-	AddMount(66090, 46815, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 66090, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 66090, A_VENDOR, 34881)
-
-	-- Silver Covenant Hippogryph - 66087
-	AddMount(66087, 46813, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 66087, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 66087, A_VENDOR, 34881)
-
-	 -- Sunreaver Hawkstrider - 66091
-	AddMount(66091, 46816, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 66091, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 66091, A_VENDOR, 34772)
-
-	 -- Sunreaver Dragonhawk - 66088
-	AddMount(66088, 46814, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 66088, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 66088, A_VENDOR, 34772)
 
 --REP VENDOR NEUTRAL
 	-- Reins of the Red Drake - 59570
