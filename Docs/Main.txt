@@ -2,16 +2,16 @@
 Provides methods for determining which mini-pets, mounts, and tabards you are missing. 
 
 ==Where to get it==
-* [http://www.wowace.com/projects/collectinator/files/ WoW Ace] - Alpha Quality
-* [http://wow.curse.com/downloads/wow-addons/details/collectinator.aspx Curse] - Stable release
+* [[http://www.wowace.com/projects/collectinator/files/|WoW Ace[] - Alpha Quality
+* [[http://wow.curse.com/downloads/wow-addons/details/collectinator.aspx|Curse]] - Stable release
 * [[http://www.wowinterface.com/downloads/info8512-AckisRecipeList.html|WoWInterface]] - Not yet released there, link goes to ARL. :D
 
 ==Donations==
-I have setup a donation site via [http://www.pledgie.com/campaigns/3462 Pledgie].  Feel free to donate if you like this mod.  I have put countless hours of time and effort into it along with many people who have helped me.  I did not write this mod with the intent to make any money from it.  I wrote it to help me with some needs that I saw in-game, and well with requests and my goal to make it filled with information it's become a massive project.
+I have setup a donation site via [[http://www.pledgie.com/campaigns/3462|Pledgie]].  Feel free to donate if you like this mod.  I have put countless hours of time and effort into it along with many people who have helped me.  I did not write this mod with the intent to make any money from it.  I wrote it to help me with some needs that I saw in-game, and well with requests and my goal to make it filled with information it's become a massive project.
 
 If you don't wish to donate money feel free to consider one of the following methods which may be more suitable:
-* Volunteer time at your local animal shelter such as the [http://www.edmontonhumanesociety.com/ Society for Prevention of Cruelty for Animals (SPCA)] or drop a few bucks off for them.  If you do this, please let [mailto:ackis@shaw.ca me] know.
-* Send 	[mailto:ackis@shaw.ca me] some UDE Points.  These points are obtained from the [http://www.wowtcg.com/ World of Warcraft TCG and Mini] game.
+* Volunteer time at your local animal shelter such as the [[http://www.aspca.org/|Society for Prevention of Cruelty for Animals (SPCA)] or a [[http://www.edmontonhumanesociety.com/|local humane shelter]] or drop a few bucks off for them.  If you do this, please let [[mailto:ackis@shaw.ca|me]] know.
+* Send [[mailto:ackis@shaw.ca|me]] some UDE Points.  These points are obtained from the [[http://www.wowtcg.com/|World of Warcraft TCG and Mini]] game.
 * Send some gold to me in-game or help out with some rarer achievements. :)
 ** [[http://www.wowarmory.com/character-sheet.xml?r=Thunderlord&n=Ackis|Ackis Thunderlord (US)]] Ackis
 
@@ -22,21 +22,21 @@ Open up your companion window (pets or mounts) and click the scan button.  This 
 There are no slash commands at this point.
 
 ==Known Issues==
-All known issues will be kept at the [http://www.wowace.com/projects/collectinator/tickets/ WoW Ace] tracker.
+All known issues will be kept at the [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]] tracker.
 
-Please use the [http://www.wowace.com/projects/collectinator/tickets/ WoW Ace] tracker to file bug reports.
+Please use the [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]] tracker to file bug reports.
 
 ==Wish List==
-Please use the [http://www.wowace.com/projects/collectinator/tickets/ WoW Ace] tracker to add suggestions and feature requests.
+Please use the [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]] tracker to add suggestions and feature requests.
 
 ==Integration==
-Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [http://www.wowace.com/projects/collectinator/tickets/ WoW Ace].  There is a limted API documented at [http://www.wowace.com/projects/collectinator/pages/API/] to interface with the collectinator database.  If you are a developer and would like more functions, please contact me on IRC.
+Ackis Recipe List strives to integrate with existing trade skill mods out there.  If you have a request for integration, please submit a feature request at [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]].  There is a limted [http://www.wowace.com/projects/collectinator/pages/API/|API]] to interface with the Collectinator database.  If you are a developer and would like more functions, please contact me on IRC.
 
 ==Bug Reporting==
-Please use the [http://www.wowace.com/projects/collectinator/tickets/ WoW Ace] tracker to file bug reports.
+Please use the [[http://www.wowace.com/projects/collectinator/tickets/|WoW Ace]] tracker to file bug reports.
 
 ==Detailed Documentation==
-* Detailed documentation - [http://www.wowace.com/projects/collectinator/pages/database-documentation/]
+* [[http://www.wowace.com/projects/collectinator/pages/database-documentation/|Detailed Documentation]]
 
 ==Wiki==
-[http://www.wowwiki.com/Collectinator WoW Wiki]
+[[http://www.wowwiki.com/Collectinator|WoW Wiki]]
