@@ -709,17 +709,17 @@ function addon:GetMiniPetTotal(PetDB)
 --COLLECTORS EDITION
 	-- Diablo Stone - 17708
 	AddPet(17708, 13584, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 17708, F_ALLIANCE, F_HORDE, F_QUEST, F_COLLECTORS, F_BOA)
+	self:AddCompanionFlags(PetDB, 17708, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 17708, A_ACHIEVEMENT, 662)
 
 	-- Panda Collar - 17707
 	AddPet(17707, 13583, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 17707, F_ALLIANCE, F_HORDE, F_QUEST, F_COLLECTORS, F_BOA)
+	self:AddCompanionFlags(PetDB, 17707, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 17707, A_ACHIEVEMENT, 663)
 
 	-- Zergling Leash - 17709
 	AddPet(17709, 13582, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 17709, F_ALLIANCE, F_HORDE, F_QUEST, F_COLLECTORS, F_BOA)
+	self:AddCompanionFlags(PetDB, 17709, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 17709, A_ACHIEVEMENT, 664)
 
 	-- Lurky's Egg - 24988
