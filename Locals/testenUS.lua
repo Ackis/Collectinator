@@ -173,11 +173,9 @@ L["Reset All Filters"] = true
 L["Reset Window Position"] = true
 L["RESET_DESC"] = "Reset All Filters to default values."
 L["RESET_WINDOW_DESC"] = "Resets the GUI to default position."
-L["Scan Button Position"] = true
 L["Scan"] = true
 --L["SCAN_COMPANIONS_DESC"]
 --L["SCAN_RECIPES_DESC"] remove ref
-L["SCANBUTTONPOSITION_DESC"] = "Allows you to customize where the scan button is placed on the companions frame."
 L["SEARCH_BOX_DESC"] = "Enter text to search."
 L["SEARCH_DESC"] = "Filter to entries that contain text at left."
 L["SEASONAL_DESC"] = "Collectibles obtained in world events should be included in the scan."
