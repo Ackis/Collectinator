@@ -362,20 +362,34 @@ function addon:OnInitialize()
 			       if not guid then
 				       return
 			       end
-			       local mob = MobList[tonumber(string.sub(guid, 8, 12), 16)]
+			       local GUID = tonumber(string.sub(guid, 8, 12), 16)
+			       local mob = MobList[GUID]
 
-			       if not mob or not mob["DropList"] then
+			       if mob and mob["DropList"] then
+				       for spell_id in pairs(mob["DropList"]) do
+					       local companion = CompanionDB[spell_id]
+
+					       if not companion["Known"] then
+						       local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
+
+						       self:AddLine("Drops: "..hex..companion["Name"].."|r")
+					       end
+				       end
 				       return
 			       end
+			       local vendor = VendorList[GUID]
 
-			       for spell_id in pairs(mob["DropList"]) do
-				       local companion = CompanionDB[spell_id]
+			       if vendor and vendor["SellList"] then
+				       for spell_id in pairs(vendor["SellList"]) do
+					       local companion = CompanionDB[spell_id]
 
-				       if not companion["Known"] then
-					       local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
+					       if not companion["Known"] then
+						       local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
 
-					       self:AddLine("Drops: "..hex..companion["Name"].."|r")
+						       self:AddLine("Sells: "..hex..companion["Name"].."|r")
+					       end
 				       end
+				       return
 			       end
 		       end)
 end
