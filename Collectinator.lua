@@ -543,7 +543,6 @@ function addon:AddCompanion(DB, CompanionType, SpellID, ItemID, Rarity, Game)
 		["Rarity"]	= Rarity,
 		["Type"]	= CompanionType,
 		["Game"]	= Game or 0,
-		["Owned"]	= false,
 		["Display"]	= true,
 		["Search"]	= true,
 		["Known"]	= false,
