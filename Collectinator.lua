@@ -699,6 +699,8 @@ do
 						tinsert(location_list, location)
 						location_checklist[location] = true
 					end
+					VendorList[acquire_id]["SellList"] = VendorList[acquire_id]["SellList"] or {}
+					VendorList[acquire_id]["SellList"][SpellID] = true
 				end
 			elseif acquire_type == A_REPUTATION then
 				local RepLevel, RepVendor = select(i, ...)
@@ -706,6 +708,8 @@ do
 
 				acquire[index]["RepLevel"] = RepLevel
 				acquire[index]["RepVendor"] = RepVendor
+				VendorList[RepVendor]["SellList"] = VendorList[RepVendor]["SellList"] or {}
+				VendorList[RepVendor]["SellList"][SpellID] = true
 
 				--@alpha@
 				if not acquire_id then
