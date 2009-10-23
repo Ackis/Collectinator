@@ -371,7 +371,7 @@ function addon:OnInitialize()
 			       for spell_id in pairs(mob["DropList"]) do
 				       local companion = CompanionDB[spell_id]
 
-				       if not companion["Owned"] then
+				       if not companion["Known"] then
 					       local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
 
 					       self:AddLine("Drops: "..hex..companion["Name"].."|r")
