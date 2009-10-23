@@ -577,43 +577,40 @@ function addon:GetMountTotal(DB)
 		self:AddCompanionFlags(DB, 61470, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
 		self:AddCompanionAcquire(DB, 61470, A_REPUTATION, 1119, EXALTED, 32540)
 
-------------------------
-	-- Quel'dorei Steed - 66090
-	AddMount(66090, 46815, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 66090, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 66090, A_VENDOR, 34881)
+		-- Quel'dorei Steed - 66090
+		AddMount(66090, 46815, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 66090, F_ALLIANCE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
+		self:AddCompanionAcquire(DB, 66090, A_REPUTATION, 1094, EXALTED, 34881)
 
-	-- Silver Covenant Hippogryph - 66087
-	AddMount(66087, 46813, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 66087, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 66087, A_VENDOR, 34881)
+		-- Silver Covenant Hippogryph - 66087
+		AddMount(66087, 46813, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 66087, F_ALLIANCE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
+		self:AddCompanionAcquire(DB, 66087, A_REPUTATION, 1094, EXALTED, 34881)
 
-	 -- Great Red Elekk - 65637
-	AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65637, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 65637, A_VENDOR, 33657)
+		-- Great Red Elekk - 65637
+		AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 65637, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY5)
+		self:AddCompanionAcquire(DB, 65637, A_REPUTATION, 930, EXALTED, 33657)
 
-	 -- Turbostrider - 65642
-	AddMount(65642, 46747, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65642, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 65642, A_VENDOR, 33650)
+		-- Turbostrider - 65642
+		AddMount(65642, 46747, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 65642, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY3)
+		self:AddCompanionAcquire(DB, 65642, A_REPUTATION, 54, EXALTED, 33650)
 
-	-- Swift Violet Ram - 65643
-	AddMount(65643, 46748, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65643, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 65643, A_VENDOR, 33310)
+		-- Swift Violet Ram - 65643
+		AddMount(65643, 46748, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 65643, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY4)
+		self:AddCompanionAcquire(DB, 65643, A_REPUTATION, 47, EXALTED, 33310)
 
-	-- Swift Moonsaber - 65638
-	AddMount(65638, 46744, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65638, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 65638, A_VENDOR, 33653)
+		-- Swift Moonsaber - 65638
+		AddMount(65638, 46744, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 65638, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY1)
+		self:AddCompanionAcquire(DB, 65638, A_REPUTATION, 69, EXALTED, 33653)
 
-	-- Swift Gray Steed - 65640
-	AddMount(65640, 46752, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(DB, 65640, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 65640, A_VENDOR, 33307)
-
-------------------------
+		-- Swift Gray Steed - 65640
+		AddMount(65640, 46752, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 65640, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY2)
+		self:AddCompanionAcquire(DB, 65640, A_REPUTATION, 72, EXALTED, 33307)
 
 		if MY_CLASS == "PALADIN" then
 			-- Warhorse - Alliance - 13819
