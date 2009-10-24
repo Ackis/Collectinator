@@ -83,6 +83,7 @@ local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C
 
 local MY_CLASS = select(2, UnitClass("player"))
 local MY_FACTION = UnitFactionGroup("player")
+
 local initialized = false
 local num_mounts = 0
 
@@ -96,10 +97,17 @@ function addon:GetMountTotal(DB)
 	-- Wrapper function
 	-------------------------------------------------------------------------------
 	local function AddMount(SpellID, MountItemID, Rarity, Game, Class)
-		num_mounts = num_mounts + 1
 		addon:AddCompanion(DB, "MOUNT", SpellID, MountItemID, Rarity, Game, Class)
+		num_mounts = num_mounts + 1
 	end
 
+	local function AddMountFlags(SpellID, ...)
+		addon:AddCompanionFlags(DB, SpellID, ...)
+
+		if not addon.IsCorrectFaction(MY_FACTION, DB[SpellID]["Flags"]) then
+			num_mounts = num_mounts - 1
+		end
+	end
 -- ACHIVEMENTS
 	-- Reins of the Albino Drake - 60025
 	AddMount(60025, 44178, R_EPIC, GAME_WOTLK)
