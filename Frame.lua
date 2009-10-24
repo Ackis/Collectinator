@@ -532,6 +532,7 @@ function addon.IsCorrectFaction(player_faction, flags)
 	end
 	return true
 end
+
 local function initDisplayStrings()
 	local exclude = addon.db.profile.exclusionlist
 	local insertIndex = 1
@@ -540,27 +541,37 @@ local function initDisplayStrings()
 
 	for i = 1, #sortedCollectibleIndex do
 		local collectibleIndex = sortedCollectibleIndex[i]
-		local collectibleEntry = collectibleDB[collectibleIndex]
+		local companion = collectibleDB[collectibleIndex]
 
-		if collectibleEntry["Display"] and collectibleEntry["Search"] then
+		if companion["Display"] and companion["Search"] then
 			local recStr = ""
+			local can_add = false
 
 			if exclude[collectibleIndex] then
-				recStr = "** " .. collectibleEntry["Name"] .. " **"
+				can_add = true
+				recStr = "** " .. companion["Name"] .. " **"
 			else
-				local _, _, _, hex = GetItemQualityColor(collectibleEntry["Rarity"])
-				recStr = hex..collectibleEntry["Name"].."|r"
+				local flags = companion["Flags"]
+
+				if flags and addon.IsCorrectFaction(playerData.playerFaction, flags) then
+					can_add = true
+					local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
+					recStr = hex..companion["Name"].."|r"
+				end
 			end
-			local hasFaction = checkFactions(collectibleDB, collectibleIndex, playerData.playerFaction, playerData["Reputation"])
-			local str = AcquireTable()
 
-			str.String = recStr
+			if can_add then
+				local hasFaction = checkFactions(collectibleDB, collectibleIndex, playerData.playerFaction, playerData["Reputation"])
+				local str = AcquireTable()
 
-			str.sID = collectibleIndex
-			str.IsCollectible = true
-			str.IsExpanded = false
-			tinsert(DisplayStrings, insertIndex, str)
-			insertIndex = insertIndex + 1
+				str.String = recStr
+
+				str.sID = collectibleIndex
+				str.IsCollectible = true
+				str.IsExpanded = false
+				tinsert(DisplayStrings, insertIndex, str)
+				insertIndex = insertIndex + 1
+			end
 		end
 	end
 end
@@ -2336,15 +2347,15 @@ local function expandallDisplayStrings()
 
 	for i = 1, #sortedCollectibleIndex do
 		local collectibleIndex = sortedCollectibleIndex[i]
-		local collectibleEntry = collectibleDB[collectibleIndex]
+		local companion = collectibleDB[collectibleIndex]
 
-		if collectibleEntry["Display"] and collectibleEntry["Search"] then
+		if companion["Display"] and companion["Search"] then
 			local recStr = ""
 
 			if exclude[collectibleIndex] then
-				recStr = "** " .. collectibleEntry["Name"] .. " **"
+				recStr = "** " .. companion["Name"] .. " **"
 			else
-				recStr = collectibleEntry["Name"]
+				recStr = companion["Name"]
 			end
 
 			local hasFaction = checkFactions(collectibleDB, collectibleIndex, playerData.playerFaction, playerData["Reputation"])
@@ -2354,7 +2365,7 @@ local function expandallDisplayStrings()
 			t.sID = sortedCollectibleIndex[i]
 			t.IsCollectible = true
 
-			if collectibleEntry["Acquire"] then
+			if companion["Acquire"] then
 				-- we have acquire information for this. push the title entry into the strings
 				-- and start processing the acquires
 				t.IsExpanded = true
