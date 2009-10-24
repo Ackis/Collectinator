@@ -208,15 +208,15 @@ function addon:GetMountTotal(DB)
 		self:AddCompanionFlags(DB, 60116, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 60116, A_VENDOR, 32216)
 
+		-- Reins of the Wooly Mammoth - 59791
+		AddMount(59791, 44231, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 59791, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 59791, A_VENDOR, 32216)
+
 		-- Reins of the Traveler's Tundra Mammoth (Horde) - 61447
 		AddMount(61447, 44234, R_EPIC, GAME_WOTLK)
 		self:AddCompanionFlags(DB, 61447, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 61447, A_VENDOR, 32216)
-
-		-- Reins of the Wooly Mammoth - 59793
-		AddMount(59793, 44231, R_EPIC, GAME_WOTLK)
-		self:AddCompanionFlags(DB, 59793, F_HORDE, F_VENDOR, F_BOP)
-		self:AddCompanionAcquire(DB, 59793, A_VENDOR, 32216)
 
 		-- Armored Blue Wind Rider - 61230
 		AddMount(61230, 44690, R_EPIC, GAME_WOTLK)
@@ -684,10 +684,10 @@ function addon:GetMountTotal(DB)
 		self:AddCompanionFlags(DB, 16056, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
 		self:AddCompanionAcquire(DB, 16056, A_CUSTOM, 23)
 
-		-- Reins of the Wooly Mammoth - 59791
-		AddMount(59791, 44230, R_EPIC, GAME_WOTLK)
-		self:AddCompanionFlags(DB, 59791, F_ALLIANCE, F_VENDOR, F_BOP)
-		self:AddCompanionAcquire(DB, 59791, A_VENDOR, 32216)
+		-- Reins of the Wooly Mammoth - 59793
+		AddMount(59793, 44230, R_EPIC, GAME_WOTLK)
+		self:AddCompanionFlags(DB, 59793, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 59793, A_VENDOR, 32216)
 
 		-- Armored Snowy Gryphon - 61229
 		AddMount(61229, 44689, R_EPIC, GAME_WOTLK)
