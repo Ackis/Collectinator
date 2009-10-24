@@ -1323,8 +1323,8 @@ end
 function addon:MarkExclusions(DB, scantype)
 	local exclusionlist = addon.db.profile.exclusionlist
 	local ignored = not addon.db.profile.ignoreexclusionlist
-	local countknown = 0
-	local countunknown = 0
+	local known_count = 0
+	local unknown_count = 0
 
 	for i in pairs(exclusionlist) do
 		-- We may have a item in the exclusion list that has not been scanned yet
@@ -1335,14 +1335,14 @@ function addon:MarkExclusions(DB, scantype)
 			local entrytype = GetSpellInfo(DB[i]["Type"])
 
 			if not DB[i]["Known"] and entrytype == scantype then
-				countknown = countknown + 1
+				known_count = known_count + 1
 			elseif entrytype == scantype then
-				countunknown = countunknown + 1
+				unknown_count = unknown_count + 1
 			end
 ]]--
 		end
 	end
-	return countknown, countunknown
+	return known_count, unknown_count
 end
 
 --- Removes or adds a item to the exclusion list.
