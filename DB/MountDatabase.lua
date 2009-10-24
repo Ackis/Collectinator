@@ -170,7 +170,7 @@ function addon:GetMountTotal(DB)
 	AddMount(61309, 44558, R_EPIC, GAME_WOTLK)
 	AddMountFlags(61309, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
 	self:AddCompanionAcquire(DB, 61309, A_CRAFTED, 3908, 60971)
-
+--[[
 	 -- Swift Mooncloth Carpet - 61442
 	AddMount(61442, 44555, R_EPIC, GAME_WOTLK)
 	AddMountFlags(61442, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
@@ -185,7 +185,7 @@ function addon:GetMountTotal(DB)
 	AddMount(61444, 44557, R_EPIC, GAME_WOTLK)
 	AddMountFlags(61444, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
 	self:AddCompanionAcquire(DB, 61444, A_CRAFTED, 3908, 60975)
-
+]]--
 	-------------------------------------------------------------------------------
 	-- Faction-specific Mounts.
 	-------------------------------------------------------------------------------
@@ -1052,13 +1052,13 @@ function addon:GetMountTotal(DB)
 
 	-- Reins of the Dark Riding Talbuk - 39316
 	AddMount(39316, 28915, R_EPIC, GAME_BC)
-	AddMountFlags(39316, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_NAGRAND, F_PVP)
-	self:AddCompanionAcquire(DB, 39316, A_REPUTATION, 978, EXALTED, 21485, A_REPUTATION, 941, EXALTED, 21474)
+	AddMountFlags(39316, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_PVP)
+	self:AddCompanionAcquire(DB, 39316, A_VENDOR, 21485, A_VENDOR, 21474)
 
 	-- Reins of the Dark War Talbuk - 34790
 	AddMount(34790, 29228, R_EPIC, GAME_BC)
-	AddMountFlags(34790, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_NAGRAND, F_PVP)
-	self:AddCompanionAcquire(DB, 34790, A_REPUTATION, 978, EXALTED, 21485, A_REPUTATION, 941, EXALTED, 21474)
+	AddMountFlags(34790, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_PVP)
+	self:AddCompanionAcquire(DB, 34790, A_VENDOR, 21485, A_VENDOR, 21474)
 
 	-- Brewfest Ram - 43899
 	AddMount(43899, 33976, R_RARE, GAME_BC)
