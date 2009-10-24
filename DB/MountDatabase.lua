@@ -19,7 +19,6 @@ local BF		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local FACTION_ALLIANCE	= BF["Alliance"]
 local FACTION_HORDE	= BF["Horde"]
 
-local MY_FACTION	= select(2, UnitFactionGroup("player"))
 
 -------------------------------------------------------------------------------
 -- Item "rarity"
@@ -83,6 +82,7 @@ local EXALTED = 4
 local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C_WARLOCK, C_WARRIOR = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 local MY_CLASS = select(2, UnitClass("player"))
+local MY_FACTION = UnitFactionGroup("player")
 local initialized = false
 local num_mounts = 0
 
