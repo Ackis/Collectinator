@@ -524,6 +524,14 @@ local function WipeDisplayStrings()
 	twipe(DisplayStrings)
 end
 
+function addon.IsCorrectFaction(player_faction, flags)
+	if player_faction == BFAC["Alliance"] and flags[F_HORDE] and not flags[F_ALLIANCE] then
+		return false
+	elseif player_faction == BFAC["Horde"] and flags[F_ALLIANCE] and not flags[F_HORDE] then
+		return false
+	end
+	return true
+end
 local function initDisplayStrings()
 	local exclude = addon.db.profile.exclusionlist
 	local insertIndex = 1
