@@ -1212,14 +1212,14 @@ function addon:GetMountTotal(DB)
 		AddMount(66906, 47179, R_EPIC, GAME_WOTLK, C_PALADIN)
 		AddMountFlags(66906, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 66906, A_VENDOR, 34885)
-
-		-- Argent Warhorse - 67466
-		AddMount(67466, 47180, R_EPIC, GAME_WOTLK, C_PALADIN)
-		AddMountFlags(67466, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
-		self:AddCompanionAcquire(DB, 67466, A_VENDOR, 34885)
 	end
 
 --REP VENDOR NEUTRAL
+		-- Argent Warhorse - 67466
+	AddMount(67466, 47180, R_EPIC, GAME_WOTLK)
+	AddMountFlags(67466, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 67466, A_VENDOR, 34885)
+
 	-- Reins of the Red Drake - 59570
 	AddMount(59570, 43955, R_EPIC, GAME_WOTLK)
 	AddMountFlags(59570, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_WYRMREST)
