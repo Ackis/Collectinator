@@ -76,6 +76,7 @@ local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C
 -- Database tables
 ------------------------------------------------------------------------------
 local CompanionDB = {}
+local TitleDB = {}
 local CustomList = {}
 local MobList = {}
 local QuestList = {}
@@ -745,6 +746,30 @@ do
 		DB[SpellID]["Locations"] = (#location_list == 0 and "" or tconcat(location_list, ", "))
 	end
 end	-- do
+
+-------------------------------------------------------------------------------
+-- Title DB functions
+-------------------------------------------------------------------------------
+-- 0 - prefix
+-- 1 - suffix
+-- 2 - comma-led suffix
+function addon:AddTitle(title_id, title_type, era)
+	if TitleDB[title_id] then
+		--@alpha@
+		self:Print("Duplicate title - "..title_id)
+		--@end-alpha@
+		return
+	end
+	TitleDB[title_id] = {
+		["Name"]	= GetTitleName(title_id) or "UnNamed_"..title_id,
+		["Type"]	= title_type or 0,
+		["Game"]	= era or 0,
+		["Owned"]	= false,
+		["Display"]	= true,
+		["Search"]	= true,
+		["Acquire"]	= {},
+	}
+end
 
 --- Adds an item to a specific database listing (ie: vendor, mob, etc)
 -- @name Collectinator:addLookupList
