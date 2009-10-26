@@ -227,7 +227,6 @@ function addon:OnInitialize()
 					scryer = true,
 					argentdawn = true,
 					ashtonguedeathsworn = true,
-					ashenverdict = true,
 					bloodsail = true,
 					cenarioncircle = true,
 					cenarionexpedition = true,
