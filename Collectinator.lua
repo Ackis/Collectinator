@@ -1277,7 +1277,6 @@ end
 -- Determines what to do when the slash command is called.
 function addon:ChatCommand(input)
 	InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
---[[
 	if (not input) or (input and input:trim() == "") or (input == strlower(L["Sorting"])) or (input == strlower(L["Sort"]))  or (input == strlower(L["Display"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 	elseif (input == strlower(L["About"])) then
@@ -1288,19 +1287,14 @@ function addon:ChatCommand(input)
 		end
 	elseif (input == strlower(L["Profile"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
-	elseif (input == strlower(L["Filter"])) then
-		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Filters"])
 	elseif (input == strlower(L["Documentation"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Documentation"])
 	elseif (input == strlower(L["Scan"])) then
 		self:Scan(false)
-	elseif (input == strlower("scandata")) then
-		self:ScanSkillLevelData()
 	else
 		-- What happens when we get here?
 		LibStub("AceConfigCmd-3.0"):HandleCommand("collectinator", "Collectinator", input)
 	end
-]]--
 end
 
 --- Causes a scan of the companions to be conducted.
