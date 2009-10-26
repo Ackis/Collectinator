@@ -2537,6 +2537,14 @@ local function InitializeFrame()
 	local Valiance_Warsong_FactionText = isAlliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]
 	local Frostborn_Taunka_FactionText = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
 	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
+	local City1_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear"]
+	local City2_FactionText = isAlliance and BFAC["Stormwind"] or BFAC["Orgrimmar"]
+	local City3_FactionText = isAlliance and BFAC["Gnomergan"] or BFAC["Thunder Bluff"]
+	local City4_FactionText = isAlliance and BFAC["Ironforge"] or BFAC["Ironforge"]
+	local City5_FactionText = isAlliance and BFAC["Exodar"] or BFAC["Silvermoon City"]
+	local PVP1_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear"]
+	local PVP2_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear"]
+	local PVP3_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear"]
 
 	-------------------------------------------------------------------------------
 	-- Create the main frame
@@ -3178,6 +3186,14 @@ local function InitializeFrame()
 							     filterdb.zandalar = true
 							     filterdb.bloodsail = true
 							     filterdb.winterspring = true
+							     filterdb.city1 = true
+							     filterdb.city2 = true
+							     filterdb.city3 = true
+							     filterdb.city4 = true
+							     filterdb.city5 = true
+							     filterdb.pvp1 = true
+							     filterdb.pvp2 = true
+							     filterdb.pvp3 = true
 						     elseif button == "RightButton" then
 							     -- Reset all armor to false
 							     filterdb.argentdawn = false
@@ -3187,6 +3203,14 @@ local function InitializeFrame()
 							     filterdb.zandalar = false
 							     filterdb.bloodsail = false
 							     filterdb.winterspring = false
+							     filterdb.city1 = false
+							     filterdb.city2 = false
+							     filterdb.city3 = false
+							     filterdb.city4 = false
+							     filterdb.city5 = false
+							     filterdb.pvp1 = false
+							     filterdb.pvp2 = false
+							     filterdb.pvp3 = false
 						     end
 						     -- Update the checkboxes with the new value
 						     Collectinator_RepArgentDawnCB:SetChecked(filterdb.argentdawn)
@@ -3196,11 +3220,67 @@ local function InitializeFrame()
 						     Collectinator_RepZandalarCB:SetChecked(filterdb.zandalar)
 						     Collectinator_RepBloodSailCB:SetChecked(filterdb.bloodsail)
 						     Collectinator_RepWinterspringCB:SetChecked(filterdb.winterspring)
+						     Collectinator_RepCity1CB:SetChecked(filterdb.city1)
+						     Collectinator_RepCity2CB:SetChecked(filterdb.city2)
+						     Collectinator_RepCity3CB:SetChecked(filterdb.city3)
+						     Collectinator_RepCity4CB:SetChecked(filterdb.city4)
+						     Collectinator_RepCity5CB:SetChecked(filterdb.city5)
+						     Collectinator_RepPVP1CB:SetChecked(filterdb.pvp1)
+						     Collectinator_RepPVP2CB:SetChecked(filterdb.pvp2)
+						     Collectinator_RepPVP3CB:SetChecked(filterdb.pvp3)
 						     -- Reset our title
 						     addon.resetTitle()
 						     -- Use new filters
 						     ReDisplay(current_tab)
 					     end)
+
+	local Collectinator_RepCity1CB = CreateFrame("CheckButton", "Collectinator_RepCity1CB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepCity1CB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], City1_FactionText), "city1", 2, 1, 0)
+	Collectinator_RepCity1CBText:SetText(City1_FactionText)
+	Collectinator_RepCity1CBText:SetFont(narrowFont, 11)
+	Collectinator_RepCity1CB:Disable()
+
+	local Collectinator_RepCity2CB = CreateFrame("CheckButton", "Collectinator_RepCity2CB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepCity2CB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], City2_FactionText), "city2", 2, 1, 0)
+	Collectinator_RepCity2CBText:SetText(City2_FactionText)
+	Collectinator_RepCity2CBText:SetFont(narrowFont, 11)
+	Collectinator_RepCity2CB:Disable()
+
+	local Collectinator_RepCity3CB = CreateFrame("CheckButton", "Collectinator_RepCity3CB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepCity3CB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], City3_FactionText), "city3", 2, 1, 0)
+	Collectinator_RepCity3CBText:SetText(City3_FactionText)
+	Collectinator_RepCity3CBText:SetFont(narrowFont, 11)
+	Collectinator_RepCity3CB:Disable()
+
+	local Collectinator_RepCity4CB = CreateFrame("CheckButton", "Collectinator_RepCity4CB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepCity4CB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], City4_FactionText), "city4", 2, 1, 0)
+	Collectinator_RepCity4CBText:SetText(City4_FactionText)
+	Collectinator_RepCity4CBText:SetFont(narrowFont, 11)
+	Collectinator_RepCity4CB:Disable()
+
+	local Collectinator_RepCity5CB = CreateFrame("CheckButton", "Collectinator_RepCity5CB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepCity5CB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], City5_FactionText), "city5", 2, 1, 0)
+	Collectinator_RepCity5CBText:SetText(City5_FactionText)
+	Collectinator_RepCity5CBText:SetFont(narrowFont, 11)
+	Collectinator_RepCity5CB:Disable()
+
+	local Collectinator_RepPVP1CB = CreateFrame("CheckButton", "Collectinator_RepPVP1CB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepPVP1CB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], PVP1_FactionText), "pvp1", 2, 1, 0)
+	Collectinator_RepPVP1CBText:SetText(PVP1_FactionText)
+	Collectinator_RepPVP1CBText:SetFont(narrowFont, 11)
+	Collectinator_RepPVP1CB:Disable()
+
+	local Collectinator_RepPVP2CB = CreateFrame("CheckButton", "Collectinator_RepPVP2CB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepPVP2CB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], PVP2_FactionText), "pvp2", 2, 1, 0)
+	Collectinator_RepPVP2CBText:SetText(PVP2_FactionText)
+	Collectinator_RepPVP2CBText:SetFont(narrowFont, 11)
+	Collectinator_RepPVP2CB:Disable()
+
+	local Collectinator_RepPVP3CB = CreateFrame("CheckButton", "Collectinator_RepPVP3CB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepPVP3CB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], PVP3_FactionText), "pvp3", 2, 1, 0)
+	Collectinator_RepPVP3CBText:SetText(PVP3_FactionText)
+	Collectinator_RepPVP3CBText:SetFont(narrowFont, 11)
+	Collectinator_RepPVP3CB:Disable()
 
 	local Collectinator_RepArgentDawnCB = CreateFrame("CheckButton", "Collectinator_RepArgentDawnCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepArgentDawnCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Dawn"]), "argentdawn", 2, 1, 0)
