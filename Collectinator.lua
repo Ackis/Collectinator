@@ -1483,7 +1483,7 @@ do
 				local flags = DB[SpellID]["Flags"]
 
 				-- Find out which flags are marked as "true"
-				for i = 1, 127, 1 do
+				for i = 1, 76, 1 do
 					if flags[i] then
 						tinsert(texttable, i)
 						tinsert(texttable, ", ")
