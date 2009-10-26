@@ -3329,6 +3329,7 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_RepAshtongueCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Ashtongue Deathsworn"]), "ashtonguedeathsworn", 3, 1, 0)
 	Collectinator_RepAshtongueCBText:SetText(BFAC["Ashtongue Deathsworn"])
 	Collectinator_RepAshtongueCBText:SetFont(narrowFont, 11)
+	Collectinator_RepAshtongueCB:Disalbe()
 
 	local Collectinator_RepCenarionExpeditionCB = CreateFrame("CheckButton", "Collectinator_RepCenarionExpeditionCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepCenarionExpeditionCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Expedition"]), "cenarionexpedition", 4, 1, 0)
@@ -3359,16 +3360,19 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_RepLowerCityCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Lower City"]), "lowercity", 9, 1, 0)
 	Collectinator_RepLowerCityCBText:SetText(BFAC["Lower City"])
 	Collectinator_RepLowerCityCBText:SetFont(narrowFont, 11)
+	Collectinator_RepLowerCityCB:Disable()
 
 	local Collectinator_RepScaleSandsCB = CreateFrame("CheckButton", "Collectinator_RepScaleSandsCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepScaleSandsCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Scale of the Sands"]), "scaleofthesands", 10, 1, 0)
 	Collectinator_RepScaleSandsCBText:SetText(BFAC["The Scale of the Sands"])
 	Collectinator_RepScaleSandsCBText:SetFont(narrowFont, 11)
+	Collectinator_RepScaleSandsCB:Disable()
 
 	local Collectinator_RepScryersCB = CreateFrame("CheckButton", "Collectinator_RepScryersCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepScryersCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Scryers"]), "scryer", 11, 1, 0)
 	Collectinator_RepScryersCBText:SetText(BFAC["The Scryers"])
 	Collectinator_RepScryersCBText:SetFont(narrowFont, 11)
+	Collectinator_RepScryersCB:Disable()
 
 	local Collectinator_RepShatarCB = CreateFrame("CheckButton", "Collectinator_RepShatarCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepShatarCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Sha'tar"]), "shatar", 12, 1, 0)
@@ -3423,6 +3427,10 @@ local function InitializeFrame()
 							     filterdb.wyrmrest = true
 							     filterdb.ashenverdict = true
 							     filterdb.wrathcommon1 = true
+							     filterdb.wrathcommon2 = true
+							     filterdb.wrathcommon3 = true
+							     filterdb.wrathcommon4 = true
+							     filterdb.wrathcommon5 = true
 						     elseif button == "RightButton" then
 							     -- Reset all armor to false
 							     filterdb.argentcrusade = false
@@ -3435,6 +3443,10 @@ local function InitializeFrame()
 							     filterdb.wyrmrest = false
 							     filterdb.ashenverdict = false
 							     filterdb.wrathcommon1 = false
+							     filterdb.wrathcommon2 = false
+							     filterdb.wrathcommon3 = false
+							     filterdb.wrathcommon4 = false
+							     filterdb.wrathcommon5 = false
 						     end
 						     -- Update the checkboxes with the new value
 						     Collectinator_RepArgentCrusadeCB:SetChecked(filterdb.argentcrusade)
@@ -3530,6 +3542,7 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_RepAshenVerdictCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Ashen Verdict"]), "ashenverdict", 15, 1, 0)
 	Collectinator_RepAshenVerdictCBText:SetText(BFAC["The Ashen Verdict"])
 	Collectinator_RepAshenVerdictCBText:SetFont(narrowFont, 11)
+	Collectinator_RepAshenVerdictCB:Disable()
 
 	addon.Fly_Misc = CreateFrame("Frame", "Collectinator_Fly_Misc", addon.Flyaway)
 	addon.Fly_Misc:SetWidth(210)
