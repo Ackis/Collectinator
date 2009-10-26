@@ -926,14 +926,18 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			end
 		elseif acquire_type == A_WORLD_DROP then
 			-- World Drop				RarityLevel
-			if (v["ID"] == 1) then
+			if (v["ID"] == R_COMMON) then
 				left_color = addon:hexcolor("COMMON")
-			elseif (v["ID"] == 2) then
+			elseif (v["ID"] == R_UNCOMMON) then
 				left_color = addon:hexcolor("UNCOMMON")
-			elseif (v["ID"] == 3) then
+			elseif (v["ID"] == R_RARE) then
 				left_color = addon:hexcolor("RARE")
-			elseif (v["ID"] == 4) then
+			elseif (v["ID"] == R_EPIC) then
 				left_color = addon:hexcolor("EPIC")
+			elseif (v["ID"] == R_LEGENDARY) then
+				left_color = addon:hexcolor("LEGENDARY")
+			elseif (v["ID"] == R_ARTIFACT) then
+				left_color = addon:hexcolor("ARTIFACT")
 			else
 				left_color = addon:hexcolor("NORMAL")
 			end
