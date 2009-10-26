@@ -401,10 +401,9 @@ do
 	local function CheckMapDisplay(v, filters)
 		local display = false
 
-		if (v["Type"] == 2) then
+		if (v["Type"] == A_VENDOR) then
 			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
-		-- If it's a quest check to see if we're displaying it on the map
-		elseif (v["Type"] == 4) then
+		elseif (v["Type"] == A_QUEST) then
 			display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
 		end
 
@@ -944,7 +943,6 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 			ttAdd(0, -1, 0, L["World Drop"], left_color)
 		elseif acquire_type == A_CUSTOM then
 			local customname = customDB[v["ID"]]["Name"]
-
 			ttAdd(0, -1, 0, customname, addon:hexcolor("NORMAL"))
 		elseif acquire_type == A_PVP then
 			-- Vendor:					VendorName
