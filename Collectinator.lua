@@ -1611,7 +1611,7 @@ do
 		local t = {}
 
 		for i,k in pairs(PetDB) do
-			if PetDB[i]["Known"] == true then
+			if PetDB[i]["Known"] == true and PetDB[i]["Type"] == "CRITTER" then
 				tinsert(t,"["..warcraftpets[i].."]")
 			end
 		end
