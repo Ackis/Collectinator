@@ -3459,6 +3459,10 @@ local function InitializeFrame()
 						     Collectinator_RepWyrmrestCB:SetChecked(filterdb.wyrmrest)
 						     Collectinator_RepAshenVerdictCB:SetChecked(filterdb.ashenverdict)
 						     Collectinator_WrathCommon1CB:SetChecked(filterdb.wrathcommon1)
+						     Collectinator_WrathCommon2CB:SetChecked(filterdb.wrathcommon2)
+						     Collectinator_WrathCommon3CB:SetChecked(filterdb.wrathcommon3)
+						     Collectinator_WrathCommon4CB:SetChecked(filterdb.wrathcommon4)
+						     Collectinator_WrathCommon5CB:SetChecked(filterdb.wrathcommon5)
 						     -- Reset our title
 						     addon.resetTitle()
 						     -- Use new filters
@@ -3512,7 +3516,6 @@ local function InitializeFrame()
 	Collectinator_WrathCommon2CBText:SetText(SilverConv_Sunreaver_FactionText)
 	Collectinator_WrathCommon2CBText:SetFont(narrowFont, 11)
 	Collectinator_WrathCommon2CBText:SetText(addon:Grey(SilverConv_Sunreaver_FactionText))
-	Collectinator_WrathCommon2CB:Disable()
 
 	local Collectinator_RepSonsOfHodirCB = CreateFrame("CheckButton", "Collectinator_RepSonsOfHodirCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepSonsOfHodirCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Sons of Hodir"]), "sonsofhodir", 11, 1, 0)
