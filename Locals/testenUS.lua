@@ -174,7 +174,10 @@ L["Reset Window Position"] = true
 L["RESET_DESC"] = "Reset All Filters to default values."
 L["RESET_WINDOW_DESC"] = "Resets the GUI to default position."
 L["Scan"] = true
-L["SCAN_COMPANIONS_DESC"] = "Scans the current opened companion window.  Requires the window to be open before working."
+L["SCAN_COMPANIONS_DESC"] = [[Scans the current opened companion window.
+Shift-click to generate a string which can be uploaded to Warcraft Pets to update your collection.
+Alt-Shift-click to generate a text dump of the collectables you have.
+Alt-click to remove all waypoints from the mini-map and world map.]]
 L["SEARCH_BOX_DESC"] = "Enter text to search."
 L["SEARCH_DESC"] = "Filter to entries that contain text at left."
 L["SEASONAL_DESC"] = "Collectibles obtained in world events should be included in the scan."

@@ -292,7 +292,19 @@ function addon:OnInitialize()
 	button:SetScript("OnClick",
 				  function()
 					  local companion_frame = PetPaperDollFrameCompanionFrame
-					  addon:Scan(false, false, companion_frame:IsVisible() and companion_frame.mode or "CRITTER")
+					-- Shift only (Warcraft Pets)
+					if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						addon:Scan("pets", false)
+					-- Alt-shift only (Text Dump)
+					elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+						addon:Scan("dump", false)
+					-- Alt only (Wipe icons from map)
+					elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+						addon:ClearMap()
+					-- If we have the same profession open, then we close the scanned window
+					elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						addon:Scan(false, false, companion_frame:IsVisible() and companion_frame.mode or "CRITTER")
+					end
 				  end)
 
 	button:SetScript("OnEnter",
@@ -1331,8 +1343,10 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 		-- Mark excluded items
 		playerData.excluded_known, playerData.excluded_unknown = self:MarkExclusions(CompanionDB, scantype)
 
-		if textdump then
+		if textdump == "dump" then
 			self:DisplayTextDump(CompanionDB)
+		elseif textdump == "pets" then
+			self:GetWarcraftPets(CompanionDB)
 		else
 			self:DisplayFrame(playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
 		end
