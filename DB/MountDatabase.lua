@@ -569,7 +569,7 @@ function addon:GetMountTotal(DB)
 	-- Darkspear Raptor
 	AddMount(63635, 45593, R_EPIC, GAME_WOTLK)
 	AddMountFlags(63635, F_HORDE, F_VENDOR, F_BOP, F_CITY1)
-	self:AddCompanionAcquire(DB, 63635, A_REPUTATION, 530, EXALTED, 33554)
+	self:AddCompanionAcquire(DB, 63635, A_VENDOR, 33554)
 
 	-- Swift Purple Raptor
 	AddMount(65644, 46743, R_EPIC, GAME_WOTLK)
@@ -579,7 +579,7 @@ function addon:GetMountTotal(DB)
 	-- Orgrimmar Wolf - 63640
 	AddMount(63640, 45595, R_EPIC, GAME_WOTLK)
 	AddMountFlags(63640, F_HORDE, F_VENDOR, F_BOP, F_CITY2)
-	self:AddCompanionAcquire(DB, 63640, A_REPUTATION, 76, EXALTED, 33553)
+	self:AddCompanionAcquire(DB, 63640, A_VENDOR, 33553)
 
 	-- Swift Burgundy Wolf
 	AddMount(65646, 46749, R_EPIC, GAME_WOTLK)
@@ -589,7 +589,7 @@ function addon:GetMountTotal(DB)
 	-- Thunder Bluff Kodo - 63641
 	AddMount(63641, 45592, R_EPIC, GAME_WOTLK)
 	AddMountFlags(63641, F_HORDE, F_VENDOR, F_BOP, F_CITY3)
-	self:AddCompanionAcquire(DB, 63641, A_REPUTATION, 81, EXALTED, 33556)
+	self:AddCompanionAcquire(DB, 63641, A_VENDOR, 33556)
 
 	-- Great Golden Kodo
 	AddMount(65641, 46750, R_EPIC, GAME_WOTLK)
@@ -599,7 +599,7 @@ function addon:GetMountTotal(DB)
 	-- Forsaken Warhorse
 	AddMount(63643, 45597, R_EPIC, GAME_WOTLK)
 	AddMountFlags(63643, F_HORDE, F_VENDOR, F_BOP, F_CITY4)
-	self:AddCompanionAcquire(DB, 63643, A_REPUTATION, 68, EXALTED, 33555)
+	self:AddCompanionAcquire(DB, 63643, A_VENDOR, 33555)
 
 	-- White Skeletal Warhorse
 	AddMount(65645, 46746, R_EPIC, GAME_WOTLK)
@@ -609,7 +609,7 @@ function addon:GetMountTotal(DB)
 	-- Silvermoon Hawkstrider
 	AddMount(63642, 45596, R_EPIC, GAME_WOTLK)
 	AddMountFlags(63642, F_HORDE, F_VENDOR, F_BOP, F_CITY5)
-	self:AddCompanionAcquire(DB, 63642, A_REPUTATION, 911, EXALTED, 33557)
+	self:AddCompanionAcquire(DB, 63642, A_VENDOR, 33557)
 
 	-- Swift Red Hawkstrider
 	AddMount(65639, 46751, R_EPIC, GAME_WOTLK)
@@ -985,7 +985,7 @@ function addon:GetMountTotal(DB)
 	-- Darnassian Nightsaber - 63637
 	AddMount(63637, 45591, R_EPIC, GAME_WOTLK)
 	AddMountFlags(63637, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY1)
-	self:AddCompanionAcquire(DB, 63637, A_REPUTATION, 69, EXALTED, 33653)
+	self:AddCompanionAcquire(DB, 63637, A_VENDOR, 33653)
 
 	-- Swift Moonsaber - 65638
 	AddMount(65638, 46744, R_EPIC, GAME_WOTLK)
@@ -995,7 +995,7 @@ function addon:GetMountTotal(DB)
 	-- Stormwind Steed - 63232
 	AddMount(63232, 45125, R_EPIC, GAME_WOTLK)
 	AddMountFlags(63232, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY2)
-	self:AddCompanionAcquire(DB, 63232, A_REPUTATION, 72, EXALTED, 33307)
+	self:AddCompanionAcquire(DB, 63232, A_VENDOR, 33307)
 
 	-- Swift Gray Steed - 65640
 	AddMount(65640, 46752, R_EPIC, GAME_WOTLK)
@@ -1005,7 +1005,7 @@ function addon:GetMountTotal(DB)
 	-- Gnomeregan Mechanostrider - 63638
 	AddMount(63638, 45589, R_EPIC, GAME_WOTLK)
 	AddMountFlags(63638, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY3)
-	self:AddCompanionAcquire(DB, 63638, A_REPUTATION, 54, EXALTED, 33650)
+	self:AddCompanionAcquire(DB, 63638, A_VENDOR, 33650)
 
 	-- Turbostrider - 65642
 	AddMount(65642, 46747, R_EPIC, GAME_WOTLK)
@@ -1015,7 +1015,7 @@ function addon:GetMountTotal(DB)
 	-- Ironforge Ram - 63636
 	AddMount(63636, 45586, R_EPIC, GAME_WOTLK)
 	AddMountFlags(63636, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY4)
-	self:AddCompanionAcquire(DB, 63636, A_REPUTATION, 47, EXALTED, 33310)
+	self:AddCompanionAcquire(DB, 63636, A_VENDOR, 33310)
 
 	-- Swift Violet Ram - 65643
 	AddMount(65643, 46748, R_EPIC, GAME_WOTLK)
@@ -1025,7 +1025,7 @@ function addon:GetMountTotal(DB)
 	-- Exodar Elekk - 63639
 	AddMount(63639, 45590, R_EPIC, GAME_WOTLK)
 	AddMountFlags(63639, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY5)
-	self:AddCompanionAcquire(DB, 63639, A_REPUTATION, 930, EXALTED, 33657)
+	self:AddCompanionAcquire(DB, 63639, A_VENDOR, 33657)
 
 	-- Great Red Elekk - 65637
 	AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
