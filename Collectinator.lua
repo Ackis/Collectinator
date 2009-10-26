@@ -1624,7 +1624,7 @@ do
 			end
 		end
 
-		return tconcat(t,",")
+		self:DisplayTextDump(nil, nil, tconcat(t,","))
 	end
 
 end
