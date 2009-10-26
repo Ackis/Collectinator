@@ -89,7 +89,7 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 10618,	L["Rivern Frostwind"],			BZ["Winterspring"],		49.9, 9.9,	ALLIANCE)
 	self:addLookupList(DB, 11701,	L["Mor'vek"],				BZ["Un'Goro Crater"],		71.5, 73.7,	HORDE)
 	self:addLookupList(DB, 12783,	L["Lieutenant Karter"],			BZ["Stormwind City"],		74.7, 67.3,	ALLIANCE)
-	self:addLookupList(DB, 12796,	L["Raider Bork"],			BZ["Orgrimmar"],		38.0, 64.5,	HORDE)
+	self:addLookupList(DB, 12796,	L["Raider Bork"],			BZ["Orgrimmar"],		41.68, 68.33,	HORDE)
 	self:addLookupList(DB, 13216,	L["Gaelden Hammersmith"],		BZ["Alterac Valley"],		44.2, 18.2,	ALLIANCE)
 	self:addLookupList(DB, 13217,	L["Thanthaldis Snowgleam"],		BZ["Alterac Mountains"],	39.5, 81.7,	ALLIANCE)
 	self:addLookupList(DB, 13218,	L["Grunnda Wolfheart"],			BZ["Alterac Valley"],		49.0, 85.5,	HORDE) -- did she move?
