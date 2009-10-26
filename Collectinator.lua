@@ -253,6 +253,7 @@ function addon:OnInitialize()
 					kaluak = true,
 					oracles = true,
 					wyrmrest = true,
+					ashenverdict = true,
 					wrathcommon1 = true,
 					wrathcommon2 = true,
 					wrathcommon3 = true,
@@ -866,7 +867,7 @@ do
 	local F_ARGENT_DAWN, F_BLOODSAIL, F_CENARION_CIRCLE, F_THORIUM_BROTHERHOOD, F_TIMBERMAW, F_WINTERSRPING, F_ZANDALAR = 33, 34, 35, 36, 37, 38, 39
 	local F_ALDOR, F_ASHTONGUE, F_CENARION_EXPIDITION, F_HELLFIRE, F_CONSORTIUM, F_KOT, F_LOWER_CITY, F_NAGRAND = 40, 41, 42, 43, 44, 45, 46, 47
 	local F_NETHERWING, F_SCALE_SANDS, F_SCRYER, F_SHATAR, F_SKYGUARD, F_SHATTEREDSUN, F_SPOREGGAR, F_VIOLET_EYE = 48, 49, 50, 51, 52, 53, 54, 55
-	local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALUAK, F_ORACLES, F_WYRMREST = 56, 57, 58, 59, 60, 61, 62, 63
+	local F_ARGENT_CRUSADE, F_FRENZYHEART, F_EBON_BLADE, F_KIRINTOR, F_HODIR, F_KALUAK, F_ORACLES, F_WYRMREST, F_ASHEN_VERDICT = 56, 57, 58, 59, 60, 61, 62, 63, 64
 	local WRATHCOMMON1, WRATHCOMMON2, WRATHCOMMON3, WRATHCOMMON4, WRATHCOMMON5 = 64, 65, 66, 67, 68
 	local F_CITY1, F_CITY2, F_CITY3, F_CITY4, F_CITY5 = 69, 70, 71, 72, 73
 	local F_PVP1, F_PVP2, F_PVP3 = 74, 75, 76
@@ -936,6 +937,7 @@ do
 			[F_KALUAK] = repdb.kaluak,
 			[F_ORACLES] = repdb.oracles,
 			[F_WYRMREST] = repdb.wyrmrest,
+			[F_ASHEN_VERDICT] = repdb.ashenverdict,
 			[WRATHCOMMON1] = repdb.wrathcommon1,
 			[WRATHCOMMON2] = repdb.wrathcommon2,
 			[WRATHCOMMON3] = repdb.wrathcommon3,
@@ -1171,6 +1173,7 @@ local function PopulateRepFilters(RepTable)
 	RepTable[BFAC["The Kalu'ak"]] = repfilters.kaluak
 	RepTable[BFAC["The Oracles"]] = repfilters.oracles
 	RepTable[BFAC["The Wyrmrest Accord"]] = repfilters.wyrmrest
+	RepTable[BFAC["The Ashen Verdict"]] = repfilters.ashenverdict
 
 	RepTable[BFAC["Darnassus"]] = repfilters.city1
 	RepTable[BFAC["Stormwind"]] = repfilters.city2

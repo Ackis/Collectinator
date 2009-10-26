@@ -3396,6 +3396,7 @@ local function InitializeFrame()
 							     filterdb.kaluak = true
 							     filterdb.oracles = true
 							     filterdb.wyrmrest = true
+							     filterdb.ashenverdict = true
 							     filterdb.wrathcommon1 = true
 						     elseif button == "RightButton" then
 							     -- Reset all armor to false
@@ -3407,6 +3408,7 @@ local function InitializeFrame()
 							     filterdb.kaluak = false
 							     filterdb.oracles = false
 							     filterdb.wyrmrest = false
+							     filterdb.ashenverdict = false
 							     filterdb.wrathcommon1 = false
 						     end
 						     -- Update the checkboxes with the new value
@@ -3418,6 +3420,7 @@ local function InitializeFrame()
 						     Collectinator_RepKaluakCB:SetChecked(filterdb.kaluak)
 						     Collectinator_RepOraclesCB:SetChecked(filterdb.oracles)
 						     Collectinator_RepWyrmrestCB:SetChecked(filterdb.wyrmrest)
+						     Collectinator_RepAshenVerdictCB:SetChecked(filterdb.ashenverdict)
 						     Collectinator_WrathCommon1CB:SetChecked(filterdb.wrathcommon1)
 						     -- Reset our title
 						     addon.resetTitle()
@@ -3497,6 +3500,11 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_RepWyrmrestCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Wyrmrest Accord"]), "wyrmrest", 14, 1, 0)
 	Collectinator_RepWyrmrestCBText:SetText(BFAC["The Wyrmrest Accord"])
 	Collectinator_RepWyrmrestCBText:SetFont(narrowFont, 11)
+
+	local Collectinator_RepAshenVerdictCB = CreateFrame("CheckButton", "Collectinator_RepAshenVerdictCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RepAshenVerdictCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Ashen Verdict"]), "ashenverdict", 15, 1, 0)
+	Collectinator_RepAshenVerdictCBText:SetText(BFAC["The Ashen Verdict"])
+	Collectinator_RepAshenVerdictCBText:SetFont(narrowFont, 11)
 
 	addon.Fly_Misc = CreateFrame("Frame", "Collectinator_Fly_Misc", addon.Flyaway)
 	addon.Fly_Misc:SetWidth(210)
@@ -3592,6 +3600,7 @@ local function InitializeFrame()
 		["kaluak"]		= { cb = Collectinator_RepKaluakCB,		svroot = filterdb.rep },
 		["oracles"]		= { cb = Collectinator_RepOraclesCB,		svroot = filterdb.rep },
 		["wyrmrest"]		= { cb = Collectinator_RepWyrmrestCB,		svroot = filterdb.rep },
+		["ashenverdict"]	= { cb = Collectinator_RepAshenVerdictCB,	svroot = filterdb.rep },
 		["wrathcommon1"]	= { cb = Collectinator_WrathCommon1CB,		svroot = filterdb.rep },
 		["wrathcommon2"]	= { cb = Collectinator_WrathCommon2CB,		svroot = nil },
 		["wrathcommon3"]	= { cb = Collectinator_WrathCommon3CB,		svroot = nil },
