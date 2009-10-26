@@ -3176,6 +3176,8 @@ local function InitializeFrame()
 							     filterdb.thoriumbrotherhood = true
 							     filterdb.timbermaw = true
 							     filterdb.zandalar = true
+							     filterdb.bloodsail = true
+							     filterdb.winterspring = true
 						     elseif button == "RightButton" then
 							     -- Reset all armor to false
 							     filterdb.argentdawn = false
@@ -3183,6 +3185,8 @@ local function InitializeFrame()
 							     filterdb.thoriumbrotherhood = false
 							     filterdb.timbermaw = false
 							     filterdb.zandalar = false
+							     filterdb.bloodsail = false
+							     filterdb.winterspring = false
 						     end
 						     -- Update the checkboxes with the new value
 						     Collectinator_RepArgentDawnCB:SetChecked(filterdb.argentdawn)
@@ -3190,6 +3194,8 @@ local function InitializeFrame()
 						     Collectinator_RepThoriumCB:SetChecked(filterdb.thoriumbrotherhood)
 						     Collectinator_RepTimbermawCB:SetChecked(filterdb.timbermaw)
 						     Collectinator_RepZandalarCB:SetChecked(filterdb.zandalar)
+						     Collectinator_RepBloodSailCB:SetChecked(filterdb.bloodsail)
+						     Collectinator_RepWinterspringCB:SetChecked(filterdb.winterspring)
 						     -- Reset our title
 						     addon.resetTitle()
 						     -- Use new filters
@@ -3200,41 +3206,42 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_RepArgentDawnCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Argent Dawn"]), "argentdawn", 2, 1, 0)
 	Collectinator_RepArgentDawnCBText:SetText(BFAC["Argent Dawn"])
 	Collectinator_RepArgentDawnCBText:SetFont(narrowFont, 11)
-	Collectinator_RepArgentDawnCBText:Disable()
+	Collectinator_RepArgentDawnCB:Disable()
 
 	local Collectinator_RepBloodSailCB = CreateFrame("CheckButton", "Collectinator_RepBloodSailCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepBloodSailCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Bloodsail"]), "bloodsail", 3, 1, 0)
-	Collectinator_RepBloodSailCB:SetText(BFAC["Bloodsail"])
-	Collectinator_RepBloodSailCB:SetFont(narrowFont, 11)
+	Collectinator_RepBloodSailCBText:SetText(BFAC["Bloodsail"])
+	Collectinator_RepBloodSailCBText:SetFont(narrowFont, 11)
+	Collectinator_RepBloodSailCB:Disable()
 
 	local Collectinator_RepCenarionCircleCB = CreateFrame("CheckButton", "Collectinator_RepCenarionCircleCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepCenarionCircleCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Circle"]), "cenarioncircle", 4, 1, 0)
 	Collectinator_RepCenarionCircleCBText:SetText(BFAC["Cenarion Circle"])
 	Collectinator_RepCenarionCircleCBText:SetFont(narrowFont, 11)
-	Collectinator_RepCenarionCircleCBText:Disable()
+	Collectinator_RepCenarionCircleCB:Disable()
 
 	local Collectinator_RepThoriumCB = CreateFrame("CheckButton", "Collectinator_RepThoriumCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepThoriumCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Thorium Brotherhood"]), "thoriumbrotherhood", 5, 1, 0)
 	Collectinator_RepThoriumCBText:SetText(BFAC["Thorium Brotherhood"])
 	Collectinator_RepThoriumCBText:SetFont(narrowFont, 11)
-	Collectinator_RepThoriumCBText:Disable()
+	Collectinator_RepThoriumCB:Disable()
 
 	local Collectinator_RepTimbermawCB = CreateFrame("CheckButton", "Collectinator_RepTimbermawCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepTimbermawCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Timbermaw Hold"]), "timbermaw", 6, 1, 0)
 	Collectinator_RepTimbermawCBText:SetText(BFAC["Timbermaw Hold"])
 	Collectinator_RepTimbermawCBText:SetFont(narrowFont, 11)
-	Collectinator_RepTimbermawCBText:Disable()
+	Collectinator_RepTimbermawCB:Disable()
 
 	local Collectinator_RepWinterspringCB = CreateFrame("CheckButton", "Collectinator_RepWinterspringCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepWinterspringCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Winterspring"]), "winterspring", 7, 1, 0)
-	Collectinator_RepWinterspringCB:SetText(BFAC["Winterspring"])
-	Collectinator_RepWinterspringCB:SetFont(narrowFont, 11)
+	Collectinator_RepWinterspringCBText:SetText(BFAC["Winterspring"])
+	Collectinator_RepWinterspringCBText:SetFont(narrowFont, 11)
 
 	local Collectinator_RepZandalarCB = CreateFrame("CheckButton", "Collectinator_RepZandalarCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepZandalarCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Zandalar Tribe"]), "zandalar", 8, 1, 0)
 	Collectinator_RepZandalarCBText:SetText(BFAC["Zandalar Tribe"])
 	Collectinator_RepZandalarCBText:SetFont(narrowFont, 11)
-	Collectinator_RepZandalarCBText:Disable()
+	Collectinator_RepZandalarCB:Disable()
 
 	-------------------------------------------------------------------------------
 	-- The Burning Crusade Reputations
@@ -3316,6 +3323,7 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_RepAldorCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Aldor"]), "aldor", 2, 1, 0)
 	Collectinator_RepAldorCBText:SetText(BFAC["The Aldor"])
 	Collectinator_RepAldorCBText:SetFont(narrowFont, 11)
+	Collectinator_RepAldorCB:Disable()
 
 	local Collectinator_RepAshtongueCB = CreateFrame("CheckButton", "Collectinator_RepAshtongueCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepAshtongueCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Ashtongue Deathsworn"]), "ashtonguedeathsworn", 3, 1, 0)
