@@ -1615,15 +1615,20 @@ do
 		[67413] = 157,		[67414] = 158,		[67415] = 159,
 		[67416] = 160,		[67420] = 161,		[67418] = 162,
 		[67419] = 163,		[66030] = 164,		[44369] = 165,
+--		[55068] = 166,
 	}
 
 	function addon:GetWarcraftPets(PetDB)
 
 		local t = {}
 
-		for i,k in pairs(PetDB) do
+		for i, k in pairs(PetDB) do
 			if PetDB[i]["Known"] == true and PetDB[i]["Type"] == "CRITTER" then
-				tinsert(t,"["..warcraftpets[i].."]")
+				if not warcraftpets[i] then
+					self:Print("Un-handled WarcraftPets pet: "..i)
+				else
+					tinsert(t, "["..warcraftpets[i].."]")
+				end
 			end
 		end
 
