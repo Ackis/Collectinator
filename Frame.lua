@@ -2842,10 +2842,10 @@ local function InitializeFrame()
 			pbMax = playerData[total_filtered_str]
 		end
 
---		if not addon.db.profile.includeexcluded and not addon.db.profile.ignoreexclusionlist then
---			pbCur = pbCur - playerData.excluded_recipes_unknown
---			pbMax = pbMax - playerData.excluded_recipes_known
---		end
+		if not addon.db.profile.includeexcluded and not addon.db.profile.ignoreexclusionlist then
+			pbCur = pbCur - playerData.unknown_excluide_str
+			pbMax = pbMax - playerData.known_excluide_str
+		end
 		self:SetMinMaxValues(0, pbMax)
 		self:SetValue(pbCur)
 
