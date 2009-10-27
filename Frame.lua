@@ -3409,7 +3409,7 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_RepAshtongueCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Ashtongue Deathsworn"]), "ashtonguedeathsworn", 3, 1, 0)
 	Collectinator_RepAshtongueCBText:SetText(BFAC["Ashtongue Deathsworn"])
 	Collectinator_RepAshtongueCBText:SetFont(narrowFont, 11)
-	Collectinator_RepAshtongueCB:Disalbe()
+	Collectinator_RepAshtongueCB:Disable()
 
 	local Collectinator_RepCenarionExpeditionCB = CreateFrame("CheckButton", "Collectinator_RepCenarionExpeditionCB", addon.Fly_Rep_BC, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepCenarionExpeditionCB, addon.Fly_Rep_BC, strformat(L["SPECIFIC_REP_DESC"], BFAC["Cenarion Expedition"]), "cenarionexpedition", 4, 1, 0)
