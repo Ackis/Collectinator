@@ -3289,8 +3289,8 @@ local function InitializeFrame()
 	Collectinator_RepArgentDawnCB:Disable()
 
 	local Collectinator_RepBloodSailCB = CreateFrame("CheckButton", "Collectinator_RepBloodSailCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_RepBloodSailCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Bloodsail"]), "bloodsail", 11, 1, 0)
-	Collectinator_RepBloodSailCBText:SetText(BFAC["Bloodsail"])
+	addon:GenericMakeCB(Collectinator_RepBloodSailCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Bloodsail Buccaneers"]), "bloodsail", 11, 1, 0)
+	Collectinator_RepBloodSailCBText:SetText(BFAC["Bloodsail Buccaneers"])
 	Collectinator_RepBloodSailCBText:SetFont(narrowFont, 11)
 	Collectinator_RepBloodSailCB:Disable()
 
