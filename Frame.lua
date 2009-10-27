@@ -3313,8 +3313,8 @@ local function InitializeFrame()
 	Collectinator_RepTimbermawCB:Disable()
 
 	local Collectinator_RepWinterspringCB = CreateFrame("CheckButton", "Collectinator_RepWinterspringCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_RepWinterspringCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Winterspring"]), "winterspring", 15, 1, 0)
-	Collectinator_RepWinterspringCBText:SetText(BFAC["Winterspring"])
+	addon:GenericMakeCB(Collectinator_RepWinterspringCB, addon.Fly_Rep_OW, strformat(L["SPECIFIC_REP_DESC"], BFAC["Wintersaber Trainers"]), "winterspring", 15, 1, 0)
+	Collectinator_RepWinterspringCBText:SetText(BFAC["Wintersaber Trainers"])
 	Collectinator_RepWinterspringCBText:SetFont(narrowFont, 11)
 
 	local Collectinator_RepZandalarCB = CreateFrame("CheckButton", "Collectinator_RepZandalarCB", addon.Fly_Rep_OW, "UICheckButtonTemplate")
