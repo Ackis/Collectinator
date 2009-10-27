@@ -1331,15 +1331,19 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 
 	if not autoupdatescan and scantype then
 		PopulateRepFilters(RepFilters)	-- Update the table containing which reps to display
-		self:UpdateFilters(CompanionDB, playerData, scantype)	-- Add filtering flags to the items
+
+		local filter_type = (scantype == "pets" and "CRITTER" or scantype)
+		self:UpdateFilters(CompanionDB, playerData, filter_type)	-- Add filtering flags to the items
 
 		-- Mark excluded items
-		playerData.excluded_known, playerData.excluded_unknown = self:MarkExclusions(CompanionDB, scantype)
+		playerData.excluded_known, playerData.excluded_unknown = self:MarkExclusions(CompanionDB, filter_type)
 
-		if textdump == "dump" then
-			self:DisplayTextDump(CompanionDB)
-		elseif textdump == "pets" then
-			self:GetWarcraftPets(CompanionDB)
+		if textdump then
+			if scantype == "pets" then
+				self:GetWarcraftPets(CompanionDB)
+			else
+				self:DisplayTextDump(CompanionDB)
+			end
 		else
 			self:DisplayFrame(playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
 		end
