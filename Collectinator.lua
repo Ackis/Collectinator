@@ -293,10 +293,10 @@ function addon:OnInitialize()
 					  local companion_frame = PetPaperDollFrameCompanionFrame
 					-- Shift only (Warcraft Pets)
 					if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						addon:Scan("pets", false)
+						addon:Scan(true, false, "pets")
 					-- Alt-shift only (Text Dump)
 					elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-						addon:Scan("dump", false)
+						addon:Scan(true, false)
 					-- Alt only (Wipe icons from map)
 					elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 						addon:ClearMap()
