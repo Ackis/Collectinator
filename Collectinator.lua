@@ -90,14 +90,12 @@ local RepFilters = {}		-- These are assigned during a scan, not in InitDatabases
 ------------------------------------------------------------------------------
 -- @class table
 -- @name playerData
--- @field totalknownpets Total number of known mini-pets.
--- @field mount_total Total number of known mounts.
--- @field critter_total Total number of mini-pets.
--- @field totalmounts Total number of mounts.
--- @field total Total number of items in the scan.
--- @field known Total number of items known in the scan.
--- @field total_filtered Total number of items filtered during the scan.
--- @field known_filtered Total number of items known filtered during the scan.
+-- @field total_str Total number of items in the scan.
+-- @field known_str Total number of items known in the scan.
+-- @field total_filtered_str Total number of items filtered during the scan.
+-- @field known_filtered_str Total number of items known filtered during the scan.
+-- @field total_excluide_str Total number of items excluded during the scan.
+-- @field known_excluide_str Total number of items known excluded during the scan.
 -- @field playerFaction Players faction
 -- @field playerClass Players class
 -- @field ["Reputation"] Listing of players reputation levels
