@@ -2537,14 +2537,14 @@ local function InitializeFrame()
 	local Valiance_Warsong_FactionText = isAlliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]
 	local Frostborn_Taunka_FactionText = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
 	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
-	local City1_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear"]
+	local City1_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear Trolls"]
 	local City2_FactionText = isAlliance and BFAC["Stormwind"] or BFAC["Orgrimmar"]
 	local City3_FactionText = isAlliance and BFAC["Gnomergan"] or BFAC["Thunder Bluff"]
 	local City4_FactionText = isAlliance and BFAC["Ironforge"] or BFAC["Ironforge"]
 	local City5_FactionText = isAlliance and BFAC["Exodar"] or BFAC["Silvermoon City"]
-	local PVP1_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear"]
-	local PVP2_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear"]
-	local PVP3_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear"]
+	local PVP1_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear Trolls"]
+	local PVP2_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear Trolls"]
+	local PVP3_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear Trolls"]
 
 	-------------------------------------------------------------------------------
 	-- Create the main frame
