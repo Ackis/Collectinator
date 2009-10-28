@@ -392,7 +392,7 @@ function addon:OnInitialize()
 				       for spell_id in pairs(vendor["SellList"]) do
 					       local companion = CompanionDB[spell_id]
 
-					       if not companion["Known"] then
+					       if not companion["Known"] and addon.IsCorrectFaction(playerData.playerFaction, companion["Flags"]) then
 						       local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
 
 						       self:AddLine("Sells: "..hex..companion["Name"].."|r")
