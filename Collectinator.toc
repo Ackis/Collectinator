@@ -6,7 +6,7 @@
 ## eMail: ackis AT shaw DOT ca
 ## X-Donate: http://www.wowace.com/projects/collectinator/#w_donations
 
-## Interface: 30300
+## Interface: 30200
 ## Version: Alpha 5
 ## X-Revision: @project-version@
 ## X-Date: @file-date-iso@
