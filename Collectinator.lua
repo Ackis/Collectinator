@@ -797,6 +797,7 @@ do
 		[2]	= BFAC["Alliance"],
 		[3]	= BFAC["Horde"]
 	}
+
 	function addon:addLookupList(DB, ID, Name, Loc, Coordx, Coordy, Faction)
 		if DB[ID] then
 			--@alpha@
@@ -815,6 +816,16 @@ do
 			DB[ID]["Coordy"] = Coordy
 		end
 
+		if DB == QuestList then
+			GameTooltip:SetOwner(UIParent, ANCHOR_NONE)
+			GameTooltip:SetHyperlink("quest:"..tostring(ID))
+
+			local quest_name = _G["GameTooltipTextLeft1"]:GetText()
+			GameTooltip:Hide()
+
+			DB[ID]["Name"] = quest_name and quest_name or "Missing name: Quest "..ID
+			end
+		end
 		--@alpha@
 		if not Loc and DB ~= ReputationList and DB ~= CustomList and DB ~= SeasonalList then
 			self:Print("Spell ID: " .. ID .. " (" .. DB[ID]["Name"] .. ") has an unknown location.")
