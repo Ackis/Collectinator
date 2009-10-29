@@ -825,7 +825,6 @@ do
 			GameTooltip:Hide()
 
 			DB[ID]["Name"] = quest_name and quest_name or "Missing name: Quest "..ID
-			end
 		end
 		--@alpha@
 		if not Loc and DB ~= ReputationList and DB ~= CustomList and DB ~= SeasonalList then
@@ -833,7 +832,7 @@ do
 		end
 		--@end-alpha@
 	end
-end	-- do
+end
 
 -------------------------------------------------------------------------------
 -- Scanning Functions
