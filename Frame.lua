@@ -2539,7 +2539,7 @@ local function InitializeFrame()
 	local Explorer_Hand_FactionText = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
 	local City1_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear Trolls"]
 	local City2_FactionText = isAlliance and BFAC["Stormwind"] or BFAC["Orgrimmar"]
-	local City3_FactionText = isAlliance and BFAC["Gnomergan"] or BFAC["Thunder Bluff"]
+	local City3_FactionText = isAlliance and BFAC["Gnomeregan Exiles"] or BFAC["Thunder Bluff"]
 	local City4_FactionText = isAlliance and BFAC["Ironforge"] or BFAC["Ironforge"]
 	local City5_FactionText = isAlliance and BFAC["Exodar"] or BFAC["Silvermoon City"]
 	local PVP1_FactionText = isAlliance and BFAC["Darnassus"] or BFAC["Darkspear Trolls"]
