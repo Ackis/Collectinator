@@ -455,24 +455,6 @@ do
 				end
 			end
 
-			--[[
-			local CollectinatorWorldMap = CreateFrame("Button", "CollectinatorWorldMap", WorldMapDetailFrame)
-			CollectinatorWorldMap:ClearAllPoints()
-			CollectinatorWorldMap:SetWidth(8)
-			CollectinatorWorldMap:SetHeight(8)
-			CollectinatorWorldMap.icon = CollectinatorWorldMap:CreateTexture("ARTWORK") 
-			CollectinatorWorldMap.icon:SetTexture(icontext)
-			CollectinatorWorldMap.icon:SetAllPoints()
-
-			local CollectinatorMiniMap = CreateFrame("Button", "CollectinatorMiniMap", MiniMap)
-			CollectinatorMiniMap:ClearAllPoints()
-			CollectinatorMiniMap:SetWidth(8)
-			CollectinatorMiniMap:SetHeight(8)
-			CollectinatorMiniMap.icon = CollectinatorMiniMap:CreateTexture("ARTWORK") 
-			CollectinatorMiniMap.icon:SetTexture(icontext)
-			CollectinatorMiniMap.icon:SetAllPoints()
-			]]--
-
 			for k, j in pairs(maplist) do
 				local continent, zone
 				local loc = nil

@@ -299,6 +299,7 @@ function addon:OnInitialize()
 					-- If we have the same profession open, then we close the scanned window
 					elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
 						addon:Scan(false, false, companion_frame:IsVisible() and companion_frame.mode or "CRITTER")
+						self:SetupMap()
 					end
 				  end)
 
