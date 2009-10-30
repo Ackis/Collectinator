@@ -984,7 +984,6 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				ttAdd(0, -1, 0, v["AchievementDesc"], addon:hexcolor("NORMAL"))
 			-- No achievement flag means that we're just using the achievement text to describe how to get the item
 			else
-				ttAdd(0, -1, 0, L["Custom"], addon:hexcolor("NEUTRAL"))
 				ttAdd(0, -1, 0, v["AchievementDesc"], addon:hexcolor("NORMAL"))
 			end
 		--@alpha@
