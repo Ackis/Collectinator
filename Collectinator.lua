@@ -1343,7 +1343,7 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 		self:UpdateFilters(CompanionDB, playerData, filter_type)	-- Add filtering flags to the items
 
 		-- Mark excluded items
-		playerData.known_excluide_str, playerData.unknown_excluide_str = self:MarkExclusions(CompanionDB, filter_type)
+		playerData[known_excluide_str], playerData[unknown_excluide_str] = self:MarkExclusions(CompanionDB, filter_type)
 
 		if textdump then
 			if scantype == "pets" then
