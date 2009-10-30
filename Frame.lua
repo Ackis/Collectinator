@@ -977,8 +977,16 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 				ttAdd(0, -1, 0, faction.." "..L["Vendor"], left_color)
 			end
 		elseif acquire_type == A_ACHIEVEMENT then
-			ttAdd(0, -1, 0, L["Achievement"], addon:hexcolor("NEUTRAL"), v["Achievement"], addon:hexcolor("NEUTRAL"))
-			ttAdd(0, -1, 0, v["AchievementDesc"], addon:hexcolor("NORMAL"))
+			-- Bit of a hack since we're using achievement text to describe as much as we can
+			-- If we have the avehivement flag marked, it's a real reward from achievements
+			if flags[F_ACHIEVEMENT] then
+				ttAdd(0, -1, 0, L["Achievement"], addon:hexcolor("NEUTRAL"), v["Achievement"], addon:hexcolor("NEUTRAL"))
+				ttAdd(0, -1, 0, v["AchievementDesc"], addon:hexcolor("NORMAL"))
+			-- No achievement flag means that we're just using the achievement text to describe how to get the item
+			else
+				ttAdd(0, -1, 0, L["Custom"], addon:hexcolor("NEUTRAL"))
+				ttAdd(0, -1, 0, v["AchievementDesc"], addon:hexcolor("NORMAL"))
+			end
 		--@alpha@
 		else	-- Unhandled
 			ttAdd(0, -1, 0, L["Unhandled Collectible"], addon:hexcolor("NORMAL"))
