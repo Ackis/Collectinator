@@ -2825,9 +2825,18 @@ local function InitializeFrame()
 		end
 
 		if not addon.db.profile.includeexcluded and not addon.db.profile.ignoreexclusionlist then
-			pbCur = pbCur - playerData.unknown_excluide_str
-			pbMax = pbMax - playerData.known_excluide_str
+			pbCur = pbCur - playerData[unknown_excluide_str]
+			pbMax = pbMax - playerData[known_excluide_str]
 		end
+		addon:Print("Debug: known_str" .. playerData[known_str])
+		addon:Print("Debug: total_str" .. playerData[total_str])
+		addon:Print("Debug: known_filtered_str" .. playerData[known_filtered_str])
+		addon:Print("Debug: total_filtered_str" .. playerData[total_filtered_str])
+		addon:Print("Debug: unknown_excluide_str" .. playerData[unknown_excluide_str])
+		addon:Print("Debug: known_excluide_str" .. playerData[known_excluide_str])
+		addon:Print("Debug: pbCur" .. pbCur)
+		addon:Print("Debug: pbMax" .. pbMax)
+
 		self:SetMinMaxValues(0, pbMax)
 		self:SetValue(pbCur)
 
