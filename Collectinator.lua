@@ -94,8 +94,8 @@ local RepFilters = {}		-- These are assigned during a scan, not in InitDatabases
 -- @field known_str Total number of items known in the scan.
 -- @field total_filtered_str Total number of items filtered during the scan.
 -- @field known_filtered_str Total number of items known filtered during the scan.
--- @field unknown_excluide_str Total number of items unknown excluded during the scan.
--- @field known_excluide_str Total number of items known excluded during the scan.
+-- @field unknown_exclude_str Total number of items unknown excluded during the scan.
+-- @field known_exclude_str Total number of items known excluded during the scan.
 -- @field playerFaction Players faction
 -- @field playerClass Players class
 -- @field ["Reputation"] Listing of players reputation levels
@@ -1343,7 +1343,7 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 		self:UpdateFilters(CompanionDB, playerData, filter_type)	-- Add filtering flags to the items
 
 		-- Mark excluded items
-		playerData[known_excluide_str], playerData[unknown_excluide_str] = self:MarkExclusions(CompanionDB, filter_type)
+		playerData["known_exclude_str"], playerData["unknown_exclude_str"] = self:MarkExclusions(CompanionDB, filter_type)
 
 		if textdump then
 			if scantype == "pets" then
