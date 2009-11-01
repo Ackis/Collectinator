@@ -1959,73 +1959,48 @@ function addon.CollectibleItem_OnClick(button)
 	local clickedIndex = addon.CollectibleListButton[button].sI
 
 	-- Don't do anything if they've clicked on an empty button
-	if clickedIndex and (clickedIndex ~= 0) then
-		local isCollectible = DisplayStrings[clickedIndex].IsCollectible
-		local isExpanded = DisplayStrings[clickedIndex].IsExpanded
-		local dString = DisplayStrings[clickedIndex].String
-		local clickedSpellIndex = DisplayStrings[clickedIndex].sID
-		local traverseIndex = 0
+	if not clickedIndex or clickedIndex == 0 then
+		return
+	end
+	local isCollectible = DisplayStrings[clickedIndex].IsCollectible
+	local isExpanded = DisplayStrings[clickedIndex].IsExpanded
+	local dString = DisplayStrings[clickedIndex].String
+	local clickedSpellIndex = DisplayStrings[clickedIndex].sID
+	local traverseIndex = 0
 
-		-- First, check if this is a "modified" click, and react appropriately
-		if IsModifierKeyDown() then
-			if IsControlKeyDown() and IsShiftKeyDown() then
-				addon:SetupMap(clickedSpellIndex)
-			elseif IsShiftKeyDown() then
-				local itemID = collectibleDB[clickedSpellIndex]["ItemID"]
+	-- First, check if this is a "modified" click, and react appropriately
+	if IsModifierKeyDown() then
+		if IsControlKeyDown() and IsShiftKeyDown() then
+			addon:SetupMap(clickedSpellIndex)
+		elseif IsShiftKeyDown() then
+			local itemID = collectibleDB[clickedSpellIndex]["ItemID"]
 
-				if itemID then
-					local _, itemLink = GetItemInfo(itemID)
+			if itemID then
+				local _, itemLink = GetItemInfo(itemID)
 
-					if itemLink then
-						ChatFrameEditBox:Insert(itemLink)
-					else
-						addon:Print(L["NoItemLink"])
-					end
+				if itemLink then
+					ChatFrameEditBox:Insert(itemLink)
 				else
 					addon:Print(L["NoItemLink"])
 				end
-			elseif IsControlKeyDown() then
-				ChatFrameEditBox:Insert(collectibleDB[clickedSpellIndex]["CollectibleLink"])
-			elseif IsAltKeyDown() then
-				-- Code needed here to insert this item into the "Ignore List"
-				addon:ToggleExcludeCollectible(clickedSpellIndex)
-				ReDisplay(current_tab)
-			end
-		elseif isCollectible then
-			-- three possibilities here (all with no modifiers)
-			-- 1) We clicked on the collectible button on a closed collectible
-			-- 2) We clicked on the collectible button of an open collectible
-			-- 3) we clicked on the expanded text of an open collectible
-			if isExpanded then
-				traverseIndex = clickedIndex + 1	-- get rid of our expanded lines
-
-				while (DisplayStrings[traverseIndex].IsCollectible == false) do
-					tremove(DisplayStrings, traverseIndex)
-
-					-- if this is the last entry in the whole list, we should break out
-					if not DisplayStrings[traverseIndex] then
-						break
-					end
-				end
-				DisplayStrings[clickedIndex].IsExpanded = false
 			else
-				-- add in our expanded lines
-				expandEntry(clickedIndex)
-				-- set our current collectible to expanded
-				DisplayStrings[clickedIndex].IsExpanded = true
+				addon:Print(L["NoItemLink"])
 			end
-		else
-			-- this inherently implies that we're on an expanded collectible
-			-- first, back up in the list of buttons until we find our collectible line
-			traverseIndex = clickedIndex - 1
+		elseif IsControlKeyDown() then
+			ChatFrameEditBox:Insert(collectibleDB[clickedSpellIndex]["CollectibleLink"])
+		elseif IsAltKeyDown() then
+			-- Code needed here to insert this item into the "Ignore List"
+			addon:ToggleExclude(clickedSpellIndex)
+			ReDisplay(current_tab)
+		end
+	elseif isCollectible then
+		-- three possibilities here (all with no modifiers)
+		-- 1) We clicked on the collectible button on a closed collectible
+		-- 2) We clicked on the collectible button of an open collectible
+		-- 3) we clicked on the expanded text of an open collectible
+		if isExpanded then
+			traverseIndex = clickedIndex + 1	-- get rid of our expanded lines
 
-			while (DisplayStrings[traverseIndex].IsCollectible == false) do
-				traverseIndex = traverseIndex - 1
-			end
-			DisplayStrings[traverseIndex].IsExpanded = false	-- unexpand it
-			traverseIndex = traverseIndex + 1
-
-			-- now remove the expanded lines until we get to a collectible again
 			while (DisplayStrings[traverseIndex].IsCollectible == false) do
 				tremove(DisplayStrings, traverseIndex)
 
@@ -2034,11 +2009,36 @@ function addon.CollectibleItem_OnClick(button)
 					break
 				end
 			end
+			DisplayStrings[clickedIndex].IsExpanded = false
+		else
+			-- add in our expanded lines
+			expandEntry(clickedIndex)
+			-- set our current collectible to expanded
+			DisplayStrings[clickedIndex].IsExpanded = true
 		end
-			-- finally, call our scrollframe updater
-			CollectibleList_Update()
-	end
+	else
+		-- this inherently implies that we're on an expanded collectible
+		-- first, back up in the list of buttons until we find our collectible line
+		traverseIndex = clickedIndex - 1
 
+		while (DisplayStrings[traverseIndex].IsCollectible == false) do
+			traverseIndex = traverseIndex - 1
+		end
+		DisplayStrings[traverseIndex].IsExpanded = false	-- unexpand it
+		traverseIndex = traverseIndex + 1
+
+		-- now remove the expanded lines until we get to a collectible again
+		while (DisplayStrings[traverseIndex].IsCollectible == false) do
+			tremove(DisplayStrings, traverseIndex)
+
+			-- if this is the last entry in the whole list, we should break out
+			if not DisplayStrings[traverseIndex] then
+				break
+			end
+		end
+	end
+	-- finally, call our scrollframe updater
+	CollectibleList_Update()
 end
 
 -- Description: Rep Filtering panel switcher
