@@ -1378,19 +1378,19 @@ function addon:MarkExclusions(DB, scantype)
 	local unknown_count = 0
 
 	for i in pairs(exclusionlist) do
+		print("index is "..tostring(i))
 		-- We may have a item in the exclusion list that has not been scanned yet
 		-- check if the entry exists in DB first
 		if DB[i] and ignored then
+			local entrytype = DB[i]["Type"]
+
 			DB[i]["Display"] = false
---[[
-			local entrytype = GetSpellInfo(DB[i]["Type"])
 
 			if not DB[i]["Known"] and entrytype == scantype then
 				known_count = known_count + 1
 			elseif entrytype == scantype then
 				unknown_count = unknown_count + 1
 			end
-]]--
 		end
 	end
 	return known_count, unknown_count
