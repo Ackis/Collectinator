@@ -1340,10 +1340,14 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 		PopulateRepFilters(RepFilters)	-- Update the table containing which reps to display
 
 		local filter_type = (scantype == "pets" and "CRITTER" or scantype)
+		local lower_type = filter_type:lower()
 		self:UpdateFilters(CompanionDB, playerData, filter_type)	-- Add filtering flags to the items
 
 		-- Mark excluded items
-		playerData[known_excluide_str], playerData[unknown_excluide_str] = self:MarkExclusions(CompanionDB, filter_type)
+		local known_exclude_str = lower_type .. "_known_exclude"
+		local unknown_exclude_str = lower_type .. "_unknown_exclude"
+
+		playerData[known_exclude_str], playerData[unknown_exclude_str] = self:MarkExclusions(CompanionDB, filter_type)
 
 		if textdump then
 			if scantype == "pets" then
