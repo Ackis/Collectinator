@@ -2813,7 +2813,7 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Updates the progress bar based on the number of known and total collectibles
 	-------------------------------------------------------------------------------
-	progress_bar.Update = function(self)
+	function progress_bar:Update()
 		local pbCur, pbMax
 		local tmp_type = SortedCollections[current_tab].name
 		local lower_type = tmp_type:lower()
@@ -2821,6 +2821,8 @@ local function InitializeFrame()
 		local total_str = lower_type .. "_total"
 		local known_filtered_str = lower_type .. "_known_filtered"
 		local total_filtered_str = lower_type .. "_total_filtered"
+		local known_exclude_str = lower_type .. "_known_exclude"
+		local unknown_exclude_str = lower_type .. "_unknown_exclude"
 
 		if addon.db.profile.includefiltered then
 			pbCur = playerData[known_str]
@@ -2832,17 +2834,17 @@ local function InitializeFrame()
 		end
 
 		if not addon.db.profile.includeexcluded and not addon.db.profile.ignoreexclusionlist then
-			pbCur = pbCur - playerData[unknown_excluide_str]
-			pbMax = pbMax - playerData[known_excluide_str]
+			pbCur = pbCur - playerData[unknown_exclude_str]
+			pbMax = pbMax - playerData[known_exclude_str]
 		end
-		addon:Print("Debug: known_str" .. playerData[known_str])
-		addon:Print("Debug: total_str" .. playerData[total_str])
-		addon:Print("Debug: known_filtered_str" .. playerData[known_filtered_str])
-		addon:Print("Debug: total_filtered_str" .. playerData[total_filtered_str])
-		addon:Print("Debug: unknown_excluide_str" .. playerData[unknown_excluide_str])
-		addon:Print("Debug: known_excluide_str" .. playerData[known_excluide_str])
-		addon:Print("Debug: pbCur" .. pbCur)
-		addon:Print("Debug: pbMax" .. pbMax)
+		addon:Print("Debug: known_str " .. playerData[known_str])
+		addon:Print("Debug: total_str " .. playerData[total_str])
+		addon:Print("Debug: known_filtered_str " .. playerData[known_filtered_str])
+		addon:Print("Debug: total_filtered_str " .. playerData[total_filtered_str])
+		addon:Print("Debug: unknown_exclude_str " .. playerData[unknown_exclude_str])
+		addon:Print("Debug: known_exclude_str " .. playerData[known_exclude_str])
+		addon:Print("Debug: pbCur " .. pbCur)
+		addon:Print("Debug: pbMax " .. pbMax)
 
 		self:SetMinMaxValues(0, pbMax)
 		self:SetValue(pbCur)
