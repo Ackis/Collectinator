@@ -1398,13 +1398,9 @@ end
 -- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] in the database which we want to exclude
 -- @return The specified [http://www.wowwiki.com/SpellLink Spell ID] is excluded from the database.
 function addon:ToggleExclude(SpellID)
-	local exclusionlist = addon.db.profile.exclusionlist
+	local exclusion_list = addon.db.profile.exclusionlist
 
-	if exclusionlist[SpellID] then
-		exclusionlist[SpellID] = nil
-	else
-		exclusionlist[SpellID] = true
-	end
+	exclusion_list[SpellID] = (not exclusion_list[SpellID] and true or nil)
 end
 
 --- Prints all the ID's in the exclusion list out into chat.
