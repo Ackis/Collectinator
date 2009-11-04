@@ -416,7 +416,7 @@ do
 
 	end
 
-	-- Description: Adds mini-map and world map icons with tomtom.
+	--- Adds mini-map and world map icons with tomtom.
 	-- Expected result: Icons are added to the world map and mini-map.
 	-- Input: An optional collectible ID
 	-- Output: Points are added to the maps
@@ -565,7 +565,6 @@ end
 -- Description: Converting from hex to rgb (Thanks Maldivia)
 local function toRGB(hex)
 	local r, g, b = hex:match("(..)(..)(..)")
-
 	return (tonumber(r, 16) / 256), (tonumber(g, 16) / 256), (tonumber(b, 16) / 256)
 end
 
@@ -2797,7 +2796,7 @@ local function InitializeFrame()
 	Collectinator_CloseButton:SetScript("OnClick", function(self) addon:CloseWindow() end)
 
 	-------------------------------------------------------------------------------
-	-- ProgressBar for our skills
+	-- ProgressBar for our collection
 	-------------------------------------------------------------------------------
 	-- Values for the progressbar (defaults)
 	local pbMin = 0
@@ -2840,10 +2839,10 @@ local function InitializeFrame()
 			pbCur = pbCur - playerData["unknown_exclude_str"]
 			pbMax = pbMax - playerData["known_exclude_str"]
 		end
-		addon:Print("Debug: known_str " .. playerData[known_str])
-		addon:Print("Debug: total_str " .. playerData[total_str])
-		addon:Print("Debug: known_filtered_str " .. playerData[known_filtered_str])
-		addon:Print("Debug: total_filtered_str " .. playerData[total_filtered_str])
+		addon:Print("Debug: " .. known_str .. playerData[known_str])
+		addon:Print("Debug: " .. total_str .. playerData[total_str])
+		addon:Print("Debug: " .. known_filtered_str .. playerData[known_filtered_str])
+		addon:Print("Debug: " .. total_filtered_str .. playerData[total_filtered_str])
 		addon:Print("Debug: unknown_exclude_str " .. playerData["unknown_exclude_str"])
 		addon:Print("Debug: known_exclude_str " .. playerData["known_exclude_str"])
 		addon:Print("Debug: pbCur " .. pbCur)

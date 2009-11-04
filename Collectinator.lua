@@ -1251,9 +1251,12 @@ function addon:UpdateFilters(DB, playerData, scantype)
 		if item["Type"] == scantype then
 			can_show = self:CheckDisplay(item, playerFaction)
 
+			-- Increment total count of collectibles
 			playerData[total_str] = playerData[total_str] + 1
+			-- Increment total count of known collectibles
 			playerData[known_str] = playerData[known_str] + (item["Known"] == true and 1 or 0)
 
+			-- Filters haven't excluded this item from the list
 			if can_show then
 				playerData[total_filtered_str] = playerData[total_filtered_str] + 1
 				playerData[known_filtered_str] = playerData[known_filtered_str] + (item["Known"] == true and 1 or 0)
