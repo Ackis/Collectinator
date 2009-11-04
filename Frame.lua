@@ -397,14 +397,19 @@ do
 			iconlist = twipe(iconlist)
 		end
 	end
-
+	--- Determine if we should display the acquire method on the maps.
+	-- @return Boolean value, true for vendor, reps and quest if the faction is the same, and true for mobs.
 	local function CheckMapDisplay(v, filters)
 		local display = false
 
-		if (v["Type"] == A_VENDOR) then
+		-- Vendors and reputations are treated the same way basically
+		if (v["Type"] == A_VENDOR) or (v["Type"] == A_REPUTATION) then
 			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
 		elseif (v["Type"] == A_QUEST) then
 			display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
+		-- Always show mob drops
+		elseif (v["Type"] == A_MOB) then
+			display = true
 		end
 
 		return display
