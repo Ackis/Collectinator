@@ -2826,6 +2826,18 @@ local function InitializeFrame()
 		local known_filtered_str = lower_type .. "_known_filtered"
 		local total_filtered_str = lower_type .. "_total_filtered"
 
+		local pname = UnitName("player")
+		if pname == "Ackis" then
+		addon:Print("Debug: " .. known_str .. playerData[known_str])
+		addon:Print("Debug: " .. total_str .. playerData[total_str])
+		addon:Print("Debug: " .. known_filtered_str .. playerData[known_filtered_str])
+		addon:Print("Debug: " .. total_filtered_str .. playerData[total_filtered_str])
+		addon:Print("Debug: unknown_exclude_str " .. playerData["unknown_exclude_str"])
+		addon:Print("Debug: known_exclude_str " .. playerData["known_exclude_str"])
+		addon:Print("Debug: pbCur " .. pbCur)
+		addon:Print("Debug: pbMax " .. pbMax)
+		else
+
 		if addon.db.profile.includefiltered then
 			pbCur = playerData[known_str]
 			pbMax = playerData[total_str]
@@ -2839,14 +2851,7 @@ local function InitializeFrame()
 			pbCur = pbCur - playerData["unknown_exclude_str"]
 			pbMax = pbMax - playerData["known_exclude_str"]
 		end
-		addon:Print("Debug: " .. known_str .. playerData[known_str])
-		addon:Print("Debug: " .. total_str .. playerData[total_str])
-		addon:Print("Debug: " .. known_filtered_str .. playerData[known_filtered_str])
-		addon:Print("Debug: " .. total_filtered_str .. playerData[total_filtered_str])
-		addon:Print("Debug: unknown_exclude_str " .. playerData["unknown_exclude_str"])
-		addon:Print("Debug: known_exclude_str " .. playerData["known_exclude_str"])
-		addon:Print("Debug: pbCur " .. pbCur)
-		addon:Print("Debug: pbMax " .. pbMax)
+		end
 
 		self:SetMinMaxValues(0, pbMax)
 		self:SetValue(pbCur)
