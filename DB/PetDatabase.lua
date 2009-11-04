@@ -836,7 +836,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 68810, A_CUSTOM, 1)
 --PURCHASED
 	-- Lil' K.T. - 69677
-	AddPet(69677, nil, R_RARE, GAME_WOTLK)
+	AddPet(69677, 49693, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 69677, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(PetDB, 69677, A_CUSTOM, 4)
 
