@@ -2836,6 +2836,9 @@ local function InitializeFrame()
 		addon:Print("Debug: known_exclude_str " .. playerData["known_exclude_str"])
 		addon:Print("Debug: pbCur " .. pbCur)
 		addon:Print("Debug: pbMax " .. pbMax)
+		local knownfiltered = playerData[known_str] - playerData[known_filtered_str]
+		pbCur = playerData[known_str]
+		pbMax = playerData[total_filtered_str] + knownfiltered
 		else
 
 		if addon.db.profile.includefiltered then
@@ -2851,7 +2854,7 @@ local function InitializeFrame()
 			pbCur = pbCur - playerData["unknown_exclude_str"]
 			pbMax = pbMax - playerData["known_exclude_str"]
 		end
-		end
+		end -- end ackis
 
 		self:SetMinMaxValues(0, pbMax)
 		self:SetValue(pbCur)
