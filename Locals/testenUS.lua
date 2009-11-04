@@ -216,6 +216,7 @@ L["View Exclusion List"] = true
 L["VIEW_EXCLUSION_LIST_DESC"] = "Prints out a list of all entries on the exclusion list."
 L["World Drop"] = true
 L["WORLD_DROP_DESC"] =  "Collectibles that are World Drops should be included in the scan."
+L["Store"] = "Blizzard Store"
 
 -- Mobs
 L["Blue Dragonspawn"] = true

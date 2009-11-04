@@ -84,7 +84,7 @@ local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
 -- Filter flags
 -------------------------------------------------------------------------------
 local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_CRAFT, F_INSTANCE, F_RAID, F_SEASONAL, F_WORLD_DROP, F_MOB_DROP = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP = 11, 12, 13, 14, 15, 16
+local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP, F_STORE = 11, 12, 13, 14, 15, 16, 77
 local F_BOE, F_BOP, F_BOA = 17, 18, 19
 local F_ALCH, F_BS, F_COOKING, F_ENCH, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32
 
@@ -3105,19 +3105,24 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_AchievementCB, addon.Fly_Obtain, L["ACHIEVEMENT_DESC"], "achievement", 13, 1, 0)
 	Collectinator_AchievementCBText:SetText(L["Achievement"])
 
+	local Collectinator_StoreCB = CreateFrame("CheckButton", "Collectinator_StoreCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_StoreCB, addon.Fly_Obtain, L["STORE_DESC"], "store", 14, 1, 0)
+	Collectinator_StoreCBText:SetText(L["Store"])
+
 	local Collectinator_OriginalWoWCB = CreateFrame("CheckButton", "Collectinator_OriginalWoWCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_OriginalWoWCB, addon.Fly_Obtain, L["ORIGINAL_WOW_DESC"], "originalwow", 14, 1, 0)
+	addon:GenericMakeCB(Collectinator_OriginalWoWCB, addon.Fly_Obtain, L["ORIGINAL_WOW_DESC"], "originalwow", 15, 1, 0)
 	Collectinator_OriginalWoWCBText:SetText(L["Old World"])
 
 	local Collectinator_BCCB = CreateFrame("CheckButton", "Collectinator_BCCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_BCCB, addon.Fly_Obtain, L["BC_WOW_DESC"], "bc", 15, 1, 0)
+	addon:GenericMakeCB(Collectinator_BCCB, addon.Fly_Obtain, L["BC_WOW_DESC"], "bc", 16, 1, 0)
 	Collectinator_BCCBText:SetText(L["Burning Crusade"])
 
 	local Collectinator_WrathCB = CreateFrame("CheckButton", "Collectinator_WrathCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], "wrath", 16, 1, 0)
+	addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], "wrath", 17, 1, 0)
 	Collectinator_WrathCBText:SetText(L["Lich King"])
 
 	-------------------------------------------------------------------------------
+	--			() Collectible is Bind on Account
 	--			() Collectible is Bind on Equip
 	--			() Collectible is Bind on Pickup
 	-------------------------------------------------------------------------------
@@ -3686,6 +3691,7 @@ local function InitializeFrame()
 		["event"]		= { cb = Collectinator_EventCB,			svroot = filterdb.obtain },
 		["ce"]			= { cb = Collectinator_CECB,			svroot = filterdb.obtain },
 		["achievement"]		= { cb = Collectinator_AchievementCB,		svroot = filterdb.obtain },
+		["store"]		= { cb = Collectinator_StoreCB,			svroot = filterdb.obtain },
 		["originalwow"]		= { cb = Collectinator_OriginalWoWCB,		svroot = filterdb.obtain },
 		["bc"]			= { cb = Collectinator_BCCB,			svroot = filterdb.obtain },
 		["wrath"]		= { cb = Collectinator_WrathCB,			svroot = filterdb.obtain },
