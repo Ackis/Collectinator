@@ -2828,6 +2828,9 @@ local function InitializeFrame()
 
 		local pname = UnitName("player")
 		if pname == "Ackis" then
+		local knownfiltered = playerData[known_str] - playerData[known_filtered_str]
+		pbCur = playerData[known_str]
+		pbMax = playerData[total_filtered_str] + knownfiltered
 		addon:Print("Debug: " .. known_str .. playerData[known_str])
 		addon:Print("Debug: " .. total_str .. playerData[total_str])
 		addon:Print("Debug: " .. known_filtered_str .. playerData[known_filtered_str])
@@ -2836,9 +2839,6 @@ local function InitializeFrame()
 		addon:Print("Debug: known_exclude_str " .. playerData["known_exclude_str"])
 		addon:Print("Debug: pbCur " .. pbCur)
 		addon:Print("Debug: pbMax " .. pbMax)
-		local knownfiltered = playerData[known_str] - playerData[known_filtered_str]
-		pbCur = playerData[known_str]
-		pbMax = playerData[total_filtered_str] + knownfiltered
 		else
 
 		if addon.db.profile.includefiltered then
