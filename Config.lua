@@ -305,35 +305,35 @@ local function giveDisplay()
 					type	= "range",
 					name	= L["UI Scale"],
 					desc	= L["UI_SCALE_DESC"],
-					min		= .5,
-					max		= 1.5,
+					min	= .5,
+					max	= 1.5,
 					step	= .05,
 					bigStep = .05,
-					get		= function() return addon.db.profile.frameopts.uiscale end,
-					set		= function(info, v)
-								addon.db.profile.frameopts.uiscale = v
-								if (addon.Frame) then addon.Frame:SetScale(v) end
-							  end,
+					get	= function() return addon.db.profile.frameopts.uiscale end,
+					set	= function(info, v)
+							addon.db.profile.frameopts.uiscale = v
+							if (addon.Frame) then addon.Frame:SetScale(v) end
+						end,
 				},
 				fontsize = {
 					order	= 4,
 					type	= "range",
 					name	= L["Font Size"],
 					desc	= L["FONT_SIZE_DESC"],
-					min		= 6,
-					max		= 20,
+					min	= 6,
+					max	= 20,
 					step	= 1,
 					bigStep = 1,
-					get		= function() return addon.db.profile.frameopts.fontsize end,
-					set		= function(info, v) addon.db.profile.frameopts.fontsize = v end,
+					get	= function() return addon.db.profile.frameopts.fontsize end,
+					set	= function(info, v) addon.db.profile.frameopts.fontsize = v end,
 				},
 				hidepopup = {
 					order	= 6,
 					type	= "toggle",
 					name	= L["Hide Pop-Up"],
 					desc	= L["HIDEPOPUP_DESC"],
-					get		= function() return addon.db.profile.hidepopup end,
-					set		= function() addon.db.profile.hidepopup = not addon.db.profile.hidepopup end,
+					get	= function() return addon.db.profile.hidepopup end,
+					set	= function() addon.db.profile.hidepopup = not addon.db.profile.hidepopup end,
 				},
 				spacer1 = {
 					order	= 10,
@@ -355,24 +355,24 @@ local function giveDisplay()
 					type	= "range",
 					name	= L["Tooltip Scale"],
 					desc	= L["TOOLTIP_SCALE_DESC"],
-					min		= .5,
-					max		= 1.5,
+					min	= .5,
+					max	= 1.5,
 					step	= .05,
 					bigStep = .05,
-					get		= function() return addon.db.profile.frameopts.tooltipscale end,
-					set		= function(info, v)
-								addon.db.profile.frameopts.tooltipscale = v
-								if (CollectinatorTooltip) then CollectinatorTooltip:SetScale(v) end
-								if (CollectinatorSpellTooltip) then CollectinatorSpellTooltip:SetScale(v) end
-							  end,
+					get	= function() return addon.db.profile.frameopts.tooltipscale end,
+					set	= function(info, v)
+							addon.db.profile.frameopts.tooltipscale = v
+							if (CollectinatorTooltip) then CollectinatorTooltip:SetScale(v) end
+							if (CollectinatorSpellTooltip) then CollectinatorSpellTooltip:SetScale(v) end
+						end,
 				},
 				acquiretooltiplocation = {
 					order	= 21,
 					type	= "select",
 					name	= L["Tooltip (Acquire) Position"],
 					desc	= L["ACQUIRETOOLTIPPOSITION_DESC"],
-					get		= function() return addon.db.profile.acquiretooltiplocation end,
-					set		= function(info,name) addon.db.profile.acquiretooltiplocation = name end,
+					get	= function() return addon.db.profile.acquiretooltiplocation end,
+					set	= function(info,name) addon.db.profile.acquiretooltiplocation = name end,
 					values	= function() return {Right = L["Right"], Left = L["Left"], Top = L["Top"], Bottom = L["Bottom"], Off = L["Off"], Mouse = L["Mouse"]} end,
 				},
 				spelltooltiplocation = {
