@@ -394,6 +394,74 @@ local function giveDisplay()
 
 end
 
+local map = nil
+
+local function giveMap()
+
+	local tomtomsupport = true
+
+	if ((TomTom) or ((TomTom) and (Carbonite))) then
+		tomtomsupport = false
+	end
+
+	if (not map) then
+
+	map = {
+			order	= 1,
+			type	= "group",
+			name	= L["Map Options"],
+			desc	= L["MAP_OPTIONS_DESC"],
+			args	= {
+				map_desc =	{
+					order	= 1,
+					type	= "description",
+					name	= L["MAP_OPTIONS_DESC"] .. "\n",
+				},
+				autoscanmap = {
+					order	= 2,
+					type	= "toggle",
+					name	= L["Auto Scan Map"],
+					desc	= L["AUTOSCANMAP_DESC"],
+					disabled = tomtomsupport,
+					get		= function() return addon.db.profile.autoscanmap end,
+					set		= function() addon.db.profile.autoscanmap = not addon.db.profile.autoscanmap end,
+				},
+				worldmap = {
+					order	= 3,
+					type	= "toggle",
+					name	= L["World Map"],
+					desc	= L["WORLDMAP_DESC"],
+					disabled = tomtomsupport,
+					get		= function() return addon.db.profile.worldmap end,
+					set		= function() addon.db.profile.worldmap = not addon.db.profile.worldmap end,
+				},
+				minimap = {
+					order	= 4,
+					type	= "toggle",
+					name	= L["Mini Map"],
+					desc	= L["MINIMAP_DESC"],
+					disabled = tomtomsupport,
+					get		= function() return addon.db.profile.minimap end,
+					set		= function() addon.db.profile.minimap = not addon.db.profile.minimap end,
+				},
+				clearmap = {
+					order	= 20,
+					type	= "execute",
+					name	= L["Clear Waypoints"],
+					disabled = tomtomsupport,
+					desc	= L["CLEAR_WAYPOINTS_DESC"],
+					func	= function() addon:ClearMap() end,
+				},
+			},
+		}
+
+	end
+
+	return map
+
+end
+
+
 function addon:SetupOptions()
 
 	AceConfigReg:RegisterOptionsTable(MODNAME, fullOptions)
