@@ -477,6 +477,7 @@ function addon:SetupOptions()
 	-- Fill up our modular options...
 	self:RegisterModuleOptions("Display", giveDisplay(), L["Display Options"])
 	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
+	self:RegisterModuleOptions("Map", giveMap(), L["Map Options"])
 	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
 
 end
@@ -484,7 +485,7 @@ end
 -- Description: Function which extends our options table in a modular way
 -- Expected result: add a new modular options table to the modularOptions upvalue as well as the Blizzard config
 -- Input:
---		name			: index of the options table in our main options table
+--		name		: index of the options table in our main options table
 --		optionsTable	: the sub-table to insert
 --		displayName	: the name to display in the config interface for this set of options
 -- Output: None.
