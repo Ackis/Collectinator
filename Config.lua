@@ -201,7 +201,7 @@ local function giveDocs()
 		documentation = {
 			order = 1,
 			type = "group",
-			name = L["ARL Documentation"],
+			name = L["Documentation"],
 			desc = L["DOC_DESC"],
 			args = {
 				header1 = {
