@@ -36,6 +36,8 @@ local options = nil
 
 local function fullOptions()
 
+	local disableknownfiltered = false
+
 	if (not options) then
 
 		options = {
@@ -121,10 +123,22 @@ local function fullOptions()
 							name	= L["Include Filtered"],
 							desc	= L["FILTERCOUNT_DESC"],
 							get		= function() return addon.db.profile.includefiltered end,
-							set		= function() addon.db.profile.includefiltered = not addon.db.profile.includefiltered end,
+							set		= function()
+										addon.db.profile.includefiltered = not addon.db.profile.includefiltered
+										disableknownfiltered = not addon.db.profile.includefiltered
+									end,
+						},
+						includeknownfiltered = {
+							order	= 23,
+							type	= "toggle",
+							name	= L["Include Known Filtered"],
+							desc	= L["FILTERKNOWNCOUNT_DESC"],
+							disabled = disableknownfiltered,
+							get		= function() return addon.db.profile.includeknownfiltered end,
+							set		= function() addon.db.profile.includeknownfiltered = not addon.db.profile.includeknownfiltered end,
 						},
 						includeexcluded = {
-							order	= 23,
+							order	= 24,
 							type	= "toggle",
 							name	= L["Include Excluded"],
 							desc	= L["EXCLUDECOUNT_DESC"],
@@ -132,7 +146,7 @@ local function fullOptions()
 							set		= function() addon.db.profile.includeexcluded = not addon.db.profile.includeexcluded end,
 						},
 						ignoreexclusionlist = {
-							order	= 24,
+							order	= 25,
 							type	= "toggle",
 							name	= L["Display Exclusions"],
 							desc	= L["DISPLAY_EXCLUSION_DESC"],

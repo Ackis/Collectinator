@@ -2826,26 +2826,17 @@ local function InitializeFrame()
 		local known_filtered_str = lower_type .. "_known_filtered"
 		local total_filtered_str = lower_type .. "_total_filtered"
 
-		local pname = UnitName("player")
-		if pname == "Ackis" then
-		local knownfiltered = playerData[known_str] - playerData[known_filtered_str]
-		pbCur = playerData[known_str]
-		pbMax = playerData[total_filtered_str] + knownfiltered
-		addon:Print("Debug: " .. known_str .. playerData[known_str])
-		addon:Print("Debug: " .. total_str .. playerData[total_str])
-		addon:Print("Debug: " .. known_filtered_str .. playerData[known_filtered_str])
-		addon:Print("Debug: " .. total_filtered_str .. playerData[total_filtered_str])
-		addon:Print("Debug: unknown_exclude_str " .. playerData["unknown_exclude_str"])
-		addon:Print("Debug: known_exclude_str " .. playerData["known_exclude_str"])
-		addon:Print("Debug: pbCur " .. pbCur)
-		addon:Print("Debug: pbMax " .. pbMax)
-		else
-
+		-- Progress bar shows the actual values, not dependant on what is filtered
 		if addon.db.profile.includefiltered then
 			pbCur = playerData[known_str]
 			pbMax = playerData[total_str]
+		-- Progress bar removes all of the unknown filtered entries from the known/total counts
+		elseif addon.db.profile.includeknownfiltered
+			local knownfiltered = playerData[known_str] - playerData[known_filtered_str]
+			pbCur = playerData[known_str]
+			pbMax = playerData[total_filtered_str] + knownfiltered
+		-- Progress bar removes all of the filtered entries from the known/total counts
 		else
-			-- We're removing filtered recipes from the final count
 			pbCur = playerData[known_filtered_str]
 			pbMax = playerData[total_filtered_str]
 		end
@@ -2854,7 +2845,6 @@ local function InitializeFrame()
 			pbCur = pbCur - playerData["unknown_exclude_str"]
 			pbMax = pbMax - playerData["known_exclude_str"]
 		end
-		end -- end ackis
 
 		self:SetMinMaxValues(0, pbMax)
 		self:SetValue(pbCur)
@@ -3039,7 +3029,7 @@ local function InitializeFrame()
 
 	-------------------------------------------------------------------------------
 	--			() Instance	() Raid
-	--			() Quest		() Seasonal
+	--			() Quest	() Seasonal
 	--			() Vendor
 	--			() PVP
 	--			() World Drop	() Mob Drop
