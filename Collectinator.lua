@@ -373,12 +373,13 @@ function addon:OnInitialize()
 			       end
 			       local GUID = tonumber(string.sub(guid, 8, 12), 16)
 			       local mob = MobList[GUID]
+			       local shifted = IsShiftKeyDown()
 
 			       if mob and mob["DropList"] then
 				       for spell_id in pairs(mob["DropList"]) do
 					       local companion = CompanionDB[spell_id]
 
-					       if not companion["Known"] then
+					       if not companion["Known"] or shifted then
 						       local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
 
 						       self:AddLine("Drops: "..hex..companion["Name"].."|r")
@@ -392,7 +393,7 @@ function addon:OnInitialize()
 				       for spell_id in pairs(vendor["SellList"]) do
 					       local companion = CompanionDB[spell_id]
 
-					       if not companion["Known"] and addon.IsCorrectFaction(playerData.playerFaction, companion["Flags"]) then
+					       if (not companion["Known"] or shifted) and addon.IsCorrectFaction(playerData.playerFaction, companion["Flags"]) then
 						       local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
 
 						       self:AddLine("Sells: "..hex..companion["Name"].."|r")
