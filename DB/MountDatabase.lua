@@ -1123,7 +1123,7 @@ function addon:GetMountTotal(DB)
 
 	-- Reins of the Time-Lost Proto-Drake - 60002
 	AddMount(60002, 44168, R_EPIC, GAME_WOTLK)
-	AddMountFlags(60002, F_ALLIANCE, F_HORDE, F_INSTANCE, F_MOB_DROP, F_BOP)
+	AddMountFlags(60002, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 60002, A_MOB, 32491)
 
 	 -- Green Proto-Drake - 61294
