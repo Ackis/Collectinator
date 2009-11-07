@@ -1393,7 +1393,7 @@ do
 
 		-- depending if we're on the misc panel thingers or not, set an alternative OnClick method
 		if misc == 0 then
-			cButton:SetScript("OnClick", function()
+			cButton:SetScript("OnClick", function(self, button, down)
 							     if not FilterValueMap[scriptVal] then
 								     --@alpha@
 								     self:Print("No entry for "..scriptVal.." in FilterValueMap.")
@@ -1405,7 +1405,7 @@ do
 							     ReDisplay(current_tab)
 						     end)
 		else
-			cButton:SetScript("OnClick", function()
+			cButton:SetScript("OnClick", function(self, button, down)
 							     addon.db.profile.ignoreexclusionlist = not addon.db.profile.ignoreexclusionlist
 							     ReDisplay(current_tab)
 						     end)
@@ -2917,9 +2917,9 @@ local function InitializeFrame()
 	-- Stuff that appears on the main frame only when expanded
 	-------------------------------------------------------------------------------
 	local Collectinator_ResetButton = addon:GenericCreateButton("Collectinator_ResetButton", addon.Frame, 
-								    25, 90, "TOPRIGHT", Collectinator_FilterButton, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall", 
+								    25, 90, "TOPRIGHT", filter_button, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall", 
 								    "GameFontHighlightSmall", L["Reset"], "CENTER", L["RESET_DESC"], 1)
-	Collectinator_ResetButton:SetScript("OnClick", function()
+	Collectinator_ResetButton:SetScript("OnClick", function(self, button, down)
 							       local filterdb = addon.db.profile.filters
 
 							       -- Reset all filters to true
