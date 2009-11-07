@@ -1381,77 +1381,6 @@ local function HideCollectinator_ExpOptCB(ignorevalue)
 	end
 end
 
--- Description: 
-
-function addon.ToggleFilters()
-	local xPos = addon.Frame:GetLeft()
-	local yPos = addon.Frame:GetBottom()
-
-	if (addon.Frame._Expanded == true) then
-		-- Adjust the frame size and texture
-		addon.Frame:ClearAllPoints()
-		addon.Frame:SetWidth(293)
-		addon.Frame:SetHeight(447)
-		addon.bgTexture:SetTexture([[Interface\Addons\Collectinator\img\main]])
-		addon.bgTexture:SetAllPoints(addon.Frame)
-		addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
-		addon.Frame._Expanded = false
-		addon.Frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
-		addon.Frame.progress_bar:SetWidth(195)
-
-		-- Change the text and tooltip for the filter button
-		Collectinator_FilterButton:SetText(L["Filter"] .. ">>>")
-		TooltipDisplay(Collectinator_FilterButton, L["FILTER_OPEN_DESC"])
-
-		-- Hide my 7 buttons
-		Collectinator_ExpGeneralOptCB:Hide()
-		Collectinator_ExpObtainOptCB:Hide()
-		Collectinator_ExpBindingOptCB:Hide()
-		Collectinator_ExpItemOptCB:Hide()
-		Collectinator_ExpRepOptCB:Hide()
-		Collectinator_ExpMiscOptCB:Hide()
-
-		-- Uncheck the seven buttons
-		HideCollectinator_ExpOptCB()
-
-		-- Hide the flyaway panel
-		addon.Flyaway:Hide()
-
-		Collectinator_ResetButton:Hide()
-	else
-		-- Adjust the frame size and texture
-		addon.Frame:ClearAllPoints()
-		addon.Frame:SetWidth(444)
-		addon.Frame:SetHeight(447)
-		addon.bgTexture:SetTexture([[Interface\Addons\Collectinator\img\expanded]])
-		addon.bgTexture:SetAllPoints(addon.Frame)
-		addon.bgTexture:SetTexCoord(0, (444/512), 0, (447/512))
-		addon.Frame._Expanded = true
-		addon.Frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
-		addon.Frame.progress_bar:SetWidth(345)
-
-		-- Change the text and tooltip for the filter button
-		Collectinator_FilterButton:SetText("<<< " .. L["Filter"])
-		TooltipDisplay(Collectinator_FilterButton, L["FILTER_CLOSE_DESC"])
-
-		-- Show my buttons
-		Collectinator_ExpGeneralOptCB:Show()
-		Collectinator_ExpObtainOptCB:Show()
-		Collectinator_ExpBindingOptCB:Show()
-		Collectinator_ExpItemOptCB:Show()
-		Collectinator_ExpRepOptCB:Show()
-		Collectinator_ExpMiscOptCB:Show()
-
-		Collectinator_ResetButton:Show()
-
-		-- and finally, show our frame
-	end
-
-	-- Reset our title
-	addon.resetTitle()
-end
-
--- Description: 
 do
 	function addon:GenericMakeCB(cButton, anchorFrame, ttText, scriptVal, row, col, misc)
 		-- set the position of the new checkbox
@@ -2676,10 +2605,73 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the filter button, position it, and set its scripts.
 	-------------------------------------------------------------------------------
-	local Collectinator_FilterButton = addon:GenericCreateButton("Collectinator_FilterButton", addon.Frame, 
-								     25, 90, "TOPRIGHT", addon.Frame, "TOPRIGHT", -8, -40, "GameFontNormalSmall", 
-								     "GameFontHighlightSmall", L["Filter"] .. ">>>", "CENTER", L["FILTER_OPEN_DESC"], 1)
-	Collectinator_FilterButton:SetScript("OnClick", addon.ToggleFilters)
+	local filter_button = addon:GenericCreateButton(nil, addon.Frame, 
+							25, 90, "TOPRIGHT", addon.Frame, "TOPRIGHT", -8, -40, "GameFontNormalSmall", 
+							"GameFontHighlightSmall", L["Filter"] .. ">>>", "CENTER", L["FILTER_OPEN_DESC"], 1)
+	filter_button:SetScript("OnClick",
+				function(self, button, down)
+					local xPos = addon.Frame:GetLeft()
+					local yPos = addon.Frame:GetBottom()
+
+					if addon.Frame._Expanded then
+						-- Adjust the frame size and texture
+						addon.Frame:ClearAllPoints()
+						addon.Frame:SetWidth(293)
+						addon.Frame:SetHeight(447)
+						addon.bgTexture:SetTexture([[Interface\Addons\Collectinator\img\main]])
+						addon.bgTexture:SetAllPoints(addon.Frame)
+						addon.bgTexture:SetTexCoord(0, (293/512), 0, (447/512))
+						addon.Frame._Expanded = false
+						addon.Frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
+						addon.Frame.progress_bar:SetWidth(195)
+
+						-- Change the text and tooltip for the filter button
+						self:SetText(L["Filter"] .. ">>>")
+						TooltipDisplay(self, L["FILTER_OPEN_DESC"])
+
+						-- Hide my 7 buttons
+						Collectinator_ExpGeneralOptCB:Hide()
+						Collectinator_ExpObtainOptCB:Hide()
+						Collectinator_ExpBindingOptCB:Hide()
+						Collectinator_ExpItemOptCB:Hide()
+						Collectinator_ExpRepOptCB:Hide()
+						Collectinator_ExpMiscOptCB:Hide()
+
+						-- Uncheck the seven buttons
+						HideCollectinator_ExpOptCB()
+
+						-- Hide the flyaway panel
+						addon.Flyaway:Hide()
+
+						Collectinator_ResetButton:Hide()
+					else
+						-- Adjust the frame size and texture
+						addon.Frame:ClearAllPoints()
+						addon.Frame:SetWidth(444)
+						addon.Frame:SetHeight(447)
+						addon.bgTexture:SetTexture([[Interface\Addons\Collectinator\img\expanded]])
+						addon.bgTexture:SetAllPoints(addon.Frame)
+						addon.bgTexture:SetTexCoord(0, (444/512), 0, (447/512))
+						addon.Frame._Expanded = true
+						addon.Frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", xPos, yPos)
+						addon.Frame.progress_bar:SetWidth(345)
+
+						-- Change the text and tooltip for the filter button
+						self:SetText("<<< " .. L["Filter"])
+						TooltipDisplay(self, L["FILTER_CLOSE_DESC"])
+
+						-- Show my buttons
+						Collectinator_ExpGeneralOptCB:Show()
+						Collectinator_ExpObtainOptCB:Show()
+						Collectinator_ExpBindingOptCB:Show()
+						Collectinator_ExpItemOptCB:Show()
+						Collectinator_ExpRepOptCB:Show()
+						Collectinator_ExpMiscOptCB:Show()
+
+						Collectinator_ResetButton:Show()
+					end
+					addon.resetTitle()
+				end)
 
 	-------------------------------------------------------------------------------
 	-- Create the sort frame
