@@ -1527,7 +1527,7 @@ do
 		text:SetText(initText)
 		button:SetPoint(anchorFrom, anchorFrame, anchorTo, xOffset, yOffset)
 
-		if (tooltipText ~= "") then
+		if tooltipText and tooltipText ~= "" then
 			TooltipDisplay(button, tooltipText)
 		end
 		return button
