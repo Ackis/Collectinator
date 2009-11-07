@@ -1702,33 +1702,6 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 	end
 end
 
--- Description: Set the texture on the switcher button.
-
-local function SetSwitcherTexture(tex)
-
--- This is really only called the first time its displayed. It should reflect the first
--- profession the user has selected, or that shows up in his lists.
-
--- For now, just display the first texture
-	local Collectinator_S_NTexture = Collectinator_SwitcherButton:CreateTexture("Collectinator_S_NTexture", "BACKGROUND")
-	Collectinator_S_NTexture:SetTexture([[Interface\Addons\Collectinator\img\]] .. tex .. [[_up]])
-	Collectinator_S_NTexture:SetTexCoord(0, 1, 0, 1)
-	Collectinator_S_NTexture:SetAllPoints(Collectinator_SwitcherButton)
-	local Collectinator_S_PTexture = Collectinator_SwitcherButton:CreateTexture("Collectinator_S_PTexture", "BACKGROUND")
-	Collectinator_S_PTexture:SetTexture([[Interface\Addons\Collectinator\img\]] .. tex .. [[_down]])
-	Collectinator_S_PTexture:SetTexCoord(0, 1, 0, 1)
-	Collectinator_S_PTexture:SetAllPoints(Collectinator_SwitcherButton)
-	local Collectinator_S_DTexture = Collectinator_SwitcherButton:CreateTexture("Collectinator_S_DTexture", "BACKGROUND")
-	Collectinator_S_DTexture:SetTexture([[Interface\Addons\Collectinator\img\]] .. tex .. [[_up]])
-	Collectinator_S_DTexture:SetTexCoord(0, 1, 0, 1)
-	Collectinator_S_DTexture:SetAllPoints(Collectinator_SwitcherButton)
-
-	Collectinator_SwitcherButton:SetNormalTexture(Collectinator_S_NTexture)
-	Collectinator_SwitcherButton:SetPushedTexture(Collectinator_S_PTexture)
-	Collectinator_SwitcherButton:SetDisabledTexture(Collectinator_S_DTexture)
-
-end
-
 local faction_strings	-- This is populated in expandEntry()
 
 local function expandEntry(dsIndex)
@@ -2586,77 +2559,109 @@ local function InitializeFrame()
 	addon.Frame.HeadingText:SetJustifyH("CENTER")
 
 	-------------------------------------------------------------------------------
-	-- Create the switcher button and assign its scripts.
+	-- Create the mode button and assign its values.
 	-------------------------------------------------------------------------------
-	local Collectinator_SwitcherButton = CreateFrame("Button", "Collectinator_SwitcherButton", addon.Frame, "UIPanelButtonTemplate")
-	Collectinator_SwitcherButton:SetWidth(64)
-	Collectinator_SwitcherButton:SetHeight(64)
-	Collectinator_SwitcherButton:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 1, -2)
-	Collectinator_SwitcherButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	Collectinator_SwitcherButton:SetScript("OnClick",
-					       function(self, button, down)
-						       -- We need to ensure that we cycle through all the collectible types, but also
-						       -- that we do so in order. That means that if the currently displayed type is
-						       -- the last one in the list, we're actually going to iterate completely once to
-						       -- get to the currently displayed type and then iterate again to make sure we
-						       -- display the next one in line.
-						       local startLoop = 0
-						       local endLoop = 0
-						       local displayProf = 0
+	local mode_button = CreateFrame("Button", nil, addon.Frame, "UIPanelButtonTemplate")
+	mode_button:SetWidth(64)
+	mode_button:SetHeight(64)
+	mode_button:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 1, -2)
+	mode_button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
-						       addon:ClosePopups()
+	addon.Frame.mode_button = mode_button
 
-						       -- ok, so first off, if we've never done this before, there is no "current"
-						       -- and a single iteration will do nicely, thank you
-						       if button == "LeftButton" then
-							       -- normal profession switch
-							       if current_tab == 0 then
-								       startLoop = 1
-								       endLoop = MaxCollections + 1
-							       else
-								       startLoop = current_tab + 1
-								       endLoop = current_tab
-							       end
-							       local index = startLoop
+	-------------------------------------------------------------------------------
+	-- Normal, Pushed, and Disabled textures for the mode button.
+	-------------------------------------------------------------------------------
+	mode_button._normal = mode_button:CreateTexture(nil, "BACKGROUND")
+	mode_button._pushed = mode_button:CreateTexture(nil, "BACKGROUND")
+	mode_button._disabled = mode_button:CreateTexture(nil, "BACKGROUND")
+
+	-------------------------------------------------------------------------------
+	-- Mode button scripts/functions.
+	-------------------------------------------------------------------------------
+	function mode_button:ChangeTexture(texture)
+		local normal, pushed, disabled = self._normal, self._pushed, self._disabled
+
+		normal:SetTexture([[Interface\Addons\Collectinator\img\]] .. texture .. [[_up]])
+		normal:SetTexCoord(0, 1, 0, 1)
+		normal:SetAllPoints(self)
+		self:SetNormalTexture(normal)
+
+		pushed:SetTexture([[Interface\Addons\Collectinator\img\]] .. texture .. [[_down]])
+		pushed:SetTexCoord(0, 1, 0, 1)
+		pushed:SetAllPoints(self)
+		self:SetPushedTexture(pushed)
+
+		disabled:SetTexture([[Interface\Addons\Collectinator\img\]] .. texture .. [[_up]])
+		disabled:SetTexCoord(0, 1, 0, 1)
+		disabled:SetAllPoints(self)
+		self:SetDisabledTexture(disabled)
+	end
+
+	mode_button:SetScript("OnClick",
+			      function(self, button, down)
+				      -- We need to ensure that we cycle through all the collectible types, but also
+				      -- that we do so in order. That means that if the currently displayed type is
+				      -- the last one in the list, we're actually going to iterate completely once to
+				      -- get to the currently displayed type and then iterate again to make sure we
+				      -- display the next one in line.
+				      local startLoop = 0
+				      local endLoop = 0
+				      local displayProf = 0
+
+				      addon:ClosePopups()
+
+				      -- ok, so first off, if we've never done this before, there is no "current"
+				      -- and a single iteration will do nicely, thank you
+				      if button == "LeftButton" then
+					      -- normal profession switch
+					      if current_tab == 0 then
+						      startLoop = 1
+						      endLoop = MaxCollections + 1
+					      else
+						      startLoop = current_tab + 1
+						      endLoop = current_tab
+					      end
+					      local index = startLoop
 	
-							       while index ~= endLoop do
-								       if index > MaxCollections then
-									       index = 1
-								       else
-									       displayProf = index
-									       current_tab = index
-									       break
-								       end
-							       end
-						       elseif button == "RightButton" then
-							       -- reverse profession switch
-							       if current_tab == 0 then
-								       startLoop = MaxCollections + 1
-								       endLoop = 0
-							       else
-								       startLoop = current_tab - 1
-								       endLoop = current_tab
-							       end
-							       local index = startLoop
+					      while index ~= endLoop do
+						      if index > MaxCollections then
+							      index = 1
+						      else
+							      displayProf = index
+							      current_tab = index
+							      break
+						      end
+					      end
+				      elseif button == "RightButton" then
+					      -- reverse profession switch
+					      if current_tab == 0 then
+						      startLoop = MaxCollections + 1
+						      endLoop = 0
+					      else
+						      startLoop = current_tab - 1
+						      endLoop = current_tab
+					      end
+					      local index = startLoop
 
-							       while index ~= endLoop do
-								       if index < 1 then
-									       index = MaxCollections
-								       else
-									       displayProf = index
-									       current_tab = index
-									       break
-								       end
-							       end
-						       end
-						       -- Redisplay the button with the new skill
-						       SetSwitcherTexture(SortedCollections[current_tab].texture)
-						       playerData.playerProfession = SortedCollections[current_tab].name
-						       current_tab_name = playerData.playerProfession
+					      while index ~= endLoop do
+						      if index < 1 then
+							      index = MaxCollections
+						      else
+							      displayProf = index
+							      current_tab = index
+							      break
+						      end
+					      end
+				      end
+				      -- Redisplay the button with the new skill
+				      self:ChangeTexture(SortedCollections[current_tab].texture)
+				      playerData.playerProfession = SortedCollections[current_tab].name
+				      current_tab_name = playerData.playerProfession
 
-						       ReDisplay(current_tab)
-						       addon.resetTitle()
-					       end)
+				      ReDisplay(current_tab)
+				      addon.resetTitle()
+			      end)
 
 	-------------------------------------------------------------------------------
 	-- Stuff in the non-expanded frame (or both)
