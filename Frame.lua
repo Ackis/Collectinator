@@ -2831,10 +2831,10 @@ local function InitializeFrame()
 			pbCur = playerData[known_str]
 			pbMax = playerData[total_str]
 		-- Progress bar removes all of the unknown filtered entries from the known/total counts
-		elseif addon.db.profile.includeknownfiltered
-			local knownfiltered = playerData[known_str] - playerData[known_filtered_str]
+		elseif addon.db.profile.includeknownfiltered then
+			local known_filtered = playerData[known_str] - playerData[known_filtered_str]
 			pbCur = playerData[known_str]
-			pbMax = playerData[total_filtered_str] + knownfiltered
+			pbMax = playerData[total_filtered_str] + known_filtered
 		-- Progress bar removes all of the filtered entries from the known/total counts
 		else
 			pbCur = playerData[known_filtered_str]
