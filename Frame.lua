@@ -2941,7 +2941,7 @@ local function InitializeFrame()
 	-- EXPANDED : buttons for opening/closing the flyaway
 	-------------------------------------------------------------------------------
 	Collectinator_ExpGeneralOptCB = addon:CreateExpCB("Collectinator_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
-	Collectinator_ExpGeneralOptCB:SetPoint("TOPRIGHT", Collectinator_FilterButton, "BOTTOMLEFT", -1, -50)
+	Collectinator_ExpGeneralOptCB:SetPoint("TOPRIGHT", filter_button, "BOTTOMLEFT", -1, -50)
 
 	Collectinator_ExpObtainOptCB = addon:CreateExpCB("Collectinator_ExpObtainOptCB", "Spell_Shadow_MindRot", 2)
 	Collectinator_ExpObtainOptCB:SetPoint("TOPLEFT", Collectinator_ExpGeneralOptCB, "BOTTOMLEFT", 0, -8)
