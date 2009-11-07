@@ -1494,8 +1494,6 @@ do
 
 			button:SetScript("OnMouseDown", button_OnMouseDown)
 			button:SetScript("OnMouseUp", button_OnMouseUp)
-			button:SetScript("OnEnter", SubControl_OnEnter)
-			button:SetScript("OnLeave", SubControl_OnLeave)
 
 			button.__Enable = button.Enable
 			button.__Disable = button.Disable
