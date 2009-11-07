@@ -3799,15 +3799,15 @@ function addon:DisplayFrame(
 	Collectinator_DD_Sort.initialize = Collectinator_DD_Sort_Initialize	-- Initialize dropdown
 
 	-- reset the scale
-	addon.Frame:SetScale(addon.db.profile.frameopts.uiscale)
+	self.Frame:SetScale(addon.db.profile.frameopts.uiscale)
 	CollectinatorSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 
 	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
 	Collectinator_ExpandButton:SetText(L["EXPANDALL"])
 	TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
 
-	addon.resetTitle()							-- Reset our addon title text
-	SetSwitcherTexture(SortedCollections[current_tab].texture)		-- Set the texture on our switcher button correctly
+	self.resetTitle()
+	self.Frame.mode_button:ChangeTexture(SortedCollections[current_tab].texture)
 
 	-- Sort the list
 	collectibleDB = self.data_table
