@@ -3040,6 +3040,9 @@ local function InitializeFrame()
 	addon.Fly_Obtain:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
 	addon.Fly_Obtain:Hide()
 
+	-------------------------------------------------------------------------------
+	-- Obtain flyaway - First column.
+	-------------------------------------------------------------------------------
 	local Collectinator_InstanceCB = CreateFrame("CheckButton", "Collectinator_InstanceCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_InstanceCB, addon.Fly_Obtain, L["INSTANCE_DESC"], "instance", 1, 1, 0)
 	Collectinator_InstanceCBText:SetText(L["Instance"])
@@ -3104,8 +3107,11 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_BCCB, addon.Fly_Obtain, L["BC_WOW_DESC"], "bc", 16, 1, 0)
 	Collectinator_BCCBText:SetText(L["Burning Crusade"])
 
+	-------------------------------------------------------------------------------
+	-- Obtain flyaway - Second column.
+	-------------------------------------------------------------------------------
 	local Collectinator_WrathCB = CreateFrame("CheckButton", "Collectinator_WrathCB", addon.Fly_Obtain, "UICheckButtonTemplate")
-	addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], "wrath", 17, 1, 0)
+	addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], "wrath", 1, 2, 0)
 	Collectinator_WrathCBText:SetText(L["Lich King"])
 
 	-------------------------------------------------------------------------------
