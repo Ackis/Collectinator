@@ -1467,11 +1467,11 @@ do
 		button:SetHeight(bHeight)
 
 		if (noTextures == 1) then
-			local left = button:CreateTexture(button:GetName() .. "_LeftTexture", "BACKGROUND")
+			local left = button:CreateTexture(nil, "BACKGROUND")
 			button.left = left
-			local middle = button:CreateTexture(button:GetName() .. "_MiddleTexture", "BACKGROUND")
+			local middle = button:CreateTexture(nil, "BACKGROUND")
 			button.middle = middle
-			local right = button:CreateTexture(button:GetName() .. "_RightTexture", "BACKGROUND")
+			local right = button:CreateTexture(nil, "BACKGROUND")
 			button.right = right
 
 			left:SetTexture([[Interface\Buttons\UI-Panel-Button-Up]])
@@ -1500,7 +1500,7 @@ do
 			button.Enable = button_Enable
 			button.Disable = button_Disable
 
-			local highlight = button:CreateTexture(button:GetName() .. "_Highlight", "OVERLAY", "UIPanelButtonHighlightTexture")
+			local highlight = button:CreateTexture(nil, "OVERLAY", "UIPanelButtonHighlightTexture")
 			button:SetHighlightTexture(highlight)
 		elseif (noTextures == 2) then
 			button:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
@@ -1514,7 +1514,7 @@ do
 			button:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disable")
 		end
 
-		local text = button:CreateFontString(button:GetName() .. "_FontString", "ARTWORK")
+		local text = button:CreateFontString(nil, "ARTWORK")
 		button:SetFontString(text)
 		button.text = text
 		text:SetPoint("LEFT", button, "LEFT", 7, 0)
