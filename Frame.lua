@@ -415,87 +415,89 @@ do
 		return display
 
 	end
+	local maplist = {}
 
 	--- Adds mini-map and world map icons with tomtom.
 	-- Expected result: Icons are added to the world map and mini-map.
 	-- Input: An optional collectible ID
 	-- Output: Points are added to the maps
 	function addon:SetupMap(single_collectible)
-		if (not TomTom) then
+		if not TomTom then
 			--@debug@
 			self:Print("TomTom not loaded, integration with the world map and mini-map disabled.")
 			--@end-debug@
 			return
 		end
-
 		local worldmap = addon.db.profile.worldmap
 		local minimap = addon.db.profile.minimap
-		local filters = addon.db.profile.filters
+
+		if not (worldmap or minimap) then
+			return
+		end
 		local autoscanmap = addon.db.profile.autoscanmap
+		local filters = addon.db.profile.filters
 
-		if worldmap or minimap then
-			local maplist = {}
+		twipe(maplist)
 
-			-- We're only getting a single collectible, not a bunch
-			if single_collectible then
-				-- loop through acquire methods, display each
-				for k, v in pairs(collectibleDB[single_collectible]["Acquire"]) do
-					if CheckMapDisplay(v, filters) then
-						maplist[v["ID"]] = v["Type"]
-					end
+		-- We're only getting a single collectible, not a bunch
+		if single_collectible then
+			-- loop through acquire methods, display each
+			for k, v in pairs(collectibleDB[single_collectible]["Acquire"]) do
+				if CheckMapDisplay(v, filters) then
+					maplist[v["ID"]] = v["Type"]
 				end
-			elseif autoscanmap then
-				-- Scan through all collectibles to display, and add the vendors to a list to get their acquire info
-				for i = 1, #sortedCollectibleIndex do
-					local collectibleIndex = sortedCollectibleIndex[i]
+			end
+		elseif autoscanmap then
+			-- Scan through all collectibles to display, and add the vendors to a list to get their acquire info
+			for i = 1, #sortedCollectibleIndex do
+				local collectibleIndex = sortedCollectibleIndex[i]
 
-					if collectibleDB[collectibleIndex]["Display"] and collectibleDB[collectibleIndex]["Search"] then
-						-- loop through acquire methods, display each
-						for k, v in pairs(collectibleDB[collectibleIndex]["Acquire"]) do
-							if CheckMapDisplay(v, filters) then
-								maplist[v["ID"]] = v["Type"]
-							end
+				if collectibleDB[collectibleIndex]["Display"] and collectibleDB[collectibleIndex]["Search"] then
+					-- loop through acquire methods, display each
+					for k, v in pairs(collectibleDB[collectibleIndex]["Acquire"]) do
+						if CheckMapDisplay(v, filters) then
+							maplist[v["ID"]] = v["Type"]
 						end
 					end
 				end
 			end
-
-			for k, j in pairs(maplist) do
-				local continent, zone
-				local loc = nil
-
-				if (maplist[k] == 2) then
-					loc = vendorDB[k]
-				elseif (maplist[k] == 3) then
-					loc = mobDB[k]
-				elseif (maplist[k] == 4) then
-					loc = questDB[k]
-				end
-
-				if (c1[loc["Location"]]) then
-					continent = 1
-					zone = c1[loc["Location"]]
-				elseif (c2[loc["Location"]]) then
-					continent = 2
-					zone = c2[loc["Location"]]
-				elseif (c3[loc["Location"]]) then
-					continent = 3
-					zone = c3[loc["Location"]]
-				elseif (c4[loc["Location"]]) then
-					continent = 4
-					zone = c4[loc["Location"]]
-				else
-					--@debug@
-					addon:Print("DEBUG: No continent/zone map match for ID " .. k .. ".")
-					--@end-debug@
-				end
-		
-				if ((zone) and (continent)) then
-					local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
-					tinsert(iconlist, iconuid)
-				end
-			end
 		end
+
+		for k, j in pairs(maplist) do
+			local continent, zone
+			local loc = nil
+
+			if maplist[k] == A_VENDOR then
+				loc = vendorDB[k]
+			elseif maplist[k] == A_MOB then
+				loc = mobDB[k]
+			elseif maplist[k] == A_QUEST then
+				loc = questDB[k]
+			end
+
+			if c1[loc["Location"]] then
+				continent = 1
+				zone = c1[loc["Location"]]
+			elseif c2[loc["Location"]] then
+				continent = 2
+				zone = c2[loc["Location"]]
+			elseif c3[loc["Location"]] then
+				continent = 3
+				zone = c3[loc["Location"]]
+			elseif c4[loc["Location"]] then
+				continent = 4
+				zone = c4[loc["Location"]]
+			else
+				--@debug@
+				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. ".")
+				--@end-debug@
+			end
+
+			if zone and continent then
+				local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
+				tinsert(iconlist, iconuid)
+			end
+		end	-- for
 	end
 end	-- do
 
