@@ -41,7 +41,7 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 22, "UNUSED")
 	self:addLookupList(DB, 23, "Original Epic Mount")
 	self:addLookupList(DB, 24, "Promotional pet: Mountain Dew Game Fuel (Summer 2009).")
-	self:addLookupList(DB, 25, "Fishing in pools Northrend")
+	self:addLookupList(DB, 25, "UNUSED")
 	self:addLookupList(DB, 26, "5th Year Anniversary")	-- Onyxian Whelp
 	self:addLookupList(DB, 27, "Mob Drop is Horde-only.")	-- Sprite Darter Hatchling
 	self:addLookupList(DB, 28, "Promotional pet: WoW/Battle.net Account Merger.")
