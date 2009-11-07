@@ -2210,14 +2210,14 @@ function addon.DoFlyaway(panel)
 	if ChangeFilters then
 		-- Depending on which panel we're showing, either display one column
 		-- or two column
-		if ((panel == 3) or (panel == 4) or (panel == 6)) then
+		if ((panel == 2) or (panel == 3) or (panel == 4) or (panel == 6)) then
 			addon.flyTexture:ClearAllPoints()
 			addon.Flyaway:SetWidth(234)
 			addon.Flyaway:SetHeight(312)
 			addon.flyTexture:SetTexture([[Interface\Addons\Collectinator\img\fly_2col]])
 			addon.flyTexture:SetAllPoints(addon.Flyaway)
 			addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
-		elseif ((panel == 1) or (panel == 2) or (panel == 5)) then
+		elseif ((panel == 1) or (panel == 5)) then
 			addon.flyTexture:ClearAllPoints()
 			addon.Flyaway:SetWidth(155)
 			addon.Flyaway:SetHeight(312)
