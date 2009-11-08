@@ -637,7 +637,7 @@ local function SetSpellTooltip(owner, loc, link)
 	CollectinatorSpellTooltip:Show()
 end
 
-local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
+local function GenerateTooltipContent(owner, rIndex)
 	local spell_tip_loc = addon.db.profile.spelltooltiplocation
 	local acquire_tip_loc = addon.db.profile.acquiretooltiplocation
 	local companion = collectibleDB[rIndex]
@@ -691,6 +691,8 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	CollectinatorTooltip:SetCell(2, 1, hex..companion["Name"], "CENTER", 2)
 
 	-- check if the collectible is excluded
+	local exclude = addon.db.profile.exclusionlist
+
 	if exclude[rIndex] then
 		ttAdd(0, -1, 1, L["COLLECTIBLE_EXCLUDED"], addon:hexcolor("RED"))
 	end
@@ -717,7 +719,7 @@ local function GenerateTooltipContent(owner, rIndex, playerFaction, exclude)
 	CollectinatorTooltip:AddSeparator()
 	ttAdd(0, -1, 0, L["Obtained From"] .. " : ", addon:hexcolor("NORMAL"))
 
-	local factiondisp = addon.db.profile.filters.general.faction
+	local playerFaction = playerData.playerFaction
 	local acquire_type
 
 	for k, v in pairs(companion["Acquire"]) do
@@ -1043,7 +1045,7 @@ do
 		highlight:SetParent(self)
 		highlight:SetAllPoints(self)
 		highlight:Show()
-		GenerateTooltipContent(self, DisplayStrings[self.sI].sID, playerData.playerFaction, addon.db.profile.exclusionlist)
+		GenerateTooltipContent(self, DisplayStrings[self.sI].sID)
 	end
 
 	local function Bar_OnLeave()
@@ -1062,7 +1064,7 @@ do
 
 		pButton:SetScript("OnEnter",
 				  function(pButton)
-					  GenerateTooltipContent(pButton, rIndex, playerData.playerFaction, addon.db.profile.exclusionlist)
+					  GenerateTooltipContent(pButton, rIndex)
 				  end)
 		pButton:SetScript("OnLeave", Button_OnLeave)
 
