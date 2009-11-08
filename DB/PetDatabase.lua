@@ -245,7 +245,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Pint-Sized Pink Elekk - 44369
 	AddPet(44369, 46707, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 44369, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP)
-	self:AddCompanionAcquire(PetDB, 44369, A_SEASONAL, 6)
+	self:AddCompanionAcquire(PetDB, 44369, A_SEASONAL, 6, A_VENDOR, 23710, A_VENDOR, 24495, A_VENDOR, 27478, A_VENDOR, 27489)
 
 --DROP
 	-- Parrot Cage (Hyacinth Macaw) - 10682
