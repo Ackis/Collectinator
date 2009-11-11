@@ -797,7 +797,7 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 17453, A_VENDOR, 7955)
 
 	-- Unpainted Mechanostrider - 17454
-	AddMount(17454, 13322, R_EPIC, GAME_ORIG)
+	AddMount(17454, 13322, R_RARE, GAME_ORIG)
 	AddMountFlags(17454, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 17454, A_VENDOR, 7955)
 
