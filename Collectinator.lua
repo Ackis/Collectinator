@@ -296,10 +296,16 @@ function addon:OnInitialize()
 					-- Alt only (Wipe icons from map)
 					elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 						addon:ClearMap()
-					-- If we have the same profession open, then we close the scanned window
+					-- If we are just clicking do the scan, unless the frame is open then we close the window
 					elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						addon:Scan(false, false, companion_frame:IsVisible() and companion_frame.mode or "CRITTER")
-						self:SetupMap()
+						-- Window is visible and created
+						if Collectinator.Frame and Collectinator.Frame:IsVisible() then
+							self:CloseWindow()
+						-- Window is hidden
+						else
+							addon:Scan(false, false, companion_frame:IsVisible() and companion_frame.mode or "CRITTER")
+							self:SetupMap()
+						end
 					end
 				  end)
 
