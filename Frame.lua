@@ -165,7 +165,7 @@ local Collectinator_RepOldWorldCB, Collectinator_RepBCCB, Collectinator_RepLKCB,
 
 -- To make tabbing between collections easier 
 local SortedCollections = { 
-	{ name = "CRITTER", 		texture = "minipets" }, 	-- 1
+	{ name = "CRITTER", 	texture = "minipets" }, -- 1
 	{ name = "MOUNT", 		texture = "mounts" }, 	-- 2
 } 
 local MaxCollections = 2
@@ -177,15 +177,15 @@ local ExpButtonText = {
 	L["General"], 		-- 1
 	L["Obtain"], 		-- 2
 	L["Binding"], 		-- 3
-	L["Item"], 		-- 4
+	L["Item"], 			-- 4
 	L["Reputation"], 	-- 5
-	L["Misc"]		-- 6
+	L["Misc"]			-- 6
 }
 
 local ExpButtonTT = {
-	L["FILTERING_GENERAL_DESC"],		-- 1
+	L["FILTERING_GENERAL_DESC"],	-- 1
 	L["FILTERING_OBTAIN_DESC"],		-- 2
-	L["FILTERING_BINDING_DESC"],	 	-- 3
+	L["FILTERING_BINDING_DESC"],	-- 3
 	L["FILTERING_ITEM_DESC"], 		-- 4
 	L["FILTERING_REP_DESC"], 		-- 5
 	L["FILTERING_MISC_DESC"]		-- 6
