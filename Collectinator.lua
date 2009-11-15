@@ -652,12 +652,11 @@ do
 				["Type"] = acquire_type,
 				["ID"] = acquire_id
 			}
+			local location
 
 			if not acquire_type then
 				self:Print("SpellID: "..SpellID.." has no acquire type.")
-			end
-
-			if acquire_type == A_CRAFTED then
+			elseif acquire_type == A_CRAFTED then
 				local craft_spell = select(i, ...)
 				i = i + 1
 
@@ -755,6 +754,13 @@ do
 					self:Print("SpellID "..SpellID..": Reputation VendorID "..RepVendor.." does not exist in the database.")
 				end
 				--@end-alpha@
+			elseif acquire_type == A_WORLD_DROP then
+				location = L["World Drop"]
+
+				if not location_checklist[location] then
+					tinsert(location_list, location)
+					location_checklist[location] = true
+				end
 			end
 			index = index + 1
 		end
