@@ -166,7 +166,7 @@ local Collectinator_RepOldWorldCB, Collectinator_RepBCCB, Collectinator_RepLKCB,
 -- To make tabbing between collections easier 
 local SortedCollections = { 
 	{ name = "CRITTER", 	texture = "minipets" }, -- 1
-	{ name = "MOUNT", 		texture = "mounts" }, 	-- 2
+	{ name = "MOUNT", 	texture = "mounts" }, 	-- 2
 } 
 local MaxCollections = 2
 
@@ -177,18 +177,18 @@ local ExpButtonText = {
 	L["General"], 		-- 1
 	L["Obtain"], 		-- 2
 	L["Binding"], 		-- 3
-	L["Item"], 			-- 4
+	L["Item"], 		-- 4
 	L["Reputation"], 	-- 5
-	L["Misc"]			-- 6
+	L["Misc"]		-- 6
 }
 
 local ExpButtonTT = {
 	L["FILTERING_GENERAL_DESC"],	-- 1
-	L["FILTERING_OBTAIN_DESC"],		-- 2
+	L["FILTERING_OBTAIN_DESC"],	-- 2
 	L["FILTERING_BINDING_DESC"],	-- 3
-	L["FILTERING_ITEM_DESC"], 		-- 4
-	L["FILTERING_REP_DESC"], 		-- 5
-	L["FILTERING_MISC_DESC"]		-- 6
+	L["FILTERING_ITEM_DESC"], 	-- 4
+	L["FILTERING_REP_DESC"], 	-- 5
+	L["FILTERING_MISC_DESC"]	-- 6
 }
 
 -------------------------------------------------------------------------------
@@ -296,12 +296,14 @@ do
 	local REP_THRALLMAR	= 947
 	local REP_KURENI	= 978
 
-	------------------------------------------------------------------------------
-	-- Description: Function to determine if the player has an appropiate level of faction.
-	-- Expected result: A boolean value determing if the player can learn the collectible based on faction
-	-- Input: The database, the index of the collectible, the players faction and reputation levels
-	-- Output: A boolean indicating if they can learn the collectible or not
-	------------------------------------------------------------------------------
+	---Function to determine if the player has an appropiate level of faction.
+	-- @name checkFactions
+	-- @usage checkFactions:(DB, collectibleIndex, playerFaction, playerRep)
+	-- @param DB Database which we are checking against
+	-- @param collectibleIndex Which type of collection we are scanning
+	-- @param playerFaction Which faction the player doing the scan is.
+	-- @param playerRep Table containing all of the players reputations.
+	-- @return A boolean indicating if they can learn the collectible or not
 	function checkFactions(DB, collectibleIndex, playerFaction, playerRep)
 		local fac = true
 		local acquire = DB[collectibleIndex]["Acquire"]
@@ -381,10 +383,8 @@ do
 
 	local iconlist = {}
 
-	-- Description: Clears all the icons from the map.
-	-- Expected result: All icons are removed from the world map and the mini-map
-	-- Input: None
-	-- Output: All icons are removed.
+	--- Clears all the icons from the map.
+	-- @return All icons are removed.
 
 	function addon:ClearMap()
 		-- Make sure we have TomTom installed
@@ -397,6 +397,7 @@ do
 			iconlist = twipe(iconlist)
 		end
 	end
+
 	--- Determine if we should display the acquire method on the maps.
 	-- @return Boolean value, true for vendor, reps and quest if the faction is the same, and true for mobs.
 	local function CheckMapDisplay(v, filters)
@@ -413,14 +414,13 @@ do
 		end
 
 		return display
-
 	end
+
 	local maplist = {}
 
 	--- Adds mini-map and world map icons with tomtom.
-	-- Expected result: Icons are added to the world map and mini-map.
-	-- Input: An optional collectible ID
-	-- Output: Points are added to the maps
+	-- @param single_collectible An optional collectible ID
+	-- @return Points are added to the maps
 	function addon:SetupMap(single_collectible)
 		if not TomTom then
 			--@debug@
@@ -2355,7 +2355,7 @@ end
 -- Description: Saves the frame position into the database 
 -- Expected result: Frame coordinates are saved
 -- Input: None
--- Output: Database values updated with frame position
+-- @return Database values updated with frame position
 
 local function SaveFramePosition()
 
