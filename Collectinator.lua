@@ -81,7 +81,6 @@ local QuestList = {}
 local ReputationList = {}
 local SeasonalList = {}
 local VendorList = {}
-local RepFilters = {}		-- These are assigned during a scan, not in InitDatabases()
 
 ------------------------------------------------------------------------------
 --- Data which is stored regarding a player's statistics
@@ -1176,77 +1175,6 @@ do
 	end
 end
 
--- Creates an array of which factions we want to include in our display and which ones to ignore
-local function PopulateRepFilters(RepTable)
-
-	local repfilters = addon.db.profile.filters.rep
-
-	RepTable[BFAC["The Scryers"]] = repfilters.scryer
-	RepTable[BFAC["The Aldor"]] = repfilters.aldor
-	RepTable[BFAC["Argent Dawn"]] = repfilters.argentdawn
-	RepTable[BFAC["Ashtongue Deathsworn"]] = repfilters.ashtonguedeathsworn
-	RepTable[BFAC["Bloodsail Buccaneers"]] = repfilters.bloodsail
-	RepTable[BFAC["Cenarion Circle"]] = repfilters.cenarioncircle
-	RepTable[BFAC["Cenarion Expedition"]] = repfilters.cenarionexpedition
-	RepTable[BFAC["The Consortium"]] = repfilters.consortium
-	RepTable[BFAC["Keepers of Time"]] = repfilters.keepersoftime
-	RepTable[BFAC["Lower City"]] = repfilters.lowercity
-	RepTable[BFAC["Netherwing"]] = repfilters.netherwing
-	RepTable[BFAC["The Scale of the Sands"]] = repfilters.scaleofthesands
-	RepTable[BFAC["The Sha'tar"]] = repfilters.shatar
-	RepTable[BFAC["Shattered Sun Offensive"]] = repfilters.shatteredsun
-	RepTable[BFAC["Sha'tari Skyguard"]] = repfilters.skyguard
-	RepTable[BFAC["Sporeggar"]] = repfilters.sporeggar
-	RepTable[BFAC["Thorium Brotherhood"]] = repfilters.thoriumbrotherhood
-	RepTable[BFAC["Timbermaw Hold"]] = repfilters.timbermaw
-	RepTable[BFAC["The Violet Eye"]] = repfilters.violeteye
-	RepTable[BFAC["Zandalar Tribe"]] = repfilters.zandalar
-	RepTable[BFAC["Argent Crusade"]] = repfilters.argentcrusade
-	RepTable[BFAC["Frenzyheart Tribe"]] = repfilters.frenzyheart
-	RepTable[BFAC["Knights of the Ebon Blade"]] = repfilters.ebonblade
-	RepTable[BFAC["Kirin Tor"]] = repfilters.kirintor
-	RepTable[BFAC["The Sons of Hodir"]] = repfilters.sonsofhodir
-	RepTable[BFAC["The Kalu'ak"]] = repfilters.kaluak
-	RepTable[BFAC["The Oracles"]] = repfilters.oracles
-	RepTable[BFAC["The Wyrmrest Accord"]] = repfilters.wyrmrest
-	RepTable[BFAC["The Ashen Verdict"]] = repfilters.ashenverdict
-
-	RepTable[BFAC["Darnassus"]] = repfilters.city1
-	RepTable[BFAC["Stormwind"]] = repfilters.city2
-	RepTable[BFAC["Gnomeregan Exiles"]] = repfilters.city3
-	RepTable[BFAC["Ironforge"]] = repfilters.city4
-	RepTable[BFAC["Exodar"]] = repfilters.city5
-	RepTable[BFAC["Darkspear Trolls"]] = repfilters.city1
-	RepTable[BFAC["Orgrimmar"]] = repfilters.city2
-	RepTable[BFAC["Thunder Bluff"]] = repfilters.city3
-	RepTable[BFAC["Undercity"]] = repfilters.city4
-	RepTable[BFAC["Silvermoon City"]] = repfilters.city5
-
-	RepTable[BFAC["Silverwing Sentinels"]] = repfilters.pvp1
-	RepTable[BFAC["Stormpike Guard"]] = repfilters.pvp2
-	RepTable[BFAC["The League of Arathor"]] = repfilters.pvp3
-	RepTable[BFAC["Warsong Outriders"]] = repfilters.pvp1
-	RepTable[BFAC["Frostwolf Clan"]] = repfilters.pvp2
-	RepTable[BFAC["The Defilers"]] = repfilters.pvp3
-
-	RepTable[BFAC["Honor Hold"]] = repfilters.hellfire
-	RepTable[BFAC["Thrallmar"]] = repfilters.hellfire
-	RepTable[BFAC["Kurenai"]] = repfilters.nagrand
-	RepTable[BFAC["The Mag'har"]] = repfilters.nagrand
-
-	RepTable[BFAC["Alliance Vanguard"]] = repfilters.wrathcommon1
-	RepTable[BFAC["Horde Expedition"]] = repfilters.wrathcommon1
-	RepTable[BFAC["The Silver Covenant"]] = repfilters.wrathcommon2
-	RepTable[BFAC["The Sunreavers"]] = repfilters.wrathcommon2
-	RepTable[BFAC["Valiance Expedition"]] = repfilters.wrathcommon3
-	RepTable[BFAC["Warsong Offensive"]] = repfilters.wrathcommon3
-	RepTable[BFAC["The Taunka"]] = repfilters.wrathcommon4
-	RepTable[BFAC["The Frostborn"]] = repfilters.wrathcommon4
-	RepTable[BFAC["Explorers' League"]] = repfilters.wrathcommon5
-	RepTable[BFAC["The Hand of Vengeance"]] = repfilters.wrathcommon5
-
-end
-
 -- Scans the item listing and updates the filters according to user preferences
 function addon:UpdateFilters(DB, playerData, scantype)
 	local playerFaction = playerData.playerFaction
@@ -1357,8 +1285,6 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 	end
 
 	if not autoupdatescan and scantype then
-		PopulateRepFilters(RepFilters)	-- Update the table containing which reps to display
-
 		local filter_type = (scantype == "pets" and "CRITTER" or scantype)
 		self:UpdateFilters(CompanionDB, playerData, filter_type)	-- Add filtering flags to the items
 
