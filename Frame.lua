@@ -1219,41 +1219,53 @@ do
 
 	function SortDatabase(DB)
 		if not sortFuncs then
-			sortFuncs = {}
+			sortFuncs = {
+				["Name"]	= function(a, b)
+							  return DB[a]["Name"] < DB[b]["Name"]
+						  end,
 
-			sortFuncs["Name"] = function(a, b)
-				return DB[a]["Name"] < DB[b]["Name"]
-			end
+				-- Will only sort based off of the first acquire type
+				["Acquisition"]	= function (a, b)
+							  local reca = DB[a]["Acquire"][1]
+							  local recb = DB[b]["Acquire"][1]
 
-			-- Will only sort based off of the first acquire type
-			sortFuncs["Acquisition"] = function (a, b)
-				local reca = DB[a]["Acquire"][1]
-				local recb = DB[b]["Acquire"][1]
-				if (reca and recb) then
-					if (reca["Type"] == recb["Type"]) then
-						return DB[a]["Name"] < DB[b]["Name"]
-					else
-						return reca["Type"] < recb["Type"]
-					end
-				else
-					return not not reca
-				end
-			end
+							  if not reca or not recb then
+								  return not not reca
+							  end
 
-			-- Will only sort based off of the first acquire type
-			sortFuncs["Location"] = function (a, b)
-				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
-				local reca = DB[a]["Locations"] or ""
-				local recb = DB[b]["Locations"] or ""
-				reca = string.match(reca,"(%w+),") or ""
-				recb = string.match(recb,"(%w+),") or ""
+							  if reca["Type"] ~= recb["Type"] then
+								  return reca["Type"] < recb["Type"]
+							  end
 
-				if reca == recb then
-					return DB[a]["Name"] < DB[b]["Name"]
-				else
-					return (reca < recb)
-				end
-			end
+							  if reca["Type"] == A_CUSTOM then
+								  -- Sort on name if they're the same custom ID
+								  if reca["ID"] == recb["ID"] then
+									  return DB[a]["Name"] < DB[b]["Name"]
+								  else
+									  return reca["ID"] < recb["ID"]
+								  end
+							  else
+								  return DB[a]["Name"] < DB[b]["Name"]
+							  end
+						  end,
+
+				-- Will only sort based off of the first acquire type
+				["Location"]	= function (a, b)
+							  -- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
+							  local reca = DB[a]["Locations"] or ""
+							  local recb = DB[b]["Locations"] or ""
+
+							  local reca = string.match(reca,"(%w+), ") or reca
+							  local recb = string.match(recb,"(%w+), ") or recb
+
+							  if reca == recb then
+								  return sortFuncs["Acquisition"](a, b)
+--								  return DB[a]["Name"] < DB[b]["Name"]
+							  else
+								  return reca < recb
+							  end
+						  end,
+			}
 		end
 		twipe(SortedIndex)
 
