@@ -1376,28 +1376,6 @@ end
 -------------------------------------------------------------------------------
 -- Searching Functions
 -------------------------------------------------------------------------------
-
--- Scans through the item database and toggles the flag on if the item is in the search criteria
-function addon:SearchDB(DB, searchstring)
-	if not searchstring then
-		return
-	end
-	searchstring = strlower(searchstring)
-
-	for SpellID in pairs(DB) do
-		local item = DB[SpellID]
-		item["Search"] = false
-
-		if (sfind(strlower(SpellID), searchstring)
-		    or (item["ItemID"] and sfind(strlower(item["ItemID"]), searchstring))
-			    or (item["Name"] and sfind(strlower(item["Name"]), searchstring))
-			    or (item["Locations"] and sfind(item["Locations"], searchstring))
-			    or (item["Rarity"] and sfind(item["Rarity"], searchstring))) then
-			item["Search"] = true
-		end
-	end
-end
-
 -- Goes through the item database and resets all the search flags
 function addon:ResetSearch(DB)
 	for SpellID in pairs(DB) do

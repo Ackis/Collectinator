@@ -2687,6 +2687,39 @@ local function InitializeFrame()
 								     "GameFontHighlightSmall", L["EXPANDALL"], "CENTER", L["EXPANDALL_DESC"], 1)
 	Collectinator_ExpandButton:SetScript("OnClick", addon.ExpandAll_Clicked)
 
+	local SearchCollectibles
+	do
+		local search_params = {
+			["ItemID"]	= true,
+			["Name"]	= true,
+			["Locations"]	= true,
+			["Rarity"]	= true,
+			["Type"]	= true,
+		}
+
+		-- Scans through the item database and toggles the flag on if the item is in the search criteria
+		function SearchCollectibles(pattern)
+			if not pattern then
+				return
+			end
+			pattern = pattern:lower()
+
+			for index in pairs(collectibleDB) do
+				local entry = collectibleDB[index]
+				entry["Search"] = false
+
+				for field in pairs(search_params) do
+					local str = entry[field] and tostring(entry[field]):lower() or nil
+
+					if str and str:find(pattern) then
+						entry["Search"] = true
+						break
+					end
+				end
+			end
+		end
+	end	-- do
+
 	local Collectinator_SearchButton = addon:GenericCreateButton("Collectinator_SearchButton", addon.Frame, 
 								     25, 74, "TOPLEFT", Collectinator_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall", 
 								     "GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
@@ -2699,7 +2732,7 @@ local function InitializeFrame()
 						     if (searchtext ~= "") then
 							     Collectinator_LastSearchedText = searchtext
 
-							     addon:SearchDB(collectibleDB, searchtext)
+							     SearchCollectibles(searchtext)
 							     initDisplayStrings()
 							     CollectibleList_Update()
 
@@ -2746,7 +2779,7 @@ local function InitializeFrame()
 						   if (searchtext ~= "") and (searchtext ~= L["SEARCH_BOX_DESC"]) then
 							   Collectinator_LastSearchedText = searchtext
 
-							   addon:SearchDB(collectibleDB, searchtext)
+							   SearchCollectibles(searchtext)
 							   initDisplayStrings()
 							   CollectibleList_Update()
 
