@@ -4,7 +4,7 @@ Provides methods for determining which mini-pets and mounts you are missing.
 ==Where to get it
 * [[http://www.wowace.com/projects/collectinator/files/|WoW Ace]] - Alpha Quality
 * [[http://wow.curse.com/downloads/wow-addons/details/collectinator.aspx|Curse]] - Stable release
-* [[http://www.wowinterface.com/downloads/info8512-AckisRecipeList.html|WoWInterface]] - Not yet released there, link goes to ARL. :D
+* [[http://www.wowinterface.com/downloads/info15154-Collectinator.html|WoWInterface]] - Stable release
 
 ==Donations
 Ackis has setup a donation site via [[http://www.pledgie.com/campaigns/3462|Pledgie]].  Feel free to donate if you like this AddOn.  We have put countless hours of time and effort into it along with many people who have helped us.  We did not write this AddOn with the intent to make any money from it.  It was written to help us (and others) with some needs that we saw in-game, and with our goal to make it filled with information it's become a massive project.

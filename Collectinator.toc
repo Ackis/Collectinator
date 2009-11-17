@@ -7,7 +7,7 @@
 ## X-Donate: http://www.wowace.com/projects/collectinator/#w_donations
 
 ## Interface: 30200
-## Version: Alpha 5
+## Version: Beta 1
 ## X-Revision: @project-version@
 ## X-Date: @file-date-iso@
 
