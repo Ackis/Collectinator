@@ -701,9 +701,9 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 63318, A_ACHIEVEMENT, 3618, A_CUSTOM, 21)
 
 	-- Onyxian Whelpling - 69002
-	AddPet(69002, nil, R_EPIC, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 69002, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOA)
-	self:AddCompanionAcquire(PetDB, 69002, A_CUSTOM, 26)
+	AddPet(69002, 49362, R_COMMON, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 69002, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SPEC_EVENT, F_BOA)
+	self:AddCompanionAcquire(PetDB, 69002, A_ACHIEVEMENT, 4400)
 
 	-- Mr. Chilly - 55068
 	AddPet(55068, 41133, R_RARE, GAME_WOTLK)
