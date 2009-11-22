@@ -692,7 +692,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Baby Blizzard Bear - 61855
 	AddPet(61855, 44819, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61855, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
+	self:AddCompanionFlags(PetDB, 61855, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_ACHIEVEMENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 61855, A_ACHIEVEMENT, 2398)
 
 	-- Murkimus' Little Spear - 63318
