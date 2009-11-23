@@ -429,7 +429,7 @@ local function giveMap()
 				worldmap = {
 					order	= 3,
 					type	= "toggle",
-					name	= L["World Map"],
+					name	= _G.WORLD_MAP,
 					desc	= L["WORLDMAP_DESC"],
 					disabled = tomtomsupport,
 					get		= function() return addon.db.profile.worldmap end,
