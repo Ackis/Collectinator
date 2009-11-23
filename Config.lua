@@ -303,7 +303,7 @@ local function giveDisplay()
 				uiscale = {
 					order	= 3,
 					type	= "range",
-					name	= L["UI Scale"],
+					name	= _G.UI_SCALE,
 					desc	= L["UI_SCALE_DESC"],
 					min	= .5,
 					max	= 1.5,
