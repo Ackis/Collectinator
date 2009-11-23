@@ -476,7 +476,7 @@ function addon:SetupOptions()
 
 	-- Fill up our modular options...
 	self:RegisterModuleOptions("Display", giveDisplay(), L["Display Options"])
-	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
+	self:RegisterModuleOptions("Documentation", giveDocs(), L["Collectinator Documentation"])
 	self:RegisterModuleOptions("Map", giveMap(), L["Map Options"])
 	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
 
