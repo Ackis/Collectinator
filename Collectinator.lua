@@ -281,6 +281,11 @@ function addon:OnInitialize()
 	local button = CreateFrame("Button", "Collectinator_ScanButton", PetPaperDollFrameCompanionFrame, "UIPanelButtonTemplate")
 	self.ScanButton = button
 
+	-- Add to PetList+
+	if PetListPlus then
+		button:SetParent(PetListPlusFrame)
+		button:Show()
+	end
 	button:SetHeight(20)
 	button:RegisterForClicks("LeftButtonUp")
 	button:SetScript("OnClick",

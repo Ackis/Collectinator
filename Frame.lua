@@ -2889,7 +2889,6 @@ local function InitializeFrame()
 			pbCur = pbCur - playerData["unknown_exclude_str"]
 			pbMax = pbMax - playerData["known_exclude_str"]
 		end
-
 		self:SetMinMaxValues(0, pbMax)
 		self:SetValue(pbCur)
 
@@ -3832,7 +3831,7 @@ function addon:DisplayFrame(
 	end
 	local companion_frame = PetPaperDollFrameCompanionFrame
 
-	if companion_frame:IsVisible() then
+	if (PetListPlus and PetListPlusFrame:IsVisible()) or companion_frame:IsVisible() then
 		current_tab = INDEX_TYPE[companion_frame.mode] or 0
 	end
 
