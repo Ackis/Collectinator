@@ -219,7 +219,7 @@ L["Tooltip Options"] = true
 L["Tooltip Scale"] = true
 L["TOOLTIP_OPTIONS_DESC"] = "Allows you to specify how the tooltips behave.  The acquire tooltip lists the different information on how to acquire the collectible, whereas the spell tooltip lists the collectible information itself."
 L["TOOLTIP_SCALE_DESC"] = "Changes the scale of the tooltip. Ranges from .5 to 1.5 (.9 is default)"
-L["Top"]
+L["Top"] = true
 L["UI_SCALE_DESC"] = "Changes the scale of the UI. Ranges from .5 to 1.5 (1 is default)"
 L["Unavailable"] = true
 L["Unhandled Collectible"] = true
