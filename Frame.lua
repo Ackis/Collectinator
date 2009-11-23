@@ -2734,7 +2734,7 @@ local function InitializeFrame()
 
 	local Collectinator_SearchButton = addon:GenericCreateButton("Collectinator_SearchButton", addon.Frame, 
 								     25, 74, "TOPLEFT", Collectinator_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall", 
-								     "GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
+								     "GameFontHighlightSmall", _G.SEARCH, "CENTER", L["SEARCH_DESC"], 1)
 	Collectinator_SearchButton:Disable()
 	Collectinator_SearchButton:SetScript("OnClick", 
 					     function(this)
@@ -2835,7 +2835,7 @@ local function InitializeFrame()
 
 	local Collectinator_CloseButton = addon:GenericCreateButton("Collectinator_CloseButton", addon.Frame, 
 								    22, 69, "BOTTOMRIGHT", addon.Frame, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall", 
-								    "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
+								    "GameFontHighlightSmall", _G.CLOSE, "CENTER", L["CLOSE_DESC"], 1)
 	-- Close all possible pop-up windows
 	Collectinator_CloseButton:SetScript("OnClick", function(self) addon:CloseWindow() end)
 
@@ -2962,7 +2962,7 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	local Collectinator_ResetButton = addon:GenericCreateButton("Collectinator_ResetButton", addon.Frame, 
 								    25, 90, "TOPRIGHT", filter_button, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall", 
-								    "GameFontHighlightSmall", L["Reset"], "CENTER", L["RESET_DESC"], 1)
+								    "GameFontHighlightSmall", _G.RESET, "CENTER", L["RESET_DESC"], 1)
 	Collectinator_ResetButton:SetScript("OnClick", function(self, button, down)
 							       local filterdb = addon.db.profile.filters
 
