@@ -1037,7 +1037,7 @@ function addon:GetMountTotal(DB)
 	-------------------------------------------------------------------------------
 	-- Swift Zhevra - 49322
 	AddMount(49322, 37719, R_EPIC, GAME_BC)
-	AddMountFlags(49322, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	AddMountFlags(49322, F_ALLIANCE, F_HORDE, F_BOP)
 	self:AddCompanionAcquire(DB, 49322, A_ACHIEVEMENT, 1436)
 
 	-- Big Blizzard Bear - 58983
@@ -1062,7 +1062,7 @@ function addon:GetMountTotal(DB)
 
 	-- Brewfest Ram - 43899
 	AddMount(43899, 33976, R_RARE, GAME_BC)
-	AddMountFlags(43899, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_REMOVED, F_ACHIEVEMENT, F_BOP)
+	AddMountFlags(43899, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_REMOVED, F_BOP)
 	self:AddCompanionAcquire(DB, 43899, A_VENDOR, 24468, A_VENDOR, 24510)
 
 	-- Great Brewfest Kodo - 49379
