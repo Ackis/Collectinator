@@ -272,7 +272,7 @@ function addon:GetMountTotal(DB)
 		--self:AddCompanionAcquire(DB, 34769, 
 
 		-- Charger - Horde - 34767
-		AddMount(34767, nil, R_RARE, GAME_BC, C_PALADIN)
+		AddMount(34767, nil, R_EPIC, GAME_BC, C_PALADIN)
 		AddMountFlags(34767, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 34767, 
 	end
@@ -666,7 +666,7 @@ function addon:GetMountTotal(DB)
 		--self:AddCompanionAcquire(DB, 13819, 
 
 		-- Charger - xAlliance - 23214
-		AddMount(23214, nil, R_RARE, GAME_ORIG, C_PALADIN)
+		AddMount(23214, nil, R_EPIC, GAME_ORIG, C_PALADIN)
 		AddMountFlags(23214, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 23214, 
 	end
