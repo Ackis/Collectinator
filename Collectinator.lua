@@ -291,25 +291,27 @@ function addon:OnInitialize()
 	button:SetScript("OnClick",
 				  function()
 					  local companion_frame = PetPaperDollFrameCompanionFrame
-					-- Shift only (Warcraft Pets)
-					if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						addon:Scan(true, false, "pets")
-					-- Alt-shift only (Text Dump)
-					elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-						addon:Scan(true, false)
-					-- Alt only (Wipe icons from map)
-					elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-						addon:ClearMap()
-					-- If we are just clicking do the scan, unless the frame is open then we close the window
-					elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						-- Window is visible and created
-						if Collectinator.Frame and Collectinator.Frame:IsVisible() then
-							self:CloseWindow()
-						-- Window is hidden
-						else
-							addon:Scan(false, false, companion_frame:IsVisible() and companion_frame.mode or "CRITTER")
-							self:SetupMap()
-						end
+					  -- Shift only (Warcraft Pets)
+					  if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						  addon:Scan(true, false, "pets")
+						  -- Alt-shift only (Text Dump)
+					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+						  addon:Scan(true, false)
+						  -- Alt only (Wipe icons from map)
+					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+						  addon:ClearMap()
+						  -- If we are just clicking do the scan, unless the frame is open then we close the window
+					  elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						  -- Window is visible and created
+						  if Collectinator.Frame and Collectinator.Frame:IsVisible() then
+							  self:CloseWindow()
+							  -- Window is hidden
+						  else
+							  local is_visible = (PetListPlus and PetListPlusFrame:IsVisible()) or companion_frame:IsVisible()
+
+							  addon:Scan(false, false, is_visible and companion_frame.mode or "CRITTER")
+							  self:SetupMap()
+						  end
 					end
 				  end)
 
