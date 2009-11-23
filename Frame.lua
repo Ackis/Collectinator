@@ -810,7 +810,7 @@ local function GenerateTooltipContent(owner, rIndex)
 				local displaytt = false
 				local faction
 
-				if (qst["Faction"] == factionHorde) then
+				if qst["Faction"] == factionHorde then
 					right_color = addon:hexcolor("HORDE")
 					if (playerFaction == factionHorde) then
 						displaytt = true
@@ -833,7 +833,7 @@ local function GenerateTooltipContent(owner, rIndex)
 				if displaytt then
 					local cStr = ""
 
-					if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
+					if qst["Coordx"] ~= 0 and qst["Coordy"] ~= 0 then
 						cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
 					end
 
