@@ -3123,7 +3123,7 @@ local function InitializeFrame()
 
 	local Collectinator_CECB = CreateFrame("CheckButton", "Collectinator_CECB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_CECB, addon.Fly_Obtain, L["COLLECTOR_ED_DESC"], "ce", 9, 1, 0)
-	Collectinator_CECBText:SetText(L["Collector's Ed."])
+	Collectinator_CECBText:SetText(L["Collectors' Edition"])
 
 	local Collectinator_CraftCB = CreateFrame("CheckButton", "Collectinator_CraftCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_CraftCB, addon.Fly_Obtain, L["CRAFT_DESC"], "craft", 10, 1, 0)
