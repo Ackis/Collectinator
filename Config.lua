@@ -207,7 +207,7 @@ local function giveDocs()
 				header1 = {
 					order	= 1,
 					type	= "header",
-					name	= L["ARL Documentation"],
+					name	= L["Collectinator Documentation"],
 				},
 				desc1 = {
 					order	= 2,
