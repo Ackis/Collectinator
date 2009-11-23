@@ -777,7 +777,7 @@ local function GenerateTooltipContent(owner, rIndex)
 		elseif acquire_type == A_CRAFTED then
 			left_color = addon:hexcolor("NORMAL")
 			right_color = addon:hexcolor("HIGH")
-			ttAdd(0, -1, 0, L["Profession"], left_color, GetSpellInfo(v["Crafted"]), right_color)
+			ttAdd(0, -1, 0, _G.TRADE_SKILLS, left_color, GetSpellInfo(v["Crafted"]), right_color)
 		elseif acquire_type == A_MOB then
 			local mob = mobDB[v["ID"]]
 			local cStr = ""
