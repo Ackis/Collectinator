@@ -25,12 +25,12 @@ Format:
 
 local MODNAME	= "Collectinator"
 local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
+local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 function addon:InitSeasons(DB)
 	self:addLookupList(DB, 1, select(1, GetCategoryInfo(156)))	-- Winter Veil
 	self:addLookupList(DB, 2, select(1, GetCategoryInfo(160)))	-- Lunar Festival
-	self:addLookupList(DB, 3, L["Darkmoon Faire"])
+	self:addLookupList(DB, 3, BFAC["Darkmoon Faire"])
 	self:addLookupList(DB, 4, select(1, GetCategoryInfo(161)))	-- Midsummer
 	self:addLookupList(DB, 5, select(1, GetCategoryInfo(187)))	-- Love is in the air
 	self:addLookupList(DB, 6, select(1, GetCategoryInfo(162)))	-- Brewfest
