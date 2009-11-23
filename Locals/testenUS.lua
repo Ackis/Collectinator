@@ -10,7 +10,7 @@
 -------------------------------------------------------------------------------
 local MODNAME	= "Collectinator"
 
-local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true, true)
+local L = LibStub("AceLocale-3.0"):NewLocale(MODNAME, "enUS", true, false)
 
 if not L then return end
 
@@ -41,7 +41,9 @@ L["CLEAR_DESC"] = "Clear the search text box."
 L["CLEAR_EXCLUSION_LIST_DESC"] = "Removes all entries from the exclusion list."
 L["CLEAR_WAYPOINTS_DESC"] = true
 L["CLOSE_DESC"] = "Close the Collectinator Window."
+L["Collectors' Edition"] = true
 L["COLLECTIBLE_EXCLUDED"] = "Collectible is in Exclusion list"
+L["COLLECTOR_ED_DESC"] = "Collectibles obtained from Collectors' Edition retail boxes should be included in the scan."
 L["Collectinator_ALLEXCLUDED"] = "Your exclusions are currently preventing any entries from being displayed. Please change your exclusions and try again."
 L["Collectinator_ALLKNOWN"] = "You know all the entries, there is nothing left for you to collect."
 L["Collectinator_SEARCHFILTERED"] = "Your search has no results."
@@ -51,6 +53,8 @@ L["COMMON_ISSUES_DESC"] = [[Please refer to these common issues before submittin
 1) Mount/Pet does not show up! - Check your filter settings to make sure that the entry is not being filtered.]]
 L["CONTRACTALL"] = "- All"
 L["CONTRACTALL_DESC"] = "Minimize all entries listed below."
+L["Crafted"] = true
+L["CRAFT_DESC"] = "Collectibles which are obtained by crafting them should be included in the scan."
 L["CTRL_CLICK"] = "Ctrl-Click to add the link for this entry to your chat."
 L["CTRL_SHIFT_CLICK"] = "Ctrl-Shift-Click to add the item to the map and mini-map."
 L["Display Exclusions"] = true
@@ -169,6 +173,7 @@ L["Raid"] = true
 L["Ray'ma"] = true
 L["RAID_DESC"] = "Collectibles obtained in raids (ie: Molten Core, Serpent Shrine Cavern, etc.) should be included in the scan."
 L["Removed from Game"] = true
+L["Retired"] = true
 L["REP_TEXT_DESC"] = [[Left-click here to select all reputation filters.
 Right-click here to deselect all reputation filters.]]
 L["Reporting Bugs"] = true
@@ -201,6 +206,8 @@ L["SORTING_OPTIONS_DESC"] = "Allows you to customize the way displayed collectib
 L["Special Event"] = true
 L["SPECIFIC_REP_DESC"] = "Include %s faction."
 L["SPELLTOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing the collectible information."
+L["TCG"] = "WoW Trading Card Game"
+L["TCG_DESC"] = "Collectibles obtained from the World of Warcraft Trading Card Game should be included in the scan."
 L["Text Dump"] = true
 L["TEXT_DUMP_DESC"] = "Displays all collectibles in a comma separated value format which can be copied and pasted into another client."
 L["Tooltip (Acquire) Position"] = true
@@ -229,6 +236,7 @@ L["World Drop"] = true
 L["WORLD_DROP_DESC"] = "Collectibles that are World Drops should be included in the scan."
 L["WORLDMAP_DESC"] = true
 L["Store"] = "Blizzard Store"
+L["STORE_DESC"] = "Collectibles obtained from the Blizzard Store should be included in the scan."
 
 -- Mobs
 L["Blue Dragonspawn"] = true
