@@ -116,12 +116,12 @@ function addon:GetMountTotal(DB)
 
 	-- Blue Dragonhawk - 61996
 	AddMount(61996, 44843, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61996, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	AddMountFlags(61996, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 61996, A_ACHIEVEMENT, 2536)
 
 	-- Red Dragonhawk -- 61997
 	AddMount(61997, 44842, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61997, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	AddMountFlags(61997, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 61997, A_ACHIEVEMENT, 2537)
 
 	-- Reins of the Red Proto-Drake - 59961
