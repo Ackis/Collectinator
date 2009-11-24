@@ -166,7 +166,7 @@ local Collectinator_RepOldWorldCB, Collectinator_RepBCCB, Collectinator_RepLKCB,
 -- To make tabbing between collections easier 
 local SortedCollections = { 
 	{ name = "CRITTER", 	texture = "minipets" }, -- 1
-	{ name = "MOUNT", 		texture = "mounts" }, 	-- 2
+	{ name = "MOUNT", 	texture = "mounts" }, 	-- 2
 } 
 local MaxCollections = 2
 
@@ -177,18 +177,18 @@ local ExpButtonText = {
 	L["General"], 		-- 1
 	L["Obtain"], 		-- 2
 	L["Binding"], 		-- 3
-	L["Item"], 			-- 4
+	L["Item"], 		-- 4
 	L["Reputation"], 	-- 5
-	L["Misc"]			-- 6
+	L["Misc"]		-- 6
 }
 
 local ExpButtonTT = {
 	L["FILTERING_GENERAL_DESC"],	-- 1
-	L["FILTERING_OBTAIN_DESC"],		-- 2
+	L["FILTERING_OBTAIN_DESC"],	-- 2
 	L["FILTERING_BINDING_DESC"],	-- 3
-	L["FILTERING_ITEM_DESC"], 		-- 4
-	L["FILTERING_REP_DESC"], 		-- 5
-	L["FILTERING_MISC_DESC"]		-- 6
+	L["FILTERING_ITEM_DESC"], 	-- 4
+	L["FILTERING_REP_DESC"], 	-- 5
+	L["FILTERING_MISC_DESC"]	-- 6
 }
 
 -------------------------------------------------------------------------------
@@ -296,12 +296,14 @@ do
 	local REP_THRALLMAR	= 947
 	local REP_KURENI	= 978
 
-	------------------------------------------------------------------------------
-	-- Description: Function to determine if the player has an appropiate level of faction.
-	-- Expected result: A boolean value determing if the player can learn the collectible based on faction
-	-- Input: The database, the index of the collectible, the players faction and reputation levels
-	-- Output: A boolean indicating if they can learn the collectible or not
-	------------------------------------------------------------------------------
+	---Function to determine if the player has an appropiate level of faction.
+	-- @name checkFactions
+	-- @usage checkFactions:(DB, collectibleIndex, playerFaction, playerRep)
+	-- @param DB Database which we are checking against
+	-- @param collectibleIndex Which type of collection we are scanning
+	-- @param playerFaction Which faction the player doing the scan is.
+	-- @param playerRep Table containing all of the players reputations.
+	-- @return A boolean indicating if they can learn the collectible or not
 	function checkFactions(DB, collectibleIndex, playerFaction, playerRep)
 		local fac = true
 		local acquire = DB[collectibleIndex]["Acquire"]
@@ -381,10 +383,8 @@ do
 
 	local iconlist = {}
 
-	-- Description: Clears all the icons from the map.
-	-- Expected result: All icons are removed from the world map and the mini-map
-	-- Input: None
-	-- Output: All icons are removed.
+	--- Clears all the icons from the map.
+	-- @return All icons are removed.
 
 	function addon:ClearMap()
 		-- Make sure we have TomTom installed
@@ -397,6 +397,7 @@ do
 			iconlist = twipe(iconlist)
 		end
 	end
+
 	--- Determine if we should display the acquire method on the maps.
 	-- @return Boolean value, true for vendor, reps and quest if the faction is the same, and true for mobs.
 	local function CheckMapDisplay(v, filters)
@@ -413,7 +414,6 @@ do
 		end
 
 		return display
-
 	end
 
 	local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
@@ -572,9 +572,8 @@ do
 	local maplist = {}
 
 	--- Adds mini-map and world map icons with tomtom.
-	-- Expected result: Icons are added to the world map and mini-map.
-	-- Input: An optional collectible ID
-	-- Output: Points are added to the maps
+	-- @param single_collectible An optional collectible ID
+	-- @return Points are added to the maps
 	function addon:SetupMap(single_collectible)
 		if not TomTom then
 			--@debug@
@@ -942,7 +941,7 @@ local function GenerateTooltipContent(owner, rIndex)
 		elseif acquire_type == A_CRAFTED then
 			left_color = addon:hexcolor("NORMAL")
 			right_color = addon:hexcolor("HIGH")
-			ttAdd(0, -1, 0, L["Profession"], left_color, GetSpellInfo(v["Crafted"]), right_color)
+			ttAdd(0, -1, 0, _G.TRADE_SKILLS, left_color, GetSpellInfo(v["Crafted"]), right_color)
 		elseif acquire_type == A_MOB then
 			local mob = mobDB[v["ID"]]
 			local cStr = ""
@@ -975,7 +974,7 @@ local function GenerateTooltipContent(owner, rIndex)
 				local displaytt = false
 				local faction
 
-				if (qst["Faction"] == factionHorde) then
+				if qst["Faction"] == factionHorde then
 					right_color = addon:hexcolor("HORDE")
 					if (playerFaction == factionHorde) then
 						displaytt = true
@@ -998,7 +997,7 @@ local function GenerateTooltipContent(owner, rIndex)
 				if displaytt then
 					local cStr = ""
 
-					if (qst["Coordx"] ~= 0) and (qst["Coordy"] ~= 0) then
+					if qst["Coordx"] ~= 0 and qst["Coordy"] ~= 0 then
 						cStr = "(" .. qst["Coordx"] .. ", " .. qst["Coordy"] .. ")"
 					end
 
@@ -1384,41 +1383,53 @@ do
 
 	function SortDatabase(DB)
 		if not sortFuncs then
-			sortFuncs = {}
+			sortFuncs = {
+				["Name"]	= function(a, b)
+							  return DB[a]["Name"] < DB[b]["Name"]
+						  end,
 
-			sortFuncs["Name"] = function(a, b)
-				return DB[a]["Name"] < DB[b]["Name"]
-			end
+				-- Will only sort based off of the first acquire type
+				["Acquisition"]	= function (a, b)
+							  local reca = DB[a]["Acquire"][1]
+							  local recb = DB[b]["Acquire"][1]
 
-			-- Will only sort based off of the first acquire type
-			sortFuncs["Acquisition"] = function (a, b)
-				local reca = DB[a]["Acquire"][1]
-				local recb = DB[b]["Acquire"][1]
-				if (reca and recb) then
-					if (reca["Type"] == recb["Type"]) then
-						return DB[a]["Name"] < DB[b]["Name"]
-					else
-						return reca["Type"] < recb["Type"]
-					end
-				else
-					return not not reca
-				end
-			end
+							  if not reca or not recb then
+								  return not not reca
+							  end
 
-			-- Will only sort based off of the first acquire type
-			sortFuncs["Location"] = function (a, b)
-				-- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
-				local reca = DB[a]["Locations"] or ""
-				local recb = DB[b]["Locations"] or ""
-				reca = string.match(reca,"(%w+),") or ""
-				recb = string.match(recb,"(%w+),") or ""
+							  if reca["Type"] ~= recb["Type"] then
+								  return reca["Type"] < recb["Type"]
+							  end
 
-				if reca == recb then
-					return DB[a]["Name"] < DB[b]["Name"]
-				else
-					return (reca < recb)
-				end
-			end
+							  if reca["Type"] == A_CUSTOM then
+								  -- Sort on name if they're the same custom ID
+								  if reca["ID"] == recb["ID"] then
+									  return DB[a]["Name"] < DB[b]["Name"]
+								  else
+									  return reca["ID"] < recb["ID"]
+								  end
+							  else
+								  return DB[a]["Name"] < DB[b]["Name"]
+							  end
+						  end,
+
+				-- Will only sort based off of the first acquire type
+				["Location"]	= function (a, b)
+							  -- We do the or "" because of nil's, I think this would be better if I just left it as a table which was returned
+							  local reca = DB[a]["Locations"] or ""
+							  local recb = DB[b]["Locations"] or ""
+
+							  local reca = string.match(reca,"(%w+), ") or reca
+							  local recb = string.match(recb,"(%w+), ") or recb
+
+							  if reca == recb then
+								  return sortFuncs["Acquisition"](a, b)
+--								  return DB[a]["Name"] < DB[b]["Name"]
+							  else
+								  return reca < recb
+							  end
+						  end,
+			}
 		end
 		twipe(SortedIndex)
 
@@ -2520,7 +2531,7 @@ end
 -- Description: Saves the frame position into the database 
 -- Expected result: Frame coordinates are saved
 -- Input: None
--- Output: Database values updated with frame position
+-- @return Database values updated with frame position
 
 local function SaveFramePosition()
 
@@ -2852,9 +2863,42 @@ local function InitializeFrame()
 								     "GameFontHighlightSmall", L["EXPANDALL"], "CENTER", L["EXPANDALL_DESC"], 1)
 	Collectinator_ExpandButton:SetScript("OnClick", addon.ExpandAll_Clicked)
 
+	local SearchCollectibles
+	do
+		local search_params = {
+			["ItemID"]	= true,
+			["Name"]	= true,
+			["Locations"]	= true,
+			["Rarity"]	= true,
+			["Type"]	= true,
+		}
+
+		-- Scans through the item database and toggles the flag on if the item is in the search criteria
+		function SearchCollectibles(pattern)
+			if not pattern then
+				return
+			end
+			pattern = pattern:lower()
+
+			for index in pairs(collectibleDB) do
+				local entry = collectibleDB[index]
+				entry["Search"] = false
+
+				for field in pairs(search_params) do
+					local str = entry[field] and tostring(entry[field]):lower() or nil
+
+					if str and str:find(pattern) then
+						entry["Search"] = true
+						break
+					end
+				end
+			end
+		end
+	end	-- do
+
 	local Collectinator_SearchButton = addon:GenericCreateButton("Collectinator_SearchButton", addon.Frame, 
 								     25, 74, "TOPLEFT", Collectinator_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall", 
-								     "GameFontHighlightSmall", L["Search"], "CENTER", L["SEARCH_DESC"], 1)
+								     "GameFontHighlightSmall", _G.SEARCH, "CENTER", L["SEARCH_DESC"], 1)
 	Collectinator_SearchButton:Disable()
 	Collectinator_SearchButton:SetScript("OnClick", 
 					     function(this)
@@ -2864,7 +2908,7 @@ local function InitializeFrame()
 						     if (searchtext ~= "") then
 							     Collectinator_LastSearchedText = searchtext
 
-							     addon:SearchDB(collectibleDB, searchtext)
+							     SearchCollectibles(searchtext)
 							     initDisplayStrings()
 							     CollectibleList_Update()
 
@@ -2911,7 +2955,7 @@ local function InitializeFrame()
 						   if (searchtext ~= "") and (searchtext ~= L["SEARCH_BOX_DESC"]) then
 							   Collectinator_LastSearchedText = searchtext
 
-							   addon:SearchDB(collectibleDB, searchtext)
+							   SearchCollectibles(searchtext)
 							   initDisplayStrings()
 							   CollectibleList_Update()
 
@@ -2955,7 +2999,7 @@ local function InitializeFrame()
 
 	local Collectinator_CloseButton = addon:GenericCreateButton("Collectinator_CloseButton", addon.Frame, 
 								    22, 69, "BOTTOMRIGHT", addon.Frame, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall", 
-								    "GameFontHighlightSmall", L["Close"], "CENTER", L["CLOSE_DESC"], 1)
+								    "GameFontHighlightSmall", _G.CLOSE, "CENTER", L["CLOSE_DESC"], 1)
 	-- Close all possible pop-up windows
 	Collectinator_CloseButton:SetScript("OnClick", function(self) addon:CloseWindow() end)
 
@@ -3009,7 +3053,6 @@ local function InitializeFrame()
 			pbCur = pbCur - playerData["unknown_exclude_str"]
 			pbMax = pbMax - playerData["known_exclude_str"]
 		end
-
 		self:SetMinMaxValues(0, pbMax)
 		self:SetValue(pbCur)
 
@@ -3083,7 +3126,7 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	local Collectinator_ResetButton = addon:GenericCreateButton("Collectinator_ResetButton", addon.Frame, 
 								    25, 90, "TOPRIGHT", filter_button, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall", 
-								    "GameFontHighlightSmall", L["Reset"], "CENTER", L["RESET_DESC"], 1)
+								    "GameFontHighlightSmall", _G.RESET, "CENTER", L["RESET_DESC"], 1)
 	Collectinator_ResetButton:SetScript("OnClick", function(self, button, down)
 							       local filterdb = addon.db.profile.filters
 
@@ -3244,7 +3287,7 @@ local function InitializeFrame()
 
 	local Collectinator_CECB = CreateFrame("CheckButton", "Collectinator_CECB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_CECB, addon.Fly_Obtain, L["COLLECTOR_ED_DESC"], "ce", 9, 1, 0)
-	Collectinator_CECBText:SetText(L["Collector's Ed."])
+	Collectinator_CECBText:SetText(L["Collectors' Edition"])
 
 	local Collectinator_CraftCB = CreateFrame("CheckButton", "Collectinator_CraftCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_CraftCB, addon.Fly_Obtain, L["CRAFT_DESC"], "craft", 10, 1, 0)
@@ -3952,7 +3995,7 @@ function addon:DisplayFrame(
 	end
 	local companion_frame = PetPaperDollFrameCompanionFrame
 
-	if companion_frame:IsVisible() then
+	if (PetListPlus and PetListPlusFrame:IsVisible()) or companion_frame:IsVisible() then
 		current_tab = INDEX_TYPE[companion_frame.mode] or 0
 	end
 

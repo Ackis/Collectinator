@@ -7,7 +7,7 @@
 ## X-Donate: http://www.wowace.com/projects/collectinator/#w_donations
 
 ## Interface: 30200
-## Version: Alpha 5
+## Version: Beta 1
 ## X-Revision: @project-version@
 ## X-Date: @file-date-iso@
 
@@ -17,7 +17,7 @@
 ## X-Feedback: http://www.curse.com/downloads/details/
 
 ## Dependencies:
-## OptionalDeps: Ace3, LibAboutPanel, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibBabble-Class-3.0, LibSharedMedia-3.0, LibQTip-1.0, TipTac
+## OptionalDeps: Ace3, LibAboutPanel, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibBabble-Class-3.0, LibSharedMedia-3.0, LibQTip-1.0, TipTac, PetListPlus
 ## DefaultState: Enabled
 
 ## SavedVariables: CollectinatorDB

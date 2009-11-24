@@ -81,7 +81,6 @@ local QuestList = {}
 local ReputationList = {}
 local SeasonalList = {}
 local VendorList = {}
-local RepFilters = {}		-- These are assigned during a scan, not in InitDatabases()
 
 ------------------------------------------------------------------------------
 --- Data which is stored regarding a player's statistics
@@ -282,30 +281,37 @@ function addon:OnInitialize()
 	local button = CreateFrame("Button", "Collectinator_ScanButton", PetPaperDollFrameCompanionFrame, "UIPanelButtonTemplate")
 	self.ScanButton = button
 
+	-- Add to PetList+
+	if PetListPlus then
+		button:SetParent(PetListPlusFrame)
+		button:Show()
+	end
 	button:SetHeight(20)
 	button:RegisterForClicks("LeftButtonUp")
 	button:SetScript("OnClick",
 				  function()
 					  local companion_frame = PetPaperDollFrameCompanionFrame
-					-- Shift only (Warcraft Pets)
-					if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						addon:Scan(true, false, "pets")
-					-- Alt-shift only (Text Dump)
-					elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-						addon:Scan(true, false)
-					-- Alt only (Wipe icons from map)
-					elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-						addon:ClearMap()
-					-- If we are just clicking do the scan, unless the frame is open then we close the window
-					elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						-- Window is visible and created
-						if Collectinator.Frame and Collectinator.Frame:IsVisible() then
-							self:CloseWindow()
-						-- Window is hidden
-						else
-							addon:Scan(false, false, companion_frame:IsVisible() and companion_frame.mode or "CRITTER")
-							self:SetupMap()
-						end
+					  -- Shift only (Warcraft Pets)
+					  if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						  addon:Scan(true, false, "pets")
+						  -- Alt-shift only (Text Dump)
+					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+						  addon:Scan(true, false)
+						  -- Alt only (Wipe icons from map)
+					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+						  addon:ClearMap()
+						  -- If we are just clicking do the scan, unless the frame is open then we close the window
+					  elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						  -- Window is visible and created
+						  if Collectinator.Frame and Collectinator.Frame:IsVisible() then
+							  self:CloseWindow()
+							  -- Window is hidden
+						  else
+							  local is_visible = (PetListPlus and PetListPlusFrame:IsVisible()) or companion_frame:IsVisible()
+
+							  addon:Scan(false, false, is_visible and companion_frame.mode or "CRITTER")
+							  self:SetupMap()
+						  end
 					end
 				  end)
 
@@ -912,11 +918,11 @@ do
 	-- PVP 1 WSG
 	-- PVP 2 AV
 	-- PVP 3 AB 
-	--Wrath Common Factions 1 (The Silver Convenant/The Sunreavers)
-	--Wrath Common Factions 2 (Explorer's League/Hand of Vengance)
-	--Wrath Common Factions 3 (Explorer's League/Valiance Expedition)
-	--Wrath Common Factions 4 (The Frostborn/The Taunka)
-	--Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition) 
+	-- Wrath Common Factions 1 (The Silver Convenant/The Sunreavers)
+	-- Wrath Common Factions 2 (Explorer's League/Hand of Vengance)
+	-- Wrath Common Factions 3 (Explorer's League/Valiance Expedition)
+	-- Wrath Common Factions 4 (The Frostborn/The Taunka)
+	-- Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition) 
 
 	local reptable
 
@@ -1176,77 +1182,6 @@ do
 	end
 end
 
--- Creates an array of which factions we want to include in our display and which ones to ignore
-local function PopulateRepFilters(RepTable)
-
-	local repfilters = addon.db.profile.filters.rep
-
-	RepTable[BFAC["The Scryers"]] = repfilters.scryer
-	RepTable[BFAC["The Aldor"]] = repfilters.aldor
-	RepTable[BFAC["Argent Dawn"]] = repfilters.argentdawn
-	RepTable[BFAC["Ashtongue Deathsworn"]] = repfilters.ashtonguedeathsworn
-	RepTable[BFAC["Bloodsail Buccaneers"]] = repfilters.bloodsail
-	RepTable[BFAC["Cenarion Circle"]] = repfilters.cenarioncircle
-	RepTable[BFAC["Cenarion Expedition"]] = repfilters.cenarionexpedition
-	RepTable[BFAC["The Consortium"]] = repfilters.consortium
-	RepTable[BFAC["Keepers of Time"]] = repfilters.keepersoftime
-	RepTable[BFAC["Lower City"]] = repfilters.lowercity
-	RepTable[BFAC["Netherwing"]] = repfilters.netherwing
-	RepTable[BFAC["The Scale of the Sands"]] = repfilters.scaleofthesands
-	RepTable[BFAC["The Sha'tar"]] = repfilters.shatar
-	RepTable[BFAC["Shattered Sun Offensive"]] = repfilters.shatteredsun
-	RepTable[BFAC["Sha'tari Skyguard"]] = repfilters.skyguard
-	RepTable[BFAC["Sporeggar"]] = repfilters.sporeggar
-	RepTable[BFAC["Thorium Brotherhood"]] = repfilters.thoriumbrotherhood
-	RepTable[BFAC["Timbermaw Hold"]] = repfilters.timbermaw
-	RepTable[BFAC["The Violet Eye"]] = repfilters.violeteye
-	RepTable[BFAC["Zandalar Tribe"]] = repfilters.zandalar
-	RepTable[BFAC["Argent Crusade"]] = repfilters.argentcrusade
-	RepTable[BFAC["Frenzyheart Tribe"]] = repfilters.frenzyheart
-	RepTable[BFAC["Knights of the Ebon Blade"]] = repfilters.ebonblade
-	RepTable[BFAC["Kirin Tor"]] = repfilters.kirintor
-	RepTable[BFAC["The Sons of Hodir"]] = repfilters.sonsofhodir
-	RepTable[BFAC["The Kalu'ak"]] = repfilters.kaluak
-	RepTable[BFAC["The Oracles"]] = repfilters.oracles
-	RepTable[BFAC["The Wyrmrest Accord"]] = repfilters.wyrmrest
-	RepTable[BFAC["The Ashen Verdict"]] = repfilters.ashenverdict
-
-	RepTable[BFAC["Darnassus"]] = repfilters.city1
-	RepTable[BFAC["Stormwind"]] = repfilters.city2
-	RepTable[BFAC["Gnomeregan Exiles"]] = repfilters.city3
-	RepTable[BFAC["Ironforge"]] = repfilters.city4
-	RepTable[BFAC["Exodar"]] = repfilters.city5
-	RepTable[BFAC["Darkspear Trolls"]] = repfilters.city1
-	RepTable[BFAC["Orgrimmar"]] = repfilters.city2
-	RepTable[BFAC["Thunder Bluff"]] = repfilters.city3
-	RepTable[BFAC["Undercity"]] = repfilters.city4
-	RepTable[BFAC["Silvermoon City"]] = repfilters.city5
-
-	RepTable[BFAC["Silverwing Sentinels"]] = repfilters.pvp1
-	RepTable[BFAC["Stormpike Guard"]] = repfilters.pvp2
-	RepTable[BFAC["The League of Arathor"]] = repfilters.pvp3
-	RepTable[BFAC["Warsong Outriders"]] = repfilters.pvp1
-	RepTable[BFAC["Frostwolf Clan"]] = repfilters.pvp2
-	RepTable[BFAC["The Defilers"]] = repfilters.pvp3
-
-	RepTable[BFAC["Honor Hold"]] = repfilters.hellfire
-	RepTable[BFAC["Thrallmar"]] = repfilters.hellfire
-	RepTable[BFAC["Kurenai"]] = repfilters.nagrand
-	RepTable[BFAC["The Mag'har"]] = repfilters.nagrand
-
-	RepTable[BFAC["Alliance Vanguard"]] = repfilters.wrathcommon1
-	RepTable[BFAC["Horde Expedition"]] = repfilters.wrathcommon1
-	RepTable[BFAC["The Silver Covenant"]] = repfilters.wrathcommon2
-	RepTable[BFAC["The Sunreavers"]] = repfilters.wrathcommon2
-	RepTable[BFAC["Valiance Expedition"]] = repfilters.wrathcommon3
-	RepTable[BFAC["Warsong Offensive"]] = repfilters.wrathcommon3
-	RepTable[BFAC["The Taunka"]] = repfilters.wrathcommon4
-	RepTable[BFAC["The Frostborn"]] = repfilters.wrathcommon4
-	RepTable[BFAC["Explorers' League"]] = repfilters.wrathcommon5
-	RepTable[BFAC["The Hand of Vengeance"]] = repfilters.wrathcommon5
-
-end
-
 -- Scans the item listing and updates the filters according to user preferences
 function addon:UpdateFilters(DB, playerData, scantype)
 	local playerFaction = playerData.playerFaction
@@ -1357,8 +1292,6 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 	end
 
 	if not autoupdatescan and scantype then
-		PopulateRepFilters(RepFilters)	-- Update the table containing which reps to display
-
 		local filter_type = (scantype == "pets" and "CRITTER" or scantype)
 		self:UpdateFilters(CompanionDB, playerData, filter_type)	-- Add filtering flags to the items
 
@@ -1450,28 +1383,6 @@ end
 -------------------------------------------------------------------------------
 -- Searching Functions
 -------------------------------------------------------------------------------
-
--- Scans through the item database and toggles the flag on if the item is in the search criteria
-function addon:SearchDB(DB, searchstring)
-	if not searchstring then
-		return
-	end
-	searchstring = strlower(searchstring)
-
-	for SpellID in pairs(DB) do
-		local item = DB[SpellID]
-		item["Search"] = false
-
-		if (sfind(strlower(SpellID), searchstring)
-		    or (item["ItemID"] and sfind(strlower(item["ItemID"]), searchstring))
-			    or (item["Name"] and sfind(strlower(item["Name"]), searchstring))
-			    or (item["Locations"] and sfind(item["Locations"], searchstring))
-			    or (item["Rarity"] and sfind(item["Rarity"], searchstring))) then
-			item["Search"] = true
-		end
-	end
-end
-
 -- Goes through the item database and resets all the search flags
 function addon:ResetSearch(DB)
 	for SpellID in pairs(DB) do

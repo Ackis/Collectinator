@@ -116,12 +116,12 @@ function addon:GetMountTotal(DB)
 
 	-- Blue Dragonhawk - 61996
 	AddMount(61996, 44843, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61996, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	AddMountFlags(61996, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 61996, A_ACHIEVEMENT, 2536)
 
 	-- Red Dragonhawk -- 61997
 	AddMount(61997, 44842, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61997, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	AddMountFlags(61997, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 61997, A_ACHIEVEMENT, 2537)
 
 	-- Reins of the Red Proto-Drake - 59961
@@ -147,7 +147,7 @@ function addon:GetMountTotal(DB)
 -- FISHING
 	-- Sea Turtle
 	AddMount(64731, 46109, R_RARE, GAME_WOTLK)
-	AddMountFlags(64731, F_ALLIANCE, F_HORDE, F_FISHING, F_BOP)
+	AddMountFlags(64731, F_ALLIANCE, F_HORDE, F_FISHING, F_BOP, F_CRAFT)
 	self:AddCompanionAcquire(DB, 64731, A_ACHIEVEMENT, 3218)
 
 -- PLAYERMADE
@@ -665,7 +665,11 @@ function addon:GetMountTotal(DB)
 		AddMountFlags(13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 13819, 
 
+<<<<<<< HEAD
 		-- Charger - Alliance - 23214
+=======
+		-- Charger - xAlliance - 23214
+>>>>>>> 8fa559be8c32ad8660042ac4e018f88c4ccdcfd8
 		AddMount(23214, nil, R_EPIC, GAME_ORIG, C_PALADIN)
 		AddMountFlags(23214, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 23214, 
@@ -1037,7 +1041,7 @@ function addon:GetMountTotal(DB)
 	-------------------------------------------------------------------------------
 	-- Swift Zhevra - 49322
 	AddMount(49322, 37719, R_EPIC, GAME_BC)
-	AddMountFlags(49322, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	AddMountFlags(49322, F_ALLIANCE, F_HORDE, F_BOP)
 	self:AddCompanionAcquire(DB, 49322, A_ACHIEVEMENT, 1436)
 
 	-- Big Blizzard Bear - 58983
@@ -1062,7 +1066,7 @@ function addon:GetMountTotal(DB)
 
 	-- Brewfest Ram - 43899
 	AddMount(43899, 33976, R_RARE, GAME_BC)
-	AddMountFlags(43899, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_REMOVED, F_ACHIEVEMENT, F_BOP)
+	AddMountFlags(43899, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_REMOVED, F_BOP)
 	self:AddCompanionAcquire(DB, 43899, A_VENDOR, 24468, A_VENDOR, 24510)
 
 	-- Great Brewfest Kodo - 49379

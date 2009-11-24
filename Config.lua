@@ -207,7 +207,7 @@ local function giveDocs()
 				header1 = {
 					order	= 1,
 					type	= "header",
-					name	= L["ARL Documentation"],
+					name	= L["Collectinator Documentation"],
 				},
 				desc1 = {
 					order	= 2,
@@ -303,7 +303,7 @@ local function giveDisplay()
 				uiscale = {
 					order	= 3,
 					type	= "range",
-					name	= L["UI Scale"],
+					name	= _G.UI_SCALE,
 					desc	= L["UI_SCALE_DESC"],
 					min	= .5,
 					max	= 1.5,
@@ -429,7 +429,7 @@ local function giveMap()
 				worldmap = {
 					order	= 3,
 					type	= "toggle",
-					name	= L["World Map"],
+					name	= _G.WORLD_MAP,
 					desc	= L["WORLDMAP_DESC"],
 					disabled = tomtomsupport,
 					get		= function() return addon.db.profile.worldmap end,
@@ -476,7 +476,7 @@ function addon:SetupOptions()
 
 	-- Fill up our modular options...
 	self:RegisterModuleOptions("Display", giveDisplay(), L["Display Options"])
-	self:RegisterModuleOptions("Documentation", giveDocs(), L["ARL Documentation"])
+	self:RegisterModuleOptions("Documentation", giveDocs(), L["Collectinator Documentation"])
 	self:RegisterModuleOptions("Map", giveMap(), L["Map Options"])
 	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
 
