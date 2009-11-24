@@ -643,7 +643,7 @@ do
 			elseif INSTANCE_LOCATIONS[loc["Location"]] then
 				continent = INSTANCE_LOCATIONS[loc["Location"]]["c"]
 				zone = INSTANCE_LOCATIONS[loc["Location"]]["loc"]
-				name = name .. " (" .. loc["Location"] .. ")"
+				name = loc["Name"] .. " (" .. loc["Location"] .. ")"
 			else
 				--@debug@
 				addon:Print("DEBUG: No continent/zone map match for mob/quest/vendor ID " .. k .. ".")
