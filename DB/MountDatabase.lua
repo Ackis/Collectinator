@@ -665,7 +665,7 @@ function addon:GetMountTotal(DB)
 		AddMountFlags(13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 13819, 
 
-		-- Charger - xAlliance - 23214
+		-- Charger - Alliance - 23214
 		AddMount(23214, nil, R_EPIC, GAME_ORIG, C_PALADIN)
 		AddMountFlags(23214, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
 		--self:AddCompanionAcquire(DB, 23214, 

@@ -416,6 +416,159 @@ do
 		return display
 	end
 
+	local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+
+	local INSTANCE_LOCATIONS = {
+		[BZ["Ahn'kahet: The Old Kingdom"]] = {
+			["loc"] = c1[BZ["Dragonblight"]],
+			["c"] = 4,
+		},
+		[BZ["Auchenai Crypts"]] = {
+			["loc"] = c1[BZ["Terokkar Forest"]],
+			["c"] = 3,
+		},
+		[BZ["Azjol-Nerub"]] = {
+			["loc"] = c1[BZ["Dragonblight"]],
+			["c"] = 4,
+		},
+		[BZ["Blackrock Depths"]] = {
+			["loc"] = c1[BZ["Searing Gorge"]],
+			["c"] = 2,
+		},
+		[BZ["Blackrock Spire"]] = {
+			["loc"] = c1[BZ["Searing Gorge"]],
+			["c"] = 2,
+		},
+		[BZ["Blackwing Lair"]] = {
+			["loc"] = c1[BZ["Searing Gorge"]],
+			["c"] = 2,
+		},
+		[BZ["Dire Maul"]] = {
+			["loc"] = c1[BZ["Feralas"]],
+			["c"] = 1,
+		},
+		[BZ["Drak'Tharon Keep"]] = {
+			["loc"] = c1[BZ["Zul'Drak"]],
+			["c"] = 4,
+		},
+		[BZ["Gnomeregan"]] = {
+			["loc"] = c1[BZ["Dun Morogh"]],
+			["c"] = 2,
+		},
+		[BZ["Halls of Lightning"]] = {
+			["loc"] = c1[BZ["The Storm Peaks"]],
+			["c"] = 4,
+		},
+		[BZ["Halls of Stone"]] = {
+			["loc"] = c1[BZ["The Storm Peaks"]],
+			["c"] = 4,
+		},
+		[BZ["Karazhan"]] = {
+			["loc"] = c1[BZ["Deadwind Pass"]],
+			["c"] = 2,
+		},
+		[BZ["Magisters' Terrace"]] = {
+			["loc"] = c1[BZ["Isle of Quel'Danas"]],
+			["c"] = 3,
+		},
+		[BZ["Mana-Tombs"]] = {
+			["loc"] = c1[BZ["Terokkar Forest"]],
+			["c"] = 3,
+		},
+		[BZ["The Oculus"]] = {
+			["loc"] = c1[BZ["Borean Tundra"]],
+			["c"] = 4,
+		},
+		[BZ["Old Hillsbrad Foothills"]] = {
+			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["Onyxia's Lair"]] = {
+			["loc"] = c1[BZ["Dustwallow Marsh"]],
+			["c"] = 1,
+		},
+		[BZ["Ruins of Ahn'Qiraj"]] = {
+			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["Scholomance"]] = {
+			["loc"] = c1[BZ["Western Plaguelands"]],
+			["c"] = 2,
+		},
+		[BZ["Sethekk Halls"]] = {
+			["loc"] = c1[BZ["Terokkar Forest"]],
+			["c"] = 3,
+		},
+		[BZ["Shadow Labyrinth"]] = {
+			["loc"] = c1[BZ["Terokkar Forest"]],
+			["c"] = 3,
+		},
+		[BZ["Stratholme"]] = {
+			["loc"] = c1[BZ["Eastern Plaguelands"]],
+			["c"] = 2,
+		},
+		[BZ["Temple of Ahn'Qiraj"]] = {
+			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["The Arcatraz"]] = {
+			["loc"] = c1[BZ["Netherstorm"]],
+			["c"] = 3,
+		},
+		[BZ["The Black Morass"]] = {
+			["loc"] = c1[BZ["Tanaris"]],
+			["c"] = 1,
+		},
+		[BZ["The Botanica"]] = {
+			["loc"] = c1[BZ["Netherstorm"]],
+			["c"] = 3,
+		},
+		[BZ["The Deadmines"]] = {
+			["loc"] = c1[BZ["Westfall"]],
+			["c"] = 2,
+		},
+		[BZ["The Mechanar"]] = {
+			["loc"] = c1[BZ["Netherstorm"]],
+			["c"] = 3,
+		},
+		[BZ["The Nexus"]] = {
+			["loc"] = c1[BZ["Borean Tundra"]],
+			["c"] = 4,
+		},
+		[BZ["The Shattered Halls"]] = {
+			["loc"] = c1[BZ["Hellfire Peninsula"]],
+			["c"] = 3,
+		},
+		[BZ["The Slave Pens"]] = {
+			["loc"] = c1[BZ["Zangarmarsh"]],
+			["c"] = 3,
+		},
+		[BZ["The Steamvault"]] = {
+			["loc"] = c1[BZ["Zangarmarsh"]],
+			["c"] = 3,
+		},
+		[BZ["The Temple of Atal'Hakkar"]] = {
+			["loc"] = c1[BZ["Swamp of Sorrows"]],
+			["c"] = 2,
+		},
+		[BZ["The Violet Hold"]] = {
+			["loc"] = c1[BZ["Dalaran"]],
+			["c"] = 4,
+		},
+		[BZ["Utgarde Keep"]] = {
+			["loc"] = c1[BZ["Howling Fjord"]],
+			["c"] = 4,
+		},
+		[BZ["Utgarde Pinnacle"]] = {
+			["loc"] = c1[BZ["Howling Fjord"]],
+			["c"] = 4,
+		},
+		[BZ["Zul'Gurub"]] = {
+			["loc"] = c1[BZ["Stranglethorn Vale"]],
+			["c"] = 2,
+		},
+	}
+
 	local maplist = {}
 
 	--- Adds mini-map and world map icons with tomtom.
@@ -487,11 +640,22 @@ do
 			elseif c4[loc["Location"]] then
 				continent = 4
 				zone = c4[loc["Location"]]
+			elseif INSTANCE_LOCATIONS[loc["Location"]] then
+				continent = INSTANCE_LOCATIONS[loc["Location"]]["c"]
+				zone = INSTANCE_LOCATIONS[loc["Location"]]["loc"]
+				name = loc["Name"] .. " (" .. loc["Location"] .. ")"
 			else
 				--@debug@
-				addon:Print("DEBUG: No continent/zone map match for ID " .. k .. ".")
+				addon:Print("DEBUG: No continent/zone map match for mob/quest/vendor ID " .. k .. ".")
 				--@end-debug@
+
 			end
+
+			--@alpha@
+			if (loc["Coordx"] < -100) or (loc["Coordx"] > 100) or (loc["Coordy"] < -100) or (loc["Coordy"] > 100) then
+				addon:Print("DEBUG: Invalid location coordinates for ID " .. k .. " Location: " .. location)
+			end
+			--@end-alpha@
 
 			if zone and continent then
 				local iconuid = TomTom:AddZWaypoint(continent, zone, loc["Coordx"], loc["Coordy"], loc["Name"], false, minimap, worldmap)
