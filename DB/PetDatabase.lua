@@ -103,10 +103,10 @@ function addon:GetMiniPetTotal(PetDB)
 	end
 
 --ACHIVEMENTS
-	-- Pilgrim Turkey - 61771
-	AddPet(61771, nil, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61771, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT)
-	self:AddCompanionAcquire(PetDB, 61771, A_ACHIEVEMENT, 3478, A_ACHIEVEMENT, 3656)
+	-- Pilgrim Turkey - 61773
+	AddPet(61773, 44810, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 61773, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT)
+	self:AddCompanionAcquire(PetDB, 61773, A_ACHIEVEMENT, 3478, A_ACHIEVEMENT, 3656)
 
 	-- Kirin Tor Familiar - 61472
 	AddPet(61472, 44738, R_RARE, GAME_WOTLK)
