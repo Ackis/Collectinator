@@ -3813,7 +3813,6 @@ local function InitializeFrame()
 	addon:GenericMakeCB(Collectinator_WrathCommon2CB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], SilverConv_Sunreaver_FactionText), "wrathcommon2", 10, 1, 0)
 	Collectinator_WrathCommon2CBText:SetText(SilverConv_Sunreaver_FactionText)
 	Collectinator_WrathCommon2CBText:SetFont(narrowFont, 11)
-	Collectinator_WrathCommon2CBText:SetText(addon:Grey(SilverConv_Sunreaver_FactionText))
 
 	local Collectinator_RepSonsOfHodirCB = CreateFrame("CheckButton", "Collectinator_RepSonsOfHodirCB", addon.Fly_Rep_LK, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_RepSonsOfHodirCB, addon.Fly_Rep_LK, strformat(L["SPECIFIC_REP_DESC"], BFAC["The Sons of Hodir"]), "sonsofhodir", 11, 1, 0)
