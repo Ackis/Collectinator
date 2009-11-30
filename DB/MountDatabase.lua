@@ -615,7 +615,7 @@ function addon:GetMountTotal(DB)
 	AddMount(65639, 46751, R_EPIC, GAME_WOTLK)
 	AddMountFlags(65639, F_HORDE, F_VENDOR, F_BOP, F_CITY5)
 	self:AddCompanionAcquire(DB, 65639, A_REPUTATION, 911, EXALTED, 33557)
-
+	
 	-------------------------------------------------------------------------------
 	-------------------------------------------------------------------------------
 	-- Alliance Mounts
@@ -1031,6 +1031,11 @@ function addon:GetMountTotal(DB)
 	AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
 	AddMountFlags(65637, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY5)
 	self:AddCompanionAcquire(DB, 65637, A_REPUTATION, 930, EXALTED, 33657)
+	
+	-- Swift Alliance Steed 
+	AddMount(68057, 49044, R_EPIC, GAME_WOTLK)
+	AddMountFlags(68057, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP)
+	self:AddCompanionAcquire(DB, 68057, A_MOB, 34564)
 
 	-------------------------------------------------------------------------------
 	-- Mounts for Alliance AND Horde.
