@@ -242,6 +242,19 @@ L["Store"] = "Blizzard Store"
 L["STORE_DESC"] = "Collectibles obtained from the Blizzard Store should be included in the scan."
 
 -- Mobs
+L["Flesh Hunter"] = true
+L["The Ongar"] = true
+L["Large Vile Slime"] = true
+L["Gargantuan Ooze"] = true
+L["Cloned Ooze"] = true
+L["Rotting Sludge"] = true
+L["Living Decay"] = true
+L["Vile Ooze"] = true
+L["Tainted Ooze"] = true
+L["Glutinous Ooze"] = true
+L["Primal Ooze"] = true
+L["Devouring Ooze"] = true
+L["Vile Slime"] = true
 L["Blue Dragonspawn"] = true
 L["Defias Pirate"] = true
 L["Adolescent Whelp"] = true
