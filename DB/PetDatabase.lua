@@ -102,6 +102,22 @@ function addon:GetMiniPetTotal(PetDB)
 		addon:AddCompanion(PetDB, "CRITTER", SpellID, PetItemID, Rarity, Game)
 	end
 
+-- 3.3 pets - not categorized
+	-- Core Hound Pup
+	AddPet(69452, 49646, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 69452, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 69452, A_CUSTOM, 14)
+
+	-- Calico Cat
+	AddPet(65358, 46398, R_COMMON, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 65358, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
+	self:AddCompanionAcquire(PetDB, 65358, A_VENDOR, 28951)
+
+	-- Albino Snake
+	AddPet(10713, 44822, R_COMMON, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 10713, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
+	self:AddCompanionAcquire(PetDB, 10713, A_VENDOR, 28951)
+
 --ACHIVEMENTS
 	-- Pilgrim Turkey - 61773
 	AddPet(61773, 44810, R_RARE, GAME_WOTLK)
@@ -124,9 +140,9 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 61991, A_ACHIEVEMENT, 2516)
 
 	-- Perky Pug - 70600
-	--AddPet(70600, nil, R_RARE, GAME_WOTLK)
-	--self:AddCompanionFlags(PetDB, 70600, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(PetDB, 70600, A_ACHIEVEMENT, 
+	AddPet(70613, 49912, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 70613, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 70613, A_CUSTOM, 15)
 
 --FISHING
 	-- Magical Crawdad Box - 33050
