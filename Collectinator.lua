@@ -485,7 +485,7 @@ end
 -------------------------------------------------------------------------------
 -- When we learn a new pet, we want to automatically scan the companions and update our saved variables
 function addon:COMPANION_LEARNED()
-	local companion_frame = PetPaperDollFrameCompanionFrame
+	local companion_frame = self.ScanButton:GetParent()
 
 	if companion_frame:IsVisible() then
 		self:Scan(false, false, companion_frame.mode)
@@ -1272,20 +1272,24 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 
 	-- Scan for all known critters and mounts
 	for i = 1, self:GetMiniPetTotal(CompanionDB), 1 do
-		local _, _, spell, _, _ = GetCompanionInfo("CRITTER", i)
+		local _, name, spell, icon, _ = GetCompanionInfo("CRITTER", i)
 
 		if CompanionDB[spell] then
 			CompanionDB[spell]["Known"] = true
+			CompanionDB[spell]["Name"] = name
+			CompanionDB[spell]["ItemIcon"] = icon
 		elseif spell then
 			self:Print("Error: Pet with ID " .. spell .. " not in database.")
 		end
 	end
 
 	for i = 1, self:GetMountTotal(CompanionDB), 1 do
-		local _, _, spell = GetCompanionInfo("MOUNT", i)
+		local _, name, spell, icon = GetCompanionInfo("MOUNT", i)
 
 		if CompanionDB[spell] then
 			CompanionDB[spell]["Known"] = true
+			CompanionDB[spell]["Name"] = name
+			CompanionDB[spell]["ItemIcon"] = icon
 		elseif spell then
 			self:Print("Error: Mount with ID ".. tostring(spell) .. " not in database.")
 		end
