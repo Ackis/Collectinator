@@ -86,6 +86,7 @@ local MY_FACTION = UnitFactionGroup("player")
 local initialized = false
 local num_titles = 0
 --http://www.wowwiki.com/TitleId
+
 function addon:GetTitleTotal(DB)
 	if initialized then
 		return num_titles
