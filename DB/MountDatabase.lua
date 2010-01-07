@@ -616,6 +616,11 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(65639, F_HORDE, F_VENDOR, F_BOP, F_CITY5)
 	self:AddCompanionAcquire(DB, 65639, A_REPUTATION, 911, EXALTED, 33557)
 	
+	-- Swift Horde Wolf
+	AddMount(68056, 49046, R_EPIC, GAME_WOTLK)
+	AddMountFlags(68056, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
+	self:AddCompanionAcquire(DB, 68056, A_MOB, 34564)
+	
 	-------------------------------------------------------------------------------
 	-------------------------------------------------------------------------------
 	-- Alliance Mounts
@@ -1036,7 +1041,7 @@ function addon:GetMountTotal(DB)
 	AddMount(68057, 49044, R_EPIC, GAME_WOTLK)
 	AddMountFlags(68057, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP)
 	self:AddCompanionAcquire(DB, 68057, A_MOB, 34564)
-
+	
 	-------------------------------------------------------------------------------
 	-- Mounts for Alliance AND Horde.
 	-------------------------------------------------------------------------------
