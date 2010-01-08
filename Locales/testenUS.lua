@@ -194,7 +194,6 @@ L["RESET_WINDOW_DESC"] = "Resets the GUI to default position."
 L["Right"] = true
 L["Scan"] = true
 L["SCAN_COMPANIONS_DESC"] = [[Scans the current opened companion window.
-Shift-click to generate a string which can be uploaded to Warcraft Pets to update your collection.
 Alt-Shift-click to generate a text dump of the collectables you have.
 Alt-click to remove all waypoints from the mini-map and world map.]]
 L["SEARCH_BOX_DESC"] = "Enter text to search."

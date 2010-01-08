@@ -2,12 +2,12 @@
 -- Collectinator
 -- File date: @file-date-iso@
 -- Project version: @project-version@
--- Author: Ackis, Torhal
+-- Authors: Ackis, Torhal, Pompachomp
 -------------------------------------------------------------------------------
 
 --- **Collectinator** provides an interface for scanning companions and moutns to find what is missing.
 -- There are a set of functions which allow you make use of the Collectinator database outside of Collectinator.
--- Collectinator supports all mounts/pets currently in World of Warcraft 3.2.
+-- Collectinator supports all mounts/pets currently in World of Warcraft 3.3.
 -- @class file
 -- @name Collectinator.lua
 -- @release @file-revision@
@@ -291,9 +291,12 @@ function addon:OnInitialize()
 	button:SetScript("OnClick",
 				  function()
 					  local companion_frame = PetPaperDollFrameCompanionFrame
-					  -- Shift only (Warcraft Pets)
-					  if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:Scan(true, false, "pets")
+					 --[[ 
+						Commented out for now as this isn't supported on Warcraftpets.com atm.
+						 -- Shift only (Warcraft Pets)
+						if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+							addon:Scan(true, false, "pets")
+					--]]
 						  -- Alt-shift only (Text Dump)
 					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 						  addon:Scan(true, false)
@@ -1303,11 +1306,11 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 		playerData["known_exclude_str"], playerData["unknown_exclude_str"] = self:MarkExclusions(CompanionDB, filter_type)
 
 		if textdump then
-			if scantype == "pets" then
-				self:GetWarcraftPets(CompanionDB)
-			else
-				self:DisplayTextDump(CompanionDB)
-			end
+			-- if scantype == "pets" then
+				-- self:GetWarcraftPets(CompanionDB)
+			-- else
+					self:DisplayTextDump(CompanionDB)
+			--end
 		else
 			self:DisplayFrame(playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
 		end
@@ -1501,6 +1504,7 @@ do
 	end
 end	-- do
 
+--[[
 -------------------------------------------------------------------------------
 -- Warcraft Pets Integration
 -------------------------------------------------------------------------------
@@ -1575,5 +1579,6 @@ do
 
 		self:DisplayTextDump(nil, nil, tconcat(t,","))
 	end
+]]--
 
 end
