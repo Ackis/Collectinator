@@ -291,14 +291,13 @@ function addon:OnInitialize()
 	button:SetScript("OnClick",
 				  function()
 					  local companion_frame = PetPaperDollFrameCompanionFrame
-					 --[[ 
-						Commented out for now as this isn't supported on Warcraftpets.com atm.
-						 -- Shift only (Warcraft Pets)
-						if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-							addon:Scan(true, false, "pets")
-					--]]
-						  -- Alt-shift only (Text Dump)
-					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+					  -- Commented out for now as this isn't supported on Warcraftpets.com atm.
+					  -- Shift only (Warcraft Pets)
+					  -- if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+					  -- addon:Scan(true, false, "pets")
+
+					  -- Alt-shift only (Text Dump)
+					  if not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 						  addon:Scan(true, false)
 						  -- Alt only (Wipe icons from map)
 					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
@@ -1579,6 +1578,5 @@ do
 
 		self:DisplayTextDump(nil, nil, tconcat(t,","))
 	end
-]]--
-
 end
+]]--
