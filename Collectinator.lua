@@ -1407,31 +1407,34 @@ do
 		twipe(texttable)
 
 		-- Add a header to the text table
-		tinsert(texttable, format("Collectinator Text Dump for %s", collectible_type))
-		tinsert(texttable, "Text output of all items and acquire information.  Output is in the form of comma seperated values.\n")
-		tinsert(texttable, "Spell ID, item Name, Skill Level, Filter Flags, Acquire Methods, Known\n")
+		tinsert(texttable, format("Collectinator Text Dump for %s.  ", collectible_type))
+		tinsert(texttable, "Text output of all collectibles and acquire information.  Output is in the form of comma seperated values.\n")
+		tinsert(texttable, "Spell ID, Item Name, Filter Flags, Acquire Methods, Known\n")
 
 		for SpellID in pairs(DB) do
 			local companion_type = DB[SpellID]["Type"]
 			if companion_type == collectible_type then
-				-- Add Spell ID and Name to the list
+				-- Add Spell ID and Item Name to the list
 				tinsert(texttable, SpellID)
-				tinsert(texttable, ", ")
+				tinsert(texttable, ",")
 				tinsert(texttable, DB[SpellID]["Name"])
-				tinsert(texttable, ", ")
-				tinsert(texttable, ", [")
+				tinsert(texttable, ",\"")
 
 				-- Add in all the filter flags
 				local flags = DB[SpellID]["Flags"]
+				local prev
 
 				-- Find out which flags are marked as "true"
 				for i = 1, 76, 1 do
 					if flags[i] then
+						if prev then
+							tinsert(texttable, ",")
+						end
 						tinsert(texttable, i)
-						tinsert(texttable, ", ")
+						prev = true
 					end
 				end
-				tinsert(texttable, "], [")
+				tinsert(texttable, "\",\"")
 
 				-- Find out which unique acquire methods we have
 				local acquire = DB[SpellID]["Acquire"]
@@ -1462,15 +1465,20 @@ do
 				end
 
 				-- Add all the acquire methods in
+				prev = false
+				
 				for i in pairs(acquirelist) do
+					if prev then
+						tinsert(texttable, ",")
+					end
 					tinsert(texttable, i)
-					tinsert(texttable, ", ")
+					prev = true
 				end
 
 				if DB[SpellID]["Known"] then
-					tinsert(texttable, "], true\n")
+					tinsert(texttable, "\",true\n")
 				else
-					tinsert(texttable, "], false\n")
+					tinsert(texttable, "\",false\n")
 				end
 			end
 		end
