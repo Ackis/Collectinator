@@ -4080,7 +4080,7 @@ do
 	copy_frame:Hide()
 
 	function addon:DisplayTextDump(CollectibleDB, collectible_type, text)
-		edit_box:SetText((not RecipeDB and not collectible_type) and text or self:GetTextDump(CollectibleDB, collectible_type))
+		edit_box:SetText((not CollectibleDB and not collectible_type) and text or self:GetTextDump(CollectibleDB, collectible_type))
 		edit_box:HighlightText(0)
 		copy_frame:Show()
 	end

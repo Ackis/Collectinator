@@ -291,14 +291,15 @@ function addon:OnInitialize()
 	button:SetScript("OnClick",
 				  function()
 					  local companion_frame = PetPaperDollFrameCompanionFrame
+					  local is_visible = (PetListPlus and PetListPlusFrame:IsVisible()) or companion_frame:IsVisible()
 					  -- Commented out for now as this isn't supported on Warcraftpets.com atm.
 					  -- Shift only (Warcraft Pets)
 					  -- if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
 					  -- addon:Scan(true, false, "pets")
 
-					  -- Alt-shift only (Text Dump)
-					  if not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:Scan(true, false)
+					  -- Shift only (Text Dump)
+					  if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						  addon:Scan(true, false, is_visible and companion_frame.mode or "CRITTER")
 						  -- Alt only (Wipe icons from map)
 					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 						  addon:ClearMap()
@@ -309,8 +310,6 @@ function addon:OnInitialize()
 							  self:CloseWindow()
 							  -- Window is hidden
 						  else
-							  local is_visible = (PetListPlus and PetListPlusFrame:IsVisible()) or companion_frame:IsVisible()
-
 							  addon:Scan(false, false, is_visible and companion_frame.mode or "CRITTER")
 							  self:SetupMap()
 						  end
@@ -1308,7 +1307,7 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 			-- if scantype == "pets" then
 				-- self:GetWarcraftPets(CompanionDB)
 			-- else
-					self:DisplayTextDump(CompanionDB)
+				self:DisplayTextDump(CompanionDB, scantype)
 			--end
 		else
 			self:DisplayFrame(playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
@@ -1413,15 +1412,13 @@ do
 		tinsert(texttable, "Spell ID, item Name, Skill Level, Filter Flags, Acquire Methods, Known\n")
 
 		for SpellID in pairs(DB) do
-			local spell_type = GetSpellInfo(DB[SpellID]["Type"])
-
-			if spell_type == collectible_type then
-				-- Add Spell ID, Name and Skill Level to the list
+			local companion_type = DB[SpellID]["Type"]
+			if companion_type == collectible_type then
+				-- Add Spell ID and Name to the list
 				tinsert(texttable, SpellID)
 				tinsert(texttable, ", ")
 				tinsert(texttable, DB[SpellID]["Name"])
 				tinsert(texttable, ", ")
-				tinsert(texttable, DB[SpellID]["Level"])
 				tinsert(texttable, ", [")
 
 				-- Add in all the filter flags
