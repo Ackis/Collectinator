@@ -3941,10 +3941,10 @@ local function InitializeFrame()
 		["wyrmrest"]		= { cb = Collectinator_RepWyrmrestCB,		svroot = filterdb.rep },
 		["ashenverdict"]	= { cb = Collectinator_RepAshenVerdictCB,	svroot = filterdb.rep },
 		["wrathcommon1"]	= { cb = Collectinator_WrathCommon1CB,		svroot = filterdb.rep },
-		["wrathcommon2"]	= { cb = Collectinator_WrathCommon2CB,		svroot = nil },
-		["wrathcommon3"]	= { cb = Collectinator_WrathCommon3CB,		svroot = nil },
-		["wrathcommon4"]	= { cb = Collectinator_WrathCommon4CB,		svroot = nil },
-		["wrathcommon5"]	= { cb = Collectinator_WrathCommon5CB,		svroot = nil },
+		-- ["wrathcommon2"]	= { cb = Collectinator_WrathCommon2CB,		svroot = nil },
+		-- ["wrathcommon3"]	= { cb = Collectinator_WrathCommon3CB,		svroot = nil },
+		-- ["wrathcommon4"]	= { cb = Collectinator_WrathCommon4CB,		svroot = nil },
+		-- ["wrathcommon5"]	= { cb = Collectinator_WrathCommon5CB,		svroot = nil },
 	}
 end
 
