@@ -1124,7 +1124,7 @@ function addon:GetMountTotal(DB)
 	-- Reins of the Blue Drake - 59568
 	AddMount(59568, 43953, R_EPIC, GAME_WOTLK)
 	AddMountFlags(59568, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
-	self:AddCompanionAcquire(DB, 59568, A_MOB, 28859)
+	self:AddCompanionAcquire(DB, 59568, A_MOB, 28859, A_MOB, 27656)
 
 	-- Reins of the Blue Proto-Drake - 59996
 	AddMount(59996, 44151, R_EPIC, GAME_WOTLK)
