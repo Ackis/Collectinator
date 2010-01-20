@@ -399,7 +399,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Wolpertinger's Tankard - 39709
 	AddPet(39709, 32233, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 39709, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP)
-	self:AddCompanionAcquire(PetDB, 39709, A_SEASONAL, 6)
+	self:AddCompanionAcquire(PetDB, 39709, A_SEASONAL, 6, A_QUEST, 11431, A_QUEST, 11117)
 
 	-- Argent Squire -- 62609
 	AddPet(62609, 44998, R_RARE, GAME_WOTLK)
