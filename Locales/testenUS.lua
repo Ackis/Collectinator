@@ -288,7 +288,6 @@ L["Ravasaur Matriarch"] = true
 L["Dart"] = true
 L["Razzashi Raptor"] = true
 L["Bogflare Needler"] = true
-L["Dark Iron Antagonist"] = true
 L["Forest Frog"] = true
 L["Gundrak Raptor"] = true
 L["Time-Lost Proto Drake"] = true
