@@ -118,7 +118,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 10713, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 10713, A_VENDOR, 28951)
 
---ACHIVEMENTS
+--ACHIEVEMENTS
 	-- Pilgrim Turkey - 61773
 	AddPet(61773, 44810, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61773, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT)
@@ -245,7 +245,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Clockwork Rocket Bot - 54187
 	AddPet(54187, 34425, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(PetDB, 54187, A_ACHIEVEMENT, 1705)
+	self:AddCompanionAcquire(PetDB, 54187, A_ACHIEVEMENT, 1705, A_SEASONAL, 1)
 
 	-- Spring Rabbit - 61725
 	AddPet(61725, 44794, R_RARE, GAME_WOTLK)
@@ -704,8 +704,8 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Vampiric Batling - 51851
 	AddPet(51851, 38658, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 51851, F_ALLIANCE, F_HORDE, F_RAID, F_SEASONAL, F_MOB_DROP, F_SPEC_EVENT, F_REMOVED, F_BOP)
-	self:AddCompanionAcquire(PetDB, 51851, A_ACHIEVEMENT, 2456, A_MOB, 28194, A_SEASONAL, 7)
+	self:AddCompanionFlags(PetDB, 51851, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_SPEC_EVENT, F_REMOVED, F_BOP)
+	self:AddCompanionAcquire(PetDB, 51851, A_ACHIEVEMENT, 2456, A_MOB, 28194)
 
 	-- Baby Blizzard Bear - 61855
 	AddPet(61855, 44819, R_COMMON, GAME_WOTLK)
