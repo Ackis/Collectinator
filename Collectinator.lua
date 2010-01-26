@@ -1402,13 +1402,19 @@ end
 -- Scans through the item database providing a string of comma seperated values for all item information
 do
 	local texttable = {}
-
+	
 	function addon:GetTextDump(DB, collectible_type)
 		twipe(texttable)
-
+		local collectible_typename
+		
+		if(collectible_type == "CRITTER") then
+			collectible_typename = "\"Pets\""
+		elseif(collectible_type == "MOUNT") then
+			collectible_typename = "\"Mounts\""
+		end
+		
 		-- Add a header to the text table
-		tinsert(texttable, format("Collectinator Text Dump for %s.  ", collectible_type))
-		tinsert(texttable, "Text output of all collectibles and acquire information.  Output is in the form of comma seperated values.\n")
+		tinsert(texttable, format("Collectinator Text Dump for %s in the form of Comma Separated Values.\n", collectible_typename))
 		tinsert(texttable, "Spell ID, Item Name, Filter Flags, Acquire Methods, Known\n")
 
 		for SpellID in pairs(DB) do
