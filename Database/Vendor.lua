@@ -3,8 +3,8 @@
 -------------------------------------------------------------------------------
 -- Vendor data for all of Collectinator
 -------------------------------------------------------------------------------
--- File date: @file-date-iso@ 
--- File revision: @file-revision@ 
+-- File date: @file-date-iso@
+-- File revision: @file-revision@
 -- Project revision: @project-revision@
 -- Project version: @project-version@
 -- Format:	self:addLookupList(VendorDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)

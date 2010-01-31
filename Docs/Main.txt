@@ -1,5 +1,5 @@
 ==What it does==
-Provides methods for determining which mini-pets and mounts you are missing. 
+Provides methods for determining which mini-pets and mounts you are missing.
 
 ==Where to get it
 * [[http://www.wowace.com/projects/collectinator/files/|WoW Ace]] - Alpha Quality

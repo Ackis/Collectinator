@@ -3,8 +3,8 @@
 -------------------------------------------------------------------------------
 -- enUS localization strings for Collectinator (Repository Version)
 -------------------------------------------------------------------------------
--- File date: @file-date-iso@ 
--- File revision: @file-revision@ 
+-- File date: @file-date-iso@
+-- File revision: @file-revision@
 -- Project revision: @project-revision@
 -- Project version: @project-version@
 -------------------------------------------------------------------------------

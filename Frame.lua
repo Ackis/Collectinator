@@ -3,8 +3,8 @@
 -------------------------------------------------------------------------------
 -- Frame functions for all of Collectinator
 -------------------------------------------------------------------------------
--- File date: @file-date-iso@ 
--- File revision: @file-revision@ 
+-- File date: @file-date-iso@
+-- File revision: @file-revision@
 -- Project revision: @project-revision@
 -- Project version: @project-version@
 -------------------------------------------------------------------------------
@@ -163,11 +163,11 @@ local Collectinator_ExpGeneralOptCB, Collectinator_ExpObtainOptCB, Collectinator
 local Collectinator_ExpItemOptCB, Collectinator_ExpRepOptCB
 local Collectinator_RepOldWorldCB, Collectinator_RepBCCB, Collectinator_RepLKCB, Collectinator_ExpMiscOptCB
 
--- To make tabbing between collections easier 
-local SortedCollections = { 
+-- To make tabbing between collections easier
+local SortedCollections = {
 	{ name = "CRITTER", 	texture = "minipets" }, -- 1
 	{ name = "MOUNT", 	texture = "mounts" }, 	-- 2
-} 
+}
 local MaxCollections = 2
 
 -------------------------------------------------------------------------------
@@ -195,47 +195,47 @@ local ExpButtonTT = {
 -- Static popup dialogs
 -------------------------------------------------------------------------------
 StaticPopupDialogs["Collectinator_NOTSCANNED"] = {
-	text = L["NOTSCANNED"], 
-	button1 = L["Ok"], 
-	timeout = 0, 
-	exclusive = 1, 
-	whileDead = 1, 
+	text = L["NOTSCANNED"],
+	button1 = L["Ok"],
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
 	hideOnEscape = 1
 }
 
 StaticPopupDialogs["Collectinator_ALLFILTERED"] = {
-	text = L["ALL_FILTERED"], 
-	button1 = L["Ok"], 
-	timeout = 0, 
-	exclusive = 1, 
-	whileDead = 1, 
+	text = L["ALL_FILTERED"],
+	button1 = L["Ok"],
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
 	hideOnEscape = 1
 }
 
 StaticPopupDialogs["Collectinator_ALLKNOWN"] = {
-	text = L["Collectinator_ALLKNOWN"], 
-	button1 = L["Ok"], 
-	timeout = 0, 
-	exclusive = 1, 
-	whileDead = 1, 
+	text = L["Collectinator_ALLKNOWN"],
+	button1 = L["Ok"],
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
 	hideOnEscape = 1
 }
 
 StaticPopupDialogs["Collectinator_ALLEXCLUDED"] = {
-	text = L["Collectinator_ALLEXCLUDED"], 
-	button1 = L["Ok"], 
-	timeout = 0, 
-	exclusive = 1, 
-	whileDead = 1, 
+	text = L["Collectinator_ALLEXCLUDED"],
+	button1 = L["Ok"],
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
 	hideOnEscape = 1
 }
 
 StaticPopupDialogs["Collectinator_SEARCHFILTERED"] = {
-	text = L["Collectinator_SEARCHFILTERED"], 
-	button1 = L["Ok"], 
-	timeout = 0, 
-	exclusive = 1, 
-	whileDead = 1, 
+	text = L["Collectinator_SEARCHFILTERED"],
+	button1 = L["Ok"],
+	timeout = 0,
+	exclusive = 1,
+	whileDead = 1,
 	hideOnEscape = 1
 }
 
@@ -1358,7 +1358,7 @@ do
 	end
 end	-- do
 
--- Description: 
+-- Description:
 
 function addon:ResetGUI()
 
@@ -1506,7 +1506,7 @@ function addon.resetTitle()
 	addon.Frame.HeadingText:SetText(addon:Normal(myTitle))
 end
 
--- Description: 
+-- Description:
 
 local function HideCollectinator_ExpOptCB(ignorevalue)
 	Collectinator_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1]))
@@ -1525,7 +1525,7 @@ local function HideCollectinator_ExpOptCB(ignorevalue)
 
 	if (ignorevalue ~= "obtain") then
 		Collectinator_ExpObtainOptCB:SetChecked(false)
-		Collectinator_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
+		Collectinator_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2]))
 	else
 		Collectinator_ExpObtainOptCB.text:SetText(addon:White(ExpButtonText[2]))
 	end
@@ -1592,7 +1592,7 @@ do
 	end
 end	-- do
 
--- Description: 
+-- Description:
 
 -------------------------------------------------------------------------------
 -- Generic button-creation function and functions required for its
@@ -1633,8 +1633,8 @@ do
 	end
 
 	function addon:GenericCreateButton(
-					   bName, parentFrame, 	bHeight, bWidth, 
-					   anchorFrom, anchorFrame, anchorTo, xOffset, yOffset, 
+					   bName, parentFrame, 	bHeight, bWidth,
+					   anchorFrom, anchorFrame, anchorTo, xOffset, yOffset,
 					   bNormFont, bHighFont, initText, tAlign, tooltipText, noTextures)
 		-- I hate stretchy buttons. Thanks very much to ckknight for this code
 		-- (found in RockConfig)
@@ -1721,7 +1721,7 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 			cButton:SetWidth(100)
 			cButton:SetHeight(46)
 			cButton:SetChecked(false)
-	
+
 		local iconTex = cButton:CreateTexture(cButton:GetName() .. "buttonTex", "BORDER")
 			if (bName == "Collectinator_RepLKCB") then
 				iconTex:SetTexture("Interface\\Addons\\Collectinator\\img\\" .. bTex)
@@ -1757,11 +1757,11 @@ function addon:CreateExpCB(bName, bTex, panelIndex)
 		end
 
 		return cButton
-	else 
+	else
 		local cButton = CreateFrame("CheckButton", bName, addon.Frame) -- , "UICheckButtonTemplate")
 		cButton:SetWidth(ExpTextureSize)
 		cButton:SetHeight(ExpTextureSize)
-		cButton:SetScript("OnClick", function() 
+		cButton:SetScript("OnClick", function()
 						     addon.DoFlyaway(panelIndex)
 					     end)
 
@@ -1963,7 +1963,7 @@ local function expandEntry(dsIndex)
 				t.sID = collectibleIndex
 				t.IsExpanded = true
 
-				t.String = pad .. pad .. faction_strings[v["RepLevel"]] .. nStr 
+				t.String = pad .. pad .. faction_strings[v["RepLevel"]] .. nStr
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
@@ -2037,7 +2037,7 @@ local function expandEntry(dsIndex)
 	return dsIndex
 end
 
--- Description: 
+-- Description:
 
 function addon.CollectibleItem_OnClick(button)
 	local clickedIndex = addon.CollectibleListButton[button].sI
@@ -2218,7 +2218,7 @@ function addon.RepFilterSwitch(whichrep)
 
 end
 
--- Description: 
+-- Description:
 local function recursiveReset(t)
 	-- Thanks to Antiarc for this code
 	for k, v in pairs(t) do
@@ -2230,7 +2230,7 @@ local function recursiveReset(t)
 	end
 end
 
--- Description: 
+-- Description:
 function addon.DoFlyaway(panel)
 
 	-- This is going to manage the flyaway panel, as well as checking or unchecking the
@@ -2271,7 +2271,7 @@ function addon.DoFlyaway(panel)
 
 		else
 
-			Collectinator_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1])) 
+			Collectinator_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1]))
 			ChangeFilters = false
 
 		end
@@ -2293,7 +2293,7 @@ function addon.DoFlyaway(panel)
 
 		else
 
-			Collectinator_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2])) 
+			Collectinator_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2]))
 			ChangeFilters = false
 
 		end
@@ -2315,7 +2315,7 @@ function addon.DoFlyaway(panel)
 
 		else
 
-			Collectinator_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3])) 
+			Collectinator_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3]))
 			ChangeFilters = false
 
 		end
@@ -2337,7 +2337,7 @@ function addon.DoFlyaway(panel)
 
 		else
 
-			Collectinator_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4])) 
+			Collectinator_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
 			ChangeFilters = false
 
 		end
@@ -2358,7 +2358,7 @@ function addon.DoFlyaway(panel)
 
 		else
 
-			Collectinator_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[5])) 
+			Collectinator_ExpRepOptCB.text:SetText(addon:Yellow(ExpButtonText[5]))
 			ChangeFilters = false
 
 		end
@@ -2378,7 +2378,7 @@ function addon.DoFlyaway(panel)
 
 		else
 
-			Collectinator_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[6])) 
+			Collectinator_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
 			ChangeFilters = false
 
 		end
@@ -2455,7 +2455,7 @@ local function expandallDisplayStrings()
 	end
 end
 
--- Description: 
+-- Description:
 
 function addon.ExpandAll_Clicked()
 
@@ -2473,7 +2473,7 @@ function addon.ExpandAll_Clicked()
 
 end
 
--- Description: 
+-- Description:
 
 local function SetSortName()
 
@@ -2489,7 +2489,7 @@ local function SetSortName()
 
 end
 
--- Description: 
+-- Description:
 
 local function Collectinator_DD_Sort_OnClick(button, value)
 	CloseDropDownMenus()
@@ -2498,7 +2498,7 @@ local function Collectinator_DD_Sort_OnClick(button, value)
 	ReDisplay(current_tab)
 end
 
--- Description: 
+-- Description:
 
 local function Collectinator_DD_Sort_Initialize()
 
@@ -2528,7 +2528,7 @@ local function Collectinator_DD_Sort_Initialize()
 
 end
 
--- Description: Saves the frame position into the database 
+-- Description: Saves the frame position into the database
 -- Expected result: Frame coordinates are saved
 -- Input: None
 -- @return Database values updated with frame position
@@ -2566,7 +2566,7 @@ local function SetFramePosition()
 
 	local opts = addon.db.profile.frameopts
 	local FixedOffsetX = opts.offsetx
-	
+
 	if (opts.anchorTo == "") then
 		-- no values yet, clamp to whatever frame is appropriate
 		addon.Frame:SetPoint("TOPLEFT", PetPaperDollFrameCompanionFrame, "TOPRIGHT", 10, 0)
@@ -2647,7 +2647,7 @@ local function InitializeFrame()
 	addon.Frame:SetScript("OnMouseDown", function()	addon.Frame:StartMoving() end)
 
 	addon.Frame:SetScript("OnHide", function() addon:CloseWindow() end)
-	addon.Frame:SetScript("OnMouseUp", 
+	addon.Frame:SetScript("OnMouseUp",
 			      function()
 				      addon.Frame:StopMovingOrSizing()
 				      SaveFramePosition()
@@ -2730,7 +2730,7 @@ local function InitializeFrame()
 						      endLoop = current_tab
 					      end
 					      local index = startLoop
-	
+
 					      while index ~= endLoop do
 						      if index > MaxCollections then
 							      index = 1
@@ -2781,8 +2781,8 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the filter button, position it, and set its scripts.
 	-------------------------------------------------------------------------------
-	local filter_button = addon:GenericCreateButton(nil, addon.Frame, 
-							25, 90, "TOPRIGHT", addon.Frame, "TOPRIGHT", -8, -40, "GameFontNormalSmall", 
+	local filter_button = addon:GenericCreateButton(nil, addon.Frame,
+							25, 90, "TOPRIGHT", addon.Frame, "TOPRIGHT", -8, -40, "GameFontNormalSmall",
 							"GameFontHighlightSmall", L["Filter"] .. ">>>", "CENTER", L["FILTER_OPEN_DESC"], 1)
 	filter_button:SetScript("OnClick",
 				function(self, button, down)
@@ -2858,8 +2858,8 @@ local function InitializeFrame()
 	SetSortName()
 	UIDropDownMenu_SetWidth(Collectinator_DD_Sort, 105)
 
-	local Collectinator_ExpandButton = addon:GenericCreateButton("Collectinator_ExpandButton", addon.Frame, 
-								     21, 40, "TOPRIGHT", Collectinator_DD_Sort, "BOTTOMLEFT", -2, 0, "GameFontNormalSmall", 
+	local Collectinator_ExpandButton = addon:GenericCreateButton("Collectinator_ExpandButton", addon.Frame,
+								     21, 40, "TOPRIGHT", Collectinator_DD_Sort, "BOTTOMLEFT", -2, 0, "GameFontNormalSmall",
 								     "GameFontHighlightSmall", L["EXPANDALL"], "CENTER", L["EXPANDALL_DESC"], 1)
 	Collectinator_ExpandButton:SetScript("OnClick", addon.ExpandAll_Clicked)
 
@@ -2896,11 +2896,11 @@ local function InitializeFrame()
 		end
 	end	-- do
 
-	local Collectinator_SearchButton = addon:GenericCreateButton("Collectinator_SearchButton", addon.Frame, 
-								     25, 74, "TOPLEFT", Collectinator_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall", 
+	local Collectinator_SearchButton = addon:GenericCreateButton("Collectinator_SearchButton", addon.Frame,
+								     25, 74, "TOPLEFT", Collectinator_DD_Sort, "BOTTOMRIGHT", 1, 4, "GameFontDisableSmall",
 								     "GameFontHighlightSmall", _G.SEARCH, "CENTER", L["SEARCH_DESC"], 1)
 	Collectinator_SearchButton:Disable()
-	Collectinator_SearchButton:SetScript("OnClick", 
+	Collectinator_SearchButton:SetScript("OnClick",
 					     function(this)
 						     local searchtext = Collectinator_SearchText:GetText()
 						     searchtext = searchtext:trim()
@@ -2920,10 +2920,10 @@ local function InitializeFrame()
 						     end
 					     end)
 
-	local Collectinator_ClearButton = addon:GenericCreateButton("Collectinator_ClearButton", addon.Frame, 
-								    28, 28, "RIGHT", Collectinator_SearchButton, "LEFT", 4, -1, "GameFontNormalSmall", 
+	local Collectinator_ClearButton = addon:GenericCreateButton("Collectinator_ClearButton", addon.Frame,
+								    28, 28, "RIGHT", Collectinator_SearchButton, "LEFT", 4, -1, "GameFontNormalSmall",
 								    "GameFontHighlightSmall", "", "CENTER", L["CLEAR_DESC"], 3)
-	Collectinator_ClearButton:SetScript("OnClick", 
+	Collectinator_ClearButton:SetScript("OnClick",
 					    function()
 						    addon:ResetSearch(collectibleDB)
 						    Collectinator_SearchText:SetText(L["SEARCH_BOX_DESC"])
@@ -2947,7 +2947,7 @@ local function InitializeFrame()
 					    end)
 	Collectinator_SearchText = CreateFrame("EditBox", "Collectinator_SearchText", addon.Frame, "InputBoxTemplate")
 	Collectinator_SearchText:SetText(L["SEARCH_BOX_DESC"])
-	Collectinator_SearchText:SetScript("OnEnterPressed", 
+	Collectinator_SearchText:SetScript("OnEnterPressed",
 					   function(this)
 						   local searchtext = Collectinator_SearchText:GetText()
 						   searchtext = searchtext:trim()
@@ -2966,19 +2966,19 @@ local function InitializeFrame()
 							   Collectinator_SearchButton:Disable()
 						   end
 					   end)
-	Collectinator_SearchText:SetScript("OnEditFocusGained", 
+	Collectinator_SearchText:SetScript("OnEditFocusGained",
 					   function(this)
 						   if (this:GetText() == L["SEARCH_BOX_DESC"]) then
 							   this:SetText("")
 						   end
 					   end)
-	Collectinator_SearchText:SetScript("OnEditFocusLost", 
+	Collectinator_SearchText:SetScript("OnEditFocusLost",
 					   function(this)
 						   if (this:GetText() == "") then
 							   this:SetText(L["SEARCH_BOX_DESC"])
 						   end
 					   end)
-	Collectinator_SearchText:SetScript("OnTextChanged", 
+	Collectinator_SearchText:SetScript("OnTextChanged",
 					   function(this)
 						   if (this:GetText() ~= "" and this:GetText() ~= L["SEARCH_BOX_DESC"] and this:GetText() ~= Collectinator_LastSearchedText) then
 
@@ -2997,8 +2997,8 @@ local function InitializeFrame()
 	Collectinator_SearchText:SetPoint("RIGHT", Collectinator_ClearButton, "LEFT", 3, -1)
 	Collectinator_SearchText:Show()
 
-	local Collectinator_CloseButton = addon:GenericCreateButton("Collectinator_CloseButton", addon.Frame, 
-								    22, 69, "BOTTOMRIGHT", addon.Frame, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall", 
+	local Collectinator_CloseButton = addon:GenericCreateButton("Collectinator_CloseButton", addon.Frame,
+								    22, 69, "BOTTOMRIGHT", addon.Frame, "BOTTOMRIGHT", -4, 3, "GameFontNormalSmall",
 								    "GameFontHighlightSmall", _G.CLOSE, "CENTER", L["CLOSE_DESC"], 1)
 	-- Close all possible pop-up windows
 	Collectinator_CloseButton:SetScript("OnClick", function(self) addon:CloseWindow() end)
@@ -3091,12 +3091,12 @@ local function InitializeFrame()
 	addon.CollectibleListButton = {}
 
 	for i = 1, maxVisibleCollectibles do
-		local Temp_Plus = addon:GenericCreateButton("Collectinator_PlusListButton" .. i, addon.Frame, 
-							    16, 16, "TOPLEFT", addon.Frame, "TOPLEFT", 20, -100, "GameFontNormalSmall", 
+		local Temp_Plus = addon:GenericCreateButton("Collectinator_PlusListButton" .. i, addon.Frame,
+							    16, 16, "TOPLEFT", addon.Frame, "TOPLEFT", 20, -100, "GameFontNormalSmall",
 							    "GameFontHighlightSmall", "", "LEFT", "", 2)
 
-		local Temp_Collectible = addon:GenericCreateButton("Collectinator_CollectibleListButton" .. i, addon.Frame, 
-								   16, 224, "TOPLEFT", addon.Frame, "TOPLEFT", 37, -100, "GameFontNormalSmall", 
+		local Temp_Collectible = addon:GenericCreateButton("Collectinator_CollectibleListButton" .. i, addon.Frame,
+								   16, 224, "TOPLEFT", addon.Frame, "TOPLEFT", 37, -100, "GameFontNormalSmall",
 								   "GameFontHighlightSmall", "Blort", "LEFT", "", 0)
 
 		if not (i == 1) then
@@ -3116,7 +3116,7 @@ local function InitializeFrame()
 	Collectinator_CollectibleScrollFrame:SetHeight(322)
 	Collectinator_CollectibleScrollFrame:SetWidth(243)
 	Collectinator_CollectibleScrollFrame:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 20, -97)
-	Collectinator_CollectibleScrollFrame:SetScript("OnVerticalScroll", 
+	Collectinator_CollectibleScrollFrame:SetScript("OnVerticalScroll",
 						       function(self, arg1)
 							       FauxScrollFrame_OnVerticalScroll(self, arg1, 16, CollectibleList_Update)
 						       end)
@@ -3124,8 +3124,8 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Stuff that appears on the main frame only when expanded
 	-------------------------------------------------------------------------------
-	local Collectinator_ResetButton = addon:GenericCreateButton("Collectinator_ResetButton", addon.Frame, 
-								    25, 90, "TOPRIGHT", filter_button, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall", 
+	local Collectinator_ResetButton = addon:GenericCreateButton("Collectinator_ResetButton", addon.Frame,
+								    25, 90, "TOPRIGHT", filter_button, "BOTTOMRIGHT", 0, -2, "GameFontNormalSmall",
 								    "GameFontHighlightSmall", _G.RESET, "CENTER", L["RESET_DESC"], 1)
 	Collectinator_ResetButton:SetScript("OnClick", function(self, button, down)
 							       local filterdb = addon.db.profile.filters
@@ -3386,13 +3386,13 @@ local function InitializeFrame()
 	addon.Fly_Rep_OW:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
 	addon.Fly_Rep_OW:Hide()
 
-	local Collectinator_Rep_OWButton = addon:GenericCreateButton("Collectinator_Rep_OWButton", addon.Fly_Rep_OW, 
-								     20, 85, "TOPLEFT", addon.Fly_Rep_OW, "TOPLEFT", -2, -4, "GameFontHighlight", 
+	local Collectinator_Rep_OWButton = addon:GenericCreateButton("Collectinator_Rep_OWButton", addon.Fly_Rep_OW,
+								     20, 85, "TOPLEFT", addon.Fly_Rep_OW, "TOPLEFT", -2, -4, "GameFontHighlight",
 								     "GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
 	Collectinator_Rep_OWButton:SetText(L["Reputation"] .. ":")
 	Collectinator_Rep_OWButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	Collectinator_Rep_OWButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	Collectinator_Rep_OWButton:SetScript("OnClick", 
+	Collectinator_Rep_OWButton:SetScript("OnClick",
 					     function(self, button)
 						     local filterdb = addon.db.profile.filters.rep
 						     if button == "LeftButton" then
@@ -3553,13 +3553,13 @@ local function InitializeFrame()
 	addon.Fly_Rep_BC:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
 	addon.Fly_Rep_BC:Hide()
 
-	local Collectinator_Rep_BCButton = addon:GenericCreateButton("Collectinator_Rep_OWButton", addon.Fly_Rep_BC, 
-								     20, 85, "TOPLEFT", addon.Fly_Rep_BC, "TOPLEFT", -2, -4, "GameFontHighlight", 
+	local Collectinator_Rep_BCButton = addon:GenericCreateButton("Collectinator_Rep_OWButton", addon.Fly_Rep_BC,
+								     20, 85, "TOPLEFT", addon.Fly_Rep_BC, "TOPLEFT", -2, -4, "GameFontHighlight",
 								     "GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
 	Collectinator_Rep_BCButton:SetText(L["Reputation"] .. ":")
 	Collectinator_Rep_BCButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	Collectinator_Rep_BCButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	Collectinator_Rep_BCButton:SetScript("OnClick", 
+	Collectinator_Rep_BCButton:SetScript("OnClick",
 					     function(self, button)
 						     local filterdb = addon.db.profile.filters.rep
 
@@ -3704,13 +3704,13 @@ local function InitializeFrame()
 	addon.Fly_Rep_LK:SetPoint("TOPRIGHT", addon.Flyaway, "TOPRIGHT", -7, -16)
 	addon.Fly_Rep_LK:Hide()
 
-	local Collectinator_Rep_LKButton = addon:GenericCreateButton("Collectinator_Rep_OWButton", addon.Fly_Rep_LK, 
-								     20, 85, "TOPLEFT", addon.Fly_Rep_LK, "TOPLEFT", -2, -4, "GameFontHighlight", 
+	local Collectinator_Rep_LKButton = addon:GenericCreateButton("Collectinator_Rep_OWButton", addon.Fly_Rep_LK,
+								     20, 85, "TOPLEFT", addon.Fly_Rep_LK, "TOPLEFT", -2, -4, "GameFontHighlight",
 								     "GameFontHighlightSmall", L["Reputation"], "LEFT", L["REP_TEXT_DESC"], 0)
 	Collectinator_Rep_LKButton:SetText(L["Reputation"] .. ":")
 	Collectinator_Rep_LKButton:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 	Collectinator_Rep_LKButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	Collectinator_Rep_LKButton:SetScript("OnClick", 
+	Collectinator_Rep_LKButton:SetScript("OnClick",
 					     function(self, button)
 						     local filterdb = addon.db.profile.filters.rep
 						     if button == "LeftButton" then

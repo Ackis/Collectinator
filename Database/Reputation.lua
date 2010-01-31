@@ -6,13 +6,13 @@ Reputation.lua
 
 Reputation data for all of Collectinator
 
-Auto-generated using Dataminer.rb	
+Auto-generated using Dataminer.rb
 Entries to this file will be overwritten
 
 ************************************************************************
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 

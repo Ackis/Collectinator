@@ -8,8 +8,8 @@ Seasonal.lua
 
 ************************************************************************
 
-File date: @file-date-iso@ 
-File revision: @file-revision@ 
+File date: @file-date-iso@
+File revision: @file-revision@
 Project revision: @project-revision@
 Project version: @project-version@
 

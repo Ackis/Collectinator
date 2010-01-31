@@ -915,15 +915,15 @@ do
 	-- City 2 Stormwind/Orgrimmar
 	-- City 3 Gnomerga/Thunder Bluff
 	-- City 4 Ironforge/Undercity
-	-- City 5 Exodar/Silvermoon 
+	-- City 5 Exodar/Silvermoon
 	-- PVP 1 WSG
 	-- PVP 2 AV
-	-- PVP 3 AB 
+	-- PVP 3 AB
 	-- Wrath Common Factions 1 (The Silver Covenant/The Sunreavers)
 	-- Wrath Common Factions 2 (Explorer's League/Hand of Vengance)
 	-- Wrath Common Factions 3 (Explorer's League/Valiance Expedition)
 	-- Wrath Common Factions 4 (The Frostborn/The Taunka)
-	-- Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition) 
+	-- Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition)
 
 	local reptable
 
@@ -1024,7 +1024,7 @@ do
 				return false
 			end
 		end
-	
+
 		if not general_db.removed and flags[F_REMOVED] then
 			return false
 		end
@@ -1402,17 +1402,17 @@ end
 -- Scans through the item database providing a string of comma seperated values for all item information
 do
 	local texttable = {}
-	
+
 	function addon:GetTextDump(DB, collectible_type)
 		twipe(texttable)
 		local collectible_typename
-		
+
 		if(collectible_type == "CRITTER") then
 			collectible_typename = "\"Pets\""
 		elseif(collectible_type == "MOUNT") then
 			collectible_typename = "\"Mounts\""
 		end
-		
+
 		-- Add a header to the text table
 		tinsert(texttable, format("Collectinator Text Dump for %s in the form of Comma Separated Values.\n", collectible_typename))
 		tinsert(texttable, "Spell ID, Item Name, Filter Flags, Acquire Methods, Known\n")
@@ -1472,7 +1472,7 @@ do
 
 				-- Add all the acquire methods in
 				prev = false
-				
+
 				for i in pairs(acquirelist) do
 					if prev then
 						tinsert(texttable, ",")
@@ -1569,7 +1569,7 @@ do
 		[67413] = 157,		[67414] = 158,		[67415] = 159,
 		[67416] = 160,		[67420] = 161,		[67418] = 162,
 		[67419] = 163,		[66030] = 164,		[44369] = 165,
-		[55068] = 166,     [61773] = 171,       [69002] = 172, 
+		[55068] = 166,     [61773] = 171,       [69002] = 172,
 		[70613] = 175,
 	}
 

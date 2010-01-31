@@ -3,8 +3,8 @@
 -------------------------------------------------------------------------------
 -- Monster data for all of Collectinator
 -------------------------------------------------------------------------------
--- File date: @file-date-iso@ 
--- File revision: @file-revision@ 
+-- File date: @file-date-iso@
+-- File revision: @file-revision@
 -- Project revision: @project-revision@
 -- Project version: @project-version@
 -------------------------------------------------------------------------------
@@ -91,6 +91,6 @@ function addon:InitMob(DB)
 	self:addLookupList(DB, 32491,	L["Time-Lost Proto Drake"],		BZ["The Storm Peaks"],			50.2, 69.2)
 	self:addLookupList(DB, 33288,	BB["Yogg-Saron"],			BZ["Ulduar"],				0, 0)
 	self:addLookupList(DB, 33993,	BB["Emalon the Storm Watcher"],		BZ["Vault of Archavon"],		0, 0)
-	self:addLookupList(DB, 34564,	BB["Anub'arak"],			BZ["Trial of the Crusader"],		0, 0)	
+	self:addLookupList(DB, 34564,	BB["Anub'arak"],			BZ["Trial of the Crusader"],		0, 0)
 	self:addLookupList(DB, 35013,	BB["Koralon the Flame Watcher"],	BZ["Vault of Archavon"],		0, 0)
 end

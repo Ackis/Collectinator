@@ -2,7 +2,7 @@
 -- ./DB/TitleDatabase.lua
 -- Title Database data for all of Collectinator
 --------------------------------------------------------------------------------------------------------------------
--- File date: @file-date-iso@ 
+-- File date: @file-date-iso@
 -- Project version: @project-version@
 --------------------------------------------------------------------------------------------------------------------
 -- Please see http://www.wowace.com/projects/collectinator/for more information.
@@ -52,15 +52,15 @@ local F_PVP1, F_PVP2, F_PVP3 = 74, 75, 76
 -- City 2 Stormwind/Orgrimmar
 -- City 3 Gnomerga/Thunder Bluff
 -- City 4 Ironforge/Undercity
--- City 5 Exodar/Silvermoon 
+-- City 5 Exodar/Silvermoon
 -- PVP 1 WSG
 -- PVP 2 AV
--- PVP 3 AB 
+-- PVP 3 AB
 --Wrath Common Factions 1 (The Silver Convenant/The Sunreavers)
 --Wrath Common Factions 2 (Explorer's League/Hand of Vengance)
 --Wrath Common Factions 3 (Explorer's League/Valiance Expedition)
 --Wrath Common Factions 4 (The Frostborn/The Taunka)
---Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition) 
+--Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition)
 
 -------------------------------------------------------------------------------
 -- Acquire types

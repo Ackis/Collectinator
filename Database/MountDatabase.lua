@@ -2,7 +2,7 @@
 -- ./DB/MountDatabase.lua
 -- Mount Database data for all of Collectinator
 --------------------------------------------------------------------------------------------------------------------
--- File date: @file-date-iso@ 
+-- File date: @file-date-iso@
 -- Project version: @project-version@
 --------------------------------------------------------------------------------------------------------------------
 -- Please see http://www.wowace.com/projects/collectinator/for more information.
@@ -52,15 +52,15 @@ local F_PVP1, F_PVP2, F_PVP3 = 74, 75, 76
 -- City 2 Stormwind/Orgrimmar
 -- City 3 Gnomerga/Thunder Bluff
 -- City 4 Ironforge/Undercity
--- City 5 Exodar/Silvermoon 
+-- City 5 Exodar/Silvermoon
 -- PVP 1 WSG
 -- PVP 2 AV
--- PVP 3 AB 
+-- PVP 3 AB
 --Wrath Common Factions 1 (The Silver Covenant/The Sunreavers)
 --Wrath Common Factions 2 (Explorer's League/Hand of Vengance)
 --Wrath Common Factions 3 (Explorer's League/Valiance Expedition)
 --Wrath Common Factions 4 (The Frostborn/The Taunka)
---Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition) 
+--Wrath Common Factions 5 (Alliance Vanguard/Horde Expedition)
 
 -------------------------------------------------------------------------------
 -- Acquire types
@@ -269,12 +269,12 @@ function addon:GetMountTotal(DB)
 		-- Warhorse - Horde - 34769
 		AddMount(34769, nil, R_RARE, GAME_BC, C_PALADIN)
 		AddMountFlags(34769, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 34769, 
+		--self:AddCompanionAcquire(DB, 34769,
 
 		-- Charger - Horde - 34767
 		AddMount(34767, nil, R_EPIC, GAME_BC, C_PALADIN)
 		AddMountFlags(34767, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 34767, 
+		--self:AddCompanionAcquire(DB, 34767,
 	end
 
 	-------------------------------------------------------------------------------
@@ -615,12 +615,12 @@ function addon:GetMountTotal(DB)
 	AddMount(65639, 46751, R_EPIC, GAME_WOTLK)
 	AddMountFlags(65639, F_HORDE, F_VENDOR, F_BOP, F_CITY5)
 	self:AddCompanionAcquire(DB, 65639, A_REPUTATION, 911, EXALTED, 33557)
-	
+
 	-- Swift Horde Wolf
 	AddMount(68056, 49046, R_EPIC, GAME_WOTLK)
 	AddMountFlags(68056, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
 	self:AddCompanionAcquire(DB, 68056, A_MOB, 34564)
-	
+
 	-------------------------------------------------------------------------------
 	-------------------------------------------------------------------------------
 	-- Alliance Mounts
@@ -668,12 +668,12 @@ function addon:GetMountTotal(DB)
 		-- Warhorse - Alliance - 13819
 		AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
 		AddMountFlags(13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 13819, 
+		--self:AddCompanionAcquire(DB, 13819,
 
 		-- Charger - Alliance - 23214
 		AddMount(23214, nil, R_EPIC, GAME_ORIG, C_PALADIN)
 		AddMountFlags(23214, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 23214, 
+		--self:AddCompanionAcquire(DB, 23214,
 	end
 
 	-- White Mechanostrider Mod B - 15779
@@ -1036,12 +1036,12 @@ function addon:GetMountTotal(DB)
 	AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
 	AddMountFlags(65637, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY5)
 	self:AddCompanionAcquire(DB, 65637, A_REPUTATION, 930, EXALTED, 33657)
-	
-	-- Swift Alliance Steed 
+
+	-- Swift Alliance Steed
 	AddMount(68057, 49044, R_EPIC, GAME_WOTLK)
 	AddMountFlags(68057, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP)
 	self:AddCompanionAcquire(DB, 68057, A_MOB, 34564)
-	
+
 	-------------------------------------------------------------------------------
 	-- Mounts for Alliance AND Horde.
 	-------------------------------------------------------------------------------
@@ -1186,7 +1186,7 @@ function addon:GetMountTotal(DB)
 		-- Felsteed - 5784
 		AddMount(5784, nil, R_RARE, GAME_ORIG, C_WARLOCK)
 		AddMountFlags(5784, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
-		self:AddCompanionAcquire(DB, 5784, 
+		self:AddCompanionAcquire(DB, 5784,
 					 A_VENDOR, 16646, A_VENDOR, 5173, A_VENDOR, 23534, A_VENDOR, 5172, A_VENDOR, 16266,
 					 A_VENDOR, 461, A_VENDOR, 3172, A_VENDOR, 5612, A_VENDOR, 3324, A_VENDOR, 4563,
 					 A_VENDOR, 988, A_VENDOR, 4564, A_VENDOR, 906, A_VENDOR, 3325, A_VENDOR, 4565,
@@ -1391,13 +1391,13 @@ function addon:GetMountTotal(DB)
 --OTHERS
 	-- Spotted Nightsaber - 10792 (Never added to the game)
 	--AddMount(10792, 8628, R_COMMON, GAME_ORIG)
-	--AddMountFlags(10792, 
-	--self:AddCompanionAcquire(DB, 10792, 
+	--AddMountFlags(10792,
+	--self:AddCompanionAcquire(DB, 10792,
 
 	 -- Fluorescent Green Mechanostrider - 17458 (Never added to the game)
 	--AddMount(17458, nil, R_RARE, GAME_ORIG)
-	--AddMountFlags(17458, 
-	--self:AddCompanionAcquire(DB, 17458, 
+	--AddMountFlags(17458,
+	--self:AddCompanionAcquire(DB, 17458,
 
 	-- Blue Qiraji Battle Tank -- 25953
 	AddMount(25953, 21218, R_RARE, GAME_ORIG)
