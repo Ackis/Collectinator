@@ -251,6 +251,11 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(61725, 44794, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61725, F_ALLIANCE, F_HORDE, F_SEASONAL)
 	self:AddCompanionAcquire(PetDB, 61725, A_SEASONAL, 9)
+	
+	-- Toxic Wasteling - 71840
+	AddPet(71840, 50446, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 71840, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_INSTANCE, F_BOP)
+	self:AddCompanionAcquire(PetDB, 71840, A_SEASONAL, 5, A_MOB, 36296)	
 
 --WORLD EVENT VENDOR
 	-- Spirit of Summer - 28871
