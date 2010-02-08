@@ -93,4 +93,6 @@ function addon:InitMob(DB)
 	self:addLookupList(DB, 33993,	BB["Emalon the Storm Watcher"],		BZ["Vault of Archavon"],		0, 0)
 	self:addLookupList(DB, 34564,	BB["Anub'arak"],			BZ["Trial of the Crusader"],		0, 0)
 	self:addLookupList(DB, 35013,	BB["Koralon the Flame Watcher"],	BZ["Vault of Archavon"],		0, 0)
+	self:addLookupList(DB, 36296,	L["Apothecary Hummel"],	BZ["Shadowfang Keep"],		0, 0)
+	
 end

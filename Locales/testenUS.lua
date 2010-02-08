@@ -291,6 +291,7 @@ L["Bogflare Needler"] = true
 L["Forest Frog"] = true
 L["Gundrak Raptor"] = true
 L["Time-Lost Proto Drake"] = true
+L["Apothecary Hummel"] = true
 
 -- Vendors
 L["Yarlyn Amberstill"] = true
