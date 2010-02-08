@@ -1089,6 +1089,11 @@ function addon:GetMountTotal(DB)
 	AddMount(48025, 37012, R_EPIC, GAME_BC)
 	AddMountFlags(48025, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 48025, A_MOB, 23682, A_ACHIEVEMENT, 980, A_SEASONAL, 7)
+	
+	-- Big Love Rocket - 71342
+	AddMount(71342, nil, R_EPIC, GAME_WOTLK)
+	AddMountFlags(71342, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_INSTANCE, F_BOP)
+	self:AddCompanionAcquire(DB, 71342, A_SEASONAL, 5, A_ACHIEVEMENT, 4627, A_MOB, 36296)
 
 --DROP
 	 -- Reins of the Onyxian Drake - 69395
