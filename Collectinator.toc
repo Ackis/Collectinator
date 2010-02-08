@@ -7,7 +7,7 @@
 ## X-Donate: http://www.wowace.com/addons/collectinator/#w-donations
 
 ## Interface: 30300
-## Version: Beta 5
+## Version: Beta 6
 ## X-Revision: @project-version@
 ## X-Date: @file-date-iso@
 

@@ -2,7 +2,9 @@ package-as: Collectinator
 
 license-output: LICENSE.txt
 
-# manual-changelog: Docs/CHANGES.txt
+manual-changelog:
+ filename: Docs/CHANGES.txt
+ markup-type: creole
 
 ignore:
  - .pkgmeta

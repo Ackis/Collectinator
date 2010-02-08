@@ -1,2 +1,4 @@
 ==Collectinator Change Log
-===Initial Release
+===Beta 6
+*NOTE: Install this to a fresh directory in your addons folder.
+*Added the "Big Love Rocket" and "Toxic Wasteling" mount/pet from the Love is in the Air World Event to the databases
