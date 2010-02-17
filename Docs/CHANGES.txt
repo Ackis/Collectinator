@@ -1,4 +1,7 @@
 ==Collectinator Change Log
+===Beta 7
+*Big Love Rocket mount item is linkable now
+
 ===Beta 6
 *NOTE: Install this to a fresh directory in your addons folder.
 *Added the "Big Love Rocket" and "Toxic Wasteling" mount/pet from the Love is in the Air World Event to the databases
