@@ -1052,7 +1052,7 @@ function addon:GetMountTotal(DB)
 
 	-- Big Blizzard Bear - 58983
 	AddMount(58983, 43599, R_RARE, GAME_WOTLK)
-	AddMountFlags(58983, 16, F_ALLIANCE, F_HORDE, F_BOA, F_REMOVED)
+	AddMountFlags(58983, F_ALLIANCE, F_HORDE, F_BOA, F_REMOVED)
 	self:AddCompanionAcquire(DB, 58983, A_ACHIEVEMENT, 415)
 
 	 -- Argent Hippogryph - 63844
