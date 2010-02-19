@@ -1073,17 +1073,17 @@ function addon:GetMountTotal(DB)
 	-- Brewfest Ram - 43899
 	AddMount(43899, 33976, R_RARE, GAME_BC)
 	AddMountFlags(43899, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_REMOVED, F_BOP)
-	self:AddCompanionAcquire(DB, 43899, A_VENDOR, 24468, A_VENDOR, 24510, A_SEASONAL, 7)
+	self:AddCompanionAcquire(DB, 43899, A_VENDOR, 24468, A_VENDOR, 24510, A_SEASONAL, 6)
 
 	-- Great Brewfest Kodo - 49379
 	AddMount(49379, 37828, R_EPIC, GAME_BC)
 	AddMountFlags(49379, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_BOP)
-	self:AddCompanionAcquire(DB, 49379, A_MOB, 23872, A_SEASONAL, 7)
+	self:AddCompanionAcquire(DB, 49379, A_MOB, 23872, A_SEASONAL, 6)
 
 	-- Swift Brewfest Ram - 43900
 	AddMount(43900, 33977, R_EPIC, GAME_BC)
-	AddMountFlags(43900, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_MOB_DROP, F_BOP)
-	self:AddCompanionAcquire(DB, 43900, A_MOB, 23872, A_SEASONAL, 7)
+	AddMountFlags(43900, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 43900, A_MOB, 23872, A_SEASONAL, 6)
 
 	-- The Horseman's Reins - 48025
 	AddMount(48025, 37012, R_EPIC, GAME_BC)
