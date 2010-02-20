@@ -147,7 +147,7 @@ function addon:GetMountTotal(DB)
 -- FISHING
 	-- Sea Turtle
 	AddMount(64731, 46109, R_RARE, GAME_WOTLK)
-	AddMountFlags(64731, F_ALLIANCE, F_HORDE, F_FISHING, F_BOP)
+	AddMountFlags(64731, F_ALLIANCE, F_HORDE, F_CRAFT, F_FISHING, F_BOP)
 	self:AddCompanionAcquire(DB, 64731, A_ACHIEVEMENT, 3218)
 
 -- PLAYERMADE
@@ -170,22 +170,7 @@ function addon:GetMountTotal(DB)
 	AddMount(61309, 44558, R_EPIC, GAME_WOTLK)
 	AddMountFlags(61309, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
 	self:AddCompanionAcquire(DB, 61309, A_CRAFTED, 3908, 60971)
---[[
-	 -- Swift Mooncloth Carpet - 61442
-	AddMount(61442, 44555, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61442, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	self:AddCompanionAcquire(DB, 61442, A_CRAFTED, 3908, 60974)
 
-	 -- Swift Spellfire Carpet - 60976
-	AddMount(61446, 44556, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61446, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	self:AddCompanionAcquire(DB, 61446, A_CRAFTED, 3908, 60976)
-
-	 -- Swift Ebonweave Carpet - 60975
-	AddMount(61444, 44557, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61444, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	self:AddCompanionAcquire(DB, 61444, A_CRAFTED, 3908, 60975)
-]]--
 	-------------------------------------------------------------------------------
 	-- Faction-specific Mounts.
 	-------------------------------------------------------------------------------
@@ -1047,12 +1032,12 @@ function addon:GetMountTotal(DB)
 	-------------------------------------------------------------------------------
 	-- Swift Zhevra - 49322
 	AddMount(49322, 37719, R_EPIC, GAME_BC)
-	AddMountFlags(49322, F_ALLIANCE, F_HORDE, F_BOP)
+	AddMountFlags(49322, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
 	self:AddCompanionAcquire(DB, 49322, A_ACHIEVEMENT, 1436)
 
 	-- Big Blizzard Bear - 58983
 	AddMount(58983, 43599, R_RARE, GAME_WOTLK)
-	AddMountFlags(58983, F_ALLIANCE, F_HORDE, F_BOA, F_REMOVED)
+	AddMountFlags(58983, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOA, F_REMOVED)
 	self:AddCompanionAcquire(DB, 58983, A_ACHIEVEMENT, 415)
 
 	 -- Argent Hippogryph - 63844
@@ -1212,12 +1197,12 @@ function addon:GetMountTotal(DB)
 	if MY_CLASS == "DEATHKNIGHT" then
 		-- Acherus Deathcharger - 48778
 		AddMount(48778, nil, 1, GAME_WOTLK, C_DK)
-		AddMountFlags(48778, F_ALLIANCE, F_HORDE, F_BOP)
+		AddMountFlags(48778, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
 		self:AddCompanionAcquire(DB, 48778, A_QUEST, 12687)
 
 		-- Winged Steed of the Ebon Blade - 54729
 		AddMount(54729, 40775, R_EPIC, GAME_WOTLK, C_DK)
-		AddMountFlags(54729, F_ALLIANCE, F_HORDE, F_BOP)
+		AddMountFlags(54729, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 54729, A_VENDOR, 29587)
 	end
 
@@ -1392,17 +1377,6 @@ function addon:GetMountTotal(DB)
 	AddMount(67336, nil, R_EPIC, GAME_WOTLK)
 	AddMountFlags(67336, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
 	self:AddCompanionAcquire(DB, 67336, A_CUSTOM, 30)
-
---OTHERS
-	-- Spotted Nightsaber - 10792 (Never added to the game)
-	--AddMount(10792, 8628, R_COMMON, GAME_ORIG)
-	--AddMountFlags(10792,
-	--self:AddCompanionAcquire(DB, 10792,
-
-	 -- Fluorescent Green Mechanostrider - 17458 (Never added to the game)
-	--AddMount(17458, nil, R_RARE, GAME_ORIG)
-	--AddMountFlags(17458,
-	--self:AddCompanionAcquire(DB, 17458,
 
 	-- Blue Qiraji Battle Tank -- 25953
 	AddMount(25953, 21218, R_RARE, GAME_ORIG)
