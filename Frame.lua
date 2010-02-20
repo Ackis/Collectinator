@@ -845,7 +845,7 @@ local function GenerateTooltipContent(owner, rIndex)
 	end
 	local left_color, right_color = "", ""
 	local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
-	local item_icon = "|T"..(companion["ItemIcon"] and companion["ItemIcon"] or "Interface\\CharacterFrame\\Disconnect-Icon")..":40:40|t"
+	local item_icon = "|T"..(companion["ItemIcon"] or "Interface\\CharacterFrame\\Disconnect-Icon")..":40:40|t"
 
 	CollectinatorTooltip:Clear()
 	CollectinatorTooltip:AddHeader()
