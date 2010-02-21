@@ -1,4 +1,24 @@
 ==Collectinator Change Log
+===Beta 8
+*The following mounts will now correctly show up in the list:
+	**Sea Turtle
+	**Swift Zhevra 
+	**Big Blizzard Bear 
+	**Acherus Deathcharger (if you are a Death Knight) 
+	**Winged Steed of the Ebon Blade (if you are a Death Knight)
+	
+*Added the following mounts:
+	**Crusader's White Warhorse
+	**Crusader's Black Warhorse
+	**Little Ivory Raptor
+	**Little White Stallion
+	**Wrathful Gladiator's Frostwyrm
+	
+*Fixed a bug that was showing that the Brewfest mounts were from Hallow's End which should be Brewfest
+*Toravon the Ice Watcher now listed for "Grand Black War Mammoth"
+*Deadly Gladiator's Frostwyrm item will now link
+*Database cleanup
+
 ===Beta 7
 *Big Love Rocket mount item is linkable now
 
