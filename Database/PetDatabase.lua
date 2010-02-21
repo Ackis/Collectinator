@@ -5,7 +5,7 @@
 -- File date: @file-date-iso@
 -- Project version: @project-version@
 --------------------------------------------------------------------------------------------------------------------
--- Please see http://www.wowace.com/projects/collectinator/for more information.
+-- Please see http://www.wowace.com/addons/collectinator/ for more information.
 --------------------------------------------------------------------------------------------------------------------
 -- License:
 -- Please see LICENSE.txt
@@ -180,7 +180,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 62561, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 62561, A_QUEST, 13830, A_QUEST, 13832, A_QUEST, 13833, A_QUEST, 13834, A_QUEST, 13836)
 
-	--PLAYERMADE
+--PLAYERMADE
 	-- Mechanical Squirrel Box - 4055
 	AddPet(4055, 4401, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 4055, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOE)
@@ -795,27 +795,7 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(53082, 39656, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 53082, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOA)
 	self:AddCompanionAcquire(PetDB, 53082, A_ACHIEVEMENT, 414)
---[[
-	-- Tiny Red Dragon - XX
-	AddPet(XX, YY, , GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, XX, F_ALLIANCE, F_HORDE, F_REMOVED, SPEC_EVENT)
-	self:AddCompanionAcquire(PetDB, XX,
 
-	-- Tiny Green Dragon - XX
-	AddPet(XX, YY, , GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, XX, F_ALLIANCE, F_HORDE, F_REMOVED, SPEC_EVENT)
-	self:AddCompanionAcquire(PetDB, XX,
-
-	-- Silver Pig - XX
-	AddPet(XX, YY, , GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, XX, F_ALLIANCE, F_HORDE, F_REMOVED, SPEC_EVENT)
-	self:AddCompanionAcquire(PetDB, XX,
-
-	-- Golden Pig - XX
-	AddPet(XX, YY, , GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, XX, F_ALLIANCE, F_HORDE, F_REMOVED, SPEC_EVENT)
-	self:AddCompanionAcquire(PetDB, XX,
-]]--
 	-- Warbot
 	AddPet(65682, 46767, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 65682, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOP)
@@ -856,6 +836,7 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(68810, 49343, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 68810, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 68810, A_CUSTOM, 1)
+	
 --PURCHASED
 	-- Lil' K.T. - 69677
 	AddPet(69677, 49693, R_RARE, GAME_WOTLK)
