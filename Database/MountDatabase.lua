@@ -108,7 +108,7 @@ function addon:GetMountTotal(DB)
 		end
 	end
 
--- ACHIVEMENTS
+-- ACHIEVEMENTS
 	-- Reins of the Albino Drake - 60025
 	AddMount(60025, 44178, R_EPIC, GAME_WOTLK)
 	AddMountFlags(60025, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
@@ -188,7 +188,7 @@ function addon:GetMountTotal(DB)
 	-- Grand Black War Mammoth - Horde - 61467
 	AddMount(61467, 44083, R_EPIC, GAME_WOTLK)
 	AddMountFlags(61467, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
-	self:AddCompanionAcquire(DB, 61467, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125)
+	self:AddCompanionAcquire(DB, 61467, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125, A_MOB, 38433)
 
 	-------------------------------------------------------------------------------
 	-- Ravasaur
@@ -605,7 +605,17 @@ function addon:GetMountTotal(DB)
 	AddMount(68056, 49046, R_EPIC, GAME_WOTLK)
 	AddMountFlags(68056, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
 	self:AddCompanionAcquire(DB, 68056, A_MOB, 34564)
-
+	
+	-- Crusader's White Warhorse
+	AddMount(68187, nil, R_EPIC, GAME_WOTLK)
+	AddMountFlags(68187, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 68187, A_ACHIEVEMENT, 4156)
+	
+	-- Crusader's Black Warhorse
+	AddMount(68188, nil, R_EPIC, GAME_WOTLK)
+	AddMountFlags(68188, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 68188, A_ACHIEVEMENT, 4156)
+	
 	-------------------------------------------------------------------------------
 	-------------------------------------------------------------------------------
 	-- Alliance Mounts
@@ -929,7 +939,7 @@ function addon:GetMountTotal(DB)
 	-- Grand Black War Mammoth - Alliance - 61465
 	AddMount(61465, 43959, R_EPIC, GAME_WOTLK)
 	AddMountFlags(61465, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP)
-	self:AddCompanionAcquire(DB, 61465, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125)
+	self:AddCompanionAcquire(DB, 61465, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125, A_MOB, 38433)
 
 	-------------------------------------------------------------------------------
 	-- Flying Mounts
@@ -1434,10 +1444,20 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(51412, F_ALLIANCE, F_HORDE, F_TCG)
 	self:AddCompanionAcquire(DB, 51412, A_CUSTOM, 1)
 
-	-- Magic Rooster - 66872
+	-- Magic Rooster - 65917
 	AddMount(65917, 49290, R_EPIC, GAME_WOTLK)
 	AddMountFlags(65917, F_ALLIANCE, F_HORDE, F_TCG)
 	self:AddCompanionAcquire(DB, 65917, A_CUSTOM, 1)
+	
+	-- Little Ivory Raptor Whistle - 68769
+	AddMount(68769, 49288, R_UNCOMMON, GAME_WOTLK)
+	AddMountFlags(68769, F_HORDE, F_TCG)
+	self:AddCompanionAcquire(DB, 68769, A_CUSTOM, 1)
+	
+	-- Little White Stallion Bridle - 68768
+	AddMount(68768, 49288, R_UNCOMMON, GAME_WOTLK)
+	AddMountFlags(68768, F_ALLIANCE, F_TCG)
+	self:AddCompanionAcquire(DB, 68768, A_CUSTOM, 1)	
 
 	-- Mekgineer's Chopper - 60424
 	AddMount(60424, 44413, R_EPIC, GAME_WOTLK)
