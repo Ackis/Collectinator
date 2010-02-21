@@ -1351,42 +1351,47 @@ function addon:GetMountTotal(DB)
 	-- Amani War Bear - 43688
 	AddMount(43688, 33809, R_EPIC, GAME_BC)
 	AddMountFlags(43688, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_RAID)
-	self:AddCompanionAcquire(DB, 43688, A_CUSTOM, 31)
+	self:AddCompanionAcquire(DB, 43688, A_CUSTOM, 31, A_ACHIEVEMENT, 430)
 
 	-- Swift Nether Drake - 37015
 	AddMount(37015, 30609, R_EPIC, GAME_BC)
 	AddMountFlags(37015, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
-	self:AddCompanionAcquire(DB, 37015, A_CUSTOM, 30)
+	self:AddCompanionAcquire(DB, 37015, A_CUSTOM, 30, A_ACHIEVEMENT, 886)
 
 	-- Merciless Nether Drake - 44744
 	AddMount(44744, 34092, R_EPIC, GAME_BC)
 	AddMountFlags(44744, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
-	self:AddCompanionAcquire(DB, 44744, A_CUSTOM, 30)
+	self:AddCompanionAcquire(DB, 44744, A_CUSTOM, 20, A_ACHIEVEMENT, 887)
 
 	-- Vengeful Nether Drake - 49193
 	AddMount(49193, 37676, R_EPIC, GAME_BC)
 	AddMountFlags(49193, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
-	self:AddCompanionAcquire(DB, 49193, A_CUSTOM, 30)
+	self:AddCompanionAcquire(DB, 49193, A_CUSTOM, 17, A_ACHIEVEMENT, 888)
 
 	-- Brutal Nether Drake - 58615
 	AddMount(58615, 43516, R_EPIC, GAME_WOTLK)
 	AddMountFlags(58615, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
-	self:AddCompanionAcquire(DB, 58615, A_CUSTOM, 30)
+	self:AddCompanionAcquire(DB, 58615, A_CUSTOM, 22, A_ACHIEVEMENT, 2316)
 
 	-- Deadly Gladiator's Frostwyrm - 64927
-	AddMount(64927, nil, R_EPIC, GAME_WOTLK)
+	AddMount(64927, 46708, R_EPIC, GAME_WOTLK)
 	AddMountFlags(64927, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
-	self:AddCompanionAcquire(DB, 64927, A_CUSTOM, 30)
+	self:AddCompanionAcquire(DB, 64927, A_CUSTOM, 25, A_ACHIEVEMENT, 3096)
 
 	-- Furious Gladiator's Frostwyrm - 65439
 	AddMount(65439, 46171, R_EPIC, GAME_WOTLK)
 	AddMountFlags(65439, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
-	self:AddCompanionAcquire(DB, 65439, A_CUSTOM, 30)
+	self:AddCompanionAcquire(DB, 65439, A_CUSTOM, 26, A_ACHIEVEMENT, 3756)
 
 	-- Relentless Gladiator's Frostwyrm - 67336
 	AddMount(67336, nil, R_EPIC, GAME_WOTLK)
 	AddMountFlags(67336, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
-	self:AddCompanionAcquire(DB, 67336, A_CUSTOM, 30)
+	self:AddCompanionAcquire(DB, 67336, A_CUSTOM, 32, A_ACHIEVEMENT, 3757)
+	
+	-- Wrathful Gladiator's Frostwyrm - 71810
+	AddMount(71810, nil, R_EPIC, GAME_WOTLK)
+	AddMountFlags(71810, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 71810, A_CUSTOM, 33, A_ACHIEVEMENT, 4600)	
 
 	-- Blue Qiraji Battle Tank -- 25953
 	AddMount(25953, 21218, R_RARE, GAME_ORIG)
