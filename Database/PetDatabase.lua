@@ -847,7 +847,17 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(69541, 49665, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 69541, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(PetDB, 69541, A_CUSTOM, 4)
-
+	
+	-- Gryphon Hatchling - 69535
+	AddPet(69535, nil, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 69535, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionAcquire(PetDB, 69535, A_CUSTOM, 4)
+	
+	-- Wind Rider Cub - 69536
+	AddPet(69536, nil, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 69536, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionAcquire(PetDB, 69536, A_CUSTOM, 4)
+	
 	-- We only add the faction specific pets if the user is part of that faction
 	if MY_FACTION == FACTION_ALLIANCE then
 		-- Shimmering Wyrmling -- 66096
