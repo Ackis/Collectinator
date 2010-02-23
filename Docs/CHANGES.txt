@@ -13,6 +13,10 @@
 	**Little Ivory Raptor
 	**Little White Stallion
 	**Wrathful Gladiator's Frostwyrm
+
+*Added the following pets:	
+	**Gryphon Hatchling
+	**Wind Rider Cub
 	
 *Fixed a bug that was showing that the Brewfest mounts were from Hallow's End which should be Brewfest
 *Toravon the Ice Watcher now listed for "Grand Black War Mammoth"
