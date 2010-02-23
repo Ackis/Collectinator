@@ -1455,14 +1455,14 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 65917, A_CUSTOM, 1)
 	
 	-- Little Ivory Raptor Whistle - 68769
-	AddMount(68769, 49288, R_UNCOMMON, GAME_WOTLK)
-	AddMountFlags(68769, F_HORDE, F_TCG)
-	self:AddCompanionAcquire(DB, 68769, A_CUSTOM, 1)
+	--AddMount(68769, 49288, R_UNCOMMON, GAME_WOTLK)
+	--AddMountFlags(68769, F_HORDE, F_TCG)
+	--self:AddCompanionAcquire(DB, 68769, A_CUSTOM, 1)
 	
 	-- Little White Stallion Bridle - 68768
-	AddMount(68768, 49288, R_UNCOMMON, GAME_WOTLK)
-	AddMountFlags(68768, F_ALLIANCE, F_TCG)
-	self:AddCompanionAcquire(DB, 68768, A_CUSTOM, 1)	
+	--AddMount(68768, 49288, R_UNCOMMON, GAME_WOTLK)
+	--AddMountFlags(68768, F_ALLIANCE, F_TCG)
+	--self:AddCompanionAcquire(DB, 68768, A_CUSTOM, 1)	
 
 	-- Mekgineer's Chopper - 60424
 	AddMount(60424, 44413, R_EPIC, GAME_WOTLK)
