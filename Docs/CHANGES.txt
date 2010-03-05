@@ -1,4 +1,7 @@
 ==Collectinator Change Log
+===Beta 9
+*Change the mount image to something customized for Collectinator by Shaelynx
+
 ===Beta 8
 *The following mounts will now correctly show up in the list:
 	**Sea Turtle

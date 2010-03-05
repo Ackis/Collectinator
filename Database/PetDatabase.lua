@@ -849,12 +849,12 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 69541, A_CUSTOM, 4)
 	
 	-- Gryphon Hatchling - 69535
-	AddPet(69535, nil, R_RARE, GAME_WOTLK)
+	AddPet(69535, 49662, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 69535, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(PetDB, 69535, A_CUSTOM, 4)
 	
 	-- Wind Rider Cub - 69536
-	AddPet(69536, nil, R_RARE, GAME_WOTLK)
+	AddPet(69536, 49663, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 69536, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(PetDB, 69536, A_CUSTOM, 4)
 	

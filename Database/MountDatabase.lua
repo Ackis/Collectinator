@@ -1099,7 +1099,7 @@ function addon:GetMountTotal(DB)
 	 -- Mimiron's Head - 63796
 	AddMount(63796, 45693, R_EPIC, GAME_WOTLK)
 	AddMountFlags(63796, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
-	self:AddCompanionAcquire(DB, 63796, A_MOB, 33288)
+	self:AddCompanionAcquire(DB, 63796, A_MOB, 33288, A_ACHIEVEMENT, 4626)
 
 	-- Reins of the Bronze Drake - 59569
 	AddMount(59569, 43951, R_EPIC, GAME_WOTLK)
@@ -1180,6 +1180,11 @@ function addon:GetMountTotal(DB)
 	AddMount(17481, 13335, R_EPIC, GAME_ORIG)
 	AddMountFlags(17481, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_INSTANCE, F_BOP)
 	self:AddCompanionAcquire(DB, 17481, A_MOB, 10440)
+	
+	-- Invincible's Reins - 72286
+	AddMount(72286, 50818, R_EPIC, GAME_WOTLK)
+	AddMountFlags(72286, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
+	self:AddCompanionAcquire(DB, 72286, A_MOB, 36597, A_ACHIEVEMENT, 4625)
 
 --CLASS
 	if MY_CLASS == "WARLOCK" then
