@@ -434,45 +434,6 @@ function addon:OnEnable()
 	playerData["Reputation"] = {}
 
 	addon:GetFactionLevels(playerData["Reputation"])
-
-	playerData["Professions"] = {
-		[GetSpellInfo(51304)] = false, -- Alchemy
-		[GetSpellInfo(51300)] = false, -- Blacksmithing
-		[GetSpellInfo(51296)] = false, -- Cooking
-		[GetSpellInfo(51313)] = false, -- Enchanting
-		[GetSpellInfo(51306)] = false, -- Engineering
-		[GetSpellInfo(45542)] = false, -- First Aid
-		[GetSpellInfo(51302)] = false, -- Leatherworking
-		[GetSpellInfo(32606)] = false, -- Mining
-		[GetSpellInfo(51309)] = false, -- Tailoring
-		[GetSpellInfo(51311)] = false, -- Jewelcrafting
-		[GetSpellInfo(45363)] = false, -- Inscription
-		[GetSpellInfo(53428)] = false, -- Runeforging
-	}
-	--- Scan the player's professions and populate which ones are known
-	local ProfTable = playerData["Professions"]
-
-	-- Reset the table, they may have unlearnt a profession
-	for i in pairs(ProfTable) do
-		ProfTable[i] = false
-	end
-
-	-- Scan through the spell book getting the spell names
-	for index = 1, 25, 1 do
-		local spellName = GetSpellName(index, BOOKTYPE_SPELL)
-
-		if not spellName or index == 25 then
-			break
-		end
-
-		if not ProfTable[spellName] or spellName == GetSpellInfo(2656) then
-			if spellName == GetSpellInfo(2656) then
-				ProfTable[GetSpellInfo(2575)] = true
-			else
-				ProfTable[spellName] = true
-			end
-		end
-	end
 end
 
 -- Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
@@ -1239,9 +1200,10 @@ end
 -- Determines what to do when the slash command is called.
 function addon:ChatCommand(input)
 	InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-	if (not input) or (input and input:trim() == "") or (input == strlower(L["Sorting"])) or (input == strlower(L["Sort"]))  or (input == strlower(L["Display"])) then
+
+	if not input or (input and input:trim() == "") or (input == strlower(L["Sorting"])) or (input == strlower(L["Sort"]))  or (input == strlower(L["Display"])) then
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-	elseif (input == strlower(L["About"])) then
+	elseif input == strlower(L["About"]) then
 		if (self.optionsFrame["About"]) then
 			InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
 		else
