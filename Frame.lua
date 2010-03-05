@@ -60,7 +60,6 @@ local QTip	= LibStub("LibQTip-1.0")
 -- Variables
 -------------------------------------------------------------------------------
 local current_tab = 0
-local current_tab_name = ""
 local maxVisibleCollectibles = 24
 local FilterValueMap		-- Assigned in InitializeFrame()
 local DisplayStrings = {}
@@ -2763,8 +2762,6 @@ local function InitializeFrame()
 				      end
 				      -- Redisplay the button with the new skill
 				      self:ChangeTexture(SortedCollections[current_tab].texture)
-				      playerData.playerProfession = SortedCollections[current_tab].name
-				      current_tab_name = playerData.playerProfession
 
 				      ReDisplay(current_tab)
 				      addon.resetTitle()
@@ -3962,20 +3959,16 @@ function addon:DisplayFrame(
 	cList)		-- Customlist
 	-------------------------------------------------------------------------------
 	-- cPlayer is a table containing:
-	-- .playerProfession == player profession which has been opened
-	-- .playerProfessionLevel == skill level of profession
 	-- .totalCollectibles == Total collectibles added to the database
 	-- .foundCollectibles == Total collectibles found that the player knows
 	-- .otherCollectibles == Total non-profession collectibles in the database
 	-- .filteredCollectibles == Total collectibles filtered
 	-- .playerFaction == Faction of the player
-	-- ["Professions"] == list of all professions with the ones the player knows set as true
 	-- ["Reputation"] == Reputation levels, what I had in current Collectinatorform was if you didn't have the rep level, it would display it in red
 	-------------------------------------------------------------------------------
 	myFaction = cPlayer.playerFaction
 
 	playerData = cPlayer
-	current_tab_name = playerData.playerProfession
 	vendorDB = vList
 	questDB = qList
 	repDB = rList
