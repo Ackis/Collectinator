@@ -704,7 +704,7 @@ local function initDisplayStrings()
 			else
 				local flags = companion["Flags"]
 
-				if flags and addon.IsCorrectFaction(playerData.playerFaction, flags) then
+				if flags then
 					can_add = true
 					local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
 					recStr = hex..companion["Name"].."|r"
@@ -2427,28 +2427,37 @@ local function expandallDisplayStrings()
 			local recStr = ""
 
 			if exclude[collectibleIndex] then
+				can_add = true
 				recStr = "** " .. companion["Name"] .. " **"
 			else
-				recStr = companion["Name"]
+				local flags = companion["Flags"]
+
+				if flags then
+					can_add = true
+					local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
+					recStr = hex..companion["Name"].."|r"
+				end
 			end
 
-			local hasFaction = checkFactions(collectibleDB, collectibleIndex, playerData.playerFaction, playerData["Reputation"])
-			local t = AcquireTable()
+			if can_add then
+				local hasFaction = checkFactions(collectibleDB, collectibleIndex, playerData.playerFaction, playerData["Reputation"])
+				local t = AcquireTable()
 
-			t.String = recStr
-			t.sID = sortedCollectibleIndex[i]
-			t.IsCollectible = true
+				t.String = recStr
+				t.sID = sortedCollectibleIndex[i]
+				t.IsCollectible = true
 
-			if companion["Acquire"] then
-				-- we have acquire information for this. push the title entry into the strings
-				-- and start processing the acquires
-				t.IsExpanded = true
-				tinsert(DisplayStrings, insertIndex, t)
-				insertIndex = expandEntry(insertIndex)
-			else
-				t.IsExpanded = false
-				tinsert(DisplayStrings, insertIndex, t)
-				insertIndex = insertIndex + 1
+				if companion["Acquire"] then
+					-- we have acquire information for this. push the title entry into the strings
+					-- and start processing the acquires
+					t.IsExpanded = true
+					tinsert(DisplayStrings, insertIndex, t)
+					insertIndex = expandEntry(insertIndex)
+				else
+					t.IsExpanded = false
+					tinsert(DisplayStrings, insertIndex, t)
+					insertIndex = insertIndex + 1
+				end
 			end
 		end
 	end
