@@ -2396,7 +2396,7 @@ function addon.DoFlyaway(panel)
 			addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
 		elseif ((panel == 1) or (panel == 5)) then
 			addon.flyTexture:ClearAllPoints()
-			addon.Flyaway:SetWidth(155)
+			addon.Flyaway:SetWidth(136)
 			addon.Flyaway:SetHeight(312)
 			addon.flyTexture:SetTexture([[Interface\Addons\Collectinator\img\fly_1col]])
 			addon.flyTexture:SetAllPoints(addon.Flyaway)
@@ -2802,7 +2802,7 @@ local function InitializeFrame()
 						self:SetText(L["Filter"] .. ">>>")
 						TooltipDisplay(self, L["FILTER_OPEN_DESC"])
 
-						-- Hide my 7 buttons
+						-- Hide my buttons
 						Collectinator_ExpGeneralOptCB:Hide()
 						Collectinator_ExpObtainOptCB:Hide()
 						Collectinator_ExpBindingOptCB:Hide()
@@ -2810,7 +2810,7 @@ local function InitializeFrame()
 						Collectinator_ExpRepOptCB:Hide()
 						Collectinator_ExpMiscOptCB:Hide()
 
-						-- Uncheck the seven buttons
+						-- Uncheck my buttons
 						HideCollectinator_ExpOptCB()
 
 						-- Hide the flyaway panel
@@ -3207,7 +3207,7 @@ local function InitializeFrame()
 	--			() Unknown
 	-------------------------------------------------------------------------------
 	addon.Fly_General = CreateFrame("Frame", "Collectinator_Fly_General", addon.Flyaway)
-	addon.Fly_General:SetWidth(210)
+	addon.Fly_General:SetWidth(112)
 	addon.Fly_General:SetHeight(280)
 	addon.Fly_General:EnableMouse(true)
 	addon.Fly_General:EnableKeyboard(true)
@@ -3351,7 +3351,7 @@ local function InitializeFrame()
 	-- Reputation flyout
 	-------------------------------------------------------------------------------
 	addon.Fly_Rep = CreateFrame("Frame", "Collectinator_Fly_Rep", addon.Flyaway)
-	addon.Fly_Rep:SetWidth(210)
+	addon.Fly_Rep:SetWidth(112)
 	addon.Fly_Rep:SetHeight(280)
 	addon.Fly_Rep:EnableMouse(true)
 	addon.Fly_Rep:EnableKeyboard(true)
