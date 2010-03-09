@@ -1838,7 +1838,7 @@ local function expandEntry(dsIndex)
 			-- This allows us to select PVP only and to see just the PVP collectibles
 			local vendor = vendorDB[v["ID"]]
 
-			if vendor and CanDisplayFaction(vendor["Faction"]) then
+			if vendor then
 				local nStr = ""
 
 				if vendor["Faction"] == factionHorde then
@@ -1894,7 +1894,7 @@ local function expandEntry(dsIndex)
 		elseif acquire_type == A_QUEST and obtainDB.quest then
 			local quest = questDB[v["ID"]]
 
-			if quest and CanDisplayFaction(quest["Faction"]) then
+			if quest then
 				local nStr = ""
 
 				if (quest["Faction"] == factionHorde) then
@@ -1934,7 +1934,7 @@ local function expandEntry(dsIndex)
 			-- RepVendor - VendorID
 			local rep_vendor = vendorDB[v["RepVendor"]]
 
-			if rep_vendor and CanDisplayFaction(rep_vendor["Faction"]) then
+			if rep_vendor then
 				t.String = pad .. addon:Rep(L["Reputation"] .. " : ") .. (repDB[v["ID"]] and repDB[v["ID"]]["Name"] or "Unknown Faction")
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
@@ -1996,7 +1996,6 @@ local function expandEntry(dsIndex)
 		elseif acquire_type == A_PVP and obtainDB.pvp then
 			local vendor = vendorDB[v["ID"]]
 
-			if CanDisplayFaction(vendor["Faction"]) then
 				local cStr = ""
 
 				if (vendor["Coordx"] ~= 0) and (vendor["Coordy"] ~= 0) then
@@ -2024,7 +2023,6 @@ local function expandEntry(dsIndex)
 
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
-			end
 		--@alpha@
 		elseif	(v["Type"] > A_MAX) then -- We have an acquire type we aren't sure how to deal with.
 			t.String = "Unhandled Acquire Case - Type: " .. v["Type"]
