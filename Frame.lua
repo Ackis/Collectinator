@@ -3139,6 +3139,7 @@ local function InitializeFrame()
 
 							       -- Reset specific filters to false
 							       filterdb.general.known = false
+							       filterdb.general.faction = false
 
 							       if addon.Frame:IsVisible() then
 								       addon.resetTitle()
