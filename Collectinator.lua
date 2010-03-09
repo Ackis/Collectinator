@@ -194,7 +194,7 @@ function addon:OnInitialize()
 				-- General Filters
 				-------------------------------------------------------------------------------
 				general = {
-					faction = true,
+					faction = false,
 					known = false,
 					unknown = true,
 					removed = false,
