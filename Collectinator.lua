@@ -462,10 +462,6 @@ function addon:OnEnable()
 
 	_, playerData.playerClass = UnitClass("player")
 	playerData.playerFaction = UnitFactionGroup("player")
-
-	playerData["Reputation"] = {}
-
-	addon:GetFactionLevels(playerData["Reputation"])
 end
 
 -- Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
@@ -1289,6 +1285,10 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 			self:Print("Error: Mount with ID ".. tostring(spell) .. " not in database.")
 		end
 	end
+
+	-- Initialize or update reputations
+	playerData["Reputation"] = playerData["Reputation"] or {}
+	addon:GetFactionLevels(playerData["Reputation"])
 
 	if not autoupdatescan and scantype then
 		local filter_type = (scantype == "pets" and "CRITTER" or scantype)
