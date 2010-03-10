@@ -1867,6 +1867,10 @@ local function expandEntry(dsIndex)
 				tinsert(DisplayStrings, dsIndex, t)
 				dsIndex = dsIndex + 1
 			end
+		elseif acquire_type == A_CRAFTED and (obtainDB.craft) then
+			t.String = pad .. addon:Normal(GetSpellInfo(v["Crafted"]))
+			tinsert(DisplayStrings, dsIndex, t)
+			dsIndex = dsIndex + 1
 		-- Mobs can be in instances, raids, or specific mob related drops.
 		elseif acquire_type == A_MOB and (obtainDB.mobdrop or obtainDB.instance or obtainDB.raid) then
 			local mob = mobDB[v["ID"]]
