@@ -159,7 +159,7 @@ addonversion = string.gsub(addonversion, "@project.revision@", "SVN")
 
 local Collectinator_SearchText, Collectinator_LastSearchedText
 local Collectinator_ExpGeneralOptCB, Collectinator_ExpObtainOptCB, Collectinator_ExpBindingOptCB
-local Collectinator_ExpItemOptCB, Collectinator_ExpRepOptCB
+local Collectinator_ExpRarityOptCB, Collectinator_ExpRepOptCB
 local Collectinator_RepOldWorldCB, Collectinator_RepBCCB, Collectinator_RepLKCB, Collectinator_ExpMiscOptCB
 
 -- To make tabbing between collections easier
@@ -176,7 +176,7 @@ local ExpButtonText = {
 	L["General"], 		-- 1
 	L["Obtain"], 		-- 2
 	L["Binding"], 		-- 3
-	L["Item"], 		-- 4
+	L["Rarity"], 		-- 4
 	L["Reputation"], 	-- 5
 	L["Misc"]		-- 6
 }
@@ -185,7 +185,7 @@ local ExpButtonTT = {
 	L["FILTERING_GENERAL_DESC"],	-- 1
 	L["FILTERING_OBTAIN_DESC"],	-- 2
 	L["FILTERING_BINDING_DESC"],	-- 3
-	L["FILTERING_ITEM_DESC"], 	-- 4
+	L["FILTERING_RARITY_DESC"], 	-- 4
 	L["FILTERING_REP_DESC"], 	-- 5
 	L["FILTERING_MISC_DESC"]	-- 6
 }
@@ -1511,7 +1511,7 @@ local function HideCollectinator_ExpOptCB(ignorevalue)
 	Collectinator_ExpGeneralOptCB.text:SetText(addon:Yellow(ExpButtonText[1]))
 	Collectinator_ExpObtainOptCB.text:SetText(addon:Yellow(ExpButtonText[2]))
 	Collectinator_ExpBindingOptCB.text:SetText(addon:Yellow(ExpButtonText[3]))
-	Collectinator_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
+	Collectinator_ExpRarityOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
 	Collectinator_ExpRepOptCB.text:SetText(addon:White(ExpButtonText[5]))
 	Collectinator_ExpMiscOptCB.text:SetText(addon:Yellow(ExpButtonText[6]))
 
@@ -1536,11 +1536,11 @@ local function HideCollectinator_ExpOptCB(ignorevalue)
 		Collectinator_ExpBindingOptCB.text:SetText(addon:White(ExpButtonText[3]))
 	end
 
-	if (ignorevalue ~= "item") then
-		Collectinator_ExpItemOptCB:SetChecked(false)
-		Collectinator_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
+	if (ignorevalue ~= "rarity") then
+		Collectinator_ExpRarityOptCB:SetChecked(false)
+		Collectinator_ExpRarityOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
 	else
-		Collectinator_ExpItemOptCB.text:SetText(addon:White(ExpButtonText[4]))
+		Collectinator_ExpRarityOptCB.text:SetText(addon:White(ExpButtonText[4]))
 	end
 
 	if (ignorevalue ~= "rep") then
@@ -2241,7 +2241,7 @@ function addon.DoFlyaway(panel)
 	-- 1	Collectinator_ExpGeneralOptCB			General Filters
 	-- 2	Collectinator_ExpObtainOptCB			Obtain Filters
 	-- 3	Collectinator_ExpBindingOptCB			Binding Filters
-	-- 4	Collectinator_ExpItemOptCB			Item Filters
+	-- 4	Collectinator_ExpRarityOptCB			Rarity Filters
 	-- 5	Collectinator_ExpRepOptCB			Reputation Filters
 	-- 6	Collectinator_ExpMiscOptCB			Miscellaneous Filters
 
@@ -2265,6 +2265,7 @@ function addon.DoFlyaway(panel)
 			addon.Fly_General:Show()
 			addon.Fly_Obtain:Hide()
 			addon.Fly_Binding:Hide()
+			addon.Fly_Rarity:Hide()
 			addon.Fly_Rep:Hide()
 			addon.Fly_Misc:Hide()
 
@@ -2287,6 +2288,7 @@ function addon.DoFlyaway(panel)
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Show()
 			addon.Fly_Binding:Hide()
+			addon.Fly_Rarity:Hide()
 			addon.Fly_Rep:Hide()
 			addon.Fly_Misc:Hide()
 
@@ -2309,6 +2311,7 @@ function addon.DoFlyaway(panel)
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
 			addon.Fly_Binding:Show()
+			addon.Fly_Rarity:Hide()
 			addon.Fly_Rep:Hide()
 			addon.Fly_Misc:Hide()
 
@@ -2323,14 +2326,15 @@ function addon.DoFlyaway(panel)
 
 	elseif (panel == 4) then
 
-		if (Collectinator_ExpItemOptCB:GetChecked()) then
+		if (Collectinator_ExpRarityOptCB:GetChecked()) then
 
-			HideCollectinator_ExpOptCB("item")
+			HideCollectinator_ExpOptCB("rarity")
 
 			-- display the correct subframe with all the buttons and such, hide the others
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
 			addon.Fly_Binding:Hide()
+			addon.Fly_Rarity:Show()
 			addon.Fly_Rep:Hide()
 			addon.Fly_Misc:Hide()
 
@@ -2338,7 +2342,7 @@ function addon.DoFlyaway(panel)
 
 		else
 
-			Collectinator_ExpItemOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
+			Collectinator_ExpRarityOptCB.text:SetText(addon:Yellow(ExpButtonText[4]))
 			ChangeFilters = false
 
 		end
@@ -2352,6 +2356,7 @@ function addon.DoFlyaway(panel)
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
 			addon.Fly_Binding:Hide()
+			addon.Fly_Rarity:Hide()
 			addon.Fly_Rep:Show()
 			addon.Fly_Misc:Hide()
 
@@ -2372,6 +2377,7 @@ function addon.DoFlyaway(panel)
 			addon.Fly_General:Hide()
 			addon.Fly_Obtain:Hide()
 			addon.Fly_Binding:Hide()
+			addon.Fly_Rarity:Hide()
 			addon.Fly_Rep:Hide()
 			addon.Fly_Misc:Show()
 
@@ -2817,7 +2823,7 @@ local function InitializeFrame()
 						Collectinator_ExpGeneralOptCB:Hide()
 						Collectinator_ExpObtainOptCB:Hide()
 						Collectinator_ExpBindingOptCB:Hide()
-						Collectinator_ExpItemOptCB:Hide()
+						Collectinator_ExpRarityOptCB:Hide()
 						Collectinator_ExpRepOptCB:Hide()
 						Collectinator_ExpMiscOptCB:Hide()
 
@@ -2848,7 +2854,7 @@ local function InitializeFrame()
 						Collectinator_ExpGeneralOptCB:Show()
 						Collectinator_ExpObtainOptCB:Show()
 						Collectinator_ExpBindingOptCB:Show()
-						Collectinator_ExpItemOptCB:Show()
+						Collectinator_ExpRarityOptCB:Show()
 						Collectinator_ExpRepOptCB:Show()
 						Collectinator_ExpMiscOptCB:Show()
 
@@ -3166,11 +3172,11 @@ local function InitializeFrame()
 	Collectinator_ExpBindingOptCB = addon:CreateExpCB("Collectinator_ExpBindingOptCB", "INV_Belt_20", 3)
 	Collectinator_ExpBindingOptCB:SetPoint("TOPLEFT", Collectinator_ExpObtainOptCB, "BOTTOMLEFT", -0, -8)
 
-	Collectinator_ExpItemOptCB = addon:CreateExpCB("Collectinator_ExpItemOptCB", "INV_Misc_EngGizmos_19", 4)
-	Collectinator_ExpItemOptCB:SetPoint("TOPLEFT", Collectinator_ExpBindingOptCB, "BOTTOMLEFT", -0, -8)
+	Collectinator_ExpRarityOptCB = addon:CreateExpCB("Collectinator_ExpRarityOptCB", "spell_nature_elementalabsorption", 4)
+	Collectinator_ExpRarityOptCB:SetPoint("TOPLEFT", Collectinator_ExpBindingOptCB, "BOTTOMLEFT", -0, -8)
 
 	Collectinator_ExpRepOptCB = addon:CreateExpCB("Collectinator_ExpRepOptCB", "INV_Scroll_05", 5)
-	Collectinator_ExpRepOptCB:SetPoint("TOPLEFT", Collectinator_ExpItemOptCB, "BOTTOMLEFT", -0, -8)
+	Collectinator_ExpRepOptCB:SetPoint("TOPLEFT", Collectinator_ExpRarityOptCB, "BOTTOMLEFT", -0, -8)
 
 	Collectinator_ExpMiscOptCB = addon:CreateExpCB("Collectinator_ExpMiscOptCB", "Trade_Engineering", 6)
 	Collectinator_ExpMiscOptCB:SetPoint("TOPLEFT", Collectinator_ExpRepOptCB, "BOTTOMLEFT", -0, -8)
@@ -3358,6 +3364,50 @@ local function InitializeFrame()
 	local Collectinator_iBoPCB = CreateFrame("CheckButton", "Collectinator_iBoPCB", addon.Fly_Binding, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_iBoPCB, addon.Fly_Binding, L["BOP_DESC"], "itembop", 3, 1, 0)
 	Collectinator_iBoPCBText:SetText(L["BOPFilter"])
+
+	-------------------------------------------------------------------------------
+	-- Rarity flyaway
+	-------------------------------------------------------------------------------
+	addon.Fly_Rarity = CreateFrame("Frame", "Collectinator_Fly_Rarity", addon.Flyaway)
+	addon.Fly_Rarity:SetWidth(120)
+	addon.Fly_Rarity:SetHeight(280)
+	addon.Fly_Rarity:EnableMouse(true)
+	addon.Fly_Rarity:EnableKeyboard(true)
+	addon.Fly_Rarity:SetMovable(false)
+	addon.Fly_Rarity:SetPoint("TOPLEFT", addon.Flyaway, "TOPLEFT", 17, -16)
+	addon.Fly_Rarity:Hide()
+
+	local Collectinator_PoorCB = CreateFrame("CheckButton", "Collectinator_PoorCB", addon.Fly_Rarity, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_PoorCB, addon.Fly_Rarity, L["Poor_DESC"], "poor", 1, 1, 0)
+	Collectinator_PoorCBText:SetText(L["Poor"])
+	Collectinator_PoorCBText:SetText(addon:Grey(L["Poor"]))
+	Collectinator_PoorCB:Disable()
+
+	local Collectinator_CommonCB = CreateFrame("CheckButton", "Collectinator_CommonCB", addon.Fly_Rarity, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_CommonCB, addon.Fly_Rarity, L["Common_DESC"], "common", 2, 1, 0)
+	Collectinator_CommonCBText:SetText(L["Common"])
+
+	local Collectinator_UncommonCB = CreateFrame("CheckButton", "Collectinator_UncommonCB", addon.Fly_Rarity, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_UncommonCB, addon.Fly_Rarity, L["Uncommon_DESC"], "uncommon", 3, 1, 0)
+	Collectinator_UncommonCBText:SetText(L["Uncommon"])
+
+	local Collectinator_RareCB = CreateFrame("CheckButton", "Collectinator_RareCB", addon.Fly_Rarity, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_RareCB, addon.Fly_Rarity, L["Rare_DESC"], "rare", 4, 1, 0)
+	Collectinator_RareCBText:SetText(L["Rare"])
+
+	local Collectinator_EpicCB = CreateFrame("CheckButton", "Collectinator_EpicCB", addon.Fly_Rarity, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_EpicCB, addon.Fly_Rarity, L["Epic_DESC"], "epic", 5, 1, 0)
+	Collectinator_EpicCBText:SetText(L["Epic"])
+
+	local Collectinator_LegendaryCB = CreateFrame("CheckButton", "Collectinator_LegendaryCB", addon.Fly_Rarity, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_LegendaryCB, addon.Fly_Rarity, L["Legendary_DESC"], "legendary", 6, 1, 0)
+	Collectinator_LegendaryCBText:SetText(L["Legendary"])
+
+	local Collectinator_ArtifactCB = CreateFrame("CheckButton", "Collectinator_ArtifactCB", addon.Fly_Rarity, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_ArtifactCB, addon.Fly_Rarity, L["Artifact_DESC"], "artifact", 7, 1, 0)
+	Collectinator_ArtifactCBText:SetText(L["Artifact"])
+	Collectinator_ArtifactCBText:SetText(addon:Grey(L["Artifact"]))
+	Collectinator_ArtifactCB:Disable()
 
 	-------------------------------------------------------------------------------
 	-- Reputation flyout
@@ -3912,6 +3962,16 @@ local function InitializeFrame()
 		["itemboa"]		= { cb = Collectinator_iBoACB,			svroot = filterdb.binding },
 		["itemboe"]		= { cb = Collectinator_iBoECB,			svroot = filterdb.binding },
 		["itembop"]		= { cb = Collectinator_iBoPCB,			svroot = filterdb.binding },
+		------------------------------------------------------------------------------------------------
+		-- Binding Options
+		------------------------------------------------------------------------------------------------
+		["poor"]		= { cb = Collectinator_PoorCB,			svroot = filterdb.rarity },
+		["common"]		= { cb = Collectinator_CommonCB,		svroot = filterdb.rarity },
+		["uncommon"]	= { cb = Collectinator_UncommonCB,		svroot = filterdb.rarity },
+		["rare"]		= { cb = Collectinator_RareCB,			svroot = filterdb.rarity },
+		["epic"]		= { cb = Collectinator_EpicCB,			svroot = filterdb.rarity },
+		["legendary"]	= { cb = Collectinator_LegendaryCB,		svroot = filterdb.rarity },
+		["artifact"]	= { cb = Collectinator_ArtifactCB,		svroot = filterdb.rarity },
 		------------------------------------------------------------------------------------------------
 		-- Old World Rep Options
 		------------------------------------------------------------------------------------------------

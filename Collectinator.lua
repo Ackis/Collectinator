@@ -230,6 +230,17 @@ function addon:OnInitialize()
 					itemboa = true,
 				},
 				-------------------------------------------------------------------------------
+				-- Rarity Filters
+				-------------------------------------------------------------------------------
+				rarity = {
+					poor = true,
+					common = true,
+					uncommon = true,
+					rare = true,
+					epic = true,
+					legendary = true,
+					artifact = true,
+				},				-------------------------------------------------------------------------------
 				-- Profession Filters
 				-------------------------------------------------------------------------------
 				profs = {
@@ -1030,6 +1041,36 @@ do
 		end
 
 		if not obtain_db.wrath and Entry["Game"] == GAME_WOTLK then
+			return false
+		end
+
+		local rarity_db = filter_db.rarity
+
+		if not rarity_db.poor and Entry["Rarity"] == 0 then
+			return false
+		end
+
+		if not rarity_db.common and Entry["Rarity"] == 1 then
+			return false
+		end
+
+		if not rarity_db.uncommon and Entry["Rarity"] == 2 then
+			return false
+		end
+
+		if not rarity_db.rare and Entry["Rarity"] == 3 then
+			return false
+		end
+
+		if not rarity_db.epic and Entry["Rarity"] == 4 then
+			return false
+		end
+
+		if not rarity_db.legendary and Entry["Rarity"] == 5 then
+			return false
+		end
+
+		if not rarity_db.artifact and Entry["Rarity"] == 6 then
 			return false
 		end
 
