@@ -2395,14 +2395,14 @@ function addon.DoFlyaway(panel)
 	if ChangeFilters then
 		-- Depending on which panel we're showing, either display one column
 		-- or two column
-		if ((panel == 2) or (panel == 3) or (panel == 4) or (panel == 6)) then
+		if ((panel == 2) or (panel == 3) or (panel == 6)) then
 			addon.flyTexture:ClearAllPoints()
 			addon.Flyaway:SetWidth(234)
 			addon.Flyaway:SetHeight(312)
 			addon.flyTexture:SetTexture([[Interface\Addons\Collectinator\img\fly_2col]])
 			addon.flyTexture:SetAllPoints(addon.Flyaway)
 			addon.flyTexture:SetTexCoord(0, (234/256), 0, (312/512))
-		elseif ((panel == 1) or (panel == 5)) then
+		elseif ((panel == 1) or (panel == 4) or (panel == 5)) then
 			addon.flyTexture:ClearAllPoints()
 			addon.Flyaway:SetWidth(136)
 			addon.Flyaway:SetHeight(312)
@@ -3345,7 +3345,7 @@ local function InitializeFrame()
 	--			() Collectible is Bind on Pickup
 	-------------------------------------------------------------------------------
 	addon.Fly_Binding = CreateFrame("Frame", "Collectinator_Fly_Binding", addon.Flyaway)
-	addon.Fly_Binding:SetWidth(120)
+	addon.Fly_Binding:SetWidth(210)
 	addon.Fly_Binding:SetHeight(280)
 	addon.Fly_Binding:EnableMouse(true)
 	addon.Fly_Binding:EnableKeyboard(true)
@@ -3369,7 +3369,7 @@ local function InitializeFrame()
 	-- Rarity flyaway
 	-------------------------------------------------------------------------------
 	addon.Fly_Rarity = CreateFrame("Frame", "Collectinator_Fly_Rarity", addon.Flyaway)
-	addon.Fly_Rarity:SetWidth(120)
+	addon.Fly_Rarity:SetWidth(112)
 	addon.Fly_Rarity:SetHeight(280)
 	addon.Fly_Rarity:EnableMouse(true)
 	addon.Fly_Rarity:EnableKeyboard(true)
