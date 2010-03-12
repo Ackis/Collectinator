@@ -861,8 +861,8 @@ end
 --- Gets a spell ID from a spell link.
 -- @name GetIDFromLink
 -- @usage Collectinator:GetIDFromLink(SpellLink)
--- @param SpellLink The [http://www.wowwiki.com/SpellLink SpellLink] which you wish to get the Spell ID from.
--- @return The spell ID of the passed [http://www.wowwiki.com/SpellLink SpellLink].
+-- @param SpellLink The [[http://www.wowwiki.com/SpellLink|SpellLink]] which you wish to get the Spell ID from
+-- @return The spell ID of the passed [[http://www.wowwiki.com/SpellLink|SpellLink]]
 local function GetIDFromLink(SpellLink)
 	-- Faster pattern matching per Neffi
 	return smatch(SpellLink, "^|c%x%x%x%x%x%x%x%x|H%w+:(%d+)")
