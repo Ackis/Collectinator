@@ -178,7 +178,7 @@ local ExpButtonText = {
 	L["Binding"], 		-- 3
 	L["Rarity"], 		-- 4
 	L["Reputation"], 	-- 5
-	L["Misc"]		-- 6
+	L["Miscellaneous"]	-- 6
 }
 
 local ExpButtonTT = {
@@ -3162,7 +3162,7 @@ local function InitializeFrame()
 	-- EXPANDED : buttons for opening/closing the flyaway
 	-------------------------------------------------------------------------------
 	Collectinator_ExpGeneralOptCB = addon:CreateExpCB("Collectinator_ExpGeneralOptCB", "INV_Misc_Note_06", 1)
-	Collectinator_ExpGeneralOptCB:SetPoint("TOPRIGHT", filter_button, "BOTTOMLEFT", -1, -50)
+	Collectinator_ExpGeneralOptCB:SetPoint("TOPRIGHT", Collectinator_ResetButton, "BOTTOMLEFT", -7, -23)
 
 	Collectinator_ExpObtainOptCB = addon:CreateExpCB("Collectinator_ExpObtainOptCB", "Spell_Shadow_MindRot", 2)
 	Collectinator_ExpObtainOptCB:SetPoint("TOPLEFT", Collectinator_ExpGeneralOptCB, "BOTTOMLEFT", 0, -8)
@@ -4102,7 +4102,7 @@ function addon:DisplayFrame(
 		-- Make sure to reset search gui elements
 		Collectinator_LastSearchedText = ""
 		Collectinator_SearchText:SetText(L["SEARCH_BOX_DESC"])
-		end
+	end
 end
 
 
