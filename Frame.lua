@@ -3071,11 +3071,9 @@ local function InitializeFrame()
 		self:SetValue(pbCur)
 
 		if (floor(pbCur / pbMax * 100) < 101) and (pbCur >= 0) and (pbMax >= 0) then
-			self.text:SetText(pbCur .. " / " .. pbMax .. " - " .. floor(pbCur / pbMax * 100) .. "%")
+			self.text:SetFormattedText("%d / %d - %1.1f%%", pbCur, pbMax, pbCur / pbMax * 100)
 		else
-			pbCur = 0
-			pbMax = 0
-			self.text:SetText(pbCur .. " / " .. pbMax .. " - " .. L["NOT_YET_SCANNED"])
+			self.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
 		end
 	end
 	addon.Frame.progress_bar = progress_bar
