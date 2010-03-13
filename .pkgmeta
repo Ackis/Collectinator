@@ -10,7 +10,8 @@ ignore:
  - .pkgmeta
  - .docmeta
  - Docs
-
+ - Locales/testenUS.lua
+ 
 tools-used:
  - data-tools
  - dlcount
