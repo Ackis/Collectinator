@@ -343,20 +343,14 @@ function addon:OnInitialize()
 					  -- Shift only (Text Dump)
 					  if IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
 						  addon:Scan(true, false, is_visible and companion_frame.mode or "CRITTER")
-						  -- Alt only (Wipe icons from map)
+					  -- Alt only (Wipe icons from map)
 					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 						  addon:ClearMap()
-						  -- If we are just clicking do the scan, unless the frame is open then we close the window
+					  -- If we are just clicking do the scan
 					  elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						  -- Window is visible and created
-						  if Collectinator.Frame and Collectinator.Frame:IsVisible() then
-							  self:CloseWindow()
-							  -- Window is hidden
-						  else
-							  addon:Scan(false, false, is_visible and companion_frame.mode or "CRITTER")
-							  self:SetupMap()
-						  end
-					end
+						  addon:Scan(false, false, is_visible and companion_frame.mode or "CRITTER")
+						  self:SetupMap()
+					  end
 				  end)
 
 	button:SetScript("OnEnter",

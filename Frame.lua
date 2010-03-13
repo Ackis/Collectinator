@@ -4048,51 +4048,61 @@ function addon:DisplayFrame(
 
 	WipeDisplayStrings()	-- reset current display items
 
-	-- get our current index
-	for k, v in pairs(SortedCollections) do
-		if v.name == "MOUNT" then
-			current_tab = k
-			break
-		end
-	end
 	local companion_frame = PetPaperDollFrameCompanionFrame
+	local hide_frame;
 
 	if (PetListPlus and PetListPlusFrame:IsVisible()) or companion_frame:IsVisible() then
-		current_tab = INDEX_TYPE[companion_frame.mode] or 0
+		-- frame is visible, check for same scan
+		if self.Frame and self.Frame:IsVisible() then
+			if (current_tab ~= INDEX_TYPE[companion_frame.mode] or current_tab == 0) then
+				--new scan > show
+				current_tab = INDEX_TYPE[companion_frame.mode] or 0
+			else
+				--same scan > hide
+				addon:CloseWindow()
+				hide_frame = true;
+			end
+		-- frame is not visible, show anyway
+		else
+			current_tab = INDEX_TYPE[companion_frame.mode] or 0
+		end
 	end
 
 	if not self.Frame then
 		InitializeFrame()
 		InitializeFrame = nil
 	end
-	SetFramePosition()							-- Set our addon frame position
-	Collectinator_DD_Sort.initialize = Collectinator_DD_Sort_Initialize	-- Initialize dropdown
+	
+	if not hide_frame then 
+		SetFramePosition()							-- Set our addon frame position
+		Collectinator_DD_Sort.initialize = Collectinator_DD_Sort_Initialize	-- Initialize dropdown
 
-	-- reset the scale
-	self.Frame:SetScale(addon.db.profile.frameopts.uiscale)
-	CollectinatorSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
+		-- reset the scale
+		self.Frame:SetScale(addon.db.profile.frameopts.uiscale)
+		CollectinatorSpellTooltip:SetScale(addon.db.profile.frameopts.tooltipscale)
 
-	-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
-	Collectinator_ExpandButton:SetText(L["EXPANDALL"])
-	TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
+		-- We'll be in "ExpandAll" mode to start with. Make sure the button knows that:
+		Collectinator_ExpandButton:SetText(L["EXPANDALL"])
+		TooltipDisplay(Collectinator_ExpandButton, L["EXPANDALL_DESC"])
 
-	self.resetTitle()
-	self.Frame.mode_button:ChangeTexture(SortedCollections[current_tab].texture)
+		self.resetTitle()
+		self.Frame.mode_button:ChangeTexture(SortedCollections[current_tab].texture)
 
-	-- Sort the list
-	collectibleDB = self.data_table
-	sortedCollectibleIndex = SortDatabase(collectibleDB)
+		-- Sort the list
+		collectibleDB = self.data_table
+		sortedCollectibleIndex = SortDatabase(collectibleDB)
 
-	initDisplayStrings()							-- Take our sorted list, and fill up DisplayStrings
-	self.Frame.progress_bar:Update()
+		initDisplayStrings()							-- Take our sorted list, and fill up DisplayStrings
+		self.Frame.progress_bar:Update()
 
-	-- And update our scrollframe
-	CollectibleList_Update()
-	self.Frame:Show()
+		-- And update our scrollframe
+		CollectibleList_Update()
+		self.Frame:Show()
 
-	-- Make sure to reset search gui elements
-	Collectinator_LastSearchedText = ""
-	Collectinator_SearchText:SetText(L["SEARCH_BOX_DESC"])
+		-- Make sure to reset search gui elements
+		Collectinator_LastSearchedText = ""
+		Collectinator_SearchText:SetText(L["SEARCH_BOX_DESC"])
+		end
 end
 
 
