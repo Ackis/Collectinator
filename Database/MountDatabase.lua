@@ -170,6 +170,12 @@ function addon:GetMountTotal(DB)
 	AddMount(61309, 44558, R_EPIC, GAME_WOTLK)
 	AddMountFlags(61309, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
 	self:AddCompanionAcquire(DB, 61309, A_CRAFTED, 3908, 60971)
+	
+	-- Frosty Flying Carpet - 75596
+	AddMount(75596, 54797, R_EPIC, GAME_WOTLK)
+	AddMountFlags(75596, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
+	self:AddCompanionAcquire(DB, 75596, A_CRAFTED, 3908, nil)	
+	
 
 	-------------------------------------------------------------------------------
 	-- Faction-specific Mounts.
