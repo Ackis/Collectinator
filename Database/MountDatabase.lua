@@ -160,7 +160,7 @@ function addon:GetMountTotal(DB)
 	AddMount(44153, 34060, R_RARE, GAME_BC)
 	AddMountFlags(44153, F_ALLIANCE, F_HORDE, F_BOE, F_ENG, F_CRAFT)
 	self:AddCompanionAcquire(DB, 44153, A_CRAFTED, 4036, 44155)
-	
+
 	-- Mekgineer's Chopper - 60424
 	AddMount(60424, 44413, R_EPIC, GAME_WOTLK)
 	AddMountFlags(60424, F_ALLIANCE, F_BOE, F_ENG, F_CRAFT)
@@ -180,12 +180,12 @@ function addon:GetMountTotal(DB)
 	AddMount(61309, 44558, R_EPIC, GAME_WOTLK)
 	AddMountFlags(61309, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
 	self:AddCompanionAcquire(DB, 61309, A_CRAFTED, 3908, 60971)
-	
+
 	-- Frosty Flying Carpet - 75596
 	AddMount(75596, 54797, R_EPIC, GAME_WOTLK)
 	AddMountFlags(75596, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	self:AddCompanionAcquire(DB, 75596, A_CRAFTED, 3908, nil)	
-	
+	self:AddCompanionAcquire(DB, 75596, A_CRAFTED, 3908, nil)
+
 
 	-------------------------------------------------------------------------------
 	-- Faction-specific Mounts.
@@ -621,17 +621,17 @@ function addon:GetMountTotal(DB)
 	AddMount(68056, 49046, R_EPIC, GAME_WOTLK)
 	AddMountFlags(68056, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
 	self:AddCompanionAcquire(DB, 68056, A_MOB, 34564)
-	
+
 	-- Crusader's White Warhorse
 	AddMount(68187, nil, R_EPIC, GAME_WOTLK)
 	AddMountFlags(68187, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 68187, A_ACHIEVEMENT, 4156)
-	
+
 	-- Crusader's Black Warhorse
 	AddMount(68188, nil, R_EPIC, GAME_WOTLK)
 	AddMountFlags(68188, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 68188, A_ACHIEVEMENT, 4156)
-	
+
 	-------------------------------------------------------------------------------
 	-------------------------------------------------------------------------------
 	-- Alliance Mounts
@@ -1100,7 +1100,7 @@ function addon:GetMountTotal(DB)
 	AddMount(48025, 37012, R_EPIC, GAME_BC)
 	AddMountFlags(48025, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 48025, A_MOB, 23682, A_ACHIEVEMENT, 980, A_SEASONAL, 7)
-	
+
 	-- Big Love Rocket - 71342
 	AddMount(71342, 50250, R_EPIC, GAME_WOTLK)
 	AddMountFlags(71342, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_INSTANCE, F_BOP)
@@ -1196,7 +1196,7 @@ function addon:GetMountTotal(DB)
 	AddMount(17481, 13335, R_EPIC, GAME_ORIG)
 	AddMountFlags(17481, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_INSTANCE, F_BOP)
 	self:AddCompanionAcquire(DB, 17481, A_MOB, 10440)
-	
+
 	-- Invincible's Reins - 72286
 	AddMount(72286, 50818, R_EPIC, GAME_WOTLK)
 	AddMountFlags(72286, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
@@ -1408,11 +1408,11 @@ function addon:GetMountTotal(DB)
 	AddMount(67336, nil, R_EPIC, GAME_WOTLK)
 	AddMountFlags(67336, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
 	self:AddCompanionAcquire(DB, 67336, A_CUSTOM, 32, A_ACHIEVEMENT, 3757)
-	
+
 	-- Wrathful Gladiator's Frostwyrm - 71810
 	AddMount(71810, nil, R_EPIC, GAME_WOTLK)
 	AddMountFlags(71810, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
-	self:AddCompanionAcquire(DB, 71810, A_CUSTOM, 33, A_ACHIEVEMENT, 4600)	
+	self:AddCompanionAcquire(DB, 71810, A_CUSTOM, 33, A_ACHIEVEMENT, 4600)
 
 	-- Blue Qiraji Battle Tank -- 25953
 	AddMount(25953, 21218, R_RARE, GAME_ORIG)
@@ -1474,16 +1474,16 @@ function addon:GetMountTotal(DB)
 	AddMount(65917, 49290, R_EPIC, GAME_WOTLK)
 	AddMountFlags(65917, F_ALLIANCE, F_HORDE, F_TCG)
 	self:AddCompanionAcquire(DB, 65917, A_CUSTOM, 1)
-	
+
 	-- Little Ivory Raptor Whistle - 68769
 	--AddMount(68769, 49288, R_UNCOMMON, GAME_WOTLK)
 	--AddMountFlags(68769, F_HORDE, F_TCG)
 	--self:AddCompanionAcquire(DB, 68769, A_CUSTOM, 1)
-	
+
 	-- Little White Stallion Bridle - 68768
 	--AddMount(68768, 49288, R_UNCOMMON, GAME_WOTLK)
 	--AddMountFlags(68768, F_ALLIANCE, F_TCG)
-	--self:AddCompanionAcquire(DB, 68768, A_CUSTOM, 1)	
+	--self:AddCompanionAcquire(DB, 68768, A_CUSTOM, 1)
 
 	return num_mounts
 end
