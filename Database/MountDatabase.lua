@@ -160,6 +160,16 @@ function addon:GetMountTotal(DB)
 	AddMount(44153, 34060, R_RARE, GAME_BC)
 	AddMountFlags(44153, F_ALLIANCE, F_HORDE, F_BOE, F_ENG, F_CRAFT)
 	self:AddCompanionAcquire(DB, 44153, A_CRAFTED, 4036, 44155)
+	
+	-- Mekgineer's Chopper - 60424
+	AddMount(60424, 44413, R_EPIC, GAME_WOTLK)
+	AddMountFlags(60424, F_ALLIANCE, F_BOE, F_ENG, F_CRAFT)
+	self:AddCompanionAcquire(DB, 60424, A_CRAFTED, 4036, 60867)
+
+	-- Mechano-Hog - 55531
+	AddMount(55531, 41508, R_EPIC, GAME_WOTLK)
+	AddMountFlags(55531, F_HORDE, F_BOE, F_ENG, F_CRAFT)
+	self:AddCompanionAcquire(DB, 55531, A_CRAFTED, 4036, 60866)
 
 	-- Flying Carpet - 61451
 	AddMount(61451, 44554, R_RARE, GAME_WOTLK)
@@ -1474,16 +1484,6 @@ function addon:GetMountTotal(DB)
 	--AddMount(68768, 49288, R_UNCOMMON, GAME_WOTLK)
 	--AddMountFlags(68768, F_ALLIANCE, F_TCG)
 	--self:AddCompanionAcquire(DB, 68768, A_CUSTOM, 1)	
-
-	-- Mekgineer's Chopper - 60424
-	AddMount(60424, 44413, R_EPIC, GAME_WOTLK)
-	AddMountFlags(60424, F_ALLIANCE, F_BOE, F_CRAFT)
-	self:AddCompanionAcquire(DB, 60424, A_CRAFTED, 4036, 60867)
-
-	-- Mechano-Hog - 55531
-	AddMount(55531, 41508, R_EPIC, GAME_WOTLK)
-	AddMountFlags(55531, F_HORDE, F_BOE, F_CRAFT)
-	self:AddCompanionAcquire(DB, 55531, A_CRAFTED, 4036, 60866)
 
 	return num_mounts
 end
