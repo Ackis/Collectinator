@@ -188,12 +188,12 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Pet Bombling - 15048
 	AddPet(15048, 11825, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 15048, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP, F_ENG)
+	self:AddCompanionFlags(PetDB, 15048, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOE, F_ENG)
 	self:AddCompanionAcquire(PetDB, 15048, A_CRAFTED, 4036, 15628)
 
 	-- Lil' Smoky - 15049
 	AddPet(15049, 11826, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 15049, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP, F_ENG)
+	self:AddCompanionFlags(PetDB, 15049, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOE, F_ENG)
 	self:AddCompanionAcquire(PetDB, 15049, A_CRAFTED, 4036, 15633)
 
 	-- Lifelike Mechanical Toad - 19772
@@ -603,6 +603,11 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(67417, 48120, R_COMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67417, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 67417, A_VENDOR, 28951)
+	
+	-- Blue Clockwork Rocket Bot
+	AddPet(75134, 54436, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 75134, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(PetDB, 75134, A_VENDOR, 29478, A_VENDOR, 29716)
 
 --VENDOR HORDE
 	-- Cockroach - 10688
