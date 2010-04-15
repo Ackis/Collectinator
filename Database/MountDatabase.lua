@@ -1484,13 +1484,12 @@ function addon:GetMountTotal(DB)
 	--AddMount(68768, 49288, R_UNCOMMON, GAME_WOTLK)
 	--AddMountFlags(68768, F_ALLIANCE, F_TCG)
 	--self:AddCompanionAcquire(DB, 68768, A_CUSTOM, 1)
-	
+
 -- PURCHASED
-	-- Celestial Steed - xxxx
-	--AddMount(xxxxx, xxxxx, R_x, GAME_WOTLK)
-	--AddMountFlags(xxxxx, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
-	--self:AddCompanionAcquire(DB, xxxxx, A_CUSTOM, 4)
-	
+	--Celestial Steed - 75614
+	AddMount(75614, 54811, R_EPIC, GAME_WOTLK)
+	AddMountFlags(75614, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionAcquire(DB, 75614, A_CUSTOM, 4)
 
 	return num_mounts
 end
