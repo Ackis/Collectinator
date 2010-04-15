@@ -251,11 +251,11 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(61725, 44794, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 61725, F_ALLIANCE, F_HORDE, F_SEASONAL)
 	self:AddCompanionAcquire(PetDB, 61725, A_SEASONAL, 9)
-	
+
 	-- Toxic Wasteling - 71840
 	AddPet(71840, 50446, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 71840, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_INSTANCE, F_BOP)
-	self:AddCompanionAcquire(PetDB, 71840, A_SEASONAL, 5, A_MOB, 36296)	
+	self:AddCompanionAcquire(PetDB, 71840, A_SEASONAL, 5, A_MOB, 36296)
 
 --WORLD EVENT VENDOR
 	-- Spirit of Summer - 28871
@@ -603,7 +603,7 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(67417, 48120, R_COMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67417, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 67417, A_VENDOR, 28951)
-	
+
 	-- Blue Clockwork Rocket Bot
 	AddPet(75134, 54436, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 75134, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
@@ -841,7 +841,7 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(68810, 49343, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 68810, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 68810, A_CUSTOM, 1)
-	
+
 --PURCHASED
 	-- Lil' K.T. - 69677
 	AddPet(69677, 49693, R_RARE, GAME_WOTLK)
@@ -852,22 +852,22 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(69541, 49665, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 69541, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(PetDB, 69541, A_CUSTOM, 4)
-	
+
 	-- Gryphon Hatchling - 69535
 	AddPet(69535, 49662, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 69535, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(PetDB, 69535, A_CUSTOM, 4)
-	
+
 	-- Wind Rider Cub - 69536
 	AddPet(69536, 49663, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 69536, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(PetDB, 69536, A_CUSTOM, 4)
-	
-	-- -- Lil' XT - xxxxx
-	-- AddPet(xxxxx, xxxxx, R_x, GAME_WOTLK)
-	-- self:AddCompanionFlags(PetDB, xxxxx, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
-	-- self:AddCompanionAcquire(PetDB, xxxxx, A_CUSTOM, 4)
-	
+
+	-- Lil' XT - 75906
+	AddPet(75906, 54847, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 75906, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionAcquire(PetDB, 75906, A_CUSTOM, 4)
+
 	-- We only add the faction specific pets if the user is part of that faction
 	if MY_FACTION == FACTION_ALLIANCE then
 		-- Shimmering Wyrmling -- 66096
