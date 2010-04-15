@@ -1,4 +1,11 @@
 ==Collectinator Change Log
+===Beta 11
+*New mounts:
+	**Celestial Steed
+
+*New Pets:
+	**Lil' XT
+	
 ===Beta 10
 *Fixed bug preventing pets/mounts from expanding if they were profession related
 *Now possible to filter the list by quality (Common, Uncommon, Rare, Epic, Legendary)
