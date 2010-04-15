@@ -863,6 +863,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 69536, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(PetDB, 69536, A_CUSTOM, 4)
 	
+	-- -- Lil' XT - xxxxx
+	-- AddPet(xxxxx, xxxxx, R_x, GAME_WOTLK)
+	-- self:AddCompanionFlags(PetDB, xxxxx, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	-- self:AddCompanionAcquire(PetDB, xxxxx, A_CUSTOM, 4)
+	
 	-- We only add the faction specific pets if the user is part of that faction
 	if MY_FACTION == FACTION_ALLIANCE then
 		-- Shimmering Wyrmling -- 66096
