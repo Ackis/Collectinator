@@ -20,7 +20,7 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 1, "World of Warcraft Trading Card Game", BZ["Booty Bay"])
 	self:addLookupList(DB, 2, "Chicken Egg")
 	self:addLookupList(DB, 3, "Learned from Oozing Bag, dropped by level 50 to 57 ooze & slime mobs", "Various Zones")
-	self:addLookupList(DB, 4, "Bought from Blizzard Store")
+	self:addLookupList(DB, 4, "Bought from the Blizzard Store")
 	self:addLookupList(DB, 5, "Burning Crusade Collector's Edition (EU)")
 	self:addLookupList(DB, 6, "Promotional pet: Fansite contest giveaway (EU)") -- EU Contest, Pink Murloc
 	self:addLookupList(DB, 7, "Promotional pet: iCoke (China)") -- Polar Bear Collar
