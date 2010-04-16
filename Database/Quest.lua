@@ -65,6 +65,7 @@ function addon:InitQuest(DB)
 	AddQuest(13734,	BZ["Icecrown"],			76.1,	19.2,	ALLIANCE)
 	AddQuest(13735,	BZ["Icecrown"],			76.3,	19.1,	ALLIANCE)
 	AddQuest(13906,	BZ["Un'Goro Crater"],		71.5,   73.7,   HORDE)
+	AddQuest(24915, BZ["Icecrown Citadel"],  0, 0, NEUTRAL)
 
 	-- AQ40
 	AddQuest(8743,	BZ["Ahn'Qiraj"],		0,      0,      NEUTRAL)
