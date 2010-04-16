@@ -1,4 +1,10 @@
 ==Collectinator Change Log
+===Beta 12
+*New mounts:
+	**Crimson Deathcharger
+	**Bloodbathed Frostbrood Vanquisher
+	**Icebound Frostbrood Vanquisher 
+
 ===Beta 11
 *New mounts:
 	**Celestial Steed
