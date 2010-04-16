@@ -144,6 +144,16 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(60024, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 60024, A_ACHIEVEMENT, 2145)
 
+	-- Bloodbathed Frostbrood Vanquisher - 72808
+	AddMount(72808, 51954, R_EPIC, GAME_WOTLK)
+	AddMountFlags(72808, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 72808, A_ACHIEVEMENT, 4602)
+
+	-- Icebound Frostbrood Vanquisher - 72807
+	AddMount(72807, 51955, R_EPIC, GAME_WOTLK)
+	AddMountFlags(72807, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 72807, A_ACHIEVEMENT, 4603)
+
 -- FISHING
 	-- Sea Turtle
 	AddMount(64731, 46109, R_RARE, GAME_WOTLK)
@@ -1490,6 +1500,12 @@ function addon:GetMountTotal(DB)
 	AddMount(75614, 54811, R_EPIC, GAME_WOTLK)
 	AddMountFlags(75614, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(DB, 75614, A_CUSTOM, 4)
+
+-- QUEST
+	-- Reins of the Crimson Deathcharger - 73313
+	AddMount(73313, 52200, R_EPIC, GAME_WOTLK)
+	AddMountFlags(73313, F_ALLIANCE, F_HORDE, F_QUEST, F_BOE)
+	self:AddCompanionAcquire(DB, 73313, A_QUEST, 24915)
 
 	return num_mounts
 end
