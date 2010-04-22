@@ -7,7 +7,7 @@
 -- File revision: @file-revision@
 -- Project revision: @project-revision@
 -- Project version: @project-version@
--- Format:	self:addLookupList(VendorDB,NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
+-- Format:	self:addLookupList(DB, NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
 -------------------------------------------------------------------------------
 local MODNAME	= "Collectinator"
 local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
@@ -34,7 +34,7 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 8665,	L["Shylenai"],				BZ["Darnassus"],		69.8, 45.4,	ALLIANCE)
 	self:addLookupList(DB, 8666,	L["Lil Timmy"],				BZ["Stormwind City"],		46.4, 55.5,	ALLIANCE) -- Wanders
 
-	self:addLookupList(DB, 16860,	L["Jilanne"],				BZ["Eversong Woods"],		43.5, 71.0,	HORDE) -- did she move?
+	self:addLookupList(DB, 16860,	L["Jilanne"],				BZ["Eversong Woods"],		44.8, 71.8,	HORDE)
 	self:addLookupList(DB, 17249,	L["Landro Longshot"],			BZ["Stranglethorn Vale"],	28.1, 75.8,	NEUTRAL)
 	self:addLookupList(DB, 18382,	L["Mycah"],				BZ["Zangarmarsh"],		17.9, 51.2,	NEUTRAL)
 	self:addLookupList(DB, 20980,	L["Dealer Rashaad"],			BZ["Netherstorm"],		43.5, 35.2,	NEUTRAL)
@@ -56,10 +56,6 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 24495,	L["Blix Fixwidget"],			BZ["Durotar"],			44.1, 17.9,	HORDE)
 	self:addLookupList(DB, 27478,	L["Larkin Thunderbrew"],		BZ["Ironforge"],		18.8, 53.1,     ALLIANCE)
 	self:addLookupList(DB, 27489,	L["Ray'ma"],				BZ["Orgrimmar"],		37.9, 85.6,     HORDE)
-	--self:addLookupList(DB, 26123,	L["Midsummer Supplier"],		BZ[""],		, ,	ALLIANCE) --several places
- 	--self:addLookupList(DB, 26124,	L["Midsummer Merchant"],		BZ[""],		, ,	HORDE) --several places
-	--self:addLookupList(DB, 32836,	L["Noblegarden Vendor"],		BZ[""],		, ,	ALLIANCE) --several places
-	--self:addLookupList(DB, 32837,	L["Noblegarden Merchant"],		BZ[""],		, ,	HORDE) --several places
 
 	self:addLookupList(DB, 33307,	L["Corporal Arthur Flew"],		BZ["Icecrown"],			76.5, 19.2,	ALLIANCE)
 	self:addLookupList(DB, 33310,	L["Derrick Brindlebeard"],		BZ["Icecrown"],			76.5, 19.5,	ALLIANCE)
@@ -95,7 +91,7 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 12796,	L["Raider Bork"],			BZ["Orgrimmar"],		41.68, 68.33,	HORDE)
 	self:addLookupList(DB, 13216,	L["Gaelden Hammersmith"],		BZ["Alterac Valley"],		44.2, 18.2,	ALLIANCE)
 	self:addLookupList(DB, 13217,	L["Thanthaldis Snowgleam"],		BZ["Alterac Mountains"],	39.5, 81.7,	ALLIANCE)
-	self:addLookupList(DB, 13218,	L["Grunnda Wolfheart"],			BZ["Alterac Valley"],		49.0, 85.5,	HORDE) -- did she move?
+	self:addLookupList(DB, 13218,	L["Grunnda Wolfheart"],			BZ["Alterac Valley"],		49.0, 85.5,	HORDE)
 	self:addLookupList(DB, 13219,	L["Jekyll Flandring"],			BZ["Alterac Mountains"],	62.8, 59.4,	HORDE)
 	self:addLookupList(DB, 16264,	L["Winaestra"],				BZ["Eversong Woods"],		61.0, 54.7,	HORDE)
 	self:addLookupList(DB, 17584,	L["Torallius the Pack Handler"],	BZ["The Exodar"],		81.5, 52.0,	ALLIANCE)
