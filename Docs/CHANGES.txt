@@ -1,4 +1,8 @@
 ==Collectinator Change Log
+===Beta 13
+*New mount:
+	**X-53 Touring Rocket
+	
 ===Beta 12
 *New mounts:
 	**Crimson Deathcharger
