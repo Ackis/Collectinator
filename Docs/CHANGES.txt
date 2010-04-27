@@ -2,12 +2,12 @@
 ===Beta 13
 *New mount:
 	**X-53 Touring Rocket
-	
+
 ===Beta 12
 *New mounts:
 	**Crimson Deathcharger
 	**Bloodbathed Frostbrood Vanquisher
-	**Icebound Frostbrood Vanquisher 
+	**Icebound Frostbrood Vanquisher
 
 ===Beta 11
 *New mounts:
@@ -15,7 +15,7 @@
 
 *New Pets:
 	**Lil' XT
-	
+
 ===Beta 10
 *Fixed bug preventing pets/mounts from expanding if they were profession related
 *Now possible to filter the list by quality (Common, Uncommon, Rare, Epic, Legendary)
