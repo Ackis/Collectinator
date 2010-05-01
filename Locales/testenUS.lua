@@ -210,7 +210,8 @@ L["Right"] = true
 L["Scan"] = true
 L["SCAN_COMPANIONS_DESC"] = [[Scans the current opened companion window.
 Shift-click to generate a text dump of the collectibles you have.
-Alt-click to remove all waypoints from the mini-map and world map.]]
+Alt-click to remove all waypoints from the mini-map and world map.
+Alt-Shift-click to generate an import list for the warcraftpets.com web site.]]
 L["SEARCH_BOX_DESC"] = "Search"
 L["SEARCH_DESC"] = "Filter to entries that contain text at left."
 L["SEASONAL_DESC"] = "Collectibles obtained in world events should be included in the scan."
