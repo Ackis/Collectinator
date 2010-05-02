@@ -1284,6 +1284,9 @@ function addon:ChatCommand(input)
 	end
 end
 
+-- This signifies whether or not the database should be iterated to set names/icons.
+local database_initialized = false
+
 --- Causes a scan of the companions to be conducted.
 -- @name Collectinator:Scan
 -- @usage Collectinator:Scan(true)
@@ -1292,30 +1295,36 @@ end
 -- @param scantype CRITTER for pets, MOUNT for mounts
 -- @return A frame with either the text dump, or the GUI frame.
 function addon:Scan(textdump, autoupdatescan, scantype)
-	-- Update the pet/mount totals:
+	if not database_initialized then
+		local total_pets = self:GetMiniPetTotal(CompanionDB)
+		local total_mounts = self:GetMountTotal(CompanionDB)
+
+		for spell_id, companion in pairs(CompanionDB) do
+			local name, _, icon = GetSpellInfo(spell_id)
+
+			CompanionDB[spell_id]["Name"] = name
+			CompanionDB[spell_id]["ItemIcon"] = icon
+		end
+		database_initialized = true
+	end
 	playerData["critter_known"] = GetNumCompanions("CRITTER")
 	playerData["mount_known"] = GetNumCompanions("MOUNT")
 
-	-- Scan for all known critters and mounts
-	for i = 1, self:GetMiniPetTotal(CompanionDB), 1 do
-		local _, name, spell, icon, _ = GetCompanionInfo("CRITTER", i)
+	for i = 1, playerData["critter_known"], 1 do
+	 	local _, _, spell = GetCompanionInfo("CRITTER", i)
 
 		if CompanionDB[spell] then
 			CompanionDB[spell]["Known"] = true
-			CompanionDB[spell]["Name"] = name
-			CompanionDB[spell]["ItemIcon"] = icon
 		elseif spell then
 			self:Print("Error: Pet with ID " .. spell .. " not in database.")
 		end
 	end
 
-	for i = 1, self:GetMountTotal(CompanionDB), 1 do
-		local _, name, spell, icon = GetCompanionInfo("MOUNT", i)
+	for i = 1, playerData["mount_known"], 1 do
+		local _, _, spell = GetCompanionInfo("MOUNT", i)
 
 		if CompanionDB[spell] then
 			CompanionDB[spell]["Known"] = true
-			CompanionDB[spell]["Name"] = name
-			CompanionDB[spell]["ItemIcon"] = icon
 		elseif spell then
 			self:Print("Error: Mount with ID ".. tostring(spell) .. " not in database.")
 		end
