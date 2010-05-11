@@ -4051,7 +4051,7 @@ function addon:DisplayFrame(
 	local companion_frame = PetPaperDollFrameCompanionFrame
 	local hide_frame;
 
-	if (PetListPlus and PetListPlusFrame:IsVisible()) or companion_frame:IsVisible() then
+	if (PetListPlus and PetListPlusFrame:IsVisible()) or (CE_Pets and CE_Pets:IsVisible()) or companion_frame:IsVisible() then
 		-- frame is visible, check for same scan
 		if self.Frame and self.Frame:IsVisible() then
 			if (current_tab ~= INDEX_TYPE[companion_frame.mode] or current_tab == 0) then

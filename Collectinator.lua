@@ -330,12 +330,17 @@ function addon:OnInitialize()
 		button:SetParent(PetListPlusFrame)
 		button:Show()
 	end
+
+	if CE_Pets then
+		button:SetParent(CE_Pets)
+		button:Show()
+	end
 	button:SetHeight(20)
 	button:RegisterForClicks("LeftButtonUp")
 	button:SetScript("OnClick",
 				  function()
 					  local companion_frame = PetPaperDollFrameCompanionFrame
-					  local is_visible = (PetListPlus and PetListPlusFrame:IsVisible()) or companion_frame:IsVisible()
+					  local is_visible = (PetListPlus and PetListPlusFrame:IsVisible()) or (CE_Pets and CE_Pets:IsVisible()) or companion_frame:IsVisible()
 					  -- Alt-Shift (Warcraft Pets)
 					  if IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 						  addon:Scan(true, false, "pets")
