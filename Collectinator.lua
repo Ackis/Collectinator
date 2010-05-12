@@ -7,7 +7,7 @@
 
 --- **Collectinator** provides an interface for scanning companions and moutns to find what is missing.
 -- There are a set of functions which allow you make use of the Collectinator database outside of Collectinator.
--- Collectinator supports all mounts/pets currently in World of Warcraft 3.3.
+-- Collectinator supports all mounts/pets currently in World of Warcraft 3.3.3
 -- @class file
 -- @name Collectinator.lua
 -- @release @file-revision@
