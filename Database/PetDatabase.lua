@@ -118,6 +118,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 10713, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 10713, A_VENDOR, 28951)
 
+	-- Zipao Tiger - 69539
+	AddPet(69539, nil, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 69539, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_RETIRED, F_BOE)
+	self:AddCompanionAcquire(PetDB, 69539, A_CUSTOM, 34)
+	
 --ACHIEVEMENTS
 	-- Pilgrim Turkey - 61773
 	AddPet(61773, 44810, R_RARE, GAME_WOTLK)
@@ -312,8 +317,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Disgusting Oozeling - 25162
 	AddPet(25162, 20769, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 25162, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 25162, A_MOB, 14345, A_MOB, 15335, A_MOB, 8606, A_MOB, 8607, A_MOB, 1808, A_MOB, 12387, A_MOB, 1806, A_MOB, 9621,
-			 A_MOB, 9477, A_MOB, 7093, A_MOB, 6559, A_MOB, 7092, A_MOB, 6557, A_CUSTOM, 3)
+	self:AddCompanionAcquire(PetDB, 25162, A_MOB, 14345, A_MOB, 15335, A_MOB, 8606, A_MOB, 8607, A_MOB, 1808, A_MOB, 12387, A_MOB, 1806, A_MOB, 9621, A_MOB, 9477, A_MOB, 7093, A_MOB, 6559, A_MOB, 7092, A_MOB, 6557, A_CUSTOM, 3)
 
 	-- Captured Firefly - 36034
 	AddPet(36034, 29960, R_COMMON, GAME_TBC)
