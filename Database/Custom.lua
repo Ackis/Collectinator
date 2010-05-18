@@ -50,5 +50,6 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 31, "Zul'Aman Timed Run.")
 	self:addLookupList(DB, 32, "Arena: Earned the Relentless Gladiator title in Season 7")
 	self:addLookupList(DB, 33, "Arena: Earned the Wrathful Gladiator title in Season 8")
+	self:addLookupList(DB, 34, "Prepay your account by November 2009, on Taiwan servers.")
 end
 
