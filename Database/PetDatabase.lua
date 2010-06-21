@@ -244,7 +244,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Scorched Stone - 45890
 	AddPet(45890, 34955, R_RARE, GAME_TBC)
-	self:AddCompanionFlags(PetDB, 45890, F_ALLIANCE, F_HORDE, F_INSTANCE, F_SEASONAL, F_MOB_DROP, F_BOP)
+	self:AddCompanionFlags(PetDB, 45890, F_ALLIANCE, F_HORDE, F_INSTANCE, F_SEASONAL, F_MOB_DROP, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(PetDB, 45890, A_MOB, 25740, A_SEASONAL, 4)
 
 	-- Clockwork Rocket Bot - 54187
