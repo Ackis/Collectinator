@@ -262,6 +262,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 71840, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_INSTANCE, F_BOP)
 	self:AddCompanionAcquire(PetDB, 71840, A_SEASONAL, 5, A_MOB, 36296)
 
+	-- Ice Chip (Frigid Frostling) - 74932
+	AddPet(74932, 53641, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 74932, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_INSTANCE, F_BOP)
+	self:AddCompanionAcquire(PetDB, 74932, A_SEASONAL, 4, A_MOB, 25740)
+
 --WORLD EVENT VENDOR
 	-- Spirit of Summer - 28871
 	AddPet(28871, 23083, R_RARE, GAME_ORIG)
