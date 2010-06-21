@@ -1,5 +1,15 @@
 ==Collectinator Change Log
 
+===Version 1.0.1
+*New Pets:
+	**Frigid Frostling
+	**Zipao Tiger
+
+*Added suppport for the Chill Effect addon.
+*Fixed a formatting error in one of the Russian translations.
+*Retired the following pets: Mr. Chilly, Onyxian Whelping, Zipao Tiger, and Scorchling
+*Revamped scanning/initialization logic to properly set names/icons on every critter and mount in the database.
+
 ===Version 1.0.0
 *Added support for the new WarcraftPets.com Collection Importing facility.
 *Decided to release this thing, finally - 13 betas is a tad much.
