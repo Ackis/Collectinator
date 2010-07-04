@@ -1,5 +1,8 @@
 ==Collectinator Change Log
 
+===Version 1.0.2
+*Make the collectibles linkable again in chat since 3.3.5
+
 ===Version 1.0.1
 *New Pets:
 	**Frigid Frostling
