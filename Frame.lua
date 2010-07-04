@@ -2064,7 +2064,10 @@ function addon.CollectibleItem_OnClick(button)
 				local _, itemLink = GetItemInfo(itemID)
 
 				if itemLink then
-					ChatFrameEditBox:Insert(itemLink)
+					local edit_box = _G.ChatEdit_ChooseBoxForSend()
+
+					_G.ChatEdit_ActivateChat(edit_box)
+					edit_box:Insert(itemLink)
 				else
 					addon:Print(L["NoItemLink"])
 				end
@@ -2072,7 +2075,10 @@ function addon.CollectibleItem_OnClick(button)
 				addon:Print(L["NoItemLink"])
 			end
 		elseif IsControlKeyDown() then
-			ChatFrameEditBox:Insert(collectibleDB[clickedSpellIndex]["CollectibleLink"])
+			local edit_box = _G.ChatEdit_ChooseBoxForSend()
+
+			_G.ChatEdit_ActivateChat(edit_box)
+			edit_box:Insert(collectibleDB[clickedSpellIndex]["CollectibleLink"])
 		elseif IsAltKeyDown() then
 			-- Code needed here to insert this item into the "Ignore List"
 			addon:ToggleExclude(clickedSpellIndex)
@@ -4072,8 +4078,8 @@ function addon:DisplayFrame(
 		InitializeFrame()
 		InitializeFrame = nil
 	end
-	
-	if not hide_frame then 
+
+	if not hide_frame then
 		SetFramePosition()							-- Set our addon frame position
 		Collectinator_DD_Sort.initialize = Collectinator_DD_Sort_Initialize	-- Initialize dropdown
 
