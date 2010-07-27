@@ -1,5 +1,9 @@
 ==Collectinator Change Log
 
+===Version 1.0.3
+*New Pet:
+	**Mini Thor
+
 ===Version 1.0.2
 *Make the collectibles linkable again in chat since 3.3.5
 
