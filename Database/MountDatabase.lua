@@ -1490,6 +1490,11 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(65917, F_ALLIANCE, F_HORDE, F_TCG)
 	self:AddCompanionAcquire(DB, 65917, A_CUSTOM, 1)
 
+	-- Blazing Hippogryph - 74856
+	AddMount(74856, 54069, R_EPIC, GAME_WOTLK)
+	AddMountFlags(74856, F_ALLIANCE, F_HORDE, F_TCG)
+	self:AddCompanionAcquire(DB, 74856, A_CUSTOM, 1)
+
 	-- Little Ivory Raptor Whistle - 68769
 	--AddMount(68769, 49288, R_UNCOMMON, GAME_WOTLK)
 	--AddMountFlags(68769, F_HORDE, F_TCG)
