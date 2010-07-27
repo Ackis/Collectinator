@@ -1,5 +1,9 @@
 ==Collectinator Change Log
 
+===Version 1.0.4
+*New Mount:
+	**Blazing Hippogryph
+
 ===Version 1.0.3
 *New Pet:
 	**Mini Thor
