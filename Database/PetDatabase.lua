@@ -778,6 +778,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 52615, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 52615, A_ACHIEVEMENT, 683)
 
+	-- Mini Thor - 78381
+	AddPet(78381, 56806, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 78381, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
+	self:AddCompanionAcquire(PetDB, 78381, A_ACHIEVEMENT, 4824)
+
 --BLIZZ CON
 	-- Blue Murloc Egg - 24696 (Murky)
 	AddPet(24696, 20371, R_RARE, GAME_ORIG)
