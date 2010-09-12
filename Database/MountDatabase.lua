@@ -108,6 +108,58 @@ function addon:GetMountTotal(DB)
 		end
 	end
 
+	
+	--[[
+	--------------------------------------------------------------------------------------------------------------------------
+	CATACLYSM NEW SAID TO BE MOUNTS
+	-------------------------------------------------
+	-- Golden King
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+    -- Tan Riding Camel
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+    -- Grey Riding Camel
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+    -- Brown Riding Camel
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+    -- Drake of the South Wind
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+    -- Drake of the North Wind
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+	-- Drake of the West Wind
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+	-- Vitreous Stone Drake
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+	-- Phosphorescent Stone Drake
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	--------------------------------------------------------------------------------------------------------------------------
+	-]]
+	
 -- ACHIEVEMENTS
 	-- Reins of the Albino Drake - 60025
 	AddMount(60025, 44178, R_EPIC, GAME_WOTLK)
