@@ -102,6 +102,42 @@ function addon:GetMiniPetTotal(PetDB)
 		addon:AddCompanion(PetDB, "CRITTER", SpellID, PetItemID, Rarity, Game)
 	end
 
+	--[[
+	--------------------------------------------------------------------------------------------------------------------------
+	CATACLYSM NEW SAID TO BE PETS
+	-------------------------------------------------
+	-- Rumbling Rockling
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+    -- Swirling Stormling
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+    -- Whirling Waveling
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+    -- Fox Kit
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+    -- Clockwork Gnome
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+    -- Crawling Claw
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	--------------------------------------------------------------------------------------------------------------------------
+	-]]
+	
 -- 3.3 pets - not categorized
 	-- Core Hound Pup
 	AddPet(69452, 49646, R_RARE, GAME_WOTLK)
