@@ -51,5 +51,6 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 32, "Arena: Earned the Relentless Gladiator title in Season 7")
 	self:addLookupList(DB, 33, "Arena: Earned the Wrathful Gladiator title in Season 8")
 	self:addLookupList(DB, 34, "Prepay your account by November 2009, on Taiwan servers.")
+	self:addLookupList(DB, 35, "Since 2010, use the LFD took to queue for Coren Direbrew and upon defeating him you receive a Keg-Shaped Treasure Chest which may contain this mount.")
 end
 
