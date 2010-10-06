@@ -135,6 +135,111 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet()
 	self:AddCompanionFlags()
 	self:AddCompanionAcquire()
+	
+	-- Armadillo Pup
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Dark Phoenix Hatchling
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Guild Herald
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Guild Page
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Pebble
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- De-Weaponized Mechanical Companion
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Elementium Geode
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Enchanted Lantern
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Fossilized Hatchling
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Magic Lamp
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Personal World Destroyer
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Blue Mini Jouster
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Gold Mini Jouster
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Brazie's Sunflower
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Mr. Grubbs
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Tiny Shale Spider
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Rustberg Seagull
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Deathy
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Lil' Deathwing
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Eat the Egg
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
+	
+	-- Landro's Lil' XT
+	AddPet()
+	self:AddCompanionFlags()
+	self:AddCompanionAcquire()
 	--------------------------------------------------------------------------------------------------------------------------
 	-]]
 	
