@@ -1391,7 +1391,6 @@ function addon:MarkExclusions(DB, scantype)
 			end
 		end
 	end
-	self:Print("Bla: ".. known_count)
 	return known_count, unknown_count
 end
 
