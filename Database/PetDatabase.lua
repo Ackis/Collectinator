@@ -1,4 +1,4 @@
---------------------------------------------------------------------------------------------------------------------
+﻿--------------------------------------------------------------------------------------------------------------------
 -- ./DB/PetDatabase.lua
 -- Pet Database data for all of Collectinator
 --------------------------------------------------------------------------------------------------------------------
@@ -99,7 +99,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-------------------------------------------------------------------------------
 	local function AddPet(SpellID, PetItemID, Rarity, Game)
 		num_pets = num_pets + 1
-		addon:AddCompanion(PetDB, "CRITTER", SpellID, PetItemID, Rarity, Game)
+		addon:AddCompanion(PetDB, "companions", SpellID, PetItemID, Rarity, Game)
 	end
 
 	--[[

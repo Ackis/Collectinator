@@ -1,4 +1,4 @@
--------------------------------------------------------------------------------
+﻿-------------------------------------------------------------------------------
 -- Collectinator
 -- File date: @file-date-iso@
 -- Project version: @project-version@
@@ -322,7 +322,7 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Create the scan button.
 	-------------------------------------------------------------------------------
-	local button = CreateFrame("Button", "Collectinator_ScanButton", PetPaperDollFrameCompanionFrame, "UIPanelButtonTemplate")
+	local button = CreateFrame("Button", "Collectinator_ScanButton", SpellBookFrame, "UIPanelButtonTemplate")
 	self.ScanButton = button
 
 	-- Add to PetList+
@@ -339,21 +339,20 @@ function addon:OnInitialize()
 	button:RegisterForClicks("LeftButtonUp")
 	button:SetScript("OnClick",
 				  function()
-					  local companion_frame = PetPaperDollFrameCompanionFrame
-					  local is_visible = (PetListPlus and PetListPlusFrame:IsVisible()) or (CE_Pets and CE_Pets:IsVisible()) or companion_frame:IsVisible()
+					  local companion_frame = SpellBookFrame
+					  local is_visible = (PetListPlus and PetListPlusFrame:IsVisible()) or (CE_Pets and CE_Pets:IsVisible()) or SpellBookCompanionModelFrame:IsVisible()
 					  -- Alt-Shift (Warcraft Pets)
 					  if IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 						  addon:Scan(true, false, "pets")
-
 					  -- Shift only (Text Dump)
 					  elseif IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:Scan(true, false, is_visible and companion_frame.mode or "CRITTER")
+						  addon:Scan(true, false, is_visible and companion_frame.currentTab.bookType)
 					  -- Alt only (Wipe icons from map)
 					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 						  addon:ClearMap()
 					  -- If we are just clicking do the scan
 					  elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:Scan(false, false, is_visible and companion_frame.mode or "CRITTER")
+						  addon:Scan(false, false, is_visible and companion_frame.currentTab.bookType)
 						  self:SetupMap()
 					  end
 				  end)
@@ -376,7 +375,7 @@ function addon:OnInitialize()
 	button:Enable()
 	button:ClearAllPoints()
 
-	button:SetPoint("RIGHT", CharacterFrameCloseButton, "LEFT", 4, 0)
+	button:SetPoint("RIGHT", SpellBookFrameCloseButton, "LEFT", 4, 0)
 	button:SetWidth(addon.ScanButton:GetTextWidth() + 10)
 
 	button:Show()
@@ -384,21 +383,21 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Add mini-pet/mount totals to the tab
 	-------------------------------------------------------------------------------
-	PetPaperDollFrameTab2:SetScript("OnEnter",
+	SpellBookFrameTabButton5:SetScript("OnEnter",
 					function(this)
 						GameTooltip_SetDefaultAnchor(GameTooltip, this)
 						GameTooltip:SetText(string.format("%d %s.", GetNumCompanions("CRITTER"), PETS))
 						GameTooltip:Show()
 					end)
-	PetPaperDollFrameTab2:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	SpellBookFrameTabButton5:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
-	PetPaperDollFrameTab3:SetScript("OnEnter",
+	SpellBookFrameTabButton4:SetScript("OnEnter",
 					function(this)
 						GameTooltip_SetDefaultAnchor(GameTooltip, this)
 						GameTooltip:SetText(string.format("%d %s.", GetNumCompanions("MOUNT"), MOUNTS))
 						GameTooltip:Show()
 					end)
-	PetPaperDollFrameTab3:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	SpellBookFrameTabButton4:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
 	-------------------------------------------------------------------------------
 	-- Initialize the databases
@@ -487,10 +486,10 @@ end
 function addon:COMPANION_LEARNED()
 	local companion_frame = self.ScanButton:GetParent()
 
-	if companion_frame:IsVisible() then
-		self:Scan(false, false, companion_frame.mode)
+	if SpellBookCompanionModelFrame:IsVisible() then
+		self:Scan(false, false, companion_frame.currentTab.bookType)
 	else
-		self:Scan(false, true, companion_frame.mode)
+		self:Scan(false, true, companion_frame.currentTab.bookType)
 	end
 end
 
@@ -1340,7 +1339,7 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 	addon:GetFactionLevels(playerData["Reputation"])
 
 	if not autoupdatescan and scantype then
-		local filter_type = (scantype == "pets" and "CRITTER" or scantype)
+		local filter_type = (scantype == "pets" and "companions" or scantype)
 		self:UpdateFilters(CompanionDB, playerData, filter_type)	-- Add filtering flags to the items
 
 		-- Mark excluded items
@@ -1392,6 +1391,7 @@ function addon:MarkExclusions(DB, scantype)
 			end
 		end
 	end
+	self:Print("Bla: ".. known_count)
 	return known_count, unknown_count
 end
 
@@ -1450,9 +1450,9 @@ do
 		twipe(texttable)
 		local collectible_typename
 
-		if(collectible_type == "CRITTER") then
+		if(collectible_type == "companions") then
 			collectible_typename = "\"Pets\""
-		elseif(collectible_type == "MOUNT") then
+		elseif(collectible_type == "mount") then
 			collectible_typename = "\"Mounts\""
 		end
 
@@ -1564,7 +1564,7 @@ function addon:GetWarcraftPets(PetDB)
 	local t = {}
 
 	for i, k in pairs(PetDB) do
-		if PetDB[i]["Known"] == true and PetDB[i]["Type"] == "CRITTER" then
+		if PetDB[i]["Known"] == true and PetDB[i]["Type"] == "companions" then
 			tinsert(t, "["..i.."]")
 		end
 	end

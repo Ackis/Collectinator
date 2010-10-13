@@ -1,4 +1,4 @@
---------------------------------------------------------------------------------------------------------------------
+﻿--------------------------------------------------------------------------------------------------------------------
 -- ./DB/MountDatabase.lua
 -- Mount Database data for all of Collectinator
 --------------------------------------------------------------------------------------------------------------------
@@ -96,7 +96,7 @@ function addon:GetMountTotal(DB)
 	-- Wrapper function
 	-------------------------------------------------------------------------------
 	local function AddMount(SpellID, MountItemID, Rarity, Game, Class)
-		addon:AddCompanion(DB, "MOUNT", SpellID, MountItemID, Rarity, Game, Class)
+		addon:AddCompanion(DB, "mount", SpellID, MountItemID, Rarity, Game, Class)
 		num_mounts = num_mounts + 1
 	end
 

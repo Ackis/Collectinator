@@ -1,4 +1,4 @@
--------------------------------------------------------------------------------
+﻿-------------------------------------------------------------------------------
 -- Frame.lua
 -------------------------------------------------------------------------------
 -- Frame functions for all of Collectinator
@@ -99,14 +99,14 @@ local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C
 
 -- Returns the index type based on the supplied string.
 local INDEX_TYPE = {
-	["CRITTER"]	= 1,
-	["MOUNT"]	= 2,
+	["companions"]	= 1,
+	["mount"]	= 2,
 }
 
 -- Returns the index string based on the supplied type.
 local INDEX_STRING = {
-	[1] = "CRITTER",
-	[2] = "MOUNT",
+	[1] = "companions",
+	[2] = "mount",
 }
 
 -------------------------------------------------------------------------------
@@ -164,8 +164,8 @@ local Collectinator_RepOldWorldCB, Collectinator_RepBCCB, Collectinator_RepLKCB,
 
 -- To make tabbing between collections easier
 local SortedCollections = {
-	{ name = "CRITTER", 	texture = "minipets" }, -- 1
-	{ name = "MOUNT", 	texture = "mounts" }, 	-- 2
+	{ name = "companions", 	texture = "minipets" }, -- 1
+	{ name = "mount", 	texture = "mounts" }, 	-- 2
 }
 local MaxCollections = 2
 
@@ -933,7 +933,7 @@ local function GenerateTooltipContent(owner, rIndex)
 					left_color = addon:hexcolor("NORMAL")
 					right_color = addon:hexcolor("HIGH")
 					ttAdd(1, -2, 1, vendor["Location"], left_color, cStr, right_color)
-				elseif faction and companion["Type"] ~= "MOUNT" then
+				elseif faction and companion["Type"] ~= "mount" then
 					ttAdd(0, -1, 0, faction.." "..L["Vendor"], left_color)
 				end
 			end
@@ -2591,7 +2591,7 @@ local function SetFramePosition()
 
 	if (opts.anchorTo == "") then
 		-- no values yet, clamp to whatever frame is appropriate
-		addon.Frame:SetPoint("TOPLEFT", PetPaperDollFrameCompanionFrame, "TOPRIGHT", 10, 0)
+		addon.Frame:SetPoint("TOPLEFT", SpellBookFrame, "TOPRIGHT", 10, 0)
 	else
 		if (addon.Frame._Expanded == true) then
 			if (opts.anchorFrom == "TOPLEFT") or
@@ -4054,15 +4054,15 @@ function addon:DisplayFrame(
 
 	WipeDisplayStrings()	-- reset current display items
 
-	local companion_frame = PetPaperDollFrameCompanionFrame
+	local companion_frame = SpellBookFrame
 	local hide_frame;
 
-	if (PetListPlus and PetListPlusFrame:IsVisible()) or (CE_Pets and CE_Pets:IsVisible()) or companion_frame:IsVisible() then
+	if (PetListPlus and PetListPlusFrame:IsVisible()) or (CE_Pets and CE_Pets:IsVisible()) or SpellBookCompanionModelFrame:IsVisible() then
 		-- frame is visible, check for same scan
 		if self.Frame and self.Frame:IsVisible() then
-			if (current_tab ~= INDEX_TYPE[companion_frame.mode] or current_tab == 0) then
+			if (current_tab ~= INDEX_TYPE[companion_frame.currentTab.bookType] or current_tab == 0) then
 				--new scan > show
-				current_tab = INDEX_TYPE[companion_frame.mode] or 0
+				current_tab = INDEX_TYPE[companion_frame.currentTab.bookType] or 0
 			else
 				--same scan > hide
 				addon:CloseWindow()
@@ -4070,7 +4070,7 @@ function addon:DisplayFrame(
 			end
 		-- frame is not visible, show anyway
 		else
-			current_tab = INDEX_TYPE[companion_frame.mode] or 0
+			current_tab = INDEX_TYPE[companion_frame.currentTab.bookType] or 0
 		end
 	end
 
