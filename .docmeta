@@ -12,6 +12,10 @@
  output-page: "Changelog"
 -
  type: creole
+ input-file: Docs/Donations.txt
+ output-page: "Donations"
+-
+ type: creole
  input-file: Docs/Localization.txt
  output-page: "API/Localization"
 -
