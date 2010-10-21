@@ -50,4 +50,4 @@ If you have a request for integration, please submit a feature request at [[http
 * [[http://www.wowace.com/projects/collectinator/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requestiing]]
 
 ==Wiki==
-[[http://www.wowwiki.com/Collectinator|WoW Wiki]]
+[[http://www.wowpedia.org/Collectinator|Wowpedia]]
