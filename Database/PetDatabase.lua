@@ -221,11 +221,6 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags()
 	self:AddCompanionAcquire()
 	
-	-- Deathy
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
 	-- Lil' Deathwing
 	AddPet()
 	self:AddCompanionFlags()
@@ -934,6 +929,11 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(66030, 45180, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 66030, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 66030, A_ACHIEVEMENT, 3536)
+	
+	-- Deathy
+	AddPet(94070, 67418, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 94070, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOA)
+	self:AddCompanionAcquire(PetDB, 94070, A_ACHIEVEMENT, 5378)
 
 --PROMO
 	-- Pink Murloc Egg - 27241 (Gurky)
