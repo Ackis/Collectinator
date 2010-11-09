@@ -426,7 +426,7 @@ function addon:OnInitialize()
 			       if not guid then
 				       return
 			       end
-			       local GUID = tonumber(string.sub(guid, 8, 12), 16)
+			       local GUID = tonumber(string.sub(guid, -12, -9), 16)
 			       local mob = MobList[GUID]
 			       local shifted = IsShiftKeyDown()
 
