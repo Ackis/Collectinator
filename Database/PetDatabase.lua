@@ -201,16 +201,6 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags()
 	self:AddCompanionAcquire()
 	
-	-- Brazie's Sunflower
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Mr. Grubbs
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
 	-- Tiny Shale Spider
 	AddPet()
 	self:AddCompanionFlags()
@@ -237,6 +227,21 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire()
 	--------------------------------------------------------------------------------------------------------------------------
 	-]]
+	
+	 -- Withers
+	 AddPet(65046, 46325, R_COMMON, GAME_WOTLK)
+	 self:AddCompanionFlags(PetDB, 65046, F_ALLIANCE, F_HORDE, F_QUEST)
+	 self:AddCompanionAcquire(PetDB, 65046, A_QUEST, 13570, A_VENDOR, 33980)	 
+	
+	-- Brazie's Sunflower
+	AddPet(93823, 66067, R_COMMON, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 93823, F_HORDE, F_ALLIANCE, F_QUEST)
+	self:AddCompanionAcquire(PetDB, 93823, A_QUEST, 28748)
+	
+	-- Mr. Grubbs
+	AddPet(93739, 66076, R_COMMON, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 93739, F_HORDE, F_ALLIANCE, F_MOB_DROP)
+	self:AddCompanionAcquire(PetDB, 93739, A_CUSTOM, 36)
 	
 -- 3.3 pets - not categorized
 	-- Core Hound Pup
