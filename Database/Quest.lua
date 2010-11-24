@@ -68,6 +68,7 @@ function addon:InitQuest(DB)
 	AddQuest(24915, BZ["Icecrown Citadel"],  0, 0, NEUTRAL)
 	AddQuest(28748, BZ["Hillsbrad Foothills"], 33.6, 49.3, NEUTRAL)
 	AddQuest(13570, BZ["Darkshore"], 50.8, 18, ALLIANCE)
+	AddQuest(28415, BZ["Burning Steppes"], 0, 0, NEUTRAL)
 	
 	-- AQ40
 	AddQuest(8743,	BZ["Ahn'Qiraj"],		0,      0,      NEUTRAL)

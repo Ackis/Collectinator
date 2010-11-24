@@ -243,6 +243,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 93739, F_HORDE, F_ALLIANCE, F_MOB_DROP)
 	self:AddCompanionAcquire(PetDB, 93739, A_CUSTOM, 36)
 	
+	-- Tiny Flamefly
+	AddPet(93813, 66080, R_COMMON, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 93813, F_HORDE, F_ALLIANCE, F_QUEST)
+	self:AddCompanionAcquire(PetDB, 93813, A_QUEST, 28415)
+		
 -- 3.3 pets - not categorized
 	-- Core Hound Pup
 	AddPet(69452, 49646, R_RARE, GAME_WOTLK)
