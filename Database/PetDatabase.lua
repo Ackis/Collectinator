@@ -1032,6 +1032,21 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(75906, 54847, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 75906, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(PetDB, 75906, A_CUSTOM, 4)
+	
+	-- Lil' Ragnaros -- 95787
+	AddPet(95787, 68385, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 95787, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionAcquire(PetDB, 95787, A_CUSTOM, 4)
+	
+	-- Moonkin Hatchling (Alliance) -- 95786
+	AddPet(95786, 68618, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 95786, F_ALLIANCE, F_STORE, F_BOA)
+	self:AddCompanionAcquire(PetDB, 95786, A_CUSTOM, 4)
+	
+	-- Moonkin Hatchling (Horde) -- 95909
+	AddPet(95909, 68619, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 95909, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionAcquire(PetDB, 95909, A_CUSTOM, 4)	
 
 	-- We only add the faction specific pets if the user is part of that faction
 	if MY_FACTION == FACTION_ALLIANCE then
