@@ -267,6 +267,16 @@ function addon:GetMountTotal(DB)
 	AddMount(61467, 44083, R_EPIC, GAME_WOTLK)
 	AddMountFlags(61467, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
 	self:AddCompanionAcquire(DB, 61467, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125, A_MOB, 38433)
+	
+	-- Goblin Trike -- 87090
+	AddMount(87090, 62461, R_RARE, GAME_WOTLK)
+	AddMountFlags(87090, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 87090, A_VENDOR, 48510, A_CUSTOM, 37)
+	
+	-- Goblin Turbo-Trike -- 87091
+	AddMount(87091, 62462, R_EPIC, GAME_WOTLK)
+	AddMountFlags(87091, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 87091, A_VENDOR, 48510, A_CUSTOM, 37)
 
 	-------------------------------------------------------------------------------
 	-- Ravasaur
