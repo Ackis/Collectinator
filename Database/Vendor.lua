@@ -116,6 +116,7 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 35101,	L["Grunda Bronzewing"],			BZ["Hellfire Peninsula"],	54.2, 62.6,	ALLIANCE)
 	self:addLookupList(DB, 35131,	L["Durgan Thunderbeak"],		BZ["Borean Tundra"],		58.9, 68.2,	ALLIANCE)
 	self:addLookupList(DB, 35132,	L["Tohfo Skyhoof"],			BZ["Borean Tundra"],		42.2, 55.3,	HORDE)
+	self:addLookupList(DB, 48510, L["Kall Worthaton"],    BZ["Orgrimmar"],         36.5, 86.9, HORDE)
 
 	-------------------------------------------------------------------------------
 	-- Warlock trainers.
