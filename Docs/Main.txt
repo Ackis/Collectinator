@@ -1,5 +1,7 @@
-==What it does==
+==What it does
 Provides methods for determining which mini-pets and mounts you are missing.
+
+We are currently rewriting this addon.  The code is based off of really old Ackis Recipe List code.  We have made substantial improvements to ARL and want to extend them to Collectinator.  Please bear with us.  If you're looking to help, please talk to Ackis.
 
 ==Where to get it
 * [[http://www.wowace.com/projects/collectinator/files/|WoW Ace]] - Alpha Quality
