@@ -689,21 +689,6 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(65639, F_HORDE, F_VENDOR, F_BOP, F_CITY5)
 	self:AddCompanionAcquire(DB, 65639, A_REPUTATION, 911, EXALTED, 33557)
 
-	-- Swift Horde Wolf
-	AddMount(68056, 49046, R_EPIC, GAME_WOTLK)
-	AddMountFlags(68056, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
-	self:AddCompanionAcquire(DB, 68056, A_MOB, 34564)
-
-	-- Crusader's White Warhorse
-	AddMount(68187, nil, R_EPIC, GAME_WOTLK)
-	AddMountFlags(68187, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(DB, 68187, A_ACHIEVEMENT, 4156)
-
-	-- Crusader's Black Warhorse
-	AddMount(68188, nil, R_EPIC, GAME_WOTLK)
-	AddMountFlags(68188, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(DB, 68188, A_ACHIEVEMENT, 4156)
-
 	-------------------------------------------------------------------------------
 	-------------------------------------------------------------------------------
 	-- Alliance Mounts
@@ -1120,11 +1105,6 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(65637, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY5)
 	self:AddCompanionAcquire(DB, 65637, A_REPUTATION, 930, EXALTED, 33657)
 
-	-- Swift Alliance Steed
-	AddMount(68057, 49044, R_EPIC, GAME_WOTLK)
-	AddMountFlags(68057, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP)
-	self:AddCompanionAcquire(DB, 68057, A_MOB, 34564)
-
 	-------------------------------------------------------------------------------
 	-- Mounts for Alliance AND Horde.
 	-------------------------------------------------------------------------------
@@ -1258,16 +1238,6 @@ function addon:GetMountTotal(DB)
 	AddMount(36702, 30480, R_EPIC, GAME_BC)
 	AddMountFlags(36702, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 36702, A_MOB, 15550)
-
-	-- Swift Zulian Tiger - 24252
-	AddMount(24252, 19902, R_EPIC, GAME_ORIG)
-	AddMountFlags(24252, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
-	self:AddCompanionAcquire(DB, 24252, A_MOB, 14509)
-
-	-- Swift Razzashi Raptor - 24242
-	AddMount(24242, 19872, R_EPIC, GAME_ORIG)
-	AddMountFlags(24242, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP)
-	self:AddCompanionAcquire(DB, 24242, A_MOB, 11382)
 
 	-- Deathcharger's Reins - 17481
 	AddMount(17481, 13335, R_EPIC, GAME_ORIG)
@@ -1436,6 +1406,37 @@ function addon:GetMountTotal(DB)
 --REP VENDOR ALLIANCE
 
 --RETIRED
+
+	-- Swift Zulian Tiger - 24252
+	AddMount(24252, 19902, R_EPIC, GAME_ORIG)
+	AddMountFlags(24252, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP, F_REMOVED)
+	self:AddCompanionAcquire(DB, 24252, A_MOB, 14509)
+	
+	-- Swift Razzashi Raptor - 24242
+	AddMount(24242, 19872, R_EPIC, GAME_ORIG)
+	AddMountFlags(24242, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP, F_REMOVED)
+	self:AddCompanionAcquire(DB, 24242, A_MOB, 11382)
+	
+	-- Crusader's White Warhorse
+	AddMount(68187, nil, R_EPIC, GAME_WOTLK)
+	AddMountFlags(68187, F_ALLIANCE, F_ACHIEVEMENT, F_BOP, F_REMOVED)
+	self:AddCompanionAcquire(DB, 68187, A_ACHIEVEMENT, 4156)
+
+	-- Crusader's Black Warhorse
+	AddMount(68188, nil, R_EPIC, GAME_WOTLK)
+	AddMountFlags(68188, F_HORDE, F_ACHIEVEMENT, F_BOP, F_REMOVED)
+	self:AddCompanionAcquire(DB, 68188, A_ACHIEVEMENT, 4156)
+	
+	-- Swift Horde Wolf
+	AddMount(68056, 49046, R_EPIC, GAME_WOTLK)
+	AddMountFlags(68056, F_HORDE, F_MOB_DROP, F_RAID, F_BOP, F_REMOVED)
+	self:AddCompanionAcquire(DB, 68056, A_MOB, 34564)
+	
+	-- Swift Alliance Steed
+	AddMount(68057, 49044, R_EPIC, GAME_WOTLK)
+	AddMountFlags(68057, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP, F_REMOVED)
+	self:AddCompanionAcquire(DB, 68057, A_MOB, 34564)
+	
 	 -- Black Proto-Drake - 59976
 	AddMount(59976, 44164, R_EPIC, GAME_WOTLK)
 	AddMountFlags(59976, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_ACHIEVEMENT)

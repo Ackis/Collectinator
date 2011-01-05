@@ -515,11 +515,6 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 67419, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
 	self:AddCompanionAcquire(PetDB, 67419, A_MOB, 1140)
 
-	-- Razzashi Hatchling
-	AddPet(67420, 48122, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 67420, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 67420, A_MOB, 14821)
-
 --QUESTS
 	-- Mechanical Chicken - 12243
 	AddPet(12243, 10398, R_COMMON, GAME_ORIG)
@@ -857,6 +852,12 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 35911, A_VENDOR, 21019)
 
 --RETIRED
+	
+	-- Razzashi Hatchling
+	AddPet(67420, 48122, R_COMMON, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 67420, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOE, F_REMOVED)
+	self:AddCompanionAcquire(PetDB, 67420, A_MOB, 14821)
+	
 	-- Spirit of Competition - 48406
 	AddPet(48406, 37297, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 48406, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
