@@ -107,12 +107,17 @@ function addon:GetMountTotal(DB)
 			num_mounts = num_mounts - 1
 		end
 	end
-
-	
 	--[[
 	--------------------------------------------------------------------------------------------------------------------------
 	CATACLYSM NEW SAID TO BE MOUNTS
 	-------------------------------------------------
+
+	-- Abyssal Seahorse
+	75207
+	AddMount(75207, 46102, R_RARE, GAME_WOTLK)
+	AddMountFlags(75207, F_HORDE, F_QUEST, F_BOP)
+	self:AddCompanionAcquire(DB, 75207, A_QUEST, 13906)
+
 	-- Golden King
 	AddMount()
 	AddMountFlags()
@@ -128,17 +133,17 @@ function addon:GetMountTotal(DB)
 	AddMountFlags()
 	self:AddCompanionAcquire()
 	
-    -- Brown Riding Camel
+	-- Brown Riding Camel
 	AddMount()
 	AddMountFlags()
 	self:AddCompanionAcquire()
 	
-    -- Drake of the South Wind
+	-- Drake of the South Wind
 	AddMount()
 	AddMountFlags()
 	self:AddCompanionAcquire()
 	
-    -- Drake of the North Wind
+	-- Drake of the North Wind
 	AddMount()
 	AddMountFlags()
 	self:AddCompanionAcquire()
