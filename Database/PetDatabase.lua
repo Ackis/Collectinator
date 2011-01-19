@@ -1062,5 +1062,51 @@ function addon:GetMiniPetTotal(PetDB)
 		self:AddCompanionFlags(PetDB, 66096, F_HORDE, F_VENDOR, F_BOE, WRATHCOMMON1)
 		self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1124, EXALTED, 34772)
 	end
+
+-- Cata
+
+	-- Fossilized Hatchling
+	AddPet(84752, 60955, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 84752, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
+
+	-- Guild Page Horde
+	AddPet(92396, 65362, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 92396, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 92396, A_ACHIEVEMENT, 5179)
+
+	-- Guild Page Alliance
+	AddPet(92395, 65361, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 92395, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 92395, A_ACHIEVEMENT, 5031)
+	
+	-- Guild Herald Alliance
+	AddPet(92397, 65363, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 92397, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 92397, A_ACHIEVEMENT, 5201)
+	
+	-- Guild Herald Horde
+	AddPet(92398, 65364, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 92398, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 92398, A_ACHIEVEMENT, 5201)
+
+	-- Gold Mini Jouster
+	AddPet(78685, 65662, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 78685, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
+	self:AddCompanionAcquire(PetDB, 78685, A_QUEST, 25560)
+
+	-- Blue Mini Jouster
+	AddPet(78683, 65661, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 78683, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
+	self:AddCompanionAcquire(PetDB, 78683, A_QUEST, 25560)
+
+	-- Lil' Deathwing
+	AddPet(87344, 62540, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 87344, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOP)
+
+	-- Tiny Shale Spider
+	AddPet(91343, 64494, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 91343, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(PetDB, 45890, A_MOB, 49822)
+
 	return num_pets
 end
