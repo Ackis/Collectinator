@@ -96,5 +96,6 @@ function addon:InitMob(DB)
 	self:addLookupList(DB, 36296,	L["Apothecary Hummel"],	BZ["Shadowfang Keep"],		0, 0)
 	self:addLookupList(DB, 36597,	BB["The Lich King"],	BZ["Icecrown Citadel"],		0, 0)
 	self:addLookupList(DB, 38433, BB["Toravon the Ice Watcher"],	BZ["Vault of Archavon"],		0, 0)
-
+	self:addLookupList(DB, 49822, L["Jadefang"],	BZ["Deepholm"],		61.3, 22.5)
+	
 end
