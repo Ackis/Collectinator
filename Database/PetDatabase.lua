@@ -1106,7 +1106,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Tiny Shale Spider
 	AddPet(91343, 64494, R_COMMON, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 91343, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
-	self:AddCompanionAcquire(PetDB, 45890, A_MOB, 49822)
+	self:AddCompanionAcquire(PetDB, 91343, A_MOB, 49822)
 
 	return num_pets
 end
