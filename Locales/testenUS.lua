@@ -420,6 +420,9 @@ L["Jepetto Joybuzz"] = true
 L["Clockwork Assistant"] = true
 L["Apothecary Furrows"] = true
 L["Kall Worthaton"] = true
+L["Quartermaster Brazie"] = true
+L["Pogg"] = true
+L["Blacksmith Abasi"] = true
 
 L["DB_LOAD_ERROR"] = [[Error: Database not loaded correctly.
 Please exit out of WoW and delete the Collectinator database file (Collectinator.lua) found in:

@@ -70,6 +70,7 @@ function addon:InitQuest(DB)
 	AddQuest(13570, BZ["Darkshore"], 50.8, 18, ALLIANCE)
 	AddQuest(28415, BZ["Burning Steppes"], 0, 0, NEUTRAL)
 	AddQuest(25560, BZ["Mount Hyjal"], 37.3, 56.2, NEUTRAL)
+	AddQuest(25371, BZ["Kelp'thar Forest"], 46.0, 46.8, NEUTRAL)
 	
 	-- AQ40
 	AddQuest(8743,	BZ["Ahn'Qiraj"],		0,      0,      NEUTRAL)

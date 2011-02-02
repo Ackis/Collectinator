@@ -146,27 +146,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags()
 	self:AddCompanionAcquire()
 	
-	-- Guild Herald
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Guild Page
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
 	-- Pebble
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- De-Weaponized Mechanical Companion
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Elementium Geode
 	AddPet()
 	self:AddCompanionFlags()
 	self:AddCompanionAcquire()
@@ -176,42 +156,12 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags()
 	self:AddCompanionAcquire()
 	
-	-- Fossilized Hatchling
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
 	-- Magic Lamp
 	AddPet()
 	self:AddCompanionFlags()
 	self:AddCompanionAcquire()
 	
-	-- Personal World Destroyer
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Blue Mini Jouster
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Gold Mini Jouster
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Tiny Shale Spider
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
 	-- Rustberg Seagull
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Lil' Deathwing
 	AddPet()
 	self:AddCompanionFlags()
 	self:AddCompanionAcquire()
@@ -228,25 +178,7 @@ function addon:GetMiniPetTotal(PetDB)
 	--------------------------------------------------------------------------------------------------------------------------
 	-]]
 	
-	 -- Withers
-	 AddPet(65046, 46325, R_COMMON, GAME_WOTLK)
-	 self:AddCompanionFlags(PetDB, 65046, F_ALLIANCE, F_HORDE, F_QUEST)
-	 self:AddCompanionAcquire(PetDB, 65046, A_QUEST, 13570, A_VENDOR, 33980)	 
-	
-	-- Brazie's Sunflower
-	AddPet(93823, 66067, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 93823, F_HORDE, F_ALLIANCE, F_QUEST)
-	self:AddCompanionAcquire(PetDB, 93823, A_QUEST, 28748)
-	
-	-- Mr. Grubbs
-	AddPet(93739, 66076, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 93739, F_HORDE, F_ALLIANCE, F_MOB_DROP)
-	self:AddCompanionAcquire(PetDB, 93739, A_CUSTOM, 36)
-	
-	-- Tiny Flamefly
-	AddPet(93813, 66080, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 93813, F_HORDE, F_ALLIANCE, F_QUEST)
-	self:AddCompanionAcquire(PetDB, 93813, A_QUEST, 28415)
+
 		
 -- 3.3 pets - not categorized
 	-- Core Hound Pup
@@ -1065,48 +997,86 @@ function addon:GetMiniPetTotal(PetDB)
 
 -- Cata
 
-	-- Fossilized Hatchling
+	-- Fossilized Hatchling -- 84752
 	AddPet(84752, 60955, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 84752, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
-
-	-- Guild Page Horde
+	self:AddCompanionAcquire(PetDB, 84752, A_CUSTOM, 38)
+	
+	-- Guild Page Horde -- 92396
 	AddPet(92396, 65362, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 92396, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 92396, A_ACHIEVEMENT, 5179)
 
-	-- Guild Page Alliance
+	-- Guild Page Alliance -- 92395
 	AddPet(92395, 65361, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 92395, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 92395, A_ACHIEVEMENT, 5031)
 	
-	-- Guild Herald Alliance
+	-- Guild Herald Alliance -- 92397
 	AddPet(92397, 65363, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 92397, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 92397, A_ACHIEVEMENT, 5201)
 	
-	-- Guild Herald Horde
+	-- Guild Herald Horde -- 92398
 	AddPet(92398, 65364, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 92398, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 92398, A_ACHIEVEMENT, 5201)
 
-	-- Gold Mini Jouster
+	-- Gold Mini Jouster -- 78685
 	AddPet(78685, 65662, R_COMMON, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 78685, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
 	self:AddCompanionAcquire(PetDB, 78685, A_QUEST, 25560)
 
-	-- Blue Mini Jouster
+	-- Blue Mini Jouster -- 78683
 	AddPet(78683, 65661, R_COMMON, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 78683, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
 	self:AddCompanionAcquire(PetDB, 78683, A_QUEST, 25560)
 
-	-- Lil' Deathwing
+	-- Lil' Deathwing -- 87344
 	AddPet(87344, 62540, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 87344, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOP)
-
-	-- Tiny Shale Spider
+	self:AddCompanionAcquire(PetDB, 87344, A_ACHIEVEMENT, 5377)
+	
+	-- Tiny Shale Spider -- 91343
 	AddPet(91343, 64494, R_COMMON, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 91343, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(PetDB, 91343, A_MOB, 49822)
+	
+	-- Withers -- 65046
+	 AddPet(65046, 46325, R_COMMON, GAME_CATA)
+	 self:AddCompanionFlags(PetDB, 65046, F_ALLIANCE, F_HORDE, F_QUEST)
+	 self:AddCompanionAcquire(PetDB, 65046, A_QUEST, 13570, A_VENDOR, 33980)	 
+	
+	-- Brazie's Sunflower -- 93823
+	AddPet(93823, 66067, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 93823, F_HORDE, F_ALLIANCE, F_QUEST)
+	self:AddCompanionAcquire(PetDB, 93823, A_QUEST, 28748)
+	
+	-- Mr. Grubbs -- 93739
+	AddPet(93739, 66076, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 93739, F_HORDE, F_ALLIANCE, F_MOB_DROP)
+	self:AddCompanionAcquire(PetDB, 93739, A_CUSTOM, 36)
+	
+	-- Tiny Flamefly -- 93813
+	AddPet(93813, 66080, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 93813, F_HORDE, F_ALLIANCE, F_QUEST)
+	self:AddCompanionAcquire(PetDB, 93813, A_QUEST, 28415)
+	
+	-- De-Weaponized Mechanical Companion -- 82173
+	AddPet(82173, 60216, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 82173, F_ALLIANCE, F_HORDE, F_CRAFT, F_ENG, F_BOE)
+	self:AddCompanionAcquire(PetDB, 82173, A_CRAFTED, 4036, 84413)
+	
+	-- Elementium Geode -- 93838
+	AddPet(93838, 67282, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 93838, F_ALLIANCE, F_HORDE, F_CRAFT, F_SMELT, F_BOE)
+	self:AddCompanionAcquire(PetDB, 93838, A_CUSTOM, 39)
 
+	-- Personal World Destroyer -- 81937
+	AddPet(81937, 59597, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 81937, F_ALLIANCE, F_HORDE, F_CRAFT, F_ENG, F_BOE)
+	self:AddCompanionAcquire(PetDB, 81937, A_CRAFTED, 4036, 84412)
+	
+	
 	return num_pets
 end

@@ -107,63 +107,6 @@ function addon:GetMountTotal(DB)
 			num_mounts = num_mounts - 1
 		end
 	end
-	--[[
-	--------------------------------------------------------------------------------------------------------------------------
-	CATACLYSM NEW SAID TO BE MOUNTS
-	-------------------------------------------------
-
-	-- Abyssal Seahorse
-	75207
-	AddMount(75207, 46102, R_RARE, GAME_WOTLK)
-	AddMountFlags(75207, F_HORDE, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 75207, A_QUEST, 13906)
-
-	-- Golden King
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
-	
-    -- Tan Riding Camel
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
-	
-    -- Grey Riding Camel
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
-	
-	-- Brown Riding Camel
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
-	
-	-- Drake of the South Wind
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
-	
-	-- Drake of the North Wind
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
-	
-	-- Drake of the West Wind
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
-	
-	-- Vitreous Stone Drake
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
-	
-	-- Phosphorescent Stone Drake
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
-	--------------------------------------------------------------------------------------------------------------------------
-	-]]
 	
 -- ACHIEVEMENTS
 	-- Reins of the Albino Drake - 60025
@@ -1584,6 +1527,79 @@ function addon:GetMountTotal(DB)
 	AddMount(73313, 52200, R_EPIC, GAME_WOTLK)
 	AddMountFlags(73313, F_ALLIANCE, F_HORDE, F_QUEST, F_BOE)
 	self:AddCompanionAcquire(DB, 73313, A_QUEST, 24915)
+	
+-- CATACLYSM ADDED
+	-- Abyssal Seahorse -- 75207
+	AddMount(75207, 54465, R_RARE, GAME_WOTLK)
+	AddMountFlags(75207, F_HORDE, F_QUEST, F_BOP)
+	self:AddCompanionAcquire(DB, 75207, A_QUEST, 25371)
+	
+	-- Fossilized Raptor -- 84751
+	AddMount(84751, 60954, R_EPIC, GAME_CATA)
+	AddMountFlags(84751, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
+	self:AddCompanionAcquire(DB, 84751, A_CUSTOM, 38)
+	
+	-- Brown Riding Camel -- 88748  -- NNEED TO ADD THE NEW FACTION REPUTATION SHIT
+	AddMount(88748, 63044, R_EPIC, GAME_CATA)
+	AddMountFlags(88748, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 88748, A_VENDOR, 48617)
+	
+	-- Drake of the West Wind -- 88741
+	AddMount(88741, 65356, R_EPIC, GAME_CATA)
+	AddMountFlags(88741, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 88741, A_VENDOR, 48531, A_VENDOR, 47328)
+		
+	-- Exarch's Elekk -- 73629
+	AddMount(73629, nil, R_COMMON, GAME_CATA, C_PALADIN)
+	AddMountFlags(73629, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 73629, A_CUSTOM, 40)
+	
+	-- Great Exarch's Elekk -- 73629
+	AddMount(73630, nil, R_COMMON, GAME_CATA, C_PALADIN)
+	AddMountFlags(73630, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 73630, A_CUSTOM, 40)
+	
+	-- Tan Riding Camel -- 88749 -- NNEED TO ADD THE NEW FACTION REPUTATION SHIT
+	AddMount(88749, 63045, R_EPIC, GAME_CATA)
+	AddMountFlags(88749, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 88749, A_VENDOR, 48617)
+	
+		--[[
+	--------------------------------------------------------------------------------------------------------------------------
+	CATACLYSM NEW SAID TO BE MOUNTS
+	-------------------------------------------------
+
+	-- Golden King
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+    -- Grey Riding Camel
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+	-- Drake of the South Wind
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+	-- Drake of the North Wind
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+	-- Vitreous Stone Drake
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	
+	-- Phosphorescent Stone Drake
+	AddMount()
+	AddMountFlags()
+	self:AddCompanionAcquire()
+	--------------------------------------------------------------------------------------------------------------------------
+	-]]
 
 	return num_mounts
 end

@@ -54,5 +54,8 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 35, "Since 2010, use the LFD took to queue for Coren Direbrew and upon defeating him you receive a Keg-Shaped Treasure Chest which may contain this mount.")
 	self:addLookupList(DB, 36, "Must have the buff from one of Fiona's quests, then you can farm for this companion")
 	self:addLookupList(DB, 37, "For this vendor to sell this mount, you must be exalted with the Bligewater Cartel")
+	self:addLookupList(DB, 38, "A project from the Fossil race in Archaeology")
+	self:addLookupList(DB, 39, "Found rarely from mining Elementium Veins and Rich Elementium Veins")
+	self:addLookupList(DB, 40, "Taught by any Paladin trainer")
 end
 
