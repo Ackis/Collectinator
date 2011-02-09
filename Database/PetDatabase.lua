@@ -465,13 +465,13 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Worg Carrier - 15999
 	AddPet(15999, 12264, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 15999, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(PetDB, 15999, A_QUEST, 4729)
+	self:AddCompanionFlags(PetDB, 15999, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(PetDB, 15999, A_MOB, 9736)
 
-	-- Smolderweb Carrier - 16450
-	AddPet(16450, 12529, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 16450, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(PetDB, 16450, A_QUEST, 4862)
+	-- Smolderweb Egg - 16450
+	AddPet(16450, 68673, R_COMMON, GAME_ORIG)
+	self:AddCompanionFlags(PetDB, 16450, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(PetDB, 16450, A_MOB, 10596)
 
 	-- A Jubling's Tiny Home - 23811
 	AddPet(23811, 19450, R_COMMON, GAME_ORIG)
