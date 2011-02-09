@@ -43,8 +43,6 @@ function addon:InitQuest(DB)
 	AddQuest(5502,	BZ["Orgrimmar"],		70.8,	25.5,	HORDE)
 	AddQuest(4298,	BZ["The Hinterlands"],		13.7,	42.7,	ALLIANCE)
 	AddQuest(3721,	BZ["Stranglethorn Vale"],	28.3,	76.3,	NEUTRAL)
-	AddQuest(4729,	BZ["Burning Steppes"],		65.9,	22.1,	NEUTRAL)
-	AddQuest(4862,	BZ["Burning Steppes"],		65.9,	22.1,	NEUTRAL)
 	AddQuest(11431,	BZ["Durotar"],			45.0,	17.3,	HORDE)
 	AddQuest(11111,	BZ["Shattrath City"],		67.5,	18.1,	NEUTRAL)
 	AddQuest(11117,	BZ["Dun Morogh"],		48.0,	39.5,	ALLIANCE)
@@ -71,7 +69,7 @@ function addon:InitQuest(DB)
 	AddQuest(28415, BZ["Burning Steppes"], 0, 0, NEUTRAL)
 	AddQuest(25560, BZ["Mount Hyjal"], 37.3, 56.2, NEUTRAL)
 	AddQuest(25371, BZ["Kelp'thar Forest"], 46.0, 46.8, NEUTRAL)
-	
+
 	-- AQ40
 	AddQuest(8743,	BZ["Ahn'Qiraj"],		0,      0,      NEUTRAL)
 
