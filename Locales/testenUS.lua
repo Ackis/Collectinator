@@ -309,6 +309,9 @@ L["Gundrak Raptor"] = true
 L["Time-Lost Proto Drake"] = true
 L["Apothecary Hummel"] = true
 L["Jadefang"] = true
+L["Aeonaxx"] = true
+L["Dormus the Camel-Hoarder"] = true
+L["Baradin Fox"] = true
 
 -- Vendors
 L["Yarlyn Amberstill"] = true

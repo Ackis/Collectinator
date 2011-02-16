@@ -98,6 +98,13 @@ function addon:InitMob(DB)
 	self:addLookupList(DB, 36296,	L["Apothecary Hummel"],	BZ["Shadowfang Keep"],		0, 0)
 	self:addLookupList(DB, 36597,	BB["The Lich King"],	BZ["Icecrown Citadel"],		0, 0)
 	self:addLookupList(DB, 38433, BB["Toravon the Ice Watcher"],	BZ["Vault of Archavon"],		0, 0)
+	self:addLookupList(DB, 43214, BB["Slabhide"],	BZ["The Stonecore"],		36.6, 46.0)
+	self:addLookupList(DB, 43873, BB["Altairus"],	BZ["The Vortex Pinnacle"],		52.2, 80.0)
+	self:addLookupList(DB, 46753, BB["Al'Akir"],	BZ["Throne of the Four Winds"],		0, 0)
+	self:addLookupList(DB, 47676, L["Baradin Fox"],	BZ["Tol Barad Peninsula"],		52.6, 59.2)
 	self:addLookupList(DB, 49822, L["Jadefang"],	BZ["Deepholm"],		61.3, 22.5)
+	self:addLookupList(DB, 50062, L["Aeonaxx"],	BZ["Deepholm"],		52.2, 43.0)
+	self:addLookupList(DB, 50245, L["Dormus the Camel-Hoarder"],	BZ["Uldum"],		0, 0)
+	
 	
 end

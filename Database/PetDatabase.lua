@@ -101,84 +101,6 @@ function addon:GetMiniPetTotal(PetDB)
 		num_pets = num_pets + 1
 		addon:AddCompanion(PetDB, "companions", SpellID, PetItemID, Rarity, Game)
 	end
-
-	--[[
-	--------------------------------------------------------------------------------------------------------------------------
-	CATACLYSM NEW SAID TO BE PETS
-	-------------------------------------------------
-	-- Rumbling Rockling
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-    -- Swirling Stormling
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-    -- Whirling Waveling
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-    -- Fox Kit
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-    -- Clockwork Gnome
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-    -- Crawling Claw
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Armadillo Pup
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Dark Phoenix Hatchling
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Pebble
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Enchanted Lantern
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Magic Lamp
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Rustberg Seagull
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Eat the Egg
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	
-	-- Landro's Lil' XT
-	AddPet()
-	self:AddCompanionFlags()
-	self:AddCompanionAcquire()
-	--------------------------------------------------------------------------------------------------------------------------
-	-]]
-	
-
 		
 -- 3.3 pets - not categorized
 	-- Core Hound Pup
@@ -1043,9 +965,9 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 91343, A_MOB, 49822)
 	
 	-- Withers -- 65046
-	 AddPet(65046, 46325, R_COMMON, GAME_CATA)
-	 self:AddCompanionFlags(PetDB, 65046, F_ALLIANCE, F_HORDE, F_QUEST)
-	 self:AddCompanionAcquire(PetDB, 65046, A_QUEST, 13570, A_VENDOR, 33980)	 
+	AddPet(65046, 46325, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 65046, F_ALLIANCE, F_HORDE, F_QUEST)
+	self:AddCompanionAcquire(PetDB, 65046, A_QUEST, 13570, A_VENDOR, 33980)	 
 	
 	-- Brazie's Sunflower -- 93823
 	AddPet(93823, 66067, R_COMMON, GAME_CATA)
@@ -1077,6 +999,75 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 81937, F_ALLIANCE, F_HORDE, F_CRAFT, F_ENG, F_BOE)
 	self:AddCompanionAcquire(PetDB, 81937, A_CRAFTED, 4036, 84412)
 	
+	-- Clockwork Gnome -- 90523
+	AddPet(90523, 64372, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 90523, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 90523, A_CUSTOM, 41)
+	
+	-- Pebble -- 84492
+	AddPet(84492, 60869, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 84492, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 84492, A_ACHIEVEMENT, 5449)
+	
+	-- Rustberg Gull -- 89472
+	AddPet(89472, 63355, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 89472, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(PetDB, 89472, A_VENDOR, 48531, A_VENDOR, 47328)
+
+	-- Fox Kit -- 90637
+	AddPet(90637, 64403, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 90637, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(PetDB, 90637, A_MOB, 47676)
+	
+    -- Crawling Claw -- 84263
+	AddPet(84263, 60847, R_EPIC, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 84263, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 84263, A_CUSTOM, 42)
+	
+	-- Armadillo Pup -- 89670
+	AddPet(89670, 63398, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 89670, F_ALLIANCE, F_HORDE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 89670, A_ACHIEVEMENT, 5144)
+	
+	-- Dark Phoenix Hatchling -- 89039
+	AddPet(89039, 63138, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 89039, F_ALLIANCE, F_HORDE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 89039, A_ACHIEVEMENT, 5125)
+	
+	-- Enchanted Lantern -- 93836
+	AddPet(93836, 67274, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 93836, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOE)
+	self:AddCompanionAcquire(PetDB, 93836, A_CRAFTED, 7411, 93841)
+	
+	-- Magic Lamp -- 93837
+	AddPet(93837, 67275, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 93837, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOE)
+	self:AddCompanionAcquire(PetDB, 93837, A_CRAFTED, 7411, 93843)
+	
+	-- Landro's Lil' XT -- 93624
+	AddPet(93624, 67128, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 93624, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	self:AddCompanionAcquire(PetDB, 93624, A_CUSTOM, 1)
+	
+	-- -- Rumbling Rockling
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+	
+    -- -- Swirling Stormling
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+	
+    -- -- Whirling Waveling
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()    
+	
+	-- -- Eat the Egg
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
 	
 	return num_pets
 end

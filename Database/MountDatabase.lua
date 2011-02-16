@@ -1564,42 +1564,50 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(88749, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 88749, A_VENDOR, 48617)
 	
-		--[[
-	--------------------------------------------------------------------------------------------------------------------------
-	CATACLYSM NEW SAID TO BE MOUNTS
-	-------------------------------------------------
+	-- Spectral Wolf -- 92232
+	AddMount(92232, 64999, R_EPIC, GAME_CATA)
+	AddMountFlags(92232, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 92232, A_VENDOR, 48531)
 
-	-- Golden King
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
+	-- Mottled Drake -- 93623
+	AddMount(93623, 68008, R_EPIC, GAME_CATA)
+	AddMountFlags(93623, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
+	self:AddCompanionAcquire(DB, 93623, A_CUSTOM, 1)
+
+	-- Kor'kron Annihilator -- 93644
+	AddMount(93644, 67107, R_EPIC, GAME_CATA)
+	AddMountFlags(93644, F_HORDE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 93644, A_ACHIEVEMENT, 5492)
 	
-    -- Grey Riding Camel
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
+	-- Golden King -- 90621
+	AddMount(90621, 62298, R_EPIC, GAME_CATA)
+	AddMountFlags(90621, F_ALLIANCE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 90621, A_ACHIEVEMENT, 4912)
 	
-	-- Drake of the South Wind
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
+    -- Grey Riding Camel -- 88750
+	AddMount(88750, 63046, R_EPIC, GAME_CATA)
+	AddMountFlags(88750, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 88750, A_MOB,  50245)
 	
-	-- Drake of the North Wind
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
+	-- Drake of the South Wind -- 88744
+	AddMount(88744, 63041, R_EPIC, GAME_CATA)
+	AddMountFlags(88744, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 88744, A_MOB, 46753)
 	
-	-- Vitreous Stone Drake
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
+	-- Drake of the North Wind -- 88742
+	AddMount(88742, 63040, R_EPIC, GAME_CATA)
+	AddMountFlags(88742, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 88742, A_MOB, 43873)
 	
-	-- Phosphorescent Stone Drake
-	AddMount()
-	AddMountFlags()
-	self:AddCompanionAcquire()
-	--------------------------------------------------------------------------------------------------------------------------
-	-]]
+	-- Vitreous Stone Drake -- 88746
+	AddMount(88746, 63043, R_EPIC, GAME_CATA)
+	AddMountFlags(88746, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 88746, A_MOB, 43214)
+	
+	-- Phosphorescent Stone Drake -- 88718
+	AddMount(88718, 63042, R_EPIC, GAME_CATA)
+	AddMountFlags(88718, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 88718, A_MOB, 50062)
 
 	return num_mounts
 end
