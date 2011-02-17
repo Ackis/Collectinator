@@ -1608,6 +1608,11 @@ function addon:GetMountTotal(DB)
 	AddMount(88718, 63042, R_EPIC, GAME_CATA)
 	AddMountFlags(88718, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 88718, A_MOB, 50062)
+	
+	-- Dark Phoenix -- 88990
+	AddMount(88990, 63125, R_EPIC, GAME_CATA)
+	AddMountFlags(88990, F_ALLIANCE, F_HORDE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 88990, A_ACHIEVEMENT, 4988)	
 
 	return num_mounts
 end
