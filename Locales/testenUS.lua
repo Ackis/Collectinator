@@ -295,7 +295,6 @@ L["Deviate Guardian"] = true
 L["Searing Whelp"] = true
 L["Bloodsail Deckhand"] = true
 L["Bloodsail Swabby"] = true
-L["Sprite Darter"] = true
 L["Takk the Leaper"] = true
 L["Draconic Magelord"] = true
 L["Blue Scalebane"] = true
