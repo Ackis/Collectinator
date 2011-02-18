@@ -7,7 +7,7 @@
 ## X-Donate: http://www.wowace.com/addons/collectinator/#w-donations
 
 ## Interface: 40000
-## Version: 1.0.5
+## Version: 2.0.0
 ## X-Revision: @project-version@
 ## X-Date: @file-date-iso@
 
