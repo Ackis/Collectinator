@@ -1612,7 +1612,32 @@ function addon:GetMountTotal(DB)
 	-- Dark Phoenix -- 88990
 	AddMount(88990, 63125, R_EPIC, GAME_CATA)
 	AddMountFlags(88990, F_ALLIANCE, F_HORDE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(DB, 88990, A_ACHIEVEMENT, 4988)	
+	self:AddCompanionAcquire(DB, 88990, A_ACHIEVEMENT, 4988)
+	
+	-- Ultramarine Qiraji Battle Tank -- 92155
+	AddMount(92155, 64883, R_EPIC, GAME_CATA)
+	AddMountFlags(92155, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
+	self:AddCompanionAcquire(DB, 92155, A_CUSTOM, 42)
+
+	-- Volcanic Stone Drake -- 88331
+	AddMount(88331, 62900, R_EPIC, GAME_CATA)
+	AddMountFlags(88331, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 88331, A_ACHIEVEMENT, 4845)
+	
+	-- Sandstone Drake -- 93326
+	AddMount(93326, 65891, R_EPIC, GAME_CATA)
+	AddMountFlags(93326, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
+	self:AddCompanionAcquire(DB, 93326, A_CRAFTED, 51304, 93328)
+	
+	-- Drake of the East Wind -- 88335
+	AddMount(88335, 62901, R_EPIC, GAME_CATA)
+	AddMountFlags(88335, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 88335, A_ACHIEVEMENT, 4853)
+	
+	-- Spectral Steed -- 92231
+	AddMount(92231, 64998, R_EPIC, GAME_CATA)
+	AddMountFlags(92231, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 92231, A_VENDOR, 47328)
 
 	return num_mounts
 end
