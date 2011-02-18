@@ -1,5 +1,10 @@
 ==Collectinator Change Log
 
+===Version 2.0.1
+
+*Removed some quests no longer in the game
+*Fixed acquire data for the "Sprite Darter" and "Razzashi Hatchling" pet
+
 ===Version 2.0.0
 *New Mounts:
 	**Goblin Trike
