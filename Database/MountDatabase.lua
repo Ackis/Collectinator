@@ -284,21 +284,6 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 61469, A_REPUTATION, 1119, EXALTED, 32540)
 
 	-------------------------------------------------------------------------------
-	-- Paladin Mounts.
-	-------------------------------------------------------------------------------
-	if MY_CLASS == "PALADIN" then
-		-- Warhorse - Horde - 34769
-		AddMount(34769, nil, R_RARE, GAME_BC, C_PALADIN)
-		AddMountFlags(34769, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 34769,
-
-		-- Charger - Horde - 34767
-		AddMount(34767, nil, R_EPIC, GAME_BC, C_PALADIN)
-		AddMountFlags(34767, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 34767,
-	end
-
-	-------------------------------------------------------------------------------
 	-- Orgrimmar Mounts.
 	-------------------------------------------------------------------------------
 	-- Horn of the Swift Brown Wolf - 23250
@@ -1212,12 +1197,11 @@ function addon:GetMountTotal(DB)
 		-- Dreadsteed - 23161
 		AddMount(23161, nil, R_EPIC, GAME_ORIG, C_WARLOCK)
 		AddMountFlags(23161, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-		self:AddCompanionAcquire(DB, 23161, A_QUEST, 7631,
-					 A_VENDOR, 16646, A_VENDOR, 5173, A_VENDOR, 23534, A_VENDOR, 5172, A_VENDOR, 16266,
-					 A_VENDOR, 461, A_VENDOR, 3172, A_VENDOR, 5612, A_VENDOR, 3324, A_VENDOR, 4563,
-					 A_VENDOR, 988, A_VENDOR, 4564, A_VENDOR, 906, A_VENDOR, 3325, A_VENDOR, 4565,
-					 A_VENDOR, 2127, A_VENDOR, 5496, A_VENDOR, 6251, A_VENDOR, 16647, A_VENDOR, 5171,
-					 A_VENDOR, 5495, A_VENDOR, 16648, A_VENDOR, 3326)
+		self:AddCompanionAcquire(DB, 23161, A_VENDOR, 16646, A_VENDOR, 5173, A_VENDOR, 23534, 
+					A_VENDOR, 5172, A_VENDOR, 16266, A_VENDOR, 461, A_VENDOR, 3172, A_VENDOR, 5612, 
+					A_VENDOR, 3324, A_VENDOR, 4563,	A_VENDOR, 988, A_VENDOR, 4564, A_VENDOR, 906, 
+					A_VENDOR, 3325, A_VENDOR, 4565,	A_VENDOR, 2127, A_VENDOR, 5496, A_VENDOR, 6251, 
+					A_VENDOR, 16647, A_VENDOR, 5171, A_VENDOR, 5495, A_VENDOR, 16648, A_VENDOR, 3326)
 	end
 
 	if MY_CLASS == "DEATHKNIGHT" then
@@ -1462,8 +1446,8 @@ function addon:GetMountTotal(DB)
 
 	-- Black Qiraji Resonating Crystal - 26656
 	AddMount(26656, 21176, R_LEGENDARY, GAME_ORIG)
-	AddMountFlags(26656, F_ALLIANCE, F_HORDE, F_BOP, F_RAID, F_QUEST, F_REMOVED)
-	self:AddCompanionAcquire(DB, 26656, A_ACHIEVEMENT, 416, A_QUEST, 8743)
+	AddMountFlags(26656, F_ALLIANCE, F_HORDE, F_BOP, F_RAID, F_REMOVED)
+	self:AddCompanionAcquire(DB, 26656, A_ACHIEVEMENT, 416)
 
 --TCG
 	-- Riding Tutle - 30174

@@ -41,8 +41,7 @@ function addon:InitQuest(DB)
 	AddQuest(3861,	BZ["Westfall"],			55.5,	30.5,	NEUTRAL)	--several zones
 	AddQuest(171,	BZ["Stormwind City"],		56.3,	54.2,	ALLIANCE)
 	AddQuest(5502,	BZ["Orgrimmar"],		70.8,	25.5,	HORDE)
-	AddQuest(4298,	BZ["The Hinterlands"],		13.7,	42.7,	ALLIANCE)
-	AddQuest(3721,	BZ["Stranglethorn Vale"],	28.3,	76.3,	NEUTRAL)
+	AddQuest(3721,	BZ["The Cape of Stranglethorn"],	43.0, 72.0,	NEUTRAL)
 	AddQuest(11431,	BZ["Durotar"],			45.0,	17.3,	HORDE)
 	AddQuest(11111,	BZ["Shattrath City"],		67.5,	18.1,	NEUTRAL)
 	AddQuest(11117,	BZ["Dun Morogh"],		48.0,	39.5,	ALLIANCE)
@@ -69,14 +68,8 @@ function addon:InitQuest(DB)
 	AddQuest(28415, BZ["Burning Steppes"], 0, 0, NEUTRAL)
 	AddQuest(25560, BZ["Mount Hyjal"], 37.3, 56.2, NEUTRAL)
 	AddQuest(25371, BZ["Kelp'thar Forest"], 46.0, 46.8, NEUTRAL)
-
-	-- AQ40
-	AddQuest(8743,	BZ["Ahn'Qiraj"],		0,      0,      NEUTRAL)
-
+	
 	--Class
-	AddQuest(7631,	BZ["Burning Steppes"],		12.6,	31.6,	NEUTRAL)
-	AddQuest(7647,	BZ["Stormwind City"],		48.5,	50.1,	ALLIANCE)
-	AddQuest(9737,	BZ["Silvermoon City"],		91.8,	37.5,	HORDE)
 	AddQuest(12687,	BZ["The Scarlet Enclave"],	51.9,	35.5,	NEUTRAL)
 
 	-- Bag of Fishing Treasures
