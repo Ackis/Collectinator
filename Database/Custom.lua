@@ -43,7 +43,7 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 24, "Promotional pet: Mountain Dew Game Fuel (Summer 2009).")
 	self:addLookupList(DB, 25, "Arena: Earned the Deadly Gladiator title in Season 5")
 	self:addLookupList(DB, 26, "Arena: Earned the Furious Gladiator title in Season 6")
-	self:addLookupList(DB, 27, "Mob Drop is Horde-only.")	-- Sprite Darter Hatchling
+	self:addLookupList(DB, 27, "Drops from any mob in Feralas")
 	self:addLookupList(DB, 28, "Promotional pet: WoW/Battle.net Account Merger.")
 	self:addLookupList(DB, 29, "Random drop off of trash in AQ 40.")
 	self:addLookupList(DB, 30, "Arena: Earned the Gladiator title in Season 1")
@@ -59,5 +59,6 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 40, "Taught by any Paladin trainer")
 	self:addLookupList(DB, 41, "A project from the Dwarf race in Archaeology")
 	self:addLookupList(DB, 42, "A project from the Tol'vir race in Archaeology")
+	self:addLookupList(DB, 43, "Rare drop from any mob in Northern Stranglethorn and The Cape of Stranglethorn")
 end
 

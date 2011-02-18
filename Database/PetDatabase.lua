@@ -368,6 +368,11 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(67419, 48124, R_COMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67419, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
 	self:AddCompanionAcquire(PetDB, 67419, A_MOB, 1140)
+	
+	-- Razzashi Hatchling
+	AddPet(67420, 48126, R_COMMON, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 67420, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE)
+	self:AddCompanionAcquire(PetDB, 67420, A_CUSTOM, 43)
 
 --QUESTS
 	-- Mechanical Chicken - 12243
@@ -382,8 +387,8 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Sprite Darter Egg - 15067
 	AddPet(15067, 11474, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 15067, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(PetDB, 15067, A_QUEST, 4298, A_MOB, 5278, A_CUSTOM, 27)
+	self:AddCompanionFlags(PetDB, 15067, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOP)
+	self:AddCompanionAcquire(PetDB, 15067, A_CUSTOM, 27)
 
 	-- Worg Carrier - 15999
 	AddPet(15999, 12264, R_COMMON, GAME_ORIG)
@@ -705,13 +710,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 35911, F_ALLIANCE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 35911, A_VENDOR, 21019)
 
---RETIRED
-	
-	-- Razzashi Hatchling
-	AddPet(67420, 48122, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 67420, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOE, F_REMOVED)
-	self:AddCompanionAcquire(PetDB, 67420, A_MOB, 14821)
-	
+--RETIRED	
 	-- Spirit of Competition - 48406
 	AddPet(48406, 37297, R_RARE, GAME_TBC)
 	self:AddCompanionFlags(PetDB, 48406, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
