@@ -1,5 +1,80 @@
 ==Collectinator Change Log
 
+===Version 2.0.0
+*New Mounts:
+	**Goblin Trike
+	**Goblin Turbo-Trike
+	**Abyssal Seahorse
+	**Fossilized Raptor
+	**Brown Riding Camel
+	**Drake of the West Wind
+	**Exarch's Elekk
+	**Great Exarch's Elekk
+	**Tan Riding Camel
+	**Spectral Wolf
+	**Mottled Drake
+	**Kor'kron Annihilator
+	**Golden King
+	**Grey Riding Camel
+	**Drake of the South Wind
+	**Drake of the North Wind
+	**Vitreous Stone Drake
+	**Phosphorescent Stone Drake
+	**Dark Phoenix
+	**Ultramarine Qiraji Battle Tank
+	**Volcanic Stone Drake
+	**Sandstone Drake
+	**Drake of the East Wind
+	**Spectral Steed
+	
+*New Pets:
+	**Deathy
+	**Lil' Ragnaros
+	**Moonkin Hatchling (Alliance)
+	**Moonkin Hatchling (Horde)
+	**Fossilized Hatchling
+	**Guild Page (Horde)
+	**Guild Page (Alliance)
+	**Guild Herald (Horde)
+	**Guild Herald (Alliance)
+	**Gold Mini Jouster
+	**Blue Mini Jouster
+	**Lil' Deathwing
+	**Tiny Shale Spider
+	**Withers
+	**Brazie's Sunflower
+	**Mr. Grubbs
+	**Tiny Flamefly
+	**De-Weaponized Mechanical Companion
+	**Elementium Geode
+	**Personal World Destroyer
+	**Clockwork Gnome
+	**Pebble
+	**Rustberg Gull
+	**Fox Kit
+	**Crawling Claw
+	**Armadillo Pup
+	**Dark Phoenix Hatchling
+	**Enchanted Lantern
+	**Magic Lamp
+	**Landro's Lil' XT	
+	
+*Marked the following Pets as retired: Razzashi Hatchling
+
+*Marked the following Mounts as retired: Swift Horde Wolf, Crusader's White Warhorse, Crusader's Black Warhorse, Swift Alliance Steed,
+ Swift Zulian Tiger, Swift Razzashi Raptor
+
+*Fixed issue where the tooltips of npc's weren't showing mounts or pets
+
+*Removed a reference to LibBabble-Class-3.0
+
+*Updated the Vendor, Quest, Mob, and Custom databases also
+
+===Version 1.0.5
+*Updated the toc version
+*Collectinator now scans again
+*Removed some debug code
+
 ===Version 1.0.4
 *New Mount:
 	**Blazing Hippogryph
