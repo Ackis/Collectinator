@@ -666,15 +666,25 @@ function addon:GetMountTotal(DB)
 	-- Paladin Mounts.
 	-------------------------------------------------------------------------------
 	if MY_CLASS == "PALADIN" then
-		-- Warhorse - Alliance - 13819
-		AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
-		AddMountFlags(13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 13819,
+		-- -- Warhorse - Alliance - 13819
+		-- AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
+		-- AddMountFlags(13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		-- --self:AddCompanionAcquire(DB, 13819,
 
-		-- Charger - Alliance - 23214
-		AddMount(23214, nil, R_EPIC, GAME_ORIG, C_PALADIN)
-		AddMountFlags(23214, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 23214,
+		-- -- Charger - Alliance - 23214
+		-- AddMount(23214, nil, R_EPIC, GAME_ORIG, C_PALADIN)
+		-- AddMountFlags(23214, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		-- --self:AddCompanionAcquire(DB, 23214,
+		
+		-- Charger -- 34767
+		AddMount(34767, nil, R_COMMON, GAME_ORIG, C_PALADIN)
+		AddMountFlags(34767, F_HORDE, F_TRAINER, F_BOP)
+		self:AddCompanionAcquire(DB, 34767, A_CUSTOM, 40)
+		
+		-- Warhorse -- 34769
+		AddMount(34769, nil, R_COMMON, GAME_ORIG, C_PALADIN)
+		AddMountFlags(34769, F_HORDE, F_TRAINER, F_BOP)
+		self:AddCompanionAcquire(DB, 34769, A_CUSTOM, 40)
 	end
 
 	-- White Mechanostrider Mod B - 15779
