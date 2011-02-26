@@ -1068,5 +1068,29 @@ function addon:GetMiniPetTotal(PetDB)
 	-- self:AddCompanionFlags()
 	-- self:AddCompanionAcquire()
 	
+	-----------------------------------------------------
+	-- Possible Patch 4.1 new added pets
+	-----------------------------------------------------	
+	-- Landro's Lichling
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+	
+	-- Nightsaber Cub
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+	
+	-- Panther Cub
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+	
+	-- Winterspring Cub
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+	-----------------------------------------------------
+	
 	return num_pets
 end

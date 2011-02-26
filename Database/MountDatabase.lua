@@ -1632,6 +1632,44 @@ function addon:GetMountTotal(DB)
 	AddMount(92231, 64998, R_EPIC, GAME_CATA)
 	AddMountFlags(92231, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 92231, A_VENDOR, 47328)
-
+	
+	-----------------------------------------------------
+	-- Possible Patch 4.1 new added mounts
+	-----------------------------------------------------
+	-- Armored Razzashi Raptor
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Beryl Fire Hawk
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Crimson Fire Hawk
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Flameward Hippogryph
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Mottled Drake
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Savage Raptor
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Swift Zulian Panther
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	-----------------------------------------------------
 	return num_mounts
 end
