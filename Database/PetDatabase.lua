@@ -1090,6 +1090,11 @@ function addon:GetMiniPetTotal(PetDB)
 	-- AddPet()
 	-- self:AddCompanionFlags()
 	-- self:AddCompanionAcquire()
+	
+	-- Lashtail Hatchling
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
 	-----------------------------------------------------
 	
 	return num_pets
