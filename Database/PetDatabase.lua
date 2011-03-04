@@ -1095,6 +1095,11 @@ function addon:GetMiniPetTotal(PetDB)
 	-- AddPet()
 	-- self:AddCompanionFlags()
 	-- self:AddCompanionAcquire()
+	
+	-- Scooter the Snail
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()	
 	-----------------------------------------------------
 	
 	return num_pets
