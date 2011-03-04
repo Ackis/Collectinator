@@ -26,6 +26,8 @@
 	**Sandstone Drake
 	**Drake of the East Wind
 	**Spectral Steed
+	**Warhorse
+	**Charger
 	
 *New Pets:
 	**Deathy
@@ -71,7 +73,10 @@
 *Updated the Vendor, Quest, Mob, and Custom databases also
 
 *Removed some quests no longer in the game
+
 *Fixed acquire data for the "Sprite Darter" and "Razzashi Hatchling" pet
+
+*Fixed issue where some tooltips had way too many spaces
 
 ===Version 1.0.5
 *Updated the toc version
