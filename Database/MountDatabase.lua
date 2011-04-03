@@ -685,6 +685,27 @@ function addon:GetMountTotal(DB)
 		AddMount(34769, nil, R_COMMON, GAME_ORIG, C_PALADIN)
 		AddMountFlags(34769, F_HORDE, F_TRAINER, F_BOP)
 		self:AddCompanionAcquire(DB, 34769, A_CUSTOM, 40)
+		
+		-- Exarch's Elekk -- 73629
+		AddMount(73629, nil, R_COMMON, GAME_CATA, C_PALADIN)
+		AddMountFlags(73629, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 73629, A_CUSTOM, 40)
+		
+		-- Great Exarch's Elekk -- 73629
+		AddMount(73630, nil, R_COMMON, GAME_CATA, C_PALADIN)
+		AddMountFlags(73630, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 73630, A_CUSTOM, 40)
+		
+		-- Sunwalker Kodo -- 69820
+		AddMount(69820, nil, R_COMMON, GAME_CATA, C_PALADIN)
+		AddMountFlags(69820, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 69820, A_CUSTOM, 40)
+		
+		-- Great Sunwalker Kodo -- 69826
+		AddMount(69826, nil, R_COMMON, GAME_CATA, C_PALADIN)
+		AddMountFlags(69826, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 69826, A_CUSTOM, 40)		
+	
 	end
 
 	-- White Mechanostrider Mod B - 15779
@@ -1542,16 +1563,6 @@ function addon:GetMountTotal(DB)
 	AddMount(88741, 65356, R_EPIC, GAME_CATA)
 	AddMountFlags(88741, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 88741, A_VENDOR, 48531, A_VENDOR, 47328)
-		
-	-- Exarch's Elekk -- 73629
-	AddMount(73629, nil, R_COMMON, GAME_CATA, C_PALADIN)
-	AddMountFlags(73629, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 73629, A_CUSTOM, 40)
-	
-	-- Great Exarch's Elekk -- 73629
-	AddMount(73630, nil, R_COMMON, GAME_CATA, C_PALADIN)
-	AddMountFlags(73630, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 73630, A_CUSTOM, 40)
 	
 	-- Tan Riding Camel -- 88749 -- NNEED TO ADD THE NEW FACTION REPUTATION SHIT
 	AddMount(88749, 63045, R_EPIC, GAME_CATA)
