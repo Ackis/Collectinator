@@ -981,7 +981,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Tiny Flamefly -- 93813
 	AddPet(93813, 66080, R_COMMON, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 93813, F_HORDE, F_ALLIANCE, F_QUEST)
-	self:AddCompanionAcquire(PetDB, 93813, A_QUEST, 28415)
+	self:AddCompanionAcquire(PetDB, 93813, A_QUEST, 28415, A_QUEST, 28491)
 	
 	-- De-Weaponized Mechanical Companion -- 82173
 	AddPet(82173, 60216, R_RARE, GAME_CATA)
