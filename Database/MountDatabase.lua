@@ -81,6 +81,7 @@ local EXALTED = 4
 local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C_WARLOCK, C_WARRIOR = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 local MY_CLASS = select(2, UnitClass("player"))
+local MY_RACE = select(2, UnitRace("player"))
 local MY_FACTION = UnitFactionGroup("player")
 
 local initialized = false
@@ -665,7 +666,7 @@ function addon:GetMountTotal(DB)
 	-------------------------------------------------------------------------------
 	-- Paladin Mounts.
 	-------------------------------------------------------------------------------
-	if MY_CLASS == "PALADIN" and UnitRace("player") == "BloodElf" then
+	if MY_CLASS == "PALADIN" and MY_RACE == "BloodElf" then
 		-- -- Warhorse - Alliance - 13819
 		-- AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
 		-- AddMountFlags(13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
@@ -688,7 +689,7 @@ function addon:GetMountTotal(DB)
 	
 	end
 		
-	if MY_CLASS == "PALADIN" and UnitRace("player") == "Draenei" then
+	if MY_CLASS == "PALADIN" and MY_RACE == "Draenei" then
 		
 		-- Exarch's Elekk -- 73629
 		AddMount(73629, nil, R_COMMON, GAME_CATA, C_PALADIN)
@@ -702,7 +703,7 @@ function addon:GetMountTotal(DB)
 		
 	end
 		
-	if MY_CLASS == "PALADIN" and UnitRace("player") == "Tauren" then
+	if MY_CLASS == "PALADIN" and MY_RACE == "Tauren" then
 	
 		-- Sunwalker Kodo -- 69820
 		AddMount(69820, nil, R_COMMON, GAME_CATA, C_PALADIN)
