@@ -679,12 +679,12 @@ function addon:GetMountTotal(DB)
 		
 		-- Charger -- 34767
 		AddMount(34767, nil, R_COMMON, GAME_ORIG, C_PALADIN)
-		AddMountFlags(34767, F_HORDE, F_TRAINER, F_BOP)
+		AddMountFlags(34767, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 34767, A_CUSTOM, 40)
 		
 		-- Warhorse -- 34769
 		AddMount(34769, nil, R_COMMON, GAME_ORIG, C_PALADIN)
-		AddMountFlags(34769, F_HORDE, F_TRAINER, F_BOP)
+		AddMountFlags(34769, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 34769, A_CUSTOM, 40)
 	
 	end
