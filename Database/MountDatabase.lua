@@ -665,7 +665,7 @@ function addon:GetMountTotal(DB)
 	-------------------------------------------------------------------------------
 	-- Paladin Mounts.
 	-------------------------------------------------------------------------------
-	if MY_CLASS == "PALADIN" then
+	if MY_CLASS == "PALADIN" and UnitRace("player") == "Blood Elf" then
 		-- -- Warhorse - Alliance - 13819
 		-- AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
 		-- AddMountFlags(13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
@@ -685,6 +685,10 @@ function addon:GetMountTotal(DB)
 		AddMount(34769, nil, R_COMMON, GAME_ORIG, C_PALADIN)
 		AddMountFlags(34769, F_HORDE, F_TRAINER, F_BOP)
 		self:AddCompanionAcquire(DB, 34769, A_CUSTOM, 40)
+	
+	end
+		
+	if MY_CLASS == "PALADIN" and UnitRace("player") == "Draenei" then
 		
 		-- Exarch's Elekk -- 73629
 		AddMount(73629, nil, R_COMMON, GAME_CATA, C_PALADIN)
@@ -696,6 +700,10 @@ function addon:GetMountTotal(DB)
 		AddMountFlags(73630, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 73630, A_CUSTOM, 40)
 		
+	end
+		
+	if MY_CLASS == "PALADIN" and UnitRace("player") == "Tauren" then
+	
 		-- Sunwalker Kodo -- 69820
 		AddMount(69820, nil, R_COMMON, GAME_CATA, C_PALADIN)
 		AddMountFlags(69820, F_HORDE, F_VENDOR, F_BOP)
