@@ -665,7 +665,7 @@ function addon:GetMountTotal(DB)
 	-------------------------------------------------------------------------------
 	-- Paladin Mounts.
 	-------------------------------------------------------------------------------
-	if MY_CLASS == "PALADIN" and UnitRace("player") == "Blood Elf" then
+	if MY_CLASS == "PALADIN" and UnitRace("player") == "BloodElf" then
 		-- -- Warhorse - Alliance - 13819
 		-- AddMount(13819, nil, R_RARE, GAME_ORIG, C_PALADIN)
 		-- AddMountFlags(13819, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
