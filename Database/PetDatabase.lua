@@ -1071,10 +1071,10 @@ function addon:GetMiniPetTotal(PetDB)
 	-----------------------------------------------------
 	-- Possible Patch 4.1 new added pets
 	-----------------------------------------------------	
-	-- Landro's Lichling
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
+	-- Landro's Lichling -- 96817
+	AddPet(96817, 68840, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 96817, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	self:AddCompanionAcquire(PetDB, 96817, A_CUSTOM, 1)
 	
 	-- Nightsaber Cub
 	-- AddPet()
