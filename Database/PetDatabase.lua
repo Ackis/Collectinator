@@ -1081,25 +1081,35 @@ function addon:GetMiniPetTotal(PetDB)
 	-- self:AddCompanionFlags()
 	-- self:AddCompanionAcquire()
 	
-	-- Panther Cub
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
+	-- Panther Cub -- 96571
+	AddPet(96571, 68833, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 96571, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
+	self:AddCompanionAcquire(PetDB, 96571, A_QUEST, 29268, A_QUEST, 29267)
 	
-	-- Winterspring Cub
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
+	-- Winterspring Cub -- 97638
+	AddPet(97638, 69239, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 97638, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
+	self:AddCompanionAcquire(PetDB, 97638, A_VENDOR, 52830)
 	
-	-- Lashtail Hatchling
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
+	-- Lashtail Hatchling -- 97779
+	AddPet(97779, 69251, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 97779, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
+	self:AddCompanionAcquire(PetDB, 97779, A_QUEST, 29208)
 	
 	-- Scooter the Snail
 	-- AddPet()
 	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()	
+	-- self:AddCompanionAcquire()
+	
+	-- Pterrordax Hatchling -- 98571
+	AddPet(98571, 69821, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 98571, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 98571, A_CUSTOM, 38)
+
+	-- Voodoo Figurine -- 98587
+	AddPet(98587, 69824, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 98587, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 98587, A_CUSTOM, 44)
 	-----------------------------------------------------
 	
 	return num_pets
