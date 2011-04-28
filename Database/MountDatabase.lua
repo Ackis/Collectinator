@@ -1658,28 +1658,10 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(92231, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 92231, A_VENDOR, 47328)
 	
-	-----------------------------------------------------
-	-- Possible Patch 4.1 new added mounts
-	-----------------------------------------------------
 	-- Armored Razzashi Raptor -- 96491
 	AddMount(96491, 68823, R_EPIC, GAME_CATA)
 	AddMountFlags(96491, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 96491, A_MOB, 52151)
-	
-	-- Beryl Fire Hawk
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
-	
-	-- Crimson Fire Hawk
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
-	
-	-- Flameward Hippogryph
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
 	
 	-- Savage Raptor -- 97581
 	AddMount(97581, 69228, R_EPIC, GAME_CATA)
@@ -1695,6 +1677,21 @@ function addon:GetMountTotal(DB)
 	AddMount(98204, 69747, R_EPIC, GAME_CATA)
 	AddMountFlags(98204, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 98204, A_CUSTOM, 45)
+	
+	-- Beryl Fire Hawk
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Crimson Fire Hawk
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Flameward Hippogryph
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
 	-----------------------------------------------------
 	return num_mounts
 end

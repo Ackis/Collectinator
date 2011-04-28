@@ -1068,18 +1068,10 @@ function addon:GetMiniPetTotal(PetDB)
 	-- self:AddCompanionFlags()
 	-- self:AddCompanionAcquire()
 	
-	-----------------------------------------------------
-	-- Possible Patch 4.1 new added pets
-	-----------------------------------------------------	
 	-- Landro's Lichling -- 96817
 	AddPet(96817, 68840, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 96817, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 96817, A_CUSTOM, 1)
-	
-	-- Nightsaber Cub
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
 	
 	-- Panther Cub -- 96571
 	AddPet(96571, 68833, R_COMMON, GAME_CATA)
@@ -1115,6 +1107,21 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(98587, 69824, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 98587, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 98587, A_CUSTOM, 44)
+	
+	-- Nightsaber Cub
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+	
+	-- Cenarion Hatchling
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+	
+	-- Guardian Cub
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
 	-----------------------------------------------------
 	
 	return num_pets
