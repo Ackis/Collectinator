@@ -1096,10 +1096,15 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 97779, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
 	self:AddCompanionAcquire(PetDB, 97779, A_QUEST, 29208)
 	
-	-- Scooter the Snail
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
+	-- Scooter the Snail -- 93817
+	AddPet(93817, 66073, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 93817, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(PetDB, 93817, A_QUEST, 171, A_QUEST, 5502, A_SEASONAL, 8)
+	
+	-- Legs -- 98079
+	AddPet(98079, 69648, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 98079, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(PetDB, 98079, A_QUEST, 10966, A_QUEST, 10967, A_SEASONAL, 8)
 	
 	-- Pterrordax Hatchling -- 98571
 	AddPet(98571, 69821, R_RARE, GAME_CATA)
