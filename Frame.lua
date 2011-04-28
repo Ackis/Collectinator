@@ -772,13 +772,13 @@ local function ttAdd(
 	local lineNum
 
 	if str2 then
-		lineNum = CollectinatorTooltip:AddLine("dgfdghhhhhhhhhhhhhhh")
+		lineNum = CollectinatorTooltip:AddLine()
 		CollectinatorTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r")
 		CollectinatorTooltip:SetCell(lineNum, 2, "|cff"..hexcolor2..str2.."|r", "RIGHT")
 	else
 		-- Text spans both columns - set maximum width to match fontSize to maintain uniform tooltip size. -Torhal
 		local width = math.ceil(fontSize * 37.5)
-		lineNum = CollectinatorTooltip:AddLine("hjkhjkhjbhhhhhhhhhhh")
+		lineNum = CollectinatorTooltip:AddLine()
 		CollectinatorTooltip:SetCell(lineNum, 1, "|cff"..hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
 	end
 end
