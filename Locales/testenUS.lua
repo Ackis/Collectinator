@@ -425,6 +425,7 @@ L["Kall Worthaton"] = true
 L["Quartermaster Brazie"] = true
 L["Pogg"] = true
 L["Blacksmith Abasi"] = true
+L["Michelle De Rum"] = true
 
 L["DB_LOAD_ERROR"] = [[Error: Database not loaded correctly.
 Please exit out of WoW and delete the Collectinator database file (Collectinator.lua) found in:

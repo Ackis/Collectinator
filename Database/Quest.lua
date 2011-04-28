@@ -68,7 +68,10 @@ function addon:InitQuest(DB)
 	AddQuest(28415, BZ["Burning Steppes"], 0, 0, ALLIANCE)
 	AddQuest(28491, BZ["Burning Steppes"], 0, 0, HORDE)
 	AddQuest(25560, BZ["Mount Hyjal"], 37.3, 56.2, NEUTRAL)
-	AddQuest(25371, BZ["Kelp'thar Forest"], 46.0, 46.8, NEUTRAL)
+	AddQuest(25371, BZ["Kelp'thar Forest"], 46.0, 46.8, NEUTRAL)	
+	AddQuest(29208, BZ["Zul'Gurub"], 0, 0, NEUTRAL)
+	AddQuest(29267, BZ["Northern Stranglethorn"], 76.0, 66.6, ALLIANCE)
+	AddQuest(29268, BZ["Northern Stranglethorn"], 76.0, 66.6, HORDE)
 	
 	--Class
 	AddQuest(12687,	BZ["The Scarlet Enclave"],	51.9,	35.5,	NEUTRAL)

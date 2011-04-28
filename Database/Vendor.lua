@@ -48,6 +48,7 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 31916,	L["Tanaika"],				BZ["Howling Fjord"],		25.5, 58.7,	NEUTRAL)
 	self:addLookupList(DB, 32763,	L["Sairuk"],				BZ["Dragonblight"],		48.5, 75.7,	NEUTRAL)
 	self:addLookupList(DB, 33980, L["Apothecary Furrows"], BZ["Darkshore"],      57.0, 33.9, NEUTRAL)
+	self:addLookupList(DB, 52830,	L["Michelle De Rum"],				BZ["Winterspring"],		59.8, 51.6,	NEUTRAL)
 
 	-------------------------------------------------------------------------------
 	-- World Events
