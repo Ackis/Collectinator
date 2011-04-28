@@ -1427,7 +1427,7 @@ function addon:GetMountTotal(DB)
 	-- Amani War Bear - 43688
 	AddMount(43688, 33809, R_EPIC, GAME_BC)
 	AddMountFlags(43688, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_RAID)
-	self:AddCompanionAcquire(DB, 43688, A_CUSTOM, 31, A_ACHIEVEMENT, 430)
+	self:AddCompanionAcquire(DB, 43688, A_ACHIEVEMENT, 430)
 
 	-- Swift Nether Drake - 37015
 	AddMount(37015, 30609, R_EPIC, GAME_BC)
@@ -1661,10 +1661,10 @@ function addon:GetMountTotal(DB)
 	-----------------------------------------------------
 	-- Possible Patch 4.1 new added mounts
 	-----------------------------------------------------
-	-- Armored Razzashi Raptor
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- Armored Razzashi Raptor -- 96491
+	AddMount(96491, 68823, R_EPIC, GAME_CATA)
+	AddMountFlags(96491, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 96491, A_MOB, 52151)
 	
 	-- Beryl Fire Hawk
 	--AddMount()
@@ -1681,20 +1681,20 @@ function addon:GetMountTotal(DB)
 	--AddMountFlags()
 	--self:AddCompanionAcquire()
 	
-	-- Mottled Drake
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- Savage Raptor -- 97581
+	AddMount(97581, 69228, R_EPIC, GAME_CATA)
+	AddMountFlags(97581, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	self:AddCompanionAcquire(DB, 97581, A_CUSTOM, 1)
 	
-	-- Savage Raptor
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- Swift Zulian Panther -- 96499
+	AddMount(96499, 68824, R_EPIC, GAME_CATA)
+	AddMountFlags(96499, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 96499, A_MOB, 52059)
 	
-	-- Swift Zulian Panther
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- Amani Battle Bear -- 98204
+	AddMount(98204, 69747, R_EPIC, GAME_CATA)
+	AddMountFlags(98204, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 98204, A_CUSTOM, 45)
 	-----------------------------------------------------
 	return num_mounts
 end
