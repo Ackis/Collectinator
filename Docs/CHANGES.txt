@@ -1,5 +1,9 @@
 ==Collectinator Change Log
 
+===Version 1.0.8
+
+*Fixed the error about missing locale entry for "Michelle De Rum"
+
 ===Version 1.0.7
 *New Mounts:
 	**Armored Razzashi Raptor
