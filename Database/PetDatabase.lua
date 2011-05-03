@@ -1113,10 +1113,10 @@ function addon:GetMiniPetTotal(PetDB)
 	-- self:AddCompanionFlags()
 	-- self:AddCompanionAcquire()
 	
-	-- Cenarion Hatchling
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
+	-- Cenarion Hatchling -- 99578
+	AddPet(99578, 70099, R_EPIC, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 99578, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
+	self:AddCompanionAcquire(PetDB, 99578, A_CUSTOM, 4)
 	
 	-- Guardian Cub
 	-- AddPet()
