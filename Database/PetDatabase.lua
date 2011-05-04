@@ -37,7 +37,7 @@ local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4
 -------------------------------------------------------------------------------
 -- Origin
 -------------------------------------------------------------------------------
-local GAME_ORIG, GAME_TBC, GAME_WOTLK, GAME_CATA = 0, 1, 2, 3
+local GAME_ORIG, GAME_BC, GAME_WOTLK, GAME_CATA = 0, 1, 2, 3
 
 -------------------------------------------------------------------------------
 -- Filter flags
@@ -135,7 +135,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 61472, A_ACHIEVEMENT, 1956)
 
 	-- Reeking Pet Carrier - 40990
-	AddPet(40990, 40653, R_RARE, GAME_TBC)
+	AddPet(40990, 40653, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 40990, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 40990, A_ACHIEVEMENT, 1250)
 
@@ -151,27 +151,27 @@ function addon:GetMiniPetTotal(PetDB)
 
 --FISHING
 	-- Magical Crawdad Box - 33050
-	AddPet(33050, 27445, R_COMMON, GAME_TBC)
+	AddPet(33050, 27445, R_COMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 33050, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOP, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 33050, A_ACHIEVEMENT, 726, A_CUSTOM, 9)
 
 	-- Toothy's Bucket - 43697
-	AddPet(43697, 33816, R_RARE, GAME_TBC)
+	AddPet(43697, 33816, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 43697, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 43697, A_QUEST, 11665, A_CUSTOM, 18)
 
 	-- Muckbreath's Bucket - 43698
-	AddPet(43698, 33818, R_RARE, GAME_TBC)
+	AddPet(43698, 33818, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 43698, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 43698, A_QUEST, 11665, A_CUSTOM, 18)
 
 	-- Snarly's Bucket - 46425
-	AddPet(46425, 35349, R_RARE, GAME_TBC)
+	AddPet(46425, 35349, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 46425, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 46425, A_QUEST, 11665, A_CUSTOM, 18)
 
 	-- Chuck's Bucket - 46426
-	AddPet(46426, 35350, R_RARE, GAME_TBC)
+	AddPet(46426, 35350, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 46426, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 46426, A_QUEST, 11665, A_CUSTOM, 18)
 
@@ -238,17 +238,17 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 27570, A_ACHIEVEMENT, 1700, A_SEASONAL, 5)
 
 	-- Sinister Squashling - 42609
-	AddPet(42609, 33154, R_RARE, GAME_TBC)
+	AddPet(42609, 33154, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 42609, F_ALLIANCE, F_HORDE, F_INSTANCE, F_SEASONAL, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(PetDB, 42609, A_MOB, 23682, A_SEASONAL, 7)
 
 	-- Scorched Stone - 45890
-	AddPet(45890, 34955, R_RARE, GAME_TBC)
+	AddPet(45890, 34955, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 45890, F_ALLIANCE, F_HORDE, F_INSTANCE, F_SEASONAL, F_MOB_DROP, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(PetDB, 45890, A_MOB, 25740, A_SEASONAL, 4)
 
 	-- Clockwork Rocket Bot - 54187
-	AddPet(54187, 34425, R_RARE, GAME_TBC)
+	AddPet(54187, 34425, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(PetDB, 54187, A_ACHIEVEMENT, 1705, A_SEASONAL, 1)
 
@@ -274,7 +274,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 28871, A_SEASONAL, 4)
 
 	-- Pint-Sized Pink Pachyderm - 44369
-	AddPet(44369, 46707, R_RARE, GAME_TBC)
+	AddPet(44369, 46707, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 44369, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
 	self:AddCompanionAcquire(PetDB, 44369, A_SEASONAL, 6, A_VENDOR, 23710, A_VENDOR, 24495, A_VENDOR, 27478, A_VENDOR, 27489)
 
@@ -325,17 +325,17 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 25162, A_MOB, 14345, A_MOB, 15335, A_MOB, 8606, A_MOB, 8607, A_MOB, 1808, A_MOB, 12387, A_MOB, 1806, A_MOB, 9621, A_MOB, 9477, A_MOB, 7093, A_MOB, 6559, A_MOB, 7092, A_MOB, 6557, A_CUSTOM, 3)
 
 	-- Captured Firefly - 36034
-	AddPet(36034, 29960, R_COMMON, GAME_TBC)
+	AddPet(36034, 29960, R_COMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 36034, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
 	self:AddCompanionAcquire(PetDB, 36034, A_MOB, 20197)
 
 	-- Mojo - 43918
-	AddPet(43918, 33993, R_RARE, GAME_TBC)
+	AddPet(43918, 33993, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 43918, F_ALLIANCE, F_HORDE, F_RAID, F_BOP)
 	self:AddCompanionAcquire(PetDB, 43918, A_MOB, 24396, A_CUSTOM, 19)
 
 	-- Phoenix Hatchling - 46599
-	AddPet(46599, 35504, R_RARE, GAME_TBC)
+	AddPet(46599, 35504, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 46599, F_ALLIANCE, F_HORDE, F_INSTANCE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(PetDB, 46599, A_MOB, 24664)
 
@@ -406,12 +406,12 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 23811, A_QUEST, 7946, A_SEASONAL, 3)
 
 	-- Miniwing - 39181
-	AddPet(39181, 31760, R_COMMON, GAME_TBC)
+	AddPet(39181, 31760, R_COMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 39181, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
 	self:AddCompanionAcquire(PetDB, 39181, A_QUEST, 10898)
 
 	-- Wolpertinger's Tankard - 39709
-	AddPet(39709, 32233, R_RARE, GAME_TBC)
+	AddPet(39709, 32233, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 39709, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP)
 	self:AddCompanionAcquire(PetDB, 39709, A_SEASONAL, 6, A_QUEST, 11431, A_QUEST, 11117)
 
@@ -441,17 +441,17 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 28740, A_QUEST, 171, A_QUEST, 5502, A_ACHIEVEMENT, 1792)
 
 	-- Sleepy Willy - 40613
-	AddPet(40613, 32617, R_RARE, GAME_TBC)
+	AddPet(40613, 32617, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 40613, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP)
 	self:AddCompanionAcquire(PetDB, 40613, A_QUEST, 10966, A_QUEST, 10967, A_SEASONAL, 8)
 
 	-- Egbert's Egg - 40614
-	AddPet(40614, 32616, R_RARE, GAME_TBC)
+	AddPet(40614, 32616, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 40614, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP)
 	self:AddCompanionAcquire(PetDB, 40614, A_QUEST, 10966, A_QUEST, 10967, A_SEASONAL, 8)
 
 	-- Elekk Training Collar - 40634
-	AddPet(40634, 32622, R_RARE, GAME_TBC)
+	AddPet(40634, 32622, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 40634, F_ALLIANCE, F_HORDE, F_QUEST, F_SEASONAL, F_BOP)
 	self:AddCompanionAcquire(PetDB, 40634, A_QUEST, 10966, A_QUEST, 10967, A_SEASONAL, 8)
 
@@ -518,12 +518,12 @@ function addon:GetMiniPetTotal(PetDB)
 
 --REP VENDOR NEUTRAL
 	-- Tiny Sporebat - 45082
-	AddPet(45082, 34478, R_RARE, GAME_TBC)
+	AddPet(45082, 34478, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 45082, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_SPOREGGAR)
 	self:AddCompanionAcquire(PetDB, 45082, A_REPUTATION, 970, EXALTED, 18382)
 
 	-- Nether Ray Fry - 51716
-	AddPet(51716, 38628, R_RARE, GAME_TBC)
+	AddPet(51716, 38628, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 51716, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP, F_SKYGUARD)
 	self:AddCompanionAcquire(PetDB, 51716, A_REPUTATION, 1031, EXALTED, 23367)
 
@@ -584,7 +584,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 10717, A_VENDOR, 8404, A_VENDOR, 20980)
 
 	-- Mana Wyrmling - 35156
-	AddPet(35156, 29363, R_COMMON, GAME_TBC)
+	AddPet(35156, 29363, R_COMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 35156, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 35156, A_VENDOR, 20980)
 
@@ -594,12 +594,12 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 35239, A_VENDOR, 20980)
 
 	-- Red Moth Egg - 35909
-	AddPet(35909, 29902, R_COMMON, GAME_TBC)
+	AddPet(35909, 29902, R_COMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 35909, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 35909, A_VENDOR, 20980)
 
 	-- Blue Dragonhawk Hatchling - 36031
-	AddPet(36031, 29958, R_COMMON, GAME_TBC)
+	AddPet(36031, 29958, R_COMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 36031, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 36031, A_VENDOR, 20980)
 
@@ -640,17 +640,17 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 10716, A_VENDOR, 8404)
 
 	-- Golden Dragonhawk Hatchling - 36027
-	AddPet(36027, 29953, R_COMMON, GAME_TBC)
+	AddPet(36027, 29953, R_COMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 36027, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 36027, A_VENDOR, 16860)
 
 	-- Red Dragonhawk Hatchling - 36028
-	AddPet(36028, 29956, R_COMMON, GAME_TBC)
+	AddPet(36028, 29956, R_COMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 36028, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 36028, A_VENDOR, 16860)
 
 	-- Silver Dragonhawk Hatchling - 36029
-	AddPet(36029, 29957, R_COMMON, GAME_TBC)
+	AddPet(36029, 29957, R_COMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 36029, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 36029, A_VENDOR, 16860)
 
@@ -696,33 +696,33 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 10711, A_VENDOR, 1263)
 
 	-- Blue Moth Egg - 35907
-	AddPet(35907, 29901, R_COMMON, GAME_TBC)
+	AddPet(35907, 29901, R_COMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 35907, F_ALLIANCE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 35907, A_VENDOR, 21019)
 
 	-- Yellow Moth Egg - 35910
-	AddPet(35910, 29903, R_COMMON, GAME_TBC)
+	AddPet(35910, 29903, R_COMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 35910, F_ALLIANCE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 35910, A_VENDOR, 21019)
 
 	-- White Moth Egg - 35911
-	AddPet(35911, 29904, R_COMMON, GAME_TBC)
+	AddPet(35911, 29904, R_COMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 35911, F_ALLIANCE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 35911, A_VENDOR, 21019)
 
 --RETIRED	
 	-- Spirit of Competition - 48406
-	AddPet(48406, 37297, R_RARE, GAME_TBC)
+	AddPet(48406, 37297, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 48406, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 48406, A_ACHIEVEMENT, 1637)
 
 	-- Essence of Competition - 48408
-	AddPet(48408, nil, R_UNCOMMON, GAME_TBC)
+	AddPet(48408, nil, R_UNCOMMON, GAME_BC)
 	self:AddCompanionFlags(PetDB, 48408, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 48408, A_CUSTOM, 13)
 
 	-- Vampiric Batling - 51851
-	AddPet(51851, 38658, R_RARE, GAME_TBC)
+	AddPet(51851, 38658, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 51851, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_SPEC_EVENT, F_REMOVED, F_BOP)
 	self:AddCompanionAcquire(PetDB, 51851, A_ACHIEVEMENT, 2456, A_MOB, 28194)
 
@@ -769,7 +769,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 24988, A_CUSTOM, 10)
 
 	-- Netherwhelp's Collar - 32298
-	AddPet(32298, 25535, R_RARE, GAME_TBC)
+	AddPet(32298, 25535, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 32298, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 32298, A_ACHIEVEMENT, 665)
 
@@ -811,12 +811,12 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 28505, A_CUSTOM, 7)
 
 	-- Fortune Coin - 40405 (Lucky)
-	AddPet(40405, 32498, R_RARE, GAME_TBC)
+	AddPet(40405, 32498, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 40405, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 40405, A_CUSTOM, 12)
 
 	-- Tyrael's Hilt - 53082
-	AddPet(53082, 39656, R_RARE, GAME_TBC)
+	AddPet(53082, 39656, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 53082, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOA)
 	self:AddCompanionAcquire(PetDB, 53082, A_ACHIEVEMENT, 414)
 
@@ -827,27 +827,27 @@ function addon:GetMiniPetTotal(PetDB)
 
 --TCG
 	-- Banana Charm - 40549
-	AddPet(40549, 32588, R_RARE, GAME_TBC)
+	AddPet(40549, 32588, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 40549, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 40549, A_CUSTOM, 1)
 
 	-- Rocket Chicken - 45125
-	AddPet(45125, 34492, R_RARE, GAME_TBC)
+	AddPet(45125, 34492, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 45125, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 45125, A_CUSTOM, 1)
 
 	-- Dragon Kite - 45127
-	AddPet(45127, 34493, R_EPIC, GAME_TBC)
+	AddPet(45127, 34493, R_EPIC, GAME_BC)
 	self:AddCompanionFlags(PetDB, 45127, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 45127, A_CUSTOM, 1)
 
 	-- Hippogryph Hatchling - 30156
-	AddPet(30156, 23713, R_EPIC, GAME_TBC)
+	AddPet(30156, 23713, R_EPIC, GAME_BC)
 	self:AddCompanionFlags(PetDB, 30156, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 30156, A_CUSTOM, 1)
 
 	-- Soul-Trader Beacon - 49964
-	AddPet(49964, 38050, R_RARE, GAME_TBC)
+	AddPet(49964, 38050, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 49964, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 49964, A_CUSTOM, 1)
 
