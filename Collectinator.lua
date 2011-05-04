@@ -219,6 +219,7 @@ function addon:OnInitialize()
 					originalwow = true,
 					bc = true,
 					wrath = true,
+					cata = true,
 					store = true,
 				},
 				-------------------------------------------------------------------------------
@@ -888,7 +889,7 @@ do
 	-------------------------------------------------------------------------------
 	-- Origin
 	-------------------------------------------------------------------------------
-	local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
+	local GAME_ORIG, GAME_TBC, GAME_WOTLK, GAME_CATA = 0, 1, 2, 3
 
 	-------------------------------------------------------------------------------
 	-- Filter flags
@@ -1039,6 +1040,10 @@ do
 		end
 
 		if not obtain_db.wrath and Entry["Game"] == GAME_WOTLK then
+			return false
+		end
+		
+		if not obtain_db.cata and Entry["Game"] == GAME_CATA then
 			return false
 		end
 

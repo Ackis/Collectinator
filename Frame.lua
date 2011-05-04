@@ -77,7 +77,7 @@ local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4
 -------------------------------------------------------------------------------
 -- Origin
 -------------------------------------------------------------------------------
-local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
+local GAME_ORIG, GAME_TBC, GAME_WOTLK, GAME_CATA = 0, 1, 2, 3
 
 -------------------------------------------------------------------------------
 -- Filter flags
@@ -3342,6 +3342,10 @@ local function InitializeFrame()
 	local Collectinator_WrathCB = CreateFrame("CheckButton", "Collectinator_WrathCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], "wrath", 1, 2, 0)
 	Collectinator_WrathCBText:SetText(L["Lich King"])
+	
+	local Collectinator_CataCB = CreateFrame("CheckButton", "Collectinator_CataCB", addon.Fly_Obtain, "UICheckButtonTemplate")
+	addon:GenericMakeCB(Collectinator_CataCB, addon.Fly_Obtain, L["CATA_WOW_DESC"], "cata", 2, 2, 0)
+	Collectinator_CataCBText:SetText(L["Cataclysm"])
 
 	-------------------------------------------------------------------------------
 	--			() Collectible is Bind on Account
@@ -3960,6 +3964,7 @@ local function InitializeFrame()
 		["originalwow"]		= { cb = Collectinator_OriginalWoWCB,		svroot = filterdb.obtain },
 		["bc"]			= { cb = Collectinator_BCCB,			svroot = filterdb.obtain },
 		["wrath"]		= { cb = Collectinator_WrathCB,			svroot = filterdb.obtain },
+		["cata"]		= { cb = Collectinator_CataCB,			svroot = filterdb.obtain },
 		------------------------------------------------------------------------------------------------
 		-- Binding Options
 		------------------------------------------------------------------------------------------------

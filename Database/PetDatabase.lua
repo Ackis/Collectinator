@@ -37,7 +37,7 @@ local R_COMMON, R_UNCOMMON, R_RARE, R_EPIC, R_LEGENDARY, R_ARTIFACT = 1, 2, 3, 4
 -------------------------------------------------------------------------------
 -- Origin
 -------------------------------------------------------------------------------
-local GAME_ORIG, GAME_TBC, GAME_WOTLK = 0, 1, 2
+local GAME_ORIG, GAME_TBC, GAME_WOTLK, GAME_CATA = 0, 1, 2, 3
 
 -------------------------------------------------------------------------------
 -- Filter flags
