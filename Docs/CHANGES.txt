@@ -1,5 +1,15 @@
 ==Collectinator Change Log
 
+===Version 1.0.9
+
+*Added the following pet: Cenarion Hatchling
+
+*The spell links of the pets and mounts now link when pressing the appropriate keypress combo
+
+*Now have the ability to filter cataclysm pets/mounts
+
+*Fixed a bug preventing the pets/mounts from burning crusade not filtering correctly
+
 ===Version 1.0.8
 
 *Fixed the error about missing locale entry for "Michelle De Rum"
