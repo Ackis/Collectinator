@@ -2078,7 +2078,7 @@ function addon.CollectibleItem_OnClick(button)
 			local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
 			_G.ChatEdit_ActivateChat(edit_box)
-			edit_box:Insert(collectibleDB[clickedSpellIndex]["CollectibleLink"])
+			edit_box:Insert(_G.GetSpellLink(clickedSpellIndex))
 		elseif IsAltKeyDown() then
 			-- Code needed here to insert this item into the "Ignore List"
 			addon:ToggleExclude(clickedSpellIndex)
