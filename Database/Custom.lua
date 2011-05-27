@@ -31,7 +31,7 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 12, "World Wide Invitational (Korea)") -- Lucky Golden Pig
 	self:addLookupList(DB, 13, "China Olypmics")
 	self:addLookupList(DB, 14, "Obtained with an account bound to an authenticator.")
-	self:addLookupList(DB, 15, "Take part in many Random Dungeon groups.")
+	--self:addLookupList(DB, 15, "")
 	self:addLookupList(DB, 16, "Random drop from the Cracked Egg, which hatches from the Mysterious Egg.")
 	self:addLookupList(DB, 17, "Arena: Earned the Vengeful Gladiator title in Season 3")
 	self:addLookupList(DB, 18, "Outland daily fishing quest.")

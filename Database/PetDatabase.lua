@@ -144,10 +144,10 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 61991, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 61991, A_ACHIEVEMENT, 2516)
 
-	-- Perky Pug - 70600
+	-- Perky Pug - 70613
 	AddPet(70613, 49912, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 70613, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
-	self:AddCompanionAcquire(PetDB, 70613, A_CUSTOM, 15)
+	self:AddCompanionFlags(PetDB, 70613, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 70613, A_ACHIEVEMENT, 4478)
 
 --FISHING
 	-- Magical Crawdad Box - 33050
