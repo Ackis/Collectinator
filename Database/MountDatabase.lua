@@ -1534,7 +1534,22 @@ function addon:GetMountTotal(DB)
 	AddMount(74856, 54069, R_EPIC, GAME_WOTLK)
 	AddMountFlags(74856, F_ALLIANCE, F_HORDE, F_TCG)
 	self:AddCompanionAcquire(DB, 74856, A_CUSTOM, 1)
+	
+	-- Savage Raptor -- 97581
+	AddMount(97581, 69228, R_EPIC, GAME_CATA)
+	AddMountFlags(97581, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	self:AddCompanionAcquire(DB, 97581, A_CUSTOM, 1)
 
+	-- Mottled Drake -- 93623
+	AddMount(93623, 68008, R_EPIC, GAME_CATA)
+	AddMountFlags(93623, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
+	self:AddCompanionAcquire(DB, 93623, A_CUSTOM, 1)
+	
+	-- Wooly White Rhino -- 74918
+	AddMount(74918, 54068, R_EPIC, GAME_WOTLK)
+	AddMountFlags(74918, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
+	self:AddCompanionAcquire(DB, 74918, A_CUSTOM, 1)
+	
 	-- Little Ivory Raptor Whistle - 68769
 	--AddMount(68769, 49288, R_UNCOMMON, GAME_WOTLK)
 	--AddMountFlags(68769, F_HORDE, F_TCG)
@@ -1587,11 +1602,6 @@ function addon:GetMountTotal(DB)
 	AddMount(92232, 64999, R_EPIC, GAME_CATA)
 	AddMountFlags(92232, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 92232, A_VENDOR, 48531)
-
-	-- Mottled Drake -- 93623
-	AddMount(93623, 68008, R_EPIC, GAME_CATA)
-	AddMountFlags(93623, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
-	self:AddCompanionAcquire(DB, 93623, A_CUSTOM, 1)
 
 	-- Kor'kron Annihilator -- 93644
 	AddMount(93644, 67107, R_EPIC, GAME_CATA)
@@ -1662,11 +1672,6 @@ function addon:GetMountTotal(DB)
 	AddMount(96491, 68823, R_EPIC, GAME_CATA)
 	AddMountFlags(96491, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 96491, A_MOB, 52151)
-	
-	-- Savage Raptor -- 97581
-	AddMount(97581, 69228, R_EPIC, GAME_CATA)
-	AddMountFlags(97581, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
-	self:AddCompanionAcquire(DB, 97581, A_CUSTOM, 1)
 	
 	-- Swift Zulian Panther -- 96499
 	AddMount(96499, 68824, R_EPIC, GAME_CATA)
