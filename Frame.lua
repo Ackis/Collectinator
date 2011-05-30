@@ -404,9 +404,11 @@ do
 
 		-- Vendors and reputations are treated the same way basically
 		if (v["Type"] == A_VENDOR) or (v["Type"] == A_REPUTATION) then
-			display = ((vendorDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (vendorDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
+			local vendor = vendorDB[v["ID"]]
+			display = (vendor and vendor["Faction"] == BFAC[myFaction]) or (vendor and vendor["Faction"] == BFAC["Neutral"])
 		elseif (v["Type"] == A_QUEST) then
-			display = ((questDB[v["ID"]]["Faction"] == BFAC[myFaction]) or (questDB[v["ID"]]["Faction"] == BFAC["Neutral"]))
+			local quest = questDB[v["ID"]]
+			display = (quest and quest["Faction"] == BFAC[myFaction]) or (quest and quest["Faction"] == BFAC["Neutral"])
 		-- Always show mob drops
 		elseif (v["Type"] == A_MOB) then
 			display = true
