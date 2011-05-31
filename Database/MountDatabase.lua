@@ -1574,8 +1574,8 @@ function addon:GetMountTotal(DB)
 	
 -- CATACLYSM ADDED
 	-- Abyssal Seahorse -- 75207
-	AddMount(75207, 54465, R_RARE, GAME_WOTLK)
-	AddMountFlags(75207, F_HORDE, F_QUEST, F_BOP)
+	AddMount(75207, 54465, R_RARE, GAME_CATA)
+	AddMountFlags(75207, F_HORDE, F_ALLIANCE, F_QUEST, F_BOP)
 	self:AddCompanionAcquire(DB, 75207, A_QUEST, 25371)
 	
 	-- Fossilized Raptor -- 84751
