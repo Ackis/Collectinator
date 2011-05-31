@@ -1561,10 +1561,15 @@ function addon:GetMountTotal(DB)
 	--self:AddCompanionAcquire(DB, 68768, A_CUSTOM, 1)
 
 -- PURCHASED
-	--Celestial Steed - 75614
+	-- Celestial Steed - 75614
 	AddMount(75614, 54811, R_EPIC, GAME_WOTLK)
 	AddMountFlags(75614, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(DB, 75614, A_CUSTOM, 4)
+	
+	-- Winged Guardian -- 98727
+	AddMount(98727, 69846, R_EPIC, GAME_CATA)
+	AddMountFlags(98727, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionAcquire(DB, 98727, A_CUSTOM, 4)
 
 -- QUEST
 	-- Reins of the Crimson Deathcharger - 73313
