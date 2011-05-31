@@ -3055,31 +3055,27 @@ local function InitializeFrame()
 		local total_str = lower_type .. "_total"
 		local known_filtered_str = lower_type .. "_known_filtered"
 		local total_filtered_str = lower_type .. "_total_filtered"
+		local exclusionTotal = 0
+		local exclusionlist = addon.db.profile.exclusionlist
 
-		-- Progress bar shows the actual values, not dependant on what is filtered
-		if addon.db.profile.includefiltered then
-			pbCur = playerData[known_str]
-			pbMax = playerData[total_str]
-		-- Progress bar removes all of the unknown filtered entries from the known/total counts
-		elseif addon.db.profile.includeknownfiltered then
-			local known_filtered = playerData[known_str] - playerData[known_filtered_str]
-			pbCur = playerData[known_str]
-			pbMax = playerData[total_filtered_str] + known_filtered
-		-- Progress bar removes all of the filtered entries from the known/total counts
-		else
-			pbCur = playerData[known_filtered_str]
-			pbMax = playerData[total_filtered_str]
+		-- Parse all items in the exclusion list
+		for i in pairs(exclusionlist) do
+			exclusionTotal = exclusionTotal + 1
 		end
 
+		local pbMax = addon.db.profile.includefiltered and playerData[total_str] or (playerData[total_filtered_str] + (playerData[known_str] - playerData[known_filtered_str]))
+		local pbCur = playerData[known_str]	-- Current value will always be what we know regardless of filters.
+		
 		if not addon.db.profile.includeexcluded and not addon.db.profile.ignoreexclusionlist then
-			pbCur = pbCur - playerData["unknown_exclude_str"]
-			pbMax = pbMax - playerData["known_exclude_str"]
+			pbMax = pbMax - exclusionTotal
 		end
 		self:SetMinMaxValues(0, pbMax)
 		self:SetValue(pbCur)
+		
+		local percentage = pbCur / pbMax * 100
 
-		if (floor(pbCur / pbMax * 100) < 101) and (pbCur >= 0) and (pbMax >= 0) then
-			self.text:SetFormattedText("%d / %d - %1.1f%%", pbCur, pbMax, pbCur / pbMax * 100)
+		if (floor(percentage) < 101) and (pbCur >= 0) and (pbMax >= 0) then
+			self.text:SetFormattedText("%d/%d - %1.2f%%", pbCur, pbMax, percentage)
 		else
 			self.text:SetFormattedText("0 / 0 - %s", L["NOT_YET_SCANNED"])
 		end
