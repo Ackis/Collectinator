@@ -1501,28 +1501,28 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 30174, A_CUSTOM, 1)
 
 	-- Reins of the Spectral Tiger - 42776
-	AddMount(42776, 33224, R_RARE, GAME_BC)
-	AddMountFlags(42776, F_ALLIANCE, F_HORDE, F_TCG)
+	AddMount(42776, 49283, R_RARE, GAME_BC)
+	AddMountFlags(42776, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	self:AddCompanionAcquire(DB, 42776, A_CUSTOM, 1)
 
 	-- Reins of the Swift Spectral Tiger - 42777
-	AddMount(42777, 33225, R_EPIC, GAME_BC)
-	AddMountFlags(42777, F_ALLIANCE, F_HORDE, F_TCG)
+	AddMount(42777, 49284, R_EPIC, GAME_BC)
+	AddMountFlags(42777, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	self:AddCompanionAcquire(DB, 42777, A_CUSTOM, 1)
 
 	-- X-51 Nether-Rocket - 46197
-	AddMount(46197, 35225, R_RARE, GAME_BC)
-	AddMountFlags(46197, F_ALLIANCE, F_HORDE, F_TCG)
+	AddMount(46197, 49285, R_RARE, GAME_BC)
+	AddMountFlags(46197, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	self:AddCompanionAcquire(DB, 46197, A_CUSTOM, 1)
 
 	-- X-51 Nether-Rocket X-TREME-- 46199
-	AddMount(46199, 35226, R_EPIC, GAME_BC)
-	AddMountFlags(46199, F_ALLIANCE, F_HORDE, F_TCG)
+	AddMount(46199, 49286, R_EPIC, GAME_BC)
+	AddMountFlags(46199, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	self:AddCompanionAcquire(DB, 46199, A_CUSTOM, 1)
 
 	-- Big Battle Bear - 51412
-	AddMount(51412, 38576, R_EPIC, GAME_WOTLK)
-	AddMountFlags(51412, F_ALLIANCE, F_HORDE, F_TCG)
+	AddMount(51412, 49282, R_EPIC, GAME_WOTLK)
+	AddMountFlags(51412, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	self:AddCompanionAcquire(DB, 51412, A_CUSTOM, 1)
 
 	-- Magic Rooster - 65917
