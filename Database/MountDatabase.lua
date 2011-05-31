@@ -1088,7 +1088,7 @@ function addon:GetMountTotal(DB)
 	-------------------------------------------------------------------------------
 	-- Swift Zhevra - 49322
 	AddMount(49322, 37719, R_EPIC, GAME_BC)
-	AddMountFlags(49322, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
+	AddMountFlags(49322, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(DB, 49322, A_ACHIEVEMENT, 1436)
 
 	-- X-53 Touring Rocket - 75973
