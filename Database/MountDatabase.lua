@@ -1527,12 +1527,12 @@ function addon:GetMountTotal(DB)
 
 	-- Magic Rooster - 65917
 	AddMount(65917, 49290, R_EPIC, GAME_WOTLK)
-	AddMountFlags(65917, F_ALLIANCE, F_HORDE, F_TCG)
+	AddMountFlags(65917, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	self:AddCompanionAcquire(DB, 65917, A_CUSTOM, 1)
 
 	-- Blazing Hippogryph - 74856
 	AddMount(74856, 54069, R_EPIC, GAME_WOTLK)
-	AddMountFlags(74856, F_ALLIANCE, F_HORDE, F_TCG)
+	AddMountFlags(74856, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	self:AddCompanionAcquire(DB, 74856, A_CUSTOM, 1)
 	
 	-- Savage Raptor -- 97581
@@ -1550,16 +1550,6 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(74918, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	self:AddCompanionAcquire(DB, 74918, A_CUSTOM, 1)
 	
-	-- Little Ivory Raptor Whistle - 68769
-	--AddMount(68769, 49288, R_UNCOMMON, GAME_WOTLK)
-	--AddMountFlags(68769, F_HORDE, F_TCG)
-	--self:AddCompanionAcquire(DB, 68769, A_CUSTOM, 1)
-
-	-- Little White Stallion Bridle - 68768
-	--AddMount(68768, 49288, R_UNCOMMON, GAME_WOTLK)
-	--AddMountFlags(68768, F_ALLIANCE, F_TCG)
-	--self:AddCompanionAcquire(DB, 68768, A_CUSTOM, 1)
-
 -- PURCHASED
 	-- Celestial Steed - 75614
 	AddMount(75614, 54811, R_EPIC, GAME_WOTLK)
