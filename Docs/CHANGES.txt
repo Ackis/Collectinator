@@ -1,5 +1,23 @@
 ==Collectinator Change Log
 
+===Version 1.0.10
+
+*New Mounts:
+	**Wooly White Rhino
+	**Winged Guardian
+	
+*Fixed the acquire data for the "Perky Pug" pet
+
+*Fixed the acquire data for the "X-53 Touring Rocket" mount
+
+*Swift Zhevra mount is retired
+
+*The TCG mounts will show the correct item tooltip now
+
+*The "Abyssal Seahorse" mount will show correctly for the Alliance now
+
+*However many entries of mounts or pets are in your exclusion list will now be accounted for the totals display
+
 ===Version 1.0.9
 
 *Added the following pet: Cenarion Hatchling
