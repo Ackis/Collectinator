@@ -175,7 +175,7 @@ function addon:OnInitialize()
 			ignoreexclusionlist = false,
 			includeknownfiltered = false,
 			spelltooltiplocation = "Right",
-			acquiretooltiplocation = "Mouse",
+			acquiretooltiplocation = "Right",
 			hidepopup = false,
 			minimap = true,
 			worldmap = true,
