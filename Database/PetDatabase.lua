@@ -118,9 +118,9 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 10713, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 10713, A_VENDOR, 28951)
 
-	-- Zipao Tiger - 69539
-	AddPet(69539, nil, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 69539, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOE)
+	-- Zipao Tiger (Purple Jade Tiger) - 69539
+	AddPet(69539, 49664, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 69539, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 69539, A_CUSTOM, 34)
 
 --ACHIEVEMENTS
