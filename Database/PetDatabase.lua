@@ -123,6 +123,12 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 69539, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 69539, A_CUSTOM, 34)
 
+	-- Jade Tiger
+	AddPet(66520, nil, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 66520, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
+
+
+
 --ACHIEVEMENTS
 	-- Pilgrim Turkey - 61773
 	AddPet(61773, 44810, R_RARE, GAME_WOTLK)
