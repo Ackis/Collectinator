@@ -131,6 +131,10 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(67527, 48527, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67527, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 
+	-- Tiny Red Dragon - 23530
+	AddPet(23530, 19054, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 23530, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOP)
+
 	-- Tiny Green Dragon - 23531
 	AddPet(23531, 19055, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 23531, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOP)
