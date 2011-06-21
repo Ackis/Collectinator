@@ -3060,7 +3060,9 @@ local function InitializeFrame()
 
 		-- Parse all items in the exclusion list
 		for i in pairs(exclusionlist) do
-			exclusionTotal = exclusionTotal + 1
+			if collectibleDB[i]["Type"] == lower_type then
+				exclusionTotal = exclusionTotal + 1
+			end
 		end
 
 		local pbMax = addon.db.profile.includefiltered and playerData[total_str] or (playerData[total_filtered_str] + (playerData[known_str] - playerData[known_filtered_str]))
