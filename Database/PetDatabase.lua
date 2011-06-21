@@ -139,6 +139,10 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(23531, 19055, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 23531, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOP)
 
+	-- Golden Pig - 45174
+	AddPet(45174, 34518, R_RARE, GAME_WOTLK)
+	self:AddCompanionFlags(PetDB, 45174, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOP)
+
 --ACHIEVEMENTS
 	-- Pilgrim Turkey - 61773
 	AddPet(61773, 44810, R_RARE, GAME_WOTLK)
