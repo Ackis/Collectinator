@@ -1142,7 +1142,65 @@ function addon:GetMiniPetTotal(PetDB)
 	-- AddPet()
 	-- self:AddCompanionFlags()
 	-- self:AddCompanionAcquire()
+	
 	-----------------------------------------------------
+	--4.2
+	-----------------------------------------------------
+		
+	-- Crimson Lasher
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+
+	-- Guardian Cub
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+
+	-- Hyjal Bear Cub
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+
+	-- Murky's Little Soulstone
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+
+	-- Nuts' Acorn
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+
+	-- Alliance Balloon
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+
+	-- Brilliant Kaliri
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+
+	-- Creepy Crate
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+
+	-- Feline Familiar
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+
+	-- Horde Balloon
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
+
+	-- Lil' Tarecgosa
+	-- AddPet()
+	-- self:AddCompanionFlags()
+	-- self:AddCompanionAcquire()
 	
 	return num_pets
 end
