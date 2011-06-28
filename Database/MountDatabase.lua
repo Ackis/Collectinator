@@ -1678,6 +1678,11 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(98204, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 98204, A_CUSTOM, 45)
 	
+	-- Subdued Seahorse (Reins of Posedius) -- 98718
+	AddMount(98718, 67151, R_EPIC, GAME_CATA)
+	AddMountFlags(98718, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
+	self:AddCompanionAcquire(DB, 98718, A_MOB, 50005)
+	
 	-- Smoldering Egg of Millagazor
 	--AddMount()
 	--AddMountFlags()
