@@ -1678,20 +1678,45 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(98204, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 98204, A_CUSTOM, 45)
 	
-	-- Beryl Fire Hawk
+	-- Smoldering Egg of Millagazor
 	--AddMount()
 	--AddMountFlags()
 	--self:AddCompanionAcquire()
-	
-	-- Crimson Fire Hawk
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
-	
+
 	-- Flameward Hippogryph
 	--AddMount()
 	--AddMountFlags()
 	--self:AddCompanionAcquire()
-	-----------------------------------------------------
+
+	-- Corrupted Egg of Millagazor
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+
+	-- Flametalon of Alysrazor
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+
+	-- Vicious Gladiator's Twilight Drake
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+
+	-- Vicious War Steed
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+
+	-- Vicious War Wolf
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Green Fire Hawk Mount
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
 	return num_mounts
 end
