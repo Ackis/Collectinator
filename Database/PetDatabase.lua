@@ -1051,7 +1051,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Dark Phoenix Hatchling -- 89039
 	AddPet(89039, 63138, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 89039, F_ALLIANCE, F_HORDE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(PetDB, 89039, A_ACHIEVEMENT, 5125)
+	self:AddCompanionAcquire(PetDB, 89039, A_ACHIEVEMENT, 5892)
 
 	-- Enchanted Lantern -- 93836
 	AddPet(93836, 67274, R_RARE, GAME_CATA)
