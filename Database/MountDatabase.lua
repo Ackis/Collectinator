@@ -1683,40 +1683,40 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(98718, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
 	self:AddCompanionAcquire(DB, 98718, A_MOB, 50005)
 	
-	-- Smoldering Egg of Millagazor
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- -- Pureblood Fire Hawk -- 97493
+	AddMount(97493, 67151, R_EPIC, GAME_CATA)
+	AddMountFlags(97493, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 97493, A_MOB, 52409)
 
-	-- Flameward Hippogryph
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- Flameward Hippogryph -- 97359
+	AddMount(97359, 69213, R_EPIC, GAME_CATA)
+	AddMountFlags(97359, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 97359, A_ACHIEVEMENT, 5866)
 
-	-- Corrupted Egg of Millagazor
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
-
-	-- Flametalon of Alysrazor
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- -- Corrupted Fire Hawk -- 97560
+	AddMount(97560, 69230, R_EPIC, GAME_CATA)
+	AddMountFlags(97560, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 97560, A_ACHIEVEMENT, 5828)
+	
+	-- -- Flametalon of Alysrazor -- 101542
+	AddMount(101542, 71665, R_EPIC, GAME_CATA)
+	AddMountFlags(101542, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 101542, A_MOB, 52530)
 
 	-- Vicious Gladiator's Twilight Drake
 	--AddMount()
 	--AddMountFlags()
 	--self:AddCompanionAcquire()
 
-	-- Vicious War Steed
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- -- Vicious War Steed -- 100332
+	AddMount(100332, 70909, R_EPIC, GAME_CATA)
+	AddMountFlags(100332, F_ALLIANCE, F_ACHIEVEMENT, F_BOE)
+	self:AddCompanionAcquire(DB, 100332, A_ACHIEVEMENT, 5823)
 
-	-- Vicious War Wolf
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- -- Vicious War Wolf -- 100333
+	AddMount(100333, 70910, R_EPIC, GAME_CATA)
+	AddMountFlags(100333, F_HORDE, F_ACHIEVEMENT, F_BOE)
+	self:AddCompanionAcquire(DB, 100333, A_ACHIEVEMENT, 5824)
 	
 	-- Green Fire Hawk Mount
 	--AddMount()
