@@ -438,7 +438,7 @@ function addon:OnInitialize()
 					       if not companion["Known"] or shifted then
 						       local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
 
-						       self:AddLine("Drops: "..hex..companion["Name"].."|r")
+						       self:AddLine("Drops: |c"..hex..companion["Name"].."|r")
 					       end
 				       end
 				       return
@@ -452,7 +452,7 @@ function addon:OnInitialize()
 					       if (not companion["Known"] or shifted) and addon.IsCorrectFaction(playerData.playerFaction, companion["Flags"]) then
 						       local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
 
-						       self:AddLine("Sells: "..hex..companion["Name"].."|r")
+						       self:AddLine("Sells: |c"..hex..companion["Name"].."|r")
 					       end
 				       end
 				       return

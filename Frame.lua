@@ -709,7 +709,7 @@ local function initDisplayStrings()
 				if flags then
 					can_add = true
 					local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
-					recStr = hex..companion["Name"].."|r"
+					recStr = "|c"..hex..companion["Name"].."|r"
 				end
 			end
 
@@ -853,7 +853,7 @@ local function GenerateTooltipContent(owner, rIndex)
 	CollectinatorTooltip:SetCell(1, 1, item_icon, "CENTER", 2)
 
 	CollectinatorTooltip:AddHeader()
-	CollectinatorTooltip:SetCell(2, 1, hex..companion["Name"], "CENTER", 2)
+	CollectinatorTooltip:SetCell(2, 1, "|c"..hex..companion["Name"], "CENTER", 2)
 
 	-- check if the collectible is excluded
 	local exclude = addon.db.profile.exclusionlist
@@ -2451,7 +2451,7 @@ local function expandallDisplayStrings()
 				if flags then
 					can_add = true
 					local _, _, _, hex = GetItemQualityColor(companion["Rarity"])
-					recStr = hex..companion["Name"].."|r"
+					recStr = "|c"..hex..companion["Name"].."|r"
 				end
 			end
 
