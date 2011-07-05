@@ -1,5 +1,31 @@
 ==Collectinator Change Log
 
+===Version 1.0.11
+
+*New Mounts:
+	**Subdued Seahorse
+	**Pureblood Firehawk
+	**Flameward Hippogryph
+	**Corrupted Fire Hawk
+	**Flametalon of Alysrazor
+	**Vicious War Steed
+	**Vicious War Wolf
+	
+*New Pets:
+	**Crimson Lasher
+	**Hyjal Bear Cub
+	**Nuts' Acorn
+	**Alliance Balloon
+	**Brilliant Kaliri
+	**Horde Balloon
+	**Lil' Tarecgosa
+
+*Fixed issue with hexcodes showing
+
+*Fixed a bug with the progress bar and exclusions
+
+*The acquire for "Dark Phoenix Hatchling" will be correctly shown since Blizzard changed the achievement id associated with acquiring that pet
+
 ===Version 1.0.10
 
 *New Mounts:
