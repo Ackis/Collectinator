@@ -72,6 +72,8 @@ function addon:InitQuest(DB)
 	AddQuest(29208, BZ["Zul'Gurub"], 0, 0, NEUTRAL)
 	AddQuest(29267, BZ["Northern Stranglethorn"], 76.0, 66.6, ALLIANCE)
 	AddQuest(29268, BZ["Northern Stranglethorn"], 76.0, 66.6, HORDE)
+	AddQuest(29412, BZ["Stormwind City"], 58.8, 52.8, ALLIANCE)
+	AddQuest(29401, BZ["Orgrimmar"], 48.0, 47.6, HORDE)	
 	
 	--Class
 	AddQuest(12687,	BZ["The Scarlet Enclave"],	51.9,	35.5,	NEUTRAL)

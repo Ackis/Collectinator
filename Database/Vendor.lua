@@ -49,6 +49,8 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 32763,	L["Sairuk"],				BZ["Dragonblight"],		48.5, 75.7,	NEUTRAL)
 	self:addLookupList(DB, 33980, L["Apothecary Furrows"], BZ["Darkshore"],      57.0, 33.9, NEUTRAL)
 	self:addLookupList(DB, 52830,	L["Michelle De Rum"],				BZ["Winterspring"],		59.8, 51.6,	NEUTRAL)
+	self:addLookupList(DB, 53881,	L["Ayla Shadowstorm"],				BZ["Molten Front"],		44.2, 86.4,	NEUTRAL)
+	self:addLookupList(DB, 53882,	L["Varlan Highbough"],				BZ["Molten Front"],		44.8, 88.2,	NEUTRAL)	
 
 	-------------------------------------------------------------------------------
 	-- World Events

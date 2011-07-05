@@ -107,4 +107,6 @@ function addon:InitMob(DB)
 	self:addLookupList(DB, 50245, L["Dormus the Camel-Hoarder"],	BZ["Uldum"],		0, 0)
 	self:addLookupList(DB, 52059, BB["High Priestess Kilnara"],	BZ["Zul'Gurub"],		0, 0)
 	self:addLookupList(DB, 52151, BB["Bloodlord Mandokir"],	BZ["Zul'Gurub"],		0, 0)
+	self:addLookupList(DB, 52409, BB["Ragnaros"],	BZ["Firelands"],		0, 0)
+	self:addLookupList(DB, 52530, BB["Alysrazor"],	BZ["Firelands"],		0, 0)
 end
