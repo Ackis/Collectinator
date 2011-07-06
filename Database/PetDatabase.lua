@@ -1148,9 +1148,9 @@ function addon:GetMiniPetTotal(PetDB)
 	-----------------------------------------------------
 
 	-- -- Crimson Lasher -- 99668
-	-- AddPet(99668, 70160, R_RARE, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 99668, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
-	-- self:AddCompanionAcquire(PetDB, 99668, A_VENDOR, 53881)
+	AddPet(99668, 70160, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 99668, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(PetDB, 99668, A_VENDOR, 53881)
 
 	-- Guardian Cub
 	-- AddPet()
@@ -1158,9 +1158,9 @@ function addon:GetMiniPetTotal(PetDB)
 	-- self:AddCompanionAcquire()
 
 	-- -- Hyjal Bear Cub -- 99663
-	-- AddPet(99663, 70140, R_RARE, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 99663, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
-	-- self:AddCompanionAcquire(PetDB, 99663, A_VENDOR, 53882)
+	AddPet(99663, 70140, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 99663, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(PetDB, 99663, A_VENDOR, 53882)
 	
 	-- Murky's Little Soulstone
 	-- AddPet()
@@ -1168,19 +1168,19 @@ function addon:GetMiniPetTotal(PetDB)
 	-- self:AddCompanionAcquire()
 
 	-- -- Nuts' Acorn -- 100970
-	-- AddPet(100970, 71140, R_RARE, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 100970, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	-- self:AddCompanionAcquire(PetDB, 100970, A_ACHIEVEMENT, 5876)
+	AddPet(100970, 71140, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 100970, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 100970, A_ACHIEVEMENT, 5876)
 
 	-- -- Alliance Balloon -- 101986
-	-- AddPet(101986, 72042, R_COMMON, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 101986, F_ALLIANCE, F_QUEST, F_BOP)
-	-- self:AddCompanionAcquire(PetDB, 101986, A_QUEST, 29412)
+	AddPet(101986, 72042, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 101986, F_ALLIANCE, F_QUEST, F_BOP)
+	self:AddCompanionAcquire(PetDB, 101986, A_QUEST, 29412)
 
 	-- -- Brilliant Kaliri -- 101424
-	-- AddPet(101424, 71387, R_COMMON, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 101424, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	-- self:AddCompanionAcquire(PetDB, 101424, A_ACHIEVEMENT, 5877)
+	AddPet(101424, 71387, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 101424, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 101424, A_ACHIEVEMENT, 5877)
 
 	-- Creepy Crate
 	-- AddPet()
@@ -1193,14 +1193,14 @@ function addon:GetMiniPetTotal(PetDB)
 	-- self:AddCompanionAcquire()
 
 	-- -- Horde Balloon -- 101989
-	-- AddPet(101989, 72045, R_COMMON, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 101989, F_HORDE, F_QUEST, F_BOP)
-	-- self:AddCompanionAcquire(PetDB, 101989, A_QUEST, 29401)
+	AddPet(101989, 72045, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 101989, F_HORDE, F_QUEST, F_BOP)
+	self:AddCompanionAcquire(PetDB, 101989, A_QUEST, 29401)
 
 	-- -- Lil' Tarecgosa -- 100576
-	-- AddPet(100576, 71033, R_COMMON, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 100576, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	-- self:AddCompanionAcquire(PetDB, 100576, A_ACHIEVEMENT, 5840)
+	AddPet(100576, 71033, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 100576, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 100576, A_ACHIEVEMENT, 5840)
 
 	return num_pets
 end
