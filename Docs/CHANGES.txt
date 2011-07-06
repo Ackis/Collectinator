@@ -1,5 +1,13 @@
 ==Collectinator Change Log
 
+===Version 1.0.11b
+
+*Actually add the new pets from 4.2 to Collectinator this time, sorry guys!! :(
+
+===Version 1.0.11a
+
+*ToC update to 40200
+
 ===Version 1.0.11
 
 *New Mounts:
