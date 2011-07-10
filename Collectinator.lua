@@ -623,18 +623,51 @@ function addon:AddCompanionFlags(DB, SpellID, ...)
 	end
 end
 
---- Adds acquire methods to a specific companion.
--- @name Collectinator:AddCompanionAcquire
--- @usage Collectinator:AddCompanionAcquire:(DB, 2329, 8, 8)
--- @param DB The database (array) which you wish to add acquire methods too.
--- @param SpellID The [http://www.wowwiki.com/SpellLink Spell ID] of the item being entered to the database.
--- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
--- @return None, array is passed as a reference.
 do
 	-- Variables for getting the locations
 	local location_list = {}
 	local location_checklist = {}
+--[[
+	function addon:AddCompanionAchievement(DB, SpellID, ...)
 
+		local numvars = select('#', ...)-- Find out how many flags we're adding
+		local index = 1			-- Index for the number of Acquire entries we have
+		local i = 1			-- Index for which variables we're parsing through
+		local acquire = DB[SpellID]["Acquire"]
+
+		while i < numvars do
+			local acquire_id = select(i, ...)
+			i = i + 1
+
+			--@alpha@
+			if acquire[index] then
+				self:Print("AddCompanionAcquire called more than once for SpellID "..SpellID)
+			end
+			--@end-alpha@
+
+			acquire[index] = {
+				["Type"] = acquire_type,
+				["ID"] = acquire_id
+			}
+			if not acquire_id then
+				--@alpha@
+				self:Print("SpellID "..SpellID..": AchievementID is nil.")
+				--@end-alpha@
+			else
+				local _, achievement_name, _, _, _, _, _, achievement_desc = GetAchievementInfo(acquire_id)
+				acquire[index]["Achievement"] = achievement_name
+				acquire[index]["AchievementDesc"] = achievement_desc
+			end
+		end
+	end
+]]--
+	--- Adds acquire methods to a specific companion.
+	-- @name Collectinator:AddCompanionAcquire
+	-- @usage Collectinator:AddCompanionAcquire:(DB, 2329, 8, 8)
+	-- @param DB The database (array) which you wish to add acquire methods too.
+	-- @param SpellID The [http://www.wowpedia.org/SpellLink Spell ID] of the item being entered to the database.
+	-- @param ... A listing of acquire methods.  See [[database-documentation]] for a listing of acquire methods and how they behave.
+	-- @return None, array is passed as a reference.
 	function addon:AddCompanionAcquire(DB, SpellID, ...)
 		local numvars = select('#', ...)-- Find out how many flags we're adding
 		local index = 1			-- Index for the number of Acquire entries we have
