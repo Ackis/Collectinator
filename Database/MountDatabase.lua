@@ -1683,8 +1683,8 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(98718, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
 	self:AddCompanionAcquire(DB, 98718, A_MOB, 50005)
 	
-	-- -- Pureblood Fire Hawk -- 97493
-	AddMount(97493, 67151, R_EPIC, GAME_CATA)
+	-- Pureblood Fire Hawk -- 97493
+	AddMount(97493, 69224, R_EPIC, GAME_CATA)
 	AddMountFlags(97493, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 97493, A_MOB, 52409)
 
@@ -1693,12 +1693,12 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(97359, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 97359, A_ACHIEVEMENT, 5866)
 
-	-- -- Corrupted Fire Hawk -- 97560
+	-- Corrupted Fire Hawk -- 97560
 	AddMount(97560, 69230, R_EPIC, GAME_CATA)
 	AddMountFlags(97560, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 97560, A_ACHIEVEMENT, 5828)
 	
-	-- -- Flametalon of Alysrazor -- 101542
+	-- Flametalon of Alysrazor -- 101542
 	AddMount(101542, 71665, R_EPIC, GAME_CATA)
 	AddMountFlags(101542, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 101542, A_MOB, 52530)
