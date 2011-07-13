@@ -7,6 +7,8 @@
 	
 *Fix item id for "Pureblood Fire Hawk"
 
+*Your total pets and mounts numbers will now show correctly in the tooltips for the "mounts" and "companions" tabs in the spellbook 
+
 ===Version 1.0.11b
 
 *Actually add the new pets from 4.2 to Collectinator this time, sorry guys!! :(

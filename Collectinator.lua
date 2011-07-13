@@ -7,7 +7,7 @@
 
 --- **Collectinator** provides an interface for scanning companions and moutns to find what is missing.
 -- There are a set of functions which allow you make use of the Collectinator database outside of Collectinator.
--- Collectinator supports all mounts/pets currently in World of Warcraft 3.3.3
+-- Collectinator supports all mounts/pets currently in World of Warcraft 4.2
 -- @class file
 -- @name Collectinator.lua
 -- @release @file-revision@
@@ -384,21 +384,21 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Add mini-pet/mount totals to the tab
 	-------------------------------------------------------------------------------
-	SpellBookFrameTabButton5:SetScript("OnEnter",
+	SpellBookFrameTabButton4:SetScript("OnEnter",
 					function(this)
 						GameTooltip_SetDefaultAnchor(GameTooltip, this)
 						GameTooltip:SetText(string.format("%d %s.", GetNumCompanions("CRITTER"), PETS))
 						GameTooltip:Show()
 					end)
-	SpellBookFrameTabButton5:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	SpellBookFrameTabButton4:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
-	SpellBookFrameTabButton4:SetScript("OnEnter",
+	SpellBookFrameTabButton3:SetScript("OnEnter",
 					function(this)
 						GameTooltip_SetDefaultAnchor(GameTooltip, this)
 						GameTooltip:SetText(string.format("%d %s.", GetNumCompanions("MOUNT"), MOUNTS))
 						GameTooltip:Show()
 					end)
-	SpellBookFrameTabButton4:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	SpellBookFrameTabButton3:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
 	-------------------------------------------------------------------------------
 	-- Initialize the databases
