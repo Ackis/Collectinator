@@ -1,5 +1,12 @@
 ==Collectinator Change Log
 
+===Version 1.0.12
+
+*New Pet:
+	**Celestial Dragon
+	
+*Fix item id for "Pureblood Fire Hawk"
+
 ===Version 1.0.11b
 
 *Actually add the new pets from 4.2 to Collectinator this time, sorry guys!! :(
