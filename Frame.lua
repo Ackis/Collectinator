@@ -3060,7 +3060,9 @@ local function InitializeFrame()
 
 		-- Parse all items in the exclusion list
 		for i in pairs(exclusionlist) do
-			if collectibleDB[i]["Type"] == lower_type then
+			local exclusion = collectibleDB[i]
+
+			if exclusion and exclusion["Type"] == lower_type then
 				exclusionTotal = exclusionTotal + 1
 			end
 		end
