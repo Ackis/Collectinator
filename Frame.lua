@@ -888,11 +888,11 @@ local function GenerateTooltipContent(owner, rIndex)
 	local acquire_type
 
 	for k, v in pairs(companion["Acquire"]) do
+        local cStr = ""
 		acquire_type = v["Type"]
 
 		if acquire_type == A_VENDOR then
 			local vendor = vendorDB[v["ID"]]
-			local cStr = ""
 
 			left_color = addon:hexcolor("VENDOR")
 
@@ -1103,6 +1103,8 @@ local function GenerateTooltipContent(owner, rIndex)
 			-- Vendor:					VendorName
 			-- VendorZone				VendorCoords
 			local vendor = vendorDB[v["ID"]]
+            local displaytt = false
+            local faction
 
 			if not vendor then
 				right_color = addon:hexcolor("NEUTRAL")
@@ -1115,8 +1117,6 @@ local function GenerateTooltipContent(owner, rIndex)
 
 				left_color = addon:hexcolor("VENDOR")
 				-- Don't display vendors of opposite faction
-				local displaytt = false
-				local faction
 
 				if (vendor["Faction"] == factionHorde) then
 					right_color = addon:hexcolor("HORDE")
@@ -3069,13 +3069,13 @@ local function InitializeFrame()
 
 		local pbMax = addon.db.profile.includefiltered and playerData[total_str] or (playerData[total_filtered_str] + (playerData[known_str] - playerData[known_filtered_str]))
 		local pbCur = playerData[known_str]	-- Current value will always be what we know regardless of filters.
-		
+
 		if not addon.db.profile.includeexcluded and not addon.db.profile.ignoreexclusionlist then
 			pbMax = pbMax - exclusionTotal
 		end
 		self:SetMinMaxValues(0, pbMax)
 		self:SetValue(pbCur)
-		
+
 		local percentage = pbCur / pbMax * 100
 
 		if (floor(percentage) < 101) and (pbCur >= 0) and (pbMax >= 0) then
@@ -3344,7 +3344,7 @@ local function InitializeFrame()
 	local Collectinator_WrathCB = CreateFrame("CheckButton", "Collectinator_WrathCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_WrathCB, addon.Fly_Obtain, L["LK_WOW_DESC"], "wrath", 1, 2, 0)
 	Collectinator_WrathCBText:SetText(L["Lich King"])
-	
+
 	local Collectinator_CataCB = CreateFrame("CheckButton", "Collectinator_CataCB", addon.Fly_Obtain, "UICheckButtonTemplate")
 	addon:GenericMakeCB(Collectinator_CataCB, addon.Fly_Obtain, L["CATA_WOW_DESC"], "cata", 2, 2, 0)
 	Collectinator_CataCBText:SetText(L["Cataclysm"])
