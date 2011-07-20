@@ -1149,7 +1149,7 @@ local function GenerateTooltipContent(owner, rIndex)
 			elseif faction then
 				ttAdd(0, -1, 0, faction.." "..L["Vendor"], left_color)
 			end
-		elseif acquire_type == A_ACHIEVEMENT then
+		elseif acquire_type == A_ACHIEVEMENT and v["AchievementDesc"] then
 			-- Bit of a hack since we're using achievement text to describe as much as we can
 			-- If we have the avehivement flag marked, it's a real reward from achievements
 			if flags[F_ACHIEVEMENT] then
