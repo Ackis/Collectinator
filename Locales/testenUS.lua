@@ -431,6 +431,7 @@ L["Blacksmith Abasi"] = true
 L["Michelle De Rum"] = true
 L["Varlan Highbough"] = true
 L["Ayla Shadowstorm"] = true
+L["Zen'Vorka"] = true
 
 L["DB_LOAD_ERROR"] = [[Error: Database not loaded correctly.
 Please exit out of WoW and delete the Collectinator database file (Collectinator.lua) found in:
