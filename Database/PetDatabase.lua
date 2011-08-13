@@ -881,6 +881,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 68810, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 68810, A_CUSTOM, 1)
 
+	-- Spectral Tiger Cub - 96819
+	AddPet(96819, 68841, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 96819, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	self:AddCompanionAcquire(PetDB, 96819, A_CUSTOM, 1)
+
 --PURCHASED
 	-- Lil' K.T. - 69677
 	AddPet(69677, 49693, R_RARE, GAME_WOTLK)
