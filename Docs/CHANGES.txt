@@ -1,5 +1,11 @@
 ==Collectinator Change Log
 
+===Version 1.0.13
+*New Pet:
+	**Nightsaber Cub
+*Database:
+	**Updated Scorched Stone/Zen'Vorka vendor
+
 ===Version 1.0.12
 
 *New Pet:
