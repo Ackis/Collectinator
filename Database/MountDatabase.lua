@@ -666,14 +666,14 @@ function addon:GetMountTotal(DB)
 	-------------------------------------------------------------------------------
 	-- Paladin Mounts.
 	-------------------------------------------------------------------------------
-	if MY_CLASS == "PALADIN" and MY_RACE == "Human" then
+	if MY_CLASS == "PALADIN" and (MY_RACE == "Human" or MY_RACE == "Dwarf") then
 	
 		-- Warhorse (Alliance) -- 13819
 		AddMount(13819, nil, R_COMMON, GAME_ORIG, C_PALADIN)
 		AddMountFlags(13819, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 13819, A_CUSTOM, 40)
 
-		-- -- Charger (Alliance) -- 23214
+		-- Charger (Alliance) -- 23214
 		AddMount(23214, nil, R_COMMON, GAME_ORIG, C_PALADIN)
 		AddMountFlags(23214, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 23214, A_CUSTOM, 40)
