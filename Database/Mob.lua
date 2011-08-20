@@ -19,7 +19,6 @@ function addon:InitMob(DB)
 	---------------------------------------------------------------------------------------------------------------------------
 	--			ID	Mob Name				Location Found				Coordinates
 	---------------------------------------------------------------------------------------------------------------------------
-	self:addLookupList(DB, 193,	L["Blue Dragonspawn"],			BZ["Azshara"],				36.3, 72.9)
 	self:addLookupList(DB, 645,	BB["Cookie"],				BZ["The Deadmines"],			0, 0)
 	self:addLookupList(DB, 657,	L["Defias Pirate"],			BZ["The Deadmines"],			0, 0)
 	self:addLookupList(DB, 740,	L["Adolescent Whelp"],			BZ["Swamp of Sorrows"],			16.6, 55.7)
@@ -48,9 +47,6 @@ function addon:InitMob(DB)
 	self:addLookupList(DB, 4505,	L["Bloodsail Deckhand"],		BZ["Stranglethorn Vale"],		30.0, 90.0)
 	self:addLookupList(DB, 4506,	L["Bloodsail Swabby"],			BZ["Stranglethorn Vale"],		30.0, 90.0)
 	self:addLookupList(DB, 5842,	L["Takk the Leaper"],			BZ["The Barrens"],			60.2, 9.5)
-	self:addLookupList(DB, 6129,	L["Draconic Magelord"],			BZ["Azshara"],				42.7, 74.9)
-	self:addLookupList(DB, 6130,	L["Blue Scalebane"],			BZ["Azshara"],				43.2, 74.0)
-	self:addLookupList(DB, 6131,	L["Draconic Mageweaver"],		BZ["Azshara"],				36.4, 72.7)
 	self:addLookupList(DB, 6557,	L["Primal Ooze"],			BZ["Un'Goro Crater"],			61.5, 60.5)
 	self:addLookupList(DB, 6559,	L["Glutinous Ooze"],			BZ["Un'Goro Crater"],			42.3, 70.6)
 	self:addLookupList(DB, 6581,	L["Ravasaur Matriarch"],		BZ["Un'Goro Crater"],			64.6, 61.8)

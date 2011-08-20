@@ -327,7 +327,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Azure Whelpling - 10696
 	AddPet(10696, 34535, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10696, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10696, A_MOB, 193, A_MOB, 6129, A_MOB, 6130, A_MOB, 6131)
+	self:AddCompanionAcquire(PetDB, 10696, A_CUSTOM, 31)
 
 	-- Tiny Crimson Whelpling - 10697
 	AddPet(10697, 8499, R_COMMON, GAME_ORIG)
