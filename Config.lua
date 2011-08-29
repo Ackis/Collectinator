@@ -88,13 +88,6 @@ local function fullOptions()
 							desc	= L["CLEAR_EXCLUSION_LIST_DESC"],
 							func	= function(info) addon:ClearExclusionList() end,
 						},
-						resetallfilters = {
-							order	= 16,
-							type	= "execute",
-							name	= L["Reset All Filters"],
-							desc	= L["RESET_DESC"],
-							func	= function(info) addon.resetFilters() end,
-						},
 						resetguiwindow = {
 							order	= 17,
 							type	= "execute",
