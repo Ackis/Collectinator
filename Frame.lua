@@ -1575,7 +1575,7 @@ do
 			cButton:SetScript("OnClick", function(self, button, down)
 							     if not FilterValueMap[scriptVal] then
 								     --@alpha@
-								     self:Print("No entry for "..scriptVal.." in FilterValueMap.")
+								     addon:Print("No entry for "..scriptVal.." in FilterValueMap.")
 								     --@end-alpha@
 								     return
 							     end
