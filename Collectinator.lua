@@ -487,9 +487,9 @@ end
 function addon:COMPANION_LEARNED()
 	local companion_frame = self.ScanButton:GetParent()
 
-	if SpellBookCompanionModelFrame:IsVisible() then
+	if SpellBookCompanionModelFrame:IsVisible() and companion_frame.currentTab then
 		self:Scan(false, false, companion_frame.currentTab.bookType)
-	else
+	else if companion_frame.currentTab then
 		self:Scan(false, true, companion_frame.currentTab.bookType)
 	end
 end
