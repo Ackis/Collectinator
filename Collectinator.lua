@@ -489,7 +489,7 @@ function addon:COMPANION_LEARNED()
 
 	if SpellBookCompanionModelFrame:IsVisible() and companion_frame.currentTab then
 		self:Scan(false, false, companion_frame.currentTab.bookType)
-	else if companion_frame.currentTab then
+	elseif companion_frame.currentTab then
 		self:Scan(false, true, companion_frame.currentTab.bookType)
 	end
 end
