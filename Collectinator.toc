@@ -12,7 +12,7 @@
 ## X-Date: @file-date-iso@
 
 ## X-Category: Interface
-## X-Localizations: enUS, deDE, esES, esMX, frFR, koKR, ruRU, zhCN, zhTW
+## X-Localizations: enUS, deDE, esES, esMX, frFR, koKR, ruRU, zhCN, zhTW, ptBR
 ## X-Website: http://www.wowace.com/addons/collectinator/
 ## X-Feedback: http://www.curse.com/downloads/details/
 
