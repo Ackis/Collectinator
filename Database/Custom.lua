@@ -62,5 +62,6 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 43, "Rare drop from any mob in Northern Stranglethorn and The Cape of Stranglethorn")
 	self:addLookupList(DB, 44, "A project from the Troll race in Archaeology")
 	self:addLookupList(DB, 45, "Complete Zul'Aman in 25 minutes, and this mount is contained in Kasha's Bag")
+	self:addLookupList(DB, 46, "Contained within a \"Chirping Box\" from the achievement")
 end
 

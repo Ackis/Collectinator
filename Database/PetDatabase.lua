@@ -970,13 +970,13 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Gold Mini Jouster -- 78685
 	AddPet(78685, 65662, R_COMMON, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 78685, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(PetDB, 78685, A_QUEST, 25560)
+	self:AddCompanionFlags(PetDB, 78685, F_ALLIANCE, F_HORDE, F_QUEST, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 78685, A_QUEST, 25560, A_ACHIEVEMENT, 5860, A_CUSTOM, 46)
 
 	-- Blue Mini Jouster -- 78683
 	AddPet(78683, 65661, R_COMMON, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 78683, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(PetDB, 78683, A_QUEST, 25560)
+	self:AddCompanionFlags(PetDB, 78683, F_ALLIANCE, F_HORDE, F_QUEST, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(PetDB, 78683, A_QUEST, 25560, A_ACHIEVEMENT, 5860, A_CUSTOM, 46)
 
 	-- Lil' Deathwing -- 87344
 	AddPet(87344, 62540, R_RARE, GAME_CATA)
