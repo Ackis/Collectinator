@@ -6,12 +6,6 @@ license-output: LICENSE.txt
 # filename: Docs/CHANGES.txt
 # markup-type: creole
 
-ignore:
- - .pkgmeta
- - .docmeta
- - Docs
- - Locales/testenUS.lua
- 
 tools-used:
  - data-tools
  - dlcount
@@ -54,3 +48,19 @@ externals:
  libs/LibQTip-1.0:
   url: svn://svn.wowace.com/wow/libqtip-1-0/mainline/trunk
   tag: latest
+
+ignore:
+ - .pkgmeta
+ - .docmeta
+ - Docs
+ - Locales/testenUS.lua
+ - libs/LibAboutPanel/LibAboutPanel.toc
+ - libs/LibBabble-Boss-3.0/LibBabble-Boss-3.0.toc
+ - libs/LibBabble-Faction-3.0/LibBabble-Faction-3.0.toc
+ - libs/LibBabble-Zone-3.0/LibBabble-Zone-3.0.toc
+ - libs/LibSharedMedia-3.0/LibSharedMedia-3.0.toc
+ - libs/LibQTip-1.0/LibQTip-1.0.toc
+ - libs/LibQTip-1.0/LICENSE.txt
+ - libs/LibStub/LibStub.toc
+ - libs/LibStub/tests
+ - libs/LibSharedMedia-3.0/LibStub
