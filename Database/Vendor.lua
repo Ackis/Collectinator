@@ -58,7 +58,7 @@ function addon:InitVendor(DB)
 	-------------------------------------------------------------------------------
 	self:addLookupList(DB, 14860,	L["Flik"],				BZ["Terokkar Forest"],		33.7, 35.9,	NEUTRAL) --several places, Darkmoon, Wanders
 	self:addLookupList(DB, 23710,	L["Belbi Quikswitch"],			BZ["Dun Morogh"],		49.3, 39.5,	ALLIANCE)
-	self:addLookupList(DB, 24495,	L["Blix Fixwidget"],			BZ["Durotar"],			44.1, 17.9,	HORDE)
+	self:addLookupList(DB, 24495,	L["Blix Fixwidget"],			BZ["Durotar"],			40.3, 17.9,	HORDE)
 	self:addLookupList(DB, 27478,	L["Larkin Thunderbrew"],		BZ["Ironforge"],		18.8, 53.1,     ALLIANCE)
 	self:addLookupList(DB, 27489,	L["Ray'ma"],				BZ["Orgrimmar"],		37.9, 85.6,     HORDE)
 
