@@ -287,6 +287,16 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 74932, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_INSTANCE, F_BOP)
 	self:AddCompanionAcquire(PetDB, 74932, A_SEASONAL, 4, A_MOB, 25740)
 
+	-- Creepy Crate -- 100684
+	AddPet(100684, 71076, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 100684, F_ALLIANCE, F_HORDE, F_SEASONAL, F_QUEST, F_BOP)
+	self:AddCompanionAcquire(PetDB, 100684, A_SEASONAL, 7, A_QUEST, 29413, A_QUEST, 29429)
+
+	-- Feline Familiar -- 100330
+	AddPet(100330, 70908, R_COMMON, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 100330, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(PetDB, 100330, A_SEASONAL, 7, A_VENDOR, 53757, A_VENDOR, 53728)
+
 --WORLD EVENT VENDOR
 	-- Spirit of Summer - 28871
 	AddPet(28871, 23083, R_RARE, GAME_ORIG)
@@ -1191,16 +1201,6 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(101424, 71387, R_COMMON, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 101424, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 101424, A_ACHIEVEMENT, 5877)
-
-	-- Creepy Crate
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
-
-	-- Feline Familiar
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
 
 	-- Horde Balloon -- 101989
 	AddPet(101989, 72045, R_COMMON, GAME_CATA)
