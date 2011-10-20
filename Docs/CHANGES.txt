@@ -1,5 +1,12 @@
 ==Collectinator Change Log
 
+===Version 1.0.14
+*New Pet:
+	**Feline Familiar
+	**Creepy Crate
+
+*Fixed bug where it would error randomly when learning a new pet
+
 ===Version 1.0.13
 *New Pet:
 	**Nightsaber Cub
