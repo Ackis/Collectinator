@@ -813,7 +813,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 78381, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 78381, A_ACHIEVEMENT, 4824)
 
---BLIZZ CON
+--BLIZZCON
 	-- Blue Murloc Egg - 24696 (Murky)
 	AddPet(24696, 20371, R_RARE, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 24696, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOA)
@@ -828,6 +828,11 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(94070, 67418, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 94070, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOA)
 	self:AddCompanionAcquire(PetDB, 94070, A_ACHIEVEMENT, 5378)
+
+	-- Murkablo -- 101606
+	AddPet(101606, 71726, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 101606, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOA)
+	self:AddCompanionAcquire(PetDB, 101606, A_CUSTOM, 47)
 
 --PROMO
 	-- Pink Murloc Egg - 27241 (Gurky)
