@@ -1,5 +1,9 @@
 ==Collectinator Change Log
 
+===Version 1.0.15
+*New Pet:
+	**Murkablo
+
 ===Version 1.0.14
 *New Pet:
 	**Feline Familiar
