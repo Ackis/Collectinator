@@ -82,7 +82,7 @@ local C_DK, C_DRUID, C_HUNTER, C_MAGE, C_PALADIN, C_PRIEST, C_ROGUE, C_SHAMAN, C
 
 local MY_CLASS = select(2, UnitClass("player"))
 local MY_RACE = select(2, UnitRace("player"))
-local MY_FACTION = UnitFactionGroup("player")
+local MY_FACTION = select(2, UnitFactionGroup("player"))
 
 local initialized = false
 local num_mounts = 0

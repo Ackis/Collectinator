@@ -471,7 +471,7 @@ function addon:OnEnable()
 	local _
 
 	_, playerData.playerClass = UnitClass("player")
-	playerData.playerFaction = UnitFactionGroup("player")
+	_, playerData.playerFaction = UnitFactionGroup("player")
 end
 
 -- Run when the addon is disabled. Ace3 takes care of unregistering events, etc.
