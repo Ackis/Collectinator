@@ -1154,9 +1154,9 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 99578, A_CUSTOM, 4)
 
 	-- Guardian Cub -- 98736
-	-- AddPet(98736, 72068, R_RARE, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 98736, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
-	-- self:AddCompanionAcquire(PetDB, 98736, A_CUSTOM, 4)
+	AddPet(98736, 72068, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 98736, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
+	self:AddCompanionAcquire(PetDB, 98736, A_CUSTOM, 4)
 
 	-----------------------------------------------------
 	--4.2

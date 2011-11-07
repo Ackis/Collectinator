@@ -1704,9 +1704,9 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 101542, A_MOB, 52530)
 
 	-- Vicious Gladiator's Twilight Drake -- 101282
-	--AddMount(101282, 71339, R_EPIC, GAME_CATA)
-	--AddMountFlags(101282, F_ALLIANCE, F_HORDE, F_PVP, F_BOP)
-	--self:AddCompanionAcquire(DB, 101282, A_CUSTOM, 48)
+	AddMount(101282, 71339, R_EPIC, GAME_CATA)
+	AddMountFlags(101282, F_ALLIANCE, F_HORDE, F_PVP, F_BOP)
+	self:AddCompanionAcquire(DB, 101282, A_CUSTOM, 48)
 
 	-- -- Vicious War Steed -- 100332
 	AddMount(100332, 70909, R_EPIC, GAME_CATA)
