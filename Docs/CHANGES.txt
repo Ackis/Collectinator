@@ -1,5 +1,15 @@
 ==Collectinator Change Log
 
+===Version 1.0.16
+*New Pet:
+	**Guardian Cub
+
+*New Mount:
+	**Vicious Gladiator's Twilight Drake
+
+*Fixed the rarity for the "Nightsaber Cub"
+*Fixed a bug where the "Faction" filter wouldn't behave correctly for non-enUS locales
+
 ===Version 1.0.15
 *New Pet:
 	**Murkablo
