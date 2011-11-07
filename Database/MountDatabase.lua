@@ -1703,10 +1703,10 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(101542, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 101542, A_MOB, 52530)
 
-	-- Vicious Gladiator's Twilight Drake
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- Vicious Gladiator's Twilight Drake -- 101282
+	--AddMount(101282, 71339, R_EPIC, GAME_CATA)
+	--AddMountFlags(101282, F_ALLIANCE, F_HORDE, F_PVP, F_BOP)
+	--self:AddCompanionAcquire(DB, 101282, A_CUSTOM, 48)
 
 	-- -- Vicious War Steed -- 100332
 	AddMount(100332, 70909, R_EPIC, GAME_CATA)
@@ -1719,6 +1719,11 @@ function addon:GetMountTotal(DB)
 	self:AddCompanionAcquire(DB, 100333, A_ACHIEVEMENT, 5824)
 	
 	-- Green Fire Hawk Mount
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Swift Shorestrider -- ADD WHEN 4.3 IS OUT
 	--AddMount()
 	--AddMountFlags()
 	--self:AddCompanionAcquire()
