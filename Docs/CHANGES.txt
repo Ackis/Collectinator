@@ -1,5 +1,9 @@
 ==Collectinator Change Log
 
+===Version 1.0.16a
+
+*Have the new pets from the previous release actually show in the list
+
 ===Version 1.0.16
 *New Pet:
 	**Guardian Cub
