@@ -896,8 +896,8 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 68810, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 68810, A_CUSTOM, 1)
 
-	-- Spectral Tiger Cub - 96819
-	AddPet(96819, 68841, R_RARE, GAME_CATA)
+	-- Nightsaber Cub - 96819
+	AddPet(96819, 68841, R_COMMON, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 96819, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 96819, A_CUSTOM, 1)
 
@@ -1148,20 +1148,15 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 98587, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 98587, A_CUSTOM, 44)
 
-	-- Nightsaber Cub
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
-
 	-- Cenarion Hatchling -- 99578
 	AddPet(99578, 70099, R_EPIC, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 99578, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
 	self:AddCompanionAcquire(PetDB, 99578, A_CUSTOM, 4)
 
-	-- Guardian Cub
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
+	-- Guardian Cub -- 98736
+	-- AddPet(98736, 72068, R_RARE, GAME_CATA)
+	-- self:AddCompanionFlags(PetDB, 98736, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
+	-- self:AddCompanionAcquire(PetDB, 98736, A_CUSTOM, 4)
 
 	-----------------------------------------------------
 	--4.2
@@ -1172,20 +1167,10 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 99668, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(PetDB, 99668, A_VENDOR, 53881)
 
-	-- Guardian Cub
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
-
 	-- Hyjal Bear Cub -- 99663
 	AddPet(99663, 70140, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 99663, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(PetDB, 99663, A_VENDOR, 53882)
-	
-	-- Murky's Little Soulstone
-	-- AddPet()
-	-- self:AddCompanionFlags()
-	-- self:AddCompanionAcquire()
 
 	-- Nuts' Acorn -- 100970
 	AddPet(100970, 71140, R_RARE, GAME_CATA)
