@@ -108,7 +108,7 @@ function addon:GetMountTotal(DB)
 			num_mounts = num_mounts - 1
 		end
 	end
-	
+
 -- ACHIEVEMENTS
 	-- Reins of the Albino Drake - 60025
 	AddMount(60025, 44178, R_EPIC, GAME_WOTLK)
@@ -216,12 +216,12 @@ function addon:GetMountTotal(DB)
 	AddMount(61467, 44083, R_EPIC, GAME_WOTLK)
 	AddMountFlags(61467, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
 	self:AddCompanionAcquire(DB, 61467, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125, A_MOB, 38433)
-	
+
 	-- Goblin Trike -- 87090
 	AddMount(87090, 62461, R_RARE, GAME_WOTLK)
 	AddMountFlags(87090, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 87090, A_VENDOR, 48510, A_CUSTOM, 37)
-	
+
 	-- Goblin Turbo-Trike -- 87091
 	AddMount(87091, 62462, R_EPIC, GAME_WOTLK)
 	AddMountFlags(87091, F_HORDE, F_VENDOR, F_BOP)
@@ -667,7 +667,7 @@ function addon:GetMountTotal(DB)
 	-- Paladin Mounts.
 	-------------------------------------------------------------------------------
 	if MY_CLASS == "PALADIN" and (MY_RACE == "Human" or MY_RACE == "Dwarf") then
-	
+
 		-- Warhorse (Alliance) -- 13819
 		AddMount(13819, nil, R_COMMON, GAME_ORIG, C_PALADIN)
 		AddMountFlags(13819, F_ALLIANCE, F_VENDOR, F_BOP)
@@ -677,49 +677,49 @@ function addon:GetMountTotal(DB)
 		AddMount(23214, nil, R_COMMON, GAME_ORIG, C_PALADIN)
 		AddMountFlags(23214, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 23214, A_CUSTOM, 40)
-		
+
 	end
-		
+
 	if MY_CLASS == "PALADIN" and MY_RACE == "BloodElf" then
-		
+
 		-- Charger (Horde) -- 34767
 		AddMount(34767, nil, R_COMMON, GAME_ORIG, C_PALADIN)
 		AddMountFlags(34767, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 34767, A_CUSTOM, 40)
-		
+
 		-- Warhorse (Horde) -- 34769
 		AddMount(34769, nil, R_COMMON, GAME_ORIG, C_PALADIN)
 		AddMountFlags(34769, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 34769, A_CUSTOM, 40)
-	
+
 	end
-		
+
 	if MY_CLASS == "PALADIN" and MY_RACE == "Draenei" then
-		
+
 		-- Exarch's Elekk -- 73629
 		AddMount(73629, nil, R_COMMON, GAME_CATA, C_PALADIN)
 		AddMountFlags(73629, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 73629, A_CUSTOM, 40)
-		
+
 		-- Great Exarch's Elekk -- 73629
 		AddMount(73630, nil, R_COMMON, GAME_CATA, C_PALADIN)
 		AddMountFlags(73630, F_ALLIANCE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 73630, A_CUSTOM, 40)
-		
+
 	end
-		
+
 	if MY_CLASS == "PALADIN" and MY_RACE == "Tauren" then
-	
+
 		-- Sunwalker Kodo -- 69820
 		AddMount(69820, nil, R_COMMON, GAME_CATA, C_PALADIN)
 		AddMountFlags(69820, F_HORDE, F_VENDOR, F_BOP)
 		self:AddCompanionAcquire(DB, 69820, A_CUSTOM, 40)
-		
+
 		-- Great Sunwalker Kodo -- 69826
 		AddMount(69826, nil, R_COMMON, GAME_CATA, C_PALADIN)
 		AddMountFlags(69826, F_HORDE, F_VENDOR, F_BOP)
-		self:AddCompanionAcquire(DB, 69826, A_CUSTOM, 40)		
-	
+		self:AddCompanionAcquire(DB, 69826, A_CUSTOM, 40)
+
 	end
 
 	-- White Mechanostrider Mod B - 15779
@@ -1242,10 +1242,10 @@ function addon:GetMountTotal(DB)
 		-- Dreadsteed - 23161
 		AddMount(23161, nil, R_EPIC, GAME_ORIG, C_WARLOCK)
 		AddMountFlags(23161, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-		self:AddCompanionAcquire(DB, 23161, A_VENDOR, 16646, A_VENDOR, 5173, A_VENDOR, 23534, 
-					A_VENDOR, 5172, A_VENDOR, 16266, A_VENDOR, 461, A_VENDOR, 3172, A_VENDOR, 5612, 
-					A_VENDOR, 3324, A_VENDOR, 4563,	A_VENDOR, 988, A_VENDOR, 4564, A_VENDOR, 906, 
-					A_VENDOR, 3325, A_VENDOR, 4565,	A_VENDOR, 2127, A_VENDOR, 5496, A_VENDOR, 6251, 
+		self:AddCompanionAcquire(DB, 23161, A_VENDOR, 16646, A_VENDOR, 5173, A_VENDOR, 23534,
+					A_VENDOR, 5172, A_VENDOR, 16266, A_VENDOR, 461, A_VENDOR, 3172, A_VENDOR, 5612,
+					A_VENDOR, 3324, A_VENDOR, 4563,	A_VENDOR, 988, A_VENDOR, 4564, A_VENDOR, 906,
+					A_VENDOR, 3325, A_VENDOR, 4565,	A_VENDOR, 2127, A_VENDOR, 5496, A_VENDOR, 6251,
 					A_VENDOR, 16647, A_VENDOR, 5171, A_VENDOR, 5495, A_VENDOR, 16648, A_VENDOR, 3326)
 	end
 
@@ -1388,12 +1388,12 @@ function addon:GetMountTotal(DB)
 	AddMount(24252, 19902, R_EPIC, GAME_ORIG)
 	AddMountFlags(24252, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(DB, 24252, A_MOB, 14509)
-	
+
 	-- Swift Razzashi Raptor - 24242
 	AddMount(24242, 19872, R_EPIC, GAME_ORIG)
 	AddMountFlags(24242, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(DB, 24242, A_MOB, 11382)
-	
+
 	-- Crusader's White Warhorse
 	AddMount(68187, nil, R_EPIC, GAME_WOTLK)
 	AddMountFlags(68187, F_ALLIANCE, F_ACHIEVEMENT, F_BOP, F_REMOVED)
@@ -1403,17 +1403,17 @@ function addon:GetMountTotal(DB)
 	AddMount(68188, nil, R_EPIC, GAME_WOTLK)
 	AddMountFlags(68188, F_HORDE, F_ACHIEVEMENT, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(DB, 68188, A_ACHIEVEMENT, 4156)
-	
+
 	-- Swift Horde Wolf
 	AddMount(68056, 49046, R_EPIC, GAME_WOTLK)
 	AddMountFlags(68056, F_HORDE, F_MOB_DROP, F_RAID, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(DB, 68056, A_MOB, 34564)
-	
+
 	-- Swift Alliance Steed
 	AddMount(68057, 49044, R_EPIC, GAME_WOTLK)
 	AddMountFlags(68057, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(DB, 68057, A_MOB, 34564)
-	
+
 	 -- Black Proto-Drake - 59976
 	AddMount(59976, 44164, R_EPIC, GAME_WOTLK)
 	AddMountFlags(59976, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_ACHIEVEMENT)
@@ -1534,7 +1534,7 @@ function addon:GetMountTotal(DB)
 	AddMount(74856, 54069, R_EPIC, GAME_WOTLK)
 	AddMountFlags(74856, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	self:AddCompanionAcquire(DB, 74856, A_CUSTOM, 1)
-	
+
 	-- Savage Raptor -- 97581
 	AddMount(97581, 69228, R_EPIC, GAME_CATA)
 	AddMountFlags(97581, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
@@ -1544,18 +1544,18 @@ function addon:GetMountTotal(DB)
 	AddMount(93623, 68008, R_EPIC, GAME_CATA)
 	AddMountFlags(93623, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	self:AddCompanionAcquire(DB, 93623, A_CUSTOM, 1)
-	
+
 	-- Wooly White Rhino -- 74918
 	AddMount(74918, 54068, R_EPIC, GAME_WOTLK)
 	AddMountFlags(74918, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	self:AddCompanionAcquire(DB, 74918, A_CUSTOM, 1)
-	
+
 -- PURCHASED
 	-- Celestial Steed - 75614
 	AddMount(75614, 54811, R_EPIC, GAME_WOTLK)
 	AddMountFlags(75614, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(DB, 75614, A_CUSTOM, 4)
-	
+
 	-- Winged Guardian -- 98727
 	AddMount(98727, 69846, R_EPIC, GAME_CATA)
 	AddMountFlags(98727, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
@@ -1566,33 +1566,33 @@ function addon:GetMountTotal(DB)
 	AddMount(73313, 52200, R_EPIC, GAME_WOTLK)
 	AddMountFlags(73313, F_ALLIANCE, F_HORDE, F_QUEST, F_BOE)
 	self:AddCompanionAcquire(DB, 73313, A_QUEST, 24915)
-	
+
 -- CATACLYSM ADDED
 	-- Abyssal Seahorse -- 75207
 	AddMount(75207, 54465, R_RARE, GAME_CATA)
 	AddMountFlags(75207, F_HORDE, F_ALLIANCE, F_QUEST, F_BOP)
 	self:AddCompanionAcquire(DB, 75207, A_QUEST, 25371)
-	
+
 	-- Fossilized Raptor -- 84751
 	AddMount(84751, 60954, R_EPIC, GAME_CATA)
 	AddMountFlags(84751, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
 	self:AddCompanionAcquire(DB, 84751, A_CUSTOM, 38)
-	
+
 	-- Brown Riding Camel -- 88748  -- NNEED TO ADD THE NEW FACTION REPUTATION SHIT
 	AddMount(88748, 63044, R_EPIC, GAME_CATA)
 	AddMountFlags(88748, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 88748, A_VENDOR, 48617)
-	
+
 	-- Drake of the West Wind -- 88741
 	AddMount(88741, 65356, R_EPIC, GAME_CATA)
 	AddMountFlags(88741, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 88741, A_VENDOR, 48531, A_VENDOR, 47328)
-	
+
 	-- Tan Riding Camel -- 88749 -- NNEED TO ADD THE NEW FACTION REPUTATION SHIT
 	AddMount(88749, 63045, R_EPIC, GAME_CATA)
 	AddMountFlags(88749, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 88749, A_VENDOR, 48617)
-	
+
 	-- Spectral Wolf -- 92232
 	AddMount(92232, 64999, R_EPIC, GAME_CATA)
 	AddMountFlags(92232, F_HORDE, F_VENDOR, F_BOP)
@@ -1602,42 +1602,42 @@ function addon:GetMountTotal(DB)
 	AddMount(93644, 67107, R_EPIC, GAME_CATA)
 	AddMountFlags(93644, F_HORDE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 93644, A_ACHIEVEMENT, 5492)
-	
+
 	-- Golden King -- 90621
 	AddMount(90621, 62298, R_EPIC, GAME_CATA)
 	AddMountFlags(90621, F_ALLIANCE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 90621, A_ACHIEVEMENT, 4912)
-	
-    -- Grey Riding Camel -- 88750
+
+	-- Grey Riding Camel -- 88750
 	AddMount(88750, 63046, R_EPIC, GAME_CATA)
 	AddMountFlags(88750, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 88750, A_MOB,  50245)
-	
+
 	-- Drake of the South Wind -- 88744
 	AddMount(88744, 63041, R_EPIC, GAME_CATA)
 	AddMountFlags(88744, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 88744, A_MOB, 46753)
-	
+
 	-- Drake of the North Wind -- 88742
 	AddMount(88742, 63040, R_EPIC, GAME_CATA)
 	AddMountFlags(88742, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 88742, A_MOB, 43873)
-	
+
 	-- Vitreous Stone Drake -- 88746
 	AddMount(88746, 63043, R_EPIC, GAME_CATA)
 	AddMountFlags(88746, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 88746, A_MOB, 43214)
-	
+
 	-- Phosphorescent Stone Drake -- 88718
 	AddMount(88718, 63042, R_EPIC, GAME_CATA)
 	AddMountFlags(88718, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 88718, A_MOB, 50062)
-	
+
 	-- Dark Phoenix -- 88990
 	AddMount(88990, 63125, R_EPIC, GAME_CATA)
 	AddMountFlags(88990, F_ALLIANCE, F_HORDE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 88990, A_ACHIEVEMENT, 4988)
-	
+
 	-- Ultramarine Qiraji Battle Tank -- 92155
 	AddMount(92155, 64883, R_EPIC, GAME_CATA)
 	AddMountFlags(92155, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
@@ -1647,42 +1647,42 @@ function addon:GetMountTotal(DB)
 	AddMount(88331, 62900, R_EPIC, GAME_CATA)
 	AddMountFlags(88331, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 88331, A_ACHIEVEMENT, 4845)
-	
+
 	-- Sandstone Drake -- 93326
 	AddMount(93326, 65891, R_EPIC, GAME_CATA)
 	AddMountFlags(93326, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
 	self:AddCompanionAcquire(DB, 93326, A_CRAFTED, 51304, 93328)
-	
+
 	-- Drake of the East Wind -- 88335
 	AddMount(88335, 62901, R_EPIC, GAME_CATA)
 	AddMountFlags(88335, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 88335, A_ACHIEVEMENT, 4853)
-	
+
 	-- Spectral Steed -- 92231
 	AddMount(92231, 64998, R_EPIC, GAME_CATA)
 	AddMountFlags(92231, F_ALLIANCE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 92231, A_VENDOR, 47328)
-	
+
 	-- Armored Razzashi Raptor -- 96491
 	AddMount(96491, 68823, R_EPIC, GAME_CATA)
 	AddMountFlags(96491, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 96491, A_MOB, 52151)
-	
+
 	-- Swift Zulian Panther -- 96499
 	AddMount(96499, 68824, R_EPIC, GAME_CATA)
 	AddMountFlags(96499, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 96499, A_MOB, 52059)
-	
+
 	-- Amani Battle Bear -- 98204
 	AddMount(98204, 69747, R_EPIC, GAME_CATA)
 	AddMountFlags(98204, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(DB, 98204, A_CUSTOM, 45)
-	
+
 	-- Subdued Seahorse (Reins of Posedius) -- 98718
 	AddMount(98718, 67151, R_EPIC, GAME_CATA)
 	AddMountFlags(98718, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
 	self:AddCompanionAcquire(DB, 98718, A_MOB, 50005)
-	
+
 	-- Pureblood Fire Hawk -- 97493
 	AddMount(97493, 69224, R_EPIC, GAME_CATA)
 	AddMountFlags(97493, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
@@ -1697,7 +1697,7 @@ function addon:GetMountTotal(DB)
 	AddMount(97560, 69230, R_EPIC, GAME_CATA)
 	AddMountFlags(97560, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 97560, A_ACHIEVEMENT, 5828)
-	
+
 	-- Flametalon of Alysrazor -- 101542
 	AddMount(101542, 71665, R_EPIC, GAME_CATA)
 	AddMountFlags(101542, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
@@ -1717,16 +1717,21 @@ function addon:GetMountTotal(DB)
 	AddMount(100333, 70910, R_EPIC, GAME_CATA)
 	AddMountFlags(100333, F_HORDE, F_ACHIEVEMENT, F_BOE)
 	self:AddCompanionAcquire(DB, 100333, A_ACHIEVEMENT, 5824)
-	
+
+	-- Tyrael's Charger -- 107203
+	AddMount(107203, 76755, R_EPIC, GAME_CATA)
+	AddMountFlags(107203, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
+	self:AddCompanionAcquire(DB, 107203, A_CUSTOM, 49)
+
 	-- Green Fire Hawk Mount
 	--AddMount()
 	--AddMountFlags()
 	--self:AddCompanionAcquire()
-	
+
 	-- Swift Shorestrider -- ADD WHEN 4.3 IS OUT
 	--AddMount()
 	--AddMountFlags()
 	--self:AddCompanionAcquire()
-	
+
 	return num_mounts
 end
