@@ -65,5 +65,6 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 46, "Contained within a \"Chirping Box\" from the achievement")
 	self:addLookupList(DB, 47, "Received if you attended Blizzcon 2011")
 	self:addLookupList(DB, 48, "Arena: Earned the Vicious Gladiator title in Season 9")
+	self:addLookupList(DB, 49, "Received if you sign up for the WoW Annual Pass")
 end
 
