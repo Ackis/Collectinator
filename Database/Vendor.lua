@@ -57,6 +57,7 @@ function addon:InitVendor(DB)
 	-- World Events
 	-------------------------------------------------------------------------------
 	self:addLookupList(DB, 14860,	L["Flik"],				BZ["Terokkar Forest"],		33.7, 35.9,	NEUTRAL) --several places, Darkmoon, Wanders
+	self:addLookupList(DB, 14846,	L["Lhara"],				BZ["Darkmoon Island"],		48.2, 69.6,	NEUTRAL)
 	self:addLookupList(DB, 23710,	L["Belbi Quikswitch"],			BZ["Dun Morogh"],		49.3, 39.5,	ALLIANCE)
 	self:addLookupList(DB, 24495,	L["Blix Fixwidget"],			BZ["Durotar"],			40.3, 17.9,	HORDE)
 	self:addLookupList(DB, 27478,	L["Larkin Thunderbrew"],		BZ["Ironforge"],		18.8, 53.1,	ALLIANCE)

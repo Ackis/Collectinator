@@ -205,6 +205,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 62561, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP, F_FISHING)
 	self:AddCompanionAcquire(PetDB, 62561, A_QUEST, 13830, A_QUEST, 13832, A_QUEST, 13833, A_QUEST, 13834, A_QUEST, 13836)
 
+	-- Sea Pony -- 103588
+	AddPet(103588, 73953, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 103588, F_ALLIANCE, F_HORDE, F_BOP, F_FISHING, F_SEASONAL)
+	self:AddCompanionAcquire(PetDB, 103588, A_SEASONAL, 3)
+
 --PLAYERMADE
 	-- Mechanical Squirrel Box - 4055
 	AddPet(4055, 4401, R_COMMON, GAME_ORIG)
@@ -251,6 +256,51 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(26541, 21305, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 26541, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOE)
 	self:AddCompanionAcquire(PetDB, 26541, A_SEASONAL, 1)
+
+	-- Lumpy -- 103125
+	AddPet(103125, 73797, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 103125, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(PetDB, 103125, A_SEASONAL, 3)
+
+	-- Festival Lantern -- 104049
+	AddPet(104049, 74611, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 104049, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOE)
+	self:AddCompanionAcquire(PetDB, 104049, A_SEASONAL, 2)
+
+	-- Lunar Lantern -- 104047
+	AddPet(104047, 74610, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 104047, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(PetDB, 104047, A_SEASONAL, 2)
+
+	-- Darkmoon Balloon -- 103076
+	AddPet(103076, 73762, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 103076, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(PetDB, 103076, A_SEASONAL, 3, A_VENDOR, 14846)
+
+	-- Darkmoon Cub -- 105122
+	AddPet(105122, 74981, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 105122, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(PetDB, 105122, A_SEASONAL, 3, A_VENDOR, 14846)
+
+	-- Darkmoon Monkey -- 101733
+	AddPet(101733, 73764, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 101733, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(PetDB, 101733, A_SEASONAL, 3, A_VENDOR, 14846)
+
+	-- Darkmoon Tonk -- 103544
+	AddPet(103544, 73903, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 103544, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(PetDB, 103544, A_SEASONAL, 3, A_VENDOR, 14846)
+
+	-- Darkmoon Turtle -- 103074
+	AddPet(103074, 73765, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 103074, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(PetDB, 103074, A_SEASONAL, 3, A_VENDOR, 14846)
+
+	-- Darkmoon Zeppelin -- 103549
+	AddPet(103549, 73905, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 103549, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(PetDB, 103549, A_SEASONAL, 3, A_VENDOR, 14846)
 
 	-- Truesilver Shafted Arrow - 27570
 	AddPet(27570, 22235, R_COMMON, GAME_ORIG)
@@ -813,6 +863,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 78381, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 78381, A_ACHIEVEMENT, 4824)
 
+	-- Fetish Shaman -- 105633
+	--AddPet(105633, 76062, R_RARE, GAME_CATA)
+	--self:AddCompanionFlags(PetDB, 105633, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	--self:AddCompanionAcquire(PetDB, 105633, A_ACHIEVEMENT, )
+
 --BLIZZCON
 	-- Blue Murloc Egg - 24696 (Murky)
 	AddPet(24696, 20371, R_RARE, GAME_ORIG)
@@ -900,6 +955,21 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(96819, 68841, R_COMMON, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 96819, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 96819, A_CUSTOM, 1)
+
+	-- Purple Puffer -- 101493
+	AddPet(101493, 71624, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 101493, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	self:AddCompanionAcquire(PetDB, 101493, A_CUSTOM, 1)
+
+	-- Gregarious Grell -- 102317
+	AddPet(102317, 72134, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 102317, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	self:AddCompanionAcquire(PetDB, 102317, A_CUSTOM, 1)
+
+	-- Sand Scarab -- 102353
+	AddPet(102353, 72153, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 102353, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	self:AddCompanionAcquire(PetDB, 102353, A_CUSTOM, 1)
 
 --PURCHASED
 	-- Lil' K.T. - 69677
@@ -1058,7 +1128,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 90637, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(PetDB, 90637, A_MOB, 47676)
 
-    -- Crawling Claw -- 84263
+	-- Crawling Claw -- 84263
 	AddPet(84263, 60847, R_EPIC, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 84263, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 84263, A_CUSTOM, 42)
@@ -1201,6 +1271,11 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(100576, 71033, R_COMMON, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 100576, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 100576, A_ACHIEVEMENT, 5840)
+
+	-- Soul of the Aspects -- 110029
+	--AddPet(110029, 78916, R_RARE, GAME_CATA)
+	--self:AddCompanionFlags(PetDB, 110029, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	--self:AddCompanionAcquire(PetDB, 110029, A_SEASONAL, 3)
 
 	return num_pets
 end
