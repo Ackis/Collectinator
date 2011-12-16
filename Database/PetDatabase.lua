@@ -863,9 +863,14 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 78381, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 78381, A_ACHIEVEMENT, 4824)
 
+	-- Lil' Deathwing -- 87344
+	AddPet(87344, 62540, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 87344, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOP)
+	self:AddCompanionAcquire(PetDB, 87344, A_ACHIEVEMENT, 5377)
+
 	-- Fetish Shaman -- 105633
-	--AddPet(105633, 76062, R_RARE, GAME_CATA)
-	--self:AddCompanionFlags(PetDB, 105633, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	AddPet(105633, 76062, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 105633, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOP)
 	--self:AddCompanionAcquire(PetDB, 105633, A_ACHIEVEMENT, )
 
 --BLIZZCON
@@ -1038,16 +1043,6 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 92396, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 92396, A_ACHIEVEMENT, 5179)
 
-	-- Guild Page Alliance -- 92395
-	AddPet(92395, 65361, R_RARE, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 92395, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(PetDB, 92395, A_ACHIEVEMENT, 5031)
-
-	-- Guild Herald Alliance -- 92397
-	AddPet(92397, 65363, R_RARE, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 92397, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(PetDB, 92397, A_ACHIEVEMENT, 5201)
-
 	-- Guild Herald Horde -- 92398
 	AddPet(92398, 65364, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 92398, F_HORDE, F_ACHIEVEMENT, F_BOP)
@@ -1062,11 +1057,6 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(78683, 65661, R_COMMON, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 78683, F_ALLIANCE, F_HORDE, F_QUEST, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 78683, A_QUEST, 25560, A_ACHIEVEMENT, 5860, A_CUSTOM, 46)
-
-	-- Lil' Deathwing -- 87344
-	AddPet(87344, 62540, R_RARE, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 87344, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOP)
-	self:AddCompanionAcquire(PetDB, 87344, A_ACHIEVEMENT, 5377)
 
 	-- Tiny Shale Spider -- 91343
 	AddPet(91343, 64494, R_COMMON, GAME_CATA)
