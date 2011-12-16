@@ -979,43 +979,53 @@ function addon:GetMiniPetTotal(PetDB)
 --PURCHASED
 	-- Lil' K.T. - 69677
 	AddPet(69677, 49693, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 69677, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionFlags(PetDB, 69677, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
 	self:AddCompanionAcquire(PetDB, 69677, A_CUSTOM, 4)
 
 	-- Pandaren Monk - 69541
 	AddPet(69541, 49665, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 69541, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionFlags(PetDB, 69541, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
 	self:AddCompanionAcquire(PetDB, 69541, A_CUSTOM, 4)
 
 	-- Gryphon Hatchling - 69535
 	AddPet(69535, 49662, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 69535, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionFlags(PetDB, 69535, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
 	self:AddCompanionAcquire(PetDB, 69535, A_CUSTOM, 4)
 
 	-- Wind Rider Cub - 69536
 	AddPet(69536, 49663, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 69536, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionFlags(PetDB, 69536, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
 	self:AddCompanionAcquire(PetDB, 69536, A_CUSTOM, 4)
 
 	-- Lil' XT - 75906
 	AddPet(75906, 54847, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 75906, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionFlags(PetDB, 75906, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
 	self:AddCompanionAcquire(PetDB, 75906, A_CUSTOM, 4)
 
 	-- Lil' Ragnaros -- 95787
 	AddPet(95787, 68385, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 95787, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionFlags(PetDB, 95787, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
 	self:AddCompanionAcquire(PetDB, 95787, A_CUSTOM, 4)
 
 	-- Moonkin Hatchling (Alliance) -- 95786
 	AddPet(95786, 68618, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 95786, F_ALLIANCE, F_STORE, F_BOA)
+	self:AddCompanionFlags(PetDB, 95786, F_ALLIANCE, F_STORE, F_BOP)
 	self:AddCompanionAcquire(PetDB, 95786, A_CUSTOM, 4)
 
 	-- Moonkin Hatchling (Horde) -- 95909
 	AddPet(95909, 68619, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 95909, F_HORDE, F_STORE, F_BOA)
+	self:AddCompanionFlags(PetDB, 95909, F_HORDE, F_STORE, F_BOP)
 	self:AddCompanionAcquire(PetDB, 95909, A_CUSTOM, 4)
+
+	-- Cenarion Hatchling -- 99578
+	AddPet(99578, 70099, R_EPIC, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 99578, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
+	self:AddCompanionAcquire(PetDB, 99578, A_CUSTOM, 4)
+
+	-- Guardian Cub -- 98736
+	AddPet(98736, 72068, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 98736, F_ALLIANCE, F_HORDE, F_STORE, F_BOE)
+	self:AddCompanionAcquire(PetDB, 98736, A_CUSTOM, 4)
 
 	-- We only add the faction specific pets if the user is part of that faction
 	if MY_FACTION == FACTION_ALLIANCE then
@@ -1207,16 +1217,6 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(98587, 69824, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 98587, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
 	self:AddCompanionAcquire(PetDB, 98587, A_CUSTOM, 44)
-
-	-- Cenarion Hatchling -- 99578
-	AddPet(99578, 70099, R_EPIC, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 99578, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
-	self:AddCompanionAcquire(PetDB, 99578, A_CUSTOM, 4)
-
-	-- Guardian Cub -- 98736
-	AddPet(98736, 72068, R_RARE, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 98736, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
-	self:AddCompanionAcquire(PetDB, 98736, A_CUSTOM, 4)
 
 	-----------------------------------------------------
 	--4.2
