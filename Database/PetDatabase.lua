@@ -319,7 +319,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Lunar Lantern -- 104047
 	AddPet(104047, 74610, R_RARE, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 104047, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionFlags(PetDB, 104047, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOE)
 	self:AddCompanionAcquire(PetDB, 104047, A_SEASONAL, 2)
 
 	-- Darkmoon Balloon -- 103076
@@ -354,17 +354,17 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Truesilver Shafted Arrow - 27570
 	AddPet(27570, 22235, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 27570, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionFlags(PetDB, 27570, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOE)
 	self:AddCompanionAcquire(PetDB, 27570, A_ACHIEVEMENT, 1700, A_SEASONAL, 5)
 
 	-- Sinister Squashling - 42609
 	AddPet(42609, 33154, R_RARE, GAME_BC)
-	self:AddCompanionFlags(PetDB, 42609, F_ALLIANCE, F_HORDE, F_INSTANCE, F_SEASONAL, F_MOB_DROP, F_BOP)
+	self:AddCompanionFlags(PetDB, 42609, F_ALLIANCE, F_HORDE, F_INSTANCE, F_SEASONAL, F_MOB_DROP, F_BOE)
 	self:AddCompanionAcquire(PetDB, 42609, A_MOB, 23682, A_SEASONAL, 7)
 
 	-- Scorched Stone - 45890
 	AddPet(45890, 34955, R_RARE, GAME_BC)
-	self:AddCompanionFlags(PetDB, 45890, F_ALLIANCE, F_HORDE, F_INSTANCE, F_SEASONAL, F_MOB_DROP, F_VENDOR, F_BOP)
+	self:AddCompanionFlags(PetDB, 45890, F_ALLIANCE, F_HORDE, F_INSTANCE, F_SEASONAL, F_MOB_DROP, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 45890, A_MOB, 25740, A_SEASONAL, 4, A_VENDOR, 52822, A_CUSTOM, 15)
 
 	-- Clockwork Rocket Bot - 54187
@@ -374,17 +374,17 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Spring Rabbit - 61725
 	AddPet(61725, 44794, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 61725, F_ALLIANCE, F_HORDE, F_SEASONAL)
+	self:AddCompanionFlags(PetDB, 61725, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOE)
 	self:AddCompanionAcquire(PetDB, 61725, A_SEASONAL, 9)
 
 	-- Toxic Wasteling - 71840
 	AddPet(71840, 50446, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 71840, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_INSTANCE, F_BOP)
+	self:AddCompanionFlags(PetDB, 71840, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_INSTANCE, F_BOE)
 	self:AddCompanionAcquire(PetDB, 71840, A_SEASONAL, 5, A_MOB, 36296)
 
 	-- Ice Chip (Frigid Frostling) - 74932
 	AddPet(74932, 53641, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 74932, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_INSTANCE, F_BOP)
+	self:AddCompanionFlags(PetDB, 74932, F_ALLIANCE, F_HORDE, F_SEASONAL, F_MOB_DROP, F_INSTANCE, F_BOE)
 	self:AddCompanionAcquire(PetDB, 74932, A_SEASONAL, 4, A_MOB, 25740)
 
 	-- Creepy Crate -- 100684
