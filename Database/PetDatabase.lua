@@ -354,7 +354,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Lumpy -- 103125
 	AddPet(103125, 73797, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 103125, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
-	self:AddCompanionAcquire(PetDB, 103125, A_SEASONAL, 3)
+	self:AddCompanionAcquire(PetDB, 103125, A_SEASONAL, 1)
 
 	-- Festival Lantern -- 104049
 	AddPet(104049, 74611, R_RARE, GAME_CATA)
