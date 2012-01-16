@@ -356,16 +356,6 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 103125, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
 	self:AddCompanionAcquire(PetDB, 103125, A_SEASONAL, 1)
 
-	-- Festival Lantern -- 104049
-	AddPet(104049, 74611, R_RARE, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 104049, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOE)
-	self:AddCompanionAcquire(PetDB, 104049, A_SEASONAL, 2)
-
-	-- Lunar Lantern -- 104047
-	AddPet(104047, 74610, R_RARE, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 104047, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOE)
-	self:AddCompanionAcquire(PetDB, 104047, A_SEASONAL, 2)
-
 	-- Darkmoon Balloon -- 103076
 	AddPet(103076, 73762, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 103076, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
@@ -1063,11 +1053,6 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 87344, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOP)
 	self:AddCompanionAcquire(PetDB, 87344, A_ACHIEVEMENT, 5377)
 
-	-- Fetish Shaman -- 105633
-	AddPet(105633, 76062, R_RARE, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 105633, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOP)
-	--self:AddCompanionAcquire(PetDB, 105633, A_ACHIEVEMENT, )
-
 --BLIZZCON
 	-- Blue Murloc Egg - 24696 (Murky)
 	AddPet(24696, 20371, R_RARE, GAME_ORIG)
@@ -1171,16 +1156,6 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 101493, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 101493, A_CUSTOM, 1)
 
-	-- Gregarious Grell -- 102317
-	AddPet(102317, 72134, R_RARE, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 102317, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
-	self:AddCompanionAcquire(PetDB, 102317, A_CUSTOM, 1)
-
-	-- Sand Scarab -- 102353
-	AddPet(102353, 72153, R_RARE, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 102353, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
-	self:AddCompanionAcquire(PetDB, 102353, A_CUSTOM, 1)
-
 --PURCHASED
 	-- Lil' K.T. - 69677
 	AddPet(69677, 49693, R_RARE, GAME_WOTLK)
@@ -1246,11 +1221,38 @@ function addon:GetMiniPetTotal(PetDB)
 		self:AddCompanionFlags(PetDB, 66096, F_HORDE, F_VENDOR, F_BOE, WRATHCOMMON1)
 		self:AddCompanionAcquire(PetDB, 66096, A_REPUTATION, 1124, EXALTED, 34772)
 	end
-
+	
+	-- To add at a later time when they become available:
+	
 	-- Soul of the Aspects -- 110029
-	--AddPet(110029, 78916, R_RARE, GAME_CATA)
-	--self:AddCompanionFlags(PetDB, 110029, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
-	--self:AddCompanionAcquire(PetDB, 110029, A_SEASONAL, 3)
+	-- AddPet(110029, 78916, R_RARE, GAME_CATA)
+	-- self:AddCompanionFlags(PetDB, 110029, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	-- self:AddCompanionAcquire(PetDB, 110029, A_SEASONAL, 3)
+	
+	-- Gregarious Grell -- 102317
+	-- AddPet(102317, 72134, R_RARE, GAME_CATA)
+	-- self:AddCompanionFlags(PetDB, 102317, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	-- self:AddCompanionAcquire(PetDB, 102317, A_CUSTOM, 1)
+
+	-- Sand Scarab -- 102353
+	-- AddPet(102353, 72153, R_RARE, GAME_CATA)
+	-- self:AddCompanionFlags(PetDB, 102353, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	-- self:AddCompanionAcquire(PetDB, 102353, A_CUSTOM, 1)
+	
+	-- Fetish Shaman -- 105633
+	-- AddPet(105633, 76062, R_RARE, GAME_CATA)
+	-- self:AddCompanionFlags(PetDB, 105633, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOP)
+	-- self:AddCompanionAcquire(PetDB, 105633, A_ACHIEVEMENT, )
+	
+	-- Festival Lantern -- 104049
+	-- AddPet(104049, 74611, R_RARE, GAME_CATA)
+	-- self:AddCompanionFlags(PetDB, 104049, F_HORDE, F_SEASONAL, F_BOE)
+	-- self:AddCompanionAcquire(PetDB, 104049, A_SEASONAL, 2)
+
+	-- Lunar Lantern -- 104047
+	-- AddPet(104047, 74610, R_RARE, GAME_CATA)
+	-- self:AddCompanionFlags(PetDB, 104047, F_ALLIANCE, F_SEASONAL, F_BOE)
+	-- self:AddCompanionAcquire(PetDB, 104047, A_SEASONAL, 2)
 
 	return num_pets
 end
