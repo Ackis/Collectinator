@@ -66,5 +66,8 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 47, "Received if you attended Blizzcon 2011")
 	self:addLookupList(DB, 48, "Arena: Earned the Vicious Gladiator title in Season 9")
 	self:addLookupList(DB, 49, "Received if you sign up for the WoW Annual Pass")
+	self:addLookupList(DB, 50, "Chance to drop on Heroic version of Madness of Deathwing")
+	self:addLookupList(DB, 51, "Chance to drop on Normal and Heroic versions of Madness of Deathwing")
+	self:addLookupList(DB, 52, "Arena: Earned the Ruthless Gladiator title in Season 10")
 end
 
