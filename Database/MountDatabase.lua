@@ -1722,16 +1722,111 @@ function addon:GetMountTotal(DB)
 	AddMount(107203, 76755, R_EPIC, GAME_CATA)
 	AddMountFlags(107203, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
 	self:AddCompanionAcquire(DB, 107203, A_CUSTOM, 49)
+	
+	--if MY_RACE == "Worgen" then
+
+		-- Mountain Horse -- 103195
+		--AddMount(103195, 73838, R_RARE, GAME_CATA)
+		--AddMountFlags(103195, F_ALLIANCE, F_VENDOR, F_BOP)
+		--self:AddCompanionAcquire(DB, 103195, A_VENDOR, 55285)
+
+		-- Swift Mountain Horse -- 103196
+		--AddMount(103196, 73839, R_EPIC, GAME_CATA)
+		--AddMountFlags(103196, F_ALLIANCE, F_VENDOR, F_BOP)
+		--self:AddCompanionAcquire(DB, 103196, A_VENDOR, 55285)
+
+	--end
+
+	-- Swift Shorestrider -- 101573
+	--AddMount(101573, 71718, R_EPIC, GAME_CATA)
+	--AddMountFlags(101573, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
+	--self:AddCompanionAcquire(DB, 101573, A_CUSTOM, 1)
+	
+	-- Darkmoon Dancing Bear -- 103081
+	--AddMount(103081, 73766, R_EPIC, GAME_CATA)
+	--AddMountFlags(103081, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	--self:AddCompanionAcquire(DB, 103081, A_SEASONAL, 3, A_VENDOR, 14846)
+
+	-- Swift Forest Strider -- 102346
+	--AddMount(102346, 72140, R_EPIC, GAME_CATA)
+	--AddMountFlags(102346, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	--self:AddCompanionAcquire(DB, 102346, A_SEASONAL, 3, A_VENDOR, 14846)
+
+	-- Amani Dragonhawk -- 96503
+	--AddMount(96503, 68825, R_EPIC, GAME_CATA)
+	--AddMountFlags(96503, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
+	--self:AddCompanionAcquire(DB, 96503,  A_CUSTOM, 1)
+	
+	-- Blazing Drake
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Experiment 12-B
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Life-Binder's Handmaiden
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Ruthless Gladiator's Twilight Drake
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+	
+	-- Twilight Harbringer
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+
+
+
+	--------------------------------------------------------------------
+	-- TO BE ADDED WHEN THEY BECOME AVAILABLE:
+
+	-- Swift Springstrider
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+
+	-- White Riding Camel
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+
+	-- Swift Lovebird
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+
+	-- Corrupted Hippogryph
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+
+	-- Spectral Gryphon
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+
+	-- Spectral Wind Rider
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
+
+	-- Heart of the Aspects
+	--AddMount()
+	--AddMountFlags()
+	--self:AddCompanionAcquire()
 
 	-- Green Fire Hawk Mount
 	--AddMount()
 	--AddMountFlags()
 	--self:AddCompanionAcquire()
-
-	-- Swift Shorestrider -- ADD WHEN 4.3 IS OUT
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	---------------------------------------------------------------------
 
 	return num_mounts
 end
