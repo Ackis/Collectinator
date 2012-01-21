@@ -127,7 +127,7 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 48510, L["Kall Worthaton"],    BZ["Orgrimmar"],         36.5, 86.9, HORDE)
 	self:addLookupList(DB, 48531, L["Pogg"],    BZ["Tol Barad Peninsula"],         54.6, 81.0, HORDE)
 	self:addLookupList(DB, 48617, L["Blacksmith Abasi"],    BZ["Uldum"],         54.0, 33.2, NEUTRAL)
-	
+	self:addLookupList(DB, 55285, L["Astrid Langstrump"],    BZ["Darnassus"],         48.6, 22.2, ALLIANCE)
 	-------------------------------------------------------------------------------
 	-- Warlock trainers.
 	-------------------------------------------------------------------------------
