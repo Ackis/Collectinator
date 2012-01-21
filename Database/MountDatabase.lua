@@ -1705,15 +1705,15 @@ function addon:GetMountTotal(DB)
 
 	-- Vicious Gladiator's Twilight Drake -- 101282
 	AddMount(101282, 71339, R_EPIC, GAME_CATA)
-	AddMountFlags(101282, F_ALLIANCE, F_HORDE, F_PVP, F_BOP)
+	AddMountFlags(101282, F_ALLIANCE, F_HORDE, F_REMOVED, F_PVP, F_BOP)
 	self:AddCompanionAcquire(DB, 101282, A_CUSTOM, 48)
 
-	-- -- Vicious War Steed -- 100332
+	-- Vicious War Steed -- 100332
 	AddMount(100332, 70909, R_EPIC, GAME_CATA)
 	AddMountFlags(100332, F_ALLIANCE, F_ACHIEVEMENT, F_BOE)
 	self:AddCompanionAcquire(DB, 100332, A_ACHIEVEMENT, 5823)
 
-	-- -- Vicious War Wolf -- 100333
+	-- Vicious War Wolf -- 100333
 	AddMount(100333, 70910, R_EPIC, GAME_CATA)
 	AddMountFlags(100333, F_HORDE, F_ACHIEVEMENT, F_BOE)
 	self:AddCompanionAcquire(DB, 100333, A_ACHIEVEMENT, 5824)
@@ -1757,31 +1757,30 @@ function addon:GetMountTotal(DB)
 	--AddMountFlags(96503, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	--self:AddCompanionAcquire(DB, 96503,  A_CUSTOM, 1)
 	
-	-- Blazing Drake
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- Blazing Drake -- 107842
+	--AddMount(107842, 77067, R_EPIC, GAME_CATA)
+	--AddMountFlags(107842, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	--self:AddCompanionAcquire(DB, 107842, A_MOB, 56173, A_CUSTOM, 51)
 	
-	-- Experiment 12-B
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- Experiment 12-B -- 110039
+	--AddMount(110039, 78919, R_EPIC, GAME_CATA)
+	--AddMountFlags(110039, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	--self:AddCompanionAcquire(DB, 110039, A_MOB, 55294)
 	
-	-- Life-Binder's Handmaiden
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- Life-Binder's Handmaiden -- 107845
+	--AddMount(107845, 77069, R_EPIC, GAME_CATA)
+	--AddMountFlags(107845, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	--self:AddCompanionAcquire(DB, 107845, A_MOB, 56173, A_CUSTOM, 50)
 	
-	-- Ruthless Gladiator's Twilight Drake
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	-- Ruthless Gladiator's Twilight Drake -- 101821
+	--AddMount(101821, 71954, R_EPIC, GAME_CATA)
+	--AddMountFlags(101821, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	--self:AddCompanionAcquire(DB, 101821, A_CUSTOM, 52)
 	
-	-- Twilight Harbringer
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
-
+	-- Twilight Harbringer -- 107844
+	--AddMount(107844, 77068, R_EPIC, GAME_CATA)
+	--AddMountFlags(107844, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	--self:AddCompanionAcquire(DB, 107844, A_ACHIEVEMENT, 6169)
 
 
 	--------------------------------------------------------------------
