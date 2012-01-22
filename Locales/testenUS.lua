@@ -426,6 +426,7 @@ L["Quartermaster Brazie"] = true
 L["Pogg"] = true
 L["Blacksmith Abasi"] = true
 L["Michelle De Rum"] = true
+L["Valadar Starsong"] = true
 L["Varlan Highbough"] = true
 L["Ayla Shadowstorm"] = true
 L["Zen'Vorka"] = true

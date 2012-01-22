@@ -33,7 +33,7 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 8404,	L["Xan'tish"],				BZ["Orgrimmar"],		37.5, 74.6,	HORDE) -- Wanders
 	self:addLookupList(DB, 8665,	L["Shylenai"],				BZ["Darnassus"],		69.8, 45.4,	ALLIANCE)
 	self:addLookupList(DB, 8666,	L["Lil Timmy"],				BZ["Stormwind City"],		46.4, 55.5,	ALLIANCE) -- Wanders
-
+	self:addLookupList(DB, 15864,	L["Valadar Starsong"],			BZ["Moonglade"],		53.7, 35.3,	NEUTRAL)
 	self:addLookupList(DB, 16860,	L["Jilanne"],				BZ["Eversong Woods"],		44.8, 71.8,	HORDE)
 	self:addLookupList(DB, 17249,	L["Landro Longshot"],			BZ["Stranglethorn Vale"],	28.1, 75.8,	NEUTRAL)
 	self:addLookupList(DB, 18382,	L["Mycah"],				BZ["Zangarmarsh"],		17.9, 51.2,	NEUTRAL)
@@ -41,17 +41,17 @@ function addon:InitVendor(DB)
 	self:addLookupList(DB, 21019,	L["Sixx"],				BZ["The Exodar"],		30.3, 34.0,	ALLIANCE)
 	self:addLookupList(DB, 23367,	L["Grella"],				BZ["Terokkar Forest"],		64.3, 66.3,	NEUTRAL)
 	self:addLookupList(DB, 28951,	L["Breanni"],				BZ["Dalaran"],			58.7, 39.5,	NEUTRAL)
-	self:addLookupList(DB, 29478,	L["Jepetto Joybuzz"],				BZ["Dalaran"],			44.8, 46.5,	NEUTRAL)
-	self:addLookupList(DB, 29716,	L["Clockwork Assistant"],				BZ["Dalaran"],			44.2, 46.5,	NEUTRAL)
+	self:addLookupList(DB, 29478,	L["Jepetto Joybuzz"],			BZ["Dalaran"],			44.8, 46.5,	NEUTRAL)
+	self:addLookupList(DB, 29716,	L["Clockwork Assistant"],		BZ["Dalaran"],			44.2, 46.5,	NEUTRAL)
 	self:addLookupList(DB, 29537,	L["Darahir"],				BZ["Dalaran"],			63.7, 16.5,	NEUTRAL)
 	self:addLookupList(DB, 31910,	L["Geen"],				BZ["Sholazar Basin"],		54.5, 56.2,	NEUTRAL)
 	self:addLookupList(DB, 31916,	L["Tanaika"],				BZ["Howling Fjord"],		25.5, 58.7,	NEUTRAL)
 	self:addLookupList(DB, 32763,	L["Sairuk"],				BZ["Dragonblight"],		48.5, 75.7,	NEUTRAL)
-	self:addLookupList(DB, 33980, L["Apothecary Furrows"], BZ["Darkshore"],      57.0, 33.9, NEUTRAL)
+	self:addLookupList(DB, 33980,	L["Apothecary Furrows"],		BZ["Darkshore"],		57.0, 33.9,	NEUTRAL)
 	self:addLookupList(DB, 52822,	L["Zen'Vorka"],				BZ["Molten Front"],		47.0, 90.8,	NEUTRAL)
-	self:addLookupList(DB, 52830,	L["Michelle De Rum"],				BZ["Winterspring"],		59.8, 51.6,	NEUTRAL)
-	self:addLookupList(DB, 53881,	L["Ayla Shadowstorm"],				BZ["Molten Front"],		44.2, 86.4,	NEUTRAL)
-	self:addLookupList(DB, 53882,	L["Varlan Highbough"],				BZ["Molten Front"],		44.8, 88.2,	NEUTRAL)	
+	self:addLookupList(DB, 52830,	L["Michelle De Rum"],			BZ["Winterspring"],		59.8, 51.6,	NEUTRAL)
+	self:addLookupList(DB, 53881,	L["Ayla Shadowstorm"],			BZ["Molten Front"],		44.2, 86.4,	NEUTRAL)
+	self:addLookupList(DB, 53882,	L["Varlan Highbough"],			BZ["Molten Front"],		44.8, 88.2,	NEUTRAL)
 
 	-------------------------------------------------------------------------------
 	-- World Events
