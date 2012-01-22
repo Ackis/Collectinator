@@ -1722,65 +1722,61 @@ function addon:GetMountTotal(DB)
 	AddMount(107203, 76755, R_EPIC, GAME_CATA)
 	AddMountFlags(107203, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
 	self:AddCompanionAcquire(DB, 107203, A_CUSTOM, 49)
-	
-	--if MY_RACE == "Worgen" then
 
-		-- Mountain Horse -- 103195
-		--AddMount(103195, 73838, R_RARE, GAME_CATA)
-		--AddMountFlags(103195, F_ALLIANCE, F_VENDOR, F_BOP)
-		--self:AddCompanionAcquire(DB, 103195, A_VENDOR, 55285)
+	-- Mountain Horse -- 103195
+	AddMount(103195, 73838, R_RARE, GAME_CATA)
+	AddMountFlags(103195, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 103195, A_VENDOR, 55285)
 
-		-- Swift Mountain Horse -- 103196
-		--AddMount(103196, 73839, R_EPIC, GAME_CATA)
-		--AddMountFlags(103196, F_ALLIANCE, F_VENDOR, F_BOP)
-		--self:AddCompanionAcquire(DB, 103196, A_VENDOR, 55285)
-
-	--end
+	-- Swift Mountain Horse -- 103196
+	AddMount(103196, 73839, R_EPIC, GAME_CATA)
+	AddMountFlags(103196, F_ALLIANCE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 103196, A_VENDOR, 55285)
 
 	-- Swift Shorestrider -- 101573
-	--AddMount(101573, 71718, R_EPIC, GAME_CATA)
-	--AddMountFlags(101573, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
-	--self:AddCompanionAcquire(DB, 101573, A_CUSTOM, 1)
-	
+	AddMount(101573, 71718, R_EPIC, GAME_CATA)
+	AddMountFlags(101573, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
+	self:AddCompanionAcquire(DB, 101573, A_CUSTOM, 1)
+
 	-- Darkmoon Dancing Bear -- 103081
-	--AddMount(103081, 73766, R_EPIC, GAME_CATA)
-	--AddMountFlags(103081, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
-	--self:AddCompanionAcquire(DB, 103081, A_SEASONAL, 3, A_VENDOR, 14846)
+	AddMount(103081, 73766, R_EPIC, GAME_CATA)
+	AddMountFlags(103081, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(DB, 103081, A_SEASONAL, 3, A_VENDOR, 14846)
 
 	-- Swift Forest Strider -- 102346
-	--AddMount(102346, 72140, R_EPIC, GAME_CATA)
-	--AddMountFlags(102346, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
-	--self:AddCompanionAcquire(DB, 102346, A_SEASONAL, 3, A_VENDOR, 14846)
+	AddMount(102346, 72140, R_EPIC, GAME_CATA)
+	AddMountFlags(102346, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionAcquire(DB, 102346, A_SEASONAL, 3, A_VENDOR, 14846)
 
 	-- Amani Dragonhawk -- 96503
-	--AddMount(96503, 68825, R_EPIC, GAME_CATA)
-	--AddMountFlags(96503, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
-	--self:AddCompanionAcquire(DB, 96503,  A_CUSTOM, 1)
+	AddMount(96503, 68825, R_EPIC, GAME_CATA)
+	AddMountFlags(96503, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
+	self:AddCompanionAcquire(DB, 96503,  A_CUSTOM, 1)
 	
 	-- Blazing Drake -- 107842
-	--AddMount(107842, 77067, R_EPIC, GAME_CATA)
-	--AddMountFlags(107842, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
-	--self:AddCompanionAcquire(DB, 107842, A_MOB, 56173, A_CUSTOM, 51)
+	AddMount(107842, 77067, R_EPIC, GAME_CATA)
+	AddMountFlags(107842, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 107842, A_MOB, 56173, A_CUSTOM, 51)
 	
 	-- Experiment 12-B -- 110039
-	--AddMount(110039, 78919, R_EPIC, GAME_CATA)
-	--AddMountFlags(110039, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
-	--self:AddCompanionAcquire(DB, 110039, A_MOB, 55294)
+	AddMount(110039, 78919, R_EPIC, GAME_CATA)
+	AddMountFlags(110039, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 110039, A_MOB, 55294)
 	
 	-- Life-Binder's Handmaiden -- 107845
-	--AddMount(107845, 77069, R_EPIC, GAME_CATA)
-	--AddMountFlags(107845, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
-	--self:AddCompanionAcquire(DB, 107845, A_MOB, 56173, A_CUSTOM, 50)
+	AddMount(107845, 77069, R_EPIC, GAME_CATA)
+	AddMountFlags(107845, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(DB, 107845, A_MOB, 56173, A_CUSTOM, 50)
 	
 	-- Ruthless Gladiator's Twilight Drake -- 101821
-	--AddMount(101821, 71954, R_EPIC, GAME_CATA)
-	--AddMountFlags(101821, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
-	--self:AddCompanionAcquire(DB, 101821, A_CUSTOM, 52)
+	AddMount(101821, 71954, R_EPIC, GAME_CATA)
+	AddMountFlags(101821, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
+	self:AddCompanionAcquire(DB, 101821, A_CUSTOM, 52)
 	
 	-- Twilight Harbringer -- 107844
-	--AddMount(107844, 77068, R_EPIC, GAME_CATA)
-	--AddMountFlags(107844, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 107844, A_ACHIEVEMENT, 6169)
+	AddMount(107844, 77068, R_EPIC, GAME_CATA)
+	AddMountFlags(107844, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
+	self:AddCompanionAcquire(DB, 107844, A_ACHIEVEMENT, 6169)
 
 
 	--------------------------------------------------------------------
