@@ -491,6 +491,16 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(44369, 46707, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 44369, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
 	self:AddCompanionAcquire(PetDB, 44369, A_SEASONAL, 6, A_VENDOR, 23710, A_VENDOR, 24495, A_VENDOR, 27478, A_VENDOR, 27489)
+	
+	-- Festival Lantern -- 104049
+	AddPet(104049, 74611, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 104049, F_HORDE, F_SEASONAL, F_VENDOR, F_BOE)
+	self:AddCompanionAcquire(PetDB, 104049, A_SEASONAL, 2, A_VENDOR, 15864)
+
+	-- Lunar Lantern -- 104047
+	AddPet(104047, 74610, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 104047, F_ALLIANCE, F_SEASONAL, F_VENDOR, F_BOE)
+	self:AddCompanionAcquire(PetDB, 104047, A_SEASONAL, 2, A_VENDOR, 15864)
 
 --DROP
 	-- Parrot Cage (Hyacinth Macaw) - 10682
@@ -1243,16 +1253,6 @@ function addon:GetMiniPetTotal(PetDB)
 	-- AddPet(105633, 76062, R_RARE, GAME_CATA)
 	-- self:AddCompanionFlags(PetDB, 105633, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOP)
 	-- self:AddCompanionAcquire(PetDB, 105633, A_ACHIEVEMENT, )
-	
-	-- Festival Lantern -- 104049
-	-- AddPet(104049, 74611, R_RARE, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 104049, F_HORDE, F_SEASONAL, F_BOE)
-	-- self:AddCompanionAcquire(PetDB, 104049, A_SEASONAL, 2)
-
-	-- Lunar Lantern -- 104047
-	-- AddPet(104047, 74610, R_RARE, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 104047, F_ALLIANCE, F_SEASONAL, F_BOE)
-	-- self:AddCompanionAcquire(PetDB, 104047, A_SEASONAL, 2)
 
 	return num_pets
 end
