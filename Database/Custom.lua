@@ -69,5 +69,9 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 50, "Chance to drop on Heroic version of Madness of Deathwing")
 	self:addLookupList(DB, 51, "Chance to drop on Normal and Heroic versions of Madness of Deathwing")
 	self:addLookupList(DB, 52, "Arena: Earned the Ruthless Gladiator title in Season 10")
+	self:addLookupList(DB, 53, "Find this pet in Dart's Nest in Dustwallow Marsh")
+	self:addLookupList(DB, 54, "Find this pet in Takk's Nest in Northern Barrens")
+	self:addLookupList(DB, 55, "Find this pet in Ravasaur Matriarch's Nest in Un'Goro Crater")
+	self:addLookupList(DB, 56, "Find this pet in Razormaw Matriarch's Nest in Wetlands")
 end
 
