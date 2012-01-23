@@ -1,6 +1,8 @@
 ﻿## Title: Collectinator
 
 ## Notes: Will scan your mini-pets and mounts and provide a check list for what you're missing.
+## Notes-zhCN: 扫描小伙伴和坐骑并提供缺失物品的列表。
+## Notes-zhTW: 掃描小伙伴和坐騎並提供缺失物品的列表。
 
 ## Author: Ackis, Pompachomp, Torhal
 ## eMail: ackis AT shaw DOT ca
