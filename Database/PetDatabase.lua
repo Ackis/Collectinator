@@ -541,8 +541,8 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Darting Hatchling
 	AddPet(67413, 48112, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 67413, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 67413, A_MOB, 14232)
+	self:AddCompanionFlags(PetDB, 67413, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE)
+	self:AddCompanionAcquire(PetDB, 67413, A_CUSTOM, 53)
 
 	-- Deviate Hatchling
 	AddPet(67414, 48114, R_COMMON, GAME_WOTLK)
@@ -556,18 +556,18 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Leaping Hatchling
 	AddPet(67416, 48118, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 67416, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 67416, A_MOB, 5842)
+	self:AddCompanionFlags(PetDB, 67416, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE)
+	self:AddCompanionAcquire(PetDB, 67416, A_CUSTOM, 54)
 
 	-- Ravasaur Hatchling
 	AddPet(67418, 48122, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 67418, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 67418, A_MOB, 6581)
+	self:AddCompanionFlags(PetDB, 67418, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE)
+	self:AddCompanionAcquire(PetDB, 67418, A_CUSTOM, 55)
 
 	-- Razormaw Hatchling
 	AddPet(67419, 48124, R_COMMON, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 67419, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 67419, A_MOB, 1140)
+	self:AddCompanionFlags(PetDB, 67419, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE)
+	self:AddCompanionAcquire(PetDB, 67419, A_CUSTOM, 56)
 
 	-- Razzashi Hatchling
 	AddPet(67420, 48126, R_COMMON, GAME_WOTLK)
