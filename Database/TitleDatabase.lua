@@ -16,9 +16,6 @@ local MODNAME		= "Collectinator"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 local BF		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
-local FACTION_ALLIANCE	= BF["Alliance"]
-local FACTION_HORDE	= BF["Horde"]
-
 -------------------------------------------------------------------------------
 -- Item "rarity"
 -------------------------------------------------------------------------------

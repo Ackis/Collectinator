@@ -1,5 +1,42 @@
 ==Collectinator Change Log
 
+===Version 1.0.17
+*New Mounts:
+	**Mountain Horse
+	**Swift Mountain Horse
+	**Swift Shorestrider
+	**Darkmoon Dancing Bear
+	**Swift Forest Strider
+	**Amani Dragonhawk
+	**Blazing Drake
+	**Experiment 12-B
+	**Life-Binder's Handmaiden
+	**Ruthless Gladiator's Twilight Drake
+	**Twilight Harbinger
+	**Tyrael's Charger
+
+*New Pets:
+	**Sea Pony
+	**Lumpy
+	**Festival Lantern
+	**Lunar Lantern
+	**Darkmoon Balloon
+	**Darkmoon Cub
+	**Darkmoon Monkey
+	**Darkmoon Turtle
+	**Darkmoon Zeppelin
+	**Darkmoon Tonk
+	**Purple Puffer
+	
+*Pets/Mounts that can ONLY be obtained AND learned by a specific faction will be loaded for the respected faction now, meaning 
+an Alliance character won't see in the list a pet/mount that can only be obtained and learned by a Horde character
+
+*Marked the following as removed from the game: Vicious Gladiator's Twilight Drake
+
+*Added some new Vendors, Mobs, Custom strings to the respected databases
+
+*ToC to 40300
+
 ===Version 1.0.16a
 
 *Have the new pets from the previous release actually show in the list
@@ -12,6 +49,7 @@
 	**Vicious Gladiator's Twilight Drake
 
 *Fixed the rarity for the "Nightsaber Cub"
+
 *Fixed a bug where the "Faction" filter wouldn't behave correctly for non-enUS locales
 
 ===Version 1.0.15
