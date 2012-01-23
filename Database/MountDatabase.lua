@@ -14,10 +14,6 @@
 
 local MODNAME		= "Collectinator"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
-local BF		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-
-local FACTION_ALLIANCE	= BF["Alliance"]
-local FACTION_HORDE	= BF["Horde"]
 
 -------------------------------------------------------------------------------
 -- Item "rarity"
@@ -115,16 +111,6 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(60025, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 60025, A_ACHIEVEMENT, 2143)
 
-	-- Blue Dragonhawk - 61996
-	AddMount(61996, 44843, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61996, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(DB, 61996, A_ACHIEVEMENT, 2536)
-
-	-- Red Dragonhawk -- 61997
-	AddMount(61997, 44842, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61997, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(DB, 61997, A_ACHIEVEMENT, 2537)
-
 	-- Reins of the Red Proto-Drake - 59961
 	AddMount(59961, 44160, R_EPIC, GAME_WOTLK)
 	AddMountFlags(59961, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
@@ -172,16 +158,6 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(44153, F_ALLIANCE, F_HORDE, F_BOE, F_ENG, F_CRAFT)
 	self:AddCompanionAcquire(DB, 44153, A_CRAFTED, 4036, 44155)
 
-	-- Mekgineer's Chopper - 60424
-	AddMount(60424, 44413, R_EPIC, GAME_WOTLK)
-	AddMountFlags(60424, F_ALLIANCE, F_BOE, F_ENG, F_CRAFT)
-	self:AddCompanionAcquire(DB, 60424, A_CRAFTED, 4036, 60867)
-
-	-- Mechano-Hog - 55531
-	AddMount(55531, 41508, R_EPIC, GAME_WOTLK)
-	AddMountFlags(55531, F_HORDE, F_BOE, F_ENG, F_CRAFT)
-	self:AddCompanionAcquire(DB, 55531, A_CRAFTED, 4036, 60866)
-
 	-- Flying Carpet - 61451
 	AddMount(61451, 44554, R_RARE, GAME_WOTLK)
 	AddMountFlags(61451, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
@@ -201,467 +177,851 @@ function addon:GetMountTotal(DB)
 	-------------------------------------------------------------------------------
 	-- Faction-specific Mounts.
 	-------------------------------------------------------------------------------
-
-	-------------------------------------------------------------------------------
-	-------------------------------------------------------------------------------
-	-- Horde Mounts
-	-------------------------------------------------------------------------------
-	-------------------------------------------------------------------------------
-	-- Reins of the Black War Bear - Horde - 60119
-	AddMount(60119, 44224, R_EPIC, GAME_WOTLK)
-	AddMountFlags(60119, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(DB, 60119, A_ACHIEVEMENT, 619)
-
-	-- Grand Black War Mammoth - Horde - 61467
-	AddMount(61467, 44083, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61467, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
-	self:AddCompanionAcquire(DB, 61467, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125, A_MOB, 38433)
-
-	-- Goblin Trike -- 87090
-	AddMount(87090, 62461, R_RARE, GAME_WOTLK)
-	AddMountFlags(87090, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 87090, A_VENDOR, 48510, A_CUSTOM, 37)
-
-	-- Goblin Turbo-Trike -- 87091
-	AddMount(87091, 62462, R_EPIC, GAME_WOTLK)
-	AddMountFlags(87091, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 87091, A_VENDOR, 48510, A_CUSTOM, 37)
-
-	-------------------------------------------------------------------------------
-	-- Ravasaur
-	-------------------------------------------------------------------------------
-	-- Venomhide Ravasaur
-	AddMount(64659, 46102, R_EPIC, GAME_WOTLK)
-	AddMountFlags(64659, F_HORDE, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 64659, A_ACHIEVEMENT, 3357, A_QUEST, 13906)
-
-	-------------------------------------------------------------------------------
-	-- Dalaran Mounts.
-	-------------------------------------------------------------------------------
-	-- Reins of the Armored Brown Bear - Horde - 60116
-	AddMount(60116, 44226, R_EPIC, GAME_WOTLK)
-	AddMountFlags(60116, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 60116, A_VENDOR, 32216)
-
-	-- Reins of the Wooly Mammoth - 59791
-	AddMount(59793, 44231, R_EPIC, GAME_WOTLK)
-	AddMountFlags(59793, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 59793, A_VENDOR, 32216)
-
-	-- Reins of the Traveler's Tundra Mammoth (Horde) - 61447
-	AddMount(61447, 44234, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61447, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 61447, A_VENDOR, 32216)
-
-	-- Armored Blue Wind Rider - 61230
-	AddMount(61230, 44690, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61230, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 61230, A_VENDOR, 32216)
-
-	-------------------------------------------------------------------------------
-	-- Sunreavers Mounts.
-	-------------------------------------------------------------------------------
-	-- Sunreaver Hawkstrider - 66091
-	AddMount(66091, 46816, R_EPIC, GAME_WOTLK)
-	AddMountFlags(66091, F_HORDE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
-	self:AddCompanionAcquire(DB, 66091, A_REPUTATION, 1124, EXALTED, 34772)
-
-	-- Sunreaver Dragonhawk - 66088
-	AddMount(66088, 46814, R_EPIC, GAME_WOTLK)
-	AddMountFlags(66088, F_HORDE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
-	self:AddCompanionAcquire(DB, 66088, A_REPUTATION, 1124, EXALTED, 34772)
-
-	-------------------------------------------------------------------------------
-	-- Sons of Hodir Mounts.
-	-------------------------------------------------------------------------------
-	-- Reins of the Ice Mammoth - 59797
-	AddMount(59797, 44080, R_EPIC, GAME_WOTLK)
-	AddMountFlags(59797, F_HORDE, F_VENDOR, F_BOP, F_HODIR)
-	self:AddCompanionAcquire(DB, 59797, A_REPUTATION, 1119, REVERED, 32540)
-
-	-- Reins of the Grand Ice Mammoth - 61469
-	AddMount(61469, 44086, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61469, F_HORDE, F_VENDOR, F_BOP, F_HODIR)
-	self:AddCompanionAcquire(DB, 61469, A_REPUTATION, 1119, EXALTED, 32540)
-
-	-------------------------------------------------------------------------------
-	-- Orgrimmar Mounts.
-	-------------------------------------------------------------------------------
-	-- Horn of the Swift Brown Wolf - 23250
-	AddMount(23250, 18796, R_EPIC, GAME_ORIG)
-	AddMountFlags(23250, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 23250, A_VENDOR, 3362, A_QUEST, 7660, A_QUEST, 7661)
-
-	-- Horn of the Swift Timber Wolf - 23251
-	AddMount(23251, 18797, R_EPIC, GAME_ORIG)
-	AddMountFlags(23251, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 23251, A_VENDOR, 3362, A_QUEST, 7660, A_QUEST, 7661)
-
-	-- Horn of the Swift Gray Wolf - 23252
-	AddMount(23252, 18798, R_EPIC, GAME_ORIG)
-	AddMountFlags(23252, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 23252, A_VENDOR, 3362, A_QUEST, 7660, A_QUEST, 7661)
-
-	-- Black Wolf
-	AddMount(64658, 46099, R_RARE, GAME_WOTLK)
-	AddMountFlags(64658, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 64658, A_VENDOR, 3362)
-
-	-- Horn of the Timber Wolf - 580
-	AddMount(580, 1132, R_RARE, GAME_ORIG)
-	AddMountFlags(580, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 580, A_VENDOR, 3362)
-
-	-- Horn of the Dire Wolf - 6653
-	AddMount(6653, 5665, R_RARE, GAME_ORIG)
-	AddMountFlags(6653, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 6653, A_VENDOR, 3362)
-
-	-- Horn of the Brown Wolf - 6654
-	AddMount(6654, 5668, R_RARE, GAME_ORIG)
-	AddMountFlags(6654, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 6654, A_VENDOR, 3362)
-
-	-- Horn of the Red Wolf - 16080
-	AddMount(16080, 12330, R_EPIC, GAME_ORIG)
-	AddMountFlags(16080, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16080, A_CUSTOM, 23)
-
-	-- Horn of the Arctic Wolf - 16081
-	AddMount(16081, 12351, R_EPIC, GAME_ORIG)
-	AddMountFlags(16081, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16081, A_CUSTOM, 23)
-
-	-------------------------------------------------------------------------------
-	-- Darkspear Trolls Mounts.
-	-------------------------------------------------------------------------------
-	-- Swift Blue Raptor - 23241
-	AddMount(23241, 18788, R_EPIC, GAME_ORIG)
-	AddMountFlags(23241, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23241, A_VENDOR, 7952, A_QUEST, 7664, A_QUEST, 7665)
-
-	-- Swift Olive Raptor - 23242
-	AddMount(23242, 18789, R_EPIC, GAME_ORIG)
-	AddMountFlags(23242, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23242, A_VENDOR, 7952, A_QUEST, 7664, A_QUEST, 7665)
-
-	-- Swift Orange Raptor - 23243
-	AddMount(23243, 18790, R_EPIC, GAME_ORIG)
-	AddMountFlags(23243, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23243, A_VENDOR, 7952, A_QUEST, 7664, A_QUEST, 7665)
-
-	-- Whistle of the Turquoise Raptor - 10796
-	AddMount(10796, 8591, R_RARE, GAME_ORIG)
-	AddMountFlags(10796, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 10796, A_VENDOR, 7952)
-
-	-- Whistle of the Emerald Raptor - 8395
-	AddMount(8395, 8588, R_RARE, GAME_ORIG)
-	AddMountFlags(8395, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 8395, A_VENDOR, 7952)
-
-	-- Whistle of the Violet Raptor - 10799
-	AddMount(10799, 8592, R_RARE, GAME_ORIG)
-	AddMountFlags(10799, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 10799, A_VENDOR, 7952)
-
-	-- Whistle of the Mottled Red Raptor - 16084
-	AddMount(16084, 8586, R_EPIC, GAME_ORIG)
-	AddMountFlags(16084, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16084, A_CUSTOM, 23)
-
-	-- Whistle of the Ivory Raptor - 17450
-	AddMount(17450, 13317, R_EPIC, GAME_ORIG)
-	AddMountFlags(17450, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 17450, A_CUSTOM, 23)
-
-	-------------------------------------------------------------------------------
-	-- Thunder Bluff Mounts.
-	-------------------------------------------------------------------------------
-	-- Great White Kodo - 23247
-	AddMount(23247, 18793, R_EPIC, GAME_ORIG)
-	AddMountFlags(23247, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23247, A_VENDOR, 3685, A_QUEST, 7662, A_QUEST, 7663)
-
-	-- Great Gray Kodo - 23248
-	AddMount(23248, 18795, R_EPIC, GAME_ORIG)
-	AddMountFlags(23248, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23248, A_VENDOR, 3685, A_QUEST, 7662, A_QUEST, 7663)
-
-	-- Great Brown Kodo - 23249
-	AddMount(23249, 18794, R_EPIC, GAME_ORIG)
-	AddMountFlags(23249, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23249, A_VENDOR, 3685, A_QUEST, 7662, A_QUEST, 7663)
-
-	-- White Kodo
-	AddMount(64657, 46100, R_RARE, GAME_WOTLK)
-	AddMountFlags(64657, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 64657, A_VENDOR, 3685)
-
-	-- Gray Kodo - 18989
-	AddMount(18989, 15277, R_RARE, GAME_ORIG)
-	AddMountFlags(18989, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 18989, A_VENDOR, 3685)
-
-	-- Brown Kodo - 18990
-	AddMount(18990, 15290, R_RARE, GAME_ORIG)
-	AddMountFlags(18990, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 18990, A_VENDOR, 3685)
-
-	-- Green Kodo - 18991
-	AddMount(18991, 15292, R_EPIC, GAME_ORIG)
-	AddMountFlags(18991, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 18991, A_CUSTOM, 23)
-
-	-- Teal Kodo - 18992
-	AddMount(18992, 15293, R_EPIC, GAME_ORIG)
-	AddMountFlags(18992, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 18992, A_CUSTOM, 23)
-
-	-------------------------------------------------------------------------------
-	-- Silvermoon Mounts.
-	-------------------------------------------------------------------------------
-	-- Swift Pink Hawkstrider - 33660
-	AddMount(33660, 28936, R_EPIC, GAME_BC)
-	AddMountFlags(33660, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 33660, A_VENDOR, 16264)
-
-	-- Swift Green Hawkstrider - 35025
-	AddMount(35025, 29223, R_EPIC, GAME_BC)
-	AddMountFlags(35025, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 35025, A_VENDOR, 16264)
-
-	-- Swift Purple Hawkstrider - 35027
-	AddMount(35027, 29224, R_EPIC, GAME_BC)
-	AddMountFlags(35027, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 35027, A_VENDOR, 16264)
-
-	-- Red Hawkstrider - 34795
-	AddMount(34795, 28927, R_RARE, GAME_BC)
-	AddMountFlags(34795, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 34795, A_VENDOR, 16264)
-
-	-- Purple Hawkstrider - 35018
-	AddMount(35018, 29222, R_RARE, GAME_BC)
-	AddMountFlags(35018, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 35018, A_VENDOR, 16264)
-
-	-- Blue Hawkstrider - 35020
-	AddMount(35020, 29220, R_RARE, GAME_BC)
-	AddMountFlags(35020, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 35020, A_VENDOR, 16264)
-
-	-- Black Hawkstrider - 35022
-	AddMount(35022, 29221, R_RARE, GAME_BC)
-	AddMountFlags(35022, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 35022, A_VENDOR, 16264)
-
-	-------------------------------------------------------------------------------
-	-- Undercity Mounts.
-	-------------------------------------------------------------------------------
-	-- Black Skeletal Horse
-	AddMount(64977, 46308, R_RARE, GAME_WOTLK)
-	AddMountFlags(64977, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 64977, A_VENDOR, 4731)
-
-	-- Red Skeletal Horse - 17462
-	AddMount(17462, 13331, R_RARE, GAME_ORIG)
-	AddMountFlags(17462, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 17462, A_VENDOR, 4731)
-
-	-- Blue Skeletal Horse - 17463
-	AddMount(17463, 13332, R_RARE, GAME_ORIG)
-	AddMountFlags(17463, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 17463, A_VENDOR, 4731)
-
-	-- Brown Skeletal Horse - 17464
-	AddMount(17464, 13333, R_RARE, GAME_ORIG)
-	AddMountFlags(17464, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 17464, A_VENDOR, 4731)
-
-	-- Ochre Skeletal Warhorse - 66846
-	AddMount(66846, 47101, R_EPIC, GAME_WOTLK)
-	AddMountFlags(66846, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 66846, A_VENDOR, 4731)
-
-	-- Purple Skeletal Warhorse - 23246
-	AddMount(23246, 18791, R_EPIC, GAME_ORIG)
-	AddMountFlags(23246, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 23246, A_VENDOR, 4731)
-
-	-- Green Skeletal Warhorse - 17465
-	AddMount(17465, 13334, R_EPIC, GAME_ORIG)
-	AddMountFlags(17465, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 17465, A_VENDOR, 4731)
-
-	-------------------------------------------------------------------------------
-	-- PvP Mounts.
-	-------------------------------------------------------------------------------
-	-- Reins of the Black War Mammoth - Horde - 59788
-	AddMount(59788, 44077, R_EPIC, GAME_WOTLK)
-	AddMountFlags(59788, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	self:AddCompanionAcquire(DB, 59788, A_VENDOR, 32296)
-
-	-- Swift Warstrider - 35028
-	AddMount(35028, 34129, R_EPIC, GAME_BC)
-	AddMountFlags(35028, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	self:AddCompanionAcquire(DB, 35028, A_VENDOR, 12796)
-
-	-- Black War Kodo - 22718
-	AddMount(22718, 29466, R_EPIC, GAME_ORIG)
-	AddMountFlags(22718, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	self:AddCompanionAcquire(DB, 22718, A_VENDOR, 12796)
-
-	-- Whistle of the Black War Raptor - 22721
-	AddMount(22721, 29472, R_EPIC, GAME_ORIG)
-	AddMountFlags(22721, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	self:AddCompanionAcquire(DB, 22721, A_VENDOR, 12796)
-
-	-- Red Skeletal Warhorse - 22722
-	AddMount(22722, 29470, R_EPIC, GAME_ORIG)
-	AddMountFlags(22722, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	self:AddCompanionAcquire(DB, 22722, A_VENDOR, 12796)
-
-	-- Horn of the Black War Wolf - 22724
-	AddMount(22724, 18245, R_EPIC, GAME_ORIG)
-	AddMountFlags(22724, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	self:AddCompanionAcquire(DB, 22724, A_VENDOR, 12796)
-
-	-- Horn of the Frostwolf Howler - 23509
-	AddMount(23509, 19029, R_EPIC, GAME_ORIG)
-	AddMountFlags(23509, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	self:AddCompanionAcquire(DB, 23509, A_VENDOR, 13218, A_VENDOR, 13219)
-
-	-------------------------------------------------------------------------------
-	-- Flying Mounts
-	-------------------------------------------------------------------------------
-	-- Tawny Wind Rider - 32243
-	AddMount(32243, 25474, R_RARE, GAME_BC)
-	AddMountFlags(32243, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32243, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
-
-	-- Blue Wind Rider - 32244
-	AddMount(32244, 25475, R_RARE, GAME_BC)
-	AddMountFlags(32244, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32244, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
-
-	-- Green Wind Rider - 32245
-	AddMount(32245, 25476, R_RARE, GAME_BC)
-	AddMountFlags(32245, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32245, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
-
-	-- Swift Red Wind Rider - 32246
-	AddMount(32246, 25477, R_EPIC, GAME_BC)
-	AddMountFlags(32246, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32246, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
-
-	-- Swift Green Wind Rider - 32295
-	AddMount(32295, 25531, R_EPIC, GAME_BC)
-	AddMountFlags(32295, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32295, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
-
-	-- Swift Yellow Wind Rider - 32296
-	AddMount(32296, 25532, R_EPIC, GAME_BC)
-	AddMountFlags(32296, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32296, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
-
-	-- Swift Purple Wind Rider - 32297
-	AddMount(32297, 25533, R_EPIC, GAME_BC)
-	AddMountFlags(32297, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32297, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
-
-	-------------------------------------------------------------------------------
-	-- Argent Tournament Mounts
-	-------------------------------------------------------------------------------
-	-- Darkspear Raptor
-	AddMount(63635, 45593, R_EPIC, GAME_WOTLK)
-	AddMountFlags(63635, F_HORDE, F_VENDOR, F_BOP, F_CITY1)
-	self:AddCompanionAcquire(DB, 63635, A_VENDOR, 33554)
-
-	-- Swift Purple Raptor
-	AddMount(65644, 46743, R_EPIC, GAME_WOTLK)
-	AddMountFlags(65644, F_HORDE, F_VENDOR, F_BOP, F_CITY1)
-	self:AddCompanionAcquire(DB, 65644, A_REPUTATION, 530, EXALTED, 33554)
-
-	-- Orgrimmar Wolf - 63640
-	AddMount(63640, 45595, R_EPIC, GAME_WOTLK)
-	AddMountFlags(63640, F_HORDE, F_VENDOR, F_BOP, F_CITY2)
-	self:AddCompanionAcquire(DB, 63640, A_VENDOR, 33553)
-
-	-- Swift Burgundy Wolf
-	AddMount(65646, 46749, R_EPIC, GAME_WOTLK)
-	AddMountFlags(65646, F_HORDE, F_VENDOR, F_BOP, F_CITY2)
-	self:AddCompanionAcquire(DB, 65646, A_REPUTATION, 76, EXALTED, 33553)
-
-	-- Thunder Bluff Kodo - 63641
-	AddMount(63641, 45592, R_EPIC, GAME_WOTLK)
-	AddMountFlags(63641, F_HORDE, F_VENDOR, F_BOP, F_CITY3)
-	self:AddCompanionAcquire(DB, 63641, A_VENDOR, 33556)
-
-	-- Great Golden Kodo
-	AddMount(65641, 46750, R_EPIC, GAME_WOTLK)
-	AddMountFlags(65641, F_HORDE, F_VENDOR, F_BOP, F_CITY3)
-	self:AddCompanionAcquire(DB, 65641, A_REPUTATION, 81, EXALTED, 33556)
-
-	-- Forsaken Warhorse
-	AddMount(63643, 45597, R_EPIC, GAME_WOTLK)
-	AddMountFlags(63643, F_HORDE, F_VENDOR, F_BOP, F_CITY4)
-	self:AddCompanionAcquire(DB, 63643, A_VENDOR, 33555)
-
-	-- White Skeletal Warhorse
-	AddMount(65645, 46746, R_EPIC, GAME_WOTLK)
-	AddMountFlags(65645, F_HORDE, F_VENDOR, F_BOP, F_CITY4)
-	self:AddCompanionAcquire(DB, 65645, A_REPUTATION, 68, EXALTED, 33555)
-
-	-- Silvermoon Hawkstrider
-	AddMount(63642, 45596, R_EPIC, GAME_WOTLK)
-	AddMountFlags(63642, F_HORDE, F_VENDOR, F_BOP, F_CITY5)
-	self:AddCompanionAcquire(DB, 63642, A_VENDOR, 33557)
-
-	-- Swift Red Hawkstrider
-	AddMount(65639, 46751, R_EPIC, GAME_WOTLK)
-	AddMountFlags(65639, F_HORDE, F_VENDOR, F_BOP, F_CITY5)
-	self:AddCompanionAcquire(DB, 65639, A_REPUTATION, 911, EXALTED, 33557)
-
-	-------------------------------------------------------------------------------
-	-------------------------------------------------------------------------------
-	-- Alliance Mounts
-	-------------------------------------------------------------------------------
-	-------------------------------------------------------------------------------
-
-	-------------------------------------------------------------------------------
-	-- Sons of Hodir Mounts.
-	-------------------------------------------------------------------------------
-	-- Reins of the Ice Mammoth - 59799
-	AddMount(59799, 43958, R_EPIC, GAME_WOTLK)
-	AddMountFlags(59799, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
-	self:AddCompanionAcquire(DB, 59799, A_REPUTATION, 1119, REVERED, 32540)
-
-	-- Reins of the Grand Ice Mammoth - 61470
-	AddMount(61470, 43961, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61470, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
-	self:AddCompanionAcquire(DB, 61470, A_REPUTATION, 1119, EXALTED, 32540)
-
-	-------------------------------------------------------------------------------
-	-- Dalaran Mounts.
-	-------------------------------------------------------------------------------
-	-- Reins of the Traveler's Tundra Mammoth (Alliance) - 61425
-	AddMount(61425, 44235, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61425, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 61425, A_VENDOR, 32216)
-
-	-------------------------------------------------------------------------------
-	-- The Silver Covenant Mounts.
-	-------------------------------------------------------------------------------
-	-- Quel'dorei Steed - 66090
-	AddMount(66090, 46815, R_EPIC, GAME_WOTLK)
-	AddMountFlags(66090, F_ALLIANCE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
-	self:AddCompanionAcquire(DB, 66090, A_REPUTATION, 1094, EXALTED, 34881)
-
-	-- Silver Covenant Hippogryph - 66087
-	AddMount(66087, 46813, R_EPIC, GAME_WOTLK)
-	AddMountFlags(66087, F_ALLIANCE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
-	self:AddCompanionAcquire(DB, 66087, A_REPUTATION, 1094, EXALTED, 34881)
+	if MY_FACTION == "Alliance" then
+
+		-- Blue Dragonhawk - 61996
+		AddMount(61996, 44843, R_EPIC, GAME_WOTLK)
+		AddMountFlags(61996, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
+		self:AddCompanionAcquire(DB, 61996, A_ACHIEVEMENT, 2536)
+		
+		-- Reins of the Ice Mammoth - 59799
+		AddMount(59799, 43958, R_EPIC, GAME_WOTLK)
+		AddMountFlags(59799, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
+		self:AddCompanionAcquire(DB, 59799, A_REPUTATION, 1119, REVERED, 32540)
+
+		-- Reins of the Grand Ice Mammoth - 61470
+		AddMount(61470, 43961, R_EPIC, GAME_WOTLK)
+		AddMountFlags(61470, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
+		self:AddCompanionAcquire(DB, 61470, A_REPUTATION, 1119, EXALTED, 32540)
+		
+		-- Reins of the Traveler's Tundra Mammoth - 61425
+		AddMount(61425, 44235, R_EPIC, GAME_WOTLK)
+		AddMountFlags(61425, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 61425, A_VENDOR, 32216)
+		
+		-- Quel'dorei Steed - 66090
+		AddMount(66090, 46815, R_EPIC, GAME_WOTLK)
+		AddMountFlags(66090, F_ALLIANCE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
+		self:AddCompanionAcquire(DB, 66090, A_REPUTATION, 1094, EXALTED, 34881)
+
+		-- Silver Covenant Hippogryph - 66087
+		AddMount(66087, 46813, R_EPIC, GAME_WOTLK)
+		AddMountFlags(66087, F_ALLIANCE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
+		self:AddCompanionAcquire(DB, 66087, A_REPUTATION, 1094, EXALTED, 34881)
+		
+		-- White Mechanostrider Mod B - 15779
+		AddMount(15779, 13326, R_EPIC, GAME_ORIG)
+		AddMountFlags(15779, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 15779, A_CUSTOM, 23)
+
+		-- Icy Blue Mechanostrider Mod A - 17459
+		AddMount(17459, 13327, R_EPIC, GAME_ORIG)
+		AddMountFlags(17459, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 17459, A_CUSTOM, 23)
+
+		-- Palomino Bridle - 16082
+		AddMount(16082, 12354, R_EPIC, GAME_ORIG)
+		AddMountFlags(16082, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16082, A_CUSTOM, 23)
+
+		-- White Stallion Bridle - 16083
+		AddMount(16083, 12353, R_EPIC, GAME_ORIG)
+		AddMountFlags(16083, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16083, A_CUSTOM, 23)
+
+		-- Frost Ram - 17460
+		AddMount(17460, 13329, R_EPIC, GAME_ORIG)
+		AddMountFlags(17460, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 17460, A_CUSTOM, 23)
+
+		-- Black Ram - 17461
+		AddMount(17461, 13328, R_EPIC, GAME_ORIG)
+		AddMountFlags(17461, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 17461, A_CUSTOM, 23)
+
+		-- Reins of the Nightsaber - 16055
+		AddMount(16055, 12303, R_EPIC, GAME_ORIG)
+		AddMountFlags(16055, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16055, A_CUSTOM, 23)
+
+		-- Reins of the Ancient Frostsaber - 16056
+		AddMount(16056, 12302, R_EPIC, GAME_ORIG)
+		AddMountFlags(16056, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16056, A_CUSTOM, 23)
+		
+		-- Reins of the Wooly Mammoth - 59793
+		AddMount(59791, 44230, R_EPIC, GAME_WOTLK)
+		AddMountFlags(59791, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 59791, A_VENDOR, 32216)
+		
+		-- Armored Snowy Gryphon - 61229
+		AddMount(61229, 44689, R_EPIC, GAME_WOTLK)
+		AddMountFlags(61229, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 61229, A_VENDOR, 32216)
+
+		-- Reins of the Armored Brown Bear - 60114
+		AddMount(60114, 44225, R_EPIC, GAME_WOTLK)
+		AddMountFlags(60114, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 60114, A_VENDOR, 32216)
+
+		-- Great Green Elekk - 35712
+		AddMount(35712, 29746, R_EPIC, GAME_BC)
+		AddMountFlags(35712, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35712, A_VENDOR, 17584)
+
+		-- Great Blue Elekk - 35713
+		AddMount(35713, 29745, R_EPIC, GAME_BC)
+		AddMountFlags(35713, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35713, A_VENDOR, 17584)
+
+		-- Great Purple Elekk - 35714
+		AddMount(35714, 29747, R_EPIC, GAME_BC)
+		AddMountFlags(35714, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35714, A_VENDOR, 17584)
+
+		-- Reins of the Winterspring Frostsaber - 17229
+		AddMount(17229, 13086, R_EPIC, GAME_ORIG)
+		AddMountFlags(17229, F_ALLIANCE, F_VENDOR, F_BOP, F_WINTERSPRING)
+		self:AddCompanionAcquire(DB, 17229, A_REPUTATION, 589, EXALTED, 10618)
+
+		-- Brown Horse Bridle - 458
+		AddMount(458, 5656, R_RARE, GAME_ORIG)
+		AddMountFlags(458, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 458, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
+
+		-- Black Stallion Bridle - 470
+		AddMount(470, 2411, R_RARE, GAME_ORIG)
+		AddMountFlags(470, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 470, A_VENDOR, 1460)
+
+		-- Pinto Bridle - 472
+		AddMount(472, 2414, R_RARE, GAME_ORIG)
+		AddMountFlags(472, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 472, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
+
+		-- Chestnut Mare Bridle - 6648
+		AddMount(6648, 5655, R_RARE, GAME_ORIG)
+		AddMountFlags(6648, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 6648, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
+
+		-- Gray Ram - 6777
+		AddMount(6777, 5864, R_RARE, GAME_ORIG)
+		AddMountFlags(6777, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 6777, A_VENDOR, 1261)
+
+		-- White Ram - 6898
+		AddMount(6898, 5873, R_RARE, GAME_ORIG)
+		AddMountFlags(6898, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 6898, A_VENDOR, 1261)
+
+		-- Brown Ram - 6899
+		AddMount(6899, 5872, R_RARE, GAME_ORIG)
+		AddMountFlags(6899, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 6899, A_VENDOR, 1261)
+
+		-- Red Mechanostrider - 10873
+		AddMount(10873, 8563, R_RARE, GAME_ORIG)
+		AddMountFlags(10873, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 10873, A_VENDOR, 7955)
+
+		-- Blue Mechanostrider - 10969
+		AddMount(10969, 8595, R_RARE, GAME_ORIG)
+		AddMountFlags(10969, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 10969, A_VENDOR, 7955)
+
+		-- Green Mechanostrider - 17453
+		AddMount(17453, 13321, R_RARE, GAME_ORIG)
+		AddMountFlags(17453, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 17453, A_VENDOR, 7955)
+
+		-- Unpainted Mechanostrider - 17454
+		AddMount(17454, 13322, R_RARE, GAME_ORIG)
+		AddMountFlags(17454, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 17454, A_VENDOR, 7955)
+
+		-- Swift Yellow Mechanostrider - 23222
+		AddMount(23222, 18774, R_EPIC, GAME_ORIG)
+		AddMountFlags(23222, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23222, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
+
+		-- Swift White Mechanostrider - 23223
+		AddMount(23223, 18773, R_EPIC, GAME_ORIG)
+		AddMountFlags(23223, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23223, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
+
+		-- Swift Green Mechanostrider - 23225
+		AddMount(23225, 18772, R_EPIC, GAME_ORIG)
+		AddMountFlags(23225, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23225, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
+
+		-- Swift Palomino - 23227
+		AddMount(23227, 18776, R_EPIC, GAME_ORIG)
+		AddMountFlags(23227, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23227, A_VENDOR, 384, A_VENDOR, 2357, A_VENDOR, 4885, A_QUEST, 7677, A_QUEST, 7678)
+
+		-- Swift White Steed - 23228
+		AddMount(23228, 18778, R_EPIC, GAME_ORIG)
+		AddMountFlags(23228, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23228, A_VENDOR, 384, A_VENDOR, 2357, A_VENDOR, 4885, A_QUEST, 7677, A_QUEST, 7678)
+
+		-- Swift Brown Steed - 23229
+		AddMount(23229, 18777, R_EPIC, GAME_ORIG)
+		AddMountFlags(23229, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23229, A_VENDOR, 384, A_VENDOR, 2357, A_VENDOR, 4885, A_QUEST, 7677, A_QUEST, 7678)
+
+		-- Swift Brown Ram - 23238
+		AddMount(23238, 18786, R_EPIC, GAME_ORIG)
+		AddMountFlags(23238, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23238, A_VENDOR, 1261, A_QUEST, 7673, A_QUEST, 7674)
+
+		-- Swift Gray Ram - 23239
+		AddMount(23239, 18787, R_EPIC, GAME_ORIG)
+		AddMountFlags(23239, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23239, A_VENDOR, 1261, A_QUEST, 7673, A_QUEST, 7674)
+
+		-- Swift White Ram - 23240
+		AddMount(23240, 18785, R_EPIC, GAME_ORIG)
+		AddMountFlags(23240, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23240, A_VENDOR, 1261, A_QUEST, 7673, A_QUEST, 7674)
+
+		-- Brown Elekk - 34406
+		AddMount(34406, 28481, R_RARE, GAME_BC)
+		AddMountFlags(34406, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 34406, A_VENDOR, 17584)
+
+		-- Gray Elekk - 35710
+		AddMount(35710, 29744, R_RARE, GAME_BC)
+		AddMountFlags(35710, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35710, A_VENDOR, 17584)
+
+		-- Purple Elekk - 35711
+		AddMount(35711, 29743, R_RARE, GAME_BC)
+		AddMountFlags(35711, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35711, A_VENDOR, 17584)
+
+		-- Reins of the Swift Mistsaber - 23219
+		AddMount(23219, 18767, R_EPIC, GAME_ORIG)
+		AddMountFlags(23219, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23219, A_VENDOR, 4730, A_QUEST, 7671, A_QUEST, 7672)
+
+		-- Reins of the Swift Frostsaber - 23221
+		AddMount(23221, 18766, R_EPIC, GAME_ORIG)
+		AddMountFlags(23221, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23221, A_VENDOR, 4730, A_QUEST, 7671, A_QUEST, 7672)
+
+		-- Reins of the Swift Stormsaber - 23338
+		AddMount(23338, 18902, R_EPIC, GAME_ORIG)
+		AddMountFlags(23338, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23338, A_VENDOR, 4730, A_QUEST, 7671, A_QUEST, 7672)
+
+		-- Reins of the Striped Dawnsaber - 66847
+		AddMount(66847, 47100, R_RARE, GAME_WOTLK)
+		AddMountFlags(66847, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 66847, A_VENDOR, 4730)
+
+		-- Reins of the Striped Frostsaber - 8394
+		AddMount(8394, 8631, R_RARE, GAME_ORIG)
+		AddMountFlags(8394, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 8394, A_VENDOR, 4730)
+
+		-- Reins of the Spotted Frostsaber - 10789
+		AddMount(10789, 8632, R_RARE, GAME_ORIG)
+		AddMountFlags(10789, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 10789, A_VENDOR, 4730)
+
+		-- Reins of the Striped Nightsaber - 10793
+		AddMount(10793, 8629, R_RARE, GAME_ORIG)
+		AddMountFlags(10793, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 10793, A_VENDOR, 4730)
+
+		-- Reins of the Black War Bear - 60118
+		AddMount(60118, 44223, R_EPIC, GAME_WOTLK)
+		AddMountFlags(60118, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
+		self:AddCompanionAcquire(DB, 60118, A_ACHIEVEMENT, 614)
+
+		-- Reins of the Black War Mammoth - 59785
+		AddMount(59785, 43956, R_EPIC, GAME_WOTLK)
+		AddMountFlags(59785, F_ALLIANCE, F_VENDOR, F_BOP, F_PVP)
+		self:AddCompanionAcquire(DB, 59785, A_VENDOR, 32294)
+
+		-- Black War Steed Bridle - 22717
+		AddMount(22717, 29468, R_EPIC, GAME_ORIG)
+		AddMountFlags(22717, F_ALLIANCE, F_VENDOR, F_PVP, F_BOP)
+		self:AddCompanionAcquire(DB, 22717, A_VENDOR, 12783)
+
+		-- Black Battlestrider - 22719
+		AddMount(22719, 29465, R_EPIC, GAME_ORIG)
+		AddMountFlags(22719, F_ALLIANCE, F_VENDOR, F_PVP, F_BOP)
+		self:AddCompanionAcquire(DB, 22719, A_VENDOR, 12783)
+
+		-- Black War Ram - 22720
+		AddMount(22720, 29467, R_EPIC, GAME_ORIG)
+		AddMountFlags(22720, F_ALLIANCE, F_VENDOR, F_BOP, F_PVP)
+		self:AddCompanionAcquire(DB, 22720, A_VENDOR, 12783)
+
+		-- Stormpike Battle Charger - 23510
+		AddMount(23510, 19030, R_EPIC, GAME_ORIG)
+		AddMountFlags(23510, F_ALLIANCE, F_VENDOR, F_PVP, F_BOP)
+		self:AddCompanionAcquire(DB, 23510, A_VENDOR, 13216, A_VENDOR, 13217)
+
+		-- Reins of the Black War Tiger - 22723
+		AddMount(22723, 29471, R_EPIC, GAME_ORIG)
+		AddMountFlags(22723, F_ALLIANCE, F_VENDOR, F_BOP, F_PVP)
+		self:AddCompanionAcquire(DB, 22723, A_VENDOR, 12783)
+
+		-- Reins of the Black War Elekk - 48027
+		AddMount(48027, 35906, R_EPIC, GAME_BC)
+		AddMountFlags(48027, F_ALLIANCE, F_VENDOR, F_BOP, F_PVP)
+		self:AddCompanionAcquire(DB, 48027, A_VENDOR, 12783)
+
+		-- Grand Black War Mammoth - 61465
+		AddMount(61465, 43959, R_EPIC, GAME_WOTLK)
+		AddMountFlags(61465, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP)
+		self:AddCompanionAcquire(DB, 61465, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125, A_MOB, 38433)
+		
+		-- Golden Gryphon - 32235
+		AddMount(32235, 25470, R_RARE, GAME_BC)
+		AddMountFlags(32235, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32235, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Ebon Gryphon - 32239
+		AddMount(32239, 25471, R_RARE, GAME_BC)
+		AddMountFlags(32239, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32239, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Snowy Gryphon - 32240
+		AddMount(32240, 25472, R_RARE, GAME_BC)
+		AddMountFlags(32240, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32240, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Swift Blue Gryphon - 32242
+		AddMount(32242, 25473, R_EPIC, GAME_BC)
+		AddMountFlags(32242, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32242, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Swift Red Gryphon - 32289
+		AddMount(32289, 25527, R_EPIC, GAME_BC)
+		AddMountFlags(32289, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32289, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Swift Green Gryphon - 32290
+		AddMount(32290, 25528, R_EPIC, GAME_BC)
+		AddMountFlags(32290, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32290, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Swift Purple Gryphon - 32292
+		AddMount(32292, 25529, R_EPIC, GAME_BC)
+		AddMountFlags(32292, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32292, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+
+		-- Darnassian Nightsaber - 63637
+		AddMount(63637, 45591, R_EPIC, GAME_WOTLK)
+		AddMountFlags(63637, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY1)
+		self:AddCompanionAcquire(DB, 63637, A_VENDOR, 33653)
+
+		-- Swift Moonsaber - 65638
+		AddMount(65638, 46744, R_EPIC, GAME_WOTLK)
+		AddMountFlags(65638, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY1)
+		self:AddCompanionAcquire(DB, 65638, A_REPUTATION, 69, EXALTED, 33653)
+
+		-- Stormwind Steed - 63232
+		AddMount(63232, 45125, R_EPIC, GAME_WOTLK)
+		AddMountFlags(63232, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY2)
+		self:AddCompanionAcquire(DB, 63232, A_VENDOR, 33307)
+
+		-- Swift Gray Steed - 65640
+		AddMount(65640, 46752, R_EPIC, GAME_WOTLK)
+		AddMountFlags(65640, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY2)
+		self:AddCompanionAcquire(DB, 65640, A_REPUTATION, 72, EXALTED, 33307)
+
+		-- Gnomeregan Mechanostrider - 63638
+		AddMount(63638, 45589, R_EPIC, GAME_WOTLK)
+		AddMountFlags(63638, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY3)
+		self:AddCompanionAcquire(DB, 63638, A_VENDOR, 33650)
+
+		-- Turbostrider - 65642
+		AddMount(65642, 46747, R_EPIC, GAME_WOTLK)
+		AddMountFlags(65642, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY3)
+		self:AddCompanionAcquire(DB, 65642, A_REPUTATION, 54, EXALTED, 33650)
+
+		-- Ironforge Ram - 63636
+		AddMount(63636, 45586, R_EPIC, GAME_WOTLK)
+		AddMountFlags(63636, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY4)
+		self:AddCompanionAcquire(DB, 63636, A_VENDOR, 33310)
+
+		-- Swift Violet Ram - 65643
+		AddMount(65643, 46748, R_EPIC, GAME_WOTLK)
+		AddMountFlags(65643, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY4)
+		self:AddCompanionAcquire(DB, 65643, A_REPUTATION, 47, EXALTED, 33310)
+
+		-- Exodar Elekk - 63639
+		AddMount(63639, 45590, R_EPIC, GAME_WOTLK)
+		AddMountFlags(63639, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY5)
+		self:AddCompanionAcquire(DB, 63639, A_VENDOR, 33657)
+
+		-- Great Red Elekk - 65637
+		AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
+		AddMountFlags(65637, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY5)
+		self:AddCompanionAcquire(DB, 65637, A_REPUTATION, 930, EXALTED, 33657)
+		
+		-- Crusader's White Warhorse
+		AddMount(68187, nil, R_EPIC, GAME_WOTLK)
+		AddMountFlags(68187, F_ALLIANCE, F_ACHIEVEMENT, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 68187, A_ACHIEVEMENT, 4156)
+		
+		-- Swift Alliance Steed
+		AddMount(68057, 49044, R_EPIC, GAME_WOTLK)
+		AddMountFlags(68057, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 68057, A_MOB, 34564)
+
+		-- Golden King -- 90621
+		AddMount(90621, 62298, R_EPIC, GAME_CATA)
+		AddMountFlags(90621, F_ALLIANCE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
+		self:AddCompanionAcquire(DB, 90621, A_ACHIEVEMENT, 4912)
+		
+		-- Spectral Steed -- 92231
+		AddMount(92231, 64998, R_EPIC, GAME_CATA)
+		AddMountFlags(92231, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 92231, A_VENDOR, 47328)
+		
+		-- Vicious War Steed -- 100332
+		AddMount(100332, 70909, R_EPIC, GAME_CATA)
+		AddMountFlags(100332, F_ALLIANCE, F_ACHIEVEMENT, F_BOE)
+		self:AddCompanionAcquire(DB, 100332, A_ACHIEVEMENT, 5823)
+		
+		-- Mountain Horse -- 103195
+		AddMount(103195, 73838, R_RARE, GAME_CATA)
+		AddMountFlags(103195, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 103195, A_VENDOR, 55285)
+
+		-- Swift Mountain Horse -- 103196
+		AddMount(103196, 73839, R_EPIC, GAME_CATA)
+		AddMountFlags(103196, F_ALLIANCE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 103196, A_VENDOR, 55285)
+		
+		-- Mekgineer's Chopper - 60424
+		AddMount(60424, 44413, R_EPIC, GAME_WOTLK)
+		AddMountFlags(60424, F_ALLIANCE, F_BOE, F_ENG, F_CRAFT)
+		self:AddCompanionAcquire(DB, 60424, A_CRAFTED, 4036, 60867)
+
+	elseif MY_FACTION == "Horde" then
+
+		-- Red Dragonhawk -- 61997
+		AddMount(61997, 44842, R_EPIC, GAME_WOTLK)
+		AddMountFlags(61997, F_HORDE, F_ACHIEVEMENT, F_BOP)
+		self:AddCompanionAcquire(DB, 61997, A_ACHIEVEMENT, 2537)
+		
+		-- Reins of the Black War Bear - Horde - 60119
+		AddMount(60119, 44224, R_EPIC, GAME_WOTLK)
+		AddMountFlags(60119, F_HORDE, F_ACHIEVEMENT, F_BOP)
+		self:AddCompanionAcquire(DB, 60119, A_ACHIEVEMENT, 619)
+
+		-- Grand Black War Mammoth - Horde - 61467
+		AddMount(61467, 44083, R_EPIC, GAME_WOTLK)
+		AddMountFlags(61467, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
+		self:AddCompanionAcquire(DB, 61467, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125, A_MOB, 38433)
+
+		-- Goblin Trike -- 87090
+		AddMount(87090, 62461, R_RARE, GAME_WOTLK)
+		AddMountFlags(87090, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 87090, A_VENDOR, 48510, A_CUSTOM, 37)
+
+		-- Goblin Turbo-Trike -- 87091
+		AddMount(87091, 62462, R_EPIC, GAME_WOTLK)
+		AddMountFlags(87091, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 87091, A_VENDOR, 48510, A_CUSTOM, 37)
+
+		-- Venomhide Ravasaur
+		AddMount(64659, 46102, R_EPIC, GAME_WOTLK)
+		AddMountFlags(64659, F_HORDE, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 64659, A_ACHIEVEMENT, 3357, A_QUEST, 13906)
+
+		-- Reins of the Armored Brown Bear - 60116
+		AddMount(60116, 44226, R_EPIC, GAME_WOTLK)
+		AddMountFlags(60116, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 60116, A_VENDOR, 32216)
+
+		-- Reins of the Wooly Mammoth - 59791
+		AddMount(59793, 44231, R_EPIC, GAME_WOTLK)
+		AddMountFlags(59793, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 59793, A_VENDOR, 32216)
+
+		-- Reins of the Traveler's Tundra Mammoth - 61447
+		AddMount(61447, 44234, R_EPIC, GAME_WOTLK)
+		AddMountFlags(61447, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 61447, A_VENDOR, 32216)
+
+		-- Armored Blue Wind Rider - 61230
+		AddMount(61230, 44690, R_EPIC, GAME_WOTLK)
+		AddMountFlags(61230, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 61230, A_VENDOR, 32216)
+
+		-- Sunreaver Hawkstrider - 66091
+		AddMount(66091, 46816, R_EPIC, GAME_WOTLK)
+		AddMountFlags(66091, F_HORDE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
+		self:AddCompanionAcquire(DB, 66091, A_REPUTATION, 1124, EXALTED, 34772)
+
+		-- Sunreaver Dragonhawk - 66088
+		AddMount(66088, 46814, R_EPIC, GAME_WOTLK)
+		AddMountFlags(66088, F_HORDE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
+		self:AddCompanionAcquire(DB, 66088, A_REPUTATION, 1124, EXALTED, 34772)
+
+		-- Reins of the Ice Mammoth - 59797
+		AddMount(59797, 44080, R_EPIC, GAME_WOTLK)
+		AddMountFlags(59797, F_HORDE, F_VENDOR, F_BOP, F_HODIR)
+		self:AddCompanionAcquire(DB, 59797, A_REPUTATION, 1119, REVERED, 32540)
+
+		-- Reins of the Grand Ice Mammoth - 61469
+		AddMount(61469, 44086, R_EPIC, GAME_WOTLK)
+		AddMountFlags(61469, F_HORDE, F_VENDOR, F_BOP, F_HODIR)
+		self:AddCompanionAcquire(DB, 61469, A_REPUTATION, 1119, EXALTED, 32540)
+
+		-- Horn of the Swift Brown Wolf - 23250
+		AddMount(23250, 18796, R_EPIC, GAME_ORIG)
+		AddMountFlags(23250, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 23250, A_VENDOR, 3362, A_QUEST, 7660, A_QUEST, 7661)
+
+		-- Horn of the Swift Timber Wolf - 23251
+		AddMount(23251, 18797, R_EPIC, GAME_ORIG)
+		AddMountFlags(23251, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 23251, A_VENDOR, 3362, A_QUEST, 7660, A_QUEST, 7661)
+
+		-- Horn of the Swift Gray Wolf - 23252
+		AddMount(23252, 18798, R_EPIC, GAME_ORIG)
+		AddMountFlags(23252, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 23252, A_VENDOR, 3362, A_QUEST, 7660, A_QUEST, 7661)
+
+		-- Black Wolf
+		AddMount(64658, 46099, R_RARE, GAME_WOTLK)
+		AddMountFlags(64658, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 64658, A_VENDOR, 3362)
+
+		-- Horn of the Timber Wolf - 580
+		AddMount(580, 1132, R_RARE, GAME_ORIG)
+		AddMountFlags(580, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 580, A_VENDOR, 3362)
+
+		-- Horn of the Dire Wolf - 6653
+		AddMount(6653, 5665, R_RARE, GAME_ORIG)
+		AddMountFlags(6653, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 6653, A_VENDOR, 3362)
+
+		-- Horn of the Brown Wolf - 6654
+		AddMount(6654, 5668, R_RARE, GAME_ORIG)
+		AddMountFlags(6654, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 6654, A_VENDOR, 3362)
+
+		-- Horn of the Red Wolf - 16080
+		AddMount(16080, 12330, R_EPIC, GAME_ORIG)
+		AddMountFlags(16080, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16080, A_CUSTOM, 23)
+
+		-- Horn of the Arctic Wolf - 16081
+		AddMount(16081, 12351, R_EPIC, GAME_ORIG)
+		AddMountFlags(16081, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16081, A_CUSTOM, 23)
+
+		-- Swift Blue Raptor - 23241
+		AddMount(23241, 18788, R_EPIC, GAME_ORIG)
+		AddMountFlags(23241, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23241, A_VENDOR, 7952, A_QUEST, 7664, A_QUEST, 7665)
+
+		-- Swift Olive Raptor - 23242
+		AddMount(23242, 18789, R_EPIC, GAME_ORIG)
+		AddMountFlags(23242, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23242, A_VENDOR, 7952, A_QUEST, 7664, A_QUEST, 7665)
+
+		-- Swift Orange Raptor - 23243
+		AddMount(23243, 18790, R_EPIC, GAME_ORIG)
+		AddMountFlags(23243, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23243, A_VENDOR, 7952, A_QUEST, 7664, A_QUEST, 7665)
+
+		-- Whistle of the Turquoise Raptor - 10796
+		AddMount(10796, 8591, R_RARE, GAME_ORIG)
+		AddMountFlags(10796, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 10796, A_VENDOR, 7952)
+
+		-- Whistle of the Emerald Raptor - 8395
+		AddMount(8395, 8588, R_RARE, GAME_ORIG)
+		AddMountFlags(8395, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 8395, A_VENDOR, 7952)
+
+		-- Whistle of the Violet Raptor - 10799
+		AddMount(10799, 8592, R_RARE, GAME_ORIG)
+		AddMountFlags(10799, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 10799, A_VENDOR, 7952)
+
+		-- Whistle of the Mottled Red Raptor - 16084
+		AddMount(16084, 8586, R_EPIC, GAME_ORIG)
+		AddMountFlags(16084, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 16084, A_CUSTOM, 23)
+
+		-- Whistle of the Ivory Raptor - 17450
+		AddMount(17450, 13317, R_EPIC, GAME_ORIG)
+		AddMountFlags(17450, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 17450, A_CUSTOM, 23)
+
+		-- Great White Kodo - 23247
+		AddMount(23247, 18793, R_EPIC, GAME_ORIG)
+		AddMountFlags(23247, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23247, A_VENDOR, 3685, A_QUEST, 7662, A_QUEST, 7663)
+
+		-- Great Gray Kodo - 23248
+		AddMount(23248, 18795, R_EPIC, GAME_ORIG)
+		AddMountFlags(23248, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23248, A_VENDOR, 3685, A_QUEST, 7662, A_QUEST, 7663)
+
+		-- Great Brown Kodo - 23249
+		AddMount(23249, 18794, R_EPIC, GAME_ORIG)
+		AddMountFlags(23249, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
+		self:AddCompanionAcquire(DB, 23249, A_VENDOR, 3685, A_QUEST, 7662, A_QUEST, 7663)
+
+		-- White Kodo
+		AddMount(64657, 46100, R_RARE, GAME_WOTLK)
+		AddMountFlags(64657, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 64657, A_VENDOR, 3685)
+
+		-- Gray Kodo - 18989
+		AddMount(18989, 15277, R_RARE, GAME_ORIG)
+		AddMountFlags(18989, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 18989, A_VENDOR, 3685)
+
+		-- Brown Kodo - 18990
+		AddMount(18990, 15290, R_RARE, GAME_ORIG)
+		AddMountFlags(18990, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 18990, A_VENDOR, 3685)
+
+		-- Green Kodo - 18991
+		AddMount(18991, 15292, R_EPIC, GAME_ORIG)
+		AddMountFlags(18991, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 18991, A_CUSTOM, 23)
+
+		-- Teal Kodo - 18992
+		AddMount(18992, 15293, R_EPIC, GAME_ORIG)
+		AddMountFlags(18992, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 18992, A_CUSTOM, 23)
+
+		-- Swift Pink Hawkstrider - 33660
+		AddMount(33660, 28936, R_EPIC, GAME_BC)
+		AddMountFlags(33660, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 33660, A_VENDOR, 16264)
+
+		-- Swift Green Hawkstrider - 35025
+		AddMount(35025, 29223, R_EPIC, GAME_BC)
+		AddMountFlags(35025, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35025, A_VENDOR, 16264)
+
+		-- Swift Purple Hawkstrider - 35027
+		AddMount(35027, 29224, R_EPIC, GAME_BC)
+		AddMountFlags(35027, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35027, A_VENDOR, 16264)
+
+		-- Red Hawkstrider - 34795
+		AddMount(34795, 28927, R_RARE, GAME_BC)
+		AddMountFlags(34795, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 34795, A_VENDOR, 16264)
+
+		-- Purple Hawkstrider - 35018
+		AddMount(35018, 29222, R_RARE, GAME_BC)
+		AddMountFlags(35018, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35018, A_VENDOR, 16264)
+
+		-- Blue Hawkstrider - 35020
+		AddMount(35020, 29220, R_RARE, GAME_BC)
+		AddMountFlags(35020, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35020, A_VENDOR, 16264)
+
+		-- Black Hawkstrider - 35022
+		AddMount(35022, 29221, R_RARE, GAME_BC)
+		AddMountFlags(35022, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 35022, A_VENDOR, 16264)
+
+		-- Black Skeletal Horse
+		AddMount(64977, 46308, R_RARE, GAME_WOTLK)
+		AddMountFlags(64977, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 64977, A_VENDOR, 4731)
+
+		-- Red Skeletal Horse - 17462
+		AddMount(17462, 13331, R_RARE, GAME_ORIG)
+		AddMountFlags(17462, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 17462, A_VENDOR, 4731)
+
+		-- Blue Skeletal Horse - 17463
+		AddMount(17463, 13332, R_RARE, GAME_ORIG)
+		AddMountFlags(17463, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 17463, A_VENDOR, 4731)
+
+		-- Brown Skeletal Horse - 17464
+		AddMount(17464, 13333, R_RARE, GAME_ORIG)
+		AddMountFlags(17464, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 17464, A_VENDOR, 4731)
+
+		-- Ochre Skeletal Warhorse - 66846
+		AddMount(66846, 47101, R_EPIC, GAME_WOTLK)
+		AddMountFlags(66846, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 66846, A_VENDOR, 4731)
+
+		-- Purple Skeletal Warhorse - 23246
+		AddMount(23246, 18791, R_EPIC, GAME_ORIG)
+		AddMountFlags(23246, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 23246, A_VENDOR, 4731)
+
+		-- Green Skeletal Warhorse - 17465
+		AddMount(17465, 13334, R_EPIC, GAME_ORIG)
+		AddMountFlags(17465, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 17465, A_VENDOR, 4731)
+
+		-- Reins of the Black War Mammoth - 59788
+		AddMount(59788, 44077, R_EPIC, GAME_WOTLK)
+		AddMountFlags(59788, F_HORDE, F_VENDOR, F_BOP, F_PVP)
+		self:AddCompanionAcquire(DB, 59788, A_VENDOR, 32296)
+
+		-- Swift Warstrider - 35028
+		AddMount(35028, 34129, R_EPIC, GAME_BC)
+		AddMountFlags(35028, F_HORDE, F_VENDOR, F_BOP, F_PVP)
+		self:AddCompanionAcquire(DB, 35028, A_VENDOR, 12796)
+
+		-- Black War Kodo - 22718
+		AddMount(22718, 29466, R_EPIC, GAME_ORIG)
+		AddMountFlags(22718, F_HORDE, F_VENDOR, F_BOP, F_PVP)
+		self:AddCompanionAcquire(DB, 22718, A_VENDOR, 12796)
+
+		-- Whistle of the Black War Raptor - 22721
+		AddMount(22721, 29472, R_EPIC, GAME_ORIG)
+		AddMountFlags(22721, F_HORDE, F_VENDOR, F_BOP, F_PVP)
+		self:AddCompanionAcquire(DB, 22721, A_VENDOR, 12796)
+
+		-- Red Skeletal Warhorse - 22722
+		AddMount(22722, 29470, R_EPIC, GAME_ORIG)
+		AddMountFlags(22722, F_HORDE, F_VENDOR, F_BOP, F_PVP)
+		self:AddCompanionAcquire(DB, 22722, A_VENDOR, 12796)
+
+		-- Horn of the Black War Wolf - 22724
+		AddMount(22724, 18245, R_EPIC, GAME_ORIG)
+		AddMountFlags(22724, F_HORDE, F_VENDOR, F_BOP, F_PVP)
+		self:AddCompanionAcquire(DB, 22724, A_VENDOR, 12796)
+
+		-- Horn of the Frostwolf Howler - 23509
+		AddMount(23509, 19029, R_EPIC, GAME_ORIG)
+		AddMountFlags(23509, F_HORDE, F_VENDOR, F_BOP, F_PVP)
+		self:AddCompanionAcquire(DB, 23509, A_VENDOR, 13218, A_VENDOR, 13219)
+
+		-- Tawny Wind Rider - 32243
+		AddMount(32243, 25474, R_RARE, GAME_BC)
+		AddMountFlags(32243, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32243, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Blue Wind Rider - 32244
+		AddMount(32244, 25475, R_RARE, GAME_BC)
+		AddMountFlags(32244, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32244, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Green Wind Rider - 32245
+		AddMount(32245, 25476, R_RARE, GAME_BC)
+		AddMountFlags(32245, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32245, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Swift Red Wind Rider - 32246
+		AddMount(32246, 25477, R_EPIC, GAME_BC)
+		AddMountFlags(32246, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32246, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Swift Green Wind Rider - 32295
+		AddMount(32295, 25531, R_EPIC, GAME_BC)
+		AddMountFlags(32295, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32295, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Swift Yellow Wind Rider - 32296
+		AddMount(32296, 25532, R_EPIC, GAME_BC)
+		AddMountFlags(32296, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32296, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Swift Purple Wind Rider - 32297
+		AddMount(32297, 25533, R_EPIC, GAME_BC)
+		AddMountFlags(32297, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 32297, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+
+		-- Darkspear Raptor
+		AddMount(63635, 45593, R_EPIC, GAME_WOTLK)
+		AddMountFlags(63635, F_HORDE, F_VENDOR, F_BOP, F_CITY1)
+		self:AddCompanionAcquire(DB, 63635, A_VENDOR, 33554)
+
+		-- Swift Purple Raptor
+		AddMount(65644, 46743, R_EPIC, GAME_WOTLK)
+		AddMountFlags(65644, F_HORDE, F_VENDOR, F_BOP, F_CITY1)
+		self:AddCompanionAcquire(DB, 65644, A_REPUTATION, 530, EXALTED, 33554)
+
+		-- Orgrimmar Wolf - 63640
+		AddMount(63640, 45595, R_EPIC, GAME_WOTLK)
+		AddMountFlags(63640, F_HORDE, F_VENDOR, F_BOP, F_CITY2)
+		self:AddCompanionAcquire(DB, 63640, A_VENDOR, 33553)
+
+		-- Swift Burgundy Wolf
+		AddMount(65646, 46749, R_EPIC, GAME_WOTLK)
+		AddMountFlags(65646, F_HORDE, F_VENDOR, F_BOP, F_CITY2)
+		self:AddCompanionAcquire(DB, 65646, A_REPUTATION, 76, EXALTED, 33553)
+
+		-- Thunder Bluff Kodo - 63641
+		AddMount(63641, 45592, R_EPIC, GAME_WOTLK)
+		AddMountFlags(63641, F_HORDE, F_VENDOR, F_BOP, F_CITY3)
+		self:AddCompanionAcquire(DB, 63641, A_VENDOR, 33556)
+
+		-- Great Golden Kodo
+		AddMount(65641, 46750, R_EPIC, GAME_WOTLK)
+		AddMountFlags(65641, F_HORDE, F_VENDOR, F_BOP, F_CITY3)
+		self:AddCompanionAcquire(DB, 65641, A_REPUTATION, 81, EXALTED, 33556)
+
+		-- Forsaken Warhorse
+		AddMount(63643, 45597, R_EPIC, GAME_WOTLK)
+		AddMountFlags(63643, F_HORDE, F_VENDOR, F_BOP, F_CITY4)
+		self:AddCompanionAcquire(DB, 63643, A_VENDOR, 33555)
+
+		-- White Skeletal Warhorse
+		AddMount(65645, 46746, R_EPIC, GAME_WOTLK)
+		AddMountFlags(65645, F_HORDE, F_VENDOR, F_BOP, F_CITY4)
+		self:AddCompanionAcquire(DB, 65645, A_REPUTATION, 68, EXALTED, 33555)
+
+		-- Silvermoon Hawkstrider
+		AddMount(63642, 45596, R_EPIC, GAME_WOTLK)
+		AddMountFlags(63642, F_HORDE, F_VENDOR, F_BOP, F_CITY5)
+		self:AddCompanionAcquire(DB, 63642, A_VENDOR, 33557)
+
+		-- Swift Red Hawkstrider
+		AddMount(65639, 46751, R_EPIC, GAME_WOTLK)
+		AddMountFlags(65639, F_HORDE, F_VENDOR, F_BOP, F_CITY5)
+		self:AddCompanionAcquire(DB, 65639, A_REPUTATION, 911, EXALTED, 33557)
+
+		-- Crusader's Black Warhorse
+		AddMount(68188, nil, R_EPIC, GAME_WOTLK)
+		AddMountFlags(68188, F_HORDE, F_ACHIEVEMENT, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 68188, A_ACHIEVEMENT, 4156)
+
+		-- Swift Horde Wolf
+		AddMount(68056, 49046, R_EPIC, GAME_WOTLK)
+		AddMountFlags(68056, F_HORDE, F_MOB_DROP, F_RAID, F_BOP, F_REMOVED)
+		self:AddCompanionAcquire(DB, 68056, A_MOB, 34564)
+
+		-- Spectral Wolf -- 92232
+		AddMount(92232, 64999, R_EPIC, GAME_CATA)
+		AddMountFlags(92232, F_HORDE, F_VENDOR, F_BOP)
+		self:AddCompanionAcquire(DB, 92232, A_VENDOR, 48531)
+
+		-- Kor'kron Annihilator -- 93644
+		AddMount(93644, 67107, R_EPIC, GAME_CATA)
+		AddMountFlags(93644, F_HORDE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
+		self:AddCompanionAcquire(DB, 93644, A_ACHIEVEMENT, 5492)
+
+		-- Vicious War Wolf -- 100333
+		AddMount(100333, 70910, R_EPIC, GAME_CATA)
+		AddMountFlags(100333, F_HORDE, F_ACHIEVEMENT, F_BOE)
+		self:AddCompanionAcquire(DB, 100333, A_ACHIEVEMENT, 5824)
+		
+		-- Mechano-Hog - 55531
+		AddMount(55531, 41508, R_EPIC, GAME_WOTLK)
+		AddMountFlags(55531, F_HORDE, F_BOE, F_ENG, F_CRAFT)
+		self:AddCompanionAcquire(DB, 55531, A_CRAFTED, 4036, 60866)
+
+	end
 
 	-------------------------------------------------------------------------------
 	-- Paladin Mounts.
@@ -721,367 +1081,6 @@ function addon:GetMountTotal(DB)
 		self:AddCompanionAcquire(DB, 69826, A_CUSTOM, 40)
 
 	end
-
-	-- White Mechanostrider Mod B - 15779
-	AddMount(15779, 13326, R_EPIC, GAME_ORIG)
-	AddMountFlags(15779, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 15779, A_CUSTOM, 23)
-
-	-- Icy Blue Mechanostrider Mod A - 17459
-	AddMount(17459, 13327, R_EPIC, GAME_ORIG)
-	AddMountFlags(17459, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 17459, A_CUSTOM, 23)
-
-	-- Palomino Bridle - 16082
-	AddMount(16082, 12354, R_EPIC, GAME_ORIG)
-	AddMountFlags(16082, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16082, A_CUSTOM, 23)
-
-	-- White Stallion Bridle - 16083
-	AddMount(16083, 12353, R_EPIC, GAME_ORIG)
-	AddMountFlags(16083, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16083, A_CUSTOM, 23)
-
-	-- Frost Ram - 17460
-	AddMount(17460, 13329, R_EPIC, GAME_ORIG)
-	AddMountFlags(17460, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 17460, A_CUSTOM, 23)
-
-	-- Black Ram - 17461
-	AddMount(17461, 13328, R_EPIC, GAME_ORIG)
-	AddMountFlags(17461, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 17461, A_CUSTOM, 23)
-
-	-- Reins of the Nightsaber - 16055
-	AddMount(16055, 12303, R_EPIC, GAME_ORIG)
-	AddMountFlags(16055, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16055, A_CUSTOM, 23)
-
-	-- Reins of the Ancient Frostsaber - 16056
-	AddMount(16056, 12302, R_EPIC, GAME_ORIG)
-	AddMountFlags(16056, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 16056, A_CUSTOM, 23)
-
-	-- Reins of the Wooly Mammoth - 59793
-	AddMount(59791, 44230, R_EPIC, GAME_WOTLK)
-	AddMountFlags(59791, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 59791, A_VENDOR, 32216)
-
-	-- Armored Snowy Gryphon - 61229
-	AddMount(61229, 44689, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61229, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 61229, A_VENDOR, 32216)
-
-	-- Reins of the Armored Brown Bear - Alliance - 60114
-	AddMount(60114, 44225, R_EPIC, GAME_WOTLK)
-	AddMountFlags(60114, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 60114, A_VENDOR, 32216)
-
-	-- Great Green Elekk - 35712
-	AddMount(35712, 29746, R_EPIC, GAME_BC)
-	AddMountFlags(35712, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 35712, A_VENDOR, 17584)
-
-	-- Great Blue Elekk - 35713
-	AddMount(35713, 29745, R_EPIC, GAME_BC)
-	AddMountFlags(35713, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 35713, A_VENDOR, 17584)
-
-	-- Great Purple Elekk - 35714
-	AddMount(35714, 29747, R_EPIC, GAME_BC)
-	AddMountFlags(35714, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 35714, A_VENDOR, 17584)
-
-	-- Reins of the Winterspring Frostsaber - 17229
-	AddMount(17229, 13086, R_EPIC, GAME_ORIG)
-	AddMountFlags(17229, F_ALLIANCE, F_VENDOR, F_BOP, F_WINTERSPRING)
-	self:AddCompanionAcquire(DB, 17229, A_REPUTATION, 589, EXALTED, 10618)
-
-	-- Brown Horse Bridle - 458
-	AddMount(458, 5656, R_RARE, GAME_ORIG)
-	AddMountFlags(458, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 458, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
-
-	-- Black Stallion Bridle - 470
-	AddMount(470, 2411, R_RARE, GAME_ORIG)
-	AddMountFlags(470, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 470, A_VENDOR, 1460)
-
-	-- Pinto Bridle - 472
-	AddMount(472, 2414, R_RARE, GAME_ORIG)
-	AddMountFlags(472, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 472, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
-
-	-- Chestnut Mare Bridle - 6648
-	AddMount(6648, 5655, R_RARE, GAME_ORIG)
-	AddMountFlags(6648, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 6648, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
-
-	-- Gray Ram - 6777
-	AddMount(6777, 5864, R_RARE, GAME_ORIG)
-	AddMountFlags(6777, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 6777, A_VENDOR, 1261)
-
-	-- White Ram - 6898
-	AddMount(6898, 5873, R_RARE, GAME_ORIG)
-	AddMountFlags(6898, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 6898, A_VENDOR, 1261)
-
-	-- Brown Ram - 6899
-	AddMount(6899, 5872, R_RARE, GAME_ORIG)
-	AddMountFlags(6899, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 6899, A_VENDOR, 1261)
-
-	-- Red Mechanostrider - 10873
-	AddMount(10873, 8563, R_RARE, GAME_ORIG)
-	AddMountFlags(10873, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 10873, A_VENDOR, 7955)
-
-	-- Blue Mechanostrider - 10969
-	AddMount(10969, 8595, R_RARE, GAME_ORIG)
-	AddMountFlags(10969, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 10969, A_VENDOR, 7955)
-
-	-- Green Mechanostrider - 17453
-	AddMount(17453, 13321, R_RARE, GAME_ORIG)
-	AddMountFlags(17453, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 17453, A_VENDOR, 7955)
-
-	-- Unpainted Mechanostrider - 17454
-	AddMount(17454, 13322, R_RARE, GAME_ORIG)
-	AddMountFlags(17454, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 17454, A_VENDOR, 7955)
-
-	-- Swift Yellow Mechanostrider - 23222
-	AddMount(23222, 18774, R_EPIC, GAME_ORIG)
-	AddMountFlags(23222, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23222, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
-
-	-- Swift White Mechanostrider - 23223
-	AddMount(23223, 18773, R_EPIC, GAME_ORIG)
-	AddMountFlags(23223, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23223, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
-
-	-- Swift Green Mechanostrider - 23225
-	AddMount(23225, 18772, R_EPIC, GAME_ORIG)
-	AddMountFlags(23225, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23225, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
-
-	-- Swift Palomino - 23227
-	AddMount(23227, 18776, R_EPIC, GAME_ORIG)
-	AddMountFlags(23227, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23227, A_VENDOR, 384, A_VENDOR, 2357, A_VENDOR, 4885, A_QUEST, 7677, A_QUEST, 7678)
-
-	-- Swift White Steed - 23228
-	AddMount(23228, 18778, R_EPIC, GAME_ORIG)
-	AddMountFlags(23228, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23228, A_VENDOR, 384, A_VENDOR, 2357, A_VENDOR, 4885, A_QUEST, 7677, A_QUEST, 7678)
-
-	-- Swift Brown Steed - 23229
-	AddMount(23229, 18777, R_EPIC, GAME_ORIG)
-	AddMountFlags(23229, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23229, A_VENDOR, 384, A_VENDOR, 2357, A_VENDOR, 4885, A_QUEST, 7677, A_QUEST, 7678)
-
-	-- Swift Brown Ram - 23238
-	AddMount(23238, 18786, R_EPIC, GAME_ORIG)
-	AddMountFlags(23238, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23238, A_VENDOR, 1261, A_QUEST, 7673, A_QUEST, 7674)
-
-	-- Swift Gray Ram - 23239
-	AddMount(23239, 18787, R_EPIC, GAME_ORIG)
-	AddMountFlags(23239, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23239, A_VENDOR, 1261, A_QUEST, 7673, A_QUEST, 7674)
-
-	-- Swift White Ram - 23240
-	AddMount(23240, 18785, R_EPIC, GAME_ORIG)
-	AddMountFlags(23240, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23240, A_VENDOR, 1261, A_QUEST, 7673, A_QUEST, 7674)
-
-	-- Brown Elekk - 34406
-	AddMount(34406, 28481, R_RARE, GAME_BC)
-	AddMountFlags(34406, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 34406, A_VENDOR, 17584)
-
-	-- Gray Elekk - 35710
-	AddMount(35710, 29744, R_RARE, GAME_BC)
-	AddMountFlags(35710, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 35710, A_VENDOR, 17584)
-
-	-- Purple Elekk - 35711
-	AddMount(35711, 29743, R_RARE, GAME_BC)
-	AddMountFlags(35711, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 35711, A_VENDOR, 17584)
-
-	-- Reins of the Swift Mistsaber - 23219
-	AddMount(23219, 18767, R_EPIC, GAME_ORIG)
-	AddMountFlags(23219, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23219, A_VENDOR, 4730, A_QUEST, 7671, A_QUEST, 7672)
-
-	-- Reins of the Swift Frostsaber - 23221
-	AddMount(23221, 18766, R_EPIC, GAME_ORIG)
-	AddMountFlags(23221, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23221, A_VENDOR, 4730, A_QUEST, 7671, A_QUEST, 7672)
-
-	-- Reins of the Swift Stormsaber - 23338
-	AddMount(23338, 18902, R_EPIC, GAME_ORIG)
-	AddMountFlags(23338, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	self:AddCompanionAcquire(DB, 23338, A_VENDOR, 4730, A_QUEST, 7671, A_QUEST, 7672)
-
-	-- Reins of the Striped Dawnsaber - 66847
-	AddMount(66847, 47100, R_RARE, GAME_WOTLK)
-	AddMountFlags(66847, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 66847, A_VENDOR, 4730)
-
-	-- Reins of the Striped Frostsaber - 8394
-	AddMount(8394, 8631, R_RARE, GAME_ORIG)
-	AddMountFlags(8394, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 8394, A_VENDOR, 4730)
-
-	-- Reins of the Spotted Frostsaber - 10789
-	AddMount(10789, 8632, R_RARE, GAME_ORIG)
-	AddMountFlags(10789, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 10789, A_VENDOR, 4730)
-
-	-- Reins of the Striped Nightsaber - 10793
-	AddMount(10793, 8629, R_RARE, GAME_ORIG)
-	AddMountFlags(10793, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 10793, A_VENDOR, 4730)
-
-	-- Reins of the Black War Bear - Alliance - 60118
-	AddMount(60118, 44223, R_EPIC, GAME_WOTLK)
-	AddMountFlags(60118, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(DB, 60118, A_ACHIEVEMENT, 614)
-
-	-- Reins of the Black War Mammoth - Alliance - 59785
-	AddMount(59785, 43956, R_EPIC, GAME_WOTLK)
-	AddMountFlags(59785, F_ALLIANCE, F_VENDOR, F_BOP, F_PVP)
-	self:AddCompanionAcquire(DB, 59785, A_VENDOR, 32294)
-
-	-- Black War Steed Bridle - 22717
-	AddMount(22717, 29468, R_EPIC, GAME_ORIG)
-	AddMountFlags(22717, F_ALLIANCE, F_VENDOR, F_PVP, F_BOP)
-	self:AddCompanionAcquire(DB, 22717, A_VENDOR, 12783)
-
-	-- Black Battlestrider - 22719
-	AddMount(22719, 29465, R_EPIC, GAME_ORIG)
-	AddMountFlags(22719, F_ALLIANCE, F_VENDOR, F_PVP, F_BOP)
-	self:AddCompanionAcquire(DB, 22719, A_VENDOR, 12783)
-
-	-- Black War Ram - 22720
-	AddMount(22720, 29467, R_EPIC, GAME_ORIG)
-	AddMountFlags(22720, F_ALLIANCE, F_VENDOR, F_BOP, F_PVP)
-	self:AddCompanionAcquire(DB, 22720, A_VENDOR, 12783)
-
-	-- Stormpike Battle Charger - 23510
-	AddMount(23510, 19030, R_EPIC, GAME_ORIG)
-	AddMountFlags(23510, F_ALLIANCE, F_VENDOR, F_PVP, F_BOP)
-	self:AddCompanionAcquire(DB, 23510, A_VENDOR, 13216, A_VENDOR, 13217)
-
-	-- Reins of the Black War Tiger - 22723
-	AddMount(22723, 29471, R_EPIC, GAME_ORIG)
-	AddMountFlags(22723, F_ALLIANCE, F_VENDOR, F_BOP, F_PVP)
-	self:AddCompanionAcquire(DB, 22723, A_VENDOR, 12783)
-
-	-- Reins of the Black War Elekk - 48027
-	AddMount(48027, 35906, R_EPIC, GAME_BC)
-	AddMountFlags(48027, F_ALLIANCE, F_VENDOR, F_BOP, F_PVP)
-	self:AddCompanionAcquire(DB, 48027, A_VENDOR, 12783)
-
-	-- Grand Black War Mammoth - Alliance - 61465
-	AddMount(61465, 43959, R_EPIC, GAME_WOTLK)
-	AddMountFlags(61465, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP)
-	self:AddCompanionAcquire(DB, 61465, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125, A_MOB, 38433)
-
-	-------------------------------------------------------------------------------
-	-- Flying Mounts
-	-------------------------------------------------------------------------------
-	-- Golden Gryphon - 32235
-	AddMount(32235, 25470, R_RARE, GAME_BC)
-	AddMountFlags(32235, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32235, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
-
-	-- Ebon Gryphon - 32239
-	AddMount(32239, 25471, R_RARE, GAME_BC)
-	AddMountFlags(32239, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32239, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
-
-	-- Snowy Gryphon - 32240
-	AddMount(32240, 25472, R_RARE, GAME_BC)
-	AddMountFlags(32240, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32240, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
-
-	-- Swift Blue Gryphon - 32242
-	AddMount(32242, 25473, R_EPIC, GAME_BC)
-	AddMountFlags(32242, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32242, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
-
-	-- Swift Red Gryphon - 32289
-	AddMount(32289, 25527, R_EPIC, GAME_BC)
-	AddMountFlags(32289, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32289, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
-
-	-- Swift Green Gryphon - 32290
-	AddMount(32290, 25528, R_EPIC, GAME_BC)
-	AddMountFlags(32290, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32290, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
-
-	-- Swift Purple Gryphon - 32292
-	AddMount(32292, 25529, R_EPIC, GAME_BC)
-	AddMountFlags(32292, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 32292, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
-
-	-------------------------------------------------------------------------------
-	-- Argent Tournament Mounts
-	-------------------------------------------------------------------------------
-	-- Darnassian Nightsaber - 63637
-	AddMount(63637, 45591, R_EPIC, GAME_WOTLK)
-	AddMountFlags(63637, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY1)
-	self:AddCompanionAcquire(DB, 63637, A_VENDOR, 33653)
-
-	-- Swift Moonsaber - 65638
-	AddMount(65638, 46744, R_EPIC, GAME_WOTLK)
-	AddMountFlags(65638, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY1)
-	self:AddCompanionAcquire(DB, 65638, A_REPUTATION, 69, EXALTED, 33653)
-
-	-- Stormwind Steed - 63232
-	AddMount(63232, 45125, R_EPIC, GAME_WOTLK)
-	AddMountFlags(63232, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY2)
-	self:AddCompanionAcquire(DB, 63232, A_VENDOR, 33307)
-
-	-- Swift Gray Steed - 65640
-	AddMount(65640, 46752, R_EPIC, GAME_WOTLK)
-	AddMountFlags(65640, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY2)
-	self:AddCompanionAcquire(DB, 65640, A_REPUTATION, 72, EXALTED, 33307)
-
-	-- Gnomeregan Mechanostrider - 63638
-	AddMount(63638, 45589, R_EPIC, GAME_WOTLK)
-	AddMountFlags(63638, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY3)
-	self:AddCompanionAcquire(DB, 63638, A_VENDOR, 33650)
-
-	-- Turbostrider - 65642
-	AddMount(65642, 46747, R_EPIC, GAME_WOTLK)
-	AddMountFlags(65642, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY3)
-	self:AddCompanionAcquire(DB, 65642, A_REPUTATION, 54, EXALTED, 33650)
-
-	-- Ironforge Ram - 63636
-	AddMount(63636, 45586, R_EPIC, GAME_WOTLK)
-	AddMountFlags(63636, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY4)
-	self:AddCompanionAcquire(DB, 63636, A_VENDOR, 33310)
-
-	-- Swift Violet Ram - 65643
-	AddMount(65643, 46748, R_EPIC, GAME_WOTLK)
-	AddMountFlags(65643, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY4)
-	self:AddCompanionAcquire(DB, 65643, A_REPUTATION, 47, EXALTED, 33310)
-
-	-- Exodar Elekk - 63639
-	AddMount(63639, 45590, R_EPIC, GAME_WOTLK)
-	AddMountFlags(63639, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY5)
-	self:AddCompanionAcquire(DB, 63639, A_VENDOR, 33657)
-
-	-- Great Red Elekk - 65637
-	AddMount(65637, 46745, R_EPIC, GAME_WOTLK)
-	AddMountFlags(65637, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY5)
-	self:AddCompanionAcquire(DB, 65637, A_REPUTATION, 930, EXALTED, 33657)
 
 	-------------------------------------------------------------------------------
 	-- Mounts for Alliance AND Horde.
@@ -1270,7 +1269,7 @@ function addon:GetMountTotal(DB)
 	end
 
 --REP VENDOR NEUTRAL
-		-- Argent Warhorse - 67466
+	-- Argent Warhorse - 67466
 	AddMount(67466, 47180, R_EPIC, GAME_WOTLK)
 	AddMountFlags(67466, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 67466, A_VENDOR, 34885)
@@ -1393,26 +1392,6 @@ function addon:GetMountTotal(DB)
 	AddMount(24242, 19872, R_EPIC, GAME_ORIG)
 	AddMountFlags(24242, F_ALLIANCE, F_HORDE, F_RAID, F_MOB_DROP, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(DB, 24242, A_MOB, 11382)
-
-	-- Crusader's White Warhorse
-	AddMount(68187, nil, R_EPIC, GAME_WOTLK)
-	AddMountFlags(68187, F_ALLIANCE, F_ACHIEVEMENT, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 68187, A_ACHIEVEMENT, 4156)
-
-	-- Crusader's Black Warhorse
-	AddMount(68188, nil, R_EPIC, GAME_WOTLK)
-	AddMountFlags(68188, F_HORDE, F_ACHIEVEMENT, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 68188, A_ACHIEVEMENT, 4156)
-
-	-- Swift Horde Wolf
-	AddMount(68056, 49046, R_EPIC, GAME_WOTLK)
-	AddMountFlags(68056, F_HORDE, F_MOB_DROP, F_RAID, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 68056, A_MOB, 34564)
-
-	-- Swift Alliance Steed
-	AddMount(68057, 49044, R_EPIC, GAME_WOTLK)
-	AddMountFlags(68057, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP, F_REMOVED)
-	self:AddCompanionAcquire(DB, 68057, A_MOB, 34564)
 
 	 -- Black Proto-Drake - 59976
 	AddMount(59976, 44164, R_EPIC, GAME_WOTLK)
@@ -1570,7 +1549,7 @@ function addon:GetMountTotal(DB)
 -- CATACLYSM ADDED
 	-- Abyssal Seahorse -- 75207
 	AddMount(75207, 54465, R_RARE, GAME_CATA)
-	AddMountFlags(75207, F_HORDE, F_ALLIANCE, F_QUEST, F_BOP)
+	AddMountFlags(75207, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
 	self:AddCompanionAcquire(DB, 75207, A_QUEST, 25371)
 
 	-- Fossilized Raptor -- 84751
@@ -1592,21 +1571,6 @@ function addon:GetMountTotal(DB)
 	AddMount(88749, 63045, R_EPIC, GAME_CATA)
 	AddMountFlags(88749, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 88749, A_VENDOR, 48617)
-
-	-- Spectral Wolf -- 92232
-	AddMount(92232, 64999, R_EPIC, GAME_CATA)
-	AddMountFlags(92232, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 92232, A_VENDOR, 48531)
-
-	-- Kor'kron Annihilator -- 93644
-	AddMount(93644, 67107, R_EPIC, GAME_CATA)
-	AddMountFlags(93644, F_HORDE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(DB, 93644, A_ACHIEVEMENT, 5492)
-
-	-- Golden King -- 90621
-	AddMount(90621, 62298, R_EPIC, GAME_CATA)
-	AddMountFlags(90621, F_ALLIANCE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
-	self:AddCompanionAcquire(DB, 90621, A_ACHIEVEMENT, 4912)
 
 	-- Grey Riding Camel -- 88750
 	AddMount(88750, 63046, R_EPIC, GAME_CATA)
@@ -1658,11 +1622,6 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(88335, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 88335, A_ACHIEVEMENT, 4853)
 
-	-- Spectral Steed -- 92231
-	AddMount(92231, 64998, R_EPIC, GAME_CATA)
-	AddMountFlags(92231, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 92231, A_VENDOR, 47328)
-
 	-- Armored Razzashi Raptor -- 96491
 	AddMount(96491, 68823, R_EPIC, GAME_CATA)
 	AddMountFlags(96491, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
@@ -1708,30 +1667,10 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(101282, F_ALLIANCE, F_HORDE, F_REMOVED, F_PVP, F_BOP)
 	self:AddCompanionAcquire(DB, 101282, A_CUSTOM, 48)
 
-	-- Vicious War Steed -- 100332
-	AddMount(100332, 70909, R_EPIC, GAME_CATA)
-	AddMountFlags(100332, F_ALLIANCE, F_ACHIEVEMENT, F_BOE)
-	self:AddCompanionAcquire(DB, 100332, A_ACHIEVEMENT, 5823)
-
-	-- Vicious War Wolf -- 100333
-	AddMount(100333, 70910, R_EPIC, GAME_CATA)
-	AddMountFlags(100333, F_HORDE, F_ACHIEVEMENT, F_BOE)
-	self:AddCompanionAcquire(DB, 100333, A_ACHIEVEMENT, 5824)
-
 	-- Tyrael's Charger -- 107203
 	AddMount(107203, 76755, R_EPIC, GAME_CATA)
 	AddMountFlags(107203, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
 	self:AddCompanionAcquire(DB, 107203, A_CUSTOM, 49)
-
-	-- Mountain Horse -- 103195
-	AddMount(103195, 73838, R_RARE, GAME_CATA)
-	AddMountFlags(103195, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 103195, A_VENDOR, 55285)
-
-	-- Swift Mountain Horse -- 103196
-	AddMount(103196, 73839, R_EPIC, GAME_CATA)
-	AddMountFlags(103196, F_ALLIANCE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 103196, A_VENDOR, 55285)
 
 	-- Swift Shorestrider -- 101573
 	AddMount(101573, 71718, R_EPIC, GAME_CATA)
@@ -1777,7 +1716,6 @@ function addon:GetMountTotal(DB)
 	AddMount(107844, 77068, R_EPIC, GAME_CATA)
 	AddMountFlags(107844, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 107844, A_ACHIEVEMENT, 6169)
-
 
 	--------------------------------------------------------------------
 	-- TO BE ADDED WHEN THEY BECOME AVAILABLE:
