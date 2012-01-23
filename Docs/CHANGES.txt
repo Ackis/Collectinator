@@ -27,7 +27,9 @@
 	**Darkmoon Zeppelin
 	**Darkmoon Tonk
 	**Purple Puffer
-	
+
+*Corrected the acquire data for the Leaping Hatchling, Darting Hatchling, Razormaw Hatchling, and Ravasaur Hatchling
+
 *Pets/Mounts that can ONLY be obtained AND learned by a specific faction will be loaded for the respected faction now, meaning 
 an Alliance character won't see in the list a pet/mount that can only be obtained and learned by a Horde character
 
