@@ -110,7 +110,8 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Jade Tiger - 66520
 	AddPet(66520, nil, R_RARE, GAME_WOTLK)
-	self:AddCompanionFlags(PetDB, 66520, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
+	self:AddCompanionFlags(PetDB, 66520, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SPEC_EVENT, F_REMOVED, F_BOA)
+	self:AddCompanionAcquire(PetDB, 66520, A_ACHIEVEMENT, 3636, A_CUSTOM, 10)
 
 	-- Onyx Panter - 67527
 	AddPet(67527, 48527, R_RARE, GAME_WOTLK)
@@ -597,7 +598,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Chicken Egg - 13548
 	AddPet(13548, 11110, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 13548, F_ALLIANCE, F_HORDE, F_QUEST, F_BOP)
+	self:AddCompanionFlags(PetDB, 13548, F_ALLIANCE, F_HORDE, F_QUEST, F_WORLD_DROP, F_BOP)
 	self:AddCompanionAcquire(PetDB, 13548, A_QUEST, 3861, A_CUSTOM, 2)
 
 	-- Sprite Darter Egg - 15067
@@ -996,7 +997,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Lurky's Egg - 24988
 	AddPet(24988, 30360, R_RARE, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 24988, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
-	self:AddCompanionAcquire(PetDB, 24988, A_CUSTOM, 10)
+	self:AddCompanionAcquire(PetDB, 24988, A_CUSTOM, 5)
 
 	-- Netherwhelp's Collar - 32298
 	AddPet(32298, 25535, R_RARE, GAME_BC)
