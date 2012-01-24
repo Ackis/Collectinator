@@ -1,5 +1,12 @@
 ==Collectinator Change Log
 
+===Version 1.0.18
+
+*Fixed issue with the Deathwing error
+
+*Fixed up the acquire data that was extremely outdated for the following pets: Black Tabby Cat, Parrot Cage (Hyacinth Macaw), Disgusting Oozeling, Dark Whelpling, 
+Crimson Whelpling, Emerald Whelpling, Siamese Cat, Jade Tiger
+
 ===Version 1.0.17
 *New Mounts:
 	**Mountain Horse

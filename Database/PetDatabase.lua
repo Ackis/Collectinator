@@ -113,7 +113,7 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 66520, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_SPEC_EVENT, F_REMOVED, F_BOA)
 	self:AddCompanionAcquire(PetDB, 66520, A_ACHIEVEMENT, 3636, A_CUSTOM, 10)
 
-	-- Onyx Panter - 67527
+	-- Onyx Panther - 67527
 	AddPet(67527, 48527, R_RARE, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 67527, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_REMOVED, F_BOA)
 

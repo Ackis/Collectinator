@@ -1712,7 +1712,7 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(101821, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
 	self:AddCompanionAcquire(DB, 101821, A_CUSTOM, 52)
 	
-	-- Twilight Harbringer -- 107844
+	-- Twilight Harbinger -- 107844
 	AddMount(107844, 77068, R_EPIC, GAME_CATA)
 	AddMountFlags(107844, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 107844, A_ACHIEVEMENT, 6169)
