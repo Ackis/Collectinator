@@ -482,13 +482,13 @@ function addon:GetMiniPetTotal(PetDB)
 --DROP
 	-- Parrot Cage (Hyacinth Macaw) - 10682
 	AddPet(10682, 8494, R_EPIC, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 10682, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10682, A_MOB, 1561, A_MOB, 1562, A_MOB, 1563, A_MOB, 1564, A_MOB, 1565, A_MOB, 1653, A_MOB, 2545, A_MOB, 4505, A_MOB, 4506)
+	self:AddCompanionFlags(PetDB, 10682, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE)
+	self:AddCompanionAcquire(PetDB, 10682, A_CUSTOM, 59)
 
 	-- Parrot Cage (Green Wing Macaw) - 10683
 	AddPet(10683, 8492, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10683, F_ALLIANCE, F_HORDE, F_INSTANCE, F_MOB_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10683, A_MOB, 657)
+	self:AddCompanionAcquire(PetDB, 10683, A_MOB, 48522)
 
 	-- Cat Carrier (Black Tabby) - 10675
 	AddPet(10675, 8491, R_COMMON, GAME_ORIG)

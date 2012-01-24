@@ -261,21 +261,12 @@ L["STORE_DESC"] = "Collectibles obtained from the Blizzard Store should be inclu
 
 -- Mobs
 L["Defias Pirate"] = true
-L["Bloodsail Raider"] = true
-L["Bloodsail Mage"] = true
-L["Bloodsail Swashbuckler"] = true
-L["Bloodsail Warlock"] = true
-L["Bloodsail Sea Dog"] = true
-L["Bloodsail Elder Magus"] = true
 L["Dalaran Spellscribe"] = true
 L["Dalaran Shield Guard"] = true
 L["Dalaran Theurgist"] = true
 L["Dalaran Summoner"] = true
-L["\"Pretty Boy\" Duncan"] = true
 L["Deviate Ravager"] = true
 L["Deviate Guardian"] = true
-L["Bloodsail Deckhand"] = true
-L["Bloodsail Swabby"] = true
 L["Razzashi Raptor"] = true
 L["Bogflare Needler"] = true
 L["Forest Frog"] = true
