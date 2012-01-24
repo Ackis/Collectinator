@@ -497,8 +497,8 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Cat Carrier (Siamese) - 10677
 	AddPet(10677, 8490, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 10677, F_ALLIANCE, F_HORDE, F_VENDOR, F_INSTANCE, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10677, A_VENDOR, 20980, A_MOB, 645)
+	self:AddCompanionFlags(PetDB, 10677, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
+	self:AddCompanionAcquire(PetDB, 10677, A_VENDOR, 20980)
 
 	-- Dark Whelpling - 10695
 	AddPet(10695, 10822, R_COMMON, GAME_ORIG)

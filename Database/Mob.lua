@@ -19,7 +19,6 @@ function addon:InitMob(DB)
 	---------------------------------------------------------------------------------------------------------------------------
 	--			ID	Mob Name				Location Found				Coordinates
 	---------------------------------------------------------------------------------------------------------------------------
-	self:addLookupList(DB, 645,	BB["Cookie"],				BZ["The Deadmines"],			0, 0)
 	self:addLookupList(DB, 3636,	L["Deviate Ravager"],			BZ["Wailing Caverns"],			0, 0)
 	self:addLookupList(DB, 3637,	L["Deviate Guardian"],			BZ["Wailing Caverns"],			0, 0)
 	self:addLookupList(DB, 9736,	BB["Quartermaster Zigris"],			BZ["Blackrock Spire"],			52.2, 81.2)
