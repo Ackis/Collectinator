@@ -19,7 +19,7 @@ local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 function addon:InitCustom(DB)
 	self:addLookupList(DB, 1, "World of Warcraft Trading Card Game", BZ["Booty Bay"])
 	self:addLookupList(DB, 2, "Find chickens in various zones such as: Tirisfal Glades, Howling Fjord, Redridge Mountains, Westfall, etc.  Do /chicken until it reacts")
-	self:addLookupList(DB, 3, "Learned from Oozing Bag, dropped by level 50 to 57 ooze & slime mobs", "Various Zones")
+	self:addLookupList(DB, 3, "Random drop within an Oozing Bag, which is dropped by many ooze and slime mobs in various zones")
 	self:addLookupList(DB, 4, "Bought from the Blizzard Store")
 	self:addLookupList(DB, 5, "Burning Crusade Collector's Edition (EU)")
 	self:addLookupList(DB, 6, "Promotional pet: Fansite contest giveaway (EU)") -- EU Contest, Pink Murloc
