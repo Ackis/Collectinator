@@ -76,5 +76,6 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 57, "Farm the mobs within the zone, Wetlands, for a chance to get this pet")
 	self:addLookupList(DB, 58, "Farm the whelp mobs within the zones, Wetlands, Badlands, Dustwallow Marsh, for a chance to get this pet")
 	self:addLookupList(DB, 59, "Farm the mobs within the zones, Northern Stranglethorn and The Cape of Stranglethorn, for a chance to get this pet")
+	self:addLookupList(DB, 60, "Farm the mobs within the zone, Hillsbrad Foothills, for a chance to get this pet")
 end
 

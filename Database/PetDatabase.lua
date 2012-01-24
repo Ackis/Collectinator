@@ -492,8 +492,8 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Cat Carrier (Black Tabby) - 10675
 	AddPet(10675, 8491, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 10675, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10675, A_MOB, 1920, A_MOB, 2271, A_MOB, 2272, A_MOB, 2358)
+	self:AddCompanionFlags(PetDB, 10675, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE)
+	self:AddCompanionAcquire(PetDB, 10675, A_CUSTOM, 60)
 
 	-- Cat Carrier (Siamese) - 10677
 	AddPet(10677, 8490, R_COMMON, GAME_ORIG)

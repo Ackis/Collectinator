@@ -20,10 +20,6 @@ function addon:InitMob(DB)
 	--			ID	Mob Name				Location Found				Coordinates
 	---------------------------------------------------------------------------------------------------------------------------
 	self:addLookupList(DB, 645,	BB["Cookie"],				BZ["The Deadmines"],			0, 0)
-	self:addLookupList(DB, 1920,	L["Dalaran Spellscribe"],		BZ["Silverpine Forest"],		63.5, 63.3)
-	self:addLookupList(DB, 2271,	L["Dalaran Shield Guard"],		BZ["Alterac Mountains"],		21.0, 81.0)
-	self:addLookupList(DB, 2272,	L["Dalaran Theurgist"],			BZ["Alterac Mountains"],		21.0, 83.0)
-	self:addLookupList(DB, 2358,	L["Dalaran Summoner"],			BZ["Alterac Mountains"],		22.0, 65.0)
 	self:addLookupList(DB, 3636,	L["Deviate Ravager"],			BZ["Wailing Caverns"],			0, 0)
 	self:addLookupList(DB, 3637,	L["Deviate Guardian"],			BZ["Wailing Caverns"],			0, 0)
 	self:addLookupList(DB, 9736,	BB["Quartermaster Zigris"],			BZ["Blackrock Spire"],			52.2, 81.2)

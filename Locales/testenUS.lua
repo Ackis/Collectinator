@@ -261,10 +261,6 @@ L["STORE_DESC"] = "Collectibles obtained from the Blizzard Store should be inclu
 
 -- Mobs
 L["Defias Pirate"] = true
-L["Dalaran Spellscribe"] = true
-L["Dalaran Shield Guard"] = true
-L["Dalaran Theurgist"] = true
-L["Dalaran Summoner"] = true
 L["Deviate Ravager"] = true
 L["Deviate Guardian"] = true
 L["Razzashi Raptor"] = true
