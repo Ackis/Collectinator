@@ -101,6 +101,6 @@ function addon:InitMob(DB)
 	self:addLookupList(DB, 52151, BB["Bloodlord Mandokir"],	BZ["Zul'Gurub"],		0, 0)
 	self:addLookupList(DB, 52409, BB["Ragnaros"],	BZ["Firelands"],		0, 0)
 	self:addLookupList(DB, 52530, BB["Alysrazor"],	BZ["Firelands"],		0, 0)
-	self:addLookupList(DB, 56173, BB["Deathwing"],	BZ["Dragon Soul"],		0, 0)
+	self:addLookupList(DB, 56173, BB["Madness of Deathwing"],	BZ["Dragon Soul"],		0, 0)
 	self:addLookupList(DB, 55294, BB["Ultraxion"],	BZ["Dragon Soul"],		0, 0)
 end
