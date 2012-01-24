@@ -502,23 +502,23 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Dark Whelpling - 10695
 	AddPet(10695, 10822, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 10695, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10695, A_MOB, 2725, A_MOB, 4324)
+	self:AddCompanionFlags(PetDB, 10695, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE)
+	self:AddCompanionAcquire(PetDB, 10695, A_CUSTOM, 58)
 
 	-- Azure Whelpling - 10696
 	AddPet(10696, 34535, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 10696, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
+	self:AddCompanionFlags(PetDB, 10696, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE)
 	self:AddCompanionAcquire(PetDB, 10696, A_CUSTOM, 31)
 
 	-- Tiny Crimson Whelpling - 10697
 	AddPet(10697, 8499, R_COMMON, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 10697, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10697, A_MOB, 1042, A_MOB, 1044, A_MOB, 1069)
+	self:AddCompanionFlags(PetDB, 10697, F_ALLIANCE, F_HORDE, F_WORLD_DROP, F_BOE)
+	self:AddCompanionAcquire(PetDB, 10697, A_CUSTOM, 57)
 
 	-- Tiny Emerald Whelpling - 10698
 	AddPet(10698, 8498, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10698, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10698, A_MOB, 741)
+	self:AddCompanionAcquire(PetDB, 10698, A_MOB, 39384)
 
 	-- Disgusting Oozeling - 25162
 	AddPet(25162, 20769, R_COMMON, GAME_ORIG)

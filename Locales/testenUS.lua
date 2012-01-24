@@ -261,11 +261,6 @@ L["STORE_DESC"] = "Collectibles obtained from the Blizzard Store should be inclu
 
 -- Mobs
 L["Defias Pirate"] = true
-L["Adolescent Whelp"] = true
-L["Dreaming Whelp"] = true
-L["Red Whelp"] = true
-L["Flamesnorting Whelp"] = true
-L["Crimson Whelp"] = true
 L["Bloodsail Raider"] = true
 L["Bloodsail Mage"] = true
 L["Bloodsail Swashbuckler"] = true
@@ -277,10 +272,8 @@ L["Dalaran Shield Guard"] = true
 L["Dalaran Theurgist"] = true
 L["Dalaran Summoner"] = true
 L["\"Pretty Boy\" Duncan"] = true
-L["Scalding Whelp"] = true
 L["Deviate Ravager"] = true
 L["Deviate Guardian"] = true
-L["Searing Whelp"] = true
 L["Bloodsail Deckhand"] = true
 L["Bloodsail Swabby"] = true
 L["Razzashi Raptor"] = true
@@ -294,6 +287,7 @@ L["Aeonaxx"] = true
 L["Dormus the Camel-Hoarder"] = true
 L["Baradin Fox"] = true
 L["Poseidus"] = true
+L["Noxious Whelp"] = true
 
 -- Vendors
 L["Yarlyn Amberstill"] = true
