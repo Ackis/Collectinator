@@ -1529,6 +1529,11 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(74918, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	self:AddCompanionAcquire(DB, 74918, A_CUSTOM, 1)
 
+	-- Corrupted Hippogryph -- 102514
+	AddMount(102514, 72582, R_EPIC, GAME_CATA)
+	AddMountFlags(102514, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
+	self:AddCompanionAcquire(DB, 102514, A_CUSTOM, 1)
+
 -- PURCHASED
 	-- Celestial Steed - 75614
 	AddMount(75614, 54811, R_EPIC, GAME_WOTLK)
@@ -1717,6 +1722,11 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(107844, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
 	self:AddCompanionAcquire(DB, 107844, A_ACHIEVEMENT, 6169)
 
+	-- Swift Lovebird -- 102350
+	AddMount(102350, 72146, R_EPIC, GAME_CATA)
+	AddMountFlags(102350, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_BOE)
+	self:AddCompanionAcquire(DB, 102350, A_SEASONAL, 5, A_CUSTOM, 61)
+
 	--------------------------------------------------------------------
 	-- TO BE ADDED WHEN THEY BECOME AVAILABLE:
 
@@ -1726,16 +1736,6 @@ function addon:GetMountTotal(DB)
 	--self:AddCompanionAcquire()
 
 	-- White Riding Camel
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
-
-	-- Swift Lovebird
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
-
-	-- Corrupted Hippogryph
 	--AddMount()
 	--AddMountFlags()
 	--self:AddCompanionAcquire()
