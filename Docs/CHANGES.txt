@@ -1,5 +1,15 @@
 ==Collectinator Change Log
 
+===Version 1.0.19
+*New Mounts:
+	**Corrupted Hippogryph
+	**Swift Lovebird
+
+*New Pets:
+	**Gregarious Grell
+
+*Added a description to Truesilver Shafted Arrow pet to be more specific on how to obtain it
+
 ===Version 1.0.18
 
 *Fixed issue with the Deathwing error
