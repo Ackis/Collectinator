@@ -366,7 +366,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Truesilver Shafted Arrow - 27570
 	AddPet(27570, 22235, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 27570, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOE)
-	self:AddCompanionAcquire(PetDB, 27570, A_ACHIEVEMENT, 1700, A_SEASONAL, 5)
+	self:AddCompanionAcquire(PetDB, 27570, A_ACHIEVEMENT, 1700, A_SEASONAL, 5, A_CUSTOM, 61)
 
 	-- Sinister Squashling - 42609
 	AddPet(42609, 33154, R_RARE, GAME_BC)
@@ -1122,6 +1122,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 101493, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 101493, A_CUSTOM, 1)
 
+	-- Gregarious Grell -- 102317
+	AddPet(102317, 72134, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 102317, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	self:AddCompanionAcquire(PetDB, 102317, A_CUSTOM, 1)
+
 --PURCHASED
 	-- Lil' K.T. - 69677
 	AddPet(69677, 49693, R_RARE, GAME_WOTLK)
@@ -1234,14 +1239,9 @@ function addon:GetMiniPetTotal(PetDB)
 	
 	-- Soul of the Aspects -- 110029
 	-- AddPet(110029, 78916, R_RARE, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 110029, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
-	-- self:AddCompanionAcquire(PetDB, 110029, A_SEASONAL, 3)
+	-- self:AddCompanionFlags(PetDB, 110029, F_ALLIANCE, F_HORDE,)
+	-- self:AddCompanionAcquire(PetDB, 110029, )
 	
-	-- Gregarious Grell -- 102317
-	-- AddPet(102317, 72134, R_RARE, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 102317, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
-	-- self:AddCompanionAcquire(PetDB, 102317, A_CUSTOM, 1)
-
 	-- Sand Scarab -- 102353
 	-- AddPet(102353, 72153, R_RARE, GAME_CATA)
 	-- self:AddCompanionFlags(PetDB, 102353, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
