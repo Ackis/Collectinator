@@ -23,7 +23,7 @@ http://wowuidev.pastey.net/125322
 local MODNAME		= "Collectinator"
 local addon		= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
-local MY_FACTION	= select(2, UnitFactionGroup("player"))
+local MY_FACTION	= UnitFactionGroup("player")
 
 -------------------------------------------------------------------------------
 -- Item "rarity"
