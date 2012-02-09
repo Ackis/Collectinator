@@ -1,5 +1,9 @@
 ==Collectinator Change Log
 
+===Version 1.0.20
+
+*Fixed issue with a lot of mounts/pets not loading on non enUS locales
+
 ===Version 1.0.19
 *New Mounts:
 	**Corrupted Hippogryph
