@@ -1,5 +1,9 @@
 ==Collectinator Change Log
 
+===Version 1.0.21
+*New Mount:
+	**Heart of the Aspects
+
 ===Version 1.0.20
 
 *Fixed issue with a lot of mounts/pets not loading on non enUS locales
