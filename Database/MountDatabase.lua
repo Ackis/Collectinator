@@ -1545,6 +1545,11 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(98727, F_ALLIANCE, F_HORDE, F_STORE, F_BOA)
 	self:AddCompanionAcquire(DB, 98727, A_CUSTOM, 4)
 
+	-- Heart of the Aspects -- 110051
+	AddMount(110051, 78924, R_EPIC, GAME_CATA)
+	AddMountFlags(110051, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
+	self:AddCompanionAcquire(DB, 110051, A_CUSTOM, 4)
+
 -- QUEST
 	-- Reins of the Crimson Deathcharger - 73313
 	AddMount(73313, 52200, R_EPIC, GAME_WOTLK)
@@ -1746,11 +1751,6 @@ function addon:GetMountTotal(DB)
 	--self:AddCompanionAcquire()
 
 	-- Spectral Wind Rider
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
-
-	-- Heart of the Aspects
 	--AddMount()
 	--AddMountFlags()
 	--self:AddCompanionAcquire()
