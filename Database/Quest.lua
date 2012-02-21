@@ -17,7 +17,7 @@ Project version: @project-version@
 
 ]]--
 
-local MODNAME			= "Collectinator"
+local MODNAME				= "Collectinator"
 local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
 
 local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
@@ -36,7 +36,7 @@ function addon:InitQuest(DB)
 		addon:addLookupList(DB, QuestID, nil, Zone, X, Y, Faction)
 	end
 
-	AddQuest(7946,	BZ["Terokkar Forest"],		33.6,	35.9,	NEUTRAL)	--several zones
+	AddQuest(7946,	BZ["Darkmoon Island"],		55.8,	70.6,	NEUTRAL)
 	AddQuest(3861,	BZ["Westfall"],			55.5,	30.5,	NEUTRAL)	--several zones
 	AddQuest(171,	BZ["Stormwind City"],		56.3,	54.2,	ALLIANCE)
 	AddQuest(5502,	BZ["Orgrimmar"],		70.8,	25.5,	HORDE)
