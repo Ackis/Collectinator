@@ -607,12 +607,12 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionAcquire(PetDB, 15067, A_CUSTOM, 27)
 
 	-- Worg Carrier - 15999
-	AddPet(15999, 12264, R_COMMON, GAME_ORIG)
+	AddPet(15999, 12264, R_RARE, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 15999, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(PetDB, 15999, A_MOB, 9736)
 
 	-- Smolderweb Egg - 16450
-	AddPet(16450, 68673, R_COMMON, GAME_ORIG)
+	AddPet(16450, 68673, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 16450, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	self:AddCompanionAcquire(PetDB, 16450, A_MOB, 10596)
 
