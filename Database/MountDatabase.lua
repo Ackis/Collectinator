@@ -603,6 +603,11 @@ function addon:GetMountTotal(DB)
 		AddMount(60424, 44413, R_EPIC, GAME_WOTLK)
 		AddMountFlags(60424, F_ALLIANCE, F_BOE, F_ENG, F_CRAFT)
 		self:AddCompanionAcquire(DB, 60424, A_CRAFTED, 4036, 60867)
+		
+		-- Spectral Gryphon -- 107516
+		AddMount(107516, 76889, R_EPIC, GAME_CATA)
+		AddMountFlags(107516, F_ALLIANCE, F_SPEC_EVENT, F_BOP)
+		self:AddCompanionAcquire(DB, 107516, A_CUSTOM, 62)
 
 	elseif MY_FACTION == "Horde" then
 
@@ -1020,6 +1025,11 @@ function addon:GetMountTotal(DB)
 		AddMount(55531, 41508, R_EPIC, GAME_WOTLK)
 		AddMountFlags(55531, F_HORDE, F_BOE, F_ENG, F_CRAFT)
 		self:AddCompanionAcquire(DB, 55531, A_CRAFTED, 4036, 60866)
+		
+		-- Spectral Wind Rider -- 107517
+		AddMount(107517, 76902, R_EPIC, GAME_CATA)
+		AddMountFlags(107517, F_HORDE, F_SPEC_EVENT, F_BOP)
+		self:AddCompanionAcquire(DB, 107517, A_CUSTOM, 62)
 
 	end
 
@@ -1741,16 +1751,6 @@ function addon:GetMountTotal(DB)
 	--self:AddCompanionAcquire()
 
 	-- White Riding Camel
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
-
-	-- Spectral Gryphon
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
-
-	-- Spectral Wind Rider
 	--AddMount()
 	--AddMountFlags()
 	--self:AddCompanionAcquire()

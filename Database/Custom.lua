@@ -77,5 +77,6 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 59, "Farm mobs within Northern Stranglethorn and The Cape of Stranglethorn for a chance to get this pet")
 	self:addLookupList(DB, 60, "Farm mobs within Hillsbrad Foothills for a chance to get this pet")
 	self:addLookupList(DB, 61, "Purchasable from the Lovely Merchant vendor in any major city during the Love is in the Air event")
+	self:addLookupList(DB, 62, "Reward from the Scroll of Resurrection")
 end
 
