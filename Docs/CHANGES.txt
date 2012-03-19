@@ -1,5 +1,14 @@
 ==Collectinator Change Log
 
+===Version 1.0.22
+*New Mounts:
+	**Spectral Gryphon
+	**Spectral Wind Rider
+
+	*Reworded some custom strings
+
+	*Updated "Spawn of Jubjub's acquire
+
 ===Version 1.0.21
 *New Mount:
 	**Heart of the Aspects
