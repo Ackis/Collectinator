@@ -1,5 +1,11 @@
 ==Collectinator Change Log
 
+===Version 1.0.23
+*New Mount:
+	**Swift Springstrider
+
+*Started work on adding a custom string to entries where they have an NPC that wanders an area instead of a fixed location
+
 ===Version 1.0.22
 *New Mounts:
 	**Spectral Gryphon
