@@ -78,5 +78,7 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 60, "Farm mobs within Hillsbrad Foothills for a chance to get this pet")
 	self:addLookupList(DB, 61, "Purchasable from the Lovely Merchant vendor in any major city during the Love is in the Air event")
 	self:addLookupList(DB, 62, "Reward from the Scroll of Resurrection")
+	self:addLookupList(DB, 63, "Wanders in the specified zone")
+	self:addLookupList(DB, 64, "Purchasable from any Noblegarden Merchant vendor during the Noblegarden event, or looted randomly while farming eggs")
 end
 
