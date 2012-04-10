@@ -792,12 +792,12 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Wood Frog Box - 10703
 	AddPet(10703, 11027, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10703, F_ALLIANCE, F_HORDE, F_VENDOR, F_SEASONAL, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10703, A_VENDOR, 14860, A_SEASONAL, 3)
+	self:AddCompanionAcquire(PetDB, 10703, A_VENDOR, 14860, A_SEASONAL, 3, A_CUSTOM, 63)
 
 	-- Tree Frog Box - 10704
 	AddPet(10704, 11026, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10704, F_ALLIANCE, F_HORDE, F_VENDOR, F_SEASONAL, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10704, A_VENDOR, 14860, A_SEASONAL, 3)
+	self:AddCompanionAcquire(PetDB, 10704, A_VENDOR, 14860, A_SEASONAL, 3, A_CUSTOM, 63)
 
 	-- Crimson Snake - 10717
 	AddPet(10717, 10392, R_COMMON, GAME_ORIG)
