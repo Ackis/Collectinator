@@ -1742,13 +1742,13 @@ function addon:GetMountTotal(DB)
 	AddMountFlags(102350, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(DB, 102350, A_SEASONAL, 5, A_CUSTOM, 61)
 
+	-- Swift Springstrider -- 102349
+	AddMount(102349, 72145, R_EPIC, GAME_CATA)
+	AddMountFlags(102349, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(DB, 102349, A_SEASONAL, 9, A_CUSTOM, 64)
+
 	--------------------------------------------------------------------
 	-- TO BE ADDED WHEN THEY BECOME AVAILABLE:
-
-	-- Swift Springstrider
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
 
 	-- White Riding Camel
 	--AddMount()
