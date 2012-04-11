@@ -1,5 +1,9 @@
 ==Collectinator Change Log
 
+===Version 1.0.24
+*New Pet:
+	**Soul of the Aspects
+
 ===Version 1.0.23
 *New Mount:
 	**Swift Springstrider
