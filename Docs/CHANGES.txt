@@ -1,5 +1,9 @@
 ==Collectinator Change Log
 
+===Version 1.0.25
+
+*Everything should now be translated into Spanish
+
 ===Version 1.0.24
 *New Pet:
 	**Soul of the Aspects
