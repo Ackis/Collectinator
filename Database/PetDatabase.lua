@@ -1016,7 +1016,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Lil' Deathwing -- 87344
 	AddPet(87344, 62540, R_RARE, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 87344, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOP)
+	self:AddCompanionFlags(PetDB, 87344, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 87344, A_ACHIEVEMENT, 5377)
 
 	-- Fetish Shaman -- 105633
