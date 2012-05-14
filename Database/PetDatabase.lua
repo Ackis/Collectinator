@@ -1019,6 +1019,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 87344, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOP)
 	self:AddCompanionAcquire(PetDB, 87344, A_ACHIEVEMENT, 5377)
 
+	-- Fetish Shaman -- 105633
+	AddPet(105633, 76062, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 105633, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
+	-- self:AddCompanionAcquire(PetDB, 105633, A_ACHIEVEMENT, )
+
 --BLIZZCON
 	-- Blue Murloc Egg - 24696 (Murky)
 	AddPet(24696, 20371, R_RARE, GAME_ORIG)
@@ -1246,11 +1251,6 @@ function addon:GetMiniPetTotal(PetDB)
 	-- AddPet(102353, 72153, R_RARE, GAME_CATA)
 	-- self:AddCompanionFlags(PetDB, 102353, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	-- self:AddCompanionAcquire(PetDB, 102353, A_CUSTOM, 1)
-	
-	-- Fetish Shaman -- 105633
-	-- AddPet(105633, 76062, R_RARE, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 105633, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOP)
-	-- self:AddCompanionAcquire(PetDB, 105633, A_ACHIEVEMENT, )
 	------------------------------------------------------------------------------------------------
 
 	return num_pets
