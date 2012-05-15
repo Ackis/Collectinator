@@ -80,5 +80,6 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 62, "Reward from the Scroll of Resurrection")
 	self:addLookupList(DB, 63, "Wanders in the specified zone")
 	self:addLookupList(DB, 64, "Purchasable from any Noblegarden Merchant vendor during the Noblegarden event, or looted randomly while farming eggs")
+	self:addLookupList(DB, 65, "Diablo 3 Collector's Edition")
 end
 
