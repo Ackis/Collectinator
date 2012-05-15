@@ -1,5 +1,9 @@
 ==Collectinator Change Log
 
+===Version 1.0.26
+*New Pet:
+	**Fetish Shaman
+
 ===Version 1.0.25
 
 *Everything should now be translated into Spanish
