@@ -24,7 +24,7 @@ function addon:InitVendor(DB)
 	-------------------------------------------------------------------------------
 	-- Companions only
 	-------------------------------------------------------------------------------
-	self:addLookupList(DB, 1263,	L["Yarlyn Amberstill"],			BZ["Dun Morogh"],		63.2, 50.0,	ALLIANCE)
+	self:addLookupList(DB, 1263,	L["Yarlyn Amberstill"],			BZ["Dun Morogh"],		70.6, 49.0,	ALLIANCE)
 	self:addLookupList(DB, 2663,	L["Narkk"],				BZ["Stranglethorn Vale"],	28.2, 74.5,	NEUTRAL)
 	self:addLookupList(DB, 6367,	L["Donni Anthania"],			BZ["Elwynn Forest"],		44.2, 53.4,	ALLIANCE)
 	self:addLookupList(DB, 6548,	L["Magus Tirth"],			BZ["Thousand Needles"],		78.3, 75.7,	NEUTRAL)
