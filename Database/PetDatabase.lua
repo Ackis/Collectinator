@@ -782,7 +782,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Ancona Chicken - 10685
 	AddPet(10685, 11023, R_COMMON, GAME_ORIG)
 	self:AddCompanionFlags(PetDB, 10685, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 10685, A_VENDOR, 6548)
+	self:AddCompanionAcquire(PetDB, 10685, A_VENDOR, 41135)
 
 	-- Wood Frog Box - 10703
 	AddPet(10703, 11027, R_COMMON, GAME_ORIG)
