@@ -1132,6 +1132,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 102317, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
 	self:AddCompanionAcquire(PetDB, 102317, A_CUSTOM, 1)
 
+	-- Sand Scarab -- 102353
+	AddPet(102353, 72153, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 102353, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
+	self:AddCompanionAcquire(PetDB, 102353, A_CUSTOM, 1)
+
 --PURCHASED
 	-- Lil' K.T. - 69677
 	AddPet(69677, 49693, R_RARE, GAME_WOTLK)
@@ -1243,15 +1248,6 @@ function addon:GetMiniPetTotal(PetDB)
 		self:AddCompanionAcquire(PetDB, 95909, A_CUSTOM, 4)
 		
 	end
-	
-	--------------------------------------------------------------------------------------------------
-	-- To add at a later time when they become available:
-
-	-- Sand Scarab -- 102353
-	-- AddPet(102353, 72153, R_RARE, GAME_CATA)
-	-- self:AddCompanionFlags(PetDB, 102353, F_ALLIANCE, F_HORDE, F_TCG, F_BOP)
-	-- self:AddCompanionAcquire(PetDB, 102353, A_CUSTOM, 1)
-	------------------------------------------------------------------------------------------------
 
 	return num_pets
 end
