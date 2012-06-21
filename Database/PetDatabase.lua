@@ -461,12 +461,12 @@ function addon:GetMiniPetTotal(PetDB)
 --WORLD EVENT VENDOR
 	-- Spirit of Summer - 28871
 	AddPet(28871, 23083, R_RARE, GAME_ORIG)
-	self:AddCompanionFlags(PetDB, 28871, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
-	self:AddCompanionAcquire(PetDB, 28871, A_SEASONAL, 4)
+	self:AddCompanionFlags(PetDB, 28871, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_BOE)
+	self:AddCompanionAcquire(PetDB, 28871, A_SEASONAL, 4, A_CUSTOM, 66)
 
 	-- Pint-Sized Pink Pachyderm - 44369
 	AddPet(44369, 46707, R_RARE, GAME_BC)
-	self:AddCompanionFlags(PetDB, 44369, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP)
+	self:AddCompanionFlags(PetDB, 44369, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(PetDB, 44369, A_SEASONAL, 6, A_VENDOR, 23710, A_VENDOR, 24495, A_VENDOR, 27478, A_VENDOR, 27489)
 	
 	-- Festival Lantern -- 104049
