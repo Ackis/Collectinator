@@ -373,11 +373,6 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 42609, F_ALLIANCE, F_HORDE, F_INSTANCE, F_SEASONAL, F_MOB_DROP, F_BOE)
 	self:AddCompanionAcquire(PetDB, 42609, A_MOB, 23682, A_SEASONAL, 7)
 
-	-- Scorched Stone - 45890
-	AddPet(45890, 34955, R_RARE, GAME_BC)
-	self:AddCompanionFlags(PetDB, 45890, F_ALLIANCE, F_HORDE, F_INSTANCE, F_SEASONAL, F_MOB_DROP, F_VENDOR, F_BOE)
-	self:AddCompanionAcquire(PetDB, 45890, A_MOB, 25740, A_SEASONAL, 4, A_VENDOR, 52822, A_CUSTOM, 15)
-
 	-- Clockwork Rocket Bot - 54187
 	AddPet(54187, 34425, R_RARE, GAME_BC)
 	self:AddCompanionFlags(PetDB, 54187, F_ALLIANCE, F_HORDE, F_SEASONAL, F_BOP, F_REMOVED)
@@ -848,6 +843,11 @@ function addon:GetMiniPetTotal(PetDB)
 	AddPet(10713, 44822, R_COMMON, GAME_WOTLK)
 	self:AddCompanionFlags(PetDB, 10713, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOE)
 	self:AddCompanionAcquire(PetDB, 10713, A_VENDOR, 28951)
+
+	-- Scorched Stone - 45890
+	AddPet(45890, 34955, R_RARE, GAME_BC)
+	self:AddCompanionFlags(PetDB, 45890, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+	self:AddCompanionAcquire(PetDB, 45890, A_VENDOR, 52822, A_CUSTOM, 15)
 
 --VENDOR HORDE
 	-- Cockroach - 10688
