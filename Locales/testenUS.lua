@@ -280,7 +280,6 @@ L["Noxious Whelp"] = true
 L["Yarlyn Amberstill"] = true
 L["Narkk"] = true
 L["Donni Anthania"] = true
-L["Magus Tirth"] = true
 L["Halpa"] = true
 L["Jeremiah Payson"] = true
 L["Xan'tish"] = true
@@ -396,6 +395,8 @@ L["Ayla Shadowstorm"] = true
 L["Zen'Vorka"] = true
 L["Lhara"] = true
 L["Astrid Langstrump"] = true
+L["\"Plucky\" Johnson"] = true
+
 L["DB_LOAD_ERROR"] = [[Error: Database not loaded correctly.
 Please exit out of WoW and delete the Collectinator database file (Collectinator.lua) found in:
 \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\]]
