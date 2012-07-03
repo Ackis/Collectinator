@@ -1,5 +1,13 @@
 ==Collectinator Change Log
 
+===Version 1.0.27
+*New Pet:
+	**Sand Scarab
+
+*Cleaned up the Vendor database
+
+*Updated the data for the following entries: Scorched Stone (Searing Scorchling), Captured Flame (Spirit of Summer), Pint-Sized Pink Pachyderm, Ancona Chicken
+
 ===Version 1.0.26
 *New Pet:
 	**Fetish Shaman
