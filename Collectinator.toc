@@ -25,7 +25,9 @@
 ## SavedVariables: CollectinatorDB
 
 ## LoadManagers: AddonLoader
-## X-LoadOn-Always: Delayed
+## X-LoadOn-Slash: /collectinator
+## X-LoadOn-InterfaceOptions: Collectinator
+## X-LoadOn-Execute: SpellBookFrame:HookScript("OnShow", function() if not IsAddOnLoaded("Collectinator") then AddonLoader:LoadAddOn("Collectinator") end end)
 
 #@no-lib-strip@
 embeds.xml

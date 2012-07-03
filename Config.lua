@@ -455,7 +455,10 @@ end
 
 
 function addon:SetupOptions()
-
+	if AddonLoader and AddonLoader.RemoveInterfaceOptions then
+		AddonLoader:RemoveInterfaceOptions("Collectinator")
+	end
+	
 	AceConfigReg:RegisterOptionsTable(MODNAME, fullOptions)
 	self.optionsFrame = AceConfigDialog:AddToBlizOptions(MODNAME, nil, nil, "general")
 
