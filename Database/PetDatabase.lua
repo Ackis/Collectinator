@@ -638,7 +638,7 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Withers -- 65046
 	AddPet(65046, 46325, R_COMMON, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 65046, F_ALLIANCE, F_HORDE, F_QUEST)
+	self:AddCompanionFlags(PetDB, 65046, F_ALLIANCE, F_HORDE, F_QUEST, F_VENDOR)
 	self:AddCompanionAcquire(PetDB, 65046, A_QUEST, 13570, A_VENDOR, 33980)
 
 	-- Brazie's Sunflower -- 93823
