@@ -82,6 +82,7 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 64, "Purchasable from any Noblegarden Merchant vendor during the Noblegarden event, or looted randomly while farming eggs")
 	self:addLookupList(DB, 65, "Diablo 3 Collector's Edition")
 	self:addLookupList(DB, 66, "Purchasable from any Midsummer Merchant vendor for Horde and any Midsummer Supplier for Alliance during the Midsummer Fire Festival event")
-	
+	self:addLookupList(DB, 67, "Starting July 2012, earned from the Recruit-a-Friend program")
+
 end
 
