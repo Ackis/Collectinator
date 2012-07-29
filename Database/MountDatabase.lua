@@ -1102,7 +1102,7 @@ function addon:GetMountTotal(DB)
 
 	-- X-53 Touring Rocket - 75973
 	AddMount(75973, 54860, R_EPIC, GAME_WOTLK)
-	AddMountFlags(75973, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
+	AddMountFlags(75973, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(DB, 75973, A_ACHIEVEMENT, 4832)
 
 	-- Big Blizzard Bear - 58983
