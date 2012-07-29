@@ -1104,6 +1104,11 @@ function addon:GetMountTotal(DB)
 	AddMount(75973, 54860, R_EPIC, GAME_WOTLK)
 	AddMountFlags(75973, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP, F_REMOVED)
 	self:AddCompanionAcquire(DB, 75973, A_ACHIEVEMENT, 4832)
+	
+	-- Obsidian Nightwing (Heart of the Nightwing) - 121820
+	AddMount(121820, 83086, R_EPIC, GAME_CATA)
+	AddMountFlags(121820, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
+	self:AddCompanionAcquire(DB, 121820, A_CUSTOM, 67)
 
 	-- Big Blizzard Bear - 58983
 	AddMount(58983, 43599, R_RARE, GAME_WOTLK)
