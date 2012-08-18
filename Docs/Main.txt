@@ -9,7 +9,7 @@ We are currently rewriting this addon.  The code is based off of really old Acki
 * [[http://www.wowinterface.com/downloads/info15154-Collectinator.html|WoWInterface]] - Stable release
 
 ==Donations
-If you wish to donate, please see the [[http://www.wowace.com/addons/collectinator/pages/donations/|donation]] page or donate via [[http://www.pledgie.com/campaigns/13809 | Plegie]].
+If you wish to donate, please donate via [[http://www.pledgie.com/campaigns/13809 | Plegie]].
 
 ==How to get it to work
 Open up your companion window (pets or mounts) and click the scan button.  This will open up another window which will allow you to see which companions you are missing, along with how to acquire them.
