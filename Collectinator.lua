@@ -374,21 +374,23 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Add mini-pet/mount totals to the tab
 	-------------------------------------------------------------------------------
-	SpellBookFrameTabButton4:SetScript("OnEnter",
-					function(this)
-						GameTooltip_SetDefaultAnchor(GameTooltip, this)
-						GameTooltip:SetText(string.format("%d %s.", GetNumCompanions("CRITTER"), PETS))
-						GameTooltip:Show()
-					end)
-	SpellBookFrameTabButton4:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	PetJournalParentTab1:SetScript("OnEnter", function(this)
+		GameTooltip_SetDefaultAnchor(GameTooltip, this)
+		GameTooltip:SetText(string.format("%d %s.", GetNumCompanions("MOUNT"), MOUNTS))
+		GameTooltip:Show()
+	end)
+	PetJournalParentTab1:SetScript("OnLeave", function()
+		GameTooltip:Hide()
+	end)
 
-	SpellBookFrameTabButton3:SetScript("OnEnter",
-					function(this)
-						GameTooltip_SetDefaultAnchor(GameTooltip, this)
-						GameTooltip:SetText(string.format("%d %s.", GetNumCompanions("MOUNT"), MOUNTS))
-						GameTooltip:Show()
-					end)
-	SpellBookFrameTabButton3:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	PetJournalParentTab2:SetScript("OnEnter", function(this)
+		GameTooltip_SetDefaultAnchor(GameTooltip, this)
+		GameTooltip:SetText(string.format("%d %s.", GetNumCompanions("CRITTER"), PETS))
+		GameTooltip:Show()
+	end)
+	PetJournalParentTab2:SetScript("OnLeave", function()
+		GameTooltip:Hide()
+	end)
 
 	-------------------------------------------------------------------------------
 	-- Initialize the databases
