@@ -2691,10 +2691,11 @@ local function InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the mode button and assign its values.
 	-------------------------------------------------------------------------------
-	local mode_button = CreateFrame("Button", nil, addon.Frame, "UIPanelButtonTemplate")
+	local mode_button = CreateFrame("Button", nil, addon.Frame)
 	mode_button:SetWidth(64)
 	mode_button:SetHeight(64)
 	mode_button:SetPoint("TOPLEFT", addon.Frame, "TOPLEFT", 1, -2)
+	mode_button:SetHighlightTexture([[Interface\Cooldown\ping4]])
 	mode_button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
 	addon.Frame.mode_button = mode_button
