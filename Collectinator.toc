@@ -21,13 +21,9 @@
 ## Dependencies:
 ## OptionalDeps: Ace3, LibAboutPanel, LibBabble-Zone-3.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibSharedMedia-3.0, LibQTip-1.0, TipTac, PetListPlus
 ## DefaultState: Enabled
-
+## LoadOnDemand: 1
+## LoadWith: Blizzard_PetJournal
 ## SavedVariables: CollectinatorDB
-
-## LoadManagers: AddonLoader
-## X-LoadOn-Slash: /collectinator
-## X-LoadOn-InterfaceOptions: Collectinator
-## X-LoadOn-Execute: SpellBookFrame:HookScript("OnShow", function() if not IsAddOnLoaded("Collectinator") then AddonLoader:LoadAddOn("Collectinator") end end)
 
 #@no-lib-strip@
 embeds.xml
