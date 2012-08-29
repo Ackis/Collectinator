@@ -85,7 +85,6 @@ local GAME_ORIG, GAME_TBC, GAME_WOTLK, GAME_CATA = 0, 1, 2, 3
 local F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_CRAFT, F_INSTANCE, F_RAID, F_SEASONAL, F_WORLD_DROP, F_MOB_DROP = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 local F_TCG, F_SPEC_EVENT, F_COLLECTORS, F_REMOVED, F_ACHIEVEMENT, F_PVP, F_STORE = 11, 12, 13, 14, 15, 16, 77
 local F_BOE, F_BOP, F_BOA = 17, 18, 19
-local F_ALCH, F_BS, F_COOKING, F_ENCH, F_ENG, F_FIRST_AID, F_INSC, F_JC, F_LW, F_SMELT, F_TAILOR, F_FISHING = 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32
 
 -------------------------------------------------------------------------------
 -- Constants for acquire types.
@@ -124,8 +123,8 @@ local SEASONAL_CATEGORY = GetCategoryInfo(155)
 -------------------------------------------------------------------------------
 -- Fonts
 -------------------------------------------------------------------------------
-local narrowFont = nil
-local normalFont = nil
+local narrowFont
+local normalFont
 
 -- Font Objects needed for CollectinatorTooltip
 local normalFontObj = CreateFont(MODNAME.."normalFontObj")
@@ -167,7 +166,7 @@ local SortedCollections = {
 	{ name = "companions", 	texture = "minipets" }, -- 1
 	{ name = "mount", 	texture = "mounts" }, 	-- 2
 }
-local MaxCollections = 2
+local NUM_TABS = 2
 
 -------------------------------------------------------------------------------
 -- Expanded button constants
@@ -2748,7 +2747,7 @@ local function InitializeFrame()
 					      -- normal profession switch
 					      if current_tab == 0 then
 						      startLoop = 1
-						      endLoop = MaxCollections + 1
+						      endLoop = NUM_TABS + 1
 					      else
 						      startLoop = current_tab + 1
 						      endLoop = current_tab
@@ -2756,7 +2755,7 @@ local function InitializeFrame()
 					      local index = startLoop
 
 					      while index ~= endLoop do
-						      if index > MaxCollections then
+						      if index > NUM_TABS then
 							      index = 1
 						      else
 							      displayProf = index
@@ -2767,7 +2766,7 @@ local function InitializeFrame()
 				      elseif button == "RightButton" then
 					      -- reverse profession switch
 					      if current_tab == 0 then
-						      startLoop = MaxCollections + 1
+						      startLoop = NUM_TABS + 1
 						      endLoop = 0
 					      else
 						      startLoop = current_tab - 1
@@ -2777,7 +2776,7 @@ local function InitializeFrame()
 
 					      while index ~= endLoop do
 						      if index < 1 then
-							      index = MaxCollections
+							      index = NUM_TABS
 						      else
 							      displayProf = index
 							      current_tab = index
@@ -4061,29 +4060,30 @@ function addon:DisplayFrame(
 
 	WipeDisplayStrings()	-- reset current display items
 
-	local companion_frame = SpellBookFrame
-	local hide_frame;
-
-	if (PetListPlus and PetListPlusFrame:IsVisible()) or (CE_Pets and CE_Pets:IsVisible()) or SpellBookCompanionModelFrame:IsVisible() then
-		-- frame is visible, check for same scan
-		if self.Frame and self.Frame:IsVisible() then
-			if (current_tab ~= INDEX_TYPE[companion_frame.currentTab.bookType] or current_tab == 0) then
-				--new scan > show
-				current_tab = INDEX_TYPE[companion_frame.currentTab.bookType] or 0
-			else
-				--same scan > hide
-				addon:CloseWindow()
-				hide_frame = true;
-			end
-		-- frame is not visible, show anyway
-		else
-			current_tab = INDEX_TYPE[companion_frame.currentTab.bookType] or 0
-		end
-	end
-
 	if not self.Frame then
 		InitializeFrame()
 		InitializeFrame = nil
+	end
+
+	local companion_frame = (PetJournal:IsVisible() and PetJournal) or (MountJournal:IsVisible() and MountJournal)
+	local companion_type = (companion_frame == PetJournal) and "companions" or "mount"
+	local hide_frame
+
+	if PetJournalParent:IsVisible() then
+		-- frame is visible, check for same scan
+		if self.Frame and self.Frame:IsVisible() then
+			if current_tab ~= INDEX_TYPE[companion_type] or current_tab == 0 then
+				--new scan > show
+				current_tab = INDEX_TYPE[companion_type] or 0
+			else
+				--same scan > hide
+				addon:CloseWindow()
+				hide_frame = true
+			end
+		-- frame is not visible, show anyway
+		else
+			current_tab = INDEX_TYPE[companion_type] or 0
+		end
 	end
 
 	if not hide_frame then

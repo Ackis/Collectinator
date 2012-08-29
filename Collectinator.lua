@@ -323,37 +323,27 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Create the scan button.
 	-------------------------------------------------------------------------------
-	local button = CreateFrame("Button", "Collectinator_ScanButton", SpellBookFrame, "UIPanelButtonTemplate")
+	local button = CreateFrame("Button", "Collectinator_ScanButton", PetJournalParent, "UIPanelButtonTemplate")
 	self.ScanButton = button
 
-	-- Add to PetList+
-	if PetListPlus then
-		button:SetParent(PetListPlusFrame)
-		button:Show()
-	end
-
-	if CE_Pets then
-		button:SetParent(CE_Pets)
-		button:Show()
-	end
 	button:SetHeight(20)
 	button:RegisterForClicks("LeftButtonUp")
 	button:SetScript("OnClick",
 				  function()
-					  local companion_frame = SpellBookFrame
-					  local is_visible = (PetListPlus and PetListPlusFrame:IsVisible()) or (CE_Pets and CE_Pets:IsVisible()) or SpellBookCompanionModelFrame:IsVisible()
+					  local companion_frame = (PetJournal:IsVisible() and PetJournal) or (MountJournal:IsVisible() and MountJournal)
+
 					  -- Alt-Shift (Warcraft Pets)
 					  if IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 						  addon:Scan(true, false, "pets")
 					  -- Shift only (Text Dump)
 					  elseif IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:Scan(true, false, is_visible and companion_frame.currentTab.bookType)
+						  addon:Scan(true, false, companion_frame)
 					  -- Alt only (Wipe icons from map)
 					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
 						  addon:ClearMap()
 					  -- If we are just clicking do the scan
 					  elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:Scan(false, false, is_visible and companion_frame.currentTab.bookType)
+						  addon:Scan(false, false, companion_frame)
 						  self:SetupMap()
 					  end
 				  end)
@@ -376,7 +366,7 @@ function addon:OnInitialize()
 	button:Enable()
 	button:ClearAllPoints()
 
-	button:SetPoint("RIGHT", SpellBookFrameCloseButton, "LEFT", 4, 0)
+	button:SetPoint("RIGHT", PetJournalParentCloseButton, "LEFT", 4, 0)
 	button:SetWidth(addon.ScanButton:GetTextWidth() + 10)
 
 	button:Show()
@@ -1254,8 +1244,7 @@ function addon:UpdateFilters(DB, playerData, scantype)
 	local playerFaction = playerData.playerFaction
 	local playerClass = playerData.playerClass
 	local can_show = false
-	local tmp_type = scantype
-	local lower_type = tmp_type:lower()
+	local lower_type = scantype:lower()
 	local known_str = lower_type .. "_known"
 	local total_str = lower_type .. "_total"
 	local known_filtered_str = lower_type .. "_known_filtered"
@@ -1336,7 +1325,7 @@ local database_initialized = false
 -- @param autoupdatescan Boolean, true if we're triggering this from an event (aka we learned a new pet), false otherwise.
 -- @param scantype CRITTER for pets, MOUNT for mounts
 -- @return A frame with either the text dump, or the GUI frame.
-function addon:Scan(textdump, autoupdatescan, scantype)
+function addon:Scan(textdump, autoupdatescan, current_frame)
 	if not database_initialized then
 		local total_pets = self:GetMiniPetTotal(CompanionDB)
 		local total_mounts = self:GetMountTotal(CompanionDB)
@@ -1376,18 +1365,18 @@ function addon:Scan(textdump, autoupdatescan, scantype)
 	playerData["Reputation"] = playerData["Reputation"] or {}
 	addon:GetFactionLevels(playerData["Reputation"])
 
-	if not autoupdatescan and scantype then
-		local filter_type = (scantype == "pets" and "companions" or scantype)
+	if not autoupdatescan and current_frame then
+		local filter_type = (current_frame == PetJournal and "companions" or "mount")
 		self:UpdateFilters(CompanionDB, playerData, filter_type)	-- Add filtering flags to the items
 
 		-- Mark excluded items
 		playerData["known_exclude_str"], playerData["unknown_exclude_str"] = self:MarkExclusions(CompanionDB, filter_type)
 
 		if textdump then
-			if scantype == "pets" then
+			if filter_type == "companions" then
 				self:GetWarcraftPets(CompanionDB)
 			else
-				self:DisplayTextDump(CompanionDB, scantype)
+				self:DisplayTextDump(CompanionDB, "mount")
 			end
 		else
 			self:DisplayFrame(playerData, VendorList, QuestList, ReputationList, SeasonalList, MobList, CustomList)
