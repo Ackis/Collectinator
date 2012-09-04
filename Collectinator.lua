@@ -477,13 +477,12 @@ end
 -------------------------------------------------------------------------------
 -- When we learn a new pet, we want to automatically scan the companions and update our saved variables
 function addon:COMPANION_LEARNED()
-	local companion_frame = self.ScanButton:GetParent()
+	local companion_frame = (PetJournal:IsVisible() and PetJournal) or (MountJournal:IsVisible() and MountJournal) or nil
 
-	if SpellBookCompanionModelFrame:IsVisible() and companion_frame.currentTab then
-		self:Scan(false, false, companion_frame.currentTab.bookType)
-	elseif companion_frame.currentTab then
-		self:Scan(false, true, companion_frame.currentTab.bookType)
+	if not companion_frame then
+		return
 	end
+	self:Scan(false, false, companion_frame)
 end
 
 -------------------------------------------------------------------------------
