@@ -1183,6 +1183,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 110029, F_ALLIANCE, F_HORDE, F_STORE, F_BOP)
 	self:AddCompanionAcquire(PetDB, 110029, A_CUSTOM, 4)
 
+	-- Lucky Quilen Cub -- 124660
+	AddPet(124660, 85871, R_RARE, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 124660, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
+	self:AddCompanionAcquire(PetDB, 124660, A_CUSTOM, 68)
+
 -- FACTION SPECIFIC
 	-- We only add the faction specific pets if the user is part of that faction
 	if MY_FACTION == "Alliance" then
