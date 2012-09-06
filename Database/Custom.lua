@@ -83,6 +83,7 @@ function addon:InitCustom(DB)
 	self:addLookupList(DB, 65, "Diablo 3 Collector's Edition")
 	self:addLookupList(DB, 66, "Purchasable from any Midsummer Merchant vendor for Horde and any Midsummer Supplier for Alliance during the Midsummer Fire Festival event")
 	self:addLookupList(DB, 67, "Starting July 2012, earned from the Recruit-a-Friend program")
+	self:addLookupList(DB, 68, "Mists of Pandaria Collector's Edition")
 
 end
 
