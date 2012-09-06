@@ -1751,14 +1751,19 @@ function addon:GetMountTotal(DB)
 	AddMount(102349, 72145, R_EPIC, GAME_CATA)
 	AddMountFlags(102349, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_BOP)
 	self:AddCompanionAcquire(DB, 102349, A_SEASONAL, 9, A_CUSTOM, 64)
+	
+	-- Imperial Quilen -- 124659
+	AddMount(124659, 85870, R_EPIC, GAME_CATA)
+	AddMountFlags(124659, F_ALLIANCE, F_HORDE, F_TCG, F_BOP) -- its not tcg, apparently this function fails on using the F_COLLECTORS filter flag, prevents scan
+	self:AddCompanionAcquire(DB, 124659, A_CUSTOM, 68)
 
 	--------------------------------------------------------------------
 	-- TO BE ADDED WHEN THEY BECOME AVAILABLE:
 
 	-- White Riding Camel
-	--AddMount()
-	--AddMountFlags()
-	--self:AddCompanionAcquire()
+	AddMount(102488, 72575, R_EPIC, GAME_CATA)
+	AddMountFlags(102488, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
+	self:AddCompanionAcquire(DB, 102488, A_CUSTOM, 1)
 
 	-- Green Fire Hawk Mount
 	--AddMount()
