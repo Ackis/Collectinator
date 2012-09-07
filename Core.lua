@@ -46,6 +46,7 @@ _G.COL = addon
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local Toast = LibStub("LibToast-1.0")
+local LPJ = LibStub("LibPetJournal-2.0")
 
 local debugger = _G.tekDebug and _G.tekDebug:GetFrame(private.addon_name)
 
