@@ -1,0 +1,84 @@
+#@non-debug@
+## Title: @localization(locale="enUS", key="Title", namespace="ToC")@
+## Title-frFR: @localization(locale="frFR", key="Title", namespace="ToC")@
+## Title-deDE: @localization(locale="deDE", key="Title", namespace="ToC")@
+## Title-itIT: @localization(locale="itIT", key="Title", namespace="ToC")@
+## Title-koKR: @localization(locale="koKR", key="Title", namespace="ToC")@
+## Title-esMX: @localization(locale="esMX", key="Title", namespace="ToC")@
+## Title-ruRU: @localization(locale="ruRU", key="Title", namespace="ToC")@
+## Title-zhCN: @localization(locale="zhCN", key="Title", namespace="ToC")@
+## Title-esES: @localization(locale="esES", key="Title", namespace="ToC")@
+## Title-zhTW: @localization(locale="zhTW", key="Title", namespace="ToC")@
+## Title-ptBR: @localization(locale="ptBR", key="Title", namespace="ToC")@
+#@end-non-debug@
+#@debug@
+## Title: Ackis Recipe List - Development Version
+#@end-debug@
+
+#@non-debug@
+## Notes: @localization(locale="enUS", key="Description", namespace="ToC")@
+## Notes-frFR: @localization(locale="frFR", key="Description", namespace="ToC")@
+## Notes-deDE: @localization(locale="deDE", key="Description", namespace="ToC")@
+## Notes-koKR: @localization(locale="koKR", key="Description", namespace="ToC")@
+## Notes-itIT: @localization(locale="itIT", key="Description", namespace="ToC")@
+## Notes-esMX: @localization(locale="esMX", key="Description", namespace="ToC")@
+## Notes-ruRU: @localization(locale="ruRU", key="Description", namespace="ToC")@
+## Notes-zhCN: @localization(locale="zhCN", key="Description", namespace="ToC")@
+## Notes-esES: @localization(locale="esES", key="Description", namespace="ToC")@
+## Notes-zhTW: @localization(locale="zhTW", key="Description", namespace="ToC")@
+## Notes-ptBR: @localization(locale="ptBR", key="Description", namespace="ToC")@
+#@end-non-debug@
+#@debug@
+## Notes: Latest alpha version of Ackis Recipe List
+#@end-debug@
+
+## Author: Torhal, Pompachomp, Ackis, Zhinjio, Jim-Bim
+## X-Donate: http://www.wowace.com/addons/arl/pages/donations/
+ 
+## Interface: 50001
+## X-Compatible-With: 50001
+## Version: @project-version@
+## X-Revision: @project-abbreviated-hash@
+## X-Date: @file-date-iso@
+
+## X-Credits: FGWarmonger, Kagaro, Speeddymon, Xinhuan, Aesir, BWMerlin, everyone who translated stuff and more!
+## X-Category: Tradeskill
+## X-Localizations: enUS, frFR, zhCN, zhTW, deDE, itIT, koKR, esES, esMX, ruRU, ptBR
+## X-Website: http://wow.curse.com/downloads/wow-addons/details/arl.aspx
+## X-Feedback: http://www.wowace.com/addons/arl/forum/
+
+## OptionalDeps: Ace3, LibAboutPanel, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibSharedMedia-3.0, LibQTip-1.0, LibToast-1.0, LibDialog-1.0, Skillet, ATSW, Cauldron, TomTom, TipTac, Carbonite, tekDebug
+## DefaultState: Enabled
+
+## X-WoWI-ID: 5061
+## SavedVariables: ARLDB2
+
+## LoadManagers: AddonLoader
+## X-LoadOn-Slash: /arl
+## X-LoadOn-Events: TRADE_SKILL_SHOW
+## X-LoadOn-TRADE_SKILL_SHOW: AddonLoader:LoadAddOn("AckisRecipeList"); AckisRecipeList:TRADE_SKILL_SHOW()
+
+#@no-lib-strip@
+# Libraries
+embeds.xml
+#@end-no-lib-strip@
+
+# Localization files
+locale.xml
+
+# Constants should be loaded first - many files use them in their main chunk.
+Constants.lua
+
+Core.lua
+Recipe.lua
+Config.lua
+Waypoint.lua
+Scanner.lua
+Player.lua
+Utilities.lua
+
+# User Interface files
+interface.xml
+
+# Database files
+database.xml

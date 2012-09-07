@@ -1,0 +1,83 @@
+﻿package-as: AckisRecipeList
+
+license-output: LICENSE.txt
+
+#manual-changelog:
+# filename: Docs/CHANGES.txt
+# markup-type: creole
+
+enable-nolib-creation: yes
+
+optional-dependencies:
+ - advanced-trade-skill-window
+ - skillet
+ - manufac
+ - cauldron
+ - tomtom
+ - tiptac
+
+tools-used:
+ - data-tools
+ - dlcount
+ - querier
+ - findglobals
+
+externals:
+ libs/LibStub:
+  url: svn://svn.wowace.com/wow/libstub/mainline/trunk
+  tag: latest
+ libs/CallbackHandler-1.0:
+  url: svn://svn.wowace.com/wow/callbackhandler/mainline/trunk/CallbackHandler-1.0
+  tag: latest
+ libs/AceLocale-3.0:
+  url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceLocale-3.0
+ libs/AceConfig-3.0:
+  url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceConfig-3.0
+ libs/AceEvent-3.0:
+  url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceEvent-3.0
+ libs/AceConsole-3.0:
+  url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceConsole-3.0
+ libs/AceDBOptions-3.0:
+  url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceDBOptions-3.0
+ libs/AceDB-3.0:
+  url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceDB-3.0
+ libs/AceGUI-3.0:
+  url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceGUI-3.0
+ libs/AceAddon-3.0:
+  url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceAddon-3.0
+ libs/LibBabble-Faction-3.0:
+  url: svn://svn.wowace.com/wow/libbabble-faction-3-0/mainline/trunk
+ libs/LibBabble-Boss-3.0:
+  url: svn://svn.wowace.com/wow/libbabble-boss-3-0/mainline/trunk
+ libs/LibAboutPanel:
+  url: git://git.curseforge.net/wow/libaboutpanel/mainline.git
+ libs/LibSharedMedia-3.0:
+  url: svn://svn.wowace.com/wow/libsharedmedia-3-0/mainline/trunk
+  tag: latest
+ libs/LibQTip-1.0:
+  url: svn://svn.wowace.com/wow/libqtip-1-0/mainline/trunk
+  tag: latest
+ libs/LibToast-1.0:
+  url: http://hg.curseforge.net/wow/libtoast-1-0/mainline
+  tag: latest
+ libs/LibDialog-1.0:
+  url: http://hg.wowace.com/wow/libdialog-1-0/mainline
+  tag: latest
+
+ignore:
+ - Docs
+ - Tools
+ - Locales/devel-enUS.lua
+ - libs/LibAboutPanel/LibAboutPanel.toc
+ - libs/LibBabble-Boss-3.0/LibBabble-Boss-3.0.toc
+ - libs/LibBabble-Faction-3.0/LibBabble-Faction-3.0.toc
+ - libs/LibBabble-Zone-3.0/LibBabble-Zone-3.0.toc
+ - libs/LibToast-1.0/LibToast-1.0.toc
+ - libs/LibSharedMedia-3.0/LibSharedMedia-3.0.toc
+ - libs/LibQTip-1.0/LibQTip-1.0.toc
+ - libs/LibQTip-1.0/LICENSE.txt
+ - libs/LibStub/LibStub.toc
+ - libs/LibStub/tests
+ - libs/LibToast-1.0/LibStub
+ - libs/LibSharedMedia-3.0/LibStub
+ 
