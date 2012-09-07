@@ -49,7 +49,7 @@
 ## OptionalDeps: Ace3, LibAboutPanel, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibSharedMedia-3.0, LibQTip-1.0, LibToast-1.0, LibDialog-1.0, Skillet, ATSW, Cauldron, TomTom, TipTac, Carbonite, tekDebug
 ## DefaultState: Enabled
 
-## X-WoWI-ID: 5061
+## X-WoWI-ID: 15154
 ## SavedVariables: COLLECTINATORDB2
 
 #@no-lib-strip@
