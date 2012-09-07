@@ -36,7 +36,7 @@ local table = _G.table
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0", "AceEvent-3.0")
+local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0", "AceEvent-3.0", "AceHook-3.0")
 _G.Collectinator = addon
 
 --@alpha@
@@ -365,8 +365,8 @@ end
 
 --- Function run when the addon is enabled.  Registers events and pre-loads certain variables.
 function addon:OnEnable()
-	self:RegisterEvent("PET_JOURNAL_LIST_UPDATE")
 	--private.Player:Initialize()
+	addon:SecureHook("PetJournal_OnShow")
 end
 
 function addon:OnDisable()
@@ -379,7 +379,11 @@ end
 -- Event handling functions
 -------------------------------------------------------------------------------
 
-function addon:PET_JOURNAL_LIST_UPDATE()
+-------------------------------------------------------------------------------
+-- Hooks
+-------------------------------------------------------------------------------
+
+function addon:PetJournal_OnShow(...)
 	local scan_button = self.scan_button
 
 	if not scan_button then
@@ -387,6 +391,7 @@ function addon:PET_JOURNAL_LIST_UPDATE()
 		self.CreateScanButton = nil
 	end
 end
+
 
 -------------------------------------------------------------------------------
 -- Create the scan button
