@@ -174,17 +174,17 @@ private.FLAG_MEMBERS = {
 
 private.FILTER_STRINGS = {}
 
-for index = 1, #private.FLAG_WORDS do
-	for flag_name in _G.pairs(private.FLAG_WORDS[index]) do
-		private.FILTER_STRINGS[#private.FILTER_STRINGS + 1] = flag_name
-	end
-end
+--for index = 1, #private.FLAG_WORDS do
+--	for flag_name in _G.pairs(private.FLAG_WORDS[index]) do
+--		private.FILTER_STRINGS[#private.FILTER_STRINGS + 1] = flag_name
+--	end
+--end
 
 private.FILTER_IDS = {}
 
-for index = 1, #private.FILTER_STRINGS do
-	private.FILTER_IDS[private.FILTER_STRINGS[index]] = index
-end
+--for index = 1, #private.FILTER_STRINGS do
+--	private.FILTER_IDS[private.FILTER_STRINGS[index]] = index
+--end
 
 -------------------------------------------------------------------------------
 -- Acquire types.

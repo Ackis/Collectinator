@@ -279,10 +279,10 @@ function addon:OnInitialize()
 		}
 	}
 
-	for filter_name in pairs(private.ITEM_FILTER_TYPES) do
-		defaults.profile.filters.item[filter_name:lower()] = true
-	end
-	self.db = LibStub("AceDB-3.0"):New("ARLDB2", defaults)
+	--for filter_name in pairs(private.ITEM_FILTER_TYPES) do
+--		defaults.profile.filters.item[filter_name:lower()] = true
+--	end
+	self.db = LibStub("AceDB-3.0"):New("COLLECTINATORDB2", defaults)
 
 	if not self.db then
 		self:Print("Error: Database not loaded correctly.  Please exit out of WoW and delete the Collectinator database file Collectinator.lua) found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
@@ -304,7 +304,7 @@ function addon:OnInitialize()
 
 	self.version = version
 
-	self:SetupOptions()
+	--self:SetupOptions()
 
 	-- Register slash commands
 	self:RegisterChatCommand("col", "ChatCommand")
@@ -365,13 +365,13 @@ end
 
 --- Function run when the addon is enabled.  Registers events and pre-loads certain variables.
 function addon:OnEnable()
-	private.Player:Initialize()
+	--private.Player:Initialize()
 end
 
 function addon:OnDisable()
-	if addon.Frame then
-		addon.Frame:Hide()
-	end
+	--if addon.Frame then
+	--	addon.Frame:Hide()
+	--end
 end
 
 -------------------------------------------------------------------------------
@@ -531,238 +531,3 @@ do
 		copy_frame:Show()
 	end
 end -- do
-
-do
-	-------------------------------------------------------------------------------
-	-- Dumps recipe output in the format requested by the user
-	-------------------------------------------------------------------------------
--- Don't care about dumps right now
---[[
-	local text_table = {}
-	local acquire_list = {}
-
-	local GetFilterFlagNames
-	do
-		local LC = _G.LOCALIZED_CLASS_NAMES_MALE
-		local FILTER_FLAG_NAMES
-
-		function GetFilterFlagNames()
-			if FILTER_FLAG_NAMES then
-				return FILTER_FLAG_NAMES
-			end
-			local is_alliance = (private.Player.faction == "Alliance")
-
-			FILTER_FLAG_NAMES = {
-				-------------------------------------------------------------------------------
-				-- Common flags.
-				-------------------------------------------------------------------------------
-				ALLIANCE = BFAC["Alliance"],
-				HORDE = BFAC["Horde"],
-				TRAINER = L["Trainer"],
-				VENDOR = L["Vendor"],
-				INSTANCE = _G.INSTANCE,
-				RAID = _G.RAID,
-				SEASONAL = _G.EVENTS_LABEL,
-				QUEST = L["Quest"],
-				PVP = _G.PVP,
-				WORLD_DROP = L["World Drop"],
-				MOB_DROP = L["Mob Drop"],
-				DISC = L["Discovery"],
-				RETIRED = L["Retired"],
-				IBOE = L["BOEFilter"],
-				IBOP = L["BOPFilter"],
-				IBOA = L["BOAFilter"],
-				RBOE = L["RecipeBOEFilter"],
-				RBOP = L["RecipeBOPFilter"],
-				RBOA = L["RecipeBOAFilter"],
-				DPS = _G.MELEE,
-				TANK = _G.TANK,
-				HEALER = _G.HEALER,
-				CASTER = _G.DAMAGER,
-				ACHIEVEMENT = _G.ACHIEVEMENTS,
-				-------------------------------------------------------------------------------
-				-- Class flags.
-				-------------------------------------------------------------------------------
-				DK = LC["DEATHKNIGHT"],
-				DRUID = LC["DRUID"],
-				HUNTER = LC["HUNTER"],
-				MAGE = LC["MAGE"],
-				PALADIN = LC["PALADIN"],
-				PRIEST = LC["PRIEST"],
-				SHAMAN = LC["SHAMAN"],
-				ROGUE = LC["ROGUE"],
-				WARLOCK = LC["WARLOCK"],
-				WARRIOR = LC["WARRIOR"],
-				-------------------------------------------------------------------------------
-				-- Reputation flags.
-				-------------------------------------------------------------------------------
-				ARGENTDAWN = BFAC["Argent Dawn"],
-				CENARION_CIRCLE = BFAC["Cenarion Circle"],
-				THORIUM_BROTHERHOOD = BFAC["Thorium Brotherhood"],
-				TIMBERMAW_HOLD = BFAC["Timbermaw Hold"],
-				ZANDALAR = BFAC["Zandalar Tribe"],
-				ALDOR = BFAC["The Aldor"],
-				ASHTONGUE = BFAC["Ashtongue Deathsworn"],
-				CENARION_EXPEDITION = BFAC["Cenarion Expedition"],
-				HELLFIRE = (is_alliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]),
-				CONSORTIUM = BFAC["The Consortium"],
-				KOT = BFAC["Keepers of Time"],
-				LOWERCITY = BFAC["Lower City"],
-				NAGRAND = (is_alliance and BFAC["Kurenai"] or BFAC["The Mag'har"]),
-				SCALE_SANDS = BFAC["The Scale of the Sands"],
-				SCRYER = BFAC["The Scryers"],
-				SHATAR = BFAC["The Sha'tar"],
-				SHATTEREDSUN = BFAC["Shattered Sun Offensive"],
-				SPOREGGAR = BFAC["Sporeggar"],
-				VIOLETEYE = BFAC["The Violet Eye"],
-				ARGENTCRUSADE = BFAC["Argent Crusade"],
-				FRENZYHEART = BFAC["Frenzyheart Tribe"],
-				EBONBLADE = BFAC["Knights of the Ebon Blade"],
-				KIRINTOR = BFAC["Kirin Tor"],
-				HODIR = BFAC["The Sons of Hodir"],
-				KALUAK = BFAC["The Kalu'ak"],
-				ORACLES = BFAC["The Oracles"],
-				WYRMREST = BFAC["The Wyrmrest Accord"],
-				WRATHCOMMON1 = (is_alliance and BFAC["The Silver Covenant"] or BFAC["The Sunreavers"]),
-				WRATHCOMMON2 = (is_alliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]),
-				WRATHCOMMON3 = (is_alliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]),
-				WRATHCOMMON4 = (is_alliance and BFAC["The Frostborn"] or BFAC["The Taunka"]),
-				WRATHCOMMON5 = (is_alliance and BFAC["Alliance Vanguard"] or BFAC["Horde Expedition"]),
-				ASHEN_VERDICT = BFAC["The Ashen Verdict"],
-				CATACOMMON1 = (is_alliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]),
-				CATACOMMON2 = (is_alliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]),
-				GUARDIANS = BFAC["Guardians of Hyjal"],
-				RAMKAHEN = BFAC["Ramkahen"],
-				EARTHEN_RING = BFAC["The Earthen Ring"],
-				THERAZANE = BFAC["Therazane"],
-			}
-			return FILTER_FLAG_NAMES
-		end
-	end -- do
-
-	--- Dumps the recipe database in a format that is readable to humans (or machines)
-	function addon:GetTextDump(profession_name)
-		local output = addon.db.profile.textdumpformat or "Comma"
-		table.wipe(text_table)
-
-		if output == "Comma" then
-			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of Comma Separated Values.\n  "):format(private.PLAYER_NAME, profession_name))
-			table.insert(text_table, "Spell ID,Recipe Name,Skill Level,ARL Filter Flags,Acquire Methods,Known\n")
-		elseif output == "BBCode" then
-			table.insert(text_table, ("Ackis Recipe List Text Dump for %s's %s, in the form of BBCode.\n"):format(private.PLAYER_NAME, profession_name))
-		elseif output == "XML" then
-			table.insert(text_table, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>")
-			table.insert(text_table, "\n<profession>")
-		end
-
-		local profession_recipes = private.profession_recipe_list[profession_name]
-
-		for recipe_id in pairs(profession_recipes) do
-			local recipe = profession_recipes[recipe_id]
-			local is_known = recipe:HasState("KNOWN")
-
-			if output == "Comma" then
-				-- Add Spell ID, Name and Skill Level to the list
-				table.insert(text_table, recipe_id)
-				table.insert(text_table, ",")
-				table.insert(text_table, recipe.name)
-				table.insert(text_table, ",")
-				table.insert(text_table, recipe.skill_level)
-				table.insert(text_table, ",\"")
-			elseif output == "BBCode" then
-				-- Make the entry red
-				table.insert(text_table, ("\n%s[b]%d[/b] - %s (%d)%s\n"):format(is_known and "" or "[color=red]", recipe_id, recipe.name, recipe.skill_level, is_known and "" or "[/color]"))
-
-				table.insert(text_table, "\nRecipe Flags:\n[list]\n")
-			elseif output == "XML" then
-				table.insert(text_table, "\n<recipe>\n")
-				table.insert(text_table, "  <id>" .. recipe_id .. "</id>\n")
-				table.insert(text_table, "  <name>" .. recipe.name .. "</name>\n")
-				table.insert(text_table, "  <skilllevel>" .. recipe.skill_level .. "</skilllevel>\n")
-				table.insert(text_table, "  <known>" .. tostring(is_known) .. "</known>\n")
-				table.insert(text_table, "  <flags>\n")
-			elseif output == "Name" then
-				table.insert(text_table, recipe.name)
-			end
-
-			-- Add in all the filter flags
-			local filter_names = GetFilterFlagNames()
-			local prev = false
-
-			-- Find out which flags are set
-			for table_index, bits in ipairs(private.FLAG_WORDS) do
-				for flag_name, flag in pairs(bits) do
-					local bitfield = recipe.flags[private.FLAG_MEMBERS[table_index]]
-
-					if bitfield and bit.band(bitfield, flag) == flag then
-						if output == "Comma" then
-							if prev then
-								table.insert(text_table, ",")
-							end
-							table.insert(text_table, filter_names[flag_name])
-							prev = true
-						elseif output == "BBCode" then
-							table.insert(text_table, "[*]" .. filter_names[flag_name] .. "\n")
-						elseif output == "XML" then
-							table.insert(text_table, "    <flag>" .. filter_names[flag_name] .. "</flag>")
-						end
-					end
-				end
-			end
-
-			if output == "Comma" then
-				table.insert(text_table, "\",\"")
-			elseif output == "BBCode" then
-				table.insert(text_table, "[/list]\nAcquire Methods:\n[list]\n")
-			elseif output == "XML" then
-				table.insert(text_table, "  </flags>")
-				table.insert(text_table, "  <acquire>")
-			end
-
-			-- Find out which unique acquire methods we have
-			local acquire_data = recipe["acquire_data"]
-			table.wipe(acquire_list)
-
-			for acquire_type in pairs(acquire_data) do
-				acquire_list[private.ACQUIRE_NAMES[acquire_type]] = true
-			end
-
-			-- Add all the acquire methods in
-			prev = false
-
-			for i in pairs(acquire_list) do
-				if output == "Comma" then
-					if prev then
-						table.insert(text_table, ",")
-					end
-					table.insert(text_table, i)
-					prev = true
-				elseif output == "BBCode" then
-					table.insert(text_table, "[*] " .. i)
-				elseif output == "XML" then
-					table.insert(text_table, "<acquiremethod>" .. i .. "</acquiremethod>")
-				end
-			end
-
-			if output == "Comma" then
-				table.insert(text_table, "\"," .. tostring(is_known) .. "\n")
-				--if is_known then
-				--	table.insert(text_table, "\",true\n")
-				--else
-				--	table.insert(text_table, "\",false\n")
-				--end
-			elseif output == "BBCode" then
-				table.insert(text_table, "\n[/list]\n")
-			elseif output == "XML" then
-				table.insert(text_table, "  </acquire>")
-				table.insert(text_table, "</recipe>")
-			end
-		end -- for
-
-		if output == "XML" then
-			table.insert(text_table, "\n</profession>")
-		end
-		return table.concat(text_table, "")
-	end
-]]--
-end
