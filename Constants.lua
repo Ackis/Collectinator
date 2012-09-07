@@ -20,7 +20,7 @@ local _G = getfenv(0)
 -- AddOn namespace.
 -------------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
-private.addon_name = "Ackis Recipe List"
+private.addon_name = "Collectinator"
 
 local LibStub = _G.LibStub
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)

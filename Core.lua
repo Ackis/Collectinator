@@ -94,6 +94,7 @@ function addon:OnInitialize()
 	-- Check to see if we have mandatory libraries loaded. If not, notify the user
 	-- which are missing and return.
 	-------------------------------------------------------------------------------
+
 	local missing_libraries = false
 
 	for index = 1, #REQUIRED_LIBS do
@@ -304,6 +305,78 @@ function addon:OnInitialize()
 
 	self.version = version
 
+	-------------------------------------------------------------------------------
+	-- Create the scan button.
+	-------------------------------------------------------------------------------
+	local button = CreateFrame("Button", "Collectinator_ScanButton", PetJournalParent, "UIPanelButtonTemplate")
+	self.ScanButton = button
+
+	button:SetHeight(20)
+	button:RegisterForClicks("LeftButtonUp")
+	button:SetScript("OnClick",
+				  function()
+					  local companion_frame = (PetJournal:IsVisible() and PetJournal) or (MountJournal:IsVisible() and MountJournal)
+
+					  -- Alt-Shift (Warcraft Pets)
+					  if IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+						  addon:Scan(true, false, "pets")
+					  -- Shift only (Text Dump)
+					  elseif IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						  addon:Scan(true, false, companion_frame)
+					  -- Alt only (Wipe icons from map)
+					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+						  addon:ClearMap()
+					  -- If we are just clicking do the scan
+					  elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+						  addon:Scan(false, false, companion_frame)
+						  self:SetupMap()
+					  end
+				  end)
+
+	button:SetScript("OnEnter",
+				   function(this)
+					   GameTooltip_SetDefaultAnchor(GameTooltip, this)
+					   GameTooltip:SetText(L["SCAN_COMPANIONS_DESC"])
+					   GameTooltip:Show()
+				   end)
+
+	button:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	button:SetText(L["Scan"])
+
+	-- Set the frame level of the button to be 1 deeper than its parent
+	local button_parent = button:GetParent()
+	button:SetFrameLevel(button_parent:GetFrameLevel() + 1)
+	button:SetFrameStrata(button_parent:GetFrameStrata())
+
+	button:Enable()
+	button:ClearAllPoints()
+
+	button:SetPoint("RIGHT", PetJournalParentCloseButton, "LEFT", 4, 0)
+	button:SetWidth(addon.ScanButton:GetTextWidth() + 10)
+
+	button:Show()
+
+	-------------------------------------------------------------------------------
+	-- Add mini-pet/mount totals to the tab
+	-------------------------------------------------------------------------------
+	PetJournalParentTab1:SetScript("OnEnter", function(this)
+		GameTooltip_SetDefaultAnchor(GameTooltip, this)
+		GameTooltip:SetText(string.format("%d %s.", GetNumCompanions("MOUNT"), MOUNTS))
+		GameTooltip:Show()
+	end)
+	PetJournalParentTab1:SetScript("OnLeave", function()
+		GameTooltip:Hide()
+	end)
+
+	PetJournalParentTab2:SetScript("OnEnter", function(this)
+		GameTooltip_SetDefaultAnchor(GameTooltip, this)
+		GameTooltip:SetText(string.format("%d %s.", GetNumCompanions("CRITTER"), PETS))
+		GameTooltip:Show()
+	end)
+	PetJournalParentTab2:SetScript("OnLeave", function()
+		GameTooltip:Hide()
+	end)
+
 	--self:SetupOptions()
 
 	-- Register slash commands
@@ -369,88 +442,16 @@ function addon:OnEnable()
 end
 
 function addon:OnDisable()
-	--if addon.Frame then
-	--	addon.Frame:Hide()
-	--end
+	if addon.Frame then
+		addon.Frame:Hide()
+	end
 end
 
 -------------------------------------------------------------------------------
 -- Event handling functions
 -------------------------------------------------------------------------------
 
--------------------------------------------------------------------------------
--- Hooks
--------------------------------------------------------------------------------
 
-function addon:PetJournal_OnShow(...)
-	local scan_button = self.ScanButton
-
-	if not scan_button then
-		scan_button = self:CreateScanButton()
-		self.CreateScanButton = nil
-	end
-end
-
-
--------------------------------------------------------------------------------
--- Create the scan button
--------------------------------------------------------------------------------
-
-function addon:CreateScanButton()
-	-------------------------------------------------------------------------------
-	-- Create the scan button.
-	-------------------------------------------------------------------------------
-	local scan_button = CreateFrame("Button", "Collectinator_ScanButton", PetJournalParent, "UIPanelButtonTemplate")
-	self.ScanButton = scan_button
-
-	scan_button:SetHeight(20)
-	scan_button:RegisterForClicks("LeftButtonUp")
-	scan_button:SetScript("OnClick",
-				  function()
-					  local companion_frame = (PetJournal:IsVisible() and PetJournal) or (MountJournal:IsVisible() and MountJournal)
-
-					  -- Alt-Shift (Warcraft Pets)
-					  if IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:Scan(true, false, "pets")
-					  -- Shift only (Text Dump)
-					  elseif IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:Scan(true, false, companion_frame)
-					  -- Alt only (Wipe icons from map)
-					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:ClearMap()
-					  -- If we are just clicking do the scan
-					  elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:Scan(false, false, companion_frame)
-						  self:SetupMap()
-					  end
-				  end)
-
-	scan_button:SetScript("OnEnter",
-				   function(this)
-					   GameTooltip_SetDefaultAnchor(GameTooltip, this)
-					   GameTooltip:SetText(L["SCAN_COMPANIONS_DESC"])
-					   GameTooltip:Show()
-				   end)
-
-	scan_button:SetScript("OnLeave", function() GameTooltip:Hide() end)
-	scan_button:SetText(L["Scan"])
-
-	-- Set the frame level of the button to be 1 deeper than its parent
-	local button_parent = scan_button:GetParent()
-	scan_button:SetFrameLevel(button_parent:GetFrameLevel() + 1)
-	scan_button:SetFrameStrata(button_parent:GetFrameStrata())
-
-	scan_button:Enable()
-	scan_button:ClearAllPoints()
-
-	scan_button:SetPoint("RIGHT", PetJournalParentCloseButton, "LEFT", 4, 0)
-	scan_button:SetWidth(addon.ScanButton:GetTextWidth() + 10)
-
-	scan_button:Show()
-
-	self.scan_button = scan_button
-	return scan_button
-end
 
 -------------------------------------------------------------------------------
 -- Logic Functions
