@@ -67,7 +67,7 @@ locale.xml
 Constants.lua
 
 Core.lua
-# Recipe.lua
+Collection.lua
 # Config.lua
 # Waypoint.lua
 # Scanner.lua

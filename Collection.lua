@@ -27,7 +27,7 @@ local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 local A = private.ACQUIRE_TYPES
 
-private.recipe_list = {}
+private.col_list = {}
 private.profession_recipe_list = {}
 private.num_profession_recipes = {}
 
@@ -37,42 +37,36 @@ private.location_list	= {}
 -----------------------------------------------------------------------
 -- Local constants.
 -----------------------------------------------------------------------
-local recipe_prototype = {}
-local recipe_meta = {
-	__index = recipe_prototype
+local collection_prototype = {}
+local collection_meta = {
+	__index = collection_prototype
 }
 
---- Adds a tradeskill recipe into the specified recipe database
--- @name AckisRecipeList:AddRecipe
--- @usage AckisRecipeList:AddRecipe(28927, 23109, V.TBC, Q.UNCOMMON)
--- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe being added to the database
--- @param profession The profession ID that uses the recipe.  See [[API/database-documentation]] for a listing of profession IDs
--- @param genesis Game version that the recipe was first introduced in, for example, Original, BC, WoTLK, or Cata
--- @param quality The quality/rarity of the recipe
--- @return Resultant recipe table.
-function addon:AddRecipe(spell_id, profession, genesis, quality)
-	local recipe_list = private.recipe_list
+function addon:AddCollection(spell_id, ColType, genesis, quality)
+	local col_list = private.col_list
 
-	if recipe_list[spell_id] then
-		self:Debug("Duplicate recipe: %d - %s (%s)", spell_id, recipe_list[spell_id].name, recipe_list[spell_id].profession)
+	if col_list[spell_id] then
+		self:Debug("Duplicate Collection Item: %d - %s (%s)", spell_id, col_list[spell_id].name, col_list[spell_id].ColType)
 		return
 	end
 
-	local recipe = _G.setmetatable({
+	local collection = _G.setmetatable({
 		spell_id = spell_id,
-		profession = _G.GetSpellInfo(profession),
+		ColType = ColType,
 		genesis = private.GAME_VERSION_NAMES[genesis],
 		quality = quality,
 		name = _G.GetSpellInfo(spell_id),
 		flags = {},
 		acquire_data = {},
-	}, recipe_meta)
+	}, collection_meta)
 
-	if not recipe.name or recipe.name == "" then
-		recipe.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(spell_id))
+	-- If the name is unknown, let the user know the spell is not in their cache
+	if not collection.name or collection.name == "" then
+		collection.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(spell_id))
 		self:Debug(L["SpellIDCache"]:format(spell_id))
 	end
-	recipe_list[spell_id] = recipe
+
+	col_list[spell_id] = collection
 
 	if not private.profession_recipe_list[recipe.profession] then
 		private.profession_recipe_list[recipe.profession] = {}
