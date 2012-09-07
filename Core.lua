@@ -1,22 +1,16 @@
 --[[
 ************************************************************************
 Core.lua
-Core functions for Ackis Recipe List
+Core functions for Collectinator
 ************************************************************************
 File date: @file-date-iso@
 File hash: @file-abbreviated-hash@
 Project hash: @project-abbreviated-hash@
 Project version: @project-version@
 ************************************************************************
-Please see http://www.wowace.com/addons/arl/ for more information.
+Please see http://www.wowace.com/addons/collectinator/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
-************************************************************************
---- Ackis Recipe List provides functionality to scan your professions.
--- It will determine which recipes you are missing.
--- @class file
--- @name Core.lua
--- @release 2.0
 ************************************************************************
 ]]
 
@@ -43,10 +37,10 @@ local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0", "AceEvent-3.0")
-_G.AckisRecipeList = addon
+_G.Collectinator = addon
 
 --@alpha@
-_G.ARL = addon
+_G.COL = addon
 --@end-alpha@
 
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
