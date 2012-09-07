@@ -49,7 +49,7 @@
 ## LoadOnDemand: 1
 ## LoadWith: Blizzard_PetJournal
 
-## OptionalDeps: Ace3, LibAboutPanel, LibPetJournal-1.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibSharedMedia-3.0, LibQTip-1.0, LibToast-1.0, LibDialog-1.0, tekDebug
+## OptionalDeps: Ace3, LibAboutPanel, LibPetJournal-2.0, LibBabble-Faction-3.0, LibBabble-Boss-3.0, LibSharedMedia-3.0, LibQTip-1.0, LibToast-1.0, LibDialog-1.0, tekDebug
 ## DefaultState: Enabled
 
 ## X-WoWI-ID: 15154
