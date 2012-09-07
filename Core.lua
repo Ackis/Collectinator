@@ -481,6 +481,44 @@ do
 		local mounts = player.mounts
 		local critters = player.critters
 
+		local num_mounts = GetNumCompanions("MOUNT")
+		local num_pets = LPJ:NumPets()
+
+		-- Scanning Mounts
+		if PanelTemplates_GetSelectedTab(PetJournalParent) == 1 then
+
+			for spell_id, collection in pairs(mounts) do
+				--collection:RemoveState("KNOWN")
+				--collection:RemoveState("RELEVANT")
+				--collection:RemoveState("VISIBLE")
+				--collection:RemoveState("LINKED")
+			end
+
+			for i=1,num_mounts do
+				local id = GetCompanionInfo("MOUNT", i)
+				local collection = mounts[id]
+				if collection then
+				else
+					addon:Print("Not in db")
+				end
+			end
+
+			self:Print("Scanning Mounts.")
+
+		-- Scanning Pets
+		elseif PanelTemplates_GetSelectedTab(PetJournalParent) == 2 then
+			self:Print("Scanning Pets.")
+			for i,petid in LPJ:IteratePetIDs() do 
+				local a, b, c, d, e, f, petName = C_PetJournal.GetPetInfoByPetID(petid)
+				addon:Print(a)
+				addon:Print(b)
+				addon:Print(c)
+				addon:Print(d)
+				addon:Print(e)
+				addon:Print(f)
+				addon:Print(petName)
+			end
+        end
 		self:Print("LOL I'M SCANNING")
 	end
 end
