@@ -36,7 +36,7 @@ local table = _G.table
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0", "AceEvent-3.0", "AceHook-3.0")
+local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name, "AceConsole-3.0", "AceEvent-3.0")
 _G.Collectinator = addon
 
 --@alpha@
@@ -110,7 +110,7 @@ function addon:OnInitialize()
 		--@debug@
 		addon:Print("You are using a development version of Collectinator.  As per WowAce standards, externals are not set up.  You will have to install all necessary libraries in order for the addon to function correctly.")
 		--@end-debug@
-		_G.AckisRecipeList = nil
+		_G.Collectinator = nil
 		return
 	end
 
@@ -366,7 +366,6 @@ end
 --- Function run when the addon is enabled.  Registers events and pre-loads certain variables.
 function addon:OnEnable()
 	--private.Player:Initialize()
-	addon:SecureHook("PetJournal_OnShow")
 end
 
 function addon:OnDisable()
@@ -384,7 +383,7 @@ end
 -------------------------------------------------------------------------------
 
 function addon:PetJournal_OnShow(...)
-	local scan_button = self.scan_button
+	local scan_button = self.ScanButton
 
 	if not scan_button then
 		scan_button = self:CreateScanButton()
