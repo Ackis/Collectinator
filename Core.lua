@@ -330,7 +330,7 @@ function addon:OnInitialize()
 					  -- If we are just clicking do the scan
 					  elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
 						  addon:Scan(false, false, companion_frame)
-						  self:SetupMap()
+						  --self:SetupMap()
 					  end
 				  end)
 
@@ -466,7 +466,7 @@ do
 end
 
 -------------------------------------------------------------------------------
--- Recipe Scanning Functions
+-- Collection Scanning Functions
 -------------------------------------------------------------------------------
 do
 	local current_collection_count, previous_collection_count = 0, 0
@@ -476,6 +476,11 @@ do
 
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	function addon:Scan(textdump, is_refresh)
+		
+		local player = private.Player
+		local mounts = player.mounts
+		local critters = player.critters
+
 		self:Print("LOL I'M SCANNING")
 	end
 end
