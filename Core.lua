@@ -439,7 +439,7 @@ end
 
 --- Function run when the addon is enabled.  Registers events and pre-loads certain variables.
 function addon:OnEnable()
-	--private.Player:Initialize()
+	private.Player:Initialize()
 end
 
 function addon:OnDisable()

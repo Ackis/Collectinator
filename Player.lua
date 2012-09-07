@@ -57,10 +57,9 @@ function Player:Initialize()
 	self.faction = _G.UnitFactionGroup("player")
 	self.class = _G.select(2, _G.UnitClass("player"))
 
-	self.scanned_professions = {}
-	self.professions = {}
+	self.mounts = {}
+	self.critters = {}
 
-	self:UpdateProfessions()
 end
 
 do
@@ -138,9 +137,9 @@ function Player:HasProperRepLevel(rep_data)
 	return has_faction
 end
 
-function Player:HasRecipeFaction(recipe)
-	local flagged_horde = recipe:HasFilter("common1", "HORDE")
-	local flagged_alliance = recipe:HasFilter("common1", "ALLIANCE")
+function Player:HasFaction(collection)
+	local flagged_horde = collection:HasFilter("common1", "HORDE")
+	local flagged_alliance = collection:HasFilter("common1", "ALLIANCE")
 
 	if self.faction == "Alliance" and flagged_horde and not flagged_alliance then
 		return false
@@ -150,42 +149,3 @@ function Player:HasRecipeFaction(recipe)
 	return true
 end
 
-do
-	local known = {}
-
-	-- Sets the player's professions. Used when the AddOn initializes and when a profession has been learned or unlearned.
-	-- Also removes saved profession links if the profession is no longer known.
-	function Player:UpdateProfessions()
-		table.wipe(self.professions)
-
-		known.prof1, known.prof2, known.archaeology, known.fishing, known.cooking, known.firstaid = _G.GetProfessions()
-
-		for profession, index in pairs(known) do
-			local name, icon, rank, maxrank, numspells, spelloffset, skillline = _G.GetProfessionInfo(index)
-
-			if name == private.MINING_PROFESSION_NAME then
-				name = private.LOCALIZED_PROFESSION_NAMES.SMELTING
-			end
-			self.professions[name] = rank
-		end
-		addon.db.global.tradeskill[private.REALM_NAME] = addon.db.global.tradeskill[private.REALM_NAME] or {}
-		addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME] = addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME] or {}
-
-		local skills_to_purge
-
-		for profession_name, link in pairs(addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME]) do
-			if not self.professions[profession_name] then
-				if not skills_to_purge then
-					skills_to_purge = {}
-				end
-				skills_to_purge[profession_name] = true
-			end
-		end
-
-		if skills_to_purge then
-			for profession_name in pairs(skills_to_purge) do
-				addon.db.global.tradeskill[private.REALM_NAME][private.PLAYER_NAME][profession_name] = nil
-			end
-		end
-	end
-end -- do-block
