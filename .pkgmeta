@@ -1,4 +1,4 @@
-﻿package-as: AckisRecipeList
+﻿package-as: Collectinator
 
 license-output: LICENSE.txt
 
@@ -7,14 +7,6 @@ license-output: LICENSE.txt
 # markup-type: creole
 
 enable-nolib-creation: yes
-
-optional-dependencies:
- - advanced-trade-skill-window
- - skillet
- - manufac
- - cauldron
- - tomtom
- - tiptac
 
 tools-used:
  - data-tools
