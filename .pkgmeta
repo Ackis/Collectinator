@@ -57,6 +57,9 @@ externals:
  libs/LibDialog-1.0:
   url: http://hg.wowace.com/wow/libdialog-1-0/mainline
   tag: latest
+ libs/LibPetJournal-2.0:
+  url: http://hg.curseforge.net/wow/libpetjournal-2-0/mainline
+  tag: latest
 
 ignore:
  - Docs
