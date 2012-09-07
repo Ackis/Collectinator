@@ -365,6 +365,7 @@ end
 
 --- Function run when the addon is enabled.  Registers events and pre-loads certain variables.
 function addon:OnEnable()
+	self:RegisterEvent("PET_JOURNAL_LIST_UPDATE")
 	--private.Player:Initialize()
 end
 
@@ -377,6 +378,15 @@ end
 -------------------------------------------------------------------------------
 -- Event handling functions
 -------------------------------------------------------------------------------
+
+function addon:PET_JOURNAL_LIST_UPDATE()
+	local scan_button = self.scan_button
+
+	if not scan_button then
+		scan_button = self:CreateScanButton()
+		self.CreateScanButton = nil
+	end
+end
 
 -------------------------------------------------------------------------------
 -- Create the scan button
