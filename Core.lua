@@ -371,7 +371,7 @@ function addon:OnInitialize()
 
 	PetJournalParentTab2:SetScript("OnEnter", function(this)
 		GameTooltip_SetDefaultAnchor(GameTooltip, this)
-		GameTooltip:SetText(string.format("%d %s.", GetNumCompanions("CRITTER"), PETS))
+		GameTooltip:SetText(string.format("%d %s.", LPJ:NumPets(), PETS))
 		GameTooltip:Show()
 	end)
 	PetJournalParentTab2:SetScript("OnLeave", function()
