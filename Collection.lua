@@ -170,26 +170,10 @@ do
 		local col_name = self.name
 
 		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[A.REPUTATION])
-		local skill_level = private.current_profession_scanlevel
-		local recipe_level = self.skill_level
 
 		local diff_color
 
-		if has_faction then
-			if recipe_level > skill_level then
-				diff_color = "impossible"
-			elseif skill_level >= self.trivial_level then
-				diff_color = "trivial"
-			elseif skill_level >= self.easy_level then
-				diff_color = "easy"
-			elseif skill_level >= self.medium_level then
-				diff_color = "medium"
-			elseif skill_level >= self.optimal_level then
-				diff_color = "optimal"
-			else
-				diff_color = "trivial"
-			end
-		else
+		if not has_faction then
 			diff_color = "impossible"
 		end
 		local display_name = ("|c%s%s|r"):format(quality_color, recipe_name)
