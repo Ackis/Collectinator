@@ -507,13 +507,16 @@ do
 
 		-- Scanning Pets
 		elseif PanelTemplates_GetSelectedTab(PetJournalParent) == 2 then
-			self:Print("Scanning Pets.")
 			for i,petid in LPJ:IteratePetIDs() do 
-				local speciesID, customName, level, xp, maxXp, displayID, petName, petIcon, petType, creatureID = C_PetJournal.GetPetInfoByPetID(petid)
-				addon:Print(petName .. " " .. creatureID)
+				local _, _, _, _, _, _, _, _, _, id = C_PetJournal.GetPetInfoByPetID(petid)
+				addon:Print(id)
+				local collection = critters[id]
+				if collection then
+				else
+					addon:Print("Not in db")
+				end
 			end
         end
-		self:Print("LOL I'M SCANNING")
 	end
 end
 
