@@ -507,7 +507,8 @@ do
 
 		-- Scanning Pets
 		elseif PanelTemplates_GetSelectedTab(PetJournalParent) == 2 then
-			for i,petid in LPJ:IteratePetIDs() do 
+
+			for i,petid in LPJ:IteratePetIDs() do
 				local _, _, _, _, _, _, _, _, _, id = C_PetJournal.GetPetInfoByPetID(petid)
 				addon:Print(id)
 				local collection = critters[id]

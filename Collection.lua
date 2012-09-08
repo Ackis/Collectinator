@@ -79,7 +79,7 @@ function addon:AddCollection(spell_id, ColType, genesis, quality)
 end
 
 -------------------------------------------------------------------------------
--- Recipe methods.
+-- Collection methods.
 -------------------------------------------------------------------------------
 function collection_prototype:SetCollectionItemID(item_id)
 	self.collection_item_id = item_id
@@ -96,7 +96,7 @@ function collection_prototype:SetRequiredFaction(faction_name)
 
 	if faction_name and private.Player.faction ~= faction_name then
 		self.is_ignored = true
-		private.num_profession_recipes[self.profession] = private.num_profession_recipes[self.profession] - 1
+		private.num_profession_collections[self.profession] = private.num_profession_collections[self.profession] - 1
 	end
 end
 
@@ -436,13 +436,13 @@ function collection_prototype:AddRepVendor(faction_id, rep_level, ...)
 end
 
 local DUMP_FUNCTION_FORMATS = {
-	[A.ACHIEVEMENT] = "recipe:AddAchievement(%s)",
-	[A.CUSTOM] = "recipe:AddCustom(%s)",
-	[A.DISCOVERY] = "recipe:AddDiscovery(%s)",
-	[A.SEASONAL] = "recipe:AddSeason(%s)",
-	[A.MOB_DROP] = "recipe:AddMobDrop(%s)",
-	[A.WORLD_DROP] = "recipe:AddWorldDrop(%s)",
-	[A.QUEST] = "recipe:AddQuest(%s)",
+	[A.ACHIEVEMENT] = "collection:AddAchievement(%s)",
+	[A.CUSTOM] = "collection:AddCustom(%s)",
+	[A.DISCOVERY] = "collection:AddDiscovery(%s)",
+	[A.SEASONAL] = "collection:AddSeason(%s)",
+	[A.MOB_DROP] = "collection:AddMobDrop(%s)",
+	[A.WORLD_DROP] = "collection:AddWorldDrop(%s)",
+	[A.QUEST] = "collection:AddQuest(%s)",
 }
 
 local sorted_data = {}
@@ -452,19 +452,19 @@ function collection_prototype:Dump(output)
 	local genesis = private.GAME_VERSIONS[self.genesis]
 
 	table.insert(output, ("-- %s -- %d"):format(self.name, self.spell_id))
-	table.insert(output, ("recipe = AddRecipe(%d, V.%s, Q.%s)"):format(self.spell_id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
+	table.insert(output, ("collection = AddRecipe(%d, V.%s, Q.%s)"):format(self.spell_id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
-	if self.recipe_item_id then
-		table.insert(output, ("recipe:SetRecipeItemID(%d)"):format(self.recipe_item_id))
+	if self.collection_item_id then
+		table.insert(output, ("collection:SetRecipeItemID(%d)"):format(self.collection_item_id))
 	end
 
 	if self.crafted_item_id then
-		table.insert(output, ("recipe:SetCraftedItemID(%d)"):format(self.crafted_item_id))
+		table.insert(output, ("collection:SetCraftedItemID(%d)"):format(self.crafted_item_id))
 	end
-	local previous_rank_recipe = private.profession_recipe_list[self.profession][self:PreviousRankID()]
+	local previous_rank_collection = private.profession_collection_list[self.profession][self:PreviousRankID()]
 
-	if previous_rank_recipe then
-		table.insert(output, ("recipe:SetPreviousRankID(%d)"):format(previous_rank_recipe.spell_id))
+	if previous_rank_collection then
+		table.insert(output, ("collection:SetPreviousRankID(%d)"):format(previous_rank_collection.spell_id))
 	end
 
 	local skill_level = self.skill_level
@@ -473,18 +473,18 @@ function collection_prototype:Dump(output)
 	local easy_level = self.easy_level
 	local trivial_level = self.trivial_level
 
-	table.insert(output, ("recipe:SetSkillLevels(%d, %d, %d, %d, %d)"):format(skill_level, optimal_level, medium_level, easy_level, trivial_level))
+	table.insert(output, ("collection:SetSkillLevels(%d, %d, %d, %d, %d)"):format(skill_level, optimal_level, medium_level, easy_level, trivial_level))
 
 	if self.specialty then
-		table.insert(output, ("recipe:SetSpecialty(%d)"):format(self.specialty))
+		table.insert(output, ("collection:SetSpecialty(%d)"):format(self.specialty))
 	end
 
 	if self.required_faction then
-		table.insert(output, ("recipe:SetRequiredFaction(\"%s\")"):format(self.required_faction))
+		table.insert(output, ("collection:SetRequiredFaction(\"%s\")"):format(self.required_faction))
 	end
 
 	if self.item_filter_type then
-		table.insert(output, ("recipe:SetItemFilterType(\"%s\")"):format(self.item_filter_type:upper()))
+		table.insert(output, ("collection:SetItemFilterType(\"%s\")"):format(self.item_filter_type:upper()))
 	end
 	local flag_string
 
@@ -514,7 +514,7 @@ function collection_prototype:Dump(output)
 			end
 		end
 	end
-	table.insert(output, ("recipe:AddFilters(%s)"):format(flag_string))
+	table.insert(output, ("collection:AddFilters(%s)"):format(flag_string))
 
 	flag_string = nil
 
@@ -551,7 +551,7 @@ function collection_prototype:Dump(output)
 							values = vendor_id
 						end
 					end
-					table.insert(output, ("recipe:AddRepVendor(%s, %s, %s)"):format(faction_string, rep_string, values))
+					table.insert(output, ("collection:AddRepVendor(%s, %s, %s)"):format(faction_string, rep_string, values))
 				end
 			end
 		elseif acquire_type == A.VENDOR then
@@ -593,11 +593,11 @@ function collection_prototype:Dump(output)
 			end
 
 			if values then
-				table.insert(output, ("recipe:AddVendor(%s)"):format(values))
+				table.insert(output, ("collection:AddVendor(%s)"):format(values))
 			end
 
 			if limited_values then
-				table.insert(output, ("recipe:AddLimitedVendor(%s)"):format(limited_values))
+				table.insert(output, ("collection:AddLimitedVendor(%s)"):format(limited_values))
 			end
 		elseif DUMP_FUNCTION_FORMATS[acquire_type] then
 			local values
@@ -650,7 +650,7 @@ function collection_prototype:Dump(output)
 	end
 
 	if flag_string then
-		table.insert(output, ("recipe:AddAcquireData(%s)"):format(flag_string))
+		table.insert(output, ("collection:AddAcquireData(%s)"):format(flag_string))
 	end
 	table.insert(output, "")
 end
@@ -667,14 +667,8 @@ function collection_prototype:DumpTrainers(registry)
 	end
 end
 
---- Public API function for retrieving specific information about a recipe.
--- @name AckisRecipeList:GetRecipeData
--- @usage AckisRecipeList:GetRecipeData(28972, "profession")
--- @param spell_id The [[http://www.wowpedia.org/SpellLink|Spell ID]] of the recipe being queried.
--- @param data Which member of the recipe table is being queried.
--- @return Variable, depending upon which member of the recipe table is queried.
 function addon:GetRecipeData(spell_id, data)
-	local recipe = private.recipe_list[spell_id]
-	return recipe and recipe[data] or nil
+	local collection = private.collection_list[spell_id]
+	return collection and collection[data] or nil
 end
 
