@@ -509,14 +509,8 @@ do
 		elseif PanelTemplates_GetSelectedTab(PetJournalParent) == 2 then
 			self:Print("Scanning Pets.")
 			for i,petid in LPJ:IteratePetIDs() do 
-				local a, b, c, d, e, f, petName = C_PetJournal.GetPetInfoByPetID(petid)
-				addon:Print(a)
-				addon:Print(b)
-				addon:Print(c)
-				addon:Print(d)
-				addon:Print(e)
-				addon:Print(f)
-				addon:Print(petName)
+				local speciesID, customName, level, xp, maxXp, displayID, petName, petIcon, petType, creatureID = C_PetJournal.GetPetInfoByPetID(petid)
+				addon:Print(petName .. " " .. creatureID)
 			end
         end
 		self:Print("LOL I'M SCANNING")
