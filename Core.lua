@@ -79,6 +79,11 @@ Toast:Register("COL_DebugToast", function(toast, ...)
 	toast:SetIconTexture([[Interface\HELPFRAME\HotIssueIcon]])
 end)
 
+------------------------------------------------------------------------------
+-- Constants.
+------------------------------------------------------------------------------
+local COLLECTION_INIT_FUNCS
+
 -------------------------------------------------------------------------------
 -- Initialization functions
 -------------------------------------------------------------------------------
@@ -281,6 +286,8 @@ function addon:OnInitialize()
 		}
 	}
 
+
+
 	--for filter_name in pairs(private.ITEM_FILTER_TYPES) do
 --		defaults.profile.filters.item[filter_name:lower()] = true
 --	end
@@ -385,11 +392,12 @@ function addon:OnInitialize()
 	self:RegisterChatCommand("collectinator", "ChatCommand")
 
 	-------------------------------------------------------------------------------
-	-- Populate the collectin initialization functions.
+	-- Populate the collection initialization functions.
 	-------------------------------------------------------------------------------
-	COLLECTIION_INIT_FUNCS = {
-
+	COLLECTION_INIT_FUNCS = {
+		[private.COLLECTION_NAMES.PET] = addon.InitCritters,
 	}
+
 	-------------------------------------------------------------------------------
 	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
 	-------------------------------------------------------------------------------
@@ -458,12 +466,27 @@ end
 -- Logic Functions
 -------------------------------------------------------------------------------
 
-do
-	-- Determines what to do when the slash command is called.
-	function addon:ChatCommand(input)
-		self:Print("LULZ THIS SHIT DON'T WORK")
+-- Determines what to do when the slash command is called.
+function addon:ChatCommand(input)
+	self:Print("LULZ THIS SHIT DON'T WORK")
+end
+
+function addon:InitializeCollection(collection)
+	if not collection then
+		addon:Debug("nil collection passed to InitializeCollection()")
+		return
+	end
+	for i,k in pairs(COLLECTION_INIT_FUNCS) do addon:Print(i .. k) end
+	local func = COLLECTION_INIT_FUNCS[collection]
+addon:Print(collection)
+addon:Print(func)
+	if func then
+self:Print("Running")
+		func(addon)
+		COLLECTION_INIT_FUNCS[collection] = nil
 	end
 end
+
 
 -------------------------------------------------------------------------------
 -- Collection Scanning Functions
@@ -485,7 +508,9 @@ do
 		local num_pets = LPJ:NumPets()
 
 		-- Scanning Mounts
-		if PanelTemplates_GetSelectedTab(PetJournalParent) == 1 then
+		if PanelTemplates_GetSelectedTab(PetJournalParent) == private.COLLECTION_TYPE_IDS["MOUNT"] then
+
+			addon:InitializeCollection("MOUNT")
 
 			for spell_id, collection in pairs(mounts) do
 				--collection:RemoveState("KNOWN")
@@ -508,13 +533,15 @@ do
 		-- Scanning Pets
 		elseif PanelTemplates_GetSelectedTab(PetJournalParent) == 2 then
 
+			addon:InitializeCollection("CRITTER")
+
 			for i,petid in LPJ:IteratePetIDs() do
 				local _, _, _, _, _, _, _, _, _, id = C_PetJournal.GetPetInfoByPetID(petid)
-				addon:Print(id)
+
 				local collection = critters[id]
 				if collection then
 				else
-					addon:Print("Not in db")
+					--addon:Print("Not in db")
 				end
 			end
         end

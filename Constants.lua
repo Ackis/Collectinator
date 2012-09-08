@@ -32,6 +32,20 @@ private.PLAYER_NAME = _G.UnitName("player")
 private.REALM_NAME = _G.GetRealmName()
 
 -------------------------------------------------------------------------------
+-- Collection data
+-------------------------------------------------------------------------------
+
+private.COLLECTION_TYPE_IDS = {
+	MOUNT	= 1,
+	PET		= 2,
+}
+
+private.COLLECTION_NAMES = {
+	MOUNT = "MOUNT",
+	PET = "CRITTER",
+}
+
+-------------------------------------------------------------------------------
 -- Item qualities.
 -------------------------------------------------------------------------------
 private.ITEM_QUALITY_NAMES = {

@@ -1,6 +1,6 @@
 ﻿--[[
 ************************************************************************
-MountDatabase.lua
+PetDB.lua
 ************************************************************************
 File date: @file-date-iso@
 File hash: @file-abbreviated-hash@
@@ -42,8 +42,8 @@ local Z = private.ZONE_NAMES
 -- Initialize!
 --------------------------------------------------------------------------------------------------------------------
 
-function addon:InitMounts()
-
+function addon:InitCritters()
+self:Print("InitCritters")
 	local function AddCol(spell_id, genesis, quality)
 		return addon:AddCollection(spell_id, "MOUNT", genesis, quality)
 	end
