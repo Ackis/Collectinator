@@ -511,10 +511,10 @@ do
 			addon:InitializeCollection("MOUNT")
 
 			for spell_id, collection in pairs(mounts) do
-				--collection:RemoveState("KNOWN")
-				--collection:RemoveState("RELEVANT")
-				--collection:RemoveState("VISIBLE")
-				--collection:RemoveState("LINKED")
+				collection:RemoveState("KNOWN")
+				collection:RemoveState("RELEVANT")
+				collection:RemoveState("VISIBLE")
+				collection:RemoveState("LINKED")
 			end
 
 			for i=1,num_mounts do
@@ -533,11 +533,19 @@ do
 
 			addon:InitializeCollection("CRITTER")
 
+			for spell_id, collection in pairs(critters) do
+				collection:RemoveState("KNOWN")
+				collection:RemoveState("RELEVANT")
+				collection:RemoveState("VISIBLE")
+				collection:RemoveState("LINKED")
+			end
+
 			for i,petid in LPJ:IteratePetIDs() do
 				local _, _, _, _, _, _, _, _, _, id = C_PetJournal.GetPetInfoByPetID(petid)
 
 				local collection = critters[id]
 				if collection then
+					addon:Print(id)
 				else
 					--addon:Print("Not in db")
 				end

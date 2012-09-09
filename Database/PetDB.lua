@@ -45,12 +45,14 @@ local Z = private.ZONE_NAMES
 function addon:InitCritters()
 self:Print("InitCritters")
 	local function AddCol(spell_id, genesis, quality)
-		return addon:AddCollection(spell_id, "MOUNT", genesis, quality)
+		return addon:AddCollection(spell_id, "CRITTER", genesis, quality)
 	end
 
 	local collection
 
 	-- Zergling - 11327
 	collection = AddCol(11327, V.ORIG, Q.COMMON)
+
+	self.InitCritters = nil
 
 end
