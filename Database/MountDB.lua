@@ -43,14 +43,11 @@ local Z = private.ZONE_NAMES
 --------------------------------------------------------------------------------------------------------------------
 
 function addon:InitMounts()
-
-	local function AddCol(spell_id, genesis, quality)
-		return addon:AddCollection(spell_id, "MOUNT", genesis, quality)
+	local function AddMount(spell_id, genesis, quality)
+		return addon:AddCollectable(spell_id, "MOUNT", genesis, quality)
 	end
+	local mount
 
-	local collection
-
-	-- Zergling - 11327
-	collection = AddCol(11327, V.ORIG, Q.COMMON)
-
+	-- Zergling - 11327 ~lart Ackis
+	mount = AddMount(11327, V.ORIG, Q.COMMON)
 end

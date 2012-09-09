@@ -27,9 +27,9 @@ local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 local A = private.ACQUIRE_TYPES
 
-private.col_list = {}
 --private.profession_recipe_list = {}
 --private.num_profession_recipes = {}
+private.collectable_list = {}
 
 private.acquire_list	= {}
 private.location_list	= {}
@@ -37,36 +37,36 @@ private.location_list	= {}
 -----------------------------------------------------------------------
 -- Local constants.
 -----------------------------------------------------------------------
-local collection_prototype = {}
-local collection_meta = {
-	__index = collection_prototype
+local collectable_prototype = {}
+local collectable_meta = {
+	__index = collectable_prototype
 }
 
-function addon:AddCollection(col_id, ColType, genesis, quality)
-	local col_list = private.col_list
+function addon:AddCollectable(col_id, collection_type, genesis, quality)
+	local collectable_list = private.collectable_list
 self:Print("Adding " .. col_id)
-	if col_list[col_id] then
-		self:Debug("Duplicate Collection Item: %d - %s (%s)", col_id, col_list[col_id].name, col_list[col_id].ColType)
+	if collectable_list[col_id] then
+		self:Debug("Duplicate Collectable Item: %d - %s (%s)", col_id, collectable_list[col_id].name, collectable_list[col_id].ColType)
 		return
 	end
 
 	local collection = _G.setmetatable({
-		col_id = col_id,
-		ColType = ColType,
+		id = col_id,
+		type = collection_type,
 		genesis = private.GAME_VERSION_NAMES[genesis],
 		quality = quality,
 		name = _G.GetSpellInfo(col_id),
 		flags = {},
 		acquire_data = {},
-	}, collection_meta)
+	}, collectable_meta)
 
 	-- If the name is unknown, let the user know the spell is not in their cache
 	if not collection.name or collection.name == "" then
 		collection.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(col_id))
 		self:Debug(L["SpellIDCache"]:format(col_id))
 	end
+	collectable_list[col_id] = collection
 
-	col_list[col_id] = collection
 -- WTF is Torhal doing here?
 --[[
 	if not private.profession_recipe_list[recipe.profession] then
@@ -81,17 +81,17 @@ end
 -------------------------------------------------------------------------------
 -- Collection methods.
 -------------------------------------------------------------------------------
-function collection_prototype:SetCollectionItemID(item_id)
+function collectable_prototype:SetCollectionItemID(item_id)
 	self.collection_item_id = item_id
 end
 
-function collection_prototype:CollectionItemID()
+function collectable_prototype:CollectionItemID()
 	return self.collection_item_id
 end
 
 -- Used to set the faction for collections which only can be learned by one faction (e.g. Moonkin Hatchling, etc.)
 -- These collections will never be able to be learned so we do not want to load them.
-function collection_prototype:SetRequiredFaction(faction_name)
+function collectable_prototype:SetRequiredFaction(faction_name)
 	self.required_faction = faction_name
 
 	if faction_name and private.Player.faction ~= faction_name then
@@ -100,44 +100,44 @@ function collection_prototype:SetRequiredFaction(faction_name)
 	end
 end
 
-function collection_prototype:RequiredFaction()
+function collectable_prototype:RequiredFaction()
 	return self.required_faction
 end
 
 -------------------------------------------------------------------------------
--- Recipe state flags.
+-- Collectable state flags.
 -------------------------------------------------------------------------------
-local RECIPE_STATE_FLAGS = {
+local COLLECTABLE_STATE_FLAGS = {
 	KNOWN		= 0x00000001,
 	RELEVANT	= 0x00000002,
 	VISIBLE		= 0x00000004,
 	LINKED		= 0x00000008,
 }
 
-function collection_prototype:HasState(state_name)
-	return self.state and (bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) == RECIPE_STATE_FLAGS[state_name]) or false
+function collectable_prototype:HasState(state_name)
+	return self.state and (bit.band(self.state, COLLECTABLE_STATE_FLAGS[state_name]) == COLLECTABLE_STATE_FLAGS[state_name]) or false
 end
 
-function collection_prototype:AddState(state_name)
+function collectable_prototype:AddState(state_name)
 	if not self.state then
 		self.state = 0
 	end
 
-	if bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) == RECIPE_STATE_FLAGS[state_name] then
+	if bit.band(self.state, COLLECTABLE_STATE_FLAGS[state_name]) == COLLECTABLE_STATE_FLAGS[state_name] then
 		return
 	end
-	self.state = bit.bxor(self.state, RECIPE_STATE_FLAGS[state_name])
+	self.state = bit.bxor(self.state, COLLECTABLE_STATE_FLAGS[state_name])
 end
 
-function collection_prototype:RemoveState(state_name)
+function collectable_prototype:RemoveState(state_name)
 	if not self.state then
 		return
 	end
 
-	if bit.band(self.state, RECIPE_STATE_FLAGS[state_name]) ~= RECIPE_STATE_FLAGS[state_name] then
+	if bit.band(self.state, COLLECTABLE_STATE_FLAGS[state_name]) ~= COLLECTABLE_STATE_FLAGS[state_name] then
 		return
 	end
-	self.state = bit.bxor(self.state, RECIPE_STATE_FLAGS[state_name])
+	self.state = bit.bxor(self.state, COLLECTABLE_STATE_FLAGS[state_name])
 
 	if self.state == 0 then
 		self.state = nil
@@ -153,7 +153,7 @@ do
 		item1 = private.ITEM_FLAGS_WORD1,
 	}
 
-	function collection_prototype:HasFilter(field_name, flag_name)
+	function collectable_prototype:HasFilter(field_name, flag_name)
 		local bitfield = self.flags[field_name]
 		local bitset = BITFIELD_MAP[field_name]
 		local value = bitset[flag_name]
@@ -165,9 +165,9 @@ end -- do-block
 do
 	local SKILL_LEVEL_FORMAT = "[%d]"
 
-	function collection_prototype:GetDisplayName()
+	function collectable_prototype:GetDisplayName()
 		local _, _, _, quality_color = _G.GetItemQualityColor(self.quality)
-		local col_name = self.name
+		local collectable_name = self.name
 
 		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[A.REPUTATION])
 
@@ -176,14 +176,7 @@ do
 		if not has_faction then
 			diff_color = "impossible"
 		end
-		local display_name = ("|c%s%s|r"):format(quality_color, recipe_name)
-		local level_text = private.SetTextColor(private.DIFFICULTY_COLORS[diff_color], SKILL_LEVEL_FORMAT):format(recipe_level)
-
-		if addon.db.profile.skill_view then
-			display_name = ("%s - %s"):format(level_text, display_name)
-		else
-			display_name = ("%s - %s"):format(display_name, level_text)
-		end
+		local display_name = ("|c%s%s|r"):format(quality_color, collectable_name)
 
 		if addon.db.profile.exclusionlist[self.col_id] then
 			display_name = ("** %s **"):format(display_name)
@@ -192,7 +185,7 @@ do
 	end
 end -- do-block
 
-function collection_prototype:SetItemFilterType(filter_type)
+function collectable_prototype:SetItemFilterType(filter_type)
 	if not private.ITEM_FILTER_TYPES[filter_type:upper()] then
 		addon:Debug("Attempting to set invalid item filter type '%s' for '%s' (%d)", filter_type, self.name, self.col_id)
 		return
@@ -200,7 +193,7 @@ function collection_prototype:SetItemFilterType(filter_type)
 	self.item_filter_type = filter_type:lower()
 end
 
-function collection_prototype:ItemFilterType()
+function collectable_prototype:ItemFilterType()
 	return self.item_filter_type
 end
 
@@ -256,15 +249,15 @@ local function SetFilterState(recipe, turn_on, ...)
 	end
 end
 
-function collection_prototype:AddFilters(...)
+function collectable_prototype:AddFilters(...)
 	SetFilterState(self, true, ...)
 end
 
-function collection_prototype:RemoveFilters(...)
+function collectable_prototype:RemoveFilters(...)
 	SetFilterState(self, false, ...)
 end
 
-function collection_prototype:AddAcquireData(acquire_type, type_string, unit_list, ...)
+function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_list, ...)
 	local location_list = private.location_list
 	local acquire_list = private.acquire_list
 	local acquire = self.acquire_data[acquire_type]
@@ -329,39 +322,39 @@ function collection_prototype:AddAcquireData(acquire_type, type_string, unit_lis
 	end
 end
 
-function collection_prototype:AddMobDrop(...)
+function collectable_prototype:AddMobDrop(...)
 	self:AddAcquireData(A.MOB_DROP, "Mob", private.mob_list, ...)
 end
 
-function collection_prototype:AddVendor(...)
+function collectable_prototype:AddVendor(...)
 	self:AddAcquireData(A.VENDOR, "Vendor", private.vendor_list, ...)
 end
 
-function collection_prototype:AddLimitedVendor(...)
+function collectable_prototype:AddLimitedVendor(...)
 	self:AddAcquireData(A.VENDOR, "Limited Vendor", private.vendor_list, ...)
 end
 
-function collection_prototype:AddWorldDrop(...)
+function collectable_prototype:AddWorldDrop(...)
 	self:AddAcquireData(A.WORLD_DROP, nil, nil, ...)
 end
 
-function collection_prototype:AddQuest(...)
+function collectable_prototype:AddQuest(...)
 	self:AddAcquireData(A.QUEST, "Quest", private.quest_list, ...)
 end
 
-function collection_prototype:AddAchievement(...)
+function collectable_prototype:AddAchievement(...)
 	self:AddAcquireData(A.ACHIEVEMENT, "Achievement", nil, ...)
 end
 
-function collection_prototype:AddCustom(...)
+function collectable_prototype:AddCustom(...)
 	self:AddAcquireData(A.CUSTOM, "Custom", private.custom_list, ...)
 end
 
-function collection_prototype:AddSeason(...)
+function collectable_prototype:AddSeason(...)
 	self:AddAcquireData(A.SEASONAL, "Seasonal", private.seasonal_list, ...)
 end
 
-function collection_prototype:AddRepVendor(faction_id, rep_level, ...)
+function collectable_prototype:AddRepVendor(faction_id, rep_level, ...)
 	local location_list = private.location_list
 	local acquire_list = private.acquire_list
 	local vendor_list = private.vendor_list
@@ -431,7 +424,7 @@ local DUMP_FUNCTION_FORMATS = {
 local sorted_data = {}
 local reverse_map = {}
 
-function collection_prototype:Dump(output)
+function collectable_prototype:Dump(output)
 	local genesis = private.GAME_VERSIONS[self.genesis]
 
 	table.insert(output, ("-- %s -- %d"):format(self.name, self.col_id))
@@ -638,7 +631,7 @@ function collection_prototype:Dump(output)
 	table.insert(output, "")
 end
 
-function collection_prototype:DumpTrainers(registry)
+function collectable_prototype:DumpTrainers(registry)
 	local trainer_data = self.acquire_data[A.TRAINER]
 
 	if not trainer_data then

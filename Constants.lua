@@ -37,7 +37,7 @@ private.REALM_NAME = _G.GetRealmName()
 
 private.COLLECTION_TYPE_IDS = {
 	MOUNT	= 1,
-	PET		= 2,
+	PET	= 2,
 }
 
 private.COLLECTION_NAMES = {
