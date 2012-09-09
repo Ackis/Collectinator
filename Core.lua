@@ -476,9 +476,10 @@ function addon:InitializeCollection(collection)
 		addon:Debug("nil collection passed to InitializeCollection()")
 		return
 	end
-	for i,k in pairs(COLLECTION_INIT_FUNCS) do addon:Print(i .. k) end
+
 	local func = COLLECTION_INIT_FUNCS[collection]
-addon:Print(collection)
+	for i,k in pairs(COLLECTION_INIT_FUNCS) do addon:Print(i .. k) end
+	addon:Print(collection)
 addon:Print(func)
 	if func then
 self:Print("Running")
