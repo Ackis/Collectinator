@@ -56,10 +56,6 @@ private.Player = Player
 function Player:Initialize()
 	self.faction = _G.UnitFactionGroup("player")
 	self.class = _G.select(2, _G.UnitClass("player"))
-
-	self.mounts = {}
-	self.critters = {}
-
 end
 
 do
