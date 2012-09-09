@@ -27,9 +27,9 @@ local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 local A = private.ACQUIRE_TYPES
 
---private.profession_recipe_list = {}
---private.num_profession_recipes = {}
 private.collectable_list = {}
+private.category_collectable_list = {}
+private.num_category_collectables = {}
 
 private.acquire_list	= {}
 private.location_list	= {}
@@ -67,14 +67,12 @@ self:Print("Adding " .. col_id)
 	end
 	collectable_list[col_id] = collection
 
--- WTF is Torhal doing here?
---[[
-	if not private.profession_recipe_list[recipe.profession] then
-		private.profession_recipe_list[recipe.profession] = {}
+	if not private.category_collectable_list[collection_type] then
+		private.category_collectable_list[collection_type] = {}
 	end
-	private.profession_recipe_list[recipe.profession][col_id] = recipe
-	private.num_profession_recipes[recipe.profession] = (private.num_profession_recipes[recipe.profession] or 0) + 1
-]]--
+	private.category_collectable_list[collection_type][col_id] = collection
+	private.num_category_collectables[collection_type] = (private.num_category_collectables[collection_type] or 0) + 1
+
 	return collection
 end
 
