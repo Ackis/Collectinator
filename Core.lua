@@ -478,11 +478,8 @@ function addon:InitializeCollection(collection)
 	end
 
 	local func = COLLECTION_INIT_FUNCS[collection]
-	for i,k in pairs(COLLECTION_INIT_FUNCS) do addon:Print(i .. k) end
-	addon:Print(collection)
-addon:Print(func)
+
 	if func then
-self:Print("Running")
 		func(addon)
 		COLLECTION_INIT_FUNCS[collection] = nil
 	end
