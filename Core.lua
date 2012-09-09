@@ -497,57 +497,50 @@ do
 
 	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
 	function addon:Scan(textdump, is_refresh)
-		
-		local player = private.Player
-		local mounts = player.mounts
-		local critters = player.critters
-
-		local num_mounts = GetNumCompanions("MOUNT")
-		local num_pets = LPJ:NumPets()
+		local current_panel = _G.PanelTemplates_GetSelectedTab(_G.PetJournalParent)
 
 		-- Scanning Mounts
-		if PanelTemplates_GetSelectedTab(PetJournalParent) == private.COLLECTION_TYPE_IDS["MOUNT"] then
+		if current_panel == private.COLLECTION_TYPE_IDS.MOUNT then
+			local mounts = private.category_collectable_list["MOUNT"]
+			local num_mounts = GetNumCompanions("MOUNT")
+			self:InitializeCollection("MOUNT")
 
-			addon:InitializeCollection("MOUNT")
-
-			for spell_id, collection in pairs(mounts) do
-				collection:RemoveState("KNOWN")
-				collection:RemoveState("RELEVANT")
-				collection:RemoveState("VISIBLE")
-				collection:RemoveState("LINKED")
+			for spell_id, mount in pairs(mounts) do
+				mount:RemoveState("KNOWN")
+				mount:RemoveState("RELEVANT")
+				mount:RemoveState("VISIBLE")
+				mount:RemoveState("LINKED")
 			end
 
-			for i=1,num_mounts do
+			for i = 1, num_mounts do
 				local id = GetCompanionInfo("MOUNT", i)
-				local collection = mounts[id]
-				if collection then
+				if mounts[id] then
 				else
-					addon:Print("Not in db")
+					--					self:Debug("Mount %d - Not in db", id)
 				end
 			end
-
 			self:Print("Scanning Mounts.")
 
 		-- Scanning Pets
-		elseif PanelTemplates_GetSelectedTab(PetJournalParent) == 2 then
-
+		elseif current_panel == private.COLLECTION_TYPE_IDS.PET then
+			local critters = private.category_collectable_list["CRITTER"]
+			local num_pets = LPJ:NumPets()
 			addon:InitializeCollection("CRITTER")
 
-			for spell_id, collection in pairs(critters) do
-				collection:RemoveState("KNOWN")
-				collection:RemoveState("RELEVANT")
-				collection:RemoveState("VISIBLE")
-				collection:RemoveState("LINKED")
+			for spell_id, pet in pairs(critters) do
+				pet:RemoveState("KNOWN")
+				pet:RemoveState("RELEVANT")
+				pet:RemoveState("VISIBLE")
+				pet:RemoveState("LINKED")
 			end
 
-			for i,petid in LPJ:IteratePetIDs() do
-				local _, _, _, _, _, _, _, _, _, id = C_PetJournal.GetPetInfoByPetID(petid)
+			for index, petid in LPJ:IteratePetIDs() do
+				local _, _, _, _, _, _, _, _, _, id = _G.C_PetJournal.GetPetInfoByPetID(petid)
 
-				local collection = critters[id]
-				if collection then
-					addon:Print(id)
+				if critters[id] then
+					self:Debug("Critter %d exists", id)
 				else
-					--addon:Print("Not in db")
+--					self:Debug("Critter %d - Not in db", id)
 				end
 			end
         end
