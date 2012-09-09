@@ -534,15 +534,15 @@ do
 			end
 
 			for index, petid in LPJ:IteratePetIDs() do
-				local _, _, _, _, _, _, _, _, _, id = _G.C_PetJournal.GetPetInfoByPetID(petid)
+				local _, _, _, _, _, display_id, pet_name, _, _, creature_id = _G.C_PetJournal.GetPetInfoByPetID(petid)
 
-				if critters[id] then
-					self:Debug("Critter %d exists", id)
+				if critters[creature_id] then
+					self:Printf("Critter %s exists (creature_id %d)", pet_name, creature_id)
 				else
---					self:Debug("Critter %d - Not in db", id)
+--					self:Debug("Critter %s (display_id %d, critter_id %d) - Not in db", pet_name, display_id, creature_id)
 				end
 			end
-        end
+		end
 	end
 end
 
