@@ -61,7 +61,7 @@ embeds.xml
 #@end-no-lib-strip@
 
 # Localization files
-locale.xml
+Locale.xml
 
 # Constants should be loaded first - many files use them in their main chunk.
 Constants.lua
@@ -74,7 +74,7 @@ Player.lua
 # Utilities.lua
 
 # User Interface files
-# interface.xml
+# Interface.xml
 
 # Database files
-database.xml
+Database.xml
