@@ -322,31 +322,30 @@ function addon:OnInitialize()
 	button:SetHeight(20)
 	button:RegisterForClicks("LeftButtonUp")
 	button:SetScript("OnClick",
-				  function()
-					  local companion_frame = (PetJournal:IsVisible() and PetJournal) or (MountJournal:IsVisible() and MountJournal)
+		function()
+			local companion_frame = (PetJournal:IsVisible() and PetJournal) or (MountJournal:IsVisible() and MountJournal)
 
-					  -- Alt-Shift (Warcraft Pets)
-					  if IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:Scan(true, false, "pets")
-					  -- Shift only (Text Dump)
-					  elseif IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:Scan(true, false, companion_frame)
-					  -- Alt only (Wipe icons from map)
-					  elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:ClearMap()
-					  -- If we are just clicking do the scan
-					  elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-						  addon:Scan(false, false, companion_frame)
-						  --self:SetupMap()
-					  end
-				  end)
+			-- Alt-Shift (Warcraft Pets)
+			if IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+				addon:Scan(true, false, "pets")
+				-- Shift only (Text Dump)
+			elseif IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+				addon:Scan(true, false, companion_frame)
+				-- Alt only (Wipe icons from map)
+			elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
+				addon:ClearMap()
+				-- If we are just clicking do the scan
+			elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
+				addon:Scan(false, false, companion_frame)
+				--self:SetupMap()
+			end
+		end)
 
-	button:SetScript("OnEnter",
-				   function(this)
-					   GameTooltip_SetDefaultAnchor(GameTooltip, this)
-					   GameTooltip:SetText(L["SCAN_COMPANIONS_DESC"])
-					   GameTooltip:Show()
-				   end)
+	button:SetScript("OnEnter", function(this)
+		GameTooltip_SetDefaultAnchor(GameTooltip, this)
+		GameTooltip:SetText(L["SCAN_COMPANIONS_DESC"])
+		GameTooltip:Show()
+	end)
 
 	button:SetScript("OnLeave", function() GameTooltip:Hide() end)
 	button:SetText(L["Scan"])
