@@ -52,5 +52,7 @@ self:Print("InitCritters")
 	-- Zergling - 11327
 	pet = AddPet(11327, V.ORIG, Q.COMMON)
 
+	-- Clockwork Rocket Bot - 24968
+	pet = AddPet(24968, V.TBC, Q.RARE)
 	self.InitCritters = nil
 end
