@@ -2592,7 +2592,7 @@ local function SetFramePosition()
 
 	if (opts.anchorTo == "") then
 		-- no values yet, clamp to whatever frame is appropriate
-		addon.Frame:SetPoint("TOPLEFT", PetJournal, "TOPRIGHT", 10, 0)
+		addon.Frame:SetPoint("TOPLEFT", PetJournalParent, "TOPRIGHT", 10, 0)
 	else
 		if (addon.Frame._Expanded == true) then
 			if (opts.anchorFrom == "TOPLEFT") or
