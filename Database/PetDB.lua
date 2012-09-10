@@ -48,7 +48,7 @@ self:Print("Initializing Critters")
 		return addon:AddCollectable(spell_id, "CRITTER", genesis, quality)
 	end
 	local pet
---reg exp AddPet\([0-9]+, [0-9]+, .+, .+\)
+
 	-- Zergling - 11327
 	pet = AddPet(11327, V.ORIG, Q.COMMON)
 
@@ -56,8 +56,8 @@ self:Print("Initializing Critters")
 	pet = AddPet(24968, V.TBC, Q.RARE)
 
 	-- Core Hound Pup - 69452
-	AddPet(69452, 49646, Q.RARE, V.WOTLK)
-
+	AddPet(69452, 49646, V.WOTLK, Q.RARE)
+--[[
 	-- Zipao Tiger (Purple Jade Tiger) - 69539
 	AddPet(69539, 49664, Q.RARE, V.WOTLK)
 
@@ -117,301 +117,183 @@ self:Print("Initializing Critters")
 	-- Magical Crawdad Box - 33050
 	AddPet(33050, 27445, Q.COMMON, V.TBC)
 
-
-
 	-- Toothy's Bucket - 43697
 	AddPet(43697, 33816, Q.RARE, V.TBC)
-
-
 
 	-- Muckbreath's Bucket - 43698
 	AddPet(43698, 33818, Q.RARE, V.TBC)
 
-
-
 	-- Snarly's Bucket - 46425
 	AddPet(46425, 35349, Q.RARE, V.TBC)
-
-
 
 	-- Chuck's Bucket - 46426
 	AddPet(46426, 35350, Q.RARE, V.TBC)
 
-
-
 	-- Giant Sewer Rat - 59250
 	AddPet(59250, 43698, Q.RARE, V.WOTLK)
-
-
 
 	-- Strand Crawler -- 62561
 	AddPet(62561, 44983, Q.RARE, V.WOTLK)
 
-
-
 	-- Sea Pony -- 103588
 	AddPet(103588, 73953, Q.RARE, V.CATA)
-
-
 
 --PLAYERMADE
 	-- Mechanical Squirrel Box - 4055
 	AddPet(4055, 4401, Q.COMMON, V.ORIG)
 
-
-
 	-- Pet Bombling - 15048
 	AddPet(15048, 11825, Q.COMMON, V.ORIG)
-
-
 
 	-- Lil' Smoky - 15049
 	AddPet(15049, 11826, Q.COMMON, V.ORIG)
 
-
-
 	-- Lifelike Mechanical Toad - 19772
 	AddPet(19772, 15996, Q.COMMON, V.ORIG)
-
-
 
 	-- Tranquil Mechanical Yeti - 26010
 	AddPet(26010, 21277, Q.COMMON, V.ORIG)
 
-
-
 	-- Fossilized Hatchling -- 84752
 	AddPet(84752, 60955, Q.RARE, V.CATA)
-
-
 
 	-- De-Weaponized Mechanical Companion -- 82173
 	AddPet(82173, 60216, Q.RARE, V.CATA)
 
-
-
 	-- Elementium Geode -- 93838
 	AddPet(93838, 67282, Q.RARE, V.CATA)
-
-
 
 	-- Personal World Destroyer -- 81937
 	AddPet(81937, 59597, Q.RARE, V.CATA)
 
-
-
 	-- Clockwork Gnome -- 90523
 	AddPet(90523, 64372, Q.RARE, V.CATA)
-
-
 
 	-- Crawling Claw -- 84263
 	AddPet(84263, 60847, Q.EPIC, V.CATA)
 
-
-
 	-- Enchanted Lantern -- 93836
 	AddPet(93836, 67274, Q.RARE, V.CATA)
-
-
 
 	-- Magic Lamp -- 93837
 	AddPet(93837, 67275, Q.RARE, V.CATA)
 
-
-
 	-- Pterrordax Hatchling -- 98571
 	AddPet(98571, 69821, Q.RARE, V.CATA)
 
-
-
 	-- Voodoo Figurine -- 98587
 	AddPet(98587, 69824, Q.RARE, V.CATA)
-
-
 
 --WORLD EVENT DROP
 	-- Snowman Kit - 26045
 	AddPet(26045, 21309, Q.COMMON, V.ORIG)
 
-
-
 	-- Jingling Bell - 26529
 	AddPet(26529, 21308, Q.COMMON, V.ORIG)
-
-
 
 	-- Green Helper Box - 26533
 	AddPet(26533, 21301, Q.COMMON, V.ORIG)
 
-
-
 	-- Red Helper Box - 26541
 	AddPet(26541, 21305, Q.COMMON, V.ORIG)
-
-
 
 	-- Lumpy -- 103125
 	AddPet(103125, 73797, Q.RARE, V.CATA)
 
-
-
 	-- Darkmoon Balloon -- 103076
 	AddPet(103076, 73762, Q.RARE, V.CATA)
-
-
 
 	-- Darkmoon Cub -- 105122
 	AddPet(105122, 74981, Q.RARE, V.CATA)
 
-
-
 	-- Darkmoon Monkey -- 101733
 	AddPet(101733, 73764, Q.RARE, V.CATA)
-
-
 
 	-- Darkmoon Tonk -- 103544
 	AddPet(103544, 73903, Q.RARE, V.CATA)
 
-
-
 	-- Darkmoon Turtle -- 103074
 	AddPet(103074, 73765, Q.RARE, V.CATA)
-
-
 
 	-- Darkmoon Zeppelin -- 103549
 	AddPet(103549, 73905, Q.RARE, V.CATA)
 
-
-
 	-- Truesilver Shafted Arrow - 27570
 	AddPet(27570, 22235, Q.COMMON, V.ORIG)
-
-
 
 	-- Sinister Squashling - 42609
 	AddPet(42609, 33154, Q.RARE, V.TBC)
 
-
-
 	-- Clockwork Rocket Bot - 54187
 	AddPet(54187, 34425, Q.RARE, V.TBC)
-
-
 
 	-- Spring Rabbit - 61725
 	AddPet(61725, 44794, Q.RARE, V.WOTLK)
 
-
-
 	-- Toxic Wasteling - 71840
 	AddPet(71840, 50446, Q.RARE, V.WOTLK)
-
-
 
 	-- Ice Chip (Frigid Frostling) - 74932
 	AddPet(74932, 53641, Q.RARE, V.WOTLK)
 
-
-
 	-- Creepy Crate -- 100684
 	AddPet(100684, 71076, Q.COMMON, V.CATA)
-
-
 
 	-- Feline Familiar -- 100330
 	AddPet(100330, 70908, Q.COMMON, V.CATA)
 
-
-
 	-- Turtle Box - 28738
 	AddPet(28738, 23002, Q.COMMON, V.ORIG)
-
-
 
 	-- Piglet's Collar - 28739
 	AddPet(28739, 23007, Q.COMMON, V.ORIG)
 
-
-
 	-- Rat Cage - 28740
 	AddPet(28740, 23015, Q.COMMON, V.ORIG)
-
-
 
 	-- Sleepy Willy - 40613
 	AddPet(40613, 32617, Q.RARE, V.TBC)
 
-
-
 	-- Egbert's Egg - 40614
 	AddPet(40614, 32616, Q.RARE, V.TBC)
-
-
 
 	-- Elekk Training Collar - 40634
 	AddPet(40634, 32622, Q.RARE, V.TBC)
 
-
-
 	-- Curious Wolvar Pup
 	AddPet(65382, 46544, Q.RARE, V.WOTLK)
-
-
 
 	-- Curious Oracle Hatchling
 	AddPet(65381, 46545, Q.RARE, V.WOTLK)
 
-
-
 	-- Scooter the Snail -- 93817
 	AddPet(93817, 66073, Q.COMMON, V.CATA)
 
-
-
 	-- Legs -- 98079
 	AddPet(98079, 69648, Q.RARE, V.CATA)
-
-
 
 --WORLD EVENT VENDOR
 	-- Spirit of Summer - 28871
 	AddPet(28871, 23083, Q.RARE, V.ORIG)
 
-
-
 	-- Pint-Sized Pink Pachyderm - 44369
 	AddPet(44369, 46707, Q.RARE, V.TBC)
 
-
-	
 	-- Festival Lantern -- 104049
 	AddPet(104049, 74611, Q.RARE, V.CATA)
 
-
-
 	-- Lunar Lantern -- 104047
 	AddPet(104047, 74610, Q.RARE, V.CATA)
-
-
 
 --DROP
 	-- Parrot Cage (Hyacinth Macaw) - 10682
 	AddPet(10682, 8494, Q.EPIC, V.ORIG)
 
-
-
 	-- Parrot Cage (Green Wing Macaw) - 10683
 	AddPet(10683, 8492, Q.COMMON, V.ORIG)
 
-
-
 	-- Cat Carrier (Black Tabby) - 10675
 	AddPet(10675, 8491, Q.COMMON, V.ORIG)
-
-
 
 	-- Cat Carrier (Siamese) - 10677
 	AddPet(10677, 8490, Q.COMMON, V.ORIG)
@@ -1089,27 +971,19 @@ self:Print("Initializing Critters")
 	-- Lil' Ragnaros -- 95787
 	AddPet(95787, 68385, Q.RARE, V.WOTLK)
 
-
-
 	-- Cenarion Hatchling -- 99578
 	AddPet(99578, 70099, Q.EPIC, V.CATA)
-
-
 
 	-- Guardian Cub -- 98736
 	AddPet(98736, 72068, Q.RARE, V.CATA)
 
-
-
 	-- Soul of the Aspects -- 110029
 	AddPet(110029, 78916, Q.RARE, V.CATA)
-
-
 
 	-- Lucky Quilen Cub -- 124660
 	AddPet(124660, 85871, Q.RARE, V.CATA)
 
-
+]]--
 
 	self.InitCritters = nil
 end
