@@ -74,7 +74,7 @@ function addon:AddCollectable(col_id, collection_type, genesis, quality)
 		flags = {},
 		acquire_data = {},
 	}, collectable_meta)
-addon:Print(collection[id])
+addon:Print(col_id)
 	-- If the name is unknown, let the user know the spell is not in their cache
 	if not collection.name or collection.name == "" then
 		collection.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(col_id))
@@ -82,11 +82,11 @@ addon:Print(collection[id])
 	end
 	collectable_list[col_id] = collection
 
-	if not private.category_collection_list[collection_type] then
-		private.category_collection_list[collection_type] = {}
+	if not private.category_collectable_list[collection_type] then
+		private.category_collectable_list[collection_type] = {}
 	end
-	private.category_collection_list[collection_type][col_id] = collection
-	private.num_category_collections[collection_type] = (private.num_category_collections[collection_type] or 0) + 1
+	private.category_collectable_list[collection_type][col_id] = collection
+	private.num_category_collectables[collection_type] = (private.num_category_collectables[collection_type] or 0) + 1
 
 	return collection
 end
