@@ -275,6 +275,7 @@ L["Dormus the Camel-Hoarder"] = true
 L["Baradin Fox"] = true
 L["Poseidus"] = true
 L["Noxious Whelp"] = true
+L["Darkmoon Rabbit"] = true
 
 -- Vendors
 L["Yarlyn Amberstill"] = true

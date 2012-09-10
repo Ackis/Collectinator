@@ -70,4 +70,5 @@ function addon:InitMob(DB)
 	self:addLookupList(DB, 52530,	BB["Alysrazor"],			BZ["Firelands"],			0, 0)
 	self:addLookupList(DB, 56173,	BB["Madness of Deathwing"],		BZ["Dragon Soul"],			0, 0)
 	self:addLookupList(DB, 55294,	BB["Ultraxion"],			BZ["Dragon Soul"],			0, 0)
+	self:addLookupList(DB, 58336,	L["Darkmoon Rabbit"],			BZ["Darkmoon Island"],			78.0, 82.2)
 end
