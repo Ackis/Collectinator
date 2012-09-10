@@ -515,7 +515,7 @@ do
 				local id = GetCompanionInfo("MOUNT", i)
 				if mounts[id] then
 				else
-					--					self:Debug("Mount %d - Not in db", id)
+					--self:Debug("Mount %d - Not in db", id)
 				end
 			end
 			self:Print("Scanning Mounts.")
@@ -542,6 +542,7 @@ do
 --					self:Debug("Critter %s (display_id %d, critter_id %d) - Not in db", pet_name, display_id, creature_id)
 				end
 			end
+
 		end
 	end
 end

@@ -54,5 +54,6 @@ self:Print("InitCritters")
 
 	-- Clockwork Rocket Bot - 24968
 	pet = AddPet(24968, V.TBC, Q.RARE)
+
 	self.InitCritters = nil
 end
