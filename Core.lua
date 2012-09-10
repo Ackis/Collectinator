@@ -500,9 +500,17 @@ do
 
 		-- Scanning Mounts
 		if current_panel == private.COLLECTION_TYPE_IDS.MOUNT then
-			local mounts = private.category_collectable_list[private.COLLECTION_NAMES.MOUNT]
-			local num_mounts = GetNumCompanions(private.COLLECTION_NAMES.MOUNT)
+
 			self:InitializeCollection(private.COLLECTION_NAMES.MOUNT)
+
+			local mounts = private.category_collectable_list[private.COLLECTION_NAMES.MOUNT]
+
+			if not mounts then
+				self:Debug("Errror, %s table not made.", private.COLLECTION_NAMES.MOUNT)
+				return
+			end
+
+			local num_mounts = GetNumCompanions(private.COLLECTION_NAMES.MOUNT)
 
 			for spell_id, mount in pairs(mounts) do
 				mount:RemoveState("KNOWN")
@@ -523,7 +531,7 @@ do
 		-- Scanning Pets
 		elseif current_panel == private.COLLECTION_TYPE_IDS.PET then
 
-			addon:InitializeCollection(private.COLLECTION_NAMES.PET)
+			self:InitializeCollection(private.COLLECTION_NAMES.PET)
 
 			local critters = private.category_collectable_list[private.COLLECTION_NAMES.PET]
 
