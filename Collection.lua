@@ -59,7 +59,7 @@ end
 
 function addon:AddCollectable(col_id, collection_type, genesis, quality)
 	local collectable_list = private.collectable_list
-self:Print("Adding " .. col_id)
+
 	if collectable_list[col_id] then
 		self:Debug("Duplicate Collectable Item: %d - %s (%s)", col_id, collectable_list[col_id].name, collectable_list[col_id].ColType)
 		return
@@ -74,7 +74,7 @@ self:Print("Adding " .. col_id)
 		flags = {},
 		acquire_data = {},
 	}, collectable_meta)
-
+addon:Print(collection[id])
 	-- If the name is unknown, let the user know the spell is not in their cache
 	if not collection.name or collection.name == "" then
 		collection.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(col_id))

@@ -500,7 +500,7 @@ do
 
 		-- Scanning Mounts
 		if current_panel == private.COLLECTION_TYPE_IDS.MOUNT then
-			local mounts = private.category_collectable_list["MOUNT"]
+			local mounts = private.category_collectable_list[private.COLLECTION_NAMES.MOUNT]
 			local num_mounts = GetNumCompanions("MOUNT")
 			self:InitializeCollection("MOUNT")
 
@@ -522,7 +522,14 @@ do
 
 		-- Scanning Pets
 		elseif current_panel == private.COLLECTION_TYPE_IDS.PET then
-			local critters = private.category_collectable_list["CRITTER"]
+			local critters = private.category_collectable_list[private.COLLECTION_NAMES.PET]
+
+			if not critters then
+				critters = {}
+				addon:Print("Errror, table not made.")
+				return
+			end
+
 			local num_pets = LPJ:NumPets()
 			addon:InitializeCollection("CRITTER")
 
