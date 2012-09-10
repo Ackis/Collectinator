@@ -1188,6 +1188,11 @@ function addon:GetMiniPetTotal(PetDB)
 	self:AddCompanionFlags(PetDB, 124660, F_ALLIANCE, F_HORDE, F_COLLECTORS, F_BOA)
 	self:AddCompanionAcquire(PetDB, 124660, A_CUSTOM, 68)
 
+	-- Darkmoon Rabbit -- 114090
+	AddPet(114090, 80008, R_EPIC, GAME_CATA)
+	self:AddCompanionFlags(PetDB, 114090, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOE)
+	self:AddCompanionAcquire(PetDB, 114090, A_MOB, 58336)
+	
 -- FACTION SPECIFIC
 	-- We only add the faction specific pets if the user is part of that faction
 	if MY_FACTION == "Alliance" then
