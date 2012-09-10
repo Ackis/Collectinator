@@ -42,6 +42,21 @@ local collectable_meta = {
 	__index = collectable_prototype
 }
 
+do
+	local Tooltip = CreateFrame( "GameTooltip", "COLNameTooltip" )
+
+	local Text = Tooltip:CreateFontString();
+	Tooltip:AddFontStrings( Text, Tooltip:CreateFontString() )
+
+	function addon:GetName(NpcID)
+		Tooltip:SetOwner( WorldFrame, "ANCHOR_NONE" )
+		Tooltip:SetHyperlink( ("unit:0xF53%05X00000000" ):format( NpcID ) )
+		if ( Tooltip:IsShown() ) then
+			return Text:GetText()
+		end
+	end
+end
+
 function addon:AddCollectable(col_id, collection_type, genesis, quality)
 	local collectable_list = private.collectable_list
 self:Print("Adding " .. col_id)
@@ -55,7 +70,7 @@ self:Print("Adding " .. col_id)
 		type = collection_type,
 		genesis = private.GAME_VERSION_NAMES[genesis],
 		quality = quality,
-		name = _G.GetSpellInfo(col_id),
+		name = addon:GetName(col_id),
 		flags = {},
 		acquire_data = {},
 	}, collectable_meta)

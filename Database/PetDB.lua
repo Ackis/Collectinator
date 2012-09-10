@@ -55,8 +55,8 @@ self:Print("Initializing Critters")
 	-- Clockwork Rocket Bot - 24968
 	pet = AddPet(24968, V.TBC, Q.RARE)
 
-	-- Core Hound Pup - 69452
-	AddPet(69452, 49646, V.WOTLK, Q.RARE)
+	-- Core Hound Pup - 36871
+	AddPet(36871, V.WOTLK, Q.RARE)
 --[[
 	-- Zipao Tiger (Purple Jade Tiger) - 69539
 	AddPet(69539, 49664, Q.RARE, V.WOTLK)
