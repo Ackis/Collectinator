@@ -524,14 +524,14 @@ do
 		elseif current_panel == private.COLLECTION_TYPE_IDS.PET then
 			local critters = private.category_collectable_list[private.COLLECTION_NAMES.PET]
 
+			addon:InitializeCollection("CRITTER")
+
 			if not critters then
-				critters = {}
 				addon:Print("Errror, table not made.")
 				return
 			end
 
 			local num_pets = LPJ:NumPets()
-			addon:InitializeCollection("CRITTER")
 
 			for spell_id, pet in pairs(critters) do
 				pet:RemoveState("KNOWN")
