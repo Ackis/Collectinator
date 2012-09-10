@@ -522,12 +522,13 @@ do
 
 		-- Scanning Pets
 		elseif current_panel == private.COLLECTION_TYPE_IDS.PET then
-			local critters = private.category_collectable_list[private.COLLECTION_NAMES.PET]
 
 			addon:InitializeCollection(private.COLLECTION_NAMES.PET)
 
+			local critters = private.category_collectable_list[private.COLLECTION_NAMES.PET]
+
 			if not critters then
-				addon:Print("Errror, table not made.")
+				self:Debug("Errror, %s table not made.", private.COLLECTION_NAMES.PET)
 				return
 			end
 
