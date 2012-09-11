@@ -582,7 +582,7 @@ function addon:GetMountTotal(DB)
 		-- Spectral Steed -- 92231
 		AddMount(92231, 64998, R_EPIC, GAME_CATA)
 		AddMountFlags(92231, F_ALLIANCE, F_VENDOR, F_BOP)
-		self:AddCompanionAcquire(DB, 92231, A_VENDOR, 47328)
+		self:AddCompanionAcquire(DB, 92231, A_REPUTATION, 1177, EXALTED, 47328)
 		
 		-- Vicious War Steed -- 100332
 		AddMount(100332, 70909, R_EPIC, GAME_CATA)
@@ -1009,7 +1009,7 @@ function addon:GetMountTotal(DB)
 		-- Spectral Wolf -- 92232
 		AddMount(92232, 64999, R_EPIC, GAME_CATA)
 		AddMountFlags(92232, F_HORDE, F_VENDOR, F_BOP)
-		self:AddCompanionAcquire(DB, 92232, A_VENDOR, 48531)
+		self:AddCompanionAcquire(DB, 92232, A_REPUTATION, 1178, EXALTED, 48531)
 
 		-- Kor'kron Annihilator -- 93644
 		AddMount(93644, 67107, R_EPIC, GAME_CATA)
@@ -1590,7 +1590,7 @@ function addon:GetMountTotal(DB)
 	-- Drake of the West Wind -- 88741
 	AddMount(88741, 65356, R_EPIC, GAME_CATA)
 	AddMountFlags(88741, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(DB, 88741, A_VENDOR, 48531, A_VENDOR, 47328)
+	self:AddCompanionAcquire(DB, 88741, A_REPUTATION, 1178, EXALTED, 48531, A_REPUTATION, 1177, EXALTED, 47328)
 
 	-- Tan Riding Camel -- 88749 -- NNEED TO ADD THE NEW FACTION REPUTATION SHIT
 	AddMount(88749, 63045, R_EPIC, GAME_CATA)
