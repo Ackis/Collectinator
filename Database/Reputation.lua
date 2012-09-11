@@ -98,5 +98,7 @@ function addon:InitReputation(RepDB)
 	self:addLookupList(RepDB, 1119, BFAC["The Sons of Hodir"])
 	self:addLookupList(RepDB, 1124, BFAC["The Sunreavers"])
 	self:addLookupList(RepDB, 1126, BFAC["The Frostborn"])
+	self:addLookupList(RepDB, 1177, BFAC["Baradin's Wardens"])
+	self:addLookupList(RepDB, 1178, BFAC["Hellscream's Reach"])
 
 end
