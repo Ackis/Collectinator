@@ -27,7 +27,7 @@ local Dialog	= LibStub("LibDialog-1.0")
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local NUM_RECIPE_LINES	= 25
+local NUM_COL_LINES	= 25
 local SCROLL_DEPTH	= 5
 local LISTFRAME_WIDTH	= 295
 local LIST_ENTRY_WIDTH	= 286
@@ -44,7 +44,7 @@ local COORD_FORMAT	= "(%.2f, %.2f)"
 -------------------------------------------------------------------------------
 -- Dialogs.
 -------------------------------------------------------------------------------
-Dialog:Register("ARL_NotScanned", {
+Dialog:Register("COL_NotScanned", {
 	text = L["NOTSCANNED"],
 	buttons = {
 		{
@@ -55,7 +55,7 @@ Dialog:Register("ARL_NotScanned", {
 	hide_on_escape = true,
 })
 
-Dialog:Register("ARL_AllFiltered", {
+Dialog:Register("COL_AllFiltered", {
 	text = L["ALL_FILTERED"],
 	buttons = {
 		{
@@ -66,8 +66,8 @@ Dialog:Register("ARL_AllFiltered", {
 	hide_on_escape = true,
 })
 
-Dialog:Register("ARL_AllKnown", {
-	text = L["ARL_ALLKNOWN"],
+Dialog:Register("COL_AllKnown", {
+	text = L["ALL_KNOWN"],
 	buttons = {
 		{
 			text = _G.OKAY
@@ -77,8 +77,8 @@ Dialog:Register("ARL_AllKnown", {
 	hide_on_escape = true,
 })
 
-Dialog:Register("ARL_AllExcluded", {
-	text = L["ARL_ALLEXCLUDED"],
+Dialog:Register("COL_AllExcluded", {
+	text = L["ALL_EXCLUDED"],
 	buttons = {
 		{
 			text = _G.OKAY
@@ -88,8 +88,8 @@ Dialog:Register("ARL_AllExcluded", {
 	hide_on_escape = true,
 })
 
-Dialog:Register("ARL_SearchFiltered", {
-	text = L["ARL_SEARCHFILTERED"],
+Dialog:Register("COL_SearchFiltered", {
+	text = L["SEARCH_FILTERED"],
 	buttons = {
 		{
 			text = _G.OKAY
@@ -100,11 +100,11 @@ Dialog:Register("ARL_SearchFiltered", {
 })
 
 function private.DismissDialogs()
-	Dialog:Dismiss("ARL_NotScanned")
-	Dialog:Dismiss("ARL_AllFiltered")
-	Dialog:Dismiss("ARL_AllKnown")
-	Dialog:Dismiss("ARL_AllExcluded")
-	Dialog:Dismiss("ARL_SearchFiltered")
+	Dialog:Dismiss("COL_NotScanned")
+	Dialog:Dismiss("COL_AllFiltered")
+	Dialog:Dismiss("COL_AllKnown")
+	Dialog:Dismiss("COL_AllExcluded")
+	Dialog:Dismiss("COL_SearchFiltered")
 end
 
 
@@ -377,7 +377,7 @@ function private.InitializeListFrame()
 	ListFrame.state_buttons = {}
 	ListFrame.entry_buttons = {}
 
-	for index = 1, NUM_RECIPE_LINES do
+	for index = 1, NUM_COL_LINES do
 		local cur_container = _G.CreateFrame("Frame", nil, ListFrame)
 
 		cur_container:SetHeight(16)
@@ -530,21 +530,10 @@ function private.InitializeListFrame()
 			["itemboe"]	= { flag = COMMON1.IBOE,	field = "common1",	sv_root = binding_filters },
 			["itembop"]	= { flag = COMMON1.IBOP,	field = "common1",	sv_root = binding_filters },
 			["itemboa"]	= { flag = COMMON1.IBOA,	field = "common1",	sv_root = binding_filters },
-			["recipeboe"]	= { flag = COMMON1.RBOE,	field = "common1",	sv_root = binding_filters },
-			["recipebop"]	= { flag = COMMON1.RBOP,	field = "common1",	sv_root = binding_filters },
-			["recipeboa"]	= { flag = COMMON1.RBOA,	field = "common1",	sv_root = binding_filters },
-			------------------------------------------------------------------------------------------------
-			-- Player Type flags.
-			------------------------------------------------------------------------------------------------
-			["melee"]	= { flag = COMMON1.DPS,		field = "common1",	sv_root = player_filters },
-			["tank"]	= { flag = COMMON1.TANK,	field = "common1",	sv_root = player_filters },
-			["healer"]	= { flag = COMMON1.HEALER,	field = "common1",	sv_root = player_filters },
-			["caster"]	= { flag = COMMON1.CASTER,	field = "common1",	sv_root = player_filters },
 		}
 
 		local SOFT_FILTERS = {
 			["achievement"]	= { flag = COMMON1.ACHIEVEMENT,	field = "common1",	sv_root = obtain_filters },
-			["discovery"]	= { flag = COMMON1.DISC,	field = "common1",	sv_root = obtain_filters },
 			["instance"]	= { flag = COMMON1.INSTANCE,	field = "common1",	sv_root = obtain_filters },
 			["mobdrop"]	= { flag = COMMON1.MOB_DROP,	field = "common1",	sv_root = obtain_filters },
 			["pvp"]		= { flag = COMMON1.PVP,		field = "common1",	sv_root = obtain_filters },
@@ -603,20 +592,6 @@ function private.InitializeListFrame()
 			[REP2.RAMKAHEN]			= "ramkahen",
 			[REP2.EARTHEN_RING]		= "earthenring",
 			[REP2.THERAZANE]		= "therazane",
-		}
-
-		local CLASS1 = private.CLASS_FLAGS_WORD1
-		local CLASS_FILTERS = {
-			[CLASS1.DK]		= "deathknight",
-			[CLASS1.DRUID]		= "druid",
-			[CLASS1.HUNTER]		= "hunter",
-			[CLASS1.MAGE]		= "mage",
-			[CLASS1.PALADIN]	= "paladin",
-			[CLASS1.PRIEST]		= "priest",
-			[CLASS1.SHAMAN]		= "shaman",
-			[CLASS1.ROGUE]		= "rogue",
-			[CLASS1.WARLOCK]	= "warlock",
-			[CLASS1.WARRIOR]	= "warrior",
 		}
 
 		-- Returns true if any of the filter flags are turned on.
@@ -844,7 +819,7 @@ function private.InitializeListFrame()
 	function ListFrame:ClearLines()
 		local font_object = addon.db.profile.frameopts.small_list_font and "GameFontNormalSmall" or "GameFontNormal"
 
-		for i = 1, NUM_RECIPE_LINES do
+		for i = 1, NUM_COL_LINES do
 			local entry = self.entry_buttons[i]
 			local state = self.state_buttons[i]
 
@@ -939,10 +914,10 @@ function private.InitializeListFrame()
 		MainPanel.expand_button:SetNormalFontObject("GameFontNormalSmall")
 		MainPanel.expand_button:Enable()
 
-		if num_entries <= NUM_RECIPE_LINES then
+		if num_entries <= NUM_COL_LINES then
 			self.scroll_bar:Hide()
 		else
-			local max_val = num_entries - NUM_RECIPE_LINES
+			local max_val = num_entries - NUM_COL_LINES
 			local current_tab = MainPanel.tabs[MainPanel.current_tab]
 			local scroll_value = current_tab["profession_"..MainPanel.profession.."_scroll_value"] or 0
 
@@ -959,7 +934,7 @@ function private.InitializeListFrame()
 		local string_index = button_index + offset
 
 		-- Populate the buttons with new values
-		while button_index <= NUM_RECIPE_LINES and string_index <= num_entries do
+		while button_index <= NUM_COL_LINES and string_index <= num_entries do
 			local cur_state = self.state_buttons[button_index]
 			local cur_entry = self.entries[string_index]
 
@@ -1816,16 +1791,12 @@ do
 		[COMMON1.IBOE] = L["BOEFilter"],
 		[COMMON1.IBOP] = L["BOPFilter"],
 		[COMMON1.IBOA] = L["BOAFilter"],
-		[COMMON1.RBOE] = L["RecipeBOEFilter"],
-		[COMMON1.RBOP] = L["RecipeBOPFilter"],
-		[COMMON1.RBOA] = L["RecipeBOAFilter"]
 	}
 
 	local NON_COORD_ACQUIRES = {
 		[A.WORLD_DROP] = true,
 		[A.CUSTOM] = true,
 		[A.ACHIEVEMENT] = true,
-		[A.DISCOVERY] = true,
 	}
 
 	function ListItem_ShowTooltip(owner, list_entry)
