@@ -532,7 +532,8 @@ do
 	-- List of collection (e.g. pet filters) headers, used in addon:Scan()
 	local header_list = {}
 
-	--- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.   Parses recipes and displays output
+	-- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked. 
+	-- Parses Collections and displays output
 	function addon:Scan(textdump, is_refresh)
 		local current_panel = _G.PanelTemplates_GetSelectedTab(_G.PetJournalParent)
 
@@ -598,6 +599,20 @@ do
 				end
 			end
 
+		end
+
+		player:UpdateReputations()
+
+		-------------------------------------------------------------------------------
+		-- Everything is ready - display the GUI or dump the list to text.
+		-------------------------------------------------------------------------------
+		if textdump then
+			--self:DisplayTextDump(profession_recipes, current_panel)
+		else
+			if private.InitializeFrame then
+				private.InitializeFrame()
+			end
+			self.Frame:Display(current_panel)
 		end
 	end
 end
