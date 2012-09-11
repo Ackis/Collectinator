@@ -69,7 +69,7 @@ Constants.lua
 Core.lua
 Collection.lua
 Config.lua
-Waypoint.lua
+# Waypoint.lua
 Player.lua
 # Utilities.lua
 
