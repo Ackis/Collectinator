@@ -37,7 +37,6 @@ local LibStub = _G.LibStub
 local addon		= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 
 local BFAC		= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
-local LC		= _G.LOCALIZED_CLASS_NAMES_MALE
 local L			= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 local AceConfig 	= LibStub("AceConfig-3.0")
@@ -193,6 +192,7 @@ local function fullOptions()
 							type = "header",
 							name = L["Text Dump Options"],
 						},
+--[[
 						text_dump_desc = {
 							order = 52,
 							type = "description",
@@ -218,6 +218,7 @@ local function fullOptions()
 								}
 							end,
 						},
+]]--
 					},
 				},
 			},
@@ -229,7 +230,7 @@ local function fullOptions()
 	end
 	return options
 end
-
+--[[
 local arlmap
 
 local function GetMapOptions()
@@ -362,207 +363,7 @@ local function GetMapOptions()
 	return arlmap
 end
 
-local datamine
-
-local function GetDatamineOptions()
-	if not datamine then
-		datamine = {
-			order	= 1,
-			type	= "group",
-			name	= L["Datamine Options"],
-			args = {
-				datamine_desc =	{
-					order	= 1,
-					type	= "description",
-					name	= L["DATAMINE_OPTIONS_DESC"] .. "\n",
-				},
-				datamine_warn =	{
-					order	= 2,
-					type	= "description",
-					name	= L["DATAMINE_WARNING_DESC"] .. "\n",
-				},
-				generatelinks = {
-					width	= "double",
-					order	= 10,
-					type	= "execute",
-					name	= L["Generate Tradeskill Links"],
-					desc	= L["GENERATE_LINKS_DESC"],
-					func	= function() addon:GenerateLinks() end,
-				},
-				scantraineracquire = {
-					width	= "double",
-					order	= 30,
-					type	= "execute",
-					name	= L["Compare Trainer Acquire"],
-					desc	= L["COMPARE_TRAINER_ACQUIRE_DESC"],
-					func	= function() addon:ScanTrainerData() end,
-				},
-				null = {
-					order	= 31,
-					type	= "description",
-					name	= "",
-				},
-				scanentiredatabase = {
-					order	= 40,
-					type	= "execute",
-					name	= L["Scan Entire Database"],
-					desc	= L["SCAN_ENTIRE_DB_DESC"],
-					func	= function() addon:TooltipScanDatabase() end,
-				},
-				scanvendor = {
-					order	= 50,
-					type	= "execute",
-					name	= L["Scan Vendor"],
-					desc	= L["SCAN_VENDOR_DESC"],
-					func	= function() addon:ScanVendor() end,
-				},
-				null1 = {
-					order	= 51,
-					type	= "description",
-					name	= "",
-				},
-				scanprofessiontooltip = {
-					order	= 60,
-					type	= "input",
-					name	= L["Scan A Profession"],
-					desc	= L["SCAN_PROF_DB_DESC"],
-					get	= false,
-					set	= function(info, v) addon:ScanProfession(v) end,
-				},
-				scanspellid = {
-					order = 70,
-					type = "input",
-					name = L["Scan A Spell ID"],
-					desc = L["SCAN_SPELL_ID_DESC"],
-					get = false,
-					set = function(info, v) addon:ScanTooltipRecipe(tonumber(v), false, false) end,
-				},
-				null2 = {
-					order	= 80,
-					type	= "description",
-					name	= "",
-				},
-				scantrainers = {
-					width	= "full",
-					order	= 90,
-					type	= "toggle",
-					name	= L["Auto Scan Trainers"],
-					desc	= L["AUTOSCAN_TRAINERS_DESC"],
-					get	= function() return addon.db.profile.scantrainers end,
-					set	= function()
-							  if (addon.db.profile.scantrainers) then
-								  addon:UnregisterEvent("TRAINER_SHOW")
-							  else
-								  addon:RegisterEvent("TRAINER_SHOW")
-							  end
-							  addon.db.profile.scantrainers = not addon.db.profile.scantrainers
-						  end,
-				},
-				scanvendors = {
-					width	= "full",
-					order	= 100,
-					type	= "toggle",
-					name	= L["Auto Scan Vendors"],
-					desc	= L["AUTOSCAN_VENDORS_DESC"],
-					get	= function() return addon.db.profile.scanvendors end,
-					set	= function()
-							  if addon.db.profile.scanvendors then
-								  addon:UnregisterEvent("MERCHANT_SHOW")
-							  else
-								  addon:RegisterEvent("MERCHANT_SHOW")
-							  end
-							  addon.db.profile.scanvendors = not addon.db.profile.scanvendors
-						  end,
-				},
-				autoloaddb = {
-					width	= "full",
-					order	= 110,
-					type	= "toggle",
-					name	= L["Auto Load Recipe Database"],
-					desc	= L["AUTOLOAD_DB_DESC"],
-					get		= function() return addon.db.profile.autoloaddb end,
-					set		= function() addon.db.profile.autoloaddb = not addon.db.profile.autoloaddb end,
-				},
-			},
-		}
-	end
-	return datamine
-end
-
-local documentation
-
-local function GetDocumentation()
-	if not documentation then
-		documentation = {
-			order = 1,
-			type = "group",
-			name = L["Documentation"],
-			args = {
-				header2 = {
-					order	= 1,
-					type	= "header",
-					name	= L["Using Filters"],
-				},
-				desc2 = {
-					order	= 2,
-					type	= "description",
-					name	= L["USING_FILTERS_DESC"],
-				},
-				header3 = {
-					order	= 3,
-					type	= "header",
-					name	= L["Common Issues"],
-				},
-				desc3 = {
-					order	= 4,
-					type	= "description",
-					name	= L["COMMON_ISSUES_DESC"],
-				},
-				header4 = {
-					order	= 5,
-					type	= "header",
-					name	= L["Reporting Bugs"],
-				},
-				desc4 = {
-					order	= 6,
-					type	= "description",
-					name	= L["REPORTING_BUGS_DESC"],
-				},
-				header5 = {
-					order	= 7,
-					type	= "header",
-					name	= L["Exclusion Issues"],
-				},
-				desc5 = {
-					order	= 8,
-					type	= "description",
-					name	= L["EXCLUSION_ISSUES_DESC"],
-				},
-				header6 = {
-					order	= 9,
-					type	= "header",
-					name	= L["Map Issues"],
-				},
-				desc6 = {
-					order	= 10,
-					type	= "description",
-					name	= L["MAP_ISSUES_DESC"],
-				},
-				header7 = {
-					order	= 11,
-					type	= "header",
-					name	= L["Game Commands"],
-				},
-				desc7 = {
-					order	= 12,
-					type	= "description",
-					name	= L["GAME_COMMANDS_DESC"],
-				},
-			},
-		}
-	end
-	return documentation
-end
+]]--
 
 local displayoptions
 
