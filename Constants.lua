@@ -171,10 +171,8 @@ private.ITEM_FLAGS_WORD1 = {
 
 private.FLAG_WORDS = {
 	private.COMMON_FLAGS_WORD1,
-	private.CLASS_FLAGS_WORD1,
 	private.REP_FLAGS_WORD1,
 	private.REP_FLAGS_WORD2,
-	private.ITEM_FLAGS_WORD1,
 }
 
 -- Member names within a recipe's flags table.
