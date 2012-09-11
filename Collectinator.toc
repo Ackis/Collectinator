@@ -68,13 +68,13 @@ Constants.lua
 
 Core.lua
 Collection.lua
-# Config.lua
-# Waypoint.lua
+Config.lua
+Waypoint.lua
 Player.lua
 # Utilities.lua
 
 # User Interface files
-# Interface.xml
+Interface.xml
 
 # Database files
 Database.xml

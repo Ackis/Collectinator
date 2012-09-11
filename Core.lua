@@ -553,6 +553,7 @@ do
 				local _, _, _, _, _, display_id, pet_name, _, _, creature_id = _G.C_PetJournal.GetPetInfoByPetID(petid)
 
 				if critters[creature_id] then
+					addon:Print(critters.name)
 					self:Printf("Critter %s exists (creature_id %d)", pet_name, creature_id)
 				else
 --					self:Debug("Critter %s (display_id %d, critter_id %d) - Not in db", pet_name, display_id, creature_id)

@@ -74,7 +74,7 @@ function addon:AddCollectable(col_id, collection_type, genesis, quality)
 		flags = {},
 		acquire_data = {},
 	}, collectable_meta)
-addon:Print(col_id)
+
 	-- If the name is unknown, let the user know the spell is not in their cache
 	if not collection.name or collection.name == "" then
 		collection.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(col_id))
