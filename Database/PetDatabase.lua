@@ -751,7 +751,7 @@ function addon:GetMiniPetTotal(PetDB)
 	-- Rustberg Gull -- 89472
 	AddPet(89472, 63355, R_RARE, GAME_CATA)
 	self:AddCompanionFlags(PetDB, 89472, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
-	self:AddCompanionAcquire(PetDB, 89472, A_VENDOR, 48531, A_VENDOR, 47328)
+	self:AddCompanionAcquire(PetDB, 89472, A_REPUTATION, 1178, HONORED, 48531, A_REPUTATION, 1177, HONORED, 47328)
 
 	-- Winterspring Cub -- 97638
 	AddPet(97638, 69239, R_COMMON, GAME_CATA)
