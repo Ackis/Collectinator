@@ -1572,25 +1572,6 @@ do
 	-- Functions for adding individual acquire type data to the tooltip.
 	-------------------------------------------------------------------------------
 	local TOOLTIP_ACQUIRE_FUNCS = {
-		[A.TRAINER] = function(recipe_id, identifier, location, acquire_info, addline_func)
-			local trainer = private.trainer_list[identifier]
-
-			if not trainer or (location and trainer.location ~= location) then
-				return
-			end
-			local display_tip, name_color = GetTipFactionInfo(trainer.faction)
-
-			if not display_tip then
-				return
-			end
-			addline_func(0, -2, false, L["Trainer"], CATEGORY_COLORS["trainer"], trainer.name, name_color)
-
-			if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
-				addline_func(1, -2, true, trainer.location, CATEGORY_COLORS["location"], COORD_FORMAT:format(trainer.coord_x, trainer.coord_y), CATEGORY_COLORS["coords"])
-			else
-				addline_func(1, -2, true, trainer.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
-			end
-		end,
 		[A.VENDOR] = function(recipe_id, identifier, location, acquire_info, addline_func)
 			local vendor = private.vendor_list[identifier]
 
@@ -1714,9 +1695,6 @@ do
 				addline_func(0, -1, false, _G.ACHIEVEMENTS, CATEGORY_COLORS["achievement"], achievement_name, BASIC_COLORS["normal"])
 			end
 			addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS["achievement"])
-		end,
-		[A.DISCOVERY] = function(recipe_id, identifier, location, acquire_info, addline_func)
-			addline_func(0, -1, false, private.discovery_list[identifier].name, CATEGORY_COLORS["discovery"])
 		end,
 		[A.CUSTOM] = function(recipe_id, identifier, location, acquire_info, addline_func)
 			addline_func(0, -1, false, private.custom_list[identifier].name, CATEGORY_COLORS["custom"])
