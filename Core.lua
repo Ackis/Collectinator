@@ -384,7 +384,7 @@ function addon:OnInitialize()
 		GameTooltip:Hide()
 	end)
 
-	--self:SetupOptions()
+	self:SetupOptions()
 
 	-- Register slash commands
 	self:RegisterChatCommand("col", "ChatCommand")

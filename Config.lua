@@ -638,20 +638,11 @@ function addon:SetupOptions()
 
 	-- Register the module options
 	self:RegisterModuleOptions("Display", GetDisplayOptions(), _G.DISPLAY_OPTIONS)
-
+--[[
 	if _G.TomTom then
 		self:RegisterModuleOptions("Waypoint", GetMapOptions(), L["Waypoints"])
 	end
-
-	if addon.version == "Devel" then
-		self:RegisterModuleOptions("Datamining", GetDatamineOptions(), L["Datamine Options"])
-	else
-		addon.db.profile.scantrainers = false
-		addon.db.profile.scanvendors = false
-		addon.db.profile.autoloaddb = false
-
-	end
-	self:RegisterModuleOptions("Documentation", GetDocumentation(), L["Documentation"])
+]]--
 	self:RegisterModuleOptions("Profiles", giveProfiles(), L["Profile Options"])
 
 	-- Add in the about panel to the Bliz options (not a part of the ace3 config)
