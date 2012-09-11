@@ -582,8 +582,8 @@ function addon:GetMiniPetTotal(PetDB)
 
 	-- Fox Kit -- 90637
 	AddPet(90637, 64403, R_RARE, GAME_CATA)
-	self:AddCompanionFlags(PetDB, 90637, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
-	self:AddCompanionAcquire(PetDB, 90637, A_MOB, 47676)
+	self:AddCompanionFlags(PetDB, 90637, F_ALLIANCE, F_HORDE, F_VENDOR, F_MOB_DROP, F_BOP)
+	self:AddCompanionAcquire(PetDB, 90637, A_MOB, 47676, A_REPUTATION, 1178, EXALTED, 48531, A_REPUTATION, 1177, EXALTED, 47328)
 
 --QUESTS
 	-- Mechanical Chicken - 12243
