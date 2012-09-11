@@ -19,3 +19,23 @@ These translations are released under the Public Domain.
 local L = LibStub("AceLocale-3.0"):NewLocale("Collectinator", "enUS", true)
 
 if not L then return end
+
+L["Trainer"] = true
+L["Mob Drop"] = true
+L["Quest"] = true
+L["Vendor"] = true
+L["World Drop"] = true
+L["Top Right"] = true
+L["Top Left"] = true
+L["Bottom Right"] = true
+L["Bottom Left"] = true
+L["FILTERING_GENERAL_DESC"] = true
+L["FILTERING_OBTAIN_DESC"] = true
+L["FILTERING_BINDING_DESC"] = true
+L["FILTERING_ITEM_DESC"] = true
+L["FILTERING_QUALITY_DESC"] = true
+L["FILTERING_PLAYERTYPE_DESC"] = true
+L["FILTERING_REP_DESC"] = true
+L["FILTERING_MISC_DESC"] = true
+L["Scan"] = true
+L["SCAB_COMPANIONS_DESC"] = true
