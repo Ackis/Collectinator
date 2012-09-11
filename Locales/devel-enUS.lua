@@ -38,4 +38,5 @@ L["FILTERING_PLAYERTYPE_DESC"] = true
 L["FILTERING_REP_DESC"] = true
 L["FILTERING_MISC_DESC"] = true
 L["Scan"] = true
-L["SCAB_COMPANIONS_DESC"] = true
+L["SCAN_COMPANIONS_DESC"] = true
+L["Tooltip Position"] = true

@@ -558,7 +558,7 @@ local function GetDisplayOptions()
 						spelltooltiplocation = {
 							order	= 22,
 							type	= "select",
-							name	= L["Tooltip (Recipe) Position"],
+							name	= L["Tooltip Position"],
 							desc	= L["SPELLTOOLTIPPOSITION_DESC"],
 							get	= function()
 									  return addon.db.profile.spelltooltiplocation
@@ -584,13 +584,13 @@ local function GetDisplayOptions()
 						unit_tooltip = {
 							order	= 24,
 							type	= "toggle",
-							name	= L["Recipes In Tooltips"],
+							name	= L["Collectables In Tooltips"],
 							desc	= L["UNIT_TOOLTIPS_DESC"],
 							get	= function()
-									  return addon.db.profile.recipes_in_tooltips
+									  return addon.db.profile.collectables_in_tooltips
 								  end,
 							set	= function(info, value)
-									  addon.db.profile.recipes_in_tooltips = value
+									  addon.db.profile.collectables_in_tooltips = value
 								  end,
 						},
 						unit_max_tooltip = {
@@ -603,13 +603,13 @@ local function GetDisplayOptions()
 							step	= 1,
 							bigStep = 5,
 							disabled= function()
-									  return not addon.db.profile.recipes_in_tooltips
+									  return not addon.db.profile.collectables_in_tooltips
 								  end,
 							get	= function()
-									  return addon.db.profile.max_recipes_in_tooltips
+									  return addon.db.profile.max_collectables_in_tooltips
 								  end,
 							set	= function(info, v)
-									  addon.db.profile.max_recipes_in_tooltips = v
+									  addon.db.profile.max_collectables_in_tooltips = v
 								  end,
 						},
 						tooltip_hint = {
