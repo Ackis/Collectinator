@@ -600,8 +600,7 @@ do
 			end
 
 		end
-
-		player:UpdateReputations()
+		private.Player:UpdateReputations()
 
 		-------------------------------------------------------------------------------
 		-- Everything is ready - display the GUI or dump the list to text.
