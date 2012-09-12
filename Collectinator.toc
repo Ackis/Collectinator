@@ -71,7 +71,7 @@ Collection.lua
 Config.lua
 # Waypoint.lua
 Player.lua
-# Utilities.lua
+Utilities.lua
 
 # User Interface files
 Interface.xml
