@@ -532,7 +532,7 @@ do
 	-- List of collection (e.g. pet filters) headers, used in addon:Scan()
 	local header_list = {}
 
-	-- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked. 
+	-- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.
 	-- Parses Collections and displays output
 	function addon:Scan(textdump, is_refresh)
 		local current_panel = _G.PanelTemplates_GetSelectedTab(_G.PetJournalParent)
@@ -569,7 +569,6 @@ do
 
 		-- Scanning Pets
 		elseif current_panel == private.COLLECTION_TYPE_IDS.PET then
-
 			self:InitializeCollection(private.COLLECTION_NAMES.PET)
 
 			local critters = private.category_collectable_list[private.COLLECTION_NAMES.PET]
@@ -590,10 +589,11 @@ do
 
 			for index, petid in LPJ:IteratePetIDs() do
 				local _, _, _, _, _, display_id, pet_name, _, _, creature_id = _G.C_PetJournal.GetPetInfoByPetID(petid)
+				local critter = critters[creature_id]
 
-				if critters[creature_id] then
-					addon:Print(critters.name)
-					self:Printf("Critter %s exists (creature_id %d)", pet_name, creature_id)
+				if critter then
+					critter:SetName(pet_name)
+					self:Printf("Critter %s exists (creature_id %d)", critter:Name(), creature_id)
 				else
 --					self:Debug("Critter %s (display_id %d, critter_id %d) - Not in db", pet_name, display_id, creature_id)
 				end

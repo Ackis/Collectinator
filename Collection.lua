@@ -42,21 +42,6 @@ local collectable_meta = {
 	__index = collectable_prototype
 }
 
-do
-	local Tooltip = CreateFrame( "GameTooltip", "COLNameTooltip" )
-
-	local Text = Tooltip:CreateFontString();
-	Tooltip:AddFontStrings( Text, Tooltip:CreateFontString() )
-
-	function addon:GetName(NpcID)
-		Tooltip:SetOwner( WorldFrame, "ANCHOR_NONE" )
-		Tooltip:SetHyperlink( ("unit:0xF53%05X00000000" ):format( NpcID ) )
-		if ( Tooltip:IsShown() ) then
-			return Text:GetText()
-		end
-	end
-end
-
 function addon:AddCollectable(col_id, collection_type, genesis, quality)
 	local collectable_list = private.collectable_list
 
@@ -70,16 +55,10 @@ function addon:AddCollectable(col_id, collection_type, genesis, quality)
 		type = collection_type,
 		genesis = private.GAME_VERSION_NAMES[genesis],
 		quality = quality,
-		name = addon:GetName(col_id),
 		flags = {},
 		acquire_data = {},
 	}, collectable_meta)
 
-	-- If the name is unknown, let the user know the spell is not in their cache
-	if not collectable.name or collectable.name == "" then
-		collectable.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(col_id))
-		self:Debug(L["SpellIDCache"]:format(col_id))
-	end
 	collectable_list[col_id] = collectable
 
 	if not private.category_collectable_list[collection_type] then
@@ -94,6 +73,17 @@ end
 -------------------------------------------------------------------------------
 -- Collection methods.
 -------------------------------------------------------------------------------
+function collectable_prototype:SetName(name)
+	if not name or self.name then
+		return
+	end
+	self.name = name
+end
+
+function collectable_prototype:Name()
+	return self.name
+end
+
 function collectable_prototype:SetCollectionItemID(item_id)
 	self.collection_item_id = item_id
 end
