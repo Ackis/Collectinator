@@ -108,11 +108,11 @@ do
 			local translation = L[phrase]
 
 			if phrase == translation then
-				table.insert(output, ("L[\"%s\"] = true"):format(phrase))
+				table.insert(output, ("L[\"%s\"] = true"):format(phrase:gsub("\"", "\\\"")))
 			elseif translation:find("\n") then
-				table.insert(output, ("L[\"%s\"] = [[%s]]"):format(phrase, translation))
+				table.insert(output, ("L[\"%s\"] = [[%s]]"):format(phrase:gsub("\"", "\\\""), translation))
 			else
-				table.insert(output, ("L[\"%s\"] = \"%s\""):format(phrase, translation))
+				table.insert(output, ("L[\"%s\"] = \"%s\""):format(phrase:gsub("\"", "\\\""), translation:gsub('\"', '\\"')))
 			end
 		end
 		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
