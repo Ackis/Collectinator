@@ -65,7 +65,7 @@ function addon:AddCollectable(col_id, collection_type, genesis, quality)
 		return
 	end
 
-	local collection = _G.setmetatable({
+	local collectable = _G.setmetatable({
 		id = col_id,
 		type = collection_type,
 		genesis = private.GAME_VERSION_NAMES[genesis],
@@ -76,19 +76,19 @@ function addon:AddCollectable(col_id, collection_type, genesis, quality)
 	}, collectable_meta)
 
 	-- If the name is unknown, let the user know the spell is not in their cache
-	if not collection.name or collection.name == "" then
-		collection.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(col_id))
+	if not collectable.name or collectable.name == "" then
+		collectable.name = ("%s: %d"):format(_G.UNKNOWN, tonumber(col_id))
 		self:Debug(L["SpellIDCache"]:format(col_id))
 	end
-	collectable_list[col_id] = collection
+	collectable_list[col_id] = collectable
 
 	if not private.category_collectable_list[collection_type] then
 		private.category_collectable_list[collection_type] = {}
 	end
-	private.category_collectable_list[collection_type][col_id] = collection
+	private.category_collectable_list[collection_type][col_id] = collectable
 	private.num_category_collectables[collection_type] = (private.num_category_collectables[collection_type] or 0) + 1
 
-	return collection
+	return collectable
 end
 
 -------------------------------------------------------------------------------
