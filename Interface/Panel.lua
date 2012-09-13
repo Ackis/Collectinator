@@ -148,18 +148,7 @@ function private.InitializeFrame()
 	-- Displays the main GUI frame.
 	-------------------------------------------------------------------------------
 	local ITEM_FILTER_INIT_FUNCS = {
-		["alchemy"] = private.InitializeItemFilters_Alchemy,
-		["blacksmithing"] = private.InitializeItemFilters_Blacksmithing,
-		["cooking"] = private.InitializeItemFilters_Cooking,
-		["enchanting"] = private.InitializeItemFilters_Enchanting,
-		["engineering"] = private.InitializeItemFilters_Engineering,
-		["firstaid"] = private.InitializeItemFilters_FirstAid,
-		["leatherworking"] = private.InitializeItemFilters_Leatherworking,
-		["smelting"] = private.InitializeItemFilters_Smelting,
-		["tailoring"] = private.InitializeItemFilters_Tailoring,
-		["jewelcrafting"] = private.InitializeItemFilters_Jewelcrafting,
-		["inscription"] = private.InitializeItemFilters_Inscription,
-		["runeforging"] = private.InitializeItemFilters_Runeforging,
+		["pets"] = private.InitializeItemFilters_Pets,
 	}
 
 	function MainPanel:Display(profession_name, is_linked)
