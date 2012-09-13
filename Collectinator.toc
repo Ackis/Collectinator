@@ -57,7 +57,7 @@
 
 #@no-lib-strip@
 # Libraries
-embeds.xml
+Embeds.xml
 #@end-no-lib-strip@
 
 # Localization files
