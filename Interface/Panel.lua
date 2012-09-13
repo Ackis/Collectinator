@@ -7,7 +7,7 @@ File hash: @file-abbreviated-hash@
 Project hash: @project-abbreviated-hash@
 Project version: @project-version@
 ************************************************************************
-Please see http://www.wowace.com/addons/arl/ for more information.
+Please see http://www.wowace.com/addons/col/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
 ************************************************************************
@@ -57,7 +57,7 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the MainPanel and set its values
 	-------------------------------------------------------------------------------
-	local MainPanel = _G.CreateFrame("Frame", "ARL_MainPanel", _G.UIParent)
+	local MainPanel = _G.CreateFrame("Frame", "COL_MainPanel", _G.UIParent)
 
 	-- The panel width changes when contracting and expanding - store it for later use.
 	MainPanel.normal_width = 384
@@ -78,7 +78,7 @@ function private.InitializeFrame()
 	MainPanel.is_expanded = false
 
 	-- Let the user banish the MainPanel with the ESC key.
-	table.insert(_G.UISpecialFrames, "ARL_MainPanel")
+	table.insert(_G.UISpecialFrames, "COL_MainPanel")
 	addon.Frame = MainPanel
 
 	do
@@ -151,29 +151,28 @@ function private.InitializeFrame()
 		["pets"] = private.InitializeItemFilters_Pets,
 	}
 
-	function MainPanel:Display(profession_name, is_linked)
-		self.is_linked = is_linked
+	function MainPanel:Display(collection_name)
 
 		-------------------------------------------------------------------------------
-		-- Set the profession.
+		-- Set the collection.
 		-------------------------------------------------------------------------------
-		local prev_profession = self.profession
+		local prev_collection = self.collection
 
 		for index, name in ipairs(ORDERED_COLLECTIONS) do
-			if name == profession_name then
-				self.profession = index
+			if name == collection_name then
+				self.collection = index
 				break
 			end
 		end
 
-		if self.profession ~= prev_profession then
-			self.prev_profession = self.profession
+		if self.collection ~= prev_collection then
+			self.prev_collection = self.collection
 		end
 		self.prof_button:SetTexture()
 
 		local editbox = self.search_editbox
 
-		if self.profession ~= self.prev_profession then
+		if self.collection ~= self.prev_collection then
 			editbox.prev_search = nil
 		end
 		editbox:SetText(editbox.prev_search or _G.SEARCH)
@@ -182,12 +181,12 @@ function private.InitializeFrame()
 		if private.InitializeFilterPanel then
 			private.InitializeFilterPanel()
 		end
-		local prof_name = private.COLLECTION_LABELS[self.profession]
-		local init_func = ITEM_FILTER_INIT_FUNCS[prof_name]
+		local collection_name = private.COLLECTION_LABELS[self.collection]
+		local init_func = ITEM_FILTER_INIT_FUNCS[collection_name]
 		local panel
 
 		if init_func then
-			local panel_name = "items_" .. prof_name
+			local panel_name = "items_" .. collection_name
 			panel = self.filter_menu:CreateSubMenu(panel_name)
 
 			self.filter_menu.item[panel_name] = self.filter_menu[panel_name]
@@ -195,9 +194,9 @@ function private.InitializeFrame()
 
 			init_func(private, panel)
 
-			ITEM_FILTER_INIT_FUNCS[prof_name] = nil
+			ITEM_FILTER_INIT_FUNCS[collection_name] = nil
 		else
-			panel = self.filter_menu.item["items_" .. prof_name]
+			panel = self.filter_menu.item["items_" .. collection_name]
 		end
 		private.UpdateFilterMarks()
 
@@ -370,10 +369,10 @@ function private.InitializeFrame()
 	end	-- do-block
 
 	function MainPanel:UpdateTitle()
-		local current_prof = ORDERED_COLLECTIONS[self.profession]
+		local current_prof = ORDERED_COLLECTIONS[self.collection]
 
 		if not self.is_expanded then
-			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "ARL (%s) - %s"), addon.version, current_prof)
+			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "COL (%s) - %s"), addon.version, current_prof)
 			return
 		end
 		local total, active = 0, 0
@@ -386,83 +385,83 @@ function private.InitializeFrame()
 				total = total + 1
 			end
 		end
-		self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "ARL (%s) - %s (%d/%d %s)"), addon.version, current_prof, active, total, _G.FILTERS)
+		self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "COL (%s) - %s (%d/%d %s)"), addon.version, current_prof, active, total, _G.FILTERS)
 	end
 
 	-------------------------------------------------------------------------------
-	-- Create the profession-cycling button and assign its values.
+	-- Create the collection-cycling button and assign its values.
 	-------------------------------------------------------------------------------
-	local profession_cycler = _G.CreateFrame("Button", nil, MainPanel)
-	profession_cycler:SetSize(60, 60)
-	profession_cycler:SetPoint("TOPLEFT", 7, -6)
-	profession_cycler:SetHighlightTexture([[Interface\Cooldown\ping4]])
-	profession_cycler:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	MainPanel.prof_button = profession_cycler
+	local collection_cycler = _G.CreateFrame("Button", nil, MainPanel)
+	collection_cycler:SetSize(60, 60)
+	collection_cycler:SetPoint("TOPLEFT", 7, -6)
+	collection_cycler:SetHighlightTexture([[Interface\Cooldown\ping4]])
+	collection_cycler:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+	MainPanel.prof_button = collection_cycler
 
-	local profession_texture = MainPanel:CreateTexture("ARL_ProfessionButtonPortrait", "ARTWORK")
-	profession_texture:SetSize(60, 60)
-	profession_texture:SetPoint("TOPLEFT", 7, -6)
-	MainPanel.profession_texture = profession_texture
+	local collection_texture = MainPanel:CreateTexture("COL_CollectionButtonPortrait", "ARTWORK")
+	collection_texture:SetSize(60, 60)
+	collection_texture:SetPoint("TOPLEFT", 7, -6)
+	MainPanel.collection_texture = collection_texture
 
 
 	-------------------------------------------------------------------------------
 	-- ProfCycle scripts/functions.
 	-------------------------------------------------------------------------------
-	profession_cycler:SetScript("OnClick", function(self, button, down)
-	-- Known professions should be in Player.professions
+	collection_cycler:SetScript("OnClick", function(self, button, down)
+	-- Known collections should be in Player.collections
 
 	-- This loop is gonna be weird. The reason is because we need to
-	-- ensure that we cycle through all the known professions, but also
+	-- ensure that we cycle through all the known collections, but also
 	-- that we do so in order. That means that if the currently displayed
-	-- profession is the last one in the list, we're actually going to
-	-- iterate completely once to get to the currently displayed profession
+	-- collection is the last one in the list, we're actually going to
+	-- iterate completely once to get to the currently displayed collection
 	-- and then iterate again to make sure we display the next one in line.
 	-- Further, there is the nuance that the person may not know any
-	-- professions yet at all. Users are so annoying.
+	-- collections yet at all. Users are so annoying.
 		local loop_start = 0
 		local loop_end = 0
 
-		local num_professions = #private.ORDERED_COLLECTIONS
+		local num_collections = #private.ORDERED_COLLECTIONS
 
 		-- ok, so first off, if we've never done this before, there is no "current"
 		-- and a single iteration will do nicely, thank you
 		if button == "LeftButton" then
-			-- normal profession switch
-			if MainPanel.profession == 0 then
+			-- normal collection switch
+			if MainPanel.collection == 0 then
 				loop_start = 1
-				loop_end = num_professions + 1
+				loop_end = num_collections + 1
 			else
-				loop_start = MainPanel.profession + 1
-				loop_end = MainPanel.profession
+				loop_start = MainPanel.collection + 1
+				loop_end = MainPanel.collection
 			end
 			local index = loop_start
 
 			while index ~= loop_end do
-				if index > num_professions then
+				if index > num_collections then
 					index = 1
-				elseif private.Player.professions[ORDERED_COLLECTIONS[index]] then
-					MainPanel.profession = index
+				elseif private.Player.collections[ORDERED_COLLECTIONS[index]] then
+					MainPanel.collection = index
 					break
 				else
 					index = index + 1
 				end
 			end
 		elseif button == "RightButton" then
-			-- reverse profession switch
-			if MainPanel.profession == 0 then
-				loop_start = num_professions + 1
+			-- reverse collection switch
+			if MainPanel.collection == 0 then
+				loop_start = num_collections + 1
 				loop_end = 0
 			else
-				loop_start = MainPanel.profession - 1
-				loop_end = MainPanel.profession
+				loop_start = MainPanel.collection - 1
+				loop_end = MainPanel.collection
 			end
 			local index = loop_start
 
 			while index ~= loop_end do
 				if index < 1 then
-					index = num_professions
-				elseif private.Player.professions[ORDERED_COLLECTIONS[index]] then
-					MainPanel.profession = index
+					index = num_collections
+				elseif private.Player.collections[ORDERED_COLLECTIONS[index]] then
+					MainPanel.collection = index
 					break
 				else
 					index = index - 1
@@ -479,7 +478,7 @@ function private.InitializeFrame()
 			sfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
 			_G.SetCVar("Sound_EnableSFX", 0)
 		end
-		_G.CastSpellByName(ORDERED_COLLECTIONS[MainPanel.profession])
+		_G.CastSpellByName(ORDERED_COLLECTIONS[MainPanel.collection])
 		addon:Scan()
 
 		if not is_shown then
@@ -488,8 +487,8 @@ function private.InitializeFrame()
 		end
 	end)
 
-	function profession_cycler:SetTexture()
-		_G.SetPortraitToTexture("ARL_ProfessionButtonPortrait", _G.GetTradeSkillTexture())
+	function collection_cycler:SetTexture()
+		_G.SetPortraitToTexture("COL_CollectionButtonPortrait", _G.GetTradeSkillTexture())
 	end
 
 	-------------------------------------------------------------------------------
@@ -617,7 +616,7 @@ function private.InitializeFrame()
 			end
 			search_pattern = search_pattern:lower()
 
-			for index, recipe in pairs(private.profession_recipe_list[ORDERED_COLLECTIONS[MainPanel.profession]]) do
+			for index, recipe in pairs(private.collection_recipe_list[ORDERED_COLLECTIONS[MainPanel.collection]]) do
 				recipe:RemoveState("RELEVANT")
 
 				for search_index = 1, #SEARCH_FUNCTIONS do
@@ -832,11 +831,11 @@ function private.InitializeFrame()
 
 	expand_button:SetScript("OnClick", function(self, mouse_button, down)
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
-		local is_expanded = current_tab["expand_button_" .. MainPanel.profession]
+		local is_expanded = current_tab["expand_button_" .. MainPanel.collection]
 		local expand_mode
 
 		if is_expanded then
-			table.wipe(current_tab[ORDERED_COLLECTIONS[MainPanel.profession] .. " expanded"])
+			table.wipe(current_tab[ORDERED_COLLECTIONS[MainPanel.collection] .. " expanded"])
 		else
 			if _G.IsShiftKeyDown() then
 				expand_mode = "deep"
@@ -857,7 +856,7 @@ function private.InitializeFrame()
 	end)
 
 	function expand_button:Expand(current_tab)
-		current_tab["expand_button_"..MainPanel.profession] = true
+		current_tab["expand_button_"..MainPanel.collection] = true
 
 		self:SetNormalTexture("Interface\\BUTTONS\\UI-MinusButton-Up")
 		self:SetPushedTexture("Interface\\BUTTONS\\UI-MinusButton-Down")
@@ -868,7 +867,7 @@ function private.InitializeFrame()
 	end
 
 	function expand_button:Contract(current_tab)
-		current_tab["expand_button_"..MainPanel.profession] = nil
+		current_tab["expand_button_"..MainPanel.collection] = nil
 
 		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
 		self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")

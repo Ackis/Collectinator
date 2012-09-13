@@ -611,6 +611,7 @@ do
 			if private.InitializeFrame then
 				private.InitializeFrame()
 			end
+			addon:Print("Displaying frame for " .. current_panel)
 			self.Frame:Display(current_panel)
 		end
 	end
