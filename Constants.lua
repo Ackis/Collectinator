@@ -45,6 +45,11 @@ private.COLLECTION_NAMES = {
 	PET = "CRITTER",
 }
 
+private.ORDERED_COLLECTIONS = {
+	private.COLLECTION_NAMES.MOUNT, 		-- 1
+	private.COLLECTION_NAMES.PET, 	-- 2
+}
+
 -------------------------------------------------------------------------------
 -- Item qualities.
 -------------------------------------------------------------------------------

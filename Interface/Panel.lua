@@ -51,7 +51,7 @@ local A = private.ACQUIRE_TYPES
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local ORDERED_PROFESSIONS	= private.ORDERED_PROFESSIONS
+local ORDERED_COLLECTIONS	= private.ORDERED_COLLECTIONS
 
 function private.InitializeFrame()
 	-------------------------------------------------------------------------------
@@ -170,7 +170,7 @@ function private.InitializeFrame()
 		-------------------------------------------------------------------------------
 		local prev_profession = self.profession
 
-		for index, name in ipairs(ORDERED_PROFESSIONS) do
+		for index, name in ipairs(ORDERED_COLLECTIONS) do
 			if name == profession_name then
 				self.profession = index
 				break
@@ -381,7 +381,7 @@ function private.InitializeFrame()
 	end	-- do-block
 
 	function MainPanel:UpdateTitle()
-		local current_prof = ORDERED_PROFESSIONS[self.profession]
+		local current_prof = ORDERED_COLLECTIONS[self.profession]
 
 		if not self.is_expanded then
 			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "ARL (%s) - %s"), addon.version, current_prof)
@@ -433,7 +433,7 @@ function private.InitializeFrame()
 		local loop_start = 0
 		local loop_end = 0
 
-		local num_professions = #private.ORDERED_PROFESSIONS
+		local num_professions = #private.ORDERED_COLLECTIONS
 
 		-- ok, so first off, if we've never done this before, there is no "current"
 		-- and a single iteration will do nicely, thank you
@@ -451,7 +451,7 @@ function private.InitializeFrame()
 			while index ~= loop_end do
 				if index > num_professions then
 					index = 1
-				elseif private.Player.professions[ORDERED_PROFESSIONS[index]] then
+				elseif private.Player.professions[ORDERED_COLLECTIONS[index]] then
 					MainPanel.profession = index
 					break
 				else
@@ -472,7 +472,7 @@ function private.InitializeFrame()
 			while index ~= loop_end do
 				if index < 1 then
 					index = num_professions
-				elseif private.Player.professions[ORDERED_PROFESSIONS[index]] then
+				elseif private.Player.professions[ORDERED_COLLECTIONS[index]] then
 					MainPanel.profession = index
 					break
 				else
@@ -490,7 +490,7 @@ function private.InitializeFrame()
 			sfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
 			_G.SetCVar("Sound_EnableSFX", 0)
 		end
-		_G.CastSpellByName(ORDERED_PROFESSIONS[MainPanel.profession])
+		_G.CastSpellByName(ORDERED_COLLECTIONS[MainPanel.profession])
 		addon:Scan()
 
 		if not is_shown then
@@ -628,7 +628,7 @@ function private.InitializeFrame()
 			end
 			search_pattern = search_pattern:lower()
 
-			for index, recipe in pairs(private.profession_recipe_list[ORDERED_PROFESSIONS[MainPanel.profession]]) do
+			for index, recipe in pairs(private.profession_recipe_list[ORDERED_COLLECTIONS[MainPanel.profession]]) do
 				recipe:RemoveState("RELEVANT")
 
 				for search_index = 1, #SEARCH_FUNCTIONS do
@@ -847,7 +847,7 @@ function private.InitializeFrame()
 		local expand_mode
 
 		if is_expanded then
-			table.wipe(current_tab[ORDERED_PROFESSIONS[MainPanel.profession] .. " expanded"])
+			table.wipe(current_tab[ORDERED_COLLECTIONS[MainPanel.profession] .. " expanded"])
 		else
 			if _G.IsShiftKeyDown() then
 				expand_mode = "deep"
