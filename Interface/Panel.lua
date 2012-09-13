@@ -193,7 +193,7 @@ function private.InitializeFrame()
 		if private.InitializeFilterPanel then
 			private.InitializeFilterPanel()
 		end
-		local prof_name = private.PROFESSION_LABELS[self.profession]
+		local prof_name = private.COLLECTION_LABELS[self.profession]
 		local init_func = ITEM_FILTER_INIT_FUNCS[prof_name]
 		local panel
 

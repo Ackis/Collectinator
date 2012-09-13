@@ -47,7 +47,6 @@ local CATEGORY_TOOLTIP = {
 	["binding"]	= L["FILTERING_BINDING_DESC"],
 	["item"]	= L["FILTERING_ITEM_DESC"],
 	["quality"]	= L["FILTERING_QUALITY_DESC"],
-	["player"]	= L["FILTERING_PLAYERTYPE_DESC"],
 	["rep"]		= L["FILTERING_REP_DESC"],
 	["misc"]	= L["FILTERING_MISC_DESC"]
 }

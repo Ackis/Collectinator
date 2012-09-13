@@ -46,8 +46,13 @@ private.COLLECTION_NAMES = {
 }
 
 private.ORDERED_COLLECTIONS = {
-	private.COLLECTION_NAMES.MOUNT, 		-- 1
+	private.COLLECTION_NAMES.MOUNT, -- 1
 	private.COLLECTION_NAMES.PET, 	-- 2
+}
+
+private.COLLECTION_LABELS = {
+	"mount",		-- 1
+	"pet",			-- 2
 }
 
 -------------------------------------------------------------------------------
@@ -378,4 +383,11 @@ private.CATEGORY_COLORS = {
 	["location"]	= "ffecc1",
 	["repname"]	= "6a9ad9",
 
+}
+
+private.BASIC_COLORS = {
+	["grey"]	= "666666",
+	["white"]	= "ffffff",
+	["yellow"]	= "ffff00",
+	["normal"]	= "ffd100",
 }
