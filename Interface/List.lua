@@ -627,20 +627,6 @@ function private.InitializeListFrame()
 				return false
 			end
 
-			-- Display all skill levels?
-			if not general_filters.skill and recipe.skill_level > private.current_profession_scanlevel then
-				return false
-			end
-
-			-- Display all specialities?
-			if not general_filters.specialty then
-				local specialty = recipe.specialty
-
-				if specialty and specialty ~= private.current_profession_specialty then
-					return false
-				end
-			end
-
 			-- Expansion filters.
 			if not obtain_filters[EXPANSION_FILTERS[private.GAME_VERSIONS[recipe.genesis]]] then
 				return false
@@ -675,13 +661,6 @@ function private.InitializeListFrame()
 			end
 
 			if not HasEnabledFlag(REP_FILTERS_2, recipe.flags.reputation2, filter_db.rep) then
-				return false
-			end
-
-			-------------------------------------------------------------------------------
-			-- Check the class filter flags
-			-------------------------------------------------------------------------------
-			if not HasEnabledFlag(CLASS_FILTERS, recipe.flags.class1, filter_db.classes) then
 				return false
 			end
 
