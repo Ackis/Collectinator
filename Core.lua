@@ -619,7 +619,6 @@ do
 			if private.InitializeFrame then
 				private.InitializeFrame()
 			end
-			addon:Print("Displaying frame for " .. collection_type)
 			self.Frame:Display(collection_type)
 		end
 	end
