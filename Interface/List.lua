@@ -268,7 +268,7 @@ function private.InitializeListFrame()
 
 		-- First, check if this is a "modified" click, and react appropriately
 		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
-			local profession_recipes = private.profession_recipe_list[private.ORDERED_COLLECTIONS[MainPanel.profession]]
+			local profession_recipes = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.profession]]
 
 			if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
@@ -709,7 +709,7 @@ function private.InitializeListFrame()
 			-- Update recipe filters.
 			-------------------------------------------------------------------------------
 			local general_filters = addon.db.profile.filters.general
-			local profession_recipes = private.profession_recipe_list[private.ORDERED_COLLECTIONS[MainPanel.profession]]
+			local profession_recipes = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.profession]]
 			local recipes_known, recipes_known_filtered = 0, 0
 			local recipes_total, recipes_total_filtered = 0, 0
 
@@ -1307,7 +1307,7 @@ function private.InitializeListFrame()
 		local expand_all = expand_mode == "deep"
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
 		local prof_name = private.ORDERED_COLLECTIONS[MainPanel.profession]
-		local profession_recipes = private.profession_recipe_list[prof_name]
+		local profession_recipes = private.category_collectable_list[prof_name]
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
