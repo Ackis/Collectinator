@@ -4,7 +4,7 @@ devel-enUS.lua
 These are localization strings used for the testing of collectinator.
 Manually add entries here and then proceed to update the localization
 application located here:
-	http://www.wowace.com/addons/collectinator/localization/ 
+	http://www.wowace.com/addons/collectinator/localization/
 ************************************************************************
 File date: @file-date-iso@
 File revision: @file-revision@
@@ -41,14 +41,16 @@ L["FILTERING_OBTAIN_DESC"] = "Configuration for which methods of obtaining colle
 L["FILTERING_PLAYERTYPE_DESC"] = "Configuration for items matching which player types are included in the scan."
 L["FILTERING_QUALITY_DESC"] = "Configuration for which quality types are included in the scan."
 L["FILTERING_REP_DESC"] = "Configuration for which reputation reward collectables are included in the scan."
+L["FILTER_CLOSE_DESC"] = "Close filter option panel."
 L["FONT_SIZE_DESC"] = "Changes the size of the fonts for Collectinator."
 L["HIDEPOPUP_DESC"] = "Prevents pop-ups notifying you why the scan window is empty from showing.  Pop-ups will always show for the first time after a new version has been added."
 L["Hide Pop-Up"] = true
 L["Mob Drop"] = true
 L["NOTSCANNED"] = true
+L["NOT_YET_SCANNED"] = "Not yet scanned!"
 L["Profile Options"] = true
 L["Quest"] = true
-L["RESET_WINDOW_DESC"] = "Resets the ARL GUI to default position."
+L["RESET_WINDOW_DESC"] = "Resets the Collectinator GUI to default position."
 L["Reset Window Position"] = true
 L["SCANBUTTONPOSITION_DESC"] = true
 L["SCAN_COMPANIONS_DESC"] = true
