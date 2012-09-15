@@ -1219,31 +1219,6 @@ function private.InitializeFilterPanel()
 			end
 			tip:Show()
 		end
-
-		ARL_MiscAltBtn:SetScript("OnClick", function(self, button)
-			if clicktip then
-				if not click_info.modified then
-					clicktip = QTip:Release(clicktip)
-					table.wipe(click_info)
-				else
-					table.wipe(click_info)
-					GenerateClickableTT(self)
-				end
-			else
-				clicktip = QTip:Acquire("ARL_Clickable", 1, "CENTER")
-				table.wipe(click_info)
-
-				if _G.TipTac and _G.TipTac.AddModifiedTip then
-					_G.TipTac:AddModifiedTip(clicktip, true)
-				end
-				GenerateClickableTT(self)
-			end
-		end)
-
-		ARL_MiscAltBtn:SetScript("OnHide", function(self, button)
-			clicktip = QTip:Release(clicktip)
-			table.wipe(click_info)
-		end)
 	end
 
 	-------------------------------------------------------------------------------
