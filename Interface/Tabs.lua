@@ -95,7 +95,7 @@ function private.InitializeTabs()
 
 	-- Expands or collapses a list entry in the current active tab.
 	local function Tab_ModifyEntry(self, entry, expanded)
-		local member = ORDERED_COLLECTIONS[MainPanel.collection] .. " expanded"
+		local member = ORDERED_COLLECTIONS[MainPanel.current_collectable_type] .. " expanded"
 
 		if entry.acquire_id then
 			self[member][private.ACQUIRE_NAMES[entry.acquire_id]] = expanded or nil
@@ -212,7 +212,7 @@ function private.InitializeTabs()
 			end
 			table.sort(sorted_acquires, Sort_Acquisition)
 		end
-		local collectable_type = ORDERED_COLLECTIONS[MainPanel.collection]
+		local collectable_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
 		local collectables = private.category_collectable_list[collectable_type]
 
 		self[collectable_type .." expanded"] = self[collectable_type .." expanded"] or {}
@@ -279,7 +279,7 @@ function private.InitializeTabs()
 			end
 			table.sort(sorted_locations, Sort_Location)
 		end
-		local collectable_type = ORDERED_COLLECTIONS[MainPanel.collection]
+		local collectable_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
 		local collectables = private.category_collectable_list[collectable_type]
 
 		self[collectable_type .." expanded"] = self[collectable_type .." expanded"] or {}
@@ -366,7 +366,7 @@ function private.InitializeTabs()
 	end
 
 	function CollectablesTab:Initialize(expand_mode)
-		local collection_type = ORDERED_COLLECTIONS[MainPanel.collection]
+		local collection_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
 		local collectables = private.category_collectable_list[collection_type]
 
 		self[collection_type .." expanded"] = self[collection_type .." expanded"] or {}

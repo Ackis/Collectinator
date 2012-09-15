@@ -218,7 +218,7 @@ function private.InitializeListFrame()
 	ScrollBar:SetScript("OnValueChanged", function(self, value)
 		local min_val, max_val = self:GetMinMaxValues()
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
-		local member = "collection_" .. MainPanel.collection .. "_scroll_value"
+		local member = "collection_" .. MainPanel.current_collectable_type .. "_scroll_value"
 
 		current_tab[member] = value
 
@@ -268,7 +268,7 @@ function private.InitializeListFrame()
 
 		-- First, check if this is a "modified" click, and react appropriately
 		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
-			local collection_collectables = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.collection]]
+			local collection_collectables = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]
 
 			if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
@@ -688,7 +688,7 @@ function private.InitializeListFrame()
 			-- Update recipe filters.
 			-------------------------------------------------------------------------------
 			local general_filters = addon.db.profile.filters.general
-			local collection_collectables = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.collection]]
+			local collection_collectables = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]
 			local recipes_known, recipes_known_filtered = 0, 0
 			local recipes_total, recipes_total_filtered = 0, 0
 
@@ -759,7 +759,7 @@ function private.InitializeListFrame()
 			-- Initialize the expand button and entries for the current tab.
 			-------------------------------------------------------------------------------
 			local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
-			local expanded_button = current_tab["expand_button_"..MainPanel.collection]
+			local expanded_button = current_tab["expand_button_"..MainPanel.current_collectable_type]
 
 			if expanded_button then
 				MainPanel.expand_button:Expand(current_tab)
@@ -898,7 +898,7 @@ function private.InitializeListFrame()
 		else
 			local max_val = num_entries - NUM_COL_LINES
 			local current_tab = MainPanel.tabs[MainPanel.current_tab]
-			local scroll_value = current_tab["collection_"..MainPanel.collection.."_scroll_value"] or 0
+			local scroll_value = current_tab["collection_"..MainPanel.current_collectable_type.."_scroll_value"] or 0
 
 			scroll_value = math.max(0, math.min(scroll_value, max_val))
 			offset = scroll_value
@@ -1285,7 +1285,7 @@ function private.InitializeListFrame()
 		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
-		local collection_type = private.ORDERED_COLLECTIONS[MainPanel.collection]
+		local collection_type = private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
 		local collectable_list = private.category_collectable_list[collection_type]
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return

@@ -151,28 +151,27 @@ function private.InitializeFrame()
 		["CRITTER"] = private.InitializeItemFilters_Pet,
 	}
 
-	function MainPanel:Display(collection_name)
-
+	function MainPanel:Display(collectable_type)
 		-------------------------------------------------------------------------------
 		-- Set the collection.
 		-------------------------------------------------------------------------------
-		local prev_collection = self.collection
+		local prev_collectable_type = self.current_collectable_type
 
 		for index, name in ipairs(ORDERED_COLLECTIONS) do
-			if name == collection_name then
-				self.collection = index
+			if name == collectable_type then
+				self.current_collectable_type = index
 				break
 			end
 		end
 
-		if self.collection ~= prev_collection then
-			self.prev_collection = self.collection
+		if self.current_collectable_type ~= prev_collectable_type then
+			self.prev_collectable_type = self.current_collectable_type
 		end
 		self.prof_button:SetTexture()
 
 		local editbox = self.search_editbox
 
-		if self.collection ~= self.prev_collection then
+		if self.current_collectable_type ~= self.prev_collectable_type then
 			editbox.prev_search = nil
 		end
 		editbox:SetText(editbox.prev_search or _G.SEARCH)
@@ -182,7 +181,7 @@ function private.InitializeFrame()
 			private.InitializeFilterPanel()
 		end
 
-		local collection_name = private.COLLECTION_LABELS[self.collection]
+		local collection_name = private.COLLECTION_LABELS[self.current_collectable_type]
 
 		local init_func = ITEM_FILTER_INIT_FUNCS[collection_name]
 		local panel
@@ -371,7 +370,7 @@ function private.InitializeFrame()
 	end	-- do-block
 
 	function MainPanel:UpdateTitle()
-		local corrent_col = ORDERED_COLLECTIONS[self.collection]
+		local corrent_col = ORDERED_COLLECTIONS[self.current_collectable_type]
 
 		if not self.is_expanded then
 			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "COL (%s) - %s"), addon.version, corrent_col)
@@ -410,7 +409,6 @@ function private.InitializeFrame()
 	-- ProfCycle scripts/functions.
 	-------------------------------------------------------------------------------
 	collection_cycler:SetScript("OnClick", function(self, button, down)
-	-- Known collections should be in Player.collections
 
 	-- This loop is gonna be weird. The reason is because we need to
 	-- ensure that we cycle through all the known collections, but also
@@ -429,12 +427,12 @@ function private.InitializeFrame()
 		-- and a single iteration will do nicely, thank you
 		if button == "LeftButton" then
 			-- normal collection switch
-			if MainPanel.collection == 0 then
+			if MainPanel.current_collectable_type == 0 then
 				loop_start = 1
 				loop_end = num_collections + 1
 			else
-				loop_start = MainPanel.collection + 1
-				loop_end = MainPanel.collection
+				loop_start = MainPanel.current_collectable_type + 1
+				loop_end = MainPanel.current_collectable_type
 			end
 			local index = loop_start
 
@@ -442,7 +440,7 @@ function private.InitializeFrame()
 				if index > num_collections then
 					index = 1
 				elseif private.Player.collections[ORDERED_COLLECTIONS[index]] then
-					MainPanel.collection = index
+					MainPanel.current_collectable_type = index
 					break
 				else
 					index = index + 1
@@ -450,12 +448,12 @@ function private.InitializeFrame()
 			end
 		elseif button == "RightButton" then
 			-- reverse collection switch
-			if MainPanel.collection == 0 then
+			if MainPanel.current_collectable_type == 0 then
 				loop_start = num_collections + 1
 				loop_end = 0
 			else
-				loop_start = MainPanel.collection - 1
-				loop_end = MainPanel.collection
+				loop_start = MainPanel.current_collectable_type - 1
+				loop_end = MainPanel.current_collectable_type
 			end
 			local index = loop_start
 
@@ -463,7 +461,7 @@ function private.InitializeFrame()
 				if index < 1 then
 					index = num_collections
 				elseif private.Player.collections[ORDERED_COLLECTIONS[index]] then
-					MainPanel.collection = index
+					MainPanel.current_collectable_type = index
 					break
 				else
 					index = index - 1
@@ -480,7 +478,7 @@ function private.InitializeFrame()
 			sfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
 			_G.SetCVar("Sound_EnableSFX", 0)
 		end
-		_G.CastSpellByName(ORDERED_COLLECTIONS[MainPanel.collection])
+		_G.CastSpellByName(ORDERED_COLLECTIONS[MainPanel.current_collectable_type])
 		addon:Scan()
 
 		if not is_shown then
@@ -618,7 +616,7 @@ function private.InitializeFrame()
 			end
 			search_pattern = search_pattern:lower()
 
-			for index, recipe in pairs(private.collection_recipe_list[ORDERED_COLLECTIONS[MainPanel.collection]]) do
+			for index, recipe in pairs(private.collection_recipe_list[ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]) do
 				recipe:RemoveState("RELEVANT")
 
 				for search_index = 1, #SEARCH_FUNCTIONS do
@@ -833,11 +831,11 @@ function private.InitializeFrame()
 
 	expand_button:SetScript("OnClick", function(self, mouse_button, down)
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
-		local is_expanded = current_tab["expand_button_" .. MainPanel.collection]
+		local is_expanded = current_tab["expand_button_" .. MainPanel.current_collectable_type]
 		local expand_mode
 
 		if is_expanded then
-			table.wipe(current_tab[ORDERED_COLLECTIONS[MainPanel.collection] .. " expanded"])
+			table.wipe(current_tab[ORDERED_COLLECTIONS[MainPanel.current_collectable_type] .. " expanded"])
 		else
 			if _G.IsShiftKeyDown() then
 				expand_mode = "deep"
@@ -858,7 +856,7 @@ function private.InitializeFrame()
 	end)
 
 	function expand_button:Expand(current_tab)
-		current_tab["expand_button_"..MainPanel.collection] = true
+		current_tab["expand_button_"..MainPanel.current_collectable_type] = true
 
 		self:SetNormalTexture("Interface\\BUTTONS\\UI-MinusButton-Up")
 		self:SetPushedTexture("Interface\\BUTTONS\\UI-MinusButton-Down")
@@ -869,7 +867,7 @@ function private.InitializeFrame()
 	end
 
 	function expand_button:Contract(current_tab)
-		current_tab["expand_button_"..MainPanel.collection] = nil
+		current_tab["expand_button_"..MainPanel.current_collectable_type] = nil
 
 		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
 		self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
