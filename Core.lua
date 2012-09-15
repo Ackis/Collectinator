@@ -546,7 +546,6 @@ do
 
 		-- Scanning Mounts
 		if current_panel == private.COLLECTION_TYPE_IDS.MOUNT then
-
 			self:InitializeCollection(private.COLLECTION_NAMES.MOUNT)
 			collection_type = private.COLLECTION_NAMES.MOUNT
 
@@ -556,8 +555,7 @@ do
 				self:Debug("Errror, %s table not made.", private.COLLECTION_NAMES.MOUNT)
 				return
 			end
-
-			local num_mounts = GetNumCompanions(private.COLLECTION_NAMES.MOUNT)
+			local num_mounts = _G.GetNumCompanions(private.COLLECTION_NAMES.MOUNT)
 
 			for spell_id, mount in pairs(mounts) do
 				mount:RemoveState("KNOWN")
@@ -567,7 +565,7 @@ do
 			end
 
 			for i = 1, num_mounts do
-				local id = GetCompanionInfo("MOUNT", i)
+				local id = _G.GetCompanionInfo("MOUNT", i)
 				if mounts[id] then
 				else
 					--self:Debug("Mount %d - Not in db", id)

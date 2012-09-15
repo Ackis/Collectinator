@@ -58,7 +58,7 @@ do
 	}
 
 	-- Sorts the collectable_list according to configuration settings.
-	function private.SortRecipeList(collectable_list)
+	function private.SortCollectables(collectables)
 		local sort_type = addon.db.profile.sorting
 		local skill_view = addon.db.profile.skill_view
 
@@ -66,7 +66,7 @@ do
 
 		table.wipe(sorted_collections)
 
-		for recipe_id, recipe in pairs(collectable_list) do
+		for recipe_id, recipe in pairs(collectables) do
 			sorted_collections[#sorted_collections + 1] = recipe_id
 		end
 		table.sort(sorted_collections, sort_func)

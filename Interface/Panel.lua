@@ -694,11 +694,11 @@ function private.InitializeFrame()
 	end
 
 	-- If there is text in the search box, return the recipe's RELEVANT state.
-	function SearchBox:MatchesRecipe(recipe)
+	function SearchBox:MatchesCollectable(collectable)
 		local editbox_text = self:GetText()
 
 		if editbox_text ~= "" and editbox_text ~= _G.SEARCH then
-			return recipe:HasState("RELEVANT")
+			return collectable:HasState("RELEVANT")
 		end
 		return true
 	end

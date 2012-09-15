@@ -611,7 +611,7 @@ function private.InitializeListFrame()
 		end
 
 		---Scans a specific recipe to determine if it is to be displayed or not.
-		local function CanDisplayRecipe(recipe)
+		local function CanDisplayCollectable(recipe)
 			if addon.db.profile.exclusionlist[recipe.spell_id] and not addon.db.profile.ignoreexclusionlist then
 				return false
 			end
@@ -708,7 +708,7 @@ function private.InitializeListFrame()
 					end
 					recipes_known = recipes_known + (is_known and 1 or 0)
 
-					can_display = CanDisplayRecipe(recipe)
+					can_display = CanDisplayCollectable(recipe)
 
 					if can_display then
 						recipes_total_filtered = recipes_total_filtered + 1
@@ -1302,13 +1302,13 @@ function private.InitializeListFrame()
 				local recipe_list = private.acquire_list[acquire_id].recipes
 				local sorted_recipes = addon.sorted_recipes
 
-				private.SortRecipeList(recipe_list)
+				private.SortCollectables(recipe_list)
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
 					local collectable_entry = collectable_list[spell_id]
 
-					if collectable_entry and collectable_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(collectable_entry) then
+					if collectable_entry and collectable_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable_entry) then
 						local entry = AcquireTable()
 						local expand = false
 						local type = "subheader"
@@ -1347,13 +1347,13 @@ function private.InitializeListFrame()
 				local recipe_list = private.location_list[location_id].recipes
 				local sorted_recipes = addon.sorted_recipes
 
-				private.SortRecipeList(recipe_list)
+				private.SortCollectables(recipe_list)
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
 					local recipe_entry = collectable_list[spell_id]
 
-					if recipe_entry and recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe_entry) then
+					if recipe_entry and recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(recipe_entry) then
 						local expand = false
 						local type = "subheader"
 						local entry = AcquireTable()
@@ -1433,7 +1433,7 @@ end	-- InitializeListFrame()
 -------------------------------------------------------------------------------
 -- Tooltip functions and data.
 -------------------------------------------------------------------------------
-spell_tip = _G.CreateFrame("GameTooltip", "AckisRecipeList_SpellTooltip", _G.UIParent, "GameTooltipTemplate")
+spell_tip = _G.CreateFrame("GameTooltip", "Collectinator_SpellTooltip", _G.UIParent, "GameTooltipTemplate")
 
 -- Font Objects needed for acquire_tip
 local narrowFont

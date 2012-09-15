@@ -225,7 +225,7 @@ function private.InitializeTabs()
 			for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
 				local collectable = collectables[spell_id]
 
-				if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(collectable) then
+				if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable) then
 					count = count + 1
 
 					if not collectable_registry[collectable] then
@@ -292,7 +292,7 @@ function private.InitializeTabs()
 			for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
 				local collectable = collectables[spell_id]
 
-				if collectable and collectable:HasState("VISIBLE") and search_box:MatchesRecipe(collectable) then
+				if collectable and collectable:HasState("VISIBLE") and search_box:MatchesCollectable(collectable) then
 					local trainer_data = collectable.acquire_data[A.TRAINER]
 					local good_count, bad_count = 0, 0
 					local fac_toggle = addon.db.profile.filters.general.faction
@@ -371,7 +371,7 @@ function private.InitializeTabs()
 
 		self[collection_type .." expanded"] = self[collection_type .." expanded"] or {}
 
-		private.SortRecipeList(collectables)
+		private.SortCollectables(collectables)
 
 		local sorted_collectables = addon.sorted_recipes
 		local collectable_count = 0
@@ -381,7 +381,7 @@ function private.InitializeTabs()
 			local collectable_index = sorted_collectables[i]
 			local collectable = collectables[collectable_index]
 
-			if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(collectable) then
+			if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable) then
 				local is_expanded = self[collection_type .." expanded"][collectable_index]
 				local entry = AcquireTable()
 				entry.text = collectable:GetDisplayName()
