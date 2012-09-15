@@ -390,62 +390,6 @@ function private.InitializeFilterPanel()
 	private.GenerateCheckBoxes(general_frame, general_buttons, general_panel)
 
 	-------------------------------------------------------------------------------
-	-- Create the Class toggle and CheckButtons.
-	-------------------------------------------------------------------------------
-	local class_toggle = _G.CreateFrame("Button", nil, general_frame)
-	class_toggle:SetWidth(105)
-	class_toggle:SetHeight(20)
-	class_toggle:SetNormalFontObject("QuestTitleFont")
-	class_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-	class_toggle:SetFormattedText(_G.ITEM_CLASSES_ALLOWED, "")
-	class_toggle:SetPoint("TOP", general_panel, "BOTTOM", 0, 0)
-	class_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-	private.SetTooltipScripts(class_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.CLASS))
-
-	class_toggle:SetScript("OnClick", function(self, button)
-		local classes = addon.db.profile.filters.classes
-		local toggle = (button == "LeftButton") and true or false
-
-		for class in pairs(classes) do
-			classes[class] = toggle
-			general_frame[class]:SetChecked(toggle)
-		end
-
-		if toggle == false then
-			local class = private.Player.class:lower()
-			classes[class] = true
-			general_frame[class]:SetChecked(true)
-		end
-		MainPanel:UpdateTitle()
-		MainPanel.list_frame:Update(nil, false)
-	end)
-
-	general_frame.class_toggle = class_toggle
-
-	local class_buttons = {
-		deathknight	= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["DEATHKNIGHT"],	row = 1, col = 1 },
-		druid		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["DRUID"],		row = 1, col = 2 },
-		hunter		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["HUNTER"],		row = 2, col = 1 },
-		mage		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["MAGE"],		row = 2, col = 2 },
-		monk		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["MONK"],		row = 3, col = 1 },
-		paladin		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["PALADIN"],	row = 3, col = 2 },
-		priest		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["PRIEST"],		row = 4, col = 1 },
-		rogue		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["ROGUE"],		row = 4, col = 2 },
-		shaman		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["SHAMAN"],		row = 5, col = 1 },
-		warlock		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARLOCK"],	row = 5, col = 2 },
-		warrior		= { tt = L["CLASS_DESC"],	text = _G.LOCALIZED_CLASS_NAMES_MALE["WARRIOR"],	row = 6, col = 1 },
-	}
-
-	local class_panel = _G.CreateFrame("Frame", nil, general_frame)
-	class_panel:SetHeight(110)
-	class_panel:SetPoint("TOP", class_toggle, "BOTTOM")
-	class_panel:SetPoint("LEFT", general_frame, "LEFT")
-	class_panel:SetPoint("RIGHT", general_frame, "RIGHT")
-
-	private.GenerateCheckBoxes(general_frame, class_buttons, class_panel)
-
-	-------------------------------------------------------------------------------
 	-- Create FilterPanel.obtain, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
@@ -484,7 +428,6 @@ function private.InitializeFilterPanel()
 
 		local acquire_buttons = {
 			achievement	= { tt = L["ACHIEVEMENT_DESC"],		text = _G.ACHIEVEMENTS,				row = 1, col = 1 },
-			discovery	= { tt = L["DISCOVERY_DESC"],		text = L["Discovery"],				row = 1, col = 2 },
 			instance	= { tt = L["INSTANCE_DESC"],		text = _G.INSTANCE,				row = 2, col = 1 },
 			mobdrop		= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 2, col = 2 },
 			pvp		= { tt = L["PVP_DESC"],			text = _G.PVP,					row = 3, col = 1 },
@@ -492,7 +435,6 @@ function private.InitializeFilterPanel()
 			raid		= { tt = L["RAID_DESC"],		text = _G.RAID,					row = 4, col = 1 },
 			reputation	= { tt = L["REPUTATION_DESC"],		text = _G.REPUTATION,				row = 4, col = 2 },
 			seasonal	= { tt = L["SEASONAL_DESC"],		text = private.ACQUIRE_NAMES[A.SEASONAL],	row = 5, col = 1 },
-			trainer		= { tt = L["TRAINER_DESC"],		text = L["Trainer"],				row = 5, col = 2 },
 			vendor		= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 6, col = 1 },
 			worlddrop	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 6, col = 2 },
 		}
@@ -593,8 +535,6 @@ function private.InitializeFilterPanel()
 		local binding_buttons = {
 			itemboe		= { tt = L["BOE_DESC"],		text = L["BOEFilter"],		row = 1, col = 1 },
 			itembop		= { tt = L["BOP_DESC"],		text = L["BOPFilter"],		row = 2, col = 1 },
-			recipeboe	= { tt = L["RECIPE_BOE_DESC"],	text = L["RecipeBOEFilter"],	row = 3, col = 1 },
-			recipebop	= { tt = L["RECIPE_BOP_DESC"],	text = L["RecipeBOPFilter"],	row = 4, col = 1 },
 		}
 
 		local binding_panel = _G.CreateFrame("Frame", nil, binding_frame)
@@ -679,56 +619,6 @@ function private.InitializeFilterPanel()
 		quality_panel:SetPoint("RIGHT", quality_frame, "RIGHT")
 
 		private.GenerateCheckBoxes(quality_frame, quality_buttons, quality_panel)
-	end	-- do-block
-
-	-------------------------------------------------------------------------------
-	-- Create FilterPanel.player, and set its scripts.
-	-------------------------------------------------------------------------------
-	do
-		local player_frame = FilterPanel:CreateSubMenu("player")
-
-		-------------------------------------------------------------------------------
-		-- Create the toggle and CheckButtons
-		-------------------------------------------------------------------------------
-		local role_toggle = _G.CreateFrame("Button", nil, player_frame)
-		role_toggle:SetWidth(105)
-		role_toggle:SetHeight(20)
-		role_toggle:SetNormalFontObject("QuestTitleFont")
-		role_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
-		role_toggle:SetText(_G.LFG_TOOLTIP_ROLES)
-		role_toggle:SetPoint("TOP", player_frame, "TOP", 0, -7)
-		role_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
-		private.SetTooltipScripts(role_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.ROLE))
-
-		role_toggle:SetScript("OnClick", function(self, button)
-			local filters = addon.db.profile.filters.player
-			local toggle = (button == "LeftButton") and true or false
-
-			for filter in pairs(filters) do
-				filters[filter] = toggle
-				player_frame[filter]:SetChecked(toggle)
-			end
-			MainPanel:UpdateTitle()
-			MainPanel.list_frame:Update(nil, false)
-		end)
-
-		player_frame.role_toggle = role_toggle
-
-		local role_buttons = {
-			tank	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.TANK),		text = _G.TANK,		row = 1, col = 1 },
-			melee	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.MELEE),	text = _G.MELEE,	row = 1, col = 2 },
-			healer	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.HEALER),	text = _G.HEALER,	row = 2, col = 1 },
-			caster	= { tt = L["ROLE_DESC_FORMAT"]:format(_G.DAMAGER),	text = _G.DAMAGER,	row = 2, col = 2 },
-		}
-
-		local role_panel = _G.CreateFrame("Frame", nil, player_frame)
-		role_panel:SetHeight(50)
-		role_panel:SetPoint("TOP", role_toggle, "BOTTOM")
-		role_panel:SetPoint("LEFT", player_frame, "LEFT")
-		role_panel:SetPoint("RIGHT", player_frame, "RIGHT")
-
-		private.GenerateCheckBoxes(player_frame, role_buttons, role_panel)
 	end	-- do-block
 
 	-------------------------------------------------------------------------------
@@ -1161,26 +1051,6 @@ function private.InitializeFilterPanel()
 	FilterPanel.misc:SetPoint("TOPLEFT", FilterPanel, "TOPLEFT", 17, -16)
 	FilterPanel.misc:Hide()
 
-	local ARL_MiscAltText = FilterPanel.misc:CreateFontString("ARL_MiscAltBtn", "OVERLAY", "QuestFontNormalSmall")
-	ARL_MiscAltText:SetText(L["Alt-Tradeskills"] .. ":")
-	ARL_MiscAltText:SetPoint("TOPLEFT", FilterPanel.misc, "TOPLEFT", 5, -8)
-	ARL_MiscAltText:SetHeight(14)
-	ARL_MiscAltText:SetWidth(95)
-	ARL_MiscAltText:SetJustifyH("LEFT")
-
-	local ARL_MiscAltBtn = _G.CreateFrame("Button", "ARL_MiscAltBtn", FilterPanel.misc)
-	ARL_MiscAltBtn:SetPoint("LEFT", ARL_MiscAltText, "RIGHT")
-	ARL_MiscAltBtn:SetHeight(22)
-	ARL_MiscAltBtn:SetWidth(22)
-	ARL_MiscAltBtn:SetNormalTexture([[Interface\Buttons\UI-SpellbookIcon-NextPage-Up]])
-	ARL_MiscAltBtn:SetPushedTexture([[Interface\Buttons\UI-SpellbookIcon-NextPage-Down]])
-	ARL_MiscAltBtn:SetDisabledTexture([[Interface\Buttons\UI-SpellbookIcon-NextPage-Disabled]])
-	ARL_MiscAltBtn:SetHighlightTexture([[Interface\Buttons\UI-Common-MouseHilight]])
-
-	SetTooltipScripts(ARL_MiscAltBtn, L["ALT_TRADESKILL_DESC"], 1)
-
-	ARL_MiscAltBtn:RegisterForClicks("LeftButtonUp")
-
 	do
 		-------------------------------------------------------------------------------
 		-- Data used in GenerateClickableTT() and its support functions.
@@ -1398,24 +1268,9 @@ function private.InitializeFilterPanel()
 		["unknown"]		= { cb = FilterPanel.general.unknown,		svroot = filterdb.general },
 		["retired"]		= { cb = FilterPanel.general.retired,		svroot = filterdb.general },
 		------------------------------------------------------------------------------------------------
-		-- Classes
-		------------------------------------------------------------------------------------------------
-		["deathknight"]		= { cb = FilterPanel.general.deathknight,	svroot = filterdb.classes },
-		["druid"]		= { cb = FilterPanel.general.druid,		svroot = filterdb.classes },
-		["hunter"]		= { cb = FilterPanel.general.hunter,		svroot = filterdb.classes },
-		["mage"]		= { cb = FilterPanel.general.mage,		svroot = filterdb.classes },
-		["monk"]		= { cb = FilterPanel.general.monk,		svroot = filterdb.classes },
-		["paladin"]		= { cb = FilterPanel.general.paladin,		svroot = filterdb.classes },
-		["priest"]		= { cb = FilterPanel.general.priest,		svroot = filterdb.classes },
-		["rogue"]		= { cb = FilterPanel.general.rogue,		svroot = filterdb.classes },
-		["shaman"]		= { cb = FilterPanel.general.shaman,		svroot = filterdb.classes },
-		["warlock"]		= { cb = FilterPanel.general.warlock,		svroot = filterdb.classes },
-		["warrior"]		= { cb = FilterPanel.general.warrior,		svroot = filterdb.classes },
-		------------------------------------------------------------------------------------------------
 		-- Obtain Options
 		------------------------------------------------------------------------------------------------
 		["achievement"]		= { cb = FilterPanel.obtain.achievement,	svroot = filterdb.obtain },
-		["discovery"]		= { cb = FilterPanel.obtain.discovery,		svroot = filterdb.obtain },
 		["expansion0"]		= { cb = FilterPanel.obtain.expansion0,		svroot = filterdb.obtain },
 		["expansion1"]		= { cb = FilterPanel.obtain.expansion1,		svroot = filterdb.obtain },
 		["expansion2"]		= { cb = FilterPanel.obtain.expansion2,		svroot = filterdb.obtain },
@@ -1428,7 +1283,6 @@ function private.InitializeFilterPanel()
 		["raid"]		= { cb = FilterPanel.obtain.raid,		svroot = filterdb.obtain },
 		["reputation"]		= { cb = FilterPanel.obtain.reputation,		svroot = filterdb.obtain },
 		["seasonal"]		= { cb = FilterPanel.obtain.seasonal,		svroot = filterdb.obtain },
-		["trainer"]		= { cb = FilterPanel.obtain.trainer,		svroot = filterdb.obtain },
 		["vendor"]		= { cb = FilterPanel.obtain.vendor,		svroot = filterdb.obtain },
 		["worlddrop"]		= { cb = FilterPanel.obtain.worlddrop,		svroot = filterdb.obtain },
 		------------------------------------------------------------------------------------------------
@@ -1436,8 +1290,6 @@ function private.InitializeFilterPanel()
 		------------------------------------------------------------------------------------------------
 		["itemboe"]		= { cb = FilterPanel.binding.itemboe,		svroot = filterdb.binding },
 		["itembop"]		= { cb = FilterPanel.binding.itembop,		svroot = filterdb.binding },
-		["recipeboe"]		= { cb = FilterPanel.binding.recipeboe,		svroot = filterdb.binding },
-		["recipebop"]		= { cb = FilterPanel.binding.recipebop,		svroot = filterdb.binding },
 		------------------------------------------------------------------------------------------------
 		-- Quality Options
 		------------------------------------------------------------------------------------------------
@@ -1445,13 +1297,6 @@ function private.InitializeFilterPanel()
 		["uncommon"]		= { cb = FilterPanel.quality.uncommon,		svroot = filterdb.quality },
 		["rare"]		= { cb = FilterPanel.quality.rare,		svroot = filterdb.quality },
 		["epic"]		= { cb = FilterPanel.quality.epic,		svroot = filterdb.quality },
-		------------------------------------------------------------------------------------------------
-		-- Role Options
-		------------------------------------------------------------------------------------------------
-		["tank"]		= { cb = FilterPanel.player.tank,		svroot = filterdb.player },
-		["melee"]		= { cb = FilterPanel.player.melee,		svroot = filterdb.player },
-		["healer"]		= { cb = FilterPanel.player.healer,		svroot = filterdb.player },
-		["caster"]		= { cb = FilterPanel.player.caster,		svroot = filterdb.player },
 		------------------------------------------------------------------------------------------------
 		-- Old World Rep Options
 		------------------------------------------------------------------------------------------------
