@@ -39,59 +39,37 @@ end	-- do block
 -- Sort functions
 -------------------------------------------------------------------------------
 do
-	addon.sorted_recipes = {}
+	addon.sorted_collections = {}
 
-	local recipe_list = private.recipe_list
-	local sorted_recipes = addon.sorted_recipes
-
-	local function Sort_SkillAsc(a, b)
-		local reca, recb = recipe_list[a], recipe_list[b]
-
-		if reca.skill_level == recb.skill_level then
-			return reca.name < recb.name
-		else
-			return reca.skill_level < recb.skill_level
-		end
-	end
-
-	local function Sort_SkillDesc(a, b)
-		local reca, recb = recipe_list[a], recipe_list[b]
-
-		if reca.skill_level == recb.skill_level then
-			return reca.name < recb.name
-		else
-			return recb.skill_level < reca.skill_level
-		end
-	end
+	local collection_list = private.collection_list
+	local sorted_collections = addon.sorted_collections
 
 	local function Sort_NameAsc(a, b)
-		return recipe_list[a].name < recipe_list[b].name
+		return collection_list[a].name < collection_list[b].name
 	end
 
 	local function Sort_NameDesc(a, b)
-		return recipe_list[a].name > recipe_list[b].name
+		return collection_list[a].name > collection_list[b].name
 	end
 
 	local RECIPE_SORT_FUNCS = {
-		["SkillAscending"]	= Sort_SkillAsc,
-		["SkillDescending"]	= Sort_SkillDesc,
 		["NameAscending"]	= Sort_NameAsc,
 		["NameDescending"]	= Sort_NameDesc,
 	}
 
-	-- Sorts the recipe_list according to configuration settings.
-	function private.SortRecipeList(recipe_list)
+	-- Sorts the collection_list according to configuration settings.
+	function private.SortRecipeList(collection_list)
 		local sort_type = addon.db.profile.sorting
 		local skill_view = addon.db.profile.skill_view
 
 		local sort_func = RECIPE_SORT_FUNCS[(skill_view and "Skill" or "Name")..sort_type] or Sort_NameAsc
 
-		table.wipe(sorted_recipes)
+		table.wipe(sorted_collections)
 
-		for recipe_id, recipe in pairs(recipe_list) do
-			sorted_recipes[#sorted_recipes + 1] = recipe_id
+		for recipe_id, recipe in pairs(collection_list) do
+			sorted_collections[#sorted_collections + 1] = recipe_id
 		end
-		table.sort(sorted_recipes, sort_func)
+		table.sort(sorted_collections, sort_func)
 	end
 end	-- do
 
