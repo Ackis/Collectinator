@@ -317,72 +317,76 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Create the scan button.
 	-------------------------------------------------------------------------------
-	local button = CreateFrame("Button", "Collectinator_ScanButton", PetJournalParent, "UIPanelButtonTemplate")
-	self.ScanButton = button
+	local scan_button_parent = _G.PetJournalParent
+	local scan_button = _G.CreateFrame("Button", nil, scan_button_parent, "UIPanelButtonTemplate")
+	scan_button:SetHeight(20)
+	scan_button:SetText(L["Scan"])
+	scan_button:SetWidth(addon.scan_button:GetTextWidth() + 10)
+	scan_button:RegisterForClicks("LeftButtonUp")
+	scan_button:SetFrameLevel(scan_button_parent:GetFrameLevel() + 1)
+	scan_button:SetFrameStrata(scan_button_parent:GetFrameStrata())
+	scan_button:Enable()
+	scan_button:SetPoint("RIGHT", _G.PetJournalParentCloseButton, "LEFT", 4, 0)
 
-	button:SetHeight(20)
-	button:RegisterForClicks("LeftButtonUp")
-	button:SetScript("OnClick",
-		function()
-			local companion_frame = (PetJournal:IsVisible() and PetJournal) or (MountJournal:IsVisible() and MountJournal)
+	scan_button:SetScript("OnClick", function()
+		local companion_frame = (_G.PetJournal:IsVisible() and _G.PetJournal) or (_G.MountJournal:IsVisible() and _G.MountJournal)
+		local shift_pressed = _G.IsShiftKeyDown()
+		local alt_pressed = _G.IsAltKeyDown()
+		local control_pressed = _G.IsControlKeyDown()
 
-			-- Alt-Shift (Warcraft Pets)
-			if IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-				addon:Scan(true, false, "pets")
-				-- Shift only (Text Dump)
-			elseif IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-				addon:Scan(true, false, companion_frame)
-				-- Alt only (Wipe icons from map)
-			elseif not IsShiftKeyDown() and IsAltKeyDown() and not IsControlKeyDown() then
-				addon:ClearMap()
-				-- If we are just clicking do the scan
-			elseif not IsShiftKeyDown() and not IsAltKeyDown() and not IsControlKeyDown() then
-				addon:Scan(false, false, companion_frame)
-				--self:SetupMap()
-			end
-		end)
-
-	button:SetScript("OnEnter", function(this)
-		GameTooltip_SetDefaultAnchor(GameTooltip, this)
-		GameTooltip:SetText(L["SCAN_COMPANIONS_DESC"])
-		GameTooltip:Show()
+		-- Alt-Shift (Warcraft Pets)
+		if shift_pressed and alt_pressed and not control_pressed then
+			addon:Scan(true, false, "pets")
+			-- Shift only (Text Dump)
+		elseif shift_pressed and not alt_pressed and not control_pressed then
+			addon:Scan(true, false, companion_frame)
+			-- Alt only (Wipe icons from map)
+		elseif not shift_pressed and alt_pressed and not control_pressed then
+			addon:ClearMap()
+			-- If we are just clicking do the scan
+		elseif not shift_pressed and not alt_pressed and not control_pressed then
+			addon:Scan(false, false, companion_frame)
+			--self:SetupMap()
+		end
 	end)
 
-	button:SetScript("OnLeave", function() GameTooltip:Hide() end)
-	button:SetText(L["Scan"])
+	scan_button:SetScript("OnEnter", function(this)
+		local tooltip = _G.GameTooltip
+		_G.GameTooltip_SetDefaultAnchor(tooltip, this)
+		tooltip:SetText(L["SCAN_COMPANIONS_DESC"])
+		tooltip:Show()
+	end)
 
-	-- Set the frame level of the button to be 1 deeper than its parent
-	local button_parent = button:GetParent()
-	button:SetFrameLevel(button_parent:GetFrameLevel() + 1)
-	button:SetFrameStrata(button_parent:GetFrameStrata())
+	scan_button:SetScript("OnLeave", function() _G.GameTooltip:Hide() end)
 
-	button:Enable()
-	button:ClearAllPoints()
-
-	button:SetPoint("RIGHT", PetJournalParentCloseButton, "LEFT", 4, 0)
-	button:SetWidth(addon.ScanButton:GetTextWidth() + 10)
-
-	button:Show()
+	scan_button:Show()
+	self.scan_button = scan_button
 
 	-------------------------------------------------------------------------------
 	-- Add mini-pet/mount totals to the tab
 	-------------------------------------------------------------------------------
-	PetJournalParentTab1:SetScript("OnEnter", function(this)
-		GameTooltip_SetDefaultAnchor(GameTooltip, this)
-		GameTooltip:SetText(string.format("%d %s.", GetNumCompanions("MOUNT"), MOUNTS))
-		GameTooltip:Show()
-	end)
-	PetJournalParentTab1:SetScript("OnLeave", function()
-		GameTooltip:Hide()
+	_G.PetJournalParentTab1:SetScript("OnEnter", function(this)
+		local tooltip = _G.GameTooltip
+
+		_G.GameTooltip_SetDefaultAnchor(tooltip, this)
+		tooltip:SetText(string.format("%d %s.", _G.GetNumCompanions("MOUNT"), _G.MOUNTS))
+		tooltip:Show()
 	end)
 
-	PetJournalParentTab2:SetScript("OnEnter", function(this)
-		GameTooltip_SetDefaultAnchor(GameTooltip, this)
-		GameTooltip:SetText(string.format("%d %s.", LPJ:NumPets(), PETS))
-		GameTooltip:Show()
+	_G.PetJournalParentTab1:SetScript("OnLeave", function()
+		_G.GameTooltip:Hide()
 	end)
-	PetJournalParentTab2:SetScript("OnLeave", function()
-		GameTooltip:Hide()
+
+	_G.PetJournalParentTab2:SetScript("OnEnter", function(this)
+		local tooltip = _G.GameTooltip
+
+		_G.GameTooltip_SetDefaultAnchor(tooltip, this)
+		tooltip:SetText(string.format("%d %s.", LPJ:NumPets(), _G.PETS))
+		tooltip:Show()
+	end)
+
+	_G.PetJournalParentTab2:SetScript("OnLeave", function()
+		_G.GameTooltip:Hide()
 	end)
 
 	self:SetupOptions()
