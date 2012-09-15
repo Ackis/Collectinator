@@ -28,7 +28,7 @@ local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local A = private.ACQUIRE_TYPES
 
 private.collectable_list = {}
-private.collectable_list = {}
+private.category_collectable_list = {}
 private.num_category_collectables = {}
 
 private.acquire_list	= {}
@@ -61,10 +61,10 @@ function addon:AddCollectable(col_id, collection_type, genesis, quality)
 
 	collectable_list[col_id] = collectable
 
-	if not private.collectable_list[collection_type] then
-		private.collectable_list[collection_type] = {}
+	if not private.category_collectable_list[collection_type] then
+		private.category_collectable_list[collection_type] = {}
 	end
-	private.collectable_list[collection_type][col_id] = collectable
+	private.category_collectable_list[collection_type][col_id] = collectable
 	private.num_category_collectables[collection_type] = (private.num_category_collectables[collection_type] or 0) + 1
 
 	return collectable

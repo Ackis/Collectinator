@@ -268,7 +268,7 @@ function private.InitializeListFrame()
 
 		-- First, check if this is a "modified" click, and react appropriately
 		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
-			local collection_collectables = private.collectable_list[private.ORDERED_COLLECTIONS[MainPanel.collection]]
+			local collection_collectables = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.collection]]
 
 			if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
@@ -688,8 +688,7 @@ function private.InitializeListFrame()
 			-- Update recipe filters.
 			-------------------------------------------------------------------------------
 			local general_filters = addon.db.profile.filters.general
-			local collection_collectables = private.collectable_list[private.ORDERED_COLLECTIONS[MainPanel.collection]]
-
+			local collection_collectables = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.collection]]
 			local recipes_known, recipes_known_filtered = 0, 0
 			local recipes_total, recipes_total_filtered = 0, 0
 
@@ -1286,8 +1285,8 @@ function private.InitializeListFrame()
 		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
-		local prof_name = private.ORDERED_COLLECTIONS[MainPanel.collection]
-		local collection_collectables = private.collectable_list[prof_name]
+		local collection_type = private.ORDERED_COLLECTIONS[MainPanel.collection]
+		local collectable_list = private.category_collectable_list[collection_type]
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -1307,9 +1306,9 @@ function private.InitializeListFrame()
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
-					local recipe_entry = collection_collectables[spell_id]
+					local collectable_entry = collectable_list[spell_id]
 
-					if recipe_entry and recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe_entry) then
+					if collectable_entry and collectable_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(collectable_entry) then
 						local entry = AcquireTable()
 						local expand = false
 						local type = "subheader"
@@ -1318,10 +1317,10 @@ function private.InitializeListFrame()
 							expand = true
 							type = "entry"
 						end
-						local is_expanded = (current_tab[prof_name.." expanded"][spell_id]
-								     and current_tab[prof_name.." expanded"][private.ACQUIRE_NAMES[acquire_id]])
+						local is_expanded = (current_tab[collection_type .." expanded"][spell_id]
+								     and current_tab[collection_type .." expanded"][private.ACQUIRE_NAMES[acquire_id]])
 
-						entry.text = recipe_entry:GetDisplayName()
+						entry.text = collectable_entry:GetDisplayName()
 						entry.recipe_id = spell_id
 						entry.acquire_id = acquire_id
 
@@ -1330,7 +1329,7 @@ function private.InitializeListFrame()
 					end
 				end
 			elseif current_entry.type == "subheader" then
-				for acquire_type, acquire_data in pairs(collection_collectables[current_entry.recipe_id].acquire_data) do
+				for acquire_type, acquire_data in pairs(collectable_list[current_entry.recipe_id].acquire_data) do
 					if acquire_type == acquire_id then
 						entry_index = ExpandAcquireData(entry_index, "subentry", current_entry, acquire_type, acquire_data,
 										current_entry.recipe_id, false, true)
@@ -1352,7 +1351,7 @@ function private.InitializeListFrame()
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
-					local recipe_entry = collection_collectables[spell_id]
+					local recipe_entry = collectable_list[spell_id]
 
 					if recipe_entry and recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe_entry) then
 						local expand = false
@@ -1364,8 +1363,8 @@ function private.InitializeListFrame()
 							expand = true
 							type = "entry"
 						end
-						local is_expanded = (current_tab[prof_name.." expanded"][spell_id]
-								     and current_tab[prof_name.." expanded"][location_id])
+						local is_expanded = (current_tab[collection_type .." expanded"][spell_id]
+								     and current_tab[collection_type .." expanded"][location_id])
 
 						entry.text = recipe_entry:GetDisplayName()
 						entry.recipe_id = spell_id
@@ -1376,7 +1375,7 @@ function private.InitializeListFrame()
 					end
 				end
 			elseif current_entry.type == "subheader" then
-				local recipe_entry = collection_collectables[current_entry.recipe_id]
+				local recipe_entry = collectable_list[current_entry.recipe_id]
 
 				-- World Drops are not handled here because they are of type "entry".
 				for acquire_type, acquire_data in pairs(recipe_entry.acquire_data) do
@@ -1424,7 +1423,7 @@ function private.InitializeListFrame()
 		-- Normal entry - expand all acquire types.
 		local recipe_id = self.entries[orig_index].recipe_id
 
-		for acquire_type, acquire_data in pairs(collection_collectables[recipe_id].acquire_data) do
+		for acquire_type, acquire_data in pairs(collectable_list[recipe_id].acquire_data) do
 			entry_index = ExpandAcquireData(entry_index, "entry", current_entry, acquire_type, acquire_data, recipe_id)
 		end
 		return entry_index

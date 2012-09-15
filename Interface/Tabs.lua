@@ -213,7 +213,7 @@ function private.InitializeTabs()
 			table.sort(sorted_acquires, Sort_Acquisition)
 		end
 		local prof_name = ORDERED_COLLECTIONS[MainPanel.collection]
-		local profession_recipes = private.collectable_list[prof_name]
+		local profession_recipes = private.category_collectable_list[prof_name]
 
 		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
 
@@ -280,7 +280,7 @@ function private.InitializeTabs()
 			table.sort(sorted_locations, Sort_Location)
 		end
 		local prof_name = ORDERED_COLLECTIONS[MainPanel.collection]
-		local profession_recipes = private.collectable_list[prof_name]
+		local profession_recipes = private.category_collectable_list[prof_name]
 
 		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
 
@@ -367,7 +367,7 @@ function private.InitializeTabs()
 
 	function RecipesTab:Initialize(expand_mode)
 		local prof_name = ORDERED_COLLECTIONS[MainPanel.collection]
-		local profession_recipes = private.collectable_list[prof_name]
+		local profession_recipes = private.category_collectable_list[prof_name]
 
 		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
 
