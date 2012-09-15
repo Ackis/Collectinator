@@ -623,7 +623,7 @@ function private.InitializeListFrame()
 			-------------------------------------------------------------------------------
 
 			-- Display both horde and alliance factions?
-			if not general_filters.faction and not private.Player:HasRecipeFaction(recipe) then
+			if not general_filters.faction and not private.Player:HasCollectableFaction(recipe) then
 				return false
 			end
 

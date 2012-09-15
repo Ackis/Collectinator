@@ -133,7 +133,7 @@ function Player:HasProperRepLevel(rep_data)
 	return has_faction
 end
 
-function Player:HasFaction(collection)
+function Player:HasCollectableFaction(collection)
 	local flagged_horde = collection:HasFilter("common1", "HORDE")
 	local flagged_alliance = collection:HasFilter("common1", "ALLIANCE")
 

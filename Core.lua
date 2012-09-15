@@ -433,7 +433,7 @@ function addon:OnInitialize()
 				local skill_level = player.professions[recipe_prof]
 				local has_level = skill_level and (type(skill_level) == "boolean" and true or skill_level >= recipe.skill_level)
 
-				if (_G.IsShiftKeyDown() or (not recipe:HasState("KNOWN") and has_level)) and player:HasRecipeFaction(recipe) then
+				if (_G.IsShiftKeyDown() or (not recipe:HasState("KNOWN") and has_level)) and player:HasCollectableFaction(recipe) then
 					local _, _, _, hex = _G.GetItemQualityColor(recipe.quality)
 
 					self:AddLine(("%s: |c%s%s|r (%d)"):format(recipe.profession, hex, recipe.name, recipe.skill_level))
