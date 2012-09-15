@@ -371,10 +371,10 @@ function private.InitializeFrame()
 	end	-- do-block
 
 	function MainPanel:UpdateTitle()
-		local current_prof = ORDERED_COLLECTIONS[self.collection]
+		local corrent_col = ORDERED_COLLECTIONS[self.collection]
 
 		if not self.is_expanded then
-			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "COL (%s) - %s"), addon.version, current_prof)
+			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "COL (%s) - %s"), addon.version, corrent_col)
 			return
 		end
 		local total, active = 0, 0
@@ -387,7 +387,7 @@ function private.InitializeFrame()
 				total = total + 1
 			end
 		end
-		self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "COL (%s) - %s (%d/%d %s)"), addon.version, current_prof, active, total, _G.FILTERS)
+		self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "COL (%s) - %s (%d/%d %s)"), addon.version, corrent_col, active, total, _G.FILTERS)
 	end
 
 	-------------------------------------------------------------------------------

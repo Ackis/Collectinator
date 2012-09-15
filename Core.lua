@@ -545,7 +545,7 @@ do
 			self:InitializeCollection(private.COLLECTION_NAMES.MOUNT)
 			collection_type = private.COLLECTION_NAMES.MOUNT
 
-			local mounts = private.category_collectable_list[private.COLLECTION_NAMES.MOUNT]
+			local mounts = private.collectable_list[private.COLLECTION_NAMES.MOUNT]
 
 			if not mounts then
 				self:Debug("Errror, %s table not made.", private.COLLECTION_NAMES.MOUNT)
@@ -576,7 +576,7 @@ do
 
 			collection_type = private.COLLECTION_NAMES.PET
 
-			local critters = private.category_collectable_list[private.COLLECTION_NAMES.PET]
+			local critters = private.collectable_list[private.COLLECTION_NAMES.PET]
 
 			if not critters then
 				self:Debug("Errror, %s table not made.", private.COLLECTION_NAMES.PET)

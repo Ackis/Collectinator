@@ -218,7 +218,7 @@ function private.InitializeListFrame()
 	ScrollBar:SetScript("OnValueChanged", function(self, value)
 		local min_val, max_val = self:GetMinMaxValues()
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
-		local member = "profession_" .. MainPanel.profession .. "_scroll_value"
+		local member = "collection_" .. MainPanel.collection .. "_scroll_value"
 
 		current_tab[member] = value
 
@@ -268,7 +268,7 @@ function private.InitializeListFrame()
 
 		-- First, check if this is a "modified" click, and react appropriately
 		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
-			local profession_recipes = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.profession]]
+			local collection_collectables = private.collectable_list[private.ORDERED_COLLECTIONS[MainPanel.collection]]
 
 			if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
@@ -277,10 +277,10 @@ function private.InitializeListFrame()
 					local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
 					_G.ChatEdit_ActivateChat(edit_box)
-					edit_box:Insert(_G.GetSpellLink(profession_recipes[clicked_line.recipe_id].spell_id))
+					edit_box:Insert(_G.GetSpellLink(collection_collectables[clicked_line.recipe_id].spell_id))
 				end
 			elseif _G.IsShiftKeyDown() then
-				local crafted_item_id = profession_recipes[clicked_line.recipe_id]:CraftedItemID()
+				local crafted_item_id = collection_collectables[clicked_line.recipe_id]:CraftedItemID()
 
 				if crafted_item_id then
 					local _, item_link = _G.GetItemInfo(crafted_item_id)
@@ -688,11 +688,12 @@ function private.InitializeListFrame()
 			-- Update recipe filters.
 			-------------------------------------------------------------------------------
 			local general_filters = addon.db.profile.filters.general
-			local profession_recipes = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.profession]]
+			local collection_collectables = private.collectable_list[private.ORDERED_COLLECTIONS[MainPanel.collection]]
+
 			local recipes_known, recipes_known_filtered = 0, 0
 			local recipes_total, recipes_total_filtered = 0, 0
 
-			for recipe_id, recipe in pairs(profession_recipes) do
+			for recipe_id, recipe in pairs(collection_collectables) do
 				local can_display = false
 				recipe:RemoveState("VISIBLE")
 
@@ -742,7 +743,7 @@ function private.InitializeListFrame()
 			local unknown_count = 0
 
 			for spell_id in pairs(addon.db.profile.exclusionlist) do
-				local recipe = profession_recipes[spell_id]
+				local recipe = collection_collectables[spell_id]
 
 				if recipe then
 					if recipe:HasState("KNOWN") then
@@ -759,7 +760,7 @@ function private.InitializeListFrame()
 			-- Initialize the expand button and entries for the current tab.
 			-------------------------------------------------------------------------------
 			local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
-			local expanded_button = current_tab["expand_button_"..MainPanel.profession]
+			local expanded_button = current_tab["expand_button_"..MainPanel.collection]
 
 			if expanded_button then
 				MainPanel.expand_button:Expand(current_tab)
@@ -898,7 +899,7 @@ function private.InitializeListFrame()
 		else
 			local max_val = num_entries - NUM_COL_LINES
 			local current_tab = MainPanel.tabs[MainPanel.current_tab]
-			local scroll_value = current_tab["profession_"..MainPanel.profession.."_scroll_value"] or 0
+			local scroll_value = current_tab["collection_"..MainPanel.collection.."_scroll_value"] or 0
 
 			scroll_value = math.max(0, math.min(scroll_value, max_val))
 			offset = scroll_value
@@ -1285,8 +1286,8 @@ function private.InitializeListFrame()
 		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
-		local prof_name = private.ORDERED_COLLECTIONS[MainPanel.profession]
-		local profession_recipes = private.category_collectable_list[prof_name]
+		local prof_name = private.ORDERED_COLLECTIONS[MainPanel.collection]
+		local collection_collectables = private.collectable_list[prof_name]
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -1306,7 +1307,7 @@ function private.InitializeListFrame()
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
-					local recipe_entry = profession_recipes[spell_id]
+					local recipe_entry = collection_collectables[spell_id]
 
 					if recipe_entry and recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe_entry) then
 						local entry = AcquireTable()
@@ -1329,7 +1330,7 @@ function private.InitializeListFrame()
 					end
 				end
 			elseif current_entry.type == "subheader" then
-				for acquire_type, acquire_data in pairs(profession_recipes[current_entry.recipe_id].acquire_data) do
+				for acquire_type, acquire_data in pairs(collection_collectables[current_entry.recipe_id].acquire_data) do
 					if acquire_type == acquire_id then
 						entry_index = ExpandAcquireData(entry_index, "subentry", current_entry, acquire_type, acquire_data,
 										current_entry.recipe_id, false, true)
@@ -1351,7 +1352,7 @@ function private.InitializeListFrame()
 
 				for index = 1, #sorted_recipes do
 					local spell_id = sorted_recipes[index]
-					local recipe_entry = profession_recipes[spell_id]
+					local recipe_entry = collection_collectables[spell_id]
 
 					if recipe_entry and recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe_entry) then
 						local expand = false
@@ -1375,7 +1376,7 @@ function private.InitializeListFrame()
 					end
 				end
 			elseif current_entry.type == "subheader" then
-				local recipe_entry = profession_recipes[current_entry.recipe_id]
+				local recipe_entry = collection_collectables[current_entry.recipe_id]
 
 				-- World Drops are not handled here because they are of type "entry".
 				for acquire_type, acquire_data in pairs(recipe_entry.acquire_data) do
@@ -1423,7 +1424,7 @@ function private.InitializeListFrame()
 		-- Normal entry - expand all acquire types.
 		local recipe_id = self.entries[orig_index].recipe_id
 
-		for acquire_type, acquire_data in pairs(profession_recipes[recipe_id].acquire_data) do
+		for acquire_type, acquire_data in pairs(collection_collectables[recipe_id].acquire_data) do
 			entry_index = ExpandAcquireData(entry_index, "entry", current_entry, acquire_type, acquire_data, recipe_id)
 		end
 		return entry_index
@@ -1807,22 +1808,9 @@ do
 		end
 
 		-- Add in skill level requirement, colored correctly
-		local skill_level = private.current_profession_scanlevel
 		local color_type
+		color_type = "trivial"
 
-		if recipe.skill_level > skill_level then
-			color_type = "impossible"
-		elseif skill_level >= recipe.trivial_level then
-			color_type = "trivial"
-		elseif skill_level >= recipe.easy_level then
-			color_type = "easy"
-		elseif skill_level >= recipe.medium_level then
-			color_type = "medium"
-		elseif skill_level >= recipe.optimal_level then
-			color_type = "optimal"
-		else
-			color_type = "trivial"
-		end
 		ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS[color_type])
 		acquire_tip:AddSeparator()
 
@@ -1833,14 +1821,6 @@ do
 		end
 		acquire_tip:AddSeparator()
 
-		local recipe_specialty = recipe.specialty
-
-		if recipe_specialty then
-			local hex_color = (recipe_specialty == private.current_profession_specialty) and BASIC_COLORS["white"] or private.DIFFICULTY_COLORS["impossible"]
-
-			ttAdd(0, -1, false, _G.ITEM_REQ_SKILL:format(_G.GetSpellInfo(recipe_specialty)), hex_color)
-			acquire_tip:AddSeparator()
-		end
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
 
 		addon:DisplayAcquireData(list_entry.recipe_id, list_entry.acquire_id, list_entry.location_id, ttAdd)
