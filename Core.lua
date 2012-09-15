@@ -195,8 +195,6 @@ function addon:OnInitialize()
 				-------------------------------------------------------------------------------
 				general = {
 					faction = true,
-					specialty = false,
-					skill = true,
 					known = false,
 					unknown = true,
 					retired = false,
@@ -281,6 +279,9 @@ function addon:OnInitialize()
 					ramkahen = true,
 					earthenring = true,
 					therazane = true,
+				},
+				pet = {
+					captured = true,
 				},
 			}
 		}

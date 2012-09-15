@@ -1236,8 +1236,6 @@ function private.InitializeFilterPanel()
 		------------------------------------------------------------------------------------------------
 		-- General Options
 		------------------------------------------------------------------------------------------------
-		["specialty"]		= { cb = FilterPanel.general.specialty,		svroot = filterdb.general },
-		["skill"]		= { cb = FilterPanel.general.skill,		svroot = filterdb.general },
 		["faction"]		= { cb = FilterPanel.general.faction,		svroot = filterdb.general },
 		["known"]		= { cb = FilterPanel.general.known,		svroot = filterdb.general },
 		["unknown"]		= { cb = FilterPanel.general.unknown,		svroot = filterdb.general },
