@@ -45,11 +45,11 @@ do
 	local sorted_collections = addon.sorted_collections
 
 	local function Sort_NameAsc(a, b)
-		return collectable_list[a].name < collectable_list[b].name
+		return collectable_list[a] and collectable_list[b] and collectable_list[a].name < collectable_list[b].name
 	end
 
 	local function Sort_NameDesc(a, b)
-		return collectable_list[a].name > collectable_list[b].name
+		return collectable_list[a] and collectable_list[b] and collectable_list[a].name > collectable_list[b].name
 	end
 
 	local COLLECTABLE_SORT_FUNCS = {
