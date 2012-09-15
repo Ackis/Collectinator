@@ -160,11 +160,11 @@ function private.InitializeTabs()
 	end
 	local AcquisitionTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 81)
 	local LocationTab = CreateTab(2, L["Location"], "LEFT", AcquisitionTab, "RIGHT", -14, 0)
-	local RecipesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
+	local CollectablesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
 
-	-- Used for Location and Acquisition sort - since many recipes have multiple locations/acquire types it is
+	-- Used for Location and Acquisition sort - since many collectables have multiple locations/acquire types it is
 	-- necessary to ensure each is counted only once.
-	local recipe_registry = {}
+	local collectable_registry = {}
 
 	local function FactionTally(source_data, unit_list, location)
 		local good, bad = 0, 0
@@ -191,10 +191,10 @@ function private.InitializeTabs()
 	local sorted_locations
 
 	function AcquisitionTab:Initialize(expand_mode)
-		local recipe_count = 0
+		local collectable_count = 0
 		local insert_index = 1
 
-		table.wipe(recipe_registry)
+		table.wipe(collectable_registry)
 
 		if not sorted_acquires then
 			-- Sorting function: Only used once and then thrown away.
@@ -212,10 +212,10 @@ function private.InitializeTabs()
 			end
 			table.sort(sorted_acquires, Sort_Acquisition)
 		end
-		local prof_name = ORDERED_COLLECTIONS[MainPanel.collection]
-		local profession_recipes = private.category_collectable_list[prof_name]
+		local collectable_type = ORDERED_COLLECTIONS[MainPanel.collection]
+		local collectables = private.category_collectable_list[collectable_type]
 
-		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
+		self[collectable_type .." expanded"] = self[collectable_type .." expanded"] or {}
 
 		for index = 1, #sorted_acquires do
 			local acquire_type = sorted_acquires[index]
@@ -223,17 +223,17 @@ function private.InitializeTabs()
 
 			-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
 			for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
-				local recipe = profession_recipes[spell_id]
+				local collectable = collectables[spell_id]
 
-				if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
+				if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(collectable) then
 					count = count + 1
 
-					if not recipe_registry[recipe] then
-						recipe_registry[recipe] = true
-						recipe_count = recipe_count + 1
+					if not collectable_registry[collectable] then
+						collectable_registry[collectable] = true
+						collectable_count = collectable_count + 1
 					end
 				else
-					self[prof_name.." expanded"][spell_id] = nil
+					self[collectable_type .." expanded"][spell_id] = nil
 				end
 			end
 
@@ -242,26 +242,26 @@ function private.InitializeTabs()
 
 				local acquire_str = private.ACQUIRE_STRINGS[acquire_type]:lower():gsub("_","")
 				local color_code = private.CATEGORY_COLORS[acquire_str] or "ffffff"
-				local is_expanded = self[prof_name.." expanded"][private.ACQUIRE_NAMES[acquire_type]]
+				local is_expanded = self[collectable_type .." expanded"][private.ACQUIRE_NAMES[acquire_type]]
 
 				entry.text = ("%s (%d)"):format(SetTextColor(color_code, private.ACQUIRE_NAMES[acquire_type]),count)
 				entry.acquire_id = acquire_type
 
 				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name.." expanded"][private.ACQUIRE_NAMES[acquire_type]] = nil
+				self[collectable_type .." expanded"][private.ACQUIRE_NAMES[acquire_type]] = nil
 			end
 		end
-		return recipe_count
+		return collectable_count
 	end
 
 	function LocationTab:Initialize(expand_mode)
 		local search_box = MainPanel.search_editbox
 
-		local recipe_count = 0
+		local collectable_count = 0
 		local insert_index = 1
 
-		table.wipe(recipe_registry)
+		table.wipe(collectable_registry)
 
 		if not sorted_locations then
 			-- Sorting function: Only used once and then thrown away.
@@ -279,10 +279,10 @@ function private.InitializeTabs()
 			end
 			table.sort(sorted_locations, Sort_Location)
 		end
-		local prof_name = ORDERED_COLLECTIONS[MainPanel.collection]
-		local profession_recipes = private.category_collectable_list[prof_name]
+		local collectable_type = ORDERED_COLLECTIONS[MainPanel.collection]
+		local collectables = private.category_collectable_list[collectable_type]
 
-		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
+		self[collectable_type .." expanded"] = self[collectable_type .." expanded"] or {}
 
 		for index = 1, #sorted_locations do
 			local loc_name = sorted_locations[index]
@@ -290,10 +290,10 @@ function private.InitializeTabs()
 
 			-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
 			for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
-				local recipe = profession_recipes[spell_id]
+				local collectable = collectables[spell_id]
 
-				if recipe and recipe:HasState("VISIBLE") and search_box:MatchesRecipe(recipe) then
-					local trainer_data = recipe.acquire_data[A.TRAINER]
+				if collectable and collectable:HasState("VISIBLE") and search_box:MatchesRecipe(collectable) then
+					local trainer_data = collectable.acquire_data[A.TRAINER]
 					local good_count, bad_count = 0, 0
 					local fac_toggle = addon.db.profile.filters.general.faction
 
@@ -307,7 +307,7 @@ function private.InitializeTabs()
 								good_count = good_count + 1
 							end
 						end
-						local vendor_data = recipe.acquire_data[A.VENDOR]
+						local vendor_data = collectable.acquire_data[A.VENDOR]
 
 						if vendor_data then
 							local good, bad = FactionTally(vendor_data, private.vendor_list, loc_name)
@@ -318,7 +318,7 @@ function private.InitializeTabs()
 								good_count = good_count + 1
 							end
 						end
-						local quest_data = recipe.acquire_data[A.QUEST]
+						local quest_data = collectable.acquire_data[A.QUEST]
 
 						if quest_data then
 							local good, bad = FactionTally(quest_data, private.quest_list, loc_name)
@@ -334,18 +334,18 @@ function private.InitializeTabs()
 					if fac_toggle or not (good_count == 0 and bad_count > 0) then
 						count = count + 1
 
-						if not recipe_registry[recipe] then
-							recipe_registry[recipe] = true
-							recipe_count = recipe_count + 1
+						if not collectable_registry[collectable] then
+							collectable_registry[collectable] = true
+							collectable_count = collectable_count + 1
 						end
 					end
 				else
-					self[prof_name.." expanded"][spell_id] = nil
+					self[collectable_type .." expanded"][spell_id] = nil
 				end
 			end
 
 			if count > 0 then
-				local is_expanded = self[prof_name.." expanded"][loc_name]
+				local is_expanded = self[collectable_type .." expanded"][loc_name]
 				local entry = AcquireTable()
 
 				if loc_name == _G.GetRealZoneText() then
@@ -359,48 +359,48 @@ function private.InitializeTabs()
 
 				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name.." expanded"][loc_name] = nil
+				self[collectable_type .." expanded"][loc_name] = nil
 			end
 		end
-		return recipe_count
+		return collectable_count
 	end
 
-	function RecipesTab:Initialize(expand_mode)
-		local prof_name = ORDERED_COLLECTIONS[MainPanel.collection]
-		local profession_recipes = private.category_collectable_list[prof_name]
+	function CollectablesTab:Initialize(expand_mode)
+		local collection_type = ORDERED_COLLECTIONS[MainPanel.collection]
+		local collectables = private.category_collectable_list[collection_type]
 
-		self[prof_name.." expanded"] = self[prof_name.." expanded"] or {}
+		self[collection_type .." expanded"] = self[collection_type .." expanded"] or {}
 
-		private.SortRecipeList(profession_recipes)
+		private.SortRecipeList(collectables)
 
-		local sorted_recipes = addon.sorted_recipes
-		local recipe_count = 0
+		local sorted_collectables = addon.sorted_recipes
+		local collectable_count = 0
 		local insert_index = 1
 
-		for i = 1, #sorted_recipes do
-			local recipe_index = sorted_recipes[i]
-			local recipe = profession_recipes[recipe_index]
+		for i = 1, #sorted_collectables do
+			local collectable_index = sorted_collectables[i]
+			local collectable = collectables[collectable_index]
 
-			if recipe and recipe:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(recipe) then
-				local is_expanded = self[prof_name.." expanded"][recipe_index]
+			if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesRecipe(collectable) then
+				local is_expanded = self[collection_type .." expanded"][collectable_index]
 				local entry = AcquireTable()
-				entry.text = recipe:GetDisplayName()
-				entry.recipe_id = recipe_index
+				entry.text = collectable:GetDisplayName()
+				entry.recipe_id = collectable_index
 
-				recipe_count = recipe_count + 1
+				collectable_count = collectable_count + 1
 
 				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[prof_name.." expanded"][recipe_index] = nil
+				self[collection_type .." expanded"][collectable_index] = nil
 			end
 		end
-		return recipe_count
+		return collectable_count
 	end
 
 	MainPanel.tabs = {
 		AcquisitionTab,
+		CollectablesTab,
 		LocationTab,
-		RecipesTab,
 	}
 
 	private.InitializeTabs = nil

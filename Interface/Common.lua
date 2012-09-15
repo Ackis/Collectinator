@@ -41,15 +41,15 @@ end	-- do block
 do
 	addon.sorted_collections = {}
 
-	local collection_list = private.collection_list
+	local collectable_list = private.collectable_list
 	local sorted_collections = addon.sorted_collections
 
 	local function Sort_NameAsc(a, b)
-		return collection_list[a].name < collection_list[b].name
+		return collectable_list[a].name < collectable_list[b].name
 	end
 
 	local function Sort_NameDesc(a, b)
-		return collection_list[a].name > collection_list[b].name
+		return collectable_list[a].name > collectable_list[b].name
 	end
 
 	local COL_SORT_FUNCS = {
@@ -57,8 +57,8 @@ do
 		["NameDescending"]	= Sort_NameDesc,
 	}
 
-	-- Sorts the collection_list according to configuration settings.
-	function private.SortRecipeList(collection_list)
+	-- Sorts the collectable_list according to configuration settings.
+	function private.SortRecipeList(collectable_list)
 		local sort_type = addon.db.profile.sorting
 		local skill_view = addon.db.profile.skill_view
 
@@ -66,7 +66,7 @@ do
 
 		table.wipe(sorted_collections)
 
-		for recipe_id, recipe in pairs(collection_list) do
+		for recipe_id, recipe in pairs(collectable_list) do
 			sorted_collections[#sorted_collections + 1] = recipe_id
 		end
 		table.sort(sorted_collections, sort_func)
