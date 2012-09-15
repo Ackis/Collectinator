@@ -51,8 +51,8 @@ private.ORDERED_COLLECTIONS = {
 }
 
 private.COLLECTION_LABELS = {
-	"mount",		-- 1
-	"pet",			-- 2
+	"MOUNT",		-- 1
+	"CRITTER",		-- 2
 }
 
 -------------------------------------------------------------------------------

@@ -148,7 +148,7 @@ function private.InitializeFrame()
 	-- Displays the main GUI frame.
 	-------------------------------------------------------------------------------
 	local ITEM_FILTER_INIT_FUNCS = {
-		["pets"] = private.InitializeItemFilters_Pets,
+		["critter"] = private.InitializeItemFilters_Pets,
 	}
 
 	function MainPanel:Display(collection_name)
@@ -181,7 +181,9 @@ function private.InitializeFrame()
 		if private.InitializeFilterPanel then
 			private.InitializeFilterPanel()
 		end
+
 		local collection_name = private.COLLECTION_LABELS[self.collection]
+
 		local init_func = ITEM_FILTER_INIT_FUNCS[collection_name]
 		local panel
 

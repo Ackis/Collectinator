@@ -532,6 +532,8 @@ do
 	-- List of collection (e.g. pet filters) headers, used in addon:Scan()
 	local header_list = {}
 
+	local collection_type
+
 	-- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.
 	-- Parses Collections and displays output
 	function addon:Scan(textdump, is_refresh)
@@ -541,6 +543,7 @@ do
 		if current_panel == private.COLLECTION_TYPE_IDS.MOUNT then
 
 			self:InitializeCollection(private.COLLECTION_NAMES.MOUNT)
+			collection_type = private.COLLECTION_NAMES.MOUNT
 
 			local mounts = private.category_collectable_list[private.COLLECTION_NAMES.MOUNT]
 
@@ -570,6 +573,8 @@ do
 		-- Scanning Pets
 		elseif current_panel == private.COLLECTION_TYPE_IDS.PET then
 			self:InitializeCollection(private.COLLECTION_NAMES.PET)
+
+			collection_type = private.COLLECTION_NAMES.PET
 
 			local critters = private.category_collectable_list[private.COLLECTION_NAMES.PET]
 
@@ -611,8 +616,8 @@ do
 			if private.InitializeFrame then
 				private.InitializeFrame()
 			end
-			addon:Print("Displaying frame for " .. current_panel)
-			self.Frame:Display(current_panel)
+			addon:Print("Displaying frame for " .. collection_type)
+			self.Frame:Display(collection_type)
 		end
 	end
 end
