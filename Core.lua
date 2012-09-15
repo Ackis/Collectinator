@@ -64,7 +64,7 @@ function addon:Debug(...)
 		debugger:AddMessage(text)
 
 		--@debug@
-		Toast:Spawn("COL_DebugToast", text)
+		Toast:Spawn("Collectinator_DebugToast", text)
 		--@end-debug@
 	else
 		--@debug@
@@ -73,7 +73,7 @@ function addon:Debug(...)
 	end
 end
 
-Toast:Register("COL_DebugToast", function(toast, ...)
+Toast:Register("Collectinator_DebugToast", function(toast, ...)
 	toast:SetTitle(("%s - Debug"):format(private.addon_name))
 	toast:SetText(...)
 	toast:SetIconTexture([[Interface\HELPFRAME\HotIssueIcon]])

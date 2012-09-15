@@ -57,7 +57,7 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Create the MainPanel and set its values
 	-------------------------------------------------------------------------------
-	local MainPanel = _G.CreateFrame("Frame", "COL_MainPanel", _G.UIParent)
+	local MainPanel = _G.CreateFrame("Frame", "Collectinator_MainPanel", _G.UIParent)
 
 	-- The panel width changes when contracting and expanding - store it for later use.
 	MainPanel.normal_width = 384
@@ -78,7 +78,7 @@ function private.InitializeFrame()
 	MainPanel.is_expanded = false
 
 	-- Let the user banish the MainPanel with the ESC key.
-	table.insert(_G.UISpecialFrames, "COL_MainPanel")
+	table.insert(_G.UISpecialFrames, "Collectinator_MainPanel")
 	addon.Frame = MainPanel
 
 	do
@@ -167,7 +167,7 @@ function private.InitializeFrame()
 		if self.current_collectable_type ~= prev_collectable_type then
 			self.prev_collectable_type = self.current_collectable_type
 		end
-		self.prof_button:SetTexture()
+		self.collectable_type_button:SetTexture()
 
 		local editbox = self.search_editbox
 
@@ -370,10 +370,10 @@ function private.InitializeFrame()
 	end	-- do-block
 
 	function MainPanel:UpdateTitle()
-		local corrent_col = ORDERED_COLLECTIONS[self.current_collectable_type]
+		local collectable_type = ORDERED_COLLECTIONS[self.current_collectable_type]
 
 		if not self.is_expanded then
-			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "COL (%s) - %s"), addon.version, corrent_col)
+			self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "%s (%s) - %s"), private.addon_name, addon.version, collectable_type)
 			return
 		end
 		local total, active = 0, 0
@@ -386,7 +386,7 @@ function private.InitializeFrame()
 				total = total + 1
 			end
 		end
-		self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "COL (%s) - %s (%d/%d %s)"), addon.version, corrent_col, active, total, _G.FILTERS)
+		self.title_bar:SetFormattedText(SetTextColor(private.BASIC_COLORS["normal"], "%s (%s) - %s (%d/%d %s)"), private.addon_name, addon.version, collectable_type, active, total, _G.FILTERS)
 	end
 
 	-------------------------------------------------------------------------------
@@ -397,9 +397,9 @@ function private.InitializeFrame()
 	collection_cycler:SetPoint("TOPLEFT", 7, -6)
 	collection_cycler:SetHighlightTexture([[Interface\Cooldown\ping4]])
 	collection_cycler:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-	MainPanel.prof_button = collection_cycler
+	MainPanel.collectable_type_button = collection_cycler
 
-	local collection_texture = MainPanel:CreateTexture("COL_CollectionButtonPortrait", "ARTWORK")
+	local collection_texture = MainPanel:CreateTexture("Collectinator_CollectionButtonPortrait", "ARTWORK")
 	collection_texture:SetSize(60, 60)
 	collection_texture:SetPoint("TOPLEFT", 7, -6)
 	MainPanel.collection_texture = collection_texture
@@ -488,7 +488,7 @@ function private.InitializeFrame()
 	end)
 
 	function collection_cycler:SetTexture()
-		_G.SetPortraitToTexture("COL_CollectionButtonPortrait", _G.GetTradeSkillTexture())
+		_G.SetPortraitToTexture("Collectinator_CollectionButtonPortrait", _G.GetTradeSkillTexture())
 	end
 
 	-------------------------------------------------------------------------------

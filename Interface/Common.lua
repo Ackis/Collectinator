@@ -52,7 +52,7 @@ do
 		return collectable_list[a].name > collectable_list[b].name
 	end
 
-	local COL_SORT_FUNCS = {
+	local COLLECTABLE_SORT_FUNCS = {
 		["NameAscending"]	= Sort_NameAsc,
 		["NameDescending"]	= Sort_NameDesc,
 	}
@@ -62,7 +62,7 @@ do
 		local sort_type = addon.db.profile.sorting
 		local skill_view = addon.db.profile.skill_view
 
-		local sort_func = COL_SORT_FUNCS[(skill_view and "Skill" or "Name")..sort_type] or Sort_NameAsc
+		local sort_func = COLLECTABLE_SORT_FUNCS[(skill_view and "Skill" or "Name")..sort_type] or Sort_NameAsc
 
 		table.wipe(sorted_collections)
 

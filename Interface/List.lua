@@ -27,7 +27,7 @@ local Dialog	= LibStub("LibDialog-1.0")
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local NUM_COL_LINES	= 25
+local NUM_COLLECTABLE_LINES = 25
 local SCROLL_DEPTH	= 5
 local LISTFRAME_WIDTH	= 295
 local LIST_ENTRY_WIDTH	= 286
@@ -44,7 +44,7 @@ local COORD_FORMAT	= "(%.2f, %.2f)"
 -------------------------------------------------------------------------------
 -- Dialogs.
 -------------------------------------------------------------------------------
-Dialog:Register("COL_NotScanned", {
+Dialog:Register("Collectinator_NotScanned", {
 	text = L["NOTSCANNED"],
 	buttons = {
 		{
@@ -55,7 +55,7 @@ Dialog:Register("COL_NotScanned", {
 	hide_on_escape = true,
 })
 
-Dialog:Register("COL_AllFiltered", {
+Dialog:Register("Collectinator_AllFiltered", {
 	text = L["ALL_FILTERED"],
 	buttons = {
 		{
@@ -66,7 +66,7 @@ Dialog:Register("COL_AllFiltered", {
 	hide_on_escape = true,
 })
 
-Dialog:Register("COL_AllKnown", {
+Dialog:Register("Collectinator_AllKnown", {
 	text = L["ALL_KNOWN"],
 	buttons = {
 		{
@@ -77,7 +77,7 @@ Dialog:Register("COL_AllKnown", {
 	hide_on_escape = true,
 })
 
-Dialog:Register("COL_AllExcluded", {
+Dialog:Register("Collectinator_AllExcluded", {
 	text = L["ALL_EXCLUDED"],
 	buttons = {
 		{
@@ -88,7 +88,7 @@ Dialog:Register("COL_AllExcluded", {
 	hide_on_escape = true,
 })
 
-Dialog:Register("COL_SearchFiltered", {
+Dialog:Register("Collectinator_SearchFiltered", {
 	text = L["SEARCH_FILTERED"],
 	buttons = {
 		{
@@ -100,11 +100,11 @@ Dialog:Register("COL_SearchFiltered", {
 })
 
 function private.DismissDialogs()
-	Dialog:Dismiss("COL_NotScanned")
-	Dialog:Dismiss("COL_AllFiltered")
-	Dialog:Dismiss("COL_AllKnown")
-	Dialog:Dismiss("COL_AllExcluded")
-	Dialog:Dismiss("COL_SearchFiltered")
+	Dialog:Dismiss("Collectinator_NotScanned")
+	Dialog:Dismiss("Collectinator_AllFiltered")
+	Dialog:Dismiss("Collectinator_AllKnown")
+	Dialog:Dismiss("Collectinator_AllExcluded")
+	Dialog:Dismiss("Collectinator_SearchFiltered")
 end
 
 
@@ -377,7 +377,7 @@ function private.InitializeListFrame()
 	ListFrame.state_buttons = {}
 	ListFrame.entry_buttons = {}
 
-	for index = 1, NUM_COL_LINES do
+	for index = 1, NUM_COLLECTABLE_LINES do
 		local cur_container = _G.CreateFrame("Frame", nil, ListFrame)
 
 		cur_container:SetHeight(16)
@@ -798,7 +798,7 @@ function private.InitializeListFrame()
 	function ListFrame:ClearLines()
 		local font_object = addon.db.profile.frameopts.small_list_font and "GameFontNormalSmall" or "GameFontNormal"
 
-		for i = 1, NUM_COL_LINES do
+		for i = 1, NUM_COLLECTABLE_LINES do
 			local entry = self.entry_buttons[i]
 			local state = self.state_buttons[i]
 
@@ -893,10 +893,10 @@ function private.InitializeListFrame()
 		MainPanel.expand_button:SetNormalFontObject("GameFontNormalSmall")
 		MainPanel.expand_button:Enable()
 
-		if num_entries <= NUM_COL_LINES then
+		if num_entries <= NUM_COLLECTABLE_LINES then
 			self.scroll_bar:Hide()
 		else
-			local max_val = num_entries - NUM_COL_LINES
+			local max_val = num_entries - NUM_COLLECTABLE_LINES
 			local current_tab = MainPanel.tabs[MainPanel.current_tab]
 			local scroll_value = current_tab["collection_"..MainPanel.current_collectable_type.."_scroll_value"] or 0
 
@@ -913,7 +913,7 @@ function private.InitializeListFrame()
 		local string_index = button_index + offset
 
 		-- Populate the buttons with new values
-		while button_index <= NUM_COL_LINES and string_index <= num_entries do
+		while button_index <= NUM_COLLECTABLE_LINES and string_index <= num_entries do
 			local cur_state = self.state_buttons[button_index]
 			local cur_entry = self.entries[string_index]
 

@@ -42,16 +42,16 @@ local collectable_meta = {
 	__index = collectable_prototype
 }
 
-function addon:AddCollectable(col_id, collection_type, genesis, quality)
+function addon:AddCollectable(collectable_id, collection_type, genesis, quality)
 	local collectable_list = private.collectable_list
 
-	if collectable_list[col_id] then
-		self:Debug("Duplicate Collectable Item: %d - %s (%s)", col_id, collectable_list[col_id].name, collectable_list[col_id].ColType)
+	if collectable_list[collectable_id] then
+		self:Debug("Duplicate Collectable Item: %d - %s (%s)", collectable_id, collectable_list[collectable_id].name, collectable_list[collectable_id].ColType)
 		return
 	end
 
 	local collectable = _G.setmetatable({
-		id = col_id,
+		id = collectable_id,
 		type = collection_type,
 		genesis = private.GAME_VERSION_NAMES[genesis],
 		quality = quality,
@@ -59,12 +59,12 @@ function addon:AddCollectable(col_id, collection_type, genesis, quality)
 		acquire_data = {},
 	}, collectable_meta)
 
-	collectable_list[col_id] = collectable
+	collectable_list[collectable_id] = collectable
 
 	if not private.category_collectable_list[collection_type] then
 		private.category_collectable_list[collection_type] = {}
 	end
-	private.category_collectable_list[collection_type][col_id] = collectable
+	private.category_collectable_list[collection_type][collectable_id] = collectable
 	private.num_category_collectables[collection_type] = (private.num_category_collectables[collection_type] or 0) + 1
 
 	return collectable
@@ -181,7 +181,7 @@ do
 		end
 		local display_name = ("|c%s%s|r"):format(quality_color, collectable_name)
 
-		if addon.db.profile.exclusionlist[self.col_id] then
+		if addon.db.profile.exclusionlist[self.id] then
 			display_name = ("** %s **"):format(display_name)
 		end
 		return display_name
@@ -190,7 +190,7 @@ end -- do-block
 
 function collectable_prototype:SetItemFilterType(filter_type)
 	if not private.ITEM_FILTER_TYPES[filter_type:upper()] then
-		addon:Debug("Attempting to set invalid item filter type '%s' for '%s' (%d)", filter_type, self.name, self.col_id)
+		addon:Debug("Attempting to set invalid item filter type '%s' for '%s' (%d)", filter_type, self.name, self.id)
 		return
 	end
 	self.item_filter_type = filter_type:lower()
@@ -200,7 +200,7 @@ function collectable_prototype:ItemFilterType()
 	return self.item_filter_type
 end
 
-local function SetFilterState(recipe, turn_on, ...)
+local function SetFilterState(collectable, turn_on, ...)
 	local num_filters = select('#', ...)
 
 	for index = 1, num_filters, 1 do
@@ -222,32 +222,32 @@ local function SetFilterState(recipe, turn_on, ...)
 				return
 			end
 
-			if not recipe.flags[member_name] then
-				recipe.flags[member_name] = 0
+			if not collectable.flags[member_name] then
+				collectable.flags[member_name] = 0
 			end
 
 			if turn_on then
-				if bit.band(recipe.flags[member_name], bitfield[filter_name]) == bitfield[filter_name] then
-					if recipe.flags[member_name] == 0 then
-						recipe.flags[member_name] = nil
+				if bit.band(collectable.flags[member_name], bitfield[filter_name]) == bitfield[filter_name] then
+					if collectable.flags[member_name] == 0 then
+						collectable.flags[member_name] = nil
 					end
 					return
 				end
 			else
-				if bit.band(recipe.flags[member_name], bitfield[filter_name]) ~= bitfield[filter_name] then
-					if recipe.flags[member_name] == 0 then
-						recipe.flags[member_name] = nil
+				if bit.band(collectable.flags[member_name], bitfield[filter_name]) ~= bitfield[filter_name] then
+					if collectable.flags[member_name] == 0 then
+						collectable.flags[member_name] = nil
 					end
 					return
 				end
 			end
-			recipe.flags[member_name] = bit.bxor(recipe.flags[member_name], bitfield[filter_name])
+			collectable.flags[member_name] = bit.bxor(collectable.flags[member_name], bitfield[filter_name])
 
-			if recipe.flags[member_name] == 0 then
-				recipe.flags[member_name] = nil
+			if collectable.flags[member_name] == 0 then
+				collectable.flags[member_name] = nil
 			end
 		else
-			addon:Debug("Recipe '%s' (spell ID %d): Attempting to %s non-existent filter flag.", recipe.name, recipe.col_id, turn_on and "assign" or "remove")
+			addon:Debug("Collectable '%s' (spell ID %d): Attempting to %s non-existent filter flag.", collectable.name, collectable.id, turn_on and "assign" or "remove")
 		end
 	end
 end
@@ -294,9 +294,9 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 				location_name = unit.location
 
 				unit.item_list = unit.item_list or {}
-				unit.item_list[self.col_id] = quantity
+				unit.item_list[self.id] = quantity
 			else
-				addon:Debug("Spell ID %d: %s ID %s does not exist in the database.", self.col_id, type_string, identifier)
+				addon:Debug("Spell ID %d: %s ID %s does not exist in the database.", self.id, type_string, identifier)
 			end
 		else
 			local string_id = type(identifier) == "string"
@@ -306,21 +306,21 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 			if location_name then
 				affiliation = "world_drop"
 			elseif string_id then
-				addon:Debug("WORLD_DROP with no location: %d %s", self.col_id, self.name)
+				addon:Debug("WORLD_DROP with no location: %d %s", self.id, self.name)
 			end
 		end
 		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
 		acquire_list[acquire_type].recipes = acquire_list[acquire_type].recipes or {}
 
 		acquire_list[acquire_type].name = private.ACQUIRE_NAMES[acquire_type]
-		acquire_list[acquire_type].recipes[self.col_id] = affiliation or true
+		acquire_list[acquire_type].recipes[self.id] = affiliation or true
 
 		if location_name then
 			location_list[location_name] = location_list[location_name] or {}
 			location_list[location_name].recipes = location_list[location_name].recipes or {}
 
 			location_list[location_name].name = location_name
-			location_list[location_name].recipes[self.col_id] = affiliation or true
+			location_list[location_name].recipes[self.id] = affiliation or true
 		end
 	end
 end
@@ -392,25 +392,25 @@ function collectable_prototype:AddRepVendor(faction_id, rep_level, ...)
 				location_name = rep_vendor.location
 
 				rep_vendor.item_list = rep_vendor.item_list or {}
-				rep_vendor.item_list[self.col_id] = true
+				rep_vendor.item_list[self.id] = true
 			else
-				self:Debug("Spell ID %d: Reputation Vendor ID %s does not exist in the database.", self.col_id, tostring(vendor_id))
+				self:Debug("Spell ID %d: Reputation Vendor ID %s does not exist in the database.", self.id, tostring(vendor_id))
 			end
 		else
-			self:Debug("Spell ID %d: Faction ID %d does not exist in the database.", self.col_id, faction_id)
+			self:Debug("Spell ID %d: Faction ID %d does not exist in the database.", self.id, faction_id)
 		end
 		acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
 		acquire_list[A.REPUTATION].recipes = acquire_list[A.REPUTATION].recipes or {}
 
 		acquire_list[A.REPUTATION].name = private.ACQUIRE_NAMES[A.REPUTATION]
-		acquire_list[A.REPUTATION].recipes[self.col_id] = affiliation or true
+		acquire_list[A.REPUTATION].recipes[self.id] = affiliation or true
 
 		if location_name then
 			location_list[location_name] = location_list[location_name] or {}
 			location_list[location_name].recipes = location_list[location_name].recipes or {}
 
 			location_list[location_name].name = location_name
-			location_list[location_name].recipes[self.col_id] = affiliation or true
+			location_list[location_name].recipes[self.id] = affiliation or true
 		end
 	end
 end
@@ -430,8 +430,8 @@ local reverse_map = {}
 function collectable_prototype:Dump(output)
 	local genesis = private.GAME_VERSIONS[self.genesis]
 
-	table.insert(output, ("-- %s -- %d"):format(self.name, self.col_id))
-	table.insert(output, ("collection = AddRecipe(%d, V.%s, Q.%s)"):format(self.col_id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
+	table.insert(output, ("-- %s -- %d"):format(self.name, self.id))
+	table.insert(output, ("collection = AddRecipe(%d, V.%s, Q.%s)"):format(self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
 	if self.collection_item_id then
 		table.insert(output, ("collection:SetRecipeItemID(%d)"):format(self.collection_item_id))
@@ -443,7 +443,7 @@ function collectable_prototype:Dump(output)
 	local previous_rank_collection = private.profession_collection_list[self.profession][self:PreviousRankID()]
 
 	if previous_rank_collection then
-		table.insert(output, ("collection:SetPreviousRankID(%d)"):format(previous_rank_collection.col_id))
+		table.insert(output, ("collection:SetPreviousRankID(%d)"):format(previous_rank_collection.id))
 	end
 
 	local skill_level = self.skill_level
@@ -508,7 +508,7 @@ function collectable_prototype:Dump(output)
 					faction_string = ("FAC.%s"):format(faction_string)
 				else
 					faction_string = rep_id
-					addon:Printf("Recipe %d (%s) - no string for faction %d", self.col_id, self.name, rep_id)
+					addon:Printf("Recipe %d (%s) - no string for faction %d", self.id, self.name, rep_id)
 				end
 
 				for rep_level, level_info in pairs(rep_info) do
@@ -554,7 +554,7 @@ function collectable_prototype:Dump(output)
 					saved_id = identifier
 				end
 				local vendor = private.vendor_list[identifier]
-				local quantity = vendor.item_list[self.col_id]
+				local quantity = vendor.item_list[self.id]
 
 				if type(quantity) == "number" then
 					if limited_values then
@@ -646,8 +646,8 @@ function collectable_prototype:DumpTrainers(registry)
 	end
 end
 
-function addon:GetRecipeData(col_id, data)
-	local collection = private.collection_list[col_id]
+function addon:GetRecipeData(collectable_id, data)
+	local collection = private.collection_list[collectable_id]
 	return collection and collection[data] or nil
 end
 
