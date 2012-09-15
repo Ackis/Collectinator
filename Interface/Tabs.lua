@@ -373,12 +373,12 @@ function private.InitializeTabs()
 
 		private.SortCollectables(collectables)
 
-		local sorted_collectables = addon.sorted_recipes
+		local sorted_collections = addon.sorted_collections
 		local collectable_count = 0
 		local insert_index = 1
 
-		for i = 1, #sorted_collectables do
-			local collectable_index = sorted_collectables[i]
+		for i = 1, #sorted_collections do
+			local collectable_index = sorted_collections[i]
 			local collectable = collectables[collectable_index]
 
 			if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable) then
