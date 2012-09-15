@@ -1042,7 +1042,7 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	-- Miscellaneous Filter Menu
 	-------------------------------------------------------------------------------
-	FilterPanel.misc = _G.CreateFrame("Frame", "ARL_FilterMenu_Misc", FilterPanel)
+	FilterPanel.misc = _G.CreateFrame("Frame", "COL_FilterMenu_Misc", FilterPanel)
 	FilterPanel.misc:SetWidth(FILTERMENU_WIDTH)
 	FilterPanel.misc:SetHeight(280)
 	FilterPanel.misc:EnableMouse(true)

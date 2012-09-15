@@ -854,22 +854,22 @@ function private.InitializeListFrame()
 
 			if player.recipes_total == 0 then
 				if showpopup then
-					Dialog:Spawn("ARL_NotScanned")
+					Dialog:Spawn("COL_NotScanned")
 				end
 			elseif player.recipes_known == player.recipes_total then
 				if showpopup then
-					Dialog:Spawn("ARL_AllKnown")
+					Dialog:Spawn("COL_AllKnown")
 				end
 			elseif (player.recipes_total_filtered - player.recipes_known_filtered) == 0 then
 				if showpopup then
-					Dialog:Spawn("ARL_AllFiltered")
+					Dialog:Spawn("COL_AllFiltered")
 				end
 			elseif player.excluded_recipes_unknown ~= 0 then
 				if showpopup then
-					Dialog:Spawn("ARL_AllExcluded")
+					Dialog:Spawn("COL_AllExcluded")
 				end
 			elseif editbox_text ~= "" and editbox_text ~= _G.SEARCH then
-				Dialog:Spawn("ARL_SearchFiltered")
+				Dialog:Spawn("COL_SearchFiltered")
 			else
 				addon:Print(L["NO_DISPLAY"])
 				addon:Debug("Current tab is %s", _G.tostring(addon.db.profile.current_tab))
