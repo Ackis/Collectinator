@@ -581,7 +581,7 @@ do
 			end
 
 			if #private.DUMP_OUTPUT > 0 then
-				table.insert(private.DUMP_OUTPUT, 1, "Untracked pets:")
+				table.insert(private.DUMP_OUTPUT, 1, ("Untracked pets: %d\n"):format(#private.DUMP_OUTPUT))
 				addon:DisplayTextDump(nil, nil, table.concat(private.DUMP_OUTPUT, "\n"))
 			end
 		end,
