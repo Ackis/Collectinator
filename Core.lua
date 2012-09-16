@@ -674,5 +674,6 @@ do
 		edit_box:HighlightText(0)
 		edit_box:SetCursorPosition(1)
 		copy_frame:Show()
+		table.wipe(private.DUMP_OUTPUT)
 	end
 end -- do
