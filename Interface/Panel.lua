@@ -616,7 +616,7 @@ function private.InitializeFrame()
 			end
 			search_pattern = search_pattern:lower()
 
-			for index, collectable in pairs(private.collectable_list[ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]) do
+			for index, collectable in pairs(private.category_collectable_list[ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]) do
 				collectable:RemoveState("RELEVANT")
 
 				for search_index = 1, #SEARCH_FUNCTIONS do
