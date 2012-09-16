@@ -272,19 +272,21 @@ function addon:InitCritters()
 
 	-- Legs -- 98079
 	pet = AddPet(98079, V.CATA, Q.RARE)
+]]--
 
---WORLD EVENT VENDOR
+	--WORLD EVENT VENDOR
 	-- Spirit of Summer - 28871
-	pet = AddPet(28871, V.ORIG, Q.RARE)
+	pet = AddPet(16701, V.ORIG, Q.RARE)
 
 	-- Pint-Sized Pink Pachyderm - 44369
-	pet = AddPet(44369, V.TBC, Q.RARE)
+	pet = AddPet(24753, V.TBC, Q.RARE)
 
 	-- Festival Lantern -- 104049
-	pet = AddPet(104049, V.CATA, Q.RARE)
+	pet = AddPet(55574, V.CATA, Q.RARE)
 
 	-- Lunar Lantern -- 104047
-	pet = AddPet(104047, V.CATA, Q.RARE)
+	pet = AddPet(55571, V.CATA, Q.RARE)
+	--[[
 
 --DROP
 	-- Parrot Cage (Hyacinth Macaw) - 10682
