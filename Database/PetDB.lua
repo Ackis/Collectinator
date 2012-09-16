@@ -353,50 +353,50 @@ function addon:InitCritters()
 
 	-- Fox Kit -- 90637
 	pet = AddPet(90637, V.CATA, Q.RARE)
-
---QUESTS
-	-- Mechanical Chicken -- 12243
-	pet = AddPet(12243, V.ORIG, Q.COMMON)
-
-	-- Chicken Egg -- 13548
-	pet = AddPet(13548, V.ORIG, Q.COMMON)
-
-	-- Sprite Darter Egg -- 15067
-	pet = AddPet(15067, V.ORIG, Q.COMMON)
-
-	-- Worg Carrier -- 15999
-	pet = AddPet(15999, V.ORIG, Q.RARE)
-
-	-- Smolderweb Egg -- 16450
-	pet = AddPet(16450, V.CATA, Q.RARE)
-
-	-- A Jubling's Tiny Home -- 23811
-	pet = AddPet(23811, V.ORIG, Q.COMMON)
-
-	-- Miniwing -- 39181
-	pet = AddPet(39181, V.TBC, Q.COMMON)
-
-	-- Gold Mini Jouster -- 78685
-	pet = AddPet(78685, V.CATA, Q.COMMON)
-
-	-- Blue Mini Jouster -- 78683
-	pet = AddPet(78683, V.CATA, Q.COMMON)
-
-	-- Withers -- 65046
-	pet = AddPet(65046, V.CATA, Q.COMMON)
-
-	-- Brazie's Sunflower -- 93823
-	pet = AddPet(93823, V.CATA, Q.COMMON)
-
-	-- Tiny Flamefly -- 93813
-	pet = AddPet(93813, V.CATA, Q.COMMON)
-
-	-- Panther Cub -- 96571
-	pet = AddPet(96571, V.CATA, Q.COMMON)
-
-	-- Lashtail Hatchling -- 97779
-	pet = AddPet(97779, V.CATA, Q.COMMON)
 ]]--
+--QUESTS
+	-- Mechanical Chicken -- 8376
+	pet = AddPet(8376, V.ORIG, Q.COMMON)
+
+	-- Chicken Egg -- 30379
+	pet = AddPet(30379, V.ORIG, Q.COMMON)
+
+	-- Sprite Darter Egg -- 9662
+	pet = AddPet(9662, V.ORIG, Q.COMMON)
+
+	-- Worg Carrier -- 10259
+	pet = AddPet(10259, V.ORIG, Q.RARE)
+
+	-- Smolderweb Egg -- 10598
+	pet = AddPet(10598, V.CATA, Q.RARE)
+
+	-- A Jubling's Tiny Home -- 14878
+	pet = AddPet(14878, V.ORIG, Q.COMMON)
+
+	-- Miniwing -- 22445
+	pet = AddPet(22445, V.TBC, Q.COMMON)
+
+	-- Gold Mini Jouster -- 42183
+	pet = AddPet(42183, V.CATA, Q.COMMON)
+
+	-- Blue Mini Jouster -- 42177
+	pet = AddPet(42177, V.CATA, Q.COMMON)
+
+	-- Withers -- 34278
+	pet = AddPet(34278, V.CATA, Q.COMMON)
+
+	-- Brazie's Sunflower -- 51090
+	pet = AddPet(51090, V.CATA, Q.COMMON)
+
+	-- Tiny Flamefly -- 51632
+	pet = AddPet(51632, V.CATA, Q.COMMON)
+
+	-- Panther Cub -- 52226
+	pet = AddPet(52226, V.CATA, Q.COMMON)
+
+	-- Lashtail Hatchling -- 52894
+	pet = AddPet(52894, V.CATA, Q.COMMON)
+
 	-- Alliance Balloon -- 54539
 	pet = AddPet(54539, V.CATA, Q.COMMON)
 
