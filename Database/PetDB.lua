@@ -184,9 +184,6 @@ function addon:InitCritters()
 	-- Peddlefeet -- 16085
 	pet = AddPet(16085, V.ORIG, Q.COMMON)
 
-	-- Jubling -- 14878
-	pet = AddPet(14878, V.ORIG, Q.COMMON)
-
 	-- Egbert -- 23258
 	pet = AddPet(23258, V.TBC, Q.RARE)
 
