@@ -1762,9 +1762,9 @@ do
 	end
 
 	local BINDING_FLAGS = {
-		[COMMON1.IBOE] = L["BOEFilter"],
-		[COMMON1.IBOP] = L["BOPFilter"],
-		[COMMON1.IBOA] = L["BOAFilter"],
+		IBOE = L["BOEFilter"],
+		IBOP = L["BOPFilter"],
+		IBOA = L["BOAFilter"],
 	}
 
 	local NON_COORD_ACQUIRES = {
@@ -1788,28 +1788,29 @@ do
 			return
 		end
 		acquire_tip:AddHeader()
-		acquire_tip:SetCell(1, 1, "|c"..select(4, _G.GetItemQualityColor(recipe.quality))..recipe.name, "CENTER", 2)
+		acquire_tip:SetCell(1, 1, collectable:GetDisplayName(), "CENTER", 2)
 
-		local recipe_item_texture = recipe.crafted_item_id and _G.select(10, _G.GetItemInfo(recipe.crafted_item_id))
+		local collectable_icon = collectable:Icon()
 
-		if recipe_item_texture then
+		if collectable_icon then
 			acquire_tip:AddHeader()
-			acquire_tip:SetCell(2, 1, ("|T%s:30:30|t"):format(recipe_item_texture), "CENTER", 2)
+			acquire_tip:SetCell(2, 1, ("|T%s:30:30|t"):format(collectable_icon), "CENTER", 2)
 		end
 
-		if addon.db.profile.exclusionlist[list_entry.recipe_id] then
+		if addon.db.profile.exclusionlist[list_entry.collectable_id] then
 			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], "ff0000")
 		end
 		acquire_tip:AddSeparator()
 
-		for flag, label in pairs(BINDING_FLAGS) do
-			if _G.bit.band(recipe.flags.common1, flag) == flag then
+		for flag_name, label in pairs(BINDING_FLAGS) do
+			if collectable:HasFilter("common1", flag_name) then
 				ttAdd(0, -1, true, label, BASIC_COLORS["normal"])
 			end
 		end
 		acquire_tip:AddSeparator()
 
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
+		ttAdd(1, -1, false, collectable.source_text_TEMPORARY, BASIC_COLORS["normal"])
 
 		addon:DisplayAcquireData(list_entry.collectable_id, list_entry.acquire_id, list_entry.location_id, ttAdd)
 
