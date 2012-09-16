@@ -87,12 +87,94 @@ function private.MobGUIDToIDNum(guid)
 end
 
 -------------------------------------------------------------------------------
--- Miscellaneous utilities
+-- Text dumping functions
 -------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+--- Creates a new frame with the contents of a text dump so you can copy and paste
+-- Code borrowed from Antiarc (Chatter) with permission
+--------------------------------------------------------------------------------
+do
+	local copy_frame = _G.CreateFrame("Frame", "Collectinator_CopyFrame", _G.UIParent)
+	copy_frame:SetBackdrop({
+		bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
+		edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
+		tile = true,
+		tileSize = 16,
+		edgeSize = 16,
+		insets = {
+			left = 3,
+			right = 3,
+			top = 5,
+			bottom = 3
+		}
+	})
+	copy_frame:SetBackdropColor(0, 0, 0, 1)
+	copy_frame:SetWidth(750)
+	copy_frame:SetHeight(400)
+	copy_frame:SetPoint("CENTER", _G.UIParent, "CENTER")
+	copy_frame:SetFrameStrata("DIALOG")
+
+	table.insert(_G.UISpecialFrames, "Collectinator_CopyFrame")
+
+	local scrollArea = _G.CreateFrame("ScrollFrame", "CollectinatorCopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
+	scrollArea:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 8, -30)
+	scrollArea:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -30, 8)
+
+	local edit_box = _G.CreateFrame("EditBox", nil, copy_frame)
+	edit_box:SetMultiLine(true)
+	edit_box:SetMaxLetters(0)
+	edit_box:EnableMouse(true)
+	edit_box:SetAutoFocus(true)
+	edit_box:SetFontObject("ChatFontNormal")
+	edit_box:SetWidth(650)
+	edit_box:SetHeight(270)
+	edit_box:SetScript("OnEscapePressed", function()
+		copy_frame:Hide()
+	end)
+	edit_box:HighlightText(0)
+
+	scrollArea:SetScrollChild(edit_box)
+
+	local close = _G.CreateFrame("Button", nil, copy_frame, "UIPanelCloseButton")
+	close:SetPoint("TOPRIGHT", copy_frame, "TOPRIGHT")
+
+	copy_frame:Hide()
+
+	private.TextDump = {
+		output = {}
+	}
+
+	function private.TextDump:AddLine(text)
+		if _G.type(text) ~= "string" or text == "" then
+			return
+		end
+		table.insert(self.output, text)
+	end
+
+	function private.TextDump:Display(separator, collectable_type)
+		local display_text = (not collectable_type) and table.concat(self.output, separator or "\n") or self:GetTextDump(collectable_type)
+
+		if display_text == "" then
+			return
+		end
+		edit_box:SetText(display_text)
+		edit_box:HighlightText(0)
+		edit_box:SetCursorPosition(1)
+		copy_frame:Show()
+		table.wipe(self.output)
+	end
+
+	function private.TextDump:Lines()
+		return #self.output
+	end
+
+end -- do
+
 --@debug@
 do
 	local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-	local output = private.DUMP_OUTPUT
+	local TextDump = private.TextDump
 
 	function addon:DumpPhrases()
 		local sorted = {}
@@ -107,18 +189,18 @@ do
 			local translation = L[phrase]
 
 			if phrase == translation then
-				table.insert(output, ("L[\"%s\"] = true"):format(phrase:gsub("\"", "\\\"")))
+				TextDump:AddLine(("L[\"%s\"] = true"):format(phrase:gsub("\"", "\\\"")))
 			elseif translation:find("\n") then
-				table.insert(output, ("L[\"%s\"] = [[%s]]"):format(phrase:gsub("\"", "\\\""), translation))
+				TextDump:AddLine(("L[\"%s\"] = [[%s]]"):format(phrase:gsub("\"", "\\\""), translation))
 			else
-				table.insert(output, ("L[\"%s\"] = \"%s\""):format(phrase:gsub("\"", "\\\""), translation:gsub('\"', '\\"')))
+				TextDump:AddLine(("L[\"%s\"] = \"%s\""):format(phrase:gsub("\"", "\\\""), translation:gsub('\"', '\\"')))
 			end
 		end
-		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+		TextDump:Display()
 	end
 
 	function addon:DumpMembers(match)
-		table.insert(output, "Addon Object members.\n")
+		TextDump:AddLine("Addon Object members.\n")
 
 		local count = 0
 
@@ -126,12 +208,12 @@ do
 			local val_type = type(value)
 
 			if not match or val_type == match then
-				table.insert(output, ("%s (%s)"):format(key, val_type))
+				TextDump:AddLine(("%s (%s)"):format(key, val_type))
 				count = count + 1
 			end
 		end
-		table.insert(output, ("\n%d found\n"):format(count))
-		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+		TextDump:AddLine(("\n%d found\n"):format(count))
+		TextDump:Display()
 	end
 
 	local function TableKeyFormat(input)
@@ -143,14 +225,14 @@ do
 	end
 
 	function addon:DumpZones()
-		table.insert(output, "private.ZONE_NAMES = {")
+		TextDump:AddLine("private.ZONE_NAMES = {")
 
 		--		for index = 1, 100000 do
 		--			local zone_name = _G.GetMapNameByID(index)
 		--
 		--			if zone_name then
-		----				table.insert(output, ("[%d] = \"%s\","):format(index, zone_name:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_")))
-		--				table.insert(output, ("%s = _G.GetMapNameByID(%d),"):format(zone_name:upper()
+		----				TextDump:AddLine(("[%d] = \"%s\","):format(index, zone_name:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_")))
+		--				TextDump:AddLine(("%s = _G.GetMapNameByID(%d),"):format(zone_name:upper()
 		--				:gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", ""), index))
 		--			end
 		--		end
@@ -164,10 +246,10 @@ do
 
 		for index = 1, #sorted_zones do
 			local zone_id = private.ZONE_NAME_LIST[sorted_zones[index]]
-			table.insert(output, ("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(sorted_zones[index]), zone_id))
+			TextDump:AddLine(("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(sorted_zones[index]), zone_id))
 		end
-		table.insert(output, "}\n")
-		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+		TextDump:AddLine("}\n")
+		TextDump:Display()
 	end
 
 	--	private.ZONE_NAME_LIST = {}
@@ -193,12 +275,15 @@ do
 			local boss_name = _G.EJ_GetEncounterInfo(index)
 
 			if boss_name and boss_name:lower():find(name:lower()) then
-				table.insert(output, ("%s = _G.EJ_GetEncounterInfo(%d),"):format(TableKeyFormat(boss_name), index))
+				TextDump:AddLine(("%s = _G.EJ_GetEncounterInfo(%d),"):format(TableKeyFormat(boss_name), index))
 			end
 		end
-		self:DisplayTextDump(nil, nil, table.concat(output, "\n"))
+		TextDump:Display()
 	end
 
+	-------------------------------------------------------------------------------
+	-- Miscellaneous utilities
+	-------------------------------------------------------------------------------
 	local function find_empties(unit_list, description)
 		local count
 

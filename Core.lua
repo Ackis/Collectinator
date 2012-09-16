@@ -576,13 +576,14 @@ do
 						critter:AddState("KNOWN")
 					end
 				elseif not pet_registry[creature_id] then
-					table.insert(private.DUMP_OUTPUT, UNKNOWN_PET_FORMAT:format(name, creature_id, description, source_text))
+					private.TextDump:AddLine(UNKNOWN_PET_FORMAT:format(name, creature_id, description, source_text))
 				end
 			end
+			local dump_lines = private.TextDump:Lines()
 
-			if #private.DUMP_OUTPUT > 0 then
-				table.insert(private.DUMP_OUTPUT, 1, ("Untracked pets: %d\n"):format(#private.DUMP_OUTPUT))
-				addon:DisplayTextDump(nil, nil, table.concat(private.DUMP_OUTPUT, "\n"))
+			if dump_lines > 0 then
+				table.insert(private.TextDump.output, 1, ("Untracked pets: %d\n"):format(dump_lines))
+				private.TextDump:Display()
 			end
 		end,
 	}
@@ -622,72 +623,3 @@ do
 		end
 	end
 end
-
--------------------------------------------------------------------------------
--- Text dumping functions
--------------------------------------------------------------------------------
-
---------------------------------------------------------------------------------
---- Creates a new frame with the contents of a text dump so you can copy and paste
--- Code borrowed from Antiarc (Chatter) with permission
---------------------------------------------------------------------------------
-do
-	local copy_frame = _G.CreateFrame("Frame", "COLCopyFrame", _G.UIParent)
-	copy_frame:SetBackdrop({
-		bgFile = [[Interface\DialogFrame\UI-DialogBox-Background]],
-		edgeFile = [[Interface\DialogFrame\UI-DialogBox-Border]],
-		tile = true,
-		tileSize = 16,
-		edgeSize = 16,
-		insets = {
-			left = 3,
-			right = 3,
-			top = 5,
-			bottom = 3
-		}
-	})
-	copy_frame:SetBackdropColor(0, 0, 0, 1)
-	copy_frame:SetWidth(750)
-	copy_frame:SetHeight(400)
-	copy_frame:SetPoint("CENTER", _G.UIParent, "CENTER")
-	copy_frame:SetFrameStrata("DIALOG")
-
-	table.insert(_G.UISpecialFrames, "COLCopyFrame")
-
-	local scrollArea = _G.CreateFrame("ScrollFrame", "COLCopyScroll", copy_frame, "UIPanelScrollFrameTemplate")
-	scrollArea:SetPoint("TOPLEFT", copy_frame, "TOPLEFT", 8, -30)
-	scrollArea:SetPoint("BOTTOMRIGHT", copy_frame, "BOTTOMRIGHT", -30, 8)
-
-	local edit_box = _G.CreateFrame("EditBox", nil, copy_frame)
-	edit_box:SetMultiLine(true)
-	edit_box:SetMaxLetters(0)
-	edit_box:EnableMouse(true)
-	edit_box:SetAutoFocus(true)
-	edit_box:SetFontObject("ChatFontNormal")
-	edit_box:SetWidth(650)
-	edit_box:SetHeight(270)
-	edit_box:SetScript("OnEscapePressed", function()
-		copy_frame:Hide()
-	end)
-	edit_box:HighlightText(0)
-
-	scrollArea:SetScrollChild(edit_box)
-
-	local close = _G.CreateFrame("Button", nil, copy_frame, "UIPanelCloseButton")
-	close:SetPoint("TOPRIGHT", copy_frame, "TOPRIGHT")
-
-	copy_frame:Hide()
-
-	function addon:DisplayTextDump(recipe_list, profession, text)
-		local display_text = (not recipe_list and not profession) and text or self:GetTextDump(profession)
-
-		if display_text == "" then
-			return
-		end
-		edit_box:SetText(display_text)
-		edit_box:HighlightText(0)
-		edit_box:SetCursorPosition(1)
-		copy_frame:Show()
-		table.wipe(private.DUMP_OUTPUT)
-	end
-end -- do
