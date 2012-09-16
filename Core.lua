@@ -549,6 +549,7 @@ do
 				if mount then
 					local mount_name = _G.GetSpellInfo(mount_id)
 					mount:SetName(mount_name)
+					mount:AddState("KNOWN")
 				else
 					--self:Debug("Mount %d - Not in db", mount_id)
 				end
@@ -563,6 +564,7 @@ do
 
 				if critter then
 					critter:SetName(pet_name)
+					critter:AddState("KNOWN")
 					--					self:Printf("Critter %s exists (creature_id %d)", critter:Name(), creature_id)
 				else
 					--					self:Debug("Critter %s (display_id %d, critter_id %d) - Not in db", pet_name, display_id, creature_id)
