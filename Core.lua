@@ -588,7 +588,7 @@ do
 
 			local num_pets = LPJ:NumPets()
 
-			for spell_id, pet in pairs(critters) do
+			for i, pet in pairs(critters) do
 				pet:RemoveState("KNOWN")
 				pet:RemoveState("RELEVANT")
 				pet:RemoveState("VISIBLE")
@@ -601,7 +601,7 @@ do
 
 				if critter then
 					critter:SetName(pet_name)
-					self:Printf("Critter %s exists (creature_id %d)", critter:Name(), creature_id)
+--					self:Printf("Critter %s exists (creature_id %d)", critter:Name(), creature_id)
 				else
 --					self:Debug("Critter %s (display_id %d, critter_id %d) - Not in db", pet_name, display_id, creature_id)
 				end
