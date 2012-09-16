@@ -160,7 +160,7 @@ function private.InitializeTabs()
 	end
 	local AcquisitionTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 81)
 	local LocationTab = CreateTab(2, L["Location"], "LEFT", AcquisitionTab, "RIGHT", -14, 0)
-	local CollectablesTab = CreateTab(3, _G.TRADESKILL_SERVICE_LEARN, "LEFT", LocationTab, "RIGHT", -14, 0)
+	local CollectablesTab = CreateTab(3, _G.COMPANIONS, "LEFT", LocationTab, "RIGHT", -14, 0)
 
 	-- Used for Location and Acquisition sort - since many collectables have multiple locations/acquire types it is
 	-- necessary to ensure each is counted only once.
