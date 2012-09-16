@@ -169,10 +169,10 @@ function addon:InitCritters()
 
 	-- Clockwork Gnome -- 90523
 	pet = AddPet(90523, V.CATA, Q.RARE)
-
-	-- Crawling Claw -- 84263
-	pet = AddPet(84263, V.CATA, Q.EPIC)
-
+]]--
+	-- Crawling Claw -- 45128
+	pet = AddPet(45128, V.CATA, Q.EPIC)
+--[[
 	-- Enchanted Lantern -- 93836
 	pet = AddPet(93836, V.CATA, Q.RARE)
 
