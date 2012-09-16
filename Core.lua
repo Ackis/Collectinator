@@ -560,6 +560,7 @@ do
 		end,
 		[private.COLLECTION_TYPE_IDS.PET] = function(collectable_type, critters)
 			local num_pets = LPJ:NumPets()
+			local pet_registry = {}
 
 			for index, creature_id in LPJ:IterateCreatureIDs() do
 				local pet_id, species_id, is_owned, _, _, _, _, name, icon, petType, npc_id, source_text, description, is_wild  = _G.C_PetJournal.GetPetInfoByIndex(index)
@@ -574,8 +575,7 @@ do
 					if is_owned then
 						critter:AddState("KNOWN")
 					end
-					addon:Printf("Critter %s exists (creature_id %d)", critter:Name(), creature_id)
-				else
+				elseif not pet_registry[creature_id] then
 					table.insert(private.DUMP_OUTPUT, UNKNOWN_PET_FORMAT:format(name, creature_id, description, source_text))
 				end
 			end
