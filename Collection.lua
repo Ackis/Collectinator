@@ -46,7 +46,8 @@ function addon:AddCollectable(collectable_id, collectable_type, genesis, quality
 	local collectable_list = private.collectable_list
 
 	if collectable_list[collectable_id] then
-		self:Debug("Duplicate Collectable Item: %d - %s (%s)", collectable_id, collectable_list[collectable_id].name, collectable_list[collectable_id].ColType)
+--		self:Debug("Duplicate Collectable Item: %d - %s (%s)", collectable_id, collectable_list[collectable_id].name, collectable_list[collectable_id].ColType)
+		self:Debug("Duplicate Collectable Item: %d - %s (%s)", collectable_id, collectable_list[collectable_id].name or GetSpellInfo(collectable_id) or "Unknown", collectable_list[collectable_id].ColType or "Unknown Type")
 		return
 	end
 
