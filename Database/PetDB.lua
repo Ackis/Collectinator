@@ -43,7 +43,7 @@ local Z = private.ZONE_NAMES
 --------------------------------------------------------------------------------------------------------------------
 
 function addon:InitCritters()
-self:Print("Initializing Critters")
+
 	local function AddPet(spell_id, genesis, quality)
 		return addon:AddCollectable(spell_id, "CRITTER", genesis, quality)
 	end
@@ -58,43 +58,43 @@ self:Print("Initializing Critters")
 	-- Core Hound Pup - 36871
 	pet = AddPet(36871, V.WOTLK, Q.RARE)
 
-	-- Zipao Tiger (Purple Jade Tiger) - 69539
-	pet = AddPet(69539, V.WOTLK, Q.RARE)
+	-- Zipao Tiger (Purple Jade Tiger) - 36910
+	pet = AddPet(36910, V.WOTLK, Q.RARE)
 
-	-- Jade Tiger - 66520
-	pet = AddPet(66520, V.WOTLK, Q.RARE)
+	-- Jade Tiger - 34930
+	pet = AddPet(34930, V.WOTLK, Q.RARE)
 
-	-- Onyx Panther - 67527
-	pet = AddPet(67527, V.WOTLK, Q.RARE)
+	-- Onyx Panther - 35468
+	pet = AddPet(35468, V.WOTLK, Q.RARE)
 
-	-- Tiny Red Dragon - 23530
-	pet = AddPet(23530, V.WOTLK, Q.RARE)
+	-- Tiny Red Dragon - 14756
+	pet = AddPet(14756, V.WOTLK, Q.RARE)
 
-	-- Tiny Green Dragon - 23531
-	pet = AddPet(23531, V.WOTLK, Q.RARE)
+	-- Tiny Green Dragon - 14755
+	pet = AddPet(14755, V.WOTLK, Q.RARE)
 
-	-- Golden Pig - 45174
-	pet = AddPet(45174, V.WOTLK, Q.RARE)
+	-- Golden Pig - 25146
+	pet = AddPet(25146, V.WOTLK, Q.RARE)
 
 --ACHIEVEMENTS
-	-- Pilgrim Turkey - 61773
-	pet = AddPet(61773, V.WOTLK, Q.RARE)
+	-- Pilgrim Turkey - 32818
+	pet = AddPet(32818, V.WOTLK, Q.RARE)
 
-	-- Kirin Tor Familiar - 61472
-	pet = AddPet(61472, V.WOTLK, Q.RARE)
+	-- Kirin Tor Familiar - 32643
+	pet = AddPet(32643, V.WOTLK, Q.RARE)
 
-	-- Reeking Pet Carrier - 40990
-	pet = AddPet(40990, V.TBC, Q.RARE)
+	-- Reeking Pet Carrier - 23274
+	pet = AddPet(23274, V.TBC, Q.RARE)
 
-	-- Little Fawn - 61991
-	pet = AddPet(61991, V.WOTLK, Q.RARE)
+	-- Little Fawn - 32939
+	pet = AddPet(32939, V.WOTLK, Q.RARE)
 
-	-- Perky Pug - 70613
-	pet = AddPet(70613, V.WOTLK, Q.RARE)
+	-- Perky Pug - 37865
+	pet = AddPet(37865, V.WOTLK, Q.RARE)
 
-	-- Pebble -- 84492
-	pet = AddPet(84492, V.CATA, Q.COMMON)
-
+	-- Pebble -- 45247
+	pet = AddPet(45247, V.CATA, Q.COMMON)
+--[[
 	-- Armadillo Pup -- 89670
 	pet = AddPet(89670, V.CATA, Q.RARE)
 
@@ -717,6 +717,6 @@ self:Print("Initializing Critters")
 
 	-- Lucky Quilen Cub -- 124660
 	pet = AddPet(124660, V.CATA, Q.RARE)
-
+]]--
 	self.InitCritters = nil
 end
