@@ -113,8 +113,7 @@ end
 -------------------------------------------------------------------------------
 local ListItem_ShowTooltip
 
-local acquire_tip
-local spell_tip
+local acquire_tooltip
 
 local AcquireTable = private.AcquireTable
 local ReleaseTable = private.ReleaseTable
@@ -240,8 +239,7 @@ function private.InitializeListFrame()
 	end
 
 	local function Button_OnLeave()
-		QTip:Release(acquire_tip)
-		spell_tip:Hide()
+		QTip:Release(acquire_tooltip)
 	end
 
 	local function Bar_OnEnter(self)
@@ -249,8 +247,7 @@ function private.InitializeListFrame()
 	end
 
 	local function Bar_OnLeave()
-		QTip:Release(acquire_tip)
-		spell_tip:Hide()
+		QTip:Release(acquire_tooltip)
 	end
 
 	local function ListItem_OnClick(self, button, down)
@@ -363,8 +360,7 @@ function private.InitializeListFrame()
 				addon:Debug("Error: clicked_line (%s) has no parent.", clicked_line.type or _G.UNKNOWN)
 			end
 		end
-		QTip:Release(acquire_tip)
-		spell_tip:Hide()
+		QTip:Release(acquire_tooltip)
 
 		ListFrame:Update(nil, true)
 	end
@@ -1420,8 +1416,6 @@ end	-- InitializeListFrame()
 -------------------------------------------------------------------------------
 -- Tooltip functions and data.
 -------------------------------------------------------------------------------
-spell_tip = _G.CreateFrame("GameTooltip", "Collectinator_SpellTooltip", _G.UIParent, "GameTooltipTemplate")
-
 -- Font Objects needed for acquire_tip
 local narrowFont
 local normalFont
@@ -1467,7 +1461,7 @@ do
 			fontSize = addon.db.profile.tooltip.acquire_fontsize + textSize
 
 			fontObj:SetFont(font, fontSize)
-			acquire_tip:SetFont(fontObj)
+			acquire_tooltip:SetFont(fontObj)
 		end
 
 		-- Add in our left hand padding
@@ -1480,15 +1474,15 @@ do
 		end
 		-- Set maximum width to match fontSize to maintain uniform tooltip size. -Torhal
 		local width = math.ceil(fontSize * 37.5)
-		local line = acquire_tip:AddLine()
+		local line = acquire_tooltip:AddLine()
 
 		if str2 then
 			width = width / 2
 
-			acquire_tip:SetCell(line, 1, "|cff"..hexcolor1..leftStr.."|r", "LEFT", nil, nil, 0, 0, width, width)
-			acquire_tip:SetCell(line, 2, "|cff"..hexcolor2..str2.."|r", "RIGHT", nil, nil, 0, 0, width, width)
+			acquire_tooltip:SetCell(line, 1, "|cff"..hexcolor1..leftStr.."|r", "LEFT", nil, nil, 0, 0, width, width)
+			acquire_tooltip:SetCell(line, 2, "|cff"..hexcolor2..str2.."|r", "RIGHT", nil, nil, 0, 0, width, width)
 		else
-			acquire_tip:SetCell(line, 1, "|cff"..hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
+			acquire_tooltip:SetCell(line, 1, "|cff"..hexcolor1..leftStr.."|r", nil, "LEFT", 2, nil, 0, 0, width, width)
 		end
 	end
 
@@ -1672,84 +1666,38 @@ do
 	-------------------------------------------------------------------------------
 	-- Main tooltip function.
 	-------------------------------------------------------------------------------
-	local function InitSpellTooltip(owner, loc, link)
-		spell_tip:SetOwner(owner, "ANCHOR_NONE")
-		spell_tip:ClearAllPoints()
-
-		if loc == "Top" then
-			spell_tip:SetPoint("BOTTOMLEFT", owner, "TOPLEFT")
-		elseif loc == "Bottom" then
-			spell_tip:SetPoint("TOPLEFT", owner, "BOTTOMLEFT")
-		elseif loc == "Left" then
-			spell_tip:SetPoint("TOPRIGHT", owner, "TOPLEFT")
-		elseif loc == "Right" then
-			spell_tip:SetPoint("TOPLEFT", owner, "TOPRIGHT")
-		end
-
-		-- Add TipTac Support
-		if _G.TipTac and _G.TipTac.AddModifiedTip and not spell_tip.tiptac then
-			_G.TipTac:AddModifiedTip(spell_tip)
-			spell_tip.tiptac = true
-		end
-
-		-- Set the spell tooltip's scale, and copy its other values from GameTooltip so AddOns which modify it will work.
-		spell_tip:SetBackdrop(_G.GameTooltip:GetBackdrop())
-		spell_tip:SetBackdropColor(_G.GameTooltip:GetBackdropColor())
-		spell_tip:SetBackdropBorderColor(_G.GameTooltip:GetBackdropBorderColor())
-		spell_tip:SetScale(addon.db.profile.tooltip.scale)
-		spell_tip:SetClampedToScreen(true)
-		spell_tip:SetHyperlink(link)
-		spell_tip:Show()
-	end
-
-	local function InitializeTooltips(spell_id)
-		local spell_tip_anchor = addon.db.profile.spelltooltiplocation
+	local function InitializeTooltips(collectable_id)
 		local acquire_tip_anchor = addon.db.profile.acquiretooltiplocation
-		local spell_link = _G.GetSpellLink(spell_id)
 		local MainPanel = addon.Frame
 
 		if acquire_tip_anchor == _G.OFF then
-			QTip:Release(acquire_tip)
-
-			-- If we have the spell link tooltip, anchor it to MainPanel instead so it shows
-			if spell_tip_anchor == _G.OFF then
-				spell_tip:Hide()
-			elseif spell_link then
-				InitSpellTooltip(MainPanel, spell_tip_anchor, spell_link)
-			end
+			QTip:Release(acquire_tooltip)
 			return
 		end
-		acquire_tip = QTip:Acquire(private.addon_name.." Tooltip", 2, "LEFT", "LEFT")
-		acquire_tip:ClearAllPoints()
-		acquire_tip:SetClampedToScreen(true)
-		acquire_tip:Clear()
-		acquire_tip:SetScale(addon.db.profile.tooltip.scale)
+		acquire_tooltip = QTip:Acquire(private.addon_name.." Tooltip", 2, "LEFT", "LEFT")
+		acquire_tooltip:ClearAllPoints()
+		acquire_tooltip:SetClampedToScreen(true)
+		acquire_tooltip:Clear()
+		acquire_tooltip:SetScale(addon.db.profile.tooltip.scale)
 
 		if _G.TipTac and _G.TipTac.AddModifiedTip then
 			-- Pass true as second parameter because hooking OnHide causes C stack overflows -Torhal
-			_G.TipTac:AddModifiedTip(acquire_tip, true)
+			_G.TipTac:AddModifiedTip(acquire_tooltip, true)
 		end
 
 		if acquire_tip_anchor == "Right" then
-			acquire_tip:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", MainPanel.is_expanded and -90 or -35, 0)
+			acquire_tooltip:SetPoint("TOPLEFT", MainPanel, "TOPRIGHT", MainPanel.is_expanded and -90 or -35, 0)
 		elseif acquire_tip_anchor == "Left" then
-			acquire_tip:SetPoint("TOPRIGHT", MainPanel, "TOPLEFT")
+			acquire_tooltip:SetPoint("TOPRIGHT", MainPanel, "TOPLEFT")
 		elseif acquire_tip_anchor == "Top" then
-			acquire_tip:SetPoint("BOTTOMLEFT", MainPanel, "TOPLEFT")
+			acquire_tooltip:SetPoint("BOTTOMLEFT", MainPanel, "TOPLEFT")
 		elseif acquire_tip_anchor == "Bottom" then
-			acquire_tip:SetPoint("TOPLEFT", MainPanel, "BOTTOMLEFT", 0, 55)
+			acquire_tooltip:SetPoint("TOPLEFT", MainPanel, "BOTTOMLEFT", 0, 55)
 		elseif acquire_tip_anchor == "Mouse" then
 			local x, y = _G.GetCursorPosition()
 			local uiscale = _G.UIParent:GetEffectiveScale()
 
-			acquire_tip:SetPoint("BOTTOMLEFT", _G.UIParent, "BOTTOMLEFT", x / uiscale, y / uiscale)
-		end
-
-		-- If we have the spell link tooltip, link it to the acquire tooltip.
-		if spell_tip_anchor == _G.OFF then
-			spell_tip:Hide()
-		elseif spell_link then
-			InitSpellTooltip(acquire_tip, spell_tip_anchor, spell_link)
+			acquire_tooltip:SetPoint("BOTTOMLEFT", _G.UIParent, "BOTTOMLEFT", x / uiscale, y / uiscale)
 		end
 	end
 
@@ -1776,30 +1724,31 @@ do
 		end
 		InitializeTooltips(collectable.id)
 
-		if not acquire_tip then
+		if not acquire_tooltip then
 			return
 		end
-		acquire_tip:AddHeader()
-		acquire_tip:SetCell(1, 1, collectable:GetDisplayName(), "CENTER", 2)
+		acquire_tooltip:AddHeader()
+		acquire_tooltip:SetCell(1, 1, collectable:GetDisplayName(), "CENTER", 2)
 
 		local collectable_icon = collectable:Icon()
 
 		if collectable_icon then
-			acquire_tip:AddHeader()
-			acquire_tip:SetCell(2, 1, ("|T%s:30:30|t"):format(collectable_icon), "CENTER", 2)
+			acquire_tooltip:AddHeader()
+			acquire_tooltip:SetCell(2, 1, ("|T%s:30:30|t"):format(collectable_icon), "CENTER", 2)
 		end
+		ttAdd(0, -1, false, collectable:Description(), BASIC_COLORS["normal"])
 
 		if addon.db.profile.exclusionlist[list_entry.collectable_id] then
 			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], "ff0000")
 		end
-		acquire_tip:AddSeparator()
+		acquire_tooltip:AddSeparator()
 
 		for flag_name, label in pairs(BINDING_FLAGS) do
 			if collectable:HasFilter("common1", flag_name) then
 				ttAdd(0, -1, true, label, BASIC_COLORS["normal"])
 			end
 		end
-		acquire_tip:AddSeparator()
+		acquire_tooltip:AddSeparator()
 
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
 		ttAdd(1, -1, false, collectable.source_text_TEMPORARY, BASIC_COLORS["normal"])
@@ -1810,8 +1759,8 @@ do
 			local HINT_COLOR = "c9c781"
 			local acquire_id = list_entry.acquire_id
 
-			acquire_tip:AddSeparator()
-			acquire_tip:AddSeparator()
+			acquire_tooltip:AddSeparator()
+			acquire_tooltip:AddSeparator()
 
 			ttAdd(0, -1, 0, L["ALT_CLICK"], HINT_COLOR)
 			ttAdd(0, -1, 0, L["CTRL_CLICK"], HINT_COLOR)
@@ -1821,6 +1770,6 @@ do
 				ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], HINT_COLOR)
 			end
 		end
-		acquire_tip:Show()
+		acquire_tooltip:Show()
 	end
 end	-- do

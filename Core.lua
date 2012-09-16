@@ -571,6 +571,7 @@ do
 				if critter then
 					critter:SetName(name)
 					critter:SetIcon(icon)
+					critter:SetDescription(description)
 
 					critter.source_text_TEMPORARY = source_text
 
