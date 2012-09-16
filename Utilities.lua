@@ -92,11 +92,10 @@ end
 --@debug@
 do
 	local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-	local output = {}
+	local output = private.DUMP_OUTPUT
 
 	function addon:DumpPhrases()
 		local sorted = {}
-		table.wipe(output)
 
 		for phrase, translation in pairs(L) do
 			sorted[#sorted + 1] = phrase
@@ -119,7 +118,6 @@ do
 	end
 
 	function addon:DumpMembers(match)
-		table.wipe(output)
 		table.insert(output, "Addon Object members.\n")
 
 		local count = 0
@@ -145,7 +143,6 @@ do
 	end
 
 	function addon:DumpZones()
-		table.wipe(output)
 		table.insert(output, "private.ZONE_NAMES = {")
 
 		--		for index = 1, 100000 do
@@ -192,8 +189,6 @@ do
 	--	_G.GetMapNameByID = My_GetMapNameByID
 
 	function addon:DumpBossIDs(name)
-		table.wipe(output)
-
 		for index = 1, 10000 do
 			local boss_name = _G.EJ_GetEncounterInfo(index)
 
