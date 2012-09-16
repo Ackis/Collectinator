@@ -182,104 +182,84 @@ function addon:InitCritters()
 	-- Voodoo Figurine -- 53232
 	pet = AddPet(53232, V.CATA, Q.RARE)
 
-
-
 --WORLD EVENT DROP
-	-- Sinister Squashling
+	-- Sinister Squashling -- 23909
 	pet = AddPet(23909, V.TBC, Q.RARE)
 
-	-- Peddlefeet
+	-- Peddlefeet -- 16085
 	pet = AddPet(16085, V.ORIG, Q.COMMON)
 
-	-- Jubling
+	-- Jubling -- 14878
 	pet = AddPet(14878, V.ORIG, Q.COMMON)
 
-	-- Egbert
+	-- Egbert -- 23258
 	pet = AddPet(23258, V.TBC, Q.RARE)
 
-	-- Speedy
+	-- Speedy -- 16547
 	pet = AddPet(16547, V.ORIG, Q.COMMON)
 
-	-- Father Winter's Helper
-	pet = AddPet(7384, V.ORIG, Q.COMMON)
+	-- Father Winter's Helper -- 15698
+	pet = AddPet(15698, V.ORIG, Q.COMMON)
 
-	-- Father Winter's Helper
-	pet = AddPet(22943, V.ORIG, Q.COMMON)
+	-- Clockwork Rocket Bot -- 24968
+	pet = AddPet(24968, V.TBC, Q.RARE)
 
-	-- Clockwork Rocket Bot
-	pet = AddPet(53232, V.TBC, Q.RARE)
+	-- Wolpertinger -- 22943
+	pet = AddPet(22943, V.TBC, Q.RARE)
 
-	-- Clockwork Rocket Bot
-	pet = AddPet(62888, V.TBC, Q.RARE)
+	-- Spring Rabbit -- 32791
+	pet = AddPet(32791, V.WOTLK, Q.RARE)
 
-	-- Wolpertinger
-	pet = AddPet(15429, V.TBC, Q.RARE)
+	-- Curious Wolvar Pup -- 33529
+	pet = AddPet(33529, V.WOTLK, Q.RARE)
 
-	-- Wolpertinger
-	pet = AddPet(52831, V.TBC, Q.RARE)
-
-	-- Spring Rabbit
-	pet = AddPet(7550, V.WOTLK, Q.RARE)
-
-	-- Curious Wolvar Pup
-	pet = AddPet(2671, V.WOTLK, Q.RARE)
-
-	-- Spirit of Summer
-	pet = AddPet(7543, V.ORIG, Q.RARE)
-
-	-- Spirit of Summer -- 28871
+	-- Spirit of Summer -- 16701
 	pet = AddPet(16701, V.ORIG, Q.RARE)
 
-	-- Winter Reindeer
-	pet = AddPet(62904, V.ORIG, Q.RARE)
+	-- Winter Reindeer -- 15706
+	pet = AddPet(15706, V.ORIG, Q.RARE)
 
-	-- Willy
-	pet = AddPet(61370, V.TBC, Q.RARE)
+	-- Willy -- 23231
+	pet = AddPet(23231, V.TBC, Q.RARE)
 
-	-- Mr. Wiggles
-	pet = AddPet(62896, V.ORIG, Q.COMMON)
+	-- Mr. Wiggles -- 16548
+	pet = AddPet(16548, V.ORIG, Q.COMMON)
 
-	-- Scooter the Snail
-	pet = AddPet(63358, V.CATA, Q.COMMON)
+	-- Scooter the Snail -- 51635
+	pet = AddPet(51635, V.CATA, Q.COMMON)
 
 	-- Onyx Panther -- 35468
 	pet = AddPet(35468, V.WOTLK, Q.RARE)
 
-	-- Onyx Panther
-	pet = AddPet(48107, V.WOTLK, Q.RARE)
+	-- Toxic Wasteling -- 38374
+	pet = AddPet(38374, V.WOTLK, Q.RARE)
 
-	-- Toxic Wasteling
-	pet = AddPet(49590, V.WOTLK, Q.RARE)
+	-- Legs -- 53048
+	pet = AddPet(53048, V.CATA, Q.COMMON)
 
-	-- Legs
-	pet = AddPet(15710, V.CATA, Q.COMMON)
+	-- Feline Familiar -- 53884
+	pet = AddPet(53884, V.CATA, Q.COMMON)
 
-	-- Feline Familiar
-	pet = AddPet(40198, V.CATA, Q.COMMON)
-
-	-- Tiny Snowman
-	pet = AddPet(23234, V.ORIG, Q.COMMON)
+	-- Tiny Snowman -- 15710
+	pet = AddPet(15710, V.ORIG, Q.COMMON)
 
 	-- Whiskers the Rat -- 16549
 	pet = AddPet(16549, V.ORIG, Q.COMMON)
 
-	-- Frigid Frostling
-	pet = AddPet(48641, V.WOTLK, Q.RARE)
+	-- Frigid Frostling -- 40198
+	pet = AddPet(40198, V.WOTLK, Q.RARE)
 
-	-- Peanut
-	pet = AddPet(29089, V.TBC, Q.RARE)
+	-- Peanut -- 23266
+	pet = AddPet(23266, V.TBC, Q.RARE)
 
-	-- Curious Oracle Hatchling
-	pet = AddPet(61375, V.WOTLK, Q.RARE)
+	-- Curious Oracle Hatchling -- 33530
+	pet = AddPet(33530, V.WOTLK, Q.RARE)
 
-	-- Lumpy
-	pet = AddPet(61143, V.CATA, Q.RARE)
+	-- Lumpy -- 55215
+	pet = AddPet(55215, V.CATA, Q.RARE)
 
-	-- Lunar Lantern -- 104047
+	-- Lunar Lantern -- 55571
 	pet = AddPet(55571, V.CATA, Q.RARE)
-
-	-- Lunar Lantern
-	pet = AddPet(61167, V.CATA, Q.RARE)
 
 	--[[
 	-- Red Helper Box -- 26541
@@ -306,14 +286,13 @@ function addon:InitCritters()
 	-- Creepy Crate -- 100684
 	pet = AddPet(100684, V.CATA, Q.COMMON)
 ]]--
-
 	--WORLD EVENT VENDOR
 	-- Pint-Sized Pink Pachyderm -- 44369
 	pet = AddPet(24753, V.TBC, Q.RARE)
 
 	-- Festival Lantern -- 104049
 	pet = AddPet(55574, V.CATA, Q.RARE)
-	--[[
+--[[
 
 --DROP
 	-- Parrot Cage (Hyacinth Macaw) -- 10682
