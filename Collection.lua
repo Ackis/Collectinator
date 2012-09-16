@@ -42,7 +42,7 @@ local collectable_meta = {
 	__index = collectable_prototype
 }
 
-function addon:AddCollectable(collectable_id, collection_type, genesis, quality)
+function addon:AddCollectable(collectable_id, collectable_type, genesis, quality)
 	local collectable_list = private.collectable_list
 
 	if collectable_list[collectable_id] then
@@ -52,7 +52,7 @@ function addon:AddCollectable(collectable_id, collection_type, genesis, quality)
 
 	local collectable = _G.setmetatable({
 		id = collectable_id,
-		type = collection_type,
+		type = collectable_type,
 		genesis = private.GAME_VERSION_NAMES[genesis],
 		quality = quality,
 		flags = {},
@@ -61,11 +61,11 @@ function addon:AddCollectable(collectable_id, collection_type, genesis, quality)
 
 	collectable_list[collectable_id] = collectable
 
-	if not private.category_collectable_list[collection_type] then
-		private.category_collectable_list[collection_type] = {}
+	if not private.category_collectable_list[collectable_type] then
+		private.category_collectable_list[collectable_type] = {}
 	end
-	private.category_collectable_list[collection_type][collectable_id] = collectable
-	private.num_category_collectables[collection_type] = (private.num_category_collectables[collection_type] or 0) + 1
+	private.category_collectable_list[collectable_type][collectable_id] = collectable
+	private.num_category_collectables[collectable_type] = (private.num_category_collectables[collectable_type] or 0) + 1
 
 	return collectable
 end
@@ -166,19 +166,12 @@ end -- do-block
 
 do
 	local SKILL_LEVEL_FORMAT = "[%d]"
+	local UNKNOWN_FORMAT = _G.UNKNOWN .. " %d"
 
 	function collectable_prototype:GetDisplayName()
 		local _, _, _, quality_color = _G.GetItemQualityColor(self.quality)
-		local collectable_name = self.name
-
 		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[A.REPUTATION])
-
-		local diff_color
-
-		if not has_faction then
-			diff_color = "impossible"
-		end
-		local display_name = ("|c%s%s|r"):format(quality_color, collectable_name)
+		local display_name = ("|c%s%s|r"):format(quality_color, self.name or UNKNOWN_FORMAT:format(self.id))
 
 		if addon.db.profile.exclusionlist[self.id] then
 			display_name = ("** %s **"):format(display_name)
@@ -309,17 +302,17 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 			end
 		end
 		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
-		acquire_list[acquire_type].recipes = acquire_list[acquire_type].recipes or {}
+		acquire_list[acquire_type].collectables = acquire_list[acquire_type].collectables or {}
 
 		acquire_list[acquire_type].name = private.ACQUIRE_NAMES[acquire_type]
-		acquire_list[acquire_type].recipes[self.id] = affiliation or true
+		acquire_list[acquire_type].collectables[self.id] = affiliation or true
 
 		if location_name then
 			location_list[location_name] = location_list[location_name] or {}
-			location_list[location_name].recipes = location_list[location_name].recipes or {}
+			location_list[location_name].collectables = location_list[location_name].collectables or {}
 
 			location_list[location_name].name = location_name
-			location_list[location_name].recipes[self.id] = affiliation or true
+			location_list[location_name].collectables[self.id] = affiliation or true
 		end
 	end
 end
@@ -399,17 +392,17 @@ function collectable_prototype:AddRepVendor(faction_id, rep_level, ...)
 			self:Debug("Spell ID %d: Faction ID %d does not exist in the database.", self.id, faction_id)
 		end
 		acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
-		acquire_list[A.REPUTATION].recipes = acquire_list[A.REPUTATION].recipes or {}
+		acquire_list[A.REPUTATION].collectables = acquire_list[A.REPUTATION].collectables or {}
 
 		acquire_list[A.REPUTATION].name = private.ACQUIRE_NAMES[A.REPUTATION]
-		acquire_list[A.REPUTATION].recipes[self.id] = affiliation or true
+		acquire_list[A.REPUTATION].collectables[self.id] = affiliation or true
 
 		if location_name then
 			location_list[location_name] = location_list[location_name] or {}
-			location_list[location_name].recipes = location_list[location_name].recipes or {}
+			location_list[location_name].collectables = location_list[location_name].collectables or {}
 
 			location_list[location_name].name = location_name
-			location_list[location_name].recipes[self.id] = affiliation or true
+			location_list[location_name].collectables[self.id] = affiliation or true
 		end
 	end
 end

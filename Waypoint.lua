@@ -383,10 +383,10 @@ local WAYPOINT_FUNCS = {
 
 local current_waypoints = {}
 
-local function AddRecipeWaypoints(recipe_id, acquire_id, location_id, npc_id)
-	local recipe = private.recipe_list[recipe_id]
+local function AddCollectableWaypoints(collectable_id, acquire_id, location_id, npc_id)
+	local collectable = private.collectable_list[collectable_id]
 
-	for acquire_type, acquire_info in pairs(recipe.acquire_data) do
+	for acquire_type, acquire_info in pairs(collectable.acquire_data) do
 		local waypoint_func = WAYPOINT_FUNCS[acquire_type]
 
 		if waypoint_func and (not acquire_id or acquire_type == acquire_id) then
@@ -395,21 +395,21 @@ local function AddRecipeWaypoints(recipe_id, acquire_id, location_id, npc_id)
 					if acquire_type == A.REPUTATION then
 						for rep_level, level_info in pairs(id_info) do
 							for vendor_id in pairs(level_info) do
-								local waypoint = waypoint_func(vendor_id, recipe)
+								local waypoint = waypoint_func(vendor_id, collectable)
 
 								if waypoint and (not location_id or waypoint.location == location_id) then
 									waypoint.acquire_type = acquire_type
-									current_waypoints[waypoint] = recipe_id
+									current_waypoints[waypoint] = collectable_id
 								end
 							end
 						end
 					else
-						local waypoint = waypoint_func(id_num, recipe)
+						local waypoint = waypoint_func(id_num, collectable)
 
 						if waypoint and (not location_id or waypoint.location == location_id) then
 							waypoint.acquire_type = acquire_type
 							waypoint.reference_id = id_num
-							current_waypoints[waypoint] = recipe_id
+							current_waypoints[waypoint] = collectable_id
 						end
 					end
 				end
@@ -419,21 +419,21 @@ local function AddRecipeWaypoints(recipe_id, acquire_id, location_id, npc_id)
 end
 
 local function AddAllWaypoints(acquire_id, location_id, npc_id)
-	local recipe_list = private.recipe_list
-	local sorted_recipes = addon.sorted_recipes
+	local collectables = private.collectable_list
+	local sorted_collectables = addon.sorted_collectables
 	local editbox_text = addon.Frame.search_editbox:GetText()
 
-	-- Scan through all recipes to display, and add the vendors to a list to get their acquire info
-	for index = 1, #sorted_recipes do
-		local recipe = recipe_list[sorted_recipes[index]]
+	-- Scan through all collectables to display, and add the vendors to a list to get their acquire info
+	for index = 1, #sorted_collectables do
+		local collectable = collectables[sorted_collectables[index]]
 		local matches_search = true
 
 		if editbox_text ~= "" and editbox_text ~= _G.SEARCH then
-			matches_search = recipe:HasState("RELEVANT")
+			matches_search = collectable:HasState("RELEVANT")
 		end
 
-		if recipe:HasState("VISIBLE") and matches_search then
-			for acquire_type, acquire_info in pairs(recipe.acquire_data) do
+		if collectable:HasState("VISIBLE") and matches_search then
+			for acquire_type, acquire_info in pairs(collectable.acquire_data) do
 				local waypoint_func = WAYPOINT_FUNCS[acquire_type]
 
 				if waypoint_func then
@@ -441,21 +441,21 @@ local function AddAllWaypoints(acquire_id, location_id, npc_id)
 						if acquire_type == A.REPUTATION then
 							for rep_level, level_info in pairs(id_info) do
 								for vendor_id in pairs(level_info) do
-									local waypoint = waypoint_func(vendor_id, recipe)
+									local waypoint = waypoint_func(vendor_id, collectable)
 
 									if waypoint then
 										waypoint.acquire_type = acquire_type
-										current_waypoints[waypoint] = sorted_recipes[index]
+										current_waypoints[waypoint] = sorted_collectables[index]
 									end
 								end
 							end
 						else
-							local waypoint = waypoint_func(id_num, recipe)
+							local waypoint = waypoint_func(id_num, collectable)
 
 							if waypoint then
 								waypoint.acquire_type = acquire_type
 								waypoint.reference_id = id_num
-								current_waypoints[waypoint] = sorted_recipes[index]
+								current_waypoints[waypoint] = sorted_collectables[index]
 							end
 						end
 					end
@@ -486,7 +486,7 @@ end
 -- Expected result: Icons are added to the world map and mini-map.
 -- Input: An optional recipe ID, acquire ID, and location ID.
 -- Output: Points are added to the maps
-function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
+function addon:AddWaypoint(collectable_id, acquire_id, location_id, npc_id)
 	if not _G.TomTom then
 		return
 	end
@@ -498,28 +498,28 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 	end
 	table.wipe(current_waypoints)
 
-	if recipe_id then
-		AddRecipeWaypoints(recipe_id, acquire_id, location_id, npc_id)
+	if collectable_id then
+		AddCollectableWaypoints(collectable_id, acquire_id, location_id, npc_id)
 	elseif addon.db.profile.autoscanmap then
 		AddAllWaypoints(acquire_id, location_id, npc_id)
 	end
-	local recipe_list = private.recipe_list
+	local collectables = private.collectable_list
 
-	for waypoint, spell_id in pairs(current_waypoints) do
+	for waypoint, collectable_id in pairs(current_waypoints) do
 		local name
 		local x = waypoint.coord_x
 		local y = waypoint.coord_y
 		local location_name = waypoint.location or "nil"
 		local continent, zone
-		local recipe = recipe_list[spell_id]
-		local _, _, _, quality_color = _G.GetItemQualityColor(recipe.quality)
+		local collectable = collectables[collectable_id]
+		local _, _, _, quality_color = _G.GetItemQualityColor(collectable.quality)
 		local acquire_str = private.ACQUIRE_STRINGS[waypoint.acquire_type]:lower():gsub("_","")
 		local color_code = private.CATEGORY_COLORS[acquire_str] or "ffffff"
 
 		if waypoint.acquire_type == A.QUEST then
-			name = ("Quest: |cff%s%s|r (|c%s%s|r)"):format(color_code, private.quest_names[waypoint.reference_id], quality_color, recipe.name)
+			name = ("Quest: |cff%s%s|r (|c%s%s|r)"):format(color_code, private.quest_names[waypoint.reference_id], quality_color, collectable.name)
 		else
-			name = ("|cff%s%s|r (|c%s%s|r)"):format(color_code, waypoint.name or _G.UNKNOWN, quality_color, recipe.name)
+			name = ("|cff%s%s|r (|c%s%s|r)"):format(color_code, waypoint.name or _G.UNKNOWN, quality_color, collectable.name)
 		end
 		waypoint.acquire_type = nil
 		waypoint.reference_id = nil
@@ -545,20 +545,20 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 			y = info.y
 			name = ("%s (%s)"):format(name, location_name)
 		else
-			self:Debug("No continent/zone map match for recipe ID %d. Location: %s.", spell_id, location_name)
+			self:Debug("No continent/zone map match for recipe ID %d. Location: %s.", collectable_id, location_name)
 		end
 
 		--@debug@
 		if x and ((x < -100) or (x > 100)) or y and ((y < -100) or (y > 100)) then
 			x = nil
 			y = nil
-			self:Debug("Invalid location coordinates for recipe ID %d. Location: %s.", spell_id, location_name)
+			self:Debug("Invalid location coordinates for recipe ID %d. Location: %s.", collectable_id, location_name)
 		end
 		--@end-debug@
 
 		if x and y and zone and continent then
 			if x == 0 and y == 0 and not INSTANCE_LOCATIONS[location_name] then
-				self:Debug("Location is \"0, 0\" for recipe ID %d. Location: %s.", spell_id, location_name)
+				self:Debug("Location is \"0, 0\" for recipe ID %d. Location: %s.", collectable_id, location_name)
 			end
 
 			if _G.TomTom then
@@ -571,11 +571,11 @@ function addon:AddWaypoint(recipe_id, acquire_id, location_id, npc_id)
 		else
 			--@debug@
 			if not zone then
-				self:Debug("No zone for recipe ID %d. Location: %s.", spell_id, location_name)
+				self:Debug("No zone for recipe ID %d. Location: %s.", collectable_id, location_name)
 			end
 
 			if not continent then
-				self:Debug("No continent for recipe ID %d. Location: %s.", spell_id, location_name)
+				self:Debug("No continent for recipe ID %d. Location: %s.", collectable_id, location_name)
 			end
 			--@end-debug@
 		end

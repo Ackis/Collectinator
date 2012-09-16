@@ -267,20 +267,20 @@ function private.InitializeListFrame()
 		end
 
 		-- First, check if this is a "modified" click, and react appropriately
-		if clicked_line.recipe_id and _G.IsModifierKeyDown() then
+		if clicked_line.collectable_id and _G.IsModifierKeyDown() then
 			local collection_collectables = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]
 
 			if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
-					addon:AddWaypoint(clicked_line.recipe_id, clicked_line.acquire_id, clicked_line.location_id, clicked_line.npc_id)
+					addon:AddWaypoint(clicked_line.collectable_id, clicked_line.acquire_id, clicked_line.location_id, clicked_line.npc_id)
 				else
 					local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
 					_G.ChatEdit_ActivateChat(edit_box)
-					edit_box:Insert(_G.GetSpellLink(collection_collectables[clicked_line.recipe_id].spell_id))
+					edit_box:Insert(_G.GetSpellLink(collection_collectables[clicked_line.collectable_id].spell_id))
 				end
 			elseif _G.IsShiftKeyDown() then
-				local crafted_item_id = collection_collectables[clicked_line.recipe_id]:CraftedItemID()
+				local crafted_item_id = collection_collectables[clicked_line.collectable_id]:CraftedItemID()
 
 				if crafted_item_id then
 					local _, item_link = _G.GetItemInfo(crafted_item_id)
@@ -298,9 +298,9 @@ function private.InitializeListFrame()
 				end
 			elseif _G.IsAltKeyDown() then
 				local exclusion_list = addon.db.profile.exclusionlist
-				local recipe_id = clicked_line.recipe_id
+				local collectable_id = clicked_line.collectable_id
 
-				exclusion_list[recipe_id] = (not exclusion_list[recipe_id] and true or nil)
+				exclusion_list[collectable_id] = (not exclusion_list[collectable_id] and true or nil)
 				ListFrame:Update(nil, false)
 			end
 		elseif clicked_line.type == "header" or clicked_line.type == "subheader" then
@@ -442,14 +442,14 @@ function private.InitializeListFrame()
 
 		if parent_entry then
 			if parent_entry ~= entry then
-				local recipe_id = parent_entry.recipe_id
+				local collectable_id = parent_entry.collectable_id
 				local acquire_id = parent_entry.acquire_id
 				local location_id = parent_entry.location_id
 				local npc_id = parent_entry.npc_id
 
 				-- These checks are necessary: Simply nilling fields will break things.
-				if recipe_id then
-					entry.recipe_id = recipe_id
+				if collectable_id then
+					entry.collectable_id = collectable_id
 				end
 
 				if acquire_id then
@@ -611,8 +611,8 @@ function private.InitializeListFrame()
 		end
 
 		---Scans a specific recipe to determine if it is to be displayed or not.
-		local function CanDisplayCollectable(recipe)
-			if addon.db.profile.exclusionlist[recipe.spell_id] and not addon.db.profile.ignoreexclusionlist then
+		local function CanDisplayCollectable(collectable)
+			if addon.db.profile.exclusionlist[collectable.id] and not addon.db.profile.ignoreexclusionlist then
 				return false
 			end
 			local general_filters = filter_db.general
@@ -623,20 +623,20 @@ function private.InitializeListFrame()
 			-------------------------------------------------------------------------------
 
 			-- Display both horde and alliance factions?
-			if not general_filters.faction and not private.Player:HasCollectableFaction(recipe) then
+			if not general_filters.faction and not private.Player:HasCollectableFaction(collectable) then
 				return false
 			end
 
 			-- Expansion filters.
-			if not obtain_filters[EXPANSION_FILTERS[private.GAME_VERSIONS[recipe.genesis]]] then
+			if not obtain_filters[EXPANSION_FILTERS[private.GAME_VERSIONS[collectable.genesis]]] then
 				return false
 			end
 
 			-- Quality filters.
-			if not filter_db.quality[QUALITY_FILTERS[recipe.quality]] then
+			if not filter_db.quality[QUALITY_FILTERS[collectable.quality]] then
 				return false
 			end
-			local item_filter_type = recipe:ItemFilterType()
+			local item_filter_type = collectable:ItemFilterType()
 
 			if item_filter_type and not addon.db.profile.filters.item[item_filter_type] then
 				return false
@@ -646,7 +646,7 @@ function private.InitializeListFrame()
 			-- Check the hard filter flags.
 			-------------------------------------------------------------------------------
 			for filter, data in pairs(private.HARD_FILTERS) do
-				local bitfield = recipe.flags[data.field]
+				local bitfield = collectable.flags[data.field]
 
 				if bitfield and bit.band(bitfield, data.flag) == data.flag and not data.sv_root[filter] then
 					return false
@@ -656,11 +656,11 @@ function private.InitializeListFrame()
 			-------------------------------------------------------------------------------
 			-- Check the reputation filter flags.
 			------------------------------------------------------------------------------
-			if not HasEnabledFlag(REP_FILTERS, recipe.flags.reputation1, filter_db.rep) then
+			if not HasEnabledFlag(REP_FILTERS, collectable.flags.reputation1, filter_db.rep) then
 				return false
 			end
 
-			if not HasEnabledFlag(REP_FILTERS_2, recipe.flags.reputation2, filter_db.rep) then
+			if not HasEnabledFlag(REP_FILTERS_2, collectable.flags.reputation2, filter_db.rep) then
 				return false
 			end
 
@@ -670,12 +670,13 @@ function private.InitializeListFrame()
 			-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
 			------------------------------------------------------------------------------------------------
 			for filter, data in pairs(SOFT_FILTERS) do
-				local bitfield = recipe.flags[data.field]
+				local bitfield = collectable.flags[data.field]
 
 				if bitfield and bit.band(bitfield, data.flag) == data.flag and data.sv_root[filter] then
 					return true
 				end
 			end
+			return true
 		end
 
 		function ListFrame:Initialize(expand_mode)
@@ -688,31 +689,25 @@ function private.InitializeListFrame()
 			-- Update recipe filters.
 			-------------------------------------------------------------------------------
 			local general_filters = addon.db.profile.filters.general
-			local collection_collectables = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]
-			local recipes_known, recipes_known_filtered = 0, 0
-			local recipes_total, recipes_total_filtered = 0, 0
+			local collectables = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]
+			local collectables_known, collectables_known_filtered = 0, 0
+			local collectables_total, collectables_total_filtered = 0, 0
 
-			for recipe_id, recipe in pairs(collection_collectables) do
+			for collectable_id, collectable in pairs(collectables) do
 				local can_display = false
-				recipe:RemoveState("VISIBLE")
+				collectable:RemoveState("VISIBLE")
 
-				if not recipe.is_ignored then
-					recipes_total = recipes_total + 1
+				if not collectable.is_ignored then
+					local is_known = collectable:HasState("KNOWN")
 
-					local is_known
+					collectables_total = collectables_total + 1
+					collectables_known = collectables_known + (is_known and 1 or 0)
 
-					if MainPanel.is_linked then
-						is_known = recipe:HasState("LINKED")
-					else
-						is_known = recipe:HasState("KNOWN")
-					end
-					recipes_known = recipes_known + (is_known and 1 or 0)
-
-					can_display = CanDisplayCollectable(recipe)
+					can_display = CanDisplayCollectable(collectable)
 
 					if can_display then
-						recipes_total_filtered = recipes_total_filtered + 1
-						recipes_known_filtered = recipes_known_filtered + (is_known and 1 or 0)
+						collectables_total_filtered = collectables_total_filtered + 1
+						collectables_known_filtered = collectables_known_filtered + (is_known and 1 or 0)
 
 						if not general_filters.known and is_known then
 							can_display = false
@@ -725,14 +720,14 @@ function private.InitializeListFrame()
 				end
 
 				if can_display then
-					recipe:AddState("VISIBLE")
+					collectable:AddState("VISIBLE")
 				end
 			end
 			local player = private.Player
-			player.recipes_total = recipes_total
-			player.recipes_known = recipes_known
-			player.recipes_total_filtered = recipes_total_filtered
-			player.recipes_known_filtered = recipes_known_filtered
+			player.collectables_total = collectables_total
+			player.collectables_known = collectables_known
+			player.collectables_total_filtered = collectables_total_filtered
+			player.collectables_known_filtered = collectables_known_filtered
 
 			-------------------------------------------------------------------------------
 			-- Mark all exclusions in the recipe database to not be displayed, and update
@@ -741,42 +736,42 @@ function private.InitializeListFrame()
 			local known_count = 0
 			local unknown_count = 0
 
-			for spell_id in pairs(addon.db.profile.exclusionlist) do
-				local recipe = collection_collectables[spell_id]
+			for collectable_id in pairs(addon.db.profile.exclusionlist) do
+				local collectable = collectables[collectable_id]
 
-				if recipe then
-					if recipe:HasState("KNOWN") then
+				if collectable then
+					if collectable:HasState("KNOWN") then
 						known_count = known_count + 1
 					else
 						unknown_count = unknown_count + 1
 					end
 				end
 			end
-			player.excluded_recipes_known = known_count
-			player.excluded_recipes_unknown = unknown_count
+			player.excluded_collectables_known = known_count
+			player.excluded_collectables_unknown = unknown_count
 
 			-------------------------------------------------------------------------------
 			-- Initialize the expand button and entries for the current tab.
 			-------------------------------------------------------------------------------
 			local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
-			local expanded_button = current_tab["expand_button_"..MainPanel.current_collectable_type]
+			local expanded_button = current_tab["expand_button_" .. MainPanel.current_collectable_type]
 
 			if expanded_button then
 				MainPanel.expand_button:Expand(current_tab)
 			else
 				MainPanel.expand_button:Contract(current_tab)
 			end
-			local recipe_count = current_tab:Initialize(expand_mode)
+			local collectable_count = current_tab:Initialize(expand_mode)
 
 			-------------------------------------------------------------------------------
 			-- Update the progress bar display.
 			-------------------------------------------------------------------------------
 			local profile = addon.db.profile
-			local max_value = profile.includefiltered and player.recipes_total or (player.recipes_total_filtered + (player.recipes_known - player.recipes_known_filtered))
-			local cur_value = player.recipes_known	-- Current value will always be what we know regardless of filters.
+			local max_value = profile.includefiltered and player.collectables_total or (player.collectables_total_filtered + (player.collectables_known - player.collectables_known_filtered))
+			local cur_value = player.collectables_known	-- Current value will always be what we know regardless of filters.
 
 			if not profile.includeexcluded and not profile.ignoreexclusionlist then
-				max_value = max_value - player.excluded_recipes_known
+				max_value = max_value - player.excluded_collectables_known
 			end
 			local progress_bar = MainPanel.progress_bar
 
@@ -786,7 +781,7 @@ function private.InitializeListFrame()
 			local percentage = cur_value / max_value * 100
 
 			if (math.floor(percentage) < 101) and cur_value >= 0 and max_value >= 0 then
-				local results = _G.SINGLE_PAGE_RESULTS_TEMPLATE:format(recipe_count)
+				local results = _G.SINGLE_PAGE_RESULTS_TEMPLATE:format(collectable_count)
 				progress_bar.text:SetFormattedText("%d/%d - %1.2f%% (%s)", cur_value, max_value, percentage, results)
 			else
 				progress_bar.text:SetFormattedText("%s", L["NOT_YET_SCANNED"])
@@ -852,19 +847,19 @@ function private.InitializeListFrame()
 			local editbox_text = MainPanel.search_editbox:GetText()
 			local player = private.Player
 
-			if player.recipes_total == 0 then
+			if player.collectables_total == 0 then
 				if showpopup then
 					Dialog:Spawn("Collectinator_NotScanned")
 				end
-			elseif player.recipes_known == player.recipes_total then
+			elseif player.collectables_known == player.collectables_total then
 				if showpopup then
 					Dialog:Spawn("Collectinator_AllKnown")
 				end
-			elseif (player.recipes_total_filtered - player.recipes_known_filtered) == 0 then
+			elseif (player.collectables_total_filtered - player.collectables_known_filtered) == 0 then
 				if showpopup then
 					Dialog:Spawn("Collectinator_AllFiltered")
 				end
-			elseif player.excluded_recipes_unknown ~= 0 then
+			elseif player.excluded_collectables_unknown ~= 0 then
 				if showpopup then
 					Dialog:Spawn("Collectinator_AllExcluded")
 				end
@@ -873,16 +868,16 @@ function private.InitializeListFrame()
 			else
 				addon:Print(L["NO_DISPLAY"])
 				addon:Debug("Current tab is %s", _G.tostring(addon.db.profile.current_tab))
-				addon:Debug("recipes_total check for 0")
-				addon:Debug("recipes_total: " .. player.recipes_total)
-				addon:Debug("recipes_total check for equal to recipes_total")
-				addon:Debug("recipes_known: " .. player.recipes_known)
-				addon:Debug("recipes_total: " .. player.recipes_total)
-				addon:Debug("recipes_total_filtered - recipes_known_filtered = 0")
-				addon:Debug("recipes_total_filtered: " .. player.recipes_total_filtered)
-				addon:Debug("recipes_known_filtered: " .. player.recipes_known_filtered)
-				addon:Debug("excluded_recipes_unknown ~= 0")
-				addon:Debug("excluded_recipes_unknown: " .. player.excluded_recipes_unknown)
+				addon:Debug("collectables_total check for 0")
+				addon:Debug("collectables_total: " .. player.collectables_total)
+				addon:Debug("collectables_total check for equal to collectables_total")
+				addon:Debug("collectables_known: " .. player.collectables_known)
+				addon:Debug("collectables_total: " .. player.collectables_total)
+				addon:Debug("collectables_total_filtered - collectables_known_filtered = 0")
+				addon:Debug("collectables_total_filtered: " .. player.collectables_total_filtered)
+				addon:Debug("collectables_known_filtered: " .. player.collectables_known_filtered)
+				addon:Debug("excluded_collectables_unknown ~= 0")
+				addon:Debug("excluded_collectables_unknown: " .. player.excluded_collectables_unknown)
 			end
 			return
 		end
@@ -993,7 +988,7 @@ function private.InitializeListFrame()
 		return name
 	end
 
-	local function ExpandTrainerData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandTrainerData(entry_index, entry_type, parent_entry, id_num, collectable_id, hide_location, hide_type)
 		local trainer = private.trainer_list[id_num]
 
 		if not trainer or not CanDisplayFaction(trainer.faction) then
@@ -1009,7 +1004,7 @@ function private.InitializeListFrame()
 		local entry = AcquireTable()
 
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["trainer"], L["Trainer"]) .. ":", name)
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 		entry.npc_id = id_num
 
 		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
@@ -1019,7 +1014,7 @@ function private.InitializeListFrame()
 		end
 		entry = AcquireTable()
 		entry.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], trainer.location), coord_text)
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 		entry.npc_id = id_num
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
@@ -1028,7 +1023,7 @@ function private.InitializeListFrame()
 	-- Right now PVP obtained items are located on vendors so they have the vendor and PVP flag.
 	-- We need to display the vendor in the drop down if we want to see vendors or if we want to see PVP
 	-- This allows us to select PVP only and to see just the PVP recipes
-	local function ExpandVendorData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandVendorData(entry_index, entry_type, parent_entry, id_num, collectable_id, hide_location, hide_type)
 		local vendor = private.vendor_list[id_num]
 
 		if not CanDisplayFaction(vendor.faction) then
@@ -1042,10 +1037,10 @@ function private.InitializeListFrame()
 			coord_text = SetTextColor(CATEGORY_COLORS["coords"], COORD_FORMAT:format(vendor.coord_x, vendor.coord_y))
 		end
 		local entry = AcquireTable()
-		local quantity = vendor.item_list[recipe_id]
+		local quantity = vendor.item_list[collectable_id]
 
 		entry.text = ("%s%s %s%s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["vendor"], L["Vendor"]) .. ":", name, type(quantity) == "number" and SetTextColor(BASIC_COLORS["white"], (" (%d)"):format(quantity)) or "")
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 		entry.npc_id = id_num
 
 		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
@@ -1055,14 +1050,14 @@ function private.InitializeListFrame()
 		end
 		entry = AcquireTable()
 		entry.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], vendor.location), coord_text)
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 		entry.npc_id = id_num
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
 	-- Mobs can be in instances, raids, or specific mob related drops.
-	local function ExpandMobData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandMobData(entry_index, entry_type, parent_entry, id_num, collectable_id, hide_location, hide_type)
 		local mob = private.mob_list[id_num]
 		local coord_text = ""
 
@@ -1072,7 +1067,7 @@ function private.InitializeListFrame()
 		local entry = AcquireTable()
 
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["mobdrop"], L["Mob Drop"]) .. ":", SetTextColor(private.REPUTATION_COLORS["hostile"], mob.name))
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 		entry.npc_id = id_num
 
 		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
@@ -1082,13 +1077,13 @@ function private.InitializeListFrame()
 		end
 		entry = AcquireTable()
 		entry.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], mob.location), coord_text)
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 		entry.npc_id = id_num
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandQuestData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandQuestData(entry_index, entry_type, parent_entry, id_num, collectable_id, hide_location, hide_type)
 		local quest = private.quest_list[id_num]
 
 		if not CanDisplayFaction(quest.faction) then
@@ -1103,7 +1098,7 @@ function private.InitializeListFrame()
 		end
 		local entry = AcquireTable()
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["quest"], L["Quest"]) .. ":", name)
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 
 		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 
@@ -1112,21 +1107,21 @@ function private.InitializeListFrame()
 		end
 		entry = AcquireTable()
 		entry.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], quest.location), coord_text)
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, collectable_id, hide_location, hide_type)
 		local entry = AcquireTable()
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], private.ACQUIRE_NAMES[A.SEASONAL]) .. ":", SetTextColor(CATEGORY_COLORS["seasonal"], private.seasonal_list[id_num].name))
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
 	local FACTION_LABELS
 
-	local function ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, rep_id, rep_level, recipe_id, hide_location, hide_type)
+	local function ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, rep_id, rep_level, collectable_id, hide_location, hide_type)
 		local rep_vendor = private.vendor_list[vendor_id]
 
 		if not CanDisplayFaction(rep_vendor.faction) then
@@ -1148,14 +1143,14 @@ function private.InitializeListFrame()
 		local name = ColorNameByFaction(rep_vendor.name, rep_vendor.faction)
 		local entry = AcquireTable()
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["reputation"], _G.REPUTATION) .. ":", SetTextColor(CATEGORY_COLORS["repname"], private.reputation_list[rep_id].name))
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 		entry.npc_id = vendor_id
 
 		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 
 		entry = AcquireTable()
 		entry.text = PADDING .. PADDING .. FACTION_LABELS[rep_level] .. name
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 		entry.npc_id = vendor_id
 
 		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
@@ -1171,21 +1166,21 @@ function private.InitializeListFrame()
 		end
 		entry = AcquireTable()
 		entry.text = ("%s%s%s%s %s"):format(PADDING, PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], rep_vendor.location), coord_text)
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 		entry.npc_id = vendor_id
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandWorldDropData(entry_index, entry_type, parent_entry, identifier, recipe_id, hide_location, hide_type)
+	local function ExpandWorldDropData(entry_index, entry_type, parent_entry, identifier, collectable_id, hide_location, hide_type)
 		local drop_location = type(identifier) == "string" and SetTextColor(CATEGORY_COLORS["location"], identifier)
 
 		if drop_location then
-			local recipe_item_id = private.recipe_list[recipe_id]:RecipeItemID()
-			local recipe_item_level = recipe_item_id and select(4, _G.GetItemInfo(recipe_item_id))
+			local collectable_item_id = private.collectable_list[collectable_id]:RecipeItemID()
+			local collectable_item_level = collectable_item_id and select(4, _G.GetItemInfo(collectable_item_id))
 
-			if recipe_item_level then
-				drop_location = (": %s %s"):format(drop_location, SetTextColor(CATEGORY_COLORS["location"], "(%d - %d)"):format(recipe_item_level - 5, recipe_item_level + 5))
+			if collectable_item_level then
+				drop_location = (": %s %s"):format(drop_location, SetTextColor(CATEGORY_COLORS["location"], "(%d - %d)"):format(collectable_item_level - 5, collectable_item_level + 5))
 			else
 				drop_location = (": %s"):format(drop_location)
 			end
@@ -1193,38 +1188,38 @@ function private.InitializeListFrame()
 			drop_location = ""
 		end
 		local entry = AcquireTable()
-		entry.text = ("%s|c%s%s|r%s"):format(PADDING, select(4, _G.GetItemQualityColor(private.recipe_list[recipe_id].quality)), L["World Drop"], drop_location)
-		entry.recipe_id = recipe_id
+		entry.text = ("%s|c%s%s|r%s"):format(PADDING, select(4, _G.GetItemQualityColor(private.collectable_list[collectable_id].quality)), L["World Drop"], drop_location)
+		entry.collectable_id = collectable_id
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandCustomData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandCustomData(entry_index, entry_type, parent_entry, id_num, collectable_id, hide_location, hide_type)
 		local entry = AcquireTable()
 		entry.text = PADDING .. SetTextColor(CATEGORY_COLORS["custom"], private.custom_list[id_num].name)
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandDiscoveryData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandDiscoveryData(entry_index, entry_type, parent_entry, id_num, collectable_id, hide_location, hide_type)
 		local entry = AcquireTable()
 		entry.text = PADDING .. SetTextColor(CATEGORY_COLORS["discovery"], private.discovery_list[id_num].name)
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandAchievementData(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+	local function ExpandAchievementData(entry_index, entry_type, parent_entry, id_num, collectable_id, hide_location, hide_type)
 		local entry = AcquireTable()
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["achievement"], _G.ACHIEVEMENTS) .. ":",
 					    SetTextColor(BASIC_COLORS["normal"], select(2, _G.GetAchievementInfo(id_num))))
-		entry.recipe_id = recipe_id
+		entry.collectable_id = collectable_id
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type, acquire_data, recipe_id, hide_location, hide_type)
+	local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type, acquire_data, collectable_id, hide_location, hide_type)
 		local obtain_filters = addon.db.profile.filters.obtain
 		local num_acquire_types = #private.ACQUIRE_STRINGS
 
@@ -1245,7 +1240,7 @@ function private.InitializeListFrame()
 				for rep_level, level_info in pairs(info) do
 					for vendor_id in pairs(level_info) do
 						entry_index =  ExpandReputationData(entry_index, entry_type, parent_entry, vendor_id, id_num,
-										    rep_level, recipe_id, hide_location, hide_type)
+										    rep_level, collectable_id, hide_location, hide_type)
 					end
 				end
 			elseif acquire_type == A.WORLD_DROP and obtain_filters.worlddrop then
@@ -1266,14 +1261,14 @@ function private.InitializeListFrame()
 			elseif acquire_type > num_acquire_types then
 				local entry = AcquireTable()
 				entry.text = "Unhandled Acquire Case - Type: " .. acquire_type
-				entry.recipe_id = recipe_id
+				entry.collectable_id = collectable_id
 
 				entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 				--@end-alpha@
 			end
 
 			if func then
-				entry_index = func(entry_index, entry_type, parent_entry, id_num, recipe_id, hide_location, hide_type)
+				entry_index = func(entry_index, entry_type, parent_entry, id_num, collectable_id, hide_location, hide_type)
 			end
 		end	-- for
 		return entry_index
@@ -1299,13 +1294,13 @@ function private.InitializeListFrame()
 			local acquire_id = current_entry.acquire_id
 
 			if current_entry.type == "header" then
-				local recipe_list = private.acquire_list[acquire_id].recipes
-				local sorted_recipes = addon.sorted_recipes
+				local collectable_list = private.acquire_list[acquire_id].collectables
+				local sorted_collectables = addon.sorted_collectables
 
-				private.SortCollectables(recipe_list)
+				private.SortCollectables(collectable_list)
 
-				for index = 1, #sorted_recipes do
-					local spell_id = sorted_recipes[index]
+				for index = 1, #sorted_collectables do
+					local spell_id = sorted_collectables[index]
 					local collectable_entry = collectable_list[spell_id]
 
 					if collectable_entry and collectable_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable_entry) then
@@ -1321,7 +1316,7 @@ function private.InitializeListFrame()
 								     and current_tab[collection_type .." expanded"][private.ACQUIRE_NAMES[acquire_id]])
 
 						entry.text = collectable_entry:GetDisplayName()
-						entry.recipe_id = spell_id
+						entry.collectable_id = spell_id
 						entry.acquire_id = acquire_id
 
 						entry_index = self:InsertEntry(entry, current_entry, entry_index, type, expand or is_expanded,
@@ -1329,10 +1324,10 @@ function private.InitializeListFrame()
 					end
 				end
 			elseif current_entry.type == "subheader" then
-				for acquire_type, acquire_data in pairs(collectable_list[current_entry.recipe_id].acquire_data) do
+				for acquire_type, acquire_data in pairs(collectable_list[current_entry.collectable_id].acquire_data) do
 					if acquire_type == acquire_id then
 						entry_index = ExpandAcquireData(entry_index, "subentry", current_entry, acquire_type, acquire_data,
-										current_entry.recipe_id, false, true)
+										current_entry.collectable_id, false, true)
 					end
 				end
 			end
@@ -1344,30 +1339,30 @@ function private.InitializeListFrame()
 			local location_id = current_entry.location_id
 
 			if current_entry.type == "header" then
-				local recipe_list = private.location_list[location_id].recipes
-				local sorted_recipes = addon.sorted_recipes
+				local collectables = private.location_list[location_id].collectables
+				local sorted_collectables = addon.sorted_collectables
 
-				private.SortCollectables(recipe_list)
+				private.SortCollectables(collectables)
 
-				for index = 1, #sorted_recipes do
-					local spell_id = sorted_recipes[index]
-					local recipe_entry = collectable_list[spell_id]
+				for index = 1, #sorted_collectables do
+					local spell_id = sorted_collectables[index]
+					local collectable = collectables[spell_id]
 
-					if recipe_entry and recipe_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(recipe_entry) then
+					if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable) then
 						local expand = false
 						local type = "subheader"
 						local entry = AcquireTable()
 
 						-- Add World Drop entries as normal entries.
-						if recipe_list[spell_id] == "world_drop" then
+						if collectables[spell_id] == "world_drop" then
 							expand = true
 							type = "entry"
 						end
 						local is_expanded = (current_tab[collection_type .." expanded"][spell_id]
 								     and current_tab[collection_type .." expanded"][location_id])
 
-						entry.text = recipe_entry:GetDisplayName()
-						entry.recipe_id = spell_id
+						entry.text = collectable:GetDisplayName()
+						entry.collectable_id = spell_id
 						entry.location_id = location_id
 
 						entry_index = self:InsertEntry(entry, current_entry, entry_index, type, expand or is_expanded,
@@ -1375,7 +1370,7 @@ function private.InitializeListFrame()
 					end
 				end
 			elseif current_entry.type == "subheader" then
-				local recipe_entry = collectable_list[current_entry.recipe_id]
+				local recipe_entry = collectable_list[current_entry.collectable_id]
 
 				-- World Drops are not handled here because they are of type "entry".
 				for acquire_type, acquire_data in pairs(recipe_entry.acquire_data) do
@@ -1383,33 +1378,33 @@ function private.InitializeListFrame()
 					for id_num, info in pairs(acquire_data) do
 						if acquire_type == A.TRAINER and private.trainer_list[id_num].location == location_id then
 							entry_index = ExpandTrainerData(entry_index, "subentry", current_entry,
-											id_num, current_entry.recipe_id, true)
+											id_num, current_entry.collectable_id, true)
 						elseif acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
 							entry_index = ExpandVendorData(entry_index, "subentry", current_entry,
-										       id_num, current_entry.recipe_id, true)
+										       id_num, current_entry.collectable_id, true)
 						elseif acquire_type == A.MOB_DROP and private.mob_list[id_num].location == location_id then
 							entry_index = ExpandMobData(entry_index, "subentry", current_entry,
-										    id_num, current_entry.recipe_id, true)
+										    id_num, current_entry.collectable_id, true)
 						elseif acquire_type == A.QUEST and private.quest_list[id_num].location == location_id then
 							entry_index = ExpandQuestData(entry_index, "subentry", current_entry,
-										      id_num, current_entry.recipe_id, true)
+										      id_num, current_entry.collectable_id, true)
 						elseif acquire_type == A.SEASONAL and private.seasonal_list[id_num].location == location_id then
 							-- Hide the acquire type for this - it will already show up in the location list as
 							-- "World Events".
 							entry_index = ExpandSeasonalData(entry_index, "subentry", current_entry,
-											 id_num, current_entry.recipe_id, true, true)
+											 id_num, current_entry.collectable_id, true, true)
 						elseif acquire_type == A.CUSTOM and private.custom_list[id_num].location == location_id then
 							entry_index = ExpandCustomData(entry_index, "subentry", current_entry,
-										       id_num, current_entry.recipe_id, true, true)
+										       id_num, current_entry.collectable_id, true, true)
 						elseif acquire_type == A.DISCOVERY and private.discovery_list[id_num].location == location_id then
 							entry_index = ExpandDiscoveryData(entry_index, "subentry", current_entry,
-											  id_num, current_entry.recipe_id, true, true)
+											  id_num, current_entry.collectable_id, true, true)
 						elseif acquire_type == A.REPUTATION then
 							for rep_level, level_info in pairs(info) do
 								for vendor_id in pairs(level_info) do
 									if private.vendor_list[vendor_id].location == location_id then
 										entry_index =  ExpandReputationData(entry_index, "subentry", current_entry,
-														    vendor_id, id_num, rep_level, current_entry.recipe_id, true)
+														    vendor_id, id_num, rep_level, current_entry.collectable_id, true)
 									end
 								end
 							end
@@ -1421,10 +1416,10 @@ function private.InitializeListFrame()
 		end
 
 		-- Normal entry - expand all acquire types.
-		local recipe_id = self.entries[orig_index].recipe_id
+		local collectable_id = self.entries[orig_index].collectable_id
 
-		for acquire_type, acquire_data in pairs(collectable_list[recipe_id].acquire_data) do
-			entry_index = ExpandAcquireData(entry_index, "entry", current_entry, acquire_type, acquire_data, recipe_id)
+		for acquire_type, acquire_data in pairs(collectable_list[collectable_id].acquire_data) do
+			entry_index = ExpandAcquireData(entry_index, "entry", current_entry, acquire_type, acquire_data, collectable_id)
 		end
 		return entry_index
 	end
@@ -1526,7 +1521,7 @@ do
 	-- Functions for adding individual acquire type data to the tooltip.
 	-------------------------------------------------------------------------------
 	local TOOLTIP_ACQUIRE_FUNCS = {
-		[A.VENDOR] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.VENDOR] = function(collectable_id, identifier, location, acquire_info, addline_func)
 			local vendor = private.vendor_list[identifier]
 
 			if not vendor or (location and vendor.location ~= location) then
@@ -1544,13 +1539,13 @@ do
 			else
 				addline_func(1, -2, true, vendor.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
 			end
-			local quantity = vendor.item_list[recipe_id]
+			local quantity = vendor.item_list[collectable_id]
 
 			if type(quantity) == "number" then
 				addline_func(2, -2, true, L["LIMITED_SUPPLY"], CATEGORY_COLORS["vendor"], ("(%d)"):format(quantity), BASIC_COLORS["white"])
 			end
 		end,
-		[A.MOB_DROP] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.MOB_DROP] = function(collectable_id, identifier, location, acquire_info, addline_func)
 			local mob = private.mob_list[identifier]
 
 			if not mob or (location and mob.location ~= location) then
@@ -1565,7 +1560,7 @@ do
 
 			end
 		end,
-		[A.QUEST] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.QUEST] = function(collectable_id, identifier, location, acquire_info, addline_func)
 			local quest = private.quest_list[identifier]
 
 			if not quest or (location and quest.location ~= location) then
@@ -1584,11 +1579,11 @@ do
 				addline_func(1, -2, true, quest.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
 			end
 		end,
-		[A.SEASONAL] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.SEASONAL] = function(collectable_id, identifier, location, acquire_info, addline_func)
 			local hex_color = CATEGORY_COLORS["seasonal"]
 			addline_func(0, -1, 0, private.ACQUIRE_NAMES[A.SEASONAL], hex_color, private.seasonal_list[identifier].name, hex_color)
 		end,
-		[A.REPUTATION] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.REPUTATION] = function(collectable_id, identifier, location, acquire_info, addline_func)
 			for rep_level, level_info in pairs(acquire_info) do
 				for vendor_id in pairs(level_info) do
 					local rep_vendor = private.vendor_list[vendor_id]
@@ -1621,27 +1616,27 @@ do
 				end
 			end
 		end,
-		[A.WORLD_DROP] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.WORLD_DROP] = function(collectable_id, identifier, location, acquire_info, addline_func)
 			local drop_location = type(identifier) == "string" and identifier or _G.UNKNOWN
 
 			if location and drop_location ~= location then
 				return
 			end
-			local recipe = private.recipe_list[recipe_id]
-			local recipe_item_id = recipe:RecipeItemID()
-			local recipe_item_level = recipe_item_id and select(4, _G.GetItemInfo(recipe_item_id))
+			local recipe = private.collectable_list[collectable_id]
+			local collectable_item_id = recipe:RecipeItemID()
+			local collectable_item_level = collectable_item_id and select(4, _G.GetItemInfo(collectable_item_id))
 			local quality_color = select(4, _G.GetItemQualityColor(recipe.quality)):sub(3)
 			local location_text
 
-			if recipe_item_level then
-				location_text = ("%s (%d - %d)"):format(drop_location, recipe_item_level - 5, recipe_item_level + 5)
+			if collectable_item_level then
+				location_text = ("%s (%d - %d)"):format(drop_location, collectable_item_level - 5, collectable_item_level + 5)
 			else
 				location_text = drop_location
 			end
 			addline_func(0, -1, false, L["World Drop"], quality_color, location_text, CATEGORY_COLORS["location"])
 		end,
-		[A.ACHIEVEMENT] = function(recipe_id, identifier, location, acquire_info, addline_func)
-			local recipe = private.recipe_list[recipe_id]
+		[A.ACHIEVEMENT] = function(collectable_id, identifier, location, acquire_info, addline_func)
+			local recipe = private.collectable_list[collectable_id]
 			local _, achievement_name, _, _, _, _, _, achievement_desc = _G.GetAchievementInfo(identifier)
 
 			-- The recipe is an actual reward from an achievement if flagged - else we're just using the text to describe how to get it.
@@ -1650,7 +1645,7 @@ do
 			end
 			addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS["achievement"])
 		end,
-		[A.CUSTOM] = function(recipe_id, identifier, location, acquire_info, addline_func)
+		[A.CUSTOM] = function(collectable_id, identifier, location, acquire_info, addline_func)
 			addline_func(0, -1, false, private.custom_list[identifier].name, CATEGORY_COLORS["custom"])
 		end,
 	}
@@ -1660,8 +1655,8 @@ do
 	-- * The addline_func paramater must be a function which accepts the same
 	-- * arguments as ARL's ttAdd function.
 	-------------------------------------------------------------------------------
-	function addon:DisplayAcquireData(recipe_id, acquire_id, location, addline_func)
-		local recipe = private.recipe_list[recipe_id]
+	function addon:DisplayAcquireData(collectable_id, acquire_id, location, addline_func)
+		local recipe = private.collectable_list[collectable_id]
 
 		if not recipe then
 			return
@@ -1673,7 +1668,7 @@ do
 
 				for identifier, info in pairs(acquire_data) do
 					if populate_func then
-						populate_func(recipe_id, identifier, location, info, addline_func)
+						populate_func(collectable_id, identifier, location, info, addline_func)
 					else
 						addline_func(0, -1, 0, L["Unhandled Recipe"], BASIC_COLORS["normal"])
 					end
@@ -1782,12 +1777,12 @@ do
 		if not list_entry then
 			return
 		end
-		local recipe = private.recipe_list[list_entry.recipe_id]
+		local collectable = private.collectable_list[list_entry.collectable_id]
 
-		if not recipe then
+		if not collectable then
 			return
 		end
-		InitializeTooltips(recipe.spell_id)
+		InitializeTooltips(collectable.id)
 
 		if not acquire_tip then
 			return
@@ -1805,12 +1800,6 @@ do
 		if addon.db.profile.exclusionlist[list_entry.recipe_id] then
 			ttAdd(0, -1, true, L["RECIPE_EXCLUDED"], "ff0000")
 		end
-
-		-- Add in skill level requirement, colored correctly
-		local color_type
-		color_type = "trivial"
-
-		ttAdd(0, -1, false, ("%s:"):format(_G.SKILL_LEVEL), BASIC_COLORS["normal"], recipe.skill_level, private.DIFFICULTY_COLORS[color_type])
 		acquire_tip:AddSeparator()
 
 		for flag, label in pairs(BINDING_FLAGS) do
@@ -1822,7 +1811,7 @@ do
 
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
 
-		addon:DisplayAcquireData(list_entry.recipe_id, list_entry.acquire_id, list_entry.location_id, ttAdd)
+		addon:DisplayAcquireData(list_entry.collectable_id, list_entry.acquire_id, list_entry.location_id, ttAdd)
 
 		if not addon.db.profile.hide_tooltip_hint then
 			local HINT_COLOR = "c9c781"

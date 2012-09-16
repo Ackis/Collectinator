@@ -105,8 +105,8 @@ function private.InitializeTabs()
 			self[member][entry.location_id] = expanded or nil
 		end
 
-		if entry.recipe_id then
-			self[member][entry.recipe_id] = expanded or nil
+		if entry.collectable_id then
+			self[member][entry.collectable_id] = expanded or nil
 		end
 	end
 
@@ -222,7 +222,7 @@ function private.InitializeTabs()
 			local count = 0
 
 			-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
-			for spell_id, affiliation in pairs(private.acquire_list[acquire_type].recipes) do
+			for spell_id, affiliation in pairs(private.acquire_list[acquire_type].collectables) do
 				local collectable = collectables[spell_id]
 
 				if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable) then
@@ -289,7 +289,7 @@ function private.InitializeTabs()
 			local count = 0
 
 			-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
-			for spell_id, affiliation in pairs(private.location_list[loc_name].recipes) do
+			for spell_id, affiliation in pairs(private.location_list[loc_name].collectables) do
 				local collectable = collectables[spell_id]
 
 				if collectable and collectable:HasState("VISIBLE") and search_box:MatchesCollectable(collectable) then
@@ -373,25 +373,25 @@ function private.InitializeTabs()
 
 		private.SortCollectables(collectables)
 
-		local sorted_collections = addon.sorted_collections
+		local sorted_collectables = addon.sorted_collectables
 		local collectable_count = 0
 		local insert_index = 1
 
-		for i = 1, #sorted_collections do
-			local collectable_index = sorted_collections[i]
-			local collectable = collectables[collectable_index]
+		for i = 1, #sorted_collectables do
+			local collectable_id = sorted_collectables[i]
+			local collectable = collectables[collectable_id]
 
 			if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable) then
-				local is_expanded = self[collection_type .." expanded"][collectable_index]
+				local is_expanded = self[collection_type .." expanded"][collectable_id]
 				local entry = AcquireTable()
 				entry.text = collectable:GetDisplayName()
-				entry.recipe_id = collectable_index
+				entry.collectable_id = collectable_id
 
 				collectable_count = collectable_count + 1
 
 				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[collection_type .." expanded"][collectable_index] = nil
+				self[collection_type .." expanded"][collectable_id] = nil
 			end
 		end
 		return collectable_count

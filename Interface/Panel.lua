@@ -532,7 +532,7 @@ function private.InitializeFrame()
 			local location_list = private.location_list
 
 			for location_name in pairs(location_list) do
-				for spell_id in pairs(location_list[location_name].recipes) do
+				for spell_id in pairs(location_list[location_name].collectables) do
 					if spell_id == recipe.spell_id then
 						local location = location_name:lower()
 
@@ -616,12 +616,12 @@ function private.InitializeFrame()
 			end
 			search_pattern = search_pattern:lower()
 
-			for index, recipe in pairs(private.collection_recipe_list[ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]) do
-				recipe:RemoveState("RELEVANT")
+			for index, collectable in pairs(private.collectable_list[ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]) do
+				collectable:RemoveState("RELEVANT")
 
 				for search_index = 1, #SEARCH_FUNCTIONS do
-					if SEARCH_FUNCTIONS[search_index](recipe, search_pattern) then
-						recipe:AddState("RELEVANT")
+					if SEARCH_FUNCTIONS[search_index](collectable, search_pattern) then
+						collectable:AddState("RELEVANT")
 						break
 					end
 				end
@@ -676,10 +676,10 @@ function private.InitializeFrame()
 		end)
 	end
 
-	-- Resets the SearchBox text and the state of all MainPanel.list_frame and recipe_list entries.
+	-- Resets the SearchBox text and the state of all MainPanel.list_frame and collectable entries.
 	function SearchBox:Reset()
-		for index, recipe in pairs(private.recipe_list) do
-			recipe:RemoveState("RELEVANT")
+		for index, collectable in pairs(private.collectable_list) do
+			collectable:RemoveState("RELEVANT")
 		end
 		self.prev_search = nil
 

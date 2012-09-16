@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------
--- Upvalued Lua API. 
+-- Upvalued Lua API.
 -----------------------------------------------------------------------
 local _G = getfenv(0)
 
@@ -211,7 +211,7 @@ do
 			count = 0
 
 			if unit.item_list then
-				for recipe_id in pairs(unit.item_list) do
+				for collectable_id in pairs(unit.item_list) do
 					count = count + 1
 				end
 			end

@@ -39,10 +39,10 @@ end	-- do block
 -- Sort functions
 -------------------------------------------------------------------------------
 do
-	addon.sorted_collections = {}
+	addon.sorted_collectables = {}
 
 	local collectable_list = private.collectable_list
-	local sorted_collections = addon.sorted_collections
+	local sorted_collectables = addon.sorted_collectables
 
 	local function Sort_NameAsc(a, b)
 		local a_name = collectable_list[a].name
@@ -68,12 +68,12 @@ do
 
 		local sort_func = COLLECTABLE_SORT_FUNCS[(skill_view and "Skill" or "Name")..sort_type] or Sort_NameAsc
 
-		table.wipe(sorted_collections)
+		table.wipe(sorted_collectables)
 
-		for recipe_id, recipe in pairs(collectables) do
-			sorted_collections[#sorted_collections + 1] = recipe_id
+		for collectable_id, collectable in pairs(collectables) do
+			sorted_collectables[#sorted_collectables + 1] = collectable_id
 		end
-		table.sort(sorted_collections, sort_func)
+		table.sort(sorted_collectables, sort_func)
 	end
 end	-- do
 
