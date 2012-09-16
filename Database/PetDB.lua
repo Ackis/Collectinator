@@ -113,7 +113,683 @@ function addon:InitCritters()
 	-- Lil' Tarecgosa -- 54027
 	pet = AddPet(54027, V.CATA, Q.COMMON)
 
---FISHING
+-- PET BATTLE
+	-- Nuts
+	pet = AddPet(42183, V.MOP, Q.COMMON)
+
+	-- Stinker
+	pet = AddPet(62905, V.MOP, Q.COMMON)
+
+	-- Crystal Beetle
+	pet = AddPet(62895, V.MOP, Q.COMMON)
+
+	-- Crimson Shale Hatchling
+	pet = AddPet(62893, V.MOP, Q.COMMON)
+
+	-- Stowaway Rat
+	pet = AddPet(62892, V.MOP, Q.COMMON)
+
+	-- Twilight Fiendling
+	pet = AddPet(62886, V.MOP, Q.COMMON)
+
+	-- Highlands Mouse
+	pet = AddPet(62885, V.MOP, Q.COMMON)
+
+	-- Skunk
+	pet = AddPet(61327, V.MOP, Q.COMMON)
+
+	-- Yellow-Bellied Marmot
+	pet = AddPet(61326, V.MOP, Q.COMMON)
+
+	-- Wildhammer Gryphon Hatchling
+	pet = AddPet(62854, V.MOP, Q.COMMON)
+
+	-- Nordrassil Wisp
+	pet = AddPet(61329, V.MOP, Q.COMMON)
+
+	-- Strand Crab
+	pet = AddPet(61071, V.MOP, Q.COMMON)
+
+	-- Swamp Moth
+	pet = AddPet(62835, V.MOP, Q.COMMON)
+
+	-- Tol'vir Scarab
+	pet = AddPet(62820, V.MOP, Q.COMMON)
+
+	-- Leopard Scorpid
+	pet = AddPet(61158, V.MOP, Q.COMMON)
+
+	-- Oasis Moth
+	pet = AddPet(61142, V.MOP, Q.COMMON)
+
+	-- Locust
+	pet = AddPet(62395, V.MOP, Q.COMMON)
+
+	-- Mac Frog
+	pet = AddPet(62864, V.MOP, Q.COMMON)
+
+	-- Fire-Proof Roach
+	pet = AddPet(62927, V.MOP, Q.COMMON)
+
+	-- Carrion Rat
+	pet = AddPet(62953, V.MOP, Q.COMMON)
+
+	-- Spider
+	pet = AddPet(61081, V.MOP, Q.COMMON)
+
+	-- Scorpid
+	pet = AddPet(62991, V.MOP, Q.COMMON)
+
+	-- Scourged Whelpling
+	pet = AddPet(62994, V.MOP, Q.COMMON)
+
+	-- Scorpling
+	pet = AddPet(62997, V.MOP, Q.COMMON)
+
+	-- Small Frog
+	pet = AddPet(58163, V.MOP, Q.COMMON)
+
+	-- Tundra Penguin
+	pet = AddPet(62998, V.MOP, Q.COMMON)
+
+	-- Water Waveling
+	pet = AddPet(62999, V.MOP, Q.COMMON)
+
+	-- Shore Crab
+	pet = AddPet(63003, V.MOP, Q.COMMON)
+
+	-- Snake
+	pet = AddPet(63005, V.MOP, Q.COMMON)
+
+	-- Nether Faerie Dragon
+	pet = AddPet(55386, V.MOP, Q.COMMON)
+
+	-- Arctic Fox Kit
+	pet = AddPet(63006, V.MOP, Q.COMMON)
+
+	-- Crimson Geode
+	pet = AddPet(61829, V.MOP, Q.COMMON)
+
+	-- Sea Gull
+	pet = AddPet(61828, V.MOP, Q.COMMON)
+
+	-- Squirrel
+	pet = AddPet(61827, V.MOP, Q.COMMON)
+
+	-- Coral Adder
+	pet = AddPet(63097, V.MOP, Q.COMMON)
+
+	-- Emerald Turtle
+	pet = AddPet(62127, V.MOP, Q.COMMON)
+
+	-- Jungle Darter
+	pet = AddPet(62364, V.MOP, Q.COMMON)
+
+	-- Mirror Strider
+	pet = AddPet(62435, V.MOP, Q.COMMON)
+
+	-- Temple Snake
+	pet = AddPet(62177, V.MOP, Q.COMMON)
+
+	-- Masked Tanuki
+	pet = AddPet(62181, V.MOP, Q.COMMON)
+
+	-- Spirebound Crab
+	pet = AddPet(62184, V.MOP, Q.COMMON)
+
+	-- Sandy Petrel
+	pet = AddPet(62186, V.MOP, Q.COMMON)
+
+	-- Bat
+	pet = AddPet(62187, V.MOP, Q.COMMON)
+
+	-- Infected Squirrel
+	pet = AddPet(62189, V.MOP, Q.COMMON)
+
+	-- Infected Fawn
+	pet = AddPet(62190, V.MOP, Q.COMMON)
+
+	-- Emerald Boa
+	pet = AddPet(62114, V.MOP, Q.COMMON)
+
+	-- Ash Lizard
+	pet = AddPet(62620, V.MOP, Q.COMMON)
+
+	-- Mountain Skunk
+	pet = AddPet(62257, V.MOP, Q.COMMON)
+
+	-- Crystal Spider
+	pet = AddPet(62256, V.MOP, Q.COMMON)
+
+	-- Forest Moth
+	pet = AddPet(62034, V.MOP, Q.COMMON)
+
+	-- Topaz Shale Hatchling
+	pet = AddPet(62246, V.MOP, Q.COMMON)
+
+	-- Rock Viper
+	pet = AddPet(62258, V.MOP, Q.COMMON)
+
+	-- Horny Toad
+	pet = AddPet(62312, V.MOP, Q.COMMON)
+
+	-- Desert Spider
+	pet = AddPet(62313, V.MOP, Q.COMMON)
+
+	-- Stone Armadillo
+	pet = AddPet(62314, V.MOP, Q.COMMON)
+
+	-- Alpine Chipmunk
+	pet = AddPet(62315, V.MOP, Q.COMMON)
+
+	-- Coral Snake
+	pet = AddPet(62316, V.MOP, Q.COMMON)
+
+	-- Spawn of Onyxia
+	pet = AddPet(62317, V.MOP, Q.COMMON)
+
+	-- Spiny Lizard
+	pet = AddPet(62242, V.MOP, Q.COMMON)
+
+	-- Clefthoof Runt
+	pet = AddPet(62370, V.MOP, Q.COMMON)
+
+	-- Sand Kitten
+	pet = AddPet(62373, V.MOP, Q.COMMON)
+
+	-- Stinkbug
+	pet = AddPet(62375, V.MOP, Q.COMMON)
+
+	-- Spirit Crab
+	pet = AddPet(62924, V.MOP, Q.COMMON)
+
+	-- Shimmershell Snail
+	pet = AddPet(62255, V.MOP, Q.COMMON)
+
+	-- Silithid Hatchling
+	pet = AddPet(62191, V.MOP, Q.COMMON)
+
+	-- Frog
+	pet = AddPet(62250, V.MOP, Q.COMMON)
+
+	-- Rusty Snail
+	pet = AddPet(62523, V.MOP, Q.COMMON)
+
+	-- Tainted Cockroach
+	pet = AddPet(62524, V.MOP, Q.COMMON)
+
+	-- Tainted Moth
+	pet = AddPet(61686, V.MOP, Q.COMMON)
+
+	-- Tainted Rat
+	pet = AddPet(62526, V.MOP, Q.COMMON)
+
+	-- Minfernal
+	pet = AddPet(61689, V.MOP, Q.COMMON)
+
+	-- Crested Owl
+	pet = AddPet(62915, V.MOP, Q.COMMON)
+
+	-- Spotted Bell Frog
+	pet = AddPet(62555, V.MOP, Q.COMMON)
+
+	-- Silky Moth
+	pet = AddPet(62564, V.MOP, Q.COMMON)
+
+	-- Diemetradon Hatchling
+	pet = AddPet(62583, V.MOP, Q.COMMON)
+
+	-- Deepholm Cockroach
+	pet = AddPet(61441, V.MOP, Q.COMMON)
+
+	-- Twilight Iguana
+	pet = AddPet(61440, V.MOP, Q.COMMON)
+
+	-- Venomspitter Hatchling
+	pet = AddPet(63850, V.MOP, Q.COMMON)
+
+	-- Darkshore Cub
+	pet = AddPet(62621, V.MOP, Q.COMMON)
+
+	-- Sidewinder
+	pet = AddPet(62627, V.MOP, Q.COMMON)
+
+	-- Scarab Hatchling
+	pet = AddPet(62628, V.MOP, Q.COMMON)
+
+	-- Tiny Bog Beast
+	pet = AddPet(62648, V.MOP, Q.COMMON)
+
+	-- Qiraji Guardling
+	pet = AddPet(62669, V.MOP, Q.COMMON)
+
+	-- Snow Cub
+	pet = AddPet(62852, V.MOP, Q.COMMON)
+
+	-- Emerald Shale Hatchling
+	pet = AddPet(62697, V.MOP, Q.COMMON)
+
+	-- Flayer Youngling
+	pet = AddPet(62816, V.MOP, Q.COMMON)
+
+	-- Sporeling Sprout
+	pet = AddPet(62178, V.MOP, Q.COMMON)
+
+	-- Warpstalker Hatchling
+	pet = AddPet(62819, V.MOP, Q.COMMON)
+
+	-- Spiky Lizard
+	pet = AddPet(63549, V.MOP, Q.COMMON)
+
+	-- Stripe-Tailed Scorpid
+	pet = AddPet(65190, V.MOP, Q.COMMON)
+
+	-- Effervescent Glowfly
+	pet = AddPet(34724, V.MOP, Q.COMMON)
+
+	-- Fel Flame
+	pet = AddPet(63954, V.MOP, Q.COMMON)
+
+	-- Fledgling Nether Ray
+	pet = AddPet(63957, V.MOP, Q.COMMON)
+
+	-- Scalded Basilisk Hatchling
+	pet = AddPet(66491, V.MOP, Q.COMMON)
+
+	-- Turkey
+	pet = AddPet(64804, V.MOP, Q.COMMON)
+
+	-- Fjord Worg Pup
+	pet = AddPet(33810, V.MOP, Q.COMMON)
+
+	-- Dragonbone Hatchling
+	pet = AddPet(64242, V.MOP, Q.COMMON)
+
+	-- Oily Slimeling
+	pet = AddPet(63551, V.MOP, Q.COMMON)
+
+	-- Stunted Shardhorn
+	pet = AddPet(63550, V.MOP, Q.COMMON)
+
+	-- Elfin Rabbit
+	pet = AddPet(64352, V.MOP, Q.COMMON)
+
+	-- Imperial Eagle Chick
+	pet = AddPet(64238, V.MOP, Q.COMMON)
+
+	-- Grassland Hopper
+	pet = AddPet(63548, V.MOP, Q.COMMON)
+
+	-- Mongoose
+	pet = AddPet(63838, V.MOP, Q.COMMON)
+
+	-- Mongoose Pup
+	pet = AddPet(63841, V.MOP, Q.COMMON)
+
+	-- Yakrat
+	pet = AddPet(63842, V.MOP, Q.COMMON)
+
+	-- Silent Hedgehog
+	pet = AddPet(63849, V.MOP, Q.COMMON)
+
+	-- Clouded Hedgehog
+	pet = AddPet(62916, V.MOP, Q.COMMON)
+
+	-- Rapana Whelk
+	pet = AddPet(65314, V.MOP, Q.COMMON)
+
+	-- Resilient Roach
+	pet = AddPet(65313, V.MOP, Q.COMMON)
+
+	-- Crunchy Scorpion
+	pet = AddPet(65323, V.MOP, Q.COMMON)
+
+	-- Gilded Moth
+	pet = AddPet(27217, V.MOP, Q.COMMON)
+
+	-- Golden Civet
+	pet = AddPet(25706, V.MOP, Q.COMMON)
+
+	-- Golden Civet Kitten
+	pet = AddPet(25147, V.MOP, Q.COMMON)
+
+	-- Dancing Water Skimmer
+	pet = AddPet(65321, V.MOP, Q.COMMON)
+
+	-- Yellow-Bellied Bullfrog
+	pet = AddPet(64232, V.MOP, Q.COMMON)
+
+	-- Death's Head Cockroach
+	pet = AddPet(63621, V.MOP, Q.COMMON)
+
+	-- Fungal Moth
+	pet = AddPet(64634, V.MOP, Q.COMMON)
+
+	-- Wild Jade Hatchling
+	pet = AddPet(64899, V.MOP, Q.COMMON)
+
+	-- Wild Golden Hatchling
+	pet = AddPet(61883, V.MOP, Q.COMMON)
+
+	-- Wild Crimson Hatchling
+	pet = AddPet(59358, V.MOP, Q.COMMON)
+
+	-- Singing Cricket
+	pet = AddPet(66105, V.MOP, Q.COMMON)
+
+	-- Highlands Skunk
+	pet = AddPet(67022, V.MOP, Q.COMMON)
+
+	-- Amethyst Shale Hatchling
+	pet = AddPet(16445, V.MOP, Q.COMMON)
+
+	-- Horned Lizard
+	pet = AddPet(62693, V.MOP, Q.COMMON)
+
+	-- Jade Tentacle
+	pet = AddPet(62641, V.MOP, Q.COMMON)
+
+	-- Wanderer's Festival Hatchling
+	pet = AddPet(62906, V.MOP, Q.COMMON)
+
+	-- Snowy Owl
+	pet = AddPet(62818, V.MOP, Q.COMMON)
+
+	-- Adder
+	pet = AddPet(61368, V.MOP, Q.COMMON)
+
+	-- Skittering Cavern Crawler
+	pet = AddPet(62815, V.MOP, Q.COMMON)
+
+	-- Nether Roach
+	pet = AddPet(63002, V.MOP, Q.COMMON)
+
+	-- Borean Marmot
+	pet = AddPet(54745, V.MOP, Q.COMMON)
+
+	-- Snowshoe Hare
+	pet = AddPet(64246, V.MOP, Q.COMMON)
+
+	-- Arctic Hare
+	pet = AddPet(51090, V.MOP, Q.COMMON)
+
+	-- Fjord Rat
+	pet = AddPet(51635, V.MOP, Q.COMMON)
+
+	-- Highlands Turkey
+	pet = AddPet(63304, V.MOP, Q.COMMON)
+
+	-- Chicken
+	pet = AddPet(64248, V.MOP, Q.COMMON)
+
+	-- Grizzly Squirrel
+	pet = AddPet(63715, V.MOP, Q.COMMON)
+
+	-- Grove Viper
+	pet = AddPet(63953, V.MOP, Q.COMMON)
+
+	-- Huge Toad
+	pet = AddPet(63919, V.MOP, Q.COMMON)
+
+	-- Biletoad
+	pet = AddPet(63716, V.MOP, Q.COMMON)
+
+	-- Garden Frog
+	pet = AddPet(63062, V.MOP, Q.COMMON)
+
+	-- Stormwind Rat
+	pet = AddPet(63095, V.MOP, Q.COMMON)
+
+	-- Shy Bandicoon
+	pet = AddPet(63096, V.MOP, Q.COMMON)
+
+	-- Jungle Grub
+	pet = AddPet(63060, V.MOP, Q.COMMON)
+
+	-- Summit Kid
+	pet = AddPet(63559, V.MOP, Q.COMMON)
+
+	-- Jumping Spider
+	pet = AddPet(63365, V.MOP, Q.COMMON)
+
+	-- Kuitan Mongoose
+	pet = AddPet(63288, V.MOP, Q.COMMON)
+
+	-- Leopard Tree Frog
+	pet = AddPet(63291, V.MOP, Q.COMMON)
+
+	-- Masked Tanuki Pup
+	pet = AddPet(65124, V.MOP, Q.COMMON)
+
+	-- Bandicoon
+	pet = AddPet(65185, V.MOP, Q.COMMON)
+
+	-- Bandicoon Kit
+	pet = AddPet(63293, V.MOP, Q.COMMON)
+
+	-- Malayan Quillrat
+	pet = AddPet(63547, V.MOP, Q.COMMON)
+
+	-- Malayan Quillrat Pup
+	pet = AddPet(59702, V.MOP, Q.COMMON)
+
+	-- Marsh Fiddler
+	pet = AddPet(63585, V.MOP, Q.COMMON)
+
+	-- Sifang Otter
+	pet = AddPet(62884, V.MOP, Q.COMMON)
+
+	-- Sifang Otter Pup
+	pet = AddPet(36511, V.MOP, Q.COMMON)
+
+	-- Softshell Snapling
+	pet = AddPet(63557, V.MOP, Q.COMMON)
+
+	-- Amethyst Spiderling
+	pet = AddPet(65187, V.MOP, Q.COMMON)
+
+	-- Savory Beetle
+	pet = AddPet(34694, V.MOP, Q.COMMON)
+
+	-- Mei Li Sparkler
+	pet = AddPet(35395, V.MOP, Q.COMMON)
+
+	-- Spiny Terrapin
+	pet = AddPet(35400, V.MOP, Q.COMMON)
+
+	-- Plains Monitor
+	pet = AddPet(35394, V.MOP, Q.COMMON)
+
+	-- Szechuan Chicken
+	pet = AddPet(36482, V.MOP, Q.COMMON)
+
+	-- Grotto Vole
+	pet = AddPet(36908, V.MOP, Q.COMMON)
+
+	-- Tolai Hare
+	pet = AddPet(36909, V.MOP, Q.COMMON)
+
+	-- Tolai Hare Pup
+	pet = AddPet(33194, V.MOP, Q.COMMON)
+
+	-- Amber Moth
+	pet = AddPet(38374, V.MOP, Q.COMMON)
+
+	-- Celestial Dragon
+	pet = AddPet(50468, V.MOP, Q.COMMON)
+
+	-- Fire Beetle
+	pet = AddPet(61171, V.MOP, Q.COMMON)
+
+	-- Forest Spiderling
+	pet = AddPet(45340, V.MOP, Q.COMMON)
+
+	-- Fledgling Buzzard
+	pet = AddPet(25109, V.MOP, Q.COMMON)
+
+	-- Fawn
+	pet = AddPet(26119, V.MOP, Q.COMMON)
+
+	-- Festering Maggot
+	pet = AddPet(31575, V.MOP, Q.COMMON)
+
+	-- Toad
+	pet = AddPet(61690, V.MOP, Q.COMMON)
+
+	-- Lava Crab
+	pet = AddPet(61691, V.MOP, Q.COMMON)
+
+	-- Moccasin
+	pet = AddPet(61704, V.MOP, Q.COMMON)
+
+	-- Roach
+	pet = AddPet(61703, V.MOP, Q.COMMON)
+
+	-- Ash Viper
+	pet = AddPet(61718, V.MOP, Q.COMMON)
+
+	-- Ash Spiderling
+	pet = AddPet(61751, V.MOP, Q.COMMON)
+
+	-- Lava Beetle
+	pet = AddPet(61752, V.MOP, Q.COMMON)
+
+	-- Molten Hatchling
+	pet = AddPet(61753, V.MOP, Q.COMMON)
+
+	-- Gold Beetle
+	pet = AddPet(61757, V.MOP, Q.COMMON)
+
+	-- Rattlesnake
+	pet = AddPet(61758, V.MOP, Q.COMMON)
+
+	-- King Snake
+	pet = AddPet(61890, V.MOP, Q.COMMON)
+
+	-- Little Black Ram
+	pet = AddPet(61826, V.MOP, Q.COMMON)
+
+	-- Restless Shadeling
+	pet = AddPet(61905, V.MOP, Q.COMMON)
+
+	-- Alpine Hare
+	pet = AddPet(62019, V.MOP, Q.COMMON)
+
+	-- Irradiated Roach
+	pet = AddPet(62020, V.MOP, Q.COMMON)
+
+	-- Grasslands Cottontail
+	pet = AddPet(62022, V.MOP, Q.COMMON)
+
+	-- Tiny Twister
+	pet = AddPet(62050, V.MOP, Q.COMMON)
+
+	-- Jade Oozeling
+	pet = AddPet(17255, V.MOP, Q.COMMON)
+
+	-- Hare
+	pet = AddPet(62051, V.MOP, Q.COMMON)
+
+	-- Brown Marmot
+	pet = AddPet(62116, V.MOP, Q.COMMON)
+
+	-- Maggot
+	pet = AddPet(62115, V.MOP, Q.COMMON)
+
+	-- Red-Tailed Chipmunk
+	pet = AddPet(62118, V.MOP, Q.COMMON)
+
+	-- Infested Bear Cub
+	pet = AddPet(62117, V.MOP, Q.COMMON)
+
+	-- Blighted Squirrel
+	pet = AddPet(62119, V.MOP, Q.COMMON)
+
+	-- Blighthawk
+	pet = AddPet(62120, V.MOP, Q.COMMON)
+
+	-- Lost of Lordaeron
+	pet = AddPet(62121, V.MOP, Q.COMMON)
+
+	-- Cat
+	pet = AddPet(62129, V.MOP, Q.COMMON)
+
+	-- Ruby Sapling
+	pet = AddPet(62130, V.MOP, Q.COMMON)
+
+	-- Larva
+	pet = AddPet(62176, V.MOP, Q.COMMON)
+
+	-- Grey Moth
+	pet = AddPet(7391, V.MOP, Q.COMMON)
+
+	-- Dung Beetle
+	pet = AddPet(54383, V.MOP, Q.COMMON)
+
+	-- Twilight Beetle
+	pet = AddPet(54438, V.MOP, Q.COMMON)
+
+	-- Twilight Spider
+	pet = AddPet(54491, V.MOP, Q.COMMON)
+
+	-- Robo-Chick
+	pet = AddPet(54539, V.MOP, Q.COMMON)
+
+	-- Rabid Nut Varmint 5000
+	pet = AddPet(54730, V.MOP, Q.COMMON)
+
+	-- Turquoise Turtle
+	pet = AddPet(54487, V.MOP, Q.COMMON)
+
+	-- Cheetah Cub
+	pet = AddPet(55187, V.MOP, Q.COMMON)
+
+	-- Giraffe Calf
+	pet = AddPet(55215, V.MOP, Q.COMMON)
+
+	-- Gazelle Fawn
+	pet = AddPet(55356, V.MOP, Q.COMMON)
+
+	-- Brilliant Kaliri
+	pet = AddPet(56082, V.MOP, Q.COMMON)
+
+	-- Undercity Rat
+	pet = AddPet(61258, V.MOP, Q.COMMON)
+
+	-- Black Lamb
+	pet = AddPet(61259, V.MOP, Q.COMMON)
+
+	-- Rabbit
+	pet = AddPet(61313, V.MOP, Q.COMMON)
+
+	-- Bucktooth Flapper
+	pet = AddPet(61317, V.MOP, Q.COMMON)
+
+	-- Mouse
+	pet = AddPet(61319, V.MOP, Q.COMMON)
+
+	-- Prairie Dog
+	pet = AddPet(61321, V.MOP, Q.COMMON)
+
+	-- Tiny Harvester
+	pet = AddPet(61322, V.MOP, Q.COMMON)
+
+	-- Mountain Cottontail
+	pet = AddPet(61324, V.MOP, Q.COMMON)
+
+	-- Redridge Rat
+	pet = AddPet(54128, V.MOP, Q.COMMON)
+
+	-- Cockroach
+	pet = AddPet(61366, V.MOP, Q.COMMON)
+
+	-- Dusk Spiderling
+	pet = AddPet(53661, V.MOP, Q.COMMON)
+
+	-- Black Rat
+	pet = AddPet(61367, V.MOP, Q.COMMON)
+
+	--FISHING
 --[[
 	-- Magical Crawdad Box - 33050
 	pet = AddPet(33050, V.TBC, Q.COMMON)
