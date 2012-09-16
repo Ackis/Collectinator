@@ -135,53 +135,53 @@ function addon:InitCritters()
 
 	-- Sea Pony -- 55386
 	pet = AddPet(55386, V.CATA, Q.RARE)
---[[
+
 --PLAYERMADE
-	-- Mechanical Squirrel Box -- 4055
-	pet = AddPet(4055, V.ORIG, Q.COMMON)
+	-- Mechanical Squirrel Box -- 2671
+	pet = AddPet(2671, V.ORIG, Q.COMMON)
 
-	-- Pet Bombling -- 15048
-	pet = AddPet(15048, V.ORIG, Q.COMMON)
+	-- Pet Bombling -- 9656
+	pet = AddPet(9656, V.ORIG, Q.COMMON)
 
-	-- Lil' Smoky -- 15049
-	pet = AddPet(15049, V.ORIG, Q.COMMON)
+	-- Lil' Smoky -- 9657
+	pet = AddPet(9657, V.ORIG, Q.COMMON)
 
-	-- Lifelike Mechanical Toad -- 19772
-	pet = AddPet(19772, V.ORIG, Q.COMMON)
+	-- Lifelike Mechanical Toad -- 12419
+	pet = AddPet(12419, V.ORIG, Q.COMMON)
 
-	-- Tranquil Mechanical Yeti -- 26010
-	pet = AddPet(26010, V.ORIG, Q.COMMON)
+	-- Tranquil Mechanical Yeti -- 15699
+	pet = AddPet(15699, V.ORIG, Q.COMMON)
 
-	-- Fossilized Hatchling -- 84752
-	pet = AddPet(84752, V.CATA, Q.RARE)
+	-- Fossilized Hatchling -- 45340
+	pet = AddPet(45340, V.CATA, Q.RARE)
 
-	-- De-Weaponized Mechanical Companion -- 82173
-	pet = AddPet(82173, V.CATA, Q.RARE)
+	-- De-Weaponized Mechanical Companion -- 43916
+	pet = AddPet(43916, V.CATA, Q.RARE)
 
-	-- Elementium Geode -- 93838
-	pet = AddPet(93838, V.CATA, Q.RARE)
+	-- Elementium Geode -- 50722
+	pet = AddPet(50722, V.CATA, Q.RARE)
 
-	-- Personal World Destroyer -- 81937
-	pet = AddPet(81937, V.CATA, Q.RARE)
+	-- Personal World Destroyer -- 43800
+	pet = AddPet(43800, V.CATA, Q.RARE)
 
-	-- Clockwork Gnome -- 90523
-	pet = AddPet(90523, V.CATA, Q.RARE)
-]]--
+	-- Clockwork Gnome -- 48609
+	pet = AddPet(48609, V.CATA, Q.RARE)
+
 	-- Crawling Claw -- 45128
 	pet = AddPet(45128, V.CATA, Q.EPIC)
---[[
-	-- Enchanted Lantern -- 93836
-	pet = AddPet(93836, V.CATA, Q.RARE)
 
-	-- Magic Lamp -- 93837
-	pet = AddPet(93837, V.CATA, Q.RARE)
+	-- Enchanted Lantern -- 46898
+	pet = AddPet(46898, V.CATA, Q.RARE)
 
-	-- Pterrordax Hatchling -- 98571
-	pet = AddPet(98571, V.CATA, Q.RARE)
+	-- Magic Lamp -- 50545
+	pet = AddPet(50545, V.CATA, Q.RARE)
 
-	-- Voodoo Figurine -- 98587
-	pet = AddPet(98587, V.CATA, Q.RARE)
-]]--
+	-- Pterrordax Hatchling -- 53225
+	pet = AddPet(53225, V.CATA, Q.RARE)
+
+	-- Voodoo Figurine -- 53232
+	pet = AddPet(53232, V.CATA, Q.RARE)
+
 
 
 --WORLD EVENT DROP
@@ -260,8 +260,8 @@ function addon:InitCritters()
 	-- Tiny Snowman
 	pet = AddPet(23234, V.ORIG, Q.COMMON)
 
-	-- Whiskers the Rat
-	pet = AddPet(24388, V.ORIG, Q.COMMON)
+	-- Whiskers the Rat -- 16549
+	pet = AddPet(16549, V.ORIG, Q.COMMON)
 
 	-- Frigid Frostling
 	pet = AddPet(48641, V.WOTLK, Q.RARE)
@@ -835,11 +835,11 @@ function addon:InitCritters()
 	-- Snake
 	pet = AddPet(63005, V.MOP, Q.COMMON)
 
-	-- Nether Faerie Dragon
-	pet = AddPet(55386, V.MOP, Q.COMMON)
+	-- Nether Faerie Dragon -- 62395
+	pet = AddPet(62395, V.MOP, Q.COMMON)
 
-	-- Arctic Fox Kit
-	pet = AddPet(63006, V.MOP, Q.COMMON)
+	-- Arctic Fox Kit -- 62864
+	pet = AddPet(62864, V.MOP, Q.COMMON)
 
 	-- Crimson Geode
 	pet = AddPet(61829, V.MOP, Q.COMMON)
