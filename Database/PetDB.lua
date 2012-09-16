@@ -94,26 +94,27 @@ function addon:InitCritters()
 
 	-- Pebble -- 45247
 	pet = AddPet(45247, V.CATA, Q.COMMON)
---[[
-	-- Armadillo Pup -- 89670
-	pet = AddPet(89670, V.CATA, Q.RARE)
 
-	-- Dark Phoenix Hatchling -- 89039
-	pet = AddPet(89039, V.CATA, Q.RARE)
+	-- Armadillo Pup -- 48242
+	pet = AddPet(48242, V.CATA, Q.RARE)
 
-	-- Nuts' Acorn -- 100970
-	pet = AddPet(100970, V.CATA, Q.RARE)
+	-- Dark Phoenix Hatchling -- 47944
+	pet = AddPet(47944, V.CATA, Q.RARE)
 
-	-- Celestial Dragon -- 75613
-	pet = AddPet(75613, V.CATA, Q.RARE)
+	-- Nuts' Acorn -- 54227
+	pet = AddPet(54227, V.CATA, Q.RARE)
 
-	-- Brilliant Kaliri -- 101424
-	pet = AddPet(101424, V.CATA, Q.COMMON)
+	-- Celestial Dragon -- 40624
+	pet = AddPet(40624, V.CATA, Q.RARE)
 
-	-- Lil' Tarecgosa -- 100576
-	pet = AddPet(100576, V.CATA, Q.COMMON)
+	-- Brilliant Kaliri -- 54374
+	pet = AddPet(54374, V.CATA, Q.COMMON)
+
+	-- Lil' Tarecgosa -- 54027
+	pet = AddPet(54027, V.CATA, Q.COMMON)
 
 --FISHING
+--[[
 	-- Magical Crawdad Box - 33050
 	pet = AddPet(33050, V.TBC, Q.COMMON)
 
