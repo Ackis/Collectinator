@@ -582,7 +582,7 @@ do
 			local dump_lines = private.TextDump:Lines()
 
 			if dump_lines > 0 then
-				table.insert(private.TextDump.output, 1, ("Untracked pets: %d\n"):format(dump_lines))
+				private.TextDump:InsertLine(1, ("Untracked pets: %d\n"):format(dump_lines))
 				private.TextDump:Display()
 			end
 		end,

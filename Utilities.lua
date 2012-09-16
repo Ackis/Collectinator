@@ -146,10 +146,7 @@ do
 	}
 
 	function private.TextDump:AddLine(text)
-		if _G.type(text) ~= "string" or text == "" then
-			return
-		end
-		table.insert(self.output, text)
+		self:InsertLine(#self.output + 1, text)
 	end
 
 	function private.TextDump:Display(separator, collectable_type)
@@ -163,6 +160,13 @@ do
 		edit_box:SetCursorPosition(1)
 		copy_frame:Show()
 		table.wipe(self.output)
+	end
+
+	function private.TextDump:InsertLine(position, text)
+		if _G.type(text) ~= "string" or text == "" then
+			return
+		end
+		table.insert(self.output, position, text)
 	end
 
 	function private.TextDump:Lines()
