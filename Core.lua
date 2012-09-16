@@ -576,7 +576,15 @@ do
 						critter:AddState("KNOWN")
 					end
 				elseif not pet_registry[creature_id] then
-					private.TextDump:AddLine(UNKNOWN_PET_FORMAT:format(name, creature_id, description, source_text))
+					-- Comment this out and uncomment below to remove "type-filtering"
+					if source_text:find("Quest") then
+						private.TextDump:AddLine(("-- %s"):format(name))
+						private.TextDump:AddLine(("pet = AddPet(%d, V.MOP, Q.COMMON)\n"):format(creature_id))
+						pet_registry[creature_id] = true
+					end
+
+					-- Uncomment this to get a straight Name: ID dump
+--					private.TextDump:AddLine(UNKNOWN_PET_FORMAT:format(name, creature_id, description, source_text))
 				end
 			end
 			local dump_lines = private.TextDump:Lines()
