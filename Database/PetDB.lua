@@ -49,6 +49,7 @@ function addon:InitCritters()
 	end
 	local pet
 
+--UNKNOWN/MISC	
 	-- Core Hound Pup -- 36871
 	pet = AddPet(36871, V.WOTLK, Q.RARE)
 
