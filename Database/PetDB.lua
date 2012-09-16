@@ -397,8 +397,8 @@ function addon:InitCritters()
 	-- Alliance Balloon -- 54539
 	pet = AddPet(54539, V.CATA, Q.COMMON)
 
-	-- Horde Balloon -- 52894
-	pet = AddPet(52894, V.CATA, Q.COMMON)
+	-- Horde Balloon -- 54541
+	pet = AddPet(54541, V.CATA, Q.COMMON)
 --[[
 --REP VENDOR ARGENT
 	-- Teldrassil Sproutling -- 62491
