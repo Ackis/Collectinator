@@ -286,7 +286,7 @@ function addon:InitCritters()
 	-- Creepy Crate -- 100684
 	pet = AddPet(100684, V.CATA, Q.COMMON)
 ]]--
-	--WORLD EVENT VENDOR
+--WORLD EVENT VENDOR
 	-- Pint-Sized Pink Pachyderm -- 44369
 	pet = AddPet(24753, V.TBC, Q.RARE)
 
@@ -723,8 +723,6 @@ function addon:InitCritters()
 
 	-- Soul of the Aspects -- 110029
 	pet = AddPet(110029, V.CATA, Q.RARE)
-
-]]--
 
 -- PET BATTLE
 	-- Nuts
@@ -1401,6 +1399,6 @@ function addon:InitCritters()
 
 	-- Black Rat
 	pet = AddPet(61367, V.MOP, Q.COMMON)
-
+]]--
 	self.InitCritters = nil
 end
