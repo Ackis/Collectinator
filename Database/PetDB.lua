@@ -286,9 +286,7 @@ function addon:InitCritters()
 
 	-- Pint-Sized Pink Pachyderm -- 24753
 	pet = AddPet(24753, V.TBC, Q.RARE)
-
 --[[
-
 --DROP
 	-- Parrot Cage (Hyacinth Macaw) -- 10682
 	pet = AddPet(10682, V.ORIG, Q.EPIC)
@@ -398,7 +396,13 @@ function addon:InitCritters()
 
 	-- Lashtail Hatchling -- 97779
 	pet = AddPet(97779, V.CATA, Q.COMMON)
+]]--
+	-- Alliance Balloon -- 54539
+	pet = AddPet(54539, V.CATA, Q.COMMON)
 
+	-- Horde Balloon -- 52894
+	pet = AddPet(52894, V.CATA, Q.COMMON)
+--[[
 --REP VENDOR ARGENT
 	-- Teldrassil Sproutling -- 62491
 	pet = AddPet(62491, V.WOTLK, Q.RARE)
