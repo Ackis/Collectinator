@@ -49,44 +49,44 @@ function addon:InitCritters()
 	end
 	local pet
 
-	-- Zergling - 11327
+	-- Zergling -- 11327
 	pet = AddPet(11327, V.ORIG, Q.COMMON)
 
-	-- Clockwork Rocket Bot - 24968
+	-- Clockwork Rocket Bot -- 24968
 	pet = AddPet(24968, V.TBC, Q.RARE)
 
-	-- Core Hound Pup - 36871
+	-- Core Hound Pup -- 36871
 	pet = AddPet(36871, V.WOTLK, Q.RARE)
 
-	-- Zipao Tiger (Purple Jade Tiger) - 36910
+	-- Zipao Tiger (Purple Jade Tiger) -- 36910
 	pet = AddPet(36910, V.WOTLK, Q.RARE)
 
-	-- Jade Tiger - 34930
+	-- Jade Tiger -- 34930
 	pet = AddPet(34930, V.WOTLK, Q.RARE)
 
-	-- Tiny Red Dragon - 14756
+	-- Tiny Red Dragon -- 14756
 	pet = AddPet(14756, V.WOTLK, Q.RARE)
 
-	-- Tiny Green Dragon - 14755
+	-- Tiny Green Dragon -- 14755
 	pet = AddPet(14755, V.WOTLK, Q.RARE)
 
-	-- Golden Pig - 25146
+	-- Golden Pig -- 25146
 	pet = AddPet(25146, V.WOTLK, Q.RARE)
 
 --ACHIEVEMENTS
-	-- Pilgrim Turkey - 32818
+	-- Pilgrim Turkey -- 32818
 	pet = AddPet(32818, V.WOTLK, Q.RARE)
 
-	-- Kirin Tor Familiar - 32643
+	-- Kirin Tor Familiar -- 32643
 	pet = AddPet(32643, V.WOTLK, Q.RARE)
 
-	-- Reeking Pet Carrier - 23274
+	-- Reeking Pet Carrier -- 23274
 	pet = AddPet(23274, V.TBC, Q.RARE)
 
-	-- Little Fawn - 32939
+	-- Little Fawn -- 32939
 	pet = AddPet(32939, V.WOTLK, Q.RARE)
 
-	-- Perky Pug - 37865
+	-- Perky Pug -- 37865
 	pet = AddPet(37865, V.WOTLK, Q.RARE)
 
 	-- Pebble -- 45247
@@ -112,22 +112,22 @@ function addon:InitCritters()
 
 	--FISHING
 
-	-- Magical Crawdad Box - 18839
+	-- Magical Crawdad Box -- 18839
 	pet = AddPet(18839, V.TBC, Q.COMMON)
 
-	-- Toothy's Bucket - 24388
+	-- Toothy's Bucket -- 24388
 	pet = AddPet(24388, V.TBC, Q.RARE)
 
-	-- Muckbreath's Bucket - 24389
+	-- Muckbreath's Bucket -- 24389
 	pet = AddPet(24389, V.TBC, Q.RARE)
 
-	-- Snarly's Bucket - 26050
+	-- Snarly's Bucket -- 26050
 	pet = AddPet(26050, V.TBC, Q.RARE)
 
-	-- Chuck's Bucket - 26056
+	-- Chuck's Bucket -- 26056
 	pet = AddPet(26056, V.TBC, Q.RARE)
 
-	-- Giant Sewer Rat - 31575
+	-- Giant Sewer Rat -- 31575
 	pet = AddPet(31575, V.WOTLK, Q.RARE)
 
 	-- Strand Crawler -- 33226
@@ -137,19 +137,19 @@ function addon:InitCritters()
 	pet = AddPet(55386, V.CATA, Q.RARE)
 --[[
 --PLAYERMADE
-	-- Mechanical Squirrel Box - 4055
+	-- Mechanical Squirrel Box -- 4055
 	pet = AddPet(4055, V.ORIG, Q.COMMON)
 
-	-- Pet Bombling - 15048
+	-- Pet Bombling -- 15048
 	pet = AddPet(15048, V.ORIG, Q.COMMON)
 
-	-- Lil' Smoky - 15049
+	-- Lil' Smoky -- 15049
 	pet = AddPet(15049, V.ORIG, Q.COMMON)
 
-	-- Lifelike Mechanical Toad - 19772
+	-- Lifelike Mechanical Toad -- 19772
 	pet = AddPet(19772, V.ORIG, Q.COMMON)
 
-	-- Tranquil Mechanical Yeti - 26010
+	-- Tranquil Mechanical Yeti -- 26010
 	pet = AddPet(26010, V.ORIG, Q.COMMON)
 
 	-- Fossilized Hatchling -- 84752
@@ -227,7 +227,7 @@ function addon:InitCritters()
 	-- Spirit of Summer
 	pet = AddPet(7543, V.ORIG, Q.RARE)
 
-	-- Spirit of Summer - 28871
+	-- Spirit of Summer -- 28871
 	pet = AddPet(16701, V.ORIG, Q.RARE)
 
 	-- Winter Reindeer
@@ -242,7 +242,7 @@ function addon:InitCritters()
 	-- Scooter the Snail
 	pet = AddPet(63358, V.CATA, Q.COMMON)
 
-	-- Onyx Panther - 35468
+	-- Onyx Panther -- 35468
 	pet = AddPet(35468, V.WOTLK, Q.RARE)
 
 	-- Onyx Panther
@@ -282,7 +282,7 @@ function addon:InitCritters()
 	pet = AddPet(61167, V.CATA, Q.RARE)
 
 	--[[
-	-- Red Helper Box - 26541
+	-- Red Helper Box -- 26541
 	pet = AddPet(26541, V.ORIG, Q.COMMON)
 
 	-- Darkmoon Balloon -- 103076
@@ -308,7 +308,7 @@ function addon:InitCritters()
 ]]--
 
 	--WORLD EVENT VENDOR
-	-- Pint-Sized Pink Pachyderm - 44369
+	-- Pint-Sized Pink Pachyderm -- 44369
 	pet = AddPet(24753, V.TBC, Q.RARE)
 
 	-- Festival Lantern -- 104049
@@ -316,40 +316,40 @@ function addon:InitCritters()
 	--[[
 
 --DROP
-	-- Parrot Cage (Hyacinth Macaw) - 10682
+	-- Parrot Cage (Hyacinth Macaw) -- 10682
 	pet = AddPet(10682, V.ORIG, Q.EPIC)
 
-	-- Parrot Cage (Green Wing Macaw) - 10683
+	-- Parrot Cage (Green Wing Macaw) -- 10683
 	pet = AddPet(10683, V.ORIG, Q.COMMON)
 
-	-- Cat Carrier (Black Tabby) - 10675
+	-- Cat Carrier (Black Tabby) -- 10675
 	pet = AddPet(10675, V.ORIG, Q.COMMON)
 
-	-- Cat Carrier (Siamese) - 10677
+	-- Cat Carrier (Siamese) -- 10677
 	pet = AddPet(10677, V.ORIG, Q.COMMON)
 
-	-- Dark Whelpling - 10695
+	-- Dark Whelpling -- 10695
 	pet = AddPet(10695, V.ORIG, Q.COMMON)
 
-	-- Azure Whelpling - 10696
+	-- Azure Whelpling -- 10696
 	pet = AddPet(10696, V.ORIG, Q.COMMON)
 
-	-- Tiny Crimson Whelpling - 10697
+	-- Tiny Crimson Whelpling -- 10697
 	pet = AddPet(10697, V.ORIG, Q.COMMON)
 
-	-- Tiny Emerald Whelpling - 10698
+	-- Tiny Emerald Whelpling -- 10698
 	pet = AddPet(10698, V.ORIG, Q.COMMON)
 
-	-- Disgusting Oozeling - 25162
+	-- Disgusting Oozeling -- 25162
 	pet = AddPet(25162, V.ORIG, Q.COMMON)
 
-	-- Captured Firefly - 36034
+	-- Captured Firefly -- 36034
 	pet = AddPet(36034, V.TBC, Q.COMMON)
 
-	-- Mojo - 43918
+	-- Mojo -- 43918
 	pet = AddPet(43918, V.TBC, Q.RARE)
 
-	-- Phoenix Hatchling - 46599
+	-- Phoenix Hatchling -- 46599
 	pet = AddPet(46599, V.TBC, Q.RARE)
 
 	-- Darting Hatchling
@@ -383,25 +383,25 @@ function addon:InitCritters()
 	pet = AddPet(90637, V.CATA, Q.RARE)
 
 --QUESTS
-	-- Mechanical Chicken - 12243
+	-- Mechanical Chicken -- 12243
 	pet = AddPet(12243, V.ORIG, Q.COMMON)
 
-	-- Chicken Egg - 13548
+	-- Chicken Egg -- 13548
 	pet = AddPet(13548, V.ORIG, Q.COMMON)
 
-	-- Sprite Darter Egg - 15067
+	-- Sprite Darter Egg -- 15067
 	pet = AddPet(15067, V.ORIG, Q.COMMON)
 
-	-- Worg Carrier - 15999
+	-- Worg Carrier -- 15999
 	pet = AddPet(15999, V.ORIG, Q.RARE)
 
-	-- Smolderweb Egg - 16450
+	-- Smolderweb Egg -- 16450
 	pet = AddPet(16450, V.CATA, Q.RARE)
 
-	-- A Jubling's Tiny Home - 23811
+	-- A Jubling's Tiny Home -- 23811
 	pet = AddPet(23811, V.ORIG, Q.COMMON)
 
-	-- Miniwing - 39181
+	-- Miniwing -- 39181
 	pet = AddPet(39181, V.TBC, Q.COMMON)
 
 	-- Gold Mini Jouster -- 78685
@@ -457,10 +457,10 @@ function addon:InitCritters()
 	pet = AddPet(63712, V.WOTLK, Q.RARE)
 
 --REP VENDOR NEUTRAL
-	-- Tiny Sporebat - 45082
+	-- Tiny Sporebat -- 45082
 	pet = AddPet(45082, V.TBC, Q.RARE)
 
-	-- Nether Ray Fry - 51716
+	-- Nether Ray Fry -- 51716
 	pet = AddPet(51716, V.TBC, Q.RARE)
 
 	-- Tickbird Hatchling -- 61348
@@ -475,7 +475,7 @@ function addon:InitCritters()
 	-- Cobra Hatchling -- 61351
 	pet = AddPet(61351, V.WOTLK, Q.COMMON)
 
-	-- Nurtured Penguin Egg - 61357
+	-- Nurtured Penguin Egg -- 61357
 	pet = AddPet(61357, V.WOTLK, Q.RARE)
 
 	-- Rustberg Gull -- 89472
@@ -491,37 +491,37 @@ function addon:InitCritters()
 	pet = AddPet(99663, V.CATA, Q.RARE)
 
 --VENDOR NEUTRAL
-	-- Parrot Cage (Cockatiel) - 10680
+	-- Parrot Cage (Cockatiel) -- 10680
 	pet = AddPet(10680, V.ORIG, Q.COMMON)
 
-	-- Parrot Cage (Senegal) - 10684
+	-- Parrot Cage (Senegal) -- 10684
 	pet = AddPet(10684, V.ORIG, Q.COMMON)
 
-	-- Ancona Chicken - 10685
+	-- Ancona Chicken -- 10685
 	pet = AddPet(10685, V.ORIG, Q.COMMON)
 
-	-- Wood Frog Box - 10703
+	-- Wood Frog Box -- 10703
 	pet = AddPet(10703, V.ORIG, Q.COMMON)
 
-	-- Tree Frog Box - 10704
+	-- Tree Frog Box -- 10704
 	pet = AddPet(10704, V.ORIG, Q.COMMON)
 
-	-- Crimson Snake - 10717
+	-- Crimson Snake -- 10717
 	pet = AddPet(10717, V.ORIG, Q.COMMON)
 
-	-- Mana Wyrmling - 35156
+	-- Mana Wyrmling -- 35156
 	pet = AddPet(35156, V.TBC, Q.COMMON)
 
-	-- Brown Rabbit Crate - 35239
+	-- Brown Rabbit Crate -- 35239
 	pet = AddPet(35239, V.ORIG, Q.COMMON)
 
-	-- Red Moth Egg - 35909
+	-- Red Moth Egg -- 35909
 	pet = AddPet(35909, V.TBC, Q.COMMON)
 
-	-- Blue Dragonhawk Hatchling - 36031
+	-- Blue Dragonhawk Hatchling -- 36031
 	pet = AddPet(36031, V.TBC, Q.COMMON)
 
-	-- Ghostly Skull - 53316
+	-- Ghostly Skull -- 53316
 	pet = AddPet(53316, V.WOTLK, Q.RARE)
 
 	-- Obsidian Hatchling
@@ -536,107 +536,107 @@ function addon:InitCritters()
 	-- Albino Snake
 	pet = AddPet(7561, V.WOTLK, Q.COMMON)
 
-	-- Scorched Stone - 45890
+	-- Scorched Stone -- 45890
 	pet = AddPet(45890, V.TBC, Q.RARE)
 
 --VENDOR HORDE
-	-- Cockroach - 10688
+	-- Cockroach -- 10688
 	pet = AddPet(10688, V.ORIG, Q.COMMON)
 
-	-- Prairie Dog Whistle - 10709
+	-- Prairie Dog Whistle -- 10709
 	pet = AddPet(10709, V.ORIG, Q.COMMON)
 
-	-- Black Kingsnake - 10714
+	-- Black Kingsnake -- 10714
 	pet = AddPet(10714, V.ORIG, Q.COMMON)
 
-	-- Brown Snake - 10716
+	-- Brown Snake -- 10716
 	pet = AddPet(10716, V.ORIG, Q.COMMON)
 
-	-- Golden Dragonhawk Hatchling - 36027
+	-- Golden Dragonhawk Hatchling -- 36027
 	pet = AddPet(36027, V.TBC, Q.COMMON)
 
-	-- Red Dragonhawk Hatchling - 36028
+	-- Red Dragonhawk Hatchling -- 36028
 	pet = AddPet(36028, V.TBC, Q.COMMON)
 
-	-- Silver Dragonhawk Hatchling - 36029
+	-- Silver Dragonhawk Hatchling -- 36029
 	pet = AddPet(36029, V.TBC, Q.COMMON)
 
 --VENDOR ALLIANCE
-	-- Cat Carrier (Bombay) - 10673
+	-- Cat Carrier (Bombay) -- 10673
 	pet = AddPet(10673, V.ORIG, Q.COMMON)
 
-	-- Cat Carrier (Cornish Rex) - 10674
+	-- Cat Carrier (Cornish Rex) -- 10674
 	pet = AddPet(10674, V.ORIG, Q.COMMON)
 
-	-- Cat Carrier (Orange Tabby) - 10676
+	-- Cat Carrier (Orange Tabby) -- 10676
 	pet = AddPet(10676, V.ORIG, Q.COMMON)
 
-	-- Cat Carrier (Silver Tabby) - 10678
+	-- Cat Carrier (Silver Tabby) -- 10678
 	pet = AddPet(10678, V.ORIG, Q.COMMON)
 
-	-- Cat Carrier (White Kitten) - 10679
+	-- Cat Carrier (White Kitten) -- 10679
 	pet = AddPet(10679, V.ORIG, Q.COMMON)
 
-	-- Hawk Owl - 10706
+	-- Hawk Owl -- 10706
 	pet = AddPet(10706, V.ORIG, Q.COMMON)
 
-	-- Great Horned Owl - 10707
+	-- Great Horned Owl -- 10707
 	pet = AddPet(10707, V.ORIG, Q.COMMON)
 
-	-- Rabbit Crate (Snowshoe) - 10711
+	-- Rabbit Crate (Snowshoe) -- 10711
 	pet = AddPet(10711, V.ORIG, Q.COMMON)
 
-	-- Blue Moth Egg - 35907
+	-- Blue Moth Egg -- 35907
 	pet = AddPet(35907, V.TBC, Q.COMMON)
 
-	-- Yellow Moth Egg - 35910
+	-- Yellow Moth Egg -- 35910
 	pet = AddPet(35910, V.TBC, Q.COMMON)
 
-	-- White Moth Egg - 35911
+	-- White Moth Egg -- 35911
 	pet = AddPet(35911, V.TBC, Q.COMMON)
 
 --RETIRED
-	-- Spirit of Competition - 48406
+	-- Spirit of Competition -- 48406
 	pet = AddPet(48406, V.TBC, Q.RARE)
 
-	-- Essence of Competition - 48408
+	-- Essence of Competition -- 48408
 	pet = AddPet(48408, V.TBC, Q.UNCOMMON)
 
-	-- Vampiric Batling - 51851
+	-- Vampiric Batling -- 51851
 	pet = AddPet(51851, V.TBC, Q.RARE)
 
-	-- Baby Blizzard Bear - 61855
+	-- Baby Blizzard Bear -- 61855
 	pet = AddPet(61855, V.WOTLK, Q.COMMON)
 
-	-- Murkimus' Little Spear - 63318
+	-- Murkimus' Little Spear -- 63318
 	pet = AddPet(63318, V.WOTLK, Q.RARE)
 
-	-- Onyxian Whelpling - 69002
+	-- Onyxian Whelpling -- 69002
 	pet = AddPet(69002, V.WOTLK, Q.COMMON)
 
-	-- Mr. Chilly - 55068
+	-- Mr. Chilly -- 55068
 	pet = AddPet(55068, V.WOTLK, Q.RARE)
 
 --COLLECTORS EDITION
-	-- Diablo Stone - 17708
+	-- Diablo Stone -- 17708
 	pet = AddPet(17708, V.ORIG, Q.RARE)
 
-	-- Panda Collar - 17707
+	-- Panda Collar -- 17707
 	pet = AddPet(17707, V.ORIG, Q.RARE)
 
-	-- Zergling Leash - 17709
+	-- Zergling Leash -- 17709
 	pet = AddPet(17709, V.ORIG, Q.RARE)
 
-	-- Lurky's Egg - 24988
+	-- Lurky's Egg -- 24988
 	pet = AddPet(24988, V.ORIG, Q.RARE)
 
-	-- Netherwhelp's Collar - 32298
+	-- Netherwhelp's Collar -- 32298
 	pet = AddPet(32298, V.TBC, Q.RARE)
 
-	-- Frosty's Collar - 52615
+	-- Frosty's Collar -- 52615
 	pet = AddPet(52615, V.WOTLK, Q.RARE)
 
-	-- Mini Thor - 78381
+	-- Mini Thor -- 78381
 	pet = AddPet(78381, V.WOTLK, Q.RARE)
 
 	-- Lil' Deathwing -- 87344
@@ -649,7 +649,7 @@ function addon:InitCritters()
 	pet = AddPet(124660, V.MOP, Q.RARE)
 
 --BLIZZCON
-	-- Blue Murloc Egg - 24696 (Murky)
+	-- Blue Murloc Egg -- 24696 (Murky)
 	pet = AddPet(24696, V.ORIG, Q.RARE)
 
 	-- Heavy Murloc Egg
@@ -662,41 +662,41 @@ function addon:InitCritters()
 	pet = AddPet(101606, V.CATA, Q.RARE)
 
 --PROMO
-	-- Pink Murloc Egg - 27241 (Gurky)
+	-- Pink Murloc Egg -- 27241 (Gurky)
 	pet = AddPet(27241, V.ORIG, Q.RARE)
 
-	-- Polar Bear Collar - 28505 (Poley)
+	-- Polar Bear Collar -- 28505 (Poley)
 	pet = AddPet(28505, V.ORIG, Q.COMMON)
 
-	-- Fortune Coin - 40405 (Lucky)
+	-- Fortune Coin -- 40405 (Lucky)
 	pet = AddPet(40405, V.TBC, Q.RARE)
 
-	-- Tyrael's Hilt - 53082
+	-- Tyrael's Hilt -- 53082
 	pet = AddPet(53082, V.TBC, Q.RARE)
 
 	-- Warbot
 	pet = AddPet(65682, V.WOTLK, Q.RARE)
 
 --TCG
-	-- Banana Charm - 40549
+	-- Banana Charm -- 40549
 	pet = AddPet(40549, V.TBC, Q.RARE)
 
-	-- Rocket Chicken - 45125
+	-- Rocket Chicken -- 45125
 	pet = AddPet(45125, V.TBC, Q.RARE)
 
-	-- Dragon Kite - 45127
+	-- Dragon Kite -- 45127
 	pet = AddPet(45127, V.TBC, Q.EPIC)
 
-	-- Hippogryph Hatchling - 30156
+	-- Hippogryph Hatchling -- 30156
 	pet = AddPet(30156, V.TBC, Q.EPIC)
 
-	-- Soul-Trader Beacon - 49964
+	-- Soul-Trader Beacon -- 49964
 	pet = AddPet(49964, V.TBC, Q.RARE)
 
-	-- Tuskarr Kite - 68767
+	-- Tuskarr Kite -- 68767
 	pet = AddPet(68767, V.WOTLK, Q.EPIC)
 
-	-- Spectral Tiger Cub - 68810
+	-- Spectral Tiger Cub -- 68810
 	pet = AddPet(68810, V.WOTLK, Q.RARE)
 
 	-- Landro's Lil' XT -- 93624
@@ -705,7 +705,7 @@ function addon:InitCritters()
 	-- Landro's Lichling -- 96817
 	pet = AddPet(96817, V.CATA, Q.RARE)
 
-	-- Nightsaber Cub - 96819
+	-- Nightsaber Cub -- 96819
 	pet = AddPet(96819, V.CATA, Q.COMMON)
 
 	-- Purple Puffer -- 101493
@@ -718,19 +718,19 @@ function addon:InitCritters()
 	pet = AddPet(102353, V.CATA, Q.RARE)
 
 --PURCHASED
-	-- Lil' K.T. - 69677
+	-- Lil' K.T. -- 69677
 	pet = AddPet(69677, V.WOTLK, Q.RARE)
 
-	-- Pandaren Monk - 69541
+	-- Pandaren Monk -- 69541
 	pet = AddPet(69541, V.WOTLK, Q.RARE)
 
-	-- Gryphon Hatchling - 69535
+	-- Gryphon Hatchling -- 69535
 	pet = AddPet(69535, V.WOTLK, Q.RARE)
 
-	-- Wind Rider Cub - 69536
+	-- Wind Rider Cub -- 69536
 	pet = AddPet(69536, V.WOTLK, Q.RARE)
 
-	-- Lil' XT - 75906
+	-- Lil' XT -- 75906
 	pet = AddPet(75906, V.WOTLK, Q.RARE)
 
 	-- Lil' Ragnaros -- 95787
