@@ -111,31 +111,31 @@ function addon:InitCritters()
 	pet = AddPet(54027, V.CATA, Q.COMMON)
 
 	--FISHING
+
+	-- Magical Crawdad Box - 18839
+	pet = AddPet(18839, V.TBC, Q.COMMON)
+
+	-- Toothy's Bucket - 24388
+	pet = AddPet(24388, V.TBC, Q.RARE)
+
+	-- Muckbreath's Bucket - 24389
+	pet = AddPet(24389, V.TBC, Q.RARE)
+
+	-- Snarly's Bucket - 26050
+	pet = AddPet(26050, V.TBC, Q.RARE)
+
+	-- Chuck's Bucket - 26056
+	pet = AddPet(26056, V.TBC, Q.RARE)
+
+	-- Giant Sewer Rat - 31575
+	pet = AddPet(31575, V.WOTLK, Q.RARE)
+
+	-- Strand Crawler -- 33226
+	pet = AddPet(33226, V.WOTLK, Q.RARE)
+
+	-- Sea Pony -- 55386
+	pet = AddPet(55386, V.CATA, Q.RARE)
 --[[
-	-- Magical Crawdad Box - 33050
-	pet = AddPet(33050, V.TBC, Q.COMMON)
-
-	-- Toothy's Bucket - 43697
-	pet = AddPet(43697, V.TBC, Q.RARE)
-
-	-- Muckbreath's Bucket - 43698
-	pet = AddPet(43698, V.TBC, Q.RARE)
-
-	-- Snarly's Bucket - 46425
-	pet = AddPet(46425, V.TBC, Q.RARE)
-
-	-- Chuck's Bucket - 46426
-	pet = AddPet(46426, V.TBC, Q.RARE)
-
-	-- Giant Sewer Rat - 59250
-	pet = AddPet(59250, V.WOTLK, Q.RARE)
-
-	-- Strand Crawler -- 62561
-	pet = AddPet(62561, V.WOTLK, Q.RARE)
-
-	-- Sea Pony -- 103588
-	pet = AddPet(103588, V.CATA, Q.RARE)
-
 --PLAYERMADE
 	-- Mechanical Squirrel Box - 4055
 	pet = AddPet(4055, V.ORIG, Q.COMMON)
@@ -444,8 +444,8 @@ function addon:InitCritters()
 	-- Mulgore Hatchling -- 62542
 	pet = AddPet(62542, V.WOTLK, Q.RARE)
 
-	-- Ammen Vale Lashling -- 62562
-	pet = AddPet(62562, V.WOTLK, Q.RARE)
+	-- Ammen Vale Lashling -- 33205
+	pet = AddPet(33205, V.WOTLK, Q.RARE)
 
 	-- Enchanted Broom -- 62564
 	pet = AddPet(62564, V.WOTLK, Q.RARE)
@@ -534,7 +534,7 @@ function addon:InitCritters()
 	pet = AddPet(65358, V.WOTLK, Q.COMMON)
 
 	-- Albino Snake
-	pet = AddPet(10713, V.WOTLK, Q.COMMON)
+	pet = AddPet(7561, V.WOTLK, Q.COMMON)
 
 	-- Scorched Stone - 45890
 	pet = AddPet(45890, V.TBC, Q.RARE)
