@@ -560,7 +560,9 @@ do
 		end,
 		[private.COLLECTION_TYPE_IDS.PET] = function(collectable_type, critters)
 			local num_pets = LPJ:NumPets()
-			local pet_registry = {}
+			local pet_names = {}
+			local pet_ids = {}
+			local pet_sources = {}
 
 			for index, creature_id in LPJ:IterateCreatureIDs() do
 				local pet_id, species_id, is_owned, _, _, _, _, name, icon, petType, npc_id, source_text, description, is_wild  = _G.C_PetJournal.GetPetInfoByIndex(index)
@@ -575,17 +577,19 @@ do
 					if is_owned then
 						critter:AddState("KNOWN")
 					end
-				elseif not pet_registry[creature_id] then
-					-- Comment this out and uncomment below to remove "type-filtering"
-					if source_text:find("Quest") then
-						private.TextDump:AddLine(("-- %s"):format(name))
-						private.TextDump:AddLine(("pet = AddPet(%d, V.MOP, Q.COMMON)\n"):format(creature_id))
-						pet_registry[creature_id] = true
-					end
-
-					-- Uncomment this to get a straight Name: ID dump
-					--private.TextDump:AddLine(UNKNOWN_PET_FORMAT:format(name, creature_id, description, source_text))
+				elseif not pet_names[creature_id] then
+					pet_names[creature_id] = name
+					pet_sources[creature_id] = source_text
+					pet_ids[#pet_ids + 1] = creature_id
 				end
+			end
+			table.sort(pet_ids)
+
+			for index = 1, #pet_ids do
+				local creature_id = pet_ids[index]
+				private.TextDump:AddLine(("-- %s -- %d"):format(pet_names[creature_id], creature_id))
+				private.TextDump:AddLine(("--[[ %s ]]--"):format(pet_sources[creature_id]))
+				private.TextDump:AddLine(("pet = AddPet(%d, V.MOP, Q.COMMON)\n"):format(creature_id))
 			end
 			local dump_lines = private.TextDump:Lines()
 
