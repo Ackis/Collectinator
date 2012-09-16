@@ -408,66 +408,28 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- ProfCycle scripts/functions.
 	-------------------------------------------------------------------------------
-	collection_cycler:SetScript("OnClick", function(self, button, down)
+	collection_cycler:SetScript("OnClick", function(self, button_name, down)
+		local current_index = MainPanel.current_collectable_type
 
-	-- This loop is gonna be weird. The reason is because we need to
-	-- ensure that we cycle through all the known collections, but also
-	-- that we do so in order. That means that if the currently displayed
-	-- collection is the last one in the list, we're actually going to
-	-- iterate completely once to get to the currently displayed collection
-	-- and then iterate again to make sure we display the next one in line.
-	-- Further, there is the nuance that the person may not know any
-	-- collections yet at all. Users are so annoying.
-		local loop_start = 0
-		local loop_end = 0
+		if button_name == "LeftButton" then
+			current_index = current_index + 1
 
-		local num_collections = #private.ORDERED_COLLECTIONS
-
-		-- ok, so first off, if we've never done this before, there is no "current"
-		-- and a single iteration will do nicely, thank you
-		if button == "LeftButton" then
-			-- normal collection switch
-			if MainPanel.current_collectable_type == 0 then
-				loop_start = 1
-				loop_end = num_collections + 1
-			else
-				loop_start = MainPanel.current_collectable_type + 1
-				loop_end = MainPanel.current_collectable_type
+			if current_index > #private.ORDERED_COLLECTIONS then
+				current_index = 1
 			end
-			local index = loop_start
+		elseif button_name == "RightButton" then
+			current_index = current_index - 1
 
-			while index ~= loop_end do
-				if index > num_collections then
-					index = 1
-				elseif private.Player.collections[ORDERED_COLLECTIONS[index]] then
-					MainPanel.current_collectable_type = index
-					break
-				else
-					index = index + 1
-				end
-			end
-		elseif button == "RightButton" then
-			-- reverse collection switch
-			if MainPanel.current_collectable_type == 0 then
-				loop_start = num_collections + 1
-				loop_end = 0
-			else
-				loop_start = MainPanel.current_collectable_type - 1
-				loop_end = MainPanel.current_collectable_type
-			end
-			local index = loop_start
-
-			while index ~= loop_end do
-				if index < 1 then
-					index = num_collections
-				elseif private.Player.collections[ORDERED_COLLECTIONS[index]] then
-					MainPanel.current_collectable_type = index
-					break
-				else
-					index = index - 1
-				end
+			if current_index < 1 then
+				current_index = #private.ORDERED_COLLECTIONS
 			end
 		end
+
+		if MainPanel.current_collectable_type == private.ORDERED_COLLECTIONS[current_index] then
+			return
+		end
+		MainPanel.current_collectable_type = private.ORDERED_COLLECTIONS[current_index]
+
 		local is_shown = addon.scan_button:GetParent():IsVisible()
 		local sfx
 
@@ -478,7 +440,7 @@ function private.InitializeFrame()
 			sfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
 			_G.SetCVar("Sound_EnableSFX", 0)
 		end
-		_G.CastSpellByName(ORDERED_COLLECTIONS[MainPanel.current_collectable_type])
+		_G.CastSpellByName(private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type])
 		addon:Scan()
 
 		if not is_shown then
