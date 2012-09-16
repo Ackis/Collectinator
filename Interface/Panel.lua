@@ -487,8 +487,20 @@ function private.InitializeFrame()
 		end
 	end)
 
+	local function CurrentCollectableTypeTexture()
+		local collectable_type = private.COLLECTION_LABELS[MainPanel.current_collectable_type]
+		local texture_name
+
+		if collectable_type == "CRITTER" then
+			texture_name = "minipets_up"
+		elseif collectable_type == "MOUNT" then
+			texture_name = "mounts_up"
+		end
+		return [[Interface\AddOns\Collectinator\Images\]] ..texture_name
+	end
+
 	function collection_cycler:SetTexture()
-		_G.SetPortraitToTexture("Collectinator_CollectionButtonPortrait", _G.GetTradeSkillTexture())
+		_G.SetPortraitToTexture("Collectinator_CollectionButtonPortrait", CurrentCollectableTypeTexture())
 	end
 
 	-------------------------------------------------------------------------------
