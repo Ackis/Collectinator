@@ -253,12 +253,13 @@ function addon:InitCritters()
 	-- Lumpy -- 55215
 	pet = AddPet(55215, V.CATA, Q.RARE)
 
-	-- Lunar Lantern -- 55571
-	pet = AddPet(55571, V.CATA, Q.RARE)
-
 	-- Red Helper Box -- 15705
 	pet = AddPet(15705, V.ORIG, Q.COMMON)
 
+	-- Creepy Crate -- 54128
+	pet = AddPet(54128, V.CATA, Q.COMMON)
+
+--WORLD EVENT VENDOR
 	-- Darkmoon Balloon -- 55187
 	pet = AddPet(55187, V.CATA, Q.RARE)
 
@@ -277,15 +278,15 @@ function addon:InitCritters()
 	-- Darkmoon Zeppelin -- 55367
 	pet = AddPet(55367, V.CATA, Q.RARE)
 
-	-- Creepy Crate -- 54128
-	pet = AddPet(54128, V.CATA, Q.COMMON)
+	-- Festival Lantern -- 55574
+	pet = AddPet(55574, V.CATA, Q.RARE)
 
---WORLD EVENT VENDOR
+	-- Lunar Lantern -- 55571
+	pet = AddPet(55571, V.CATA, Q.RARE)
+
 	-- Pint-Sized Pink Pachyderm -- 24753
 	pet = AddPet(24753, V.TBC, Q.RARE)
 
-	-- Festival Lantern -- 55574
-	pet = AddPet(55574, V.CATA, Q.RARE)
 --[[
 
 --DROP
