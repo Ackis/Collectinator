@@ -400,6 +400,7 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	COLLECTION_INIT_FUNCS = {
 		[private.COLLECTION_NAMES.PET] = addon.InitCritters,
+		[private.COLLECTION_NAMES.MOUNT] = addon.InitMounts,
 	}
 
 	-------------------------------------------------------------------------------
