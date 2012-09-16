@@ -73,6 +73,17 @@ end
 -------------------------------------------------------------------------------
 -- Collection methods.
 -------------------------------------------------------------------------------
+function collectable_prototype:SetIcon(texture_path)
+	if not texture_path or self.icon then
+		return
+	end
+	self.icon = texture_path
+end
+
+function collectable_prototype:Icon()
+	return self.icon
+end
+
 function collectable_prototype:SetName(name)
 	if not name or self.name then
 		return

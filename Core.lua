@@ -538,6 +538,9 @@ do
 	-- List of collection (e.g. pet filters) headers, used in addon:Scan()
 	local header_list = {}
 
+--	local UNKNOWN_PET_FORMAT = "%s: %d\n--------------------\n%s\n--------------------\n%s\n********************"
+	local UNKNOWN_PET_FORMAT = "%s: %d"
+
 	local COLLECTABLE_SCAN_FUNCS = {
 		[private.COLLECTION_TYPE_IDS.MOUNT] = function(collectable_type, mounts)
 			local num_mounts = _G.GetNumCompanions(collectable_type)
@@ -558,17 +561,28 @@ do
 		[private.COLLECTION_TYPE_IDS.PET] = function(collectable_type, critters)
 			local num_pets = LPJ:NumPets()
 
-			for index, petid in LPJ:IteratePetIDs() do
-				local _, _, _, _, _, display_id, pet_name, _, _, creature_id = _G.C_PetJournal.GetPetInfoByPetID(petid)
+			for index, creature_id in LPJ:IterateCreatureIDs() do
+				local pet_id, species_id, is_owned, _, _, _, _, name, icon, petType, npc_id, source_text, description, is_wild  = _G.C_PetJournal.GetPetInfoByIndex(index)
 				local critter = critters[creature_id]
 
 				if critter then
-					critter:SetName(pet_name)
-					critter:AddState("KNOWN")
-					--					self:Printf("Critter %s exists (creature_id %d)", critter:Name(), creature_id)
+					critter:SetName(name)
+					critter:SetIcon(icon)
+
+					critter.source_text_TEMPORARY = source_text
+
+					if is_owned then
+						critter:AddState("KNOWN")
+					end
+					addon:Printf("Critter %s exists (creature_id %d)", critter:Name(), creature_id)
 				else
-					--					self:Debug("Critter %s (display_id %d, critter_id %d) - Not in db", pet_name, display_id, creature_id)
+					table.insert(private.DUMP_OUTPUT, UNKNOWN_PET_FORMAT:format(name, creature_id, description, source_text))
 				end
+			end
+
+			if #private.DUMP_OUTPUT > 0 then
+				table.insert(private.DUMP_OUTPUT, 1, "Untracked pets:")
+				addon:DisplayTextDump(nil, nil, table.concat(private.DUMP_OUTPUT, "\n"))
 			end
 		end,
 	}
