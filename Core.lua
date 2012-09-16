@@ -561,7 +561,6 @@ do
 				mount:RemoveState("KNOWN")
 				mount:RemoveState("RELEVANT")
 				mount:RemoveState("VISIBLE")
-				mount:RemoveState("LINKED")
 			end
 
 			for i = 1, num_mounts do
@@ -592,7 +591,6 @@ do
 				pet:RemoveState("KNOWN")
 				pet:RemoveState("RELEVANT")
 				pet:RemoveState("VISIBLE")
-				pet:RemoveState("LINKED")
 			end
 
 			for index, petid in LPJ:IteratePetIDs() do
