@@ -565,10 +565,13 @@ do
 			end
 
 			for i = 1, num_mounts do
-				local id = _G.GetCompanionInfo("MOUNT", i)
-				if mounts[id] then
+				local mount_id = _G.GetCompanionInfo("MOUNT", i)
+				if mounts[mount_id] then
+					local mount = mounts[mount_id]
+					local mount_name = GetSpellInfo(mount_id)
+					mount:SetName(mount_name)
 				else
-					--self:Debug("Mount %d - Not in db", id)
+					--self:Debug("Mount %d - Not in db", mount_id)
 				end
 			end
 			self:Print("Scanning Mounts.")
