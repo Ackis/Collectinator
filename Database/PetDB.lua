@@ -49,12 +49,6 @@ function addon:InitCritters()
 	end
 	local pet
 
-	-- Zergling -- 11327
-	pet = AddPet(11327, V.ORIG, Q.COMMON)
-
-	-- Clockwork Rocket Bot -- 24968
-	pet = AddPet(24968, V.TBC, Q.RARE)
-
 	-- Core Hound Pup -- 36871
 	pet = AddPet(36871, V.WOTLK, Q.RARE)
 
@@ -602,10 +596,10 @@ function addon:InitCritters()
 
 	-- Panda Collar -- 17707
 	pet = AddPet(17707, V.ORIG, Q.RARE)
-
-	-- Zergling Leash -- 17709
-	pet = AddPet(17709, V.ORIG, Q.RARE)
-
+]]--
+	-- Zergling Leash -- 11327
+	pet = AddPet(11327, V.ORIG, Q.COMMON)
+--[[
 	-- Lurky's Egg -- 24988
 	pet = AddPet(24988, V.ORIG, Q.RARE)
 
