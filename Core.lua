@@ -523,7 +523,6 @@ function addon:InitializeCollection(collectable_type)
 	local func = COLLECTION_INIT_FUNCS[collectable_type]
 
 	if func then
-		print(("Initializing %s"):format(collectable_type))
 		func(addon)
 		COLLECTION_INIT_FUNCS[collectable_type] = nil
 	end
@@ -539,28 +538,9 @@ do
 	-- List of collection (e.g. pet filters) headers, used in addon:Scan()
 	local header_list = {}
 
-	-- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.
-	-- Parses Collections and displays output
-	function addon:Scan(textdump, is_refresh)
-		local current_panel = _G.PanelTemplates_GetSelectedTab(_G.PetJournalParent)
-
-		self:InitializeCollection(private.COLLECTION_LABELS[current_panel])
-
-		-- Scanning Mounts
-		if current_panel == private.COLLECTION_TYPE_IDS.MOUNT then
-			local mounts = private.category_collectable_list[private.COLLECTION_NAMES.MOUNT]
-
-			if not mounts then
-				self:Debug("Errror, %s table not made.", private.COLLECTION_NAMES.MOUNT)
-				return
-			end
-			local num_mounts = _G.GetNumCompanions(private.COLLECTION_NAMES.MOUNT)
-
-			for npc_id, mount in pairs(mounts) do
-				mount:RemoveState("KNOWN")
-				mount:RemoveState("RELEVANT")
-				mount:RemoveState("VISIBLE")
-			end
+	local COLLECTABLE_SCAN_FUNCS = {
+		[private.COLLECTION_TYPE_IDS.MOUNT] = function(collectable_type, mounts)
+			local num_mounts = _G.GetNumCompanions(collectable_type)
 
 			for index = 1, num_mounts do
 				local mount_id = _G.GetCompanionInfo("MOUNT", index)
@@ -573,24 +553,9 @@ do
 					--self:Debug("Mount %d - Not in db", mount_id)
 				end
 			end
-			self:Print("Scanning Mounts.")
-
-		-- Scanning Pets
-		elseif current_panel == private.COLLECTION_TYPE_IDS.PET then
-			local critters = private.category_collectable_list[private.COLLECTION_NAMES.PET]
-
-			if not critters then
-				self:Debug("Errror, %s table not made.", private.COLLECTION_NAMES.PET)
-				return
-			end
-
+		end,
+		[private.COLLECTION_TYPE_IDS.PET] = function(collectable_type, critters)
 			local num_pets = LPJ:NumPets()
-
-			for npc_id, pet in pairs(critters) do
-				pet:RemoveState("KNOWN")
-				pet:RemoveState("RELEVANT")
-				pet:RemoveState("VISIBLE")
-			end
 
 			for index, petid in LPJ:IteratePetIDs() do
 				local _, _, _, _, _, display_id, pet_name, _, _, creature_id = _G.C_PetJournal.GetPetInfoByPetID(petid)
@@ -598,13 +563,34 @@ do
 
 				if critter then
 					critter:SetName(pet_name)
---					self:Printf("Critter %s exists (creature_id %d)", critter:Name(), creature_id)
+					--					self:Printf("Critter %s exists (creature_id %d)", critter:Name(), creature_id)
 				else
---					self:Debug("Critter %s (display_id %d, critter_id %d) - Not in db", pet_name, display_id, creature_id)
+					--					self:Debug("Critter %s (display_id %d, critter_id %d) - Not in db", pet_name, display_id, creature_id)
 				end
 			end
+		end,
+	}
 
+	-- Causes a scan of the relevant collectable type to be conducted. Function called when the scan button is clicked.
+	-- Parses Collections and displays output
+	function addon:Scan(textdump, is_refresh)
+		local current_panel = _G.PanelTemplates_GetSelectedTab(_G.PetJournalParent)
+		local collectable_type = private.COLLECTION_LABELS[current_panel]
+		addon:InitializeCollection(collectable_type)
+
+		local collectables = private.category_collectable_list[collectable_type]
+
+		if not collectables then
+			addon:Debug("Errror, %s table not made.", collectable_type)
+			return
 		end
+
+		for id, collectable in pairs(collectables) do
+			collectable:RemoveState("KNOWN")
+			collectable:RemoveState("RELEVANT")
+			collectable:RemoveState("VISIBLE")
+		end
+		COLLECTABLE_SCAN_FUNCS[current_panel](collectable_type, collectables)
 		private.Player:UpdateReputations()
 
 		-------------------------------------------------------------------------------
