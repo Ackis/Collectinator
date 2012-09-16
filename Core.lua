@@ -514,17 +514,18 @@ do
 
 end
 
-function addon:InitializeCollection(collection)
-	if not collection then
+function addon:InitializeCollection(collectable_type)
+	if not collectable_type then
 		addon:Debug("nil collection passed to InitializeCollection()")
 		return
 	end
 
-	local func = COLLECTION_INIT_FUNCS[collection]
+	local func = COLLECTION_INIT_FUNCS[collectable_type]
 
 	if func then
+		print(("Initializing %s"):format(collectable_type))
 		func(addon)
-		COLLECTION_INIT_FUNCS[collection] = nil
+		COLLECTION_INIT_FUNCS[collectable_type] = nil
 	end
 end
 
@@ -538,18 +539,15 @@ do
 	-- List of collection (e.g. pet filters) headers, used in addon:Scan()
 	local header_list = {}
 
-	local collection_type
-
 	-- Causes a scan of the tradeskill to be conducted. Function called when the scan button is clicked.
 	-- Parses Collections and displays output
 	function addon:Scan(textdump, is_refresh)
 		local current_panel = _G.PanelTemplates_GetSelectedTab(_G.PetJournalParent)
 
+		self:InitializeCollection(private.COLLECTION_LABELS[current_panel])
+
 		-- Scanning Mounts
 		if current_panel == private.COLLECTION_TYPE_IDS.MOUNT then
-			self:InitializeCollection(private.COLLECTION_NAMES.MOUNT)
-			collection_type = private.COLLECTION_NAMES.MOUNT
-
 			local mounts = private.category_collectable_list[private.COLLECTION_NAMES.MOUNT]
 
 			if not mounts then
@@ -558,17 +556,18 @@ do
 			end
 			local num_mounts = _G.GetNumCompanions(private.COLLECTION_NAMES.MOUNT)
 
-			for spell_id, mount in pairs(mounts) do
+			for npc_id, mount in pairs(mounts) do
 				mount:RemoveState("KNOWN")
 				mount:RemoveState("RELEVANT")
 				mount:RemoveState("VISIBLE")
 			end
 
-			for i = 1, num_mounts do
-				local mount_id = _G.GetCompanionInfo("MOUNT", i)
-				if mounts[mount_id] then
-					local mount = mounts[mount_id]
-					local mount_name = GetSpellInfo(mount_id)
+			for index = 1, num_mounts do
+				local mount_id = _G.GetCompanionInfo("MOUNT", index)
+				local mount = mounts[mount_id]
+
+				if mount then
+					local mount_name = _G.GetSpellInfo(mount_id)
 					mount:SetName(mount_name)
 				else
 					--self:Debug("Mount %d - Not in db", mount_id)
@@ -578,10 +577,6 @@ do
 
 		-- Scanning Pets
 		elseif current_panel == private.COLLECTION_TYPE_IDS.PET then
-			self:InitializeCollection(private.COLLECTION_NAMES.PET)
-
-			collection_type = private.COLLECTION_NAMES.PET
-
 			local critters = private.category_collectable_list[private.COLLECTION_NAMES.PET]
 
 			if not critters then
@@ -591,7 +586,7 @@ do
 
 			local num_pets = LPJ:NumPets()
 
-			for i, pet in pairs(critters) do
+			for npc_id, pet in pairs(critters) do
 				pet:RemoveState("KNOWN")
 				pet:RemoveState("RELEVANT")
 				pet:RemoveState("VISIBLE")
@@ -621,7 +616,7 @@ do
 			if private.InitializeFrame then
 				private.InitializeFrame()
 			end
-			self.Frame:Display(collection_type)
+			self.Frame:Display(private.COLLECTION_LABELS[current_panel])
 		end
 	end
 end
