@@ -645,6 +645,9 @@ function addon:InitCritters()
 	-- Fetish Shaman -- 105633
 	pet = AddPet(105633, V.CATA, Q.RARE)
 
+	-- Lucky Quilen Cub -- 124660
+	pet = AddPet(124660, V.MOP, Q.RARE)
+
 --BLIZZCON
 	-- Blue Murloc Egg - 24696 (Murky)
 	pet = AddPet(24696, V.ORIG, Q.RARE)
@@ -742,8 +745,6 @@ function addon:InitCritters()
 	-- Soul of the Aspects -- 110029
 	pet = AddPet(110029, V.CATA, Q.RARE)
 
-	-- Lucky Quilen Cub -- 124660
-	pet = AddPet(124660, V.CATA, Q.RARE)
 ]]--
 
 -- PET BATTLE
