@@ -256,36 +256,35 @@ function addon:InitCritters()
 	-- Lunar Lantern -- 55571
 	pet = AddPet(55571, V.CATA, Q.RARE)
 
-	--[[
-	-- Red Helper Box -- 26541
-	pet = AddPet(26541, V.ORIG, Q.COMMON)
+	-- Red Helper Box -- 15705
+	pet = AddPet(15705, V.ORIG, Q.COMMON)
 
-	-- Darkmoon Balloon -- 103076
-	pet = AddPet(103076, V.CATA, Q.RARE)
+	-- Darkmoon Balloon -- 55187
+	pet = AddPet(55187, V.CATA, Q.RARE)
 
-	-- Darkmoon Cub -- 105122
-	pet = AddPet(105122, V.CATA, Q.RARE)
+	-- Darkmoon Cub -- 56031
+	pet = AddPet(56031, V.CATA, Q.RARE)
 
-	-- Darkmoon Monkey -- 101733
-	pet = AddPet(101733, V.CATA, Q.RARE)
+	-- Darkmoon Monkey -- 54491
+	pet = AddPet(54491, V.CATA, Q.RARE)
 
-	-- Darkmoon Tonk -- 103544
-	pet = AddPet(103544, V.CATA, Q.RARE)
+	-- Darkmoon Tonk -- 55356
+	pet = AddPet(55356, V.CATA, Q.RARE)
 
-	-- Darkmoon Turtle -- 103074
-	pet = AddPet(103074, V.CATA, Q.RARE)
+	-- Darkmoon Turtle -- 54487
+	pet = AddPet(54487, V.CATA, Q.RARE)
 
-	-- Darkmoon Zeppelin -- 103549
-	pet = AddPet(103549, V.CATA, Q.RARE)
+	-- Darkmoon Zeppelin -- 55367
+	pet = AddPet(55367, V.CATA, Q.RARE)
 
-	-- Creepy Crate -- 100684
-	pet = AddPet(100684, V.CATA, Q.COMMON)
-]]--
+	-- Creepy Crate -- 54128
+	pet = AddPet(54128, V.CATA, Q.COMMON)
+
 --WORLD EVENT VENDOR
-	-- Pint-Sized Pink Pachyderm -- 44369
+	-- Pint-Sized Pink Pachyderm -- 24753
 	pet = AddPet(24753, V.TBC, Q.RARE)
 
-	-- Festival Lantern -- 104049
+	-- Festival Lantern -- 55574
 	pet = AddPet(55574, V.CATA, Q.RARE)
 --[[
 
