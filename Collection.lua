@@ -500,7 +500,7 @@ function collectable_prototype:Dump(output)
 					faction_string = ("FAC.%s"):format(faction_string)
 				else
 					faction_string = rep_id
-					addon:Printf("Recipe %d (%s) - no string for faction %d", self.id, self.name, rep_id)
+					addon:Printf("Collection %d (%s) - no string for faction %d", self.id, self.name, rep_id)
 				end
 
 				for rep_level, level_info in pairs(rep_info) do

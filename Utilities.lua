@@ -317,7 +317,7 @@ do
 			end
 
 			if count == 0 then
-				addon:Debug("%s %s (%s) has no recipes.", description, unit.name or _G.UNKNOWN, unit_id)
+				addon:Debug("%s %s (%s) has no collections.", description, unit.name or _G.UNKNOWN, unit_id)
 			end
 		end
 	end

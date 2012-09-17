@@ -891,7 +891,6 @@ function private.InitializeFilterPanel()
 		}
 		private.GenerateCheckBoxes(expansion2_frame, expansion2_buttons)
 
-		-- Disable these for now, since they have no recipes.
 		expansion2_frame.wrathcommon2:Disable()
 		expansion2_frame.wrathcommon3:Disable()
 		expansion2_frame.wrathcommon4:Disable()
