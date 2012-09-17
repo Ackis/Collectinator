@@ -535,41 +535,41 @@ function addon:InitCritters()
 
 	-- Silver Dragonhawk Hatchling -- 21063
 	pet = AddPet(21063, V.TBC, Q.COMMON)
---[[
+
 --VENDOR ALLIANCE
-	-- Cat Carrier (Bombay) -- 10673
-	pet = AddPet(10673, V.ORIG, Q.COMMON)
+	-- Cat Carrier (Bombay) -- 7385
+	pet = AddPet(7385, V.ORIG, Q.COMMON)
 
-	-- Cat Carrier (Cornish Rex) -- 10674
-	pet = AddPet(10674, V.ORIG, Q.COMMON)
+	-- Cat Carrier (Cornish Rex) -- 7384
+	pet = AddPet(7384, V.ORIG, Q.COMMON)
 
-	-- Cat Carrier (Orange Tabby) -- 10676
-	pet = AddPet(10676, V.ORIG, Q.COMMON)
+	-- Cat Carrier (Orange Tabby) -- 7382
+	pet = AddPet(7382, V.ORIG, Q.COMMON)
 
-	-- Cat Carrier (Silver Tabby) -- 10678
-	pet = AddPet(10678, V.ORIG, Q.COMMON)
+	-- Cat Carrier (Silver Tabby) -- 7381
+	pet = AddPet(7381, V.ORIG, Q.COMMON)
 
-	-- Cat Carrier (White Kitten) -- 10679
-	pet = AddPet(10679, V.ORIG, Q.COMMON)
+	-- Cat Carrier (White Kitten) -- 7386
+	pet = AddPet(7386, V.ORIG, Q.COMMON)
 
-	-- Hawk Owl -- 10706
-	pet = AddPet(10706, V.ORIG, Q.COMMON)
+	-- Hawk Owl -- 7555
+	pet = AddPet(7555, V.ORIG, Q.COMMON)
 
-	-- Great Horned Owl -- 10707
-	pet = AddPet(10707, V.ORIG, Q.COMMON)
+	-- Great Horned Owl -- 7553
+	pet = AddPet(7553, V.ORIG, Q.COMMON)
 
-	-- Rabbit Crate (Snowshoe) -- 10711
-	pet = AddPet(10711, V.ORIG, Q.COMMON)
+	-- Rabbit Crate (Snowshoe) -- 7560
+	pet = AddPet(7560, V.ORIG, Q.COMMON)
 
-	-- Blue Moth Egg -- 35907
-	pet = AddPet(35907, V.TBC, Q.COMMON)
+	-- Blue Moth Egg -- 21010
+	pet = AddPet(21010, V.TBC, Q.COMMON)
 
-	-- Yellow Moth Egg -- 35910
-	pet = AddPet(35910, V.TBC, Q.COMMON)
+	-- Yellow Moth Egg -- 21008
+	pet = AddPet(21008, V.TBC, Q.COMMON)
 
-	-- White Moth Egg -- 35911
-	pet = AddPet(35911, V.TBC, Q.COMMON)
-
+	-- White Moth Egg -- 21018
+	pet = AddPet(21018, V.TBC, Q.COMMON)
+--[[
 --RETIRED
 	-- Spirit of Competition -- 48406
 	pet = AddPet(48406, V.TBC, Q.RARE)
