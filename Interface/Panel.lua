@@ -459,17 +459,15 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- The search entry box and associated methods.
 	-------------------------------------------------------------------------------
-	local SearchRecipes
+	local SearchCollections
 	do
-		local recipe_fields = {
+		local collection_fields = {
 			"name",
-			"skill_level",
-			"specialty",
 		}
 
-		local function SearchByField(recipe, search_pattern)
-			for index, field in ipairs(recipe_fields) do
-				local str = recipe[field] and tostring(recipe[field]):lower()
+		local function SearchByField(collection, search_pattern)
+			for index, field in ipairs(collection_fields) do
+				local str = collection[field] and tostring(collection[field]):lower()
 
 				if str and str:find(search_pattern) then
 					return true
@@ -478,11 +476,11 @@ function private.InitializeFrame()
 			return false
 		end
 
-		local function SearchByAcquireType(recipe, search_pattern)
+		local function SearchByAcquireType(collection, search_pattern)
 			local ACQUIRE_NAMES = private.ACQUIRE_NAMES
 
 			for acquire_type in pairs(ACQUIRE_NAMES) do
-				if recipe.acquire_data[acquire_type] then
+				if collection.acquire_data[acquire_type] then
 					local acquire_name = ACQUIRE_NAMES[acquire_type]:lower()
 
 					if acquire_name:find(search_pattern) then
@@ -493,12 +491,12 @@ function private.InitializeFrame()
 			return false
 		end
 
-		local function SearchByLocation(recipe, search_pattern)
+		local function SearchByLocation(collection, search_pattern)
 			local location_list = private.location_list
 
 			for location_name in pairs(location_list) do
-				for spell_id in pairs(location_list[location_name].collectables) do
-					if spell_id == recipe.spell_id then
+				for id in pairs(location_list[location_name].collectables) do
+					if id == collection.id then
 						local location = location_name:lower()
 
 						if location:find(search_pattern) then
@@ -510,45 +508,36 @@ function private.InitializeFrame()
 			return false
 		end
 
-		local function SearchByQuality(recipe, search_pattern)
-			if private.ITEM_QUALITY_NAMES[recipe.quality]:lower():find(search_pattern) then
+		local function SearchByQuality(collection, search_pattern)
+			if private.ITEM_QUALITY_NAMES[collection.quality]:lower():find(search_pattern) then
 				return true
 			end
 			return false
 		end
 
-		local function SearchByList(recipe, search_pattern, list)
+		local function SearchByList(collection, search_pattern, list)
 			for id_num, unit in pairs(list) do
-				if unit.item_list and unit.item_list[recipe.spell_id] and unit.name:lower():find(search_pattern) then
+				if unit.item_list and unit.item_list[collection.spell_id] and unit.name:lower():find(search_pattern) then
 					return true
 				end
 			end
 		end
-
-		local function SearchByTrainer(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.trainer_list)
+		local function SearchByVendor(collection, search_pattern)
+			return SearchByList(collection, search_pattern, private.vendor_list)
 		end
 
-		local function SearchByVendor(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.vendor_list)
+		local function SearchByMobDrop(collection, search_pattern)
+			return SearchByList(collection, search_pattern, private.mob_list)
 		end
 
-		local function SearchByMobDrop(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.mob_list)
+		local function SearchByCustom(collection, search_pattern)
+			return SearchByList(collection, search_pattern, private.custom_list)
 		end
 
-		local function SearchByCustom(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.custom_list)
-		end
-
-		local function SearchByDiscovery(recipe, search_pattern)
-			return SearchByList(recipe, search_pattern, private.discovery_list)
-		end
-
-		local function SearchByReputation(recipe, search_pattern)
+		local function SearchByReputation(collection, search_pattern)
 			local reputation_list = private.reputation_list
 
-			for acquire_type, acquire_data in pairs(recipe.acquire_data) do
+			for acquire_type, acquire_data in pairs(collection.acquire_data) do
 				if acquire_type == A.REPUTATION then
 					for id_num, info in pairs(acquire_data) do
 						local str = reputation_list[id_num].name:lower()
@@ -574,8 +563,8 @@ function private.InitializeFrame()
 			SearchByCustom,
 			SearchByDiscovery,
 		}
-		-- Scans through the recipe database and toggles the flag on if the item is in the search criteria
-		function SearchRecipes(search_pattern)
+		-- Scans through the collection database and toggles the flag on if the item is in the search criteria
+		function SearchCollections(search_pattern)
 			if not search_pattern then
 				return
 			end
@@ -658,7 +647,7 @@ function private.InitializeFrame()
 		MainPanel.list_frame:Update(nil, false)
 	end
 
-	-- If there is text in the search box, return the recipe's RELEVANT state.
+	-- If there is text in the search box, return the collection's RELEVANT state.
 	function SearchBox:MatchesCollectable(collectable)
 		local editbox_text = self:GetText()
 
@@ -684,7 +673,7 @@ function private.InitializeFrame()
 		self.prev_search = searchtext
 
 		self:AddHistoryLine(searchtext)
-		SearchRecipes(searchtext)
+		SearchCollections(searchtext)
 		MainPanel.list_frame:Update(nil, false)
 	end)
 
@@ -730,7 +719,7 @@ function private.InitializeFrame()
 			end
 			last_update = 0
 
-			SearchRecipes(search_text)
+			SearchCollections(search_text)
 			MainPanel.list_frame:Update(nil, false)
 			self:Hide()
 		end)
