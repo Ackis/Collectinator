@@ -569,29 +569,29 @@ function addon:InitCritters()
 
 	-- White Moth Egg -- 21018
 	pet = AddPet(21018, V.TBC, Q.COMMON)
---[[
+
 --RETIRED
-	-- Spirit of Competition -- 48406
-	pet = AddPet(48406, V.TBC, Q.RARE)
+	-- Spirit of Competition -- 27217
+	pet = AddPet(27217, V.TBC, Q.RARE)
 
-	-- Essence of Competition -- 48408
-	pet = AddPet(48408, V.TBC, Q.UNCOMMON)
+	-- Essence of Competition -- 27346
+	pet = AddPet(27346, V.TBC, Q.UNCOMMON)
 
-	-- Vampiric Batling -- 51851
-	pet = AddPet(51851, V.TBC, Q.RARE)
+	-- Vampiric Batling -- 28513
+	pet = AddPet(28513, V.TBC, Q.RARE)
 
-	-- Baby Blizzard Bear -- 61855
-	pet = AddPet(61855, V.WOTLK, Q.COMMON)
+	-- Baby Blizzard Bear -- 32841
+	pet = AddPet(32841, V.WOTLK, Q.COMMON)
 
-	-- Murkimus' Little Spear -- 63318
-	pet = AddPet(63318, V.WOTLK, Q.RARE)
+	-- Murkimus' Little Spear -- 33578
+	pet = AddPet(33578, V.WOTLK, Q.RARE)
 
-	-- Onyxian Whelpling -- 69002
-	pet = AddPet(69002, V.WOTLK, Q.COMMON)
+	-- Onyxian Whelpling -- 36607
+	pet = AddPet(36607, V.WOTLK, Q.COMMON)
 
-	-- Mr. Chilly -- 55068
-	pet = AddPet(55068, V.WOTLK, Q.RARE)
-
+	-- Mr. Chilly -- 29726
+	pet = AddPet(29726, V.WOTLK, Q.RARE)
+--[[
 --COLLECTORS EDITION
 	-- Diablo Stone -- 17708
 	pet = AddPet(17708, V.ORIG, Q.RARE)
