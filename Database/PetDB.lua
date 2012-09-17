@@ -654,47 +654,47 @@ function addon:InitCritters()
 
 	-- Warbot -- 34587
 	pet = AddPet(34587, V.WOTLK, Q.RARE)
---[[
+
 --TCG
-	-- Banana Charm -- 40549
-	pet = AddPet(40549, V.TBC, Q.RARE)
+	-- Banana Charm -- 23234
+	pet = AddPet(23234, V.TBC, Q.RARE)
 
-	-- Rocket Chicken -- 45125
-	pet = AddPet(45125, V.TBC, Q.RARE)
+	-- Rocket Chicken -- 25109
+	pet = AddPet(25109, V.TBC, Q.RARE)
 
-	-- Dragon Kite -- 45127
-	pet = AddPet(45127, V.TBC, Q.EPIC)
+	-- Dragon Kite -- 25110
+	pet = AddPet(25110, V.TBC, Q.EPIC)
 
-	-- Hippogryph Hatchling -- 30156
-	pet = AddPet(30156, V.TBC, Q.EPIC)
+	-- Hippogryph Hatchling -- 17255
+	pet = AddPet(17255, V.TBC, Q.EPIC)
 
-	-- Soul-Trader Beacon -- 49964
-	pet = AddPet(49964, V.TBC, Q.RARE)
+	-- Soul-Trader Beacon -- 27914
+	pet = AddPet(27914, V.TBC, Q.RARE)
 
-	-- Tuskarr Kite -- 68767
-	pet = AddPet(68767, V.WOTLK, Q.EPIC)
+	-- Tuskarr Kite -- 36482
+	pet = AddPet(36482, V.WOTLK, Q.EPIC)
 
-	-- Spectral Tiger Cub -- 68810
-	pet = AddPet(68810, V.WOTLK, Q.RARE)
+	-- Spectral Tiger Cub -- 36511
+	pet = AddPet(36511, V.WOTLK, Q.RARE)
 
-	-- Landro's Lil' XT -- 93624
-	pet = AddPet(93624, V.CATA, Q.RARE)
+	-- Landro's Lil' XT -- 50468
+	pet = AddPet(50468, V.CATA, Q.RARE)
 
-	-- Landro's Lichling -- 96817
-	pet = AddPet(96817, V.CATA, Q.RARE)
+	-- Landro's Lichling -- 52343
+	pet = AddPet(52343, V.CATA, Q.RARE)
 
-	-- Nightsaber Cub -- 96819
-	pet = AddPet(96819, V.CATA, Q.COMMON)
+	-- Nightsaber Cub -- 52344
+	pet = AddPet(52344, V.CATA, Q.COMMON)
 
-	-- Purple Puffer -- 101493
-	pet = AddPet(101493, V.CATA, Q.RARE)
+	-- Purple Puffer -- 54383
+	pet = AddPet(54383, V.CATA, Q.RARE)
 
-	-- Gregarious Grell -- 102317
-	pet = AddPet(102317, V.CATA, Q.RARE)
+	-- Gregarious Grell -- 54730
+	pet = AddPet(54730, V.CATA, Q.RARE)
 
-	-- Sand Scarab -- 102353
-	pet = AddPet(102353, V.CATA, Q.RARE)
-
+	-- Sand Scarab -- 54745
+	pet = AddPet(54745, V.CATA, Q.RARE)
+--[[
 --PURCHASED
 	-- Lil' K.T. -- 69677
 	pet = AddPet(69677, V.WOTLK, Q.RARE)
