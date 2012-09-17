@@ -694,6 +694,9 @@ function addon:InitCritters()
 
 	-- Sand Scarab -- 54745
 	pet = AddPet(54745, V.CATA, Q.RARE)
+
+	-- Eye of the Legion -- 59020
+	pet = AddPet(59020, V.MOP, Q.RARE)
 --[[
 --PURCHASED
 	-- Lil' K.T. -- 69677
