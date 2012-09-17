@@ -593,10 +593,6 @@ function private.InitializeListFrame()
 			[REP2.TUSHUIPANDAREN]		= "tushuipandaren",
 			[REP2.BLACKPRINCE]		= "blackprince",
 			[REP2.SHANGXIACADEMY]		= "shangxiacademy",
-			
-			
-			
-			
 		}
 
 		-- Returns true if any of the filter flags are turned on.
