@@ -399,38 +399,38 @@ function addon:InitCritters()
 
 	-- Horde Balloon -- 54541
 	pet = AddPet(54541, V.CATA, Q.COMMON)
---[[
+
 --REP VENDOR ARGENT
-	-- Teldrassil Sproutling -- 62491
-	pet = AddPet(62491, V.WOTLK, Q.RARE)
+	-- Teldrassil Sproutling -- 33188
+	pet = AddPet(33188, V.WOTLK, Q.RARE)
 
-	-- Dun Morogh Cub -- 62508
-	pet = AddPet(62508, V.WOTLK, Q.RARE)
+	-- Dun Morogh Cub -- 33194
+	pet = AddPet(33194, V.WOTLK, Q.RARE)
 
-	-- Tirisfal Batling -- 62510
-	pet = AddPet(62510, V.WOTLK, Q.RARE)
+	-- Tirisfal Batling -- 33197
+	pet = AddPet(33197, V.WOTLK, Q.RARE)
 
-	-- Durotar Scorpion -- 62513
-	pet = AddPet(62513, V.WOTLK, Q.RARE)
+	-- Durotar Scorpion -- 33198
+	pet = AddPet(33198, V.WOTLK, Q.RARE)
 
-	-- Elwynn Lamb -- 62516
-	pet = AddPet(62516, V.WOTLK, Q.RARE)
+	-- Elwynn Lamb -- 33200
+	pet = AddPet(33200, V.WOTLK, Q.RARE)
 
-	-- Mulgore Hatchling -- 62542
-	pet = AddPet(62542, V.WOTLK, Q.RARE)
+	-- Mulgore Hatchling -- 33219
+	pet = AddPet(33219, V.WOTLK, Q.RARE)
 
 	-- Ammen Vale Lashling -- 33205
 	pet = AddPet(33205, V.WOTLK, Q.RARE)
 
-	-- Enchanted Broom -- 62564
-	pet = AddPet(62564, V.WOTLK, Q.RARE)
+	-- Enchanted Broom -- 33227
+	pet = AddPet(33227, V.WOTLK, Q.RARE)
 
-	-- Mechanopeep -- 62674
-	pet = AddPet(62674, V.WOTLK, Q.RARE)
+	-- Mechanopeep -- 33274
+	pet = AddPet(33274, V.WOTLK, Q.RARE)
 
-	-- Sen'jin Fetish -- 63712
-	pet = AddPet(63712, V.WOTLK, Q.RARE)
-
+	-- Sen'jin Fetish -- 33810
+	pet = AddPet(33810, V.WOTLK, Q.RARE)
+--[[
 --REP VENDOR NEUTRAL
 	-- Tiny Sporebat -- 45082
 	pet = AddPet(45082, V.TBC, Q.RARE)
