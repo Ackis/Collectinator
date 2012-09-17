@@ -231,13 +231,13 @@ local function fullOptions()
 	return options
 end
 --[[
-local arlmap
+local collectinator_map
 
 local function GetMapOptions()
 	local has_waypoints = _G.TomTom
 
-	if not arlmap then
-		arlmap = {
+	if not collectinator_map then
+		collectinator_map = {
 			order	= 1,
 			type	= "group",
 			name	= L["Waypoints"],
@@ -246,19 +246,6 @@ local function GetMapOptions()
 					order	= 1,
 					type	= "description",
 					name	= L["MAP_OPTIONS_DESC"] .. "\n",
-				},
-				maptrainer = {
-					order	= 2,
-					type	= "toggle",
-					name	= L["Trainer"],
-					desc	= L["WAYPOINT_TOGGLE_FORMAT"]:format(L["Trainer"]),
-					disabled = not has_waypoints,
-					get	= function()
-							  return addon.db.profile.maptrainer
-						  end,
-					set	= function()
-							  addon.db.profile.maptrainer = not addon.db.profile.maptrainer
-						  end,
 				},
 				mapvendor = {
 					order	= 3,
@@ -360,7 +347,7 @@ local function GetMapOptions()
 		}
 	end
 
-	return arlmap
+	return collectinator_map
 end
 
 ]]--
