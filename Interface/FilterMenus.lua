@@ -535,6 +535,7 @@ function private.InitializeFilterPanel()
 		local binding_buttons = {
 			itemboe		= { tt = L["BOE_DESC"],		text = L["BOEFilter"],		row = 1, col = 1 },
 			itembop		= { tt = L["BOP_DESC"],		text = L["BOPFilter"],		row = 2, col = 1 },
+			itemboa		= { tt = L["BOA_DESC"],		text = L["BOAFilter"],		row = 3, col = 1 },
 		}
 
 		local binding_panel = _G.CreateFrame("Frame", nil, binding_frame)
@@ -1263,6 +1264,7 @@ function private.InitializeFilterPanel()
 		------------------------------------------------------------------------------------------------
 		["itemboe"]		= { cb = FilterPanel.binding.itemboe,		svroot = filterdb.binding },
 		["itembop"]		= { cb = FilterPanel.binding.itembop,		svroot = filterdb.binding },
+		["itemboa"]		= { cb = FilterPanel.binding.itemboa,		svroot = filterdb.binding },
 		------------------------------------------------------------------------------------------------
 		-- Quality Options
 		------------------------------------------------------------------------------------------------

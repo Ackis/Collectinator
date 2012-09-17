@@ -235,6 +235,7 @@ function addon:OnInitialize()
 				binding = {
 					itemboe = true,
 					itembop = true,
+					itemboa = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Reputation Filters
