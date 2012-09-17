@@ -444,31 +444,10 @@ function collectable_prototype:Dump(output)
 	local genesis = private.GAME_VERSIONS[self.genesis]
 
 	table.insert(output, ("-- %s -- %d"):format(self.name, self.id))
-	table.insert(output, ("collection = AddRecipe(%d, V.%s, Q.%s)"):format(self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
+	table.insert(output, ("collection = AddCollection(%d, V.%s, Q.%s)"):format(self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
 	if self.collection_item_id then
-		table.insert(output, ("collection:SetRecipeItemID(%d)"):format(self.collection_item_id))
-	end
-
-	if self.crafted_item_id then
-		table.insert(output, ("collection:SetCraftedItemID(%d)"):format(self.crafted_item_id))
-	end
-	local previous_rank_collection = private.profession_collection_list[self.profession][self:PreviousRankID()]
-
-	if previous_rank_collection then
-		table.insert(output, ("collection:SetPreviousRankID(%d)"):format(previous_rank_collection.id))
-	end
-
-	local skill_level = self.skill_level
-	local optimal_level = self.optimal_level
-	local medium_level = self.medium_level
-	local easy_level = self.easy_level
-	local trivial_level = self.trivial_level
-
-	table.insert(output, ("collection:SetSkillLevels(%d, %d, %d, %d, %d)"):format(skill_level, optimal_level, medium_level, easy_level, trivial_level))
-
-	if self.specialty then
-		table.insert(output, ("collection:SetSpecialty(%d)"):format(self.specialty))
+		table.insert(output, ("collection:SetCollectionItemID(%d)"):format(self.collection_item_id))
 	end
 
 	if self.required_faction then
