@@ -539,18 +539,39 @@ do
 		[private.COLLECTION_TYPE_IDS.MOUNT] = function(collectable_type, mounts)
 			local num_mounts = _G.GetNumCompanions(collectable_type)
 
+			local mount_names = {}
+			local mount_ids = {}
+			local mount_sources = {}
+
+			for spell_id, mount in pairs(mounts) do
+				local mount_name, _, icon = _G.GetSpellInfo(spell_id)
+				mount:SetName(mount_name)
+				mount:SetIcon(icon)
+			end
+
 			for index = 1, num_mounts do
 				local mount_id = select(3, _G.GetCompanionInfo("MOUNT", index))
 				local mount = mounts[mount_id]
 
 				if mount then
-					local mount_name, _, icon = _G.GetSpellInfo(mount_id)
-					mount:SetName(mount_name)
-					mount:SetIcon(icon)
 					mount:AddState("KNOWN")
-				else
-					--self:Debug("Mount %d - Not in db", mount_id)
+				elseif not mount_names[mount_id] then
+					mount_names[mount_id] = _G.GetSpellInfo(mount_id) or _G.UNKNOWN
+					mount_ids[#mount_ids + 1] = mount_id
 				end
+			end
+			table.sort(mount_ids)
+
+			for index = 1, #mount_ids do
+				local mount_id = mount_ids[index]
+				private.TextDump:AddLine(("-- %s -- %d"):format(mount_names[mount_id], mount_id))
+				private.TextDump:AddLine(("mount = AddMount(%d, V.MOP, Q.COMMON)\n"):format(mount_id))
+			end
+			local dump_lines = private.TextDump:Lines()
+
+			if dump_lines > 0 then
+				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
+				private.TextDump:Display()
 			end
 		end,
 		[private.COLLECTION_TYPE_IDS.PET] = function(collectable_type, critters)
@@ -591,7 +612,7 @@ do
 			local dump_lines = private.TextDump:Lines()
 
 			if dump_lines > 0 then
-				private.TextDump:InsertLine(1, ("Untracked pets: %d\n"):format(dump_lines))
+				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 3))
 				private.TextDump:Display()
 			end
 		end,
