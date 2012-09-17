@@ -378,7 +378,7 @@ function private.InitializeFilterPanel()
 		faction		= { tt = faction_desc,		text = faction_text,		row = 1, col = 1 },
 		known		= { tt = L["KNOWN_DESC"],	text = L["Show Known"],		row = 1, col = 2 },
 		retired		= { tt = L["RETIRED_DESC"],	text = L["Retired"],		row = 2, col = 1 },
-		unknown		= { tt = L["UNKNOWN_DESC"],	text = _G.UNKNOWN,		row = 3, col = 2 },
+		unknown		= { tt = L["UNKNOWN_DESC"],	text = _G.UNKNOWN,		row = 2, col = 2 },
 	}
 
 	local general_panel = _G.CreateFrame("Frame", nil, general_frame)
