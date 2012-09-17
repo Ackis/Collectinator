@@ -625,20 +625,20 @@ function addon:InitCritters()
 
 	-- Baneling -- 66984
 	pet = AddPet(66984, V.MOP, Q.RARE)
---[[
+
 --BLIZZCON
-	-- Blue Murloc Egg -- 24696 (Murky)
-	pet = AddPet(24696, V.ORIG, Q.RARE)
+	-- Blue Murloc Egg -- 15186 (Murky)
+	pet = AddPet(15186, V.ORIG, Q.RARE)
 
-	-- Heavy Murloc Egg
-	pet = AddPet(66030, V.WOTLK, Q.RARE)
+	-- Heavy Murloc Egg -- 34694
+	pet = AddPet(34694, V.WOTLK, Q.RARE)
 
-	-- Deathy
-	pet = AddPet(94070, V.WOTLK, Q.RARE)
+	-- Deathy -- 51122
+	pet = AddPet(51122, V.WOTLK, Q.RARE)
 
-	-- Murkablo -- 101606
-	pet = AddPet(101606, V.CATA, Q.RARE)
-
+	-- Murkablo -- 54438
+	pet = AddPet(54438, V.CATA, Q.RARE)
+--[[
 --PROMO
 	-- Pink Murloc Egg -- 27241 (Gurky)
 	pet = AddPet(27241, V.ORIG, Q.RARE)
