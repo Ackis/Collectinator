@@ -622,6 +622,9 @@ function addon:InitCritters()
 
 	-- Lucky Quilen Cub -- 63832
 	pet = AddPet(63832, V.MOP, Q.RARE)
+
+	-- Baneling -- 66984
+	pet = AddPet(66984, V.MOP, Q.RARE)
 --[[
 --BLIZZCON
 	-- Blue Murloc Egg -- 24696 (Murky)
