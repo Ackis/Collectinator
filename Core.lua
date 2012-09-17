@@ -579,9 +579,11 @@ do
 						critter:AddState("KNOWN")
 					end
 				elseif not pet_names[creature_id] then
-					pet_names[creature_id] = name
-					pet_sources[creature_id] = source_text
-					pet_ids[#pet_ids + 1] = creature_id
+--					if source_text:find("Pet Battle") then
+						pet_names[creature_id] = name
+						pet_sources[creature_id] = source_text
+						pet_ids[#pet_ids + 1] = creature_id
+--					end
 				end
 			end
 			table.sort(pet_ids)
