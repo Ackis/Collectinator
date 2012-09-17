@@ -1,15 +1,18 @@
--------------------------------------------------------------------------------
--- Waypoint.lua
--------------------------------------------------------------------------------
--- File date: @file-date-iso@
--- File hash: @file-abbreviated-hash@
--- Project hash: @project-abbreviated-hash@
--- Project version: @project-version@
--------------------------------------------------------------------------------
--- Please see http://www.wowace.com/addons/arl/ for more information.
--------------------------------------------------------------------------------
--- This source code is released under All Rights Reserved.
--------------------------------------------------------------------------------
+--[[
+************************************************************************
+Waypoint.lua
+Waypoing integration for Collectinator
+************************************************************************
+File date: @file-date-iso@
+File hash: @file-abbreviated-hash@
+Project hash: @project-abbreviated-hash@
+Project version: @project-version@
+************************************************************************
+Please see http://www.wowace.com/addons/collectinator/ for more information.
+************************************************************************
+This source code is released under All Rights Reserved.
+************************************************************************
+]]--
 
 -------------------------------------------------------------------------------
 -- Localized Lua globals.
