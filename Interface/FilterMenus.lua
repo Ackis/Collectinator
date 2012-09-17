@@ -550,23 +550,23 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	-- Create FilterPanel.item, and set its scripts.
 	-------------------------------------------------------------------------------
---	do
---		local item_frame = FilterPanel:CreateSubMenu("item")
---		item_frame:SetScript("OnHide", function(self)
---			if self.sub_panel then
---				self.sub_panel:Hide()
---			end
---		end)
---
---		item_frame:SetScript("OnShow", function(self)
---			local sub_panel = self["items_" .. private.PROFESSION_LABELS[MainPanel.profession]]
---
---			if sub_panel then
---				sub_panel:Show()
---			end
---			self.sub_panel = sub_panel
---		end)
---	end	-- do-block
+	do
+		local item_frame = FilterPanel:CreateSubMenu("item")
+		item_frame:SetScript("OnHide", function(self)
+			if self.sub_panel then
+				self.sub_panel:Hide()
+			end
+		end)
+
+		item_frame:SetScript("OnShow", function(self)
+			local sub_panel = self["items_" .. private.PROFESSION_LABELS[MainPanel.profession]]
+
+			if sub_panel then
+				sub_panel:Show()
+			end
+			self.sub_panel = sub_panel
+		end)
+	end	-- do-block
 
 	-------------------------------------------------------------------------------
 	-- Create FilterPanel.quality, and set its scripts.
