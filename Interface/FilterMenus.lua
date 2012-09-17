@@ -311,11 +311,8 @@ function private.InitializeFilterPanel()
 	local quality = CreateFilterMenuButton("INV_Enchant_VoidCrystal", "quality")
 	quality:SetPoint("LEFT", item, "RIGHT", 15, 0)
 
-	local player = CreateFilterMenuButton("INV_Misc_GroupLooking", "player")
-	player:SetPoint("LEFT", quality, "RIGHT", 15, 0)
-
 	local rep = CreateFilterMenuButton("Achievement_Reputation_01", "rep")
-	rep:SetPoint("LEFT", player, "RIGHT", 15, 0)
+	rep:SetPoint("LEFT", quality, "RIGHT", 15, 0)
 
 	local misc = CreateFilterMenuButton("Trade_Engineering", "misc")
 	misc:SetPoint("LEFT", rep, "RIGHT", 15, 0)
@@ -326,7 +323,6 @@ function private.InitializeFilterPanel()
 	MainPanel.menu_toggle_binding = binding
 	MainPanel.menu_toggle_item = item
 	MainPanel.menu_toggle_quality = quality
-	MainPanel.menu_toggle_player = player
 	MainPanel.menu_toggle_rep = rep
 	MainPanel.menu_toggle_misc = misc
 
