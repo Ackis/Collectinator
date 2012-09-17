@@ -559,7 +559,6 @@ do
 			end
 		end,
 		[private.COLLECTION_TYPE_IDS.PET] = function(collectable_type, critters)
-			local num_pets = LPJ:NumPets()
 			local pet_names = {}
 			local pet_ids = {}
 			local pet_sources = {}
@@ -622,6 +621,11 @@ do
 			collectable:RemoveState("RELEVANT")
 			collectable:RemoveState("VISIBLE")
 		end
+		local search_box = _G.PetJournalSearchBox
+		search_box:ClearFocus()
+		search_box:SetText(_G.SEARCH)
+		_G.PetJournal_OnSearchTextChanged(search_box)
+
 		COLLECTABLE_SCAN_FUNCS[current_panel](collectable_type, collectables)
 		private.Player:UpdateReputations()
 
