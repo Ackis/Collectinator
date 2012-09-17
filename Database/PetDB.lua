@@ -591,38 +591,38 @@ function addon:InitCritters()
 
 	-- Mr. Chilly -- 29726
 	pet = AddPet(29726, V.WOTLK, Q.RARE)
---[[
---COLLECTORS EDITION
-	-- Diablo Stone -- 17708
-	pet = AddPet(17708, V.ORIG, Q.RARE)
 
-	-- Panda Collar -- 17707
-	pet = AddPet(17707, V.ORIG, Q.RARE)
-]]--
+--COLLECTORS EDITION
+	-- Diablo Stone -- 11326
+	pet = AddPet(11326, V.ORIG, Q.RARE)
+
+	-- Panda Collar -- 11325
+	pet = AddPet(11325, V.ORIG, Q.RARE)
+
 	-- Zergling Leash -- 11327
 	pet = AddPet(11327, V.ORIG, Q.COMMON)
+
+	-- Lurky's Egg -- 15358
+	pet = AddPet(15358, V.ORIG, Q.RARE)
+
+	-- Netherwhelp's Collar -- 18381
+	pet = AddPet(18381, V.TBC, Q.RARE)
+
+	-- Frosty's Collar -- 28883
+	pet = AddPet(28883, V.WOTLK, Q.RARE)
+
+	-- Mini Thor -- 42078
+	pet = AddPet(42078, V.WOTLK, Q.RARE)
+
+	-- Lil' Deathwing -- 46896
+	pet = AddPet(46896, V.CATA, Q.RARE)
+
+	-- Fetish Shaman -- 56266
+	pet = AddPet(56266, V.CATA, Q.RARE)
+
+	-- Lucky Quilen Cub -- 63832
+	pet = AddPet(63832, V.MOP, Q.RARE)
 --[[
-	-- Lurky's Egg -- 24988
-	pet = AddPet(24988, V.ORIG, Q.RARE)
-
-	-- Netherwhelp's Collar -- 32298
-	pet = AddPet(32298, V.TBC, Q.RARE)
-
-	-- Frosty's Collar -- 52615
-	pet = AddPet(52615, V.WOTLK, Q.RARE)
-
-	-- Mini Thor -- 78381
-	pet = AddPet(78381, V.WOTLK, Q.RARE)
-
-	-- Lil' Deathwing -- 87344
-	pet = AddPet(87344, V.CATA, Q.RARE)
-
-	-- Fetish Shaman -- 105633
-	pet = AddPet(105633, V.CATA, Q.RARE)
-
-	-- Lucky Quilen Cub -- 124660
-	pet = AddPet(124660, V.MOP, Q.RARE)
-
 --BLIZZCON
 	-- Blue Murloc Egg -- 24696 (Murky)
 	pet = AddPet(24696, V.ORIG, Q.RARE)
