@@ -27,7 +27,7 @@ local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 local A = private.ACQUIRE_TYPES
 
-private.category_collectable_list = {}
+private.collectable_list = {}
 private.num_category_collectables = {}
 
 private.acquire_list	= {}
@@ -42,10 +42,10 @@ local collectable_meta = {
 }
 
 function addon:AddCollectable(collectable_id, collectable_type, genesis, quality)
-	if not private.category_collectable_list[collectable_type] then
-		private.category_collectable_list[collectable_type] = {}
+	if not private.collectable_list[collectable_type] then
+		private.collectable_list[collectable_type] = {}
 	end
-	local collectable_list = private.category_collectable_list[collectable_type]
+	local collectable_list = private.collectable_list[collectable_type]
 
 	if collectable_list[collectable_id] then
 		self:Debug("Duplicate Collectable Item: %d - %s (%s)", collectable_id, collectable_list[collectable_id].name, collectable_list[collectable_id].ColType)

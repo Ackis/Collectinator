@@ -213,7 +213,7 @@ function private.InitializeTabs()
 			table.sort(sorted_acquires, Sort_Acquisition)
 		end
 		local collectable_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
-		local collectables = private.category_collectable_list[collectable_type]
+		local collectables = private.collectable_list[collectable_type]
 
 		self[collectable_type .." expanded"] = self[collectable_type .." expanded"] or {}
 
@@ -280,7 +280,7 @@ function private.InitializeTabs()
 			table.sort(sorted_locations, Sort_Location)
 		end
 		local collectable_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
-		local collectables = private.category_collectable_list[collectable_type]
+		local collectables = private.collectable_list[collectable_type]
 
 		self[collectable_type .." expanded"] = self[collectable_type .." expanded"] or {}
 
@@ -367,7 +367,7 @@ function private.InitializeTabs()
 
 	function CollectablesTab:Initialize(expand_mode)
 		local collection_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
-		local collectables = private.category_collectable_list[collection_type]
+		local collectables = private.collectable_list[collection_type]
 
 		self[collection_type .." expanded"] = self[collection_type .." expanded"] or {}
 

@@ -590,7 +590,7 @@ function private.InitializeFrame()
 			end
 			search_pattern = search_pattern:lower()
 
-			for index, collectable in pairs(private.category_collectable_list[ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]) do
+			for index, collectable in pairs(private.collectable_list[ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]) do
 				collectable:RemoveState("RELEVANT")
 
 				for search_index = 1, #SEARCH_FUNCTIONS do
@@ -652,7 +652,7 @@ function private.InitializeFrame()
 
 	-- Resets the SearchBox text and the state of all MainPanel.list_frame and collectable entries.
 	function SearchBox:Reset()
-		local collectables = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]
+		local collectables = private.collectable_list[private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]
 
 		for index, collectable in pairs(collectables) do
 			collectable:RemoveState("RELEVANT")

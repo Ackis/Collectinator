@@ -625,7 +625,7 @@ do
 		local collectable_type = private.COLLECTION_LABELS[current_panel]
 		addon:InitializeCollection(collectable_type)
 
-		local collectables = private.category_collectable_list[collectable_type]
+		local collectables = private.collectable_list[collectable_type]
 
 		if not collectables then
 			addon:Debug("Errror, %s table not made.", collectable_type)

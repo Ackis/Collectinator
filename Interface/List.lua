@@ -675,7 +675,7 @@ function private.InitializeListFrame()
 			-- Update recipe filters.
 			-------------------------------------------------------------------------------
 			local general_filters = addon.db.profile.filters.general
-			local collectables = private.category_collectable_list[private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]
+			local collectables = private.collectable_list[private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]
 			local collectables_known, collectables_known_filtered = 0, 0
 			local collectables_total, collectables_total_filtered = 0, 0
 
@@ -1267,7 +1267,7 @@ function private.InitializeListFrame()
 		local expand_all = expand_mode == "deep"
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
 		local collection_type = private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
-		local collectable_list = private.category_collectable_list[collection_type]
+		local collectable_list = private.collectable_list[collection_type]
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
