@@ -564,8 +564,8 @@ do
 			local pet_ids = {}
 			local pet_sources = {}
 
-			for index, creature_id in LPJ:IterateCreatureIDs() do
-				local pet_id, species_id, is_owned, _, _, _, _, name, icon, petType, npc_id, source_text, description, is_wild  = _G.C_PetJournal.GetPetInfoByIndex(index)
+			for index in LPJ:IterateCreatureIDs() do
+				local pet_id, species_id, is_owned, _, _, _, _, name, icon, petType, creature_id, source_text, description, is_wild  = _G.C_PetJournal.GetPetInfoByIndex(index)
 				local critter = critters[creature_id]
 
 				if critter then
