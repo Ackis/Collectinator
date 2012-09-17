@@ -428,15 +428,15 @@ function private.InitializeFilterPanel()
 
 		local acquire_buttons = {
 			achievement	= { tt = L["ACHIEVEMENT_DESC"],		text = _G.ACHIEVEMENTS,				row = 1, col = 1 },
+			seasonal	= { tt = L["SEASONAL_DESC"],		text = private.ACQUIRE_NAMES[A.SEASONAL],	row = 1, col = 2 },
 			instance	= { tt = L["INSTANCE_DESC"],		text = _G.INSTANCE,				row = 2, col = 1 },
 			mobdrop		= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 2, col = 2 },
 			pvp		= { tt = L["PVP_DESC"],			text = _G.PVP,					row = 3, col = 1 },
 			quest		= { tt = L["QUEST_DESC"],		text = L["Quest"],				row = 3, col = 2 },
 			raid		= { tt = L["RAID_DESC"],		text = _G.RAID,					row = 4, col = 1 },
 			reputation	= { tt = L["REPUTATION_DESC"],		text = _G.REPUTATION,				row = 4, col = 2 },
-			seasonal	= { tt = L["SEASONAL_DESC"],		text = private.ACQUIRE_NAMES[A.SEASONAL],	row = 5, col = 1 },
-			vendor		= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 6, col = 1 },
-			worlddrop	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 6, col = 2 },
+			vendor		= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 5, col = 1 },
+			worlddrop	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 5, col = 2 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
