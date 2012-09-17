@@ -697,45 +697,44 @@ function addon:InitCritters()
 
 	-- Eye of the Legion -- 59020
 	pet = AddPet(59020, V.MOP, Q.RARE)
---[[
+
 --PURCHASED
-	-- Lil' K.T. -- 69677
-	pet = AddPet(69677, V.WOTLK, Q.RARE)
+	-- Lil' K.T. -- 36979
+	pet = AddPet(36979, V.WOTLK, Q.RARE)
 
-	-- Pandaren Monk -- 69541
-	pet = AddPet(69541, V.WOTLK, Q.RARE)
+	-- Pandaren Monk -- 36911
+	pet = AddPet(36911, V.WOTLK, Q.RARE)
 
-	-- Gryphon Hatchling -- 69535
-	pet = AddPet(69535, V.WOTLK, Q.RARE)
+	-- Gryphon Hatchling -- 36908
+	pet = AddPet(36908, V.WOTLK, Q.RARE)
 
-	-- Wind Rider Cub -- 69536
-	pet = AddPet(69536, V.WOTLK, Q.RARE)
+	-- Wind Rider Cub -- 36909
+	pet = AddPet(36909, V.WOTLK, Q.RARE)
 
-	-- Lil' XT -- 75906
-	pet = AddPet(75906, V.WOTLK, Q.RARE)
+	-- Lil' XT -- 40703
+	pet = AddPet(40703, V.WOTLK, Q.RARE)
 
-	-- Lil' Ragnaros -- 95787
-	pet = AddPet(95787, V.WOTLK, Q.RARE)
+	-- Lil' Ragnaros -- 51600
+	pet = AddPet(51600, V.WOTLK, Q.RARE)
 
-	-- Cenarion Hatchling -- 99578
-	pet = AddPet(99578, V.CATA, Q.EPIC)
+	-- Cenarion Hatchling -- 53623
+	pet = AddPet(53623, V.CATA, Q.EPIC)
 
-	-- Guardian Cub -- 98736
-	pet = AddPet(98736, V.CATA, Q.RARE)
+	-- Guardian Cub -- 53283
+	pet = AddPet(53283, V.CATA, Q.RARE)
 
-	-- Soul of the Aspects -- 110029
-	pet = AddPet(110029, V.CATA, Q.RARE)
-]]--
+	-- Soul of the Aspects -- 58163
+	pet = AddPet(58163, V.CATA, Q.RARE)
 
--- PET BATTLE
+--PET BATTLE
 	-- Snowy Owl -- 7554
 	--[[ Pet Battle: Winterspring
-Season: Winter ]]--
+	Season: Winter ]]--
 	pet = AddPet(7554, V.MOP, Q.COMMON)
 
 	-- Prairie Mouse -- 59702
 	--[[ Pet Battle: Kun-Lai Summit
-]]--
+	]]--
 	pet = AddPet(59702, V.MOP, Q.COMMON)
 
 	-- Black Lamb -- 60649
