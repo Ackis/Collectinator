@@ -283,74 +283,74 @@ function addon:InitCritters()
 
 	-- Pint-Sized Pink Pachyderm -- 24753
 	pet = AddPet(24753, V.TBC, Q.RARE)
---[[
+
 --DROP
-	-- Parrot Cage (Hyacinth Macaw) -- 10682
-	pet = AddPet(10682, V.ORIG, Q.EPIC)
+	-- Parrot Cage (Hyacinth Macaw) -- 7391
+	pet = AddPet(7391, V.ORIG, Q.EPIC)
 
-	-- Parrot Cage (Green Wing Macaw) -- 10683
-	pet = AddPet(10683, V.ORIG, Q.COMMON)
+	-- Parrot Cage (Green Wing Macaw) -- 7387
+	pet = AddPet(7387, V.ORIG, Q.COMMON)
 
-	-- Cat Carrier (Black Tabby) -- 10675
-	pet = AddPet(10675, V.ORIG, Q.COMMON)
+	-- Cat Carrier (Black Tabby) -- 7383
+	pet = AddPet(7383, V.ORIG, Q.COMMON)
 
-	-- Cat Carrier (Siamese) -- 10677
-	pet = AddPet(10677, V.ORIG, Q.COMMON)
+	-- Cat Carrier (Siamese) -- 7380
+	pet = AddPet(7380, V.ORIG, Q.COMMON)
 
-	-- Dark Whelpling -- 10695
-	pet = AddPet(10695, V.ORIG, Q.COMMON)
+	-- Dark Whelpling -- 7543
+	pet = AddPet(7543, V.ORIG, Q.COMMON)
 
-	-- Azure Whelpling -- 10696
-	pet = AddPet(10696, V.ORIG, Q.COMMON)
+	-- Azure Whelpling -- 7547
+	pet = AddPet(7547, V.ORIG, Q.COMMON)
 
-	-- Tiny Crimson Whelpling -- 10697
-	pet = AddPet(10697, V.ORIG, Q.COMMON)
+	-- Tiny Crimson Whelpling -- 7544
+	pet = AddPet(7544, V.ORIG, Q.COMMON)
 
-	-- Tiny Emerald Whelpling -- 10698
-	pet = AddPet(10698, V.ORIG, Q.COMMON)
+	-- Tiny Emerald Whelpling -- 7545
+	pet = AddPet(7545, V.ORIG, Q.COMMON)
 
-	-- Disgusting Oozeling -- 25162
-	pet = AddPet(25162, V.ORIG, Q.COMMON)
+	-- Disgusting Oozeling -- 15429
+	pet = AddPet(15429, V.ORIG, Q.COMMON)
 
-	-- Captured Firefly -- 36034
-	pet = AddPet(36034, V.TBC, Q.COMMON)
+	-- Captured Firefly -- 21076
+	pet = AddPet(21076, V.TBC, Q.COMMON)
 
-	-- Mojo -- 43918
-	pet = AddPet(43918, V.TBC, Q.RARE)
+	-- Mojo -- 24480
+	pet = AddPet(24480, V.TBC, Q.RARE)
 
-	-- Phoenix Hatchling -- 46599
-	pet = AddPet(46599, V.TBC, Q.RARE)
+	-- Phoenix Hatchling -- 26119
+	pet = AddPet(26119, V.TBC, Q.RARE)
 
-	-- Darting Hatchling
-	pet = AddPet(67413, V.WOTLK, Q.COMMON)
+	-- Darting Hatchling -- 35396
+	pet = AddPet(35396, V.WOTLK, Q.COMMON)
 
-	-- Deviate Hatchling
-	pet = AddPet(67414, V.WOTLK, Q.COMMON)
+	-- Deviate Hatchling -- 35395
+	pet = AddPet(35395, V.WOTLK, Q.COMMON)
 
-	-- Gundrak Hatchling
-	pet = AddPet(67415, V.WOTLK, Q.COMMON)
+	-- Gundrak Hatchling -- 35400
+	pet = AddPet(35400, V.WOTLK, Q.COMMON)
 
-	-- Leaping Hatchling
-	pet = AddPet(67416, V.WOTLK, Q.COMMON)
+	-- Leaping Hatchling -- 35387
+	pet = AddPet(35387, V.WOTLK, Q.COMMON)
 
-	-- Ravasaur Hatchling
-	pet = AddPet(67418, V.WOTLK, Q.COMMON)
+	-- Ravasaur Hatchling -- 35397
+	pet = AddPet(35397, V.WOTLK, Q.COMMON)
 
-	-- Razormaw Hatchling
-	pet = AddPet(67419, V.WOTLK, Q.COMMON)
+	-- Razormaw Hatchling -- 35398
+	pet = AddPet(35398, V.WOTLK, Q.COMMON)
 
-	-- Razzashi Hatchling
-	pet = AddPet(67420, V.WOTLK, Q.COMMON)
+	-- Razzashi Hatchling -- 35394
+	pet = AddPet(35394, V.WOTLK, Q.COMMON)
 
-	-- Mr. Grubbs -- 93739
-	pet = AddPet(93739, V.CATA, Q.COMMON)
+	-- Mr. Grubbs -- 50586
+	pet = AddPet(50586, V.CATA, Q.COMMON)
 
-	-- Tiny Shale Spider -- 91343
-	pet = AddPet(91343, V.CATA, Q.COMMON)
+	-- Tiny Shale Spider -- 48982
+	pet = AddPet(48982, V.CATA, Q.COMMON)
 
-	-- Fox Kit -- 90637
-	pet = AddPet(90637, V.CATA, Q.RARE)
-]]--
+	-- Fox Kit -- 48641
+	pet = AddPet(48641, V.CATA, Q.RARE)
+
 --QUESTS
 	-- Mechanical Chicken -- 8376
 	pet = AddPet(8376, V.ORIG, Q.COMMON)
