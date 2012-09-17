@@ -513,29 +513,29 @@ function addon:InitCritters()
 
 	-- Scorched Stone -- 25706
 	pet = AddPet(25706, V.TBC, Q.RARE)
---[[
+
 --VENDOR HORDE
-	-- Cockroach -- 10688
-	pet = AddPet(10688, V.ORIG, Q.COMMON)
+	-- Cockroach -- 7395
+	pet = AddPet(7395, V.ORIG, Q.COMMON)
 
-	-- Prairie Dog Whistle -- 10709
-	pet = AddPet(10709, V.ORIG, Q.COMMON)
+	-- Prairie Dog Whistle -- 14421
+	pet = AddPet(14421, V.ORIG, Q.COMMON)
 
-	-- Black Kingsnake -- 10714
-	pet = AddPet(10714, V.ORIG, Q.COMMON)
+	-- Black Kingsnake -- 7565
+	pet = AddPet(7565, V.ORIG, Q.COMMON)
 
-	-- Brown Snake -- 10716
-	pet = AddPet(10716, V.ORIG, Q.COMMON)
+	-- Brown Snake -- 7562
+	pet = AddPet(7562, V.ORIG, Q.COMMON)
 
-	-- Golden Dragonhawk Hatchling -- 36027
-	pet = AddPet(36027, V.TBC, Q.COMMON)
+	-- Golden Dragonhawk Hatchling -- 21055
+	pet = AddPet(21055, V.TBC, Q.COMMON)
 
-	-- Red Dragonhawk Hatchling -- 36028
-	pet = AddPet(36028, V.TBC, Q.COMMON)
+	-- Red Dragonhawk Hatchling -- 21064
+	pet = AddPet(21064, V.TBC, Q.COMMON)
 
-	-- Silver Dragonhawk Hatchling -- 36029
-	pet = AddPet(36029, V.TBC, Q.COMMON)
-
+	-- Silver Dragonhawk Hatchling -- 21063
+	pet = AddPet(21063, V.TBC, Q.COMMON)
+--[[
 --VENDOR ALLIANCE
 	-- Cat Carrier (Bombay) -- 10673
 	pet = AddPet(10673, V.ORIG, Q.COMMON)
