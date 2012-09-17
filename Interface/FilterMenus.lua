@@ -546,7 +546,7 @@ function private.InitializeFilterPanel()
 
 		private.GenerateCheckBoxes(binding_frame, binding_buttons, binding_panel)
 	end	-- do-block
-
+--[[
 	-------------------------------------------------------------------------------
 	-- Create FilterPanel.item, and set its scripts.
 	-------------------------------------------------------------------------------
@@ -567,7 +567,7 @@ function private.InitializeFilterPanel()
 			self.sub_panel = sub_panel
 		end)
 	end	-- do-block
-
+]]--
 	-------------------------------------------------------------------------------
 	-- Create FilterPanel.quality, and set its scripts.
 	-------------------------------------------------------------------------------
