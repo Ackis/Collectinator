@@ -194,7 +194,7 @@ private.FLAG_WORDS = {
 	private.REP_FLAGS_WORD2,
 }
 
--- Member names within a recipe's flags table.
+-- Member names within a collection's flags table.
 private.FLAG_MEMBERS = {
 	"common1",
 	"class1",
@@ -374,7 +374,7 @@ private.REPUTATION_COLORS = {
 	["hated"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[1])),
 }
 
--- Colors used in tooltips and the recipe list.
+-- Colors used in tooltips and the collection list.
 private.CATEGORY_COLORS = {
 	-- Acquire type colors
 	["achievement"]	= "faeb98",
