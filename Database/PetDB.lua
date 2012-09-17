@@ -430,90 +430,90 @@ function addon:InitCritters()
 
 	-- Sen'jin Fetish -- 33810
 	pet = AddPet(33810, V.WOTLK, Q.RARE)
---[[
+
 --REP VENDOR NEUTRAL
-	-- Tiny Sporebat -- 45082
-	pet = AddPet(45082, V.TBC, Q.RARE)
+	-- Tiny Sporebat -- 25062
+	pet = AddPet(25062, V.TBC, Q.RARE)
 
-	-- Nether Ray Fry -- 51716
-	pet = AddPet(51716, V.TBC, Q.RARE)
+	-- Nether Ray Fry -- 28470
+	pet = AddPet(28470, V.TBC, Q.RARE)
 
-	-- Tickbird Hatchling -- 61348
-	pet = AddPet(61348, V.WOTLK, Q.COMMON)
+	-- Tickbird Hatchling -- 32589
+	pet = AddPet(32589, V.WOTLK, Q.COMMON)
 
-	-- White Tickbird Hatchling -- 61349
-	pet = AddPet(61349, V.WOTLK, Q.COMMON)
+	-- White Tickbird Hatchling -- 32590
+	pet = AddPet(32590, V.WOTLK, Q.COMMON)
 
-	-- Proto-Drake Whelp -- 61350
-	pet = AddPet(61350, V.WOTLK, Q.COMMON)
+	-- Proto-Drake Whelp -- 32592
+	pet = AddPet(32592, V.WOTLK, Q.COMMON)
 
-	-- Cobra Hatchling -- 61351
-	pet = AddPet(61351, V.WOTLK, Q.COMMON)
+	-- Cobra Hatchling -- 32591
+	pet = AddPet(32591, V.WOTLK, Q.COMMON)
 
-	-- Nurtured Penguin Egg -- 61357
-	pet = AddPet(61357, V.WOTLK, Q.RARE)
+	-- Nurtured Penguin Egg -- 32595
+	pet = AddPet(32595, V.WOTLK, Q.RARE)
 
-	-- Rustberg Gull -- 89472
-	pet = AddPet(89472, V.CATA, Q.RARE)
+	-- Rustberg Gull -- 48107
+	pet = AddPet(48107, V.CATA, Q.RARE)
 
-	-- Winterspring Cub -- 97638
-	pet = AddPet(97638, V.CATA, Q.COMMON)
+	-- Winterspring Cub -- 52831
+	pet = AddPet(52831, V.CATA, Q.COMMON)
 
-	-- Crimson Lasher -- 99668
-	pet = AddPet(99668, V.CATA, Q.RARE)
+	-- Crimson Lasher -- 53661
+	pet = AddPet(53661, V.CATA, Q.RARE)
 
-	-- Hyjal Bear Cub -- 99663
-	pet = AddPet(99663, V.CATA, Q.RARE)
+	-- Hyjal Bear Cub -- 53658
+	pet = AddPet(53658, V.CATA, Q.RARE)
 
 --VENDOR NEUTRAL
-	-- Parrot Cage (Cockatiel) -- 10680
-	pet = AddPet(10680, V.ORIG, Q.COMMON)
+	-- Parrot Cage (Cockatiel) -- 7390
+	pet = AddPet(7390, V.ORIG, Q.COMMON)
 
-	-- Parrot Cage (Senegal) -- 10684
-	pet = AddPet(10684, V.ORIG, Q.COMMON)
+	-- Parrot Cage (Senegal) -- 7389
+	pet = AddPet(7389, V.ORIG, Q.COMMON)
 
-	-- Ancona Chicken -- 10685
-	pet = AddPet(10685, V.ORIG, Q.COMMON)
+	-- Ancona Chicken -- 7394
+	pet = AddPet(7394, V.ORIG, Q.COMMON)
 
-	-- Wood Frog Box -- 10703
-	pet = AddPet(10703, V.ORIG, Q.COMMON)
+	-- Wood Frog Box -- 7550
+	pet = AddPet(7550, V.ORIG, Q.COMMON)
 
-	-- Tree Frog Box -- 10704
-	pet = AddPet(10704, V.ORIG, Q.COMMON)
+	-- Tree Frog Box -- 7549
+	pet = AddPet(7549, V.ORIG, Q.COMMON)
 
-	-- Crimson Snake -- 10717
-	pet = AddPet(10717, V.ORIG, Q.COMMON)
+	-- Crimson Snake -- 7567
+	pet = AddPet(7567, V.ORIG, Q.COMMON)
 
-	-- Mana Wyrmling -- 35156
-	pet = AddPet(35156, V.TBC, Q.COMMON)
+	-- Mana Wyrmling -- 20408
+	pet = AddPet(20408, V.TBC, Q.COMMON)
 
-	-- Brown Rabbit Crate -- 35239
-	pet = AddPet(35239, V.ORIG, Q.COMMON)
+	-- Brown Rabbit Crate -- 20472
+	pet = AddPet(20472, V.ORIG, Q.COMMON)
 
-	-- Red Moth Egg -- 35909
-	pet = AddPet(35909, V.TBC, Q.COMMON)
+	-- Red Moth Egg -- 21009
+	pet = AddPet(21009, V.TBC, Q.COMMON)
 
-	-- Blue Dragonhawk Hatchling -- 36031
-	pet = AddPet(36031, V.TBC, Q.COMMON)
+	-- Blue Dragonhawk Hatchling -- 21056
+	pet = AddPet(21056, V.TBC, Q.COMMON)
 
-	-- Ghostly Skull -- 53316
-	pet = AddPet(53316, V.WOTLK, Q.RARE)
+	-- Ghostly Skull -- 29147
+	pet = AddPet(29147, V.WOTLK, Q.RARE)
 
-	-- Obsidian Hatchling
-	pet = AddPet(67417, V.WOTLK, Q.COMMON)
+	-- Obsidian Hatchling -- 35399
+	pet = AddPet(35399, V.WOTLK, Q.COMMON)
 
-	-- Blue Clockwork Rocket Bot
-	pet = AddPet(75134, V.WOTLK, Q.RARE)
+	-- Blue Clockwork Rocket Bot -- 40295
+	pet = AddPet(40295, V.WOTLK, Q.RARE)
 
-	-- Calico Cat
-	pet = AddPet(65358, V.WOTLK, Q.COMMON)
+	-- Calico Cat -- 34364
+	pet = AddPet(34364, V.WOTLK, Q.COMMON)
 
-	-- Albino Snake
+	-- Albino Snake -- 7561
 	pet = AddPet(7561, V.WOTLK, Q.COMMON)
 
-	-- Scorched Stone -- 45890
-	pet = AddPet(45890, V.TBC, Q.RARE)
-
+	-- Scorched Stone -- 25706
+	pet = AddPet(25706, V.TBC, Q.RARE)
+--[[
 --VENDOR HORDE
 	-- Cockroach -- 10688
 	pet = AddPet(10688, V.ORIG, Q.COMMON)
