@@ -169,16 +169,8 @@ function private.InitializeFilterPanel()
 			recursiveReset(addon.db.profile.filters)
 
 			-- Reset specific filters to false.
-			filterdb.general.specialty = false
 			filterdb.general.known = false
 			filterdb.general.retired = false
-
-			-- Reset all classes to false.
-			for class in pairs(filterdb.classes) do
-				filterdb.classes[class] = false
-			end
-			-- Set your own class to true.
-			filterdb.classes[private.Player.class:lower()] = true
 
 			if MainPanel:IsVisible() then
 				MainPanel:UpdateTitle()
