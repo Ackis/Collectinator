@@ -638,23 +638,23 @@ function addon:InitCritters()
 
 	-- Murkablo -- 54438
 	pet = AddPet(54438, V.CATA, Q.RARE)
---[[
+
 --PROMO
-	-- Pink Murloc Egg -- 27241 (Gurky)
-	pet = AddPet(27241, V.ORIG, Q.RARE)
+	-- Pink Murloc Egg -- 16069 (Gurky)
+	pet = AddPet(16069, V.ORIG, Q.RARE)
 
-	-- Polar Bear Collar -- 28505 (Poley)
-	pet = AddPet(28505, V.ORIG, Q.COMMON)
+	-- Polar Bear Collar -- 16456 (Poley)
+	pet = AddPet(16456, V.ORIG, Q.COMMON)
 
-	-- Fortune Coin -- 40405 (Lucky)
-	pet = AddPet(40405, V.TBC, Q.RARE)
+	-- Fortune Coin -- 23198 (Lucky)
+	pet = AddPet(23198, V.TBC, Q.RARE)
 
-	-- Tyrael's Hilt -- 53082
-	pet = AddPet(53082, V.TBC, Q.RARE)
+	-- Tyrael's Hilt -- 29089
+	pet = AddPet(29089, V.TBC, Q.RARE)
 
-	-- Warbot
-	pet = AddPet(65682, V.WOTLK, Q.RARE)
-
+	-- Warbot -- 34587
+	pet = AddPet(34587, V.WOTLK, Q.RARE)
+--[[
 --TCG
 	-- Banana Charm -- 40549
 	pet = AddPet(40549, V.TBC, Q.RARE)
