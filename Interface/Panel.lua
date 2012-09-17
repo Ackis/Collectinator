@@ -256,15 +256,7 @@ function private.InitializeFrame()
 			self:ClearAllPoints()
 
 			if opts.anchorTo == "" then	-- no values yet, clamp to whatever frame is appropriate
-				if _G.ATSWFrame then
-					self:SetPoint("CENTER", _G.ATSWFrame, "CENTER", 490, 0)
-				elseif _G.CauldronFrame then
-					self:SetPoint("CENTER", _G.CauldronFrame, "CENTER", 490, 0)
-				elseif _G.Skillet then
-					self:SetPoint("CENTER", _G.SkilletFrame, "CENTER", 468, 0)
-				else
-					self:SetPoint("TOPLEFT", _G.TradeSkillFrame, "TOPRIGHT", 10, 0)
-				end
+				self:SetPoint("TOPLEFT", _G.TradeSkillFrame, "TOPRIGHT", 10, 0)
 			else
 				if self.is_expanded then
 					if opts.anchorFrom == "TOPLEFT" or opts.anchorFrom == "LEFT" or opts.anchorFrom == "BOTTOMLEFT" then
