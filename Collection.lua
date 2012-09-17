@@ -55,6 +55,8 @@ function addon:AddCollectable(collectable_id, collectable_type, genesis, quality
 		type = collectable_type,
 		genesis = private.GAME_VERSION_NAMES[genesis],
 		quality = quality,
+		description = "",
+		source_text_TEMPORARY = "",
 		flags = {},
 		acquire_data = {},
 	}, collectable_meta)

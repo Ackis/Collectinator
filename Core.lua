@@ -533,12 +533,6 @@ end
 -- Collection Scanning Functions
 -------------------------------------------------------------------------------
 do
-	local current_collection_count, previous_collection_count = 0, 0
-
-	-- List of collection (e.g. pet filters) headers, used in addon:Scan()
-	local header_list = {}
-
---	local UNKNOWN_PET_FORMAT = "%s: %d\n--------------------\n%s\n--------------------\n%s\n********************"
 	local UNKNOWN_PET_FORMAT = "%s: %d"
 
 	local COLLECTABLE_SCAN_FUNCS = {
@@ -546,12 +540,13 @@ do
 			local num_mounts = _G.GetNumCompanions(collectable_type)
 
 			for index = 1, num_mounts do
-				local mount_id = _G.GetCompanionInfo("MOUNT", index)
+				local mount_id = select(3, _G.GetCompanionInfo("MOUNT", index))
 				local mount = mounts[mount_id]
 
 				if mount then
-					local mount_name = _G.GetSpellInfo(mount_id)
+					local mount_name, _, icon = _G.GetSpellInfo(mount_id)
 					mount:SetName(mount_name)
+					mount:SetIcon(icon)
 					mount:AddState("KNOWN")
 				else
 					--self:Debug("Mount %d - Not in db", mount_id)
