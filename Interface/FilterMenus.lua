@@ -876,25 +876,20 @@ function private.InitializeFilterPanel()
 		local expansion2_buttons = {
 			wrathcommon1	= { tt = ReputationDesc(Vanguard_Expedition_Text),		text = Vanguard_Expedition_Text,		row = 2,	col = 1 },
 			argentcrusade	= { tt = ReputationDesc(BFAC["Argent Crusade"]),		text = BFAC["Argent Crusade"],			row = 3,	col = 1 },
-			wrathcommon5	= { tt = ReputationDesc(Explorer_Hand_Text),			text = DisabledText(Explorer_Hand_Text),	row = 4,	col = 1 },
+			wrathcommon5	= { tt = ReputationDesc(Explorer_Hand_Text),			text = Explorer_Hand_Text,			row = 4,	col = 1 },
 			frenzyheart	= { tt = ReputationDesc(BFAC["Frenzyheart Tribe"]),		text = BFAC["Frenzyheart Tribe"],		row = 5,	col = 1 },
 			kaluak		= { tt = ReputationDesc(BFAC["The Kalu'ak"]),			text = BFAC["The Kalu'ak"],			row = 6,	col = 1 },
 			kirintor	= { tt = ReputationDesc(BFAC["Kirin Tor"]),			text = BFAC["Kirin Tor"],			row = 7,	col = 1 },
 			ebonblade	= { tt = ReputationDesc(BFAC["Knights of the Ebon Blade"]),	text = BFAC["Knights of the Ebon Blade"],	row = 8,	col = 1 },
 			oracles		= { tt = ReputationDesc(BFAC["The Oracles"]),			text = BFAC["The Oracles"],			row = 9,	col = 1 },
-			wrathcommon2	= { tt = ReputationDesc(SilverCov_Sunreaver_Text),		text = DisabledText(SilverCov_Sunreaver_Text),	row = 10,	col = 1 },
+			wrathcommon2	= { tt = ReputationDesc(SilverCov_Sunreaver_Text),		text = SilverCov_Sunreaver_Text,		row = 10,	col = 1 },
 			sonsofhodir	= { tt = ReputationDesc(BFAC["The Sons of Hodir"]),		text = BFAC["The Sons of Hodir"],		row = 11,	col = 1 },
-			wrathcommon4	= { tt = ReputationDesc(Frostborn_Taunka_Text),			text = DisabledText(Frostborn_Taunka_Text),	row = 12,	col = 1 },
-			wrathcommon3	= { tt = ReputationDesc(Valiance_Warsong_Text),			text = DisabledText(Valiance_Warsong_Text),	row = 13,	col = 1 },
+			wrathcommon4	= { tt = ReputationDesc(Frostborn_Taunka_Text),			text = Frostborn_Taunka_Text,			row = 12,	col = 1 },
+			wrathcommon3	= { tt = ReputationDesc(Valiance_Warsong_Text),			text = Valiance_Warsong_Text,			row = 13,	col = 1 },
 			wyrmrest	= { tt = ReputationDesc(BFAC["The Wyrmrest Accord"]),		text = BFAC["The Wyrmrest Accord"],		row = 14,	col = 1 },
 			ashenverdict	= { tt = ReputationDesc(BFAC["The Ashen Verdict"]),		text = BFAC["The Ashen Verdict"],		row = 15,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion2_frame, expansion2_buttons)
-
-		expansion2_frame.wrathcommon2:Disable()
-		expansion2_frame.wrathcommon3:Disable()
-		expansion2_frame.wrathcommon4:Disable()
-		expansion2_frame.wrathcommon5:Disable()
 
 		local expansion2_toggle = _G.CreateFrame("Button", nil, expansion2_frame)
 		expansion2_toggle:SetWidth(105)
@@ -936,22 +931,14 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion3_buttons = {
-			catacommon1		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = DisabledText(Wildhammer_Dragonmaw),		row = 2,	col = 1 },
-			catacommon2		= { tt = ReputationDesc(Tol_Barad),				text = DisabledText(Tol_Barad),				row = 3,	col = 1 },
-			guardiansofhyjal	= { tt = ReputationDesc(BFAC["Guardians of Hyjal"]),		text = DisabledText(BFAC["Guardians of Hyjal"]),	row = 4,	col = 1 },
-			ramkahen		= { tt = ReputationDesc(BFAC["Ramkahen"]),			text = DisabledText(BFAC["Ramkahen"]),			row = 5,	col = 1 },
-			earthenring		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = DisabledText(BFAC["The Earthen Ring"]),		row = 6,	col = 1 },
-			therazane		= { tt = ReputationDesc(BFAC["Therazane"]),			text = DisabledText(BFAC["Therazane"]),			row = 7,	col = 1 },
+			catacommon1		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = Wildhammer_Dragonmaw,			row = 2,	col = 1 },
+			catacommon2		= { tt = ReputationDesc(Tol_Barad),				text = Tol_Barad,				row = 3,	col = 1 },
+			guardiansofhyjal	= { tt = ReputationDesc(BFAC["Guardians of Hyjal"]),		text = BFAC["Guardians of Hyjal"],		row = 4,	col = 1 },
+			ramkahen		= { tt = ReputationDesc(BFAC["Ramkahen"]),			text = BFAC["Ramkahen"],			row = 5,	col = 1 },
+			earthenring		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = BFAC["The Earthen Ring"],		row = 6,	col = 1 },
+			therazane		= { tt = ReputationDesc(BFAC["Therazane"]),			text = BFAC["Therazane"],			row = 7,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
-
-		-- Disable them as the data isn't in yet.
-		expansion3_frame.catacommon1:Disable()
-		expansion3_frame.catacommon2:Disable()
-		expansion3_frame.guardiansofhyjal:Disable()
-		expansion3_frame.ramkahen:Disable()
-		expansion3_frame.earthenring:Disable()
-		expansion3_frame.therazane:Disable()
 
 		local expansion3_toggle = _G.CreateFrame("Button", nil, expansion3_frame)
 		expansion3_toggle:SetWidth(105)
@@ -1001,14 +988,6 @@ function private.InitializeFilterPanel()
 --			therazane		= { tt = ReputationDesc(BFAC["Therazane"]),			text = DisabledText(BFAC["Therazane"]),			row = 7,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
-
-		-- Disable them as the data isn't in yet.
---		expansion4_frame.catacommon1:Disable()
---		expansion4_frame.catacommon2:Disable()
---		expansion4_frame.guardiansofhyjal:Disable()
---		expansion4_frame.ramkahen:Disable()
---		expansion4_frame.earthenring:Disable()
---		expansion4_frame.therazane:Disable()
 
 		local expansion4_toggle = _G.CreateFrame("Button", nil, expansion4_frame)
 		expansion4_toggle:SetWidth(105)
@@ -1297,19 +1276,19 @@ function private.InitializeFilterPanel()
 		["wyrmrest"]		= { cb = expansion2.wyrmrest,			svroot = filterdb.rep },
 		["ashenverdict"]	= { cb = expansion2.ashenverdict,		svroot = filterdb.rep },
 		["wrathcommon1"]	= { cb = expansion2.wrathcommon1,		svroot = filterdb.rep },
-		["wrathcommon2"]	= { cb = expansion2.wrathcommon2,		svroot = nil },
-		["wrathcommon3"]	= { cb = expansion2.wrathcommon3,		svroot = nil },
-		["wrathcommon4"]	= { cb = expansion2.wrathcommon4,		svroot = nil },
-		["wrathcommon5"]	= { cb = expansion2.wrathcommon5,		svroot = nil },
+		["wrathcommon2"]	= { cb = expansion2.wrathcommon2,		svroot = filterdb.rep },
+		["wrathcommon3"]	= { cb = expansion2.wrathcommon3,		svroot = filterdb.rep },
+		["wrathcommon4"]	= { cb = expansion2.wrathcommon4,		svroot = filterdb.rep },
+		["wrathcommon5"]	= { cb = expansion2.wrathcommon5,		svroot = filterdb.rep },
 		------------------------------------------------------------------------------------------------
 		-- Cataclysm Rep Options
 		------------------------------------------------------------------------------------------------
-		["catacommon1"]		= { cb = expansion3.catacommon1,		svroot = nil },
-		["catacommon2"]		= { cb = expansion3.catacommon2,		svroot = nil },
-		["guardiansofhyjal"]	= { cb = expansion3.guardiansofhyjal,		svroot = nil },
-		["ramkahen"]		= { cb = expansion3.ramkahen,			svroot = nil },
-		["earthenring"]		= { cb = expansion3.earthenring,		svroot = nil },
-		["therazane"]		= { cb = expansion3.therazane,			svroot = nil },
+		["catacommon1"]		= { cb = expansion3.catacommon1,		svroot = filterdb.rep },
+		["catacommon2"]		= { cb = expansion3.catacommon2,		svroot = filterdb.rep },
+		["guardiansofhyjal"]	= { cb = expansion3.guardiansofhyjal,		svroot = filterdb.rep },
+		["ramkahen"]		= { cb = expansion3.ramkahen,			svroot = filterdb.rep },
+		["earthenring"]		= { cb = expansion3.earthenring,		svroot = filterdb.rep },
+		["therazane"]		= { cb = expansion3.therazane,			svroot = filterdb.rep },
 		------------------------------------------------------------------------------------------------
 		-- Mists of Pandaria Rep Options
 		------------------------------------------------------------------------------------------------
