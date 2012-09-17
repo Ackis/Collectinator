@@ -282,7 +282,6 @@ function private.InitializeFrame()
 			["binding"]	= true,
 			["item"]	= true,
 			["quality"]	= true,
-			["player"]	= true,
 			["rep"]		= true,
 			["misc"]	= true,
 		}
