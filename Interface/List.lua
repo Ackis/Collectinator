@@ -578,6 +578,25 @@ function private.InitializeListFrame()
 			[REP2.RAMKAHEN]			= "ramkahen",
 			[REP2.EARTHEN_RING]		= "earthenring",
 			[REP2.THERAZANE]		= "therazane",
+--			foresthozen
+--			goldenlotus
+--			huojinpandaren
+--			cloudserpent
+--			pearlfinjinyu
+--			shadopan
+--			anglers
+--			augustcelestials
+--			brewmasters
+--			klaxxi	
+--			lorewalkers
+--			tillers
+--			tushuipandaren
+--			blackprince
+--			shangxiacademy
+			
+			
+			
+			
 		}
 
 		-- Returns true if any of the filter flags are turned on.
