@@ -383,9 +383,7 @@ local WAYPOINT_FUNCS = {
 
 local current_waypoints = {}
 
-local function AddCollectableWaypoints(collectable_id, acquire_id, location_id, npc_id)
-	local collectable = private.collectable_list[collectable_id]
-
+local function AddCollectableWaypoints(collectable, acquire_id, location_id, npc_id)
 	for acquire_type, acquire_info in pairs(collectable.acquire_data) do
 		local waypoint_func = WAYPOINT_FUNCS[acquire_type]
 
@@ -399,7 +397,7 @@ local function AddCollectableWaypoints(collectable_id, acquire_id, location_id, 
 
 								if waypoint and (not location_id or waypoint.location == location_id) then
 									waypoint.acquire_type = acquire_type
-									current_waypoints[waypoint] = collectable_id
+									current_waypoints[waypoint] = collectable
 								end
 							end
 						end
@@ -409,7 +407,7 @@ local function AddCollectableWaypoints(collectable_id, acquire_id, location_id, 
 						if waypoint and (not location_id or waypoint.location == location_id) then
 							waypoint.acquire_type = acquire_type
 							waypoint.reference_id = id_num
-							current_waypoints[waypoint] = collectable_id
+							current_waypoints[waypoint] = collectable
 						end
 					end
 				end
@@ -418,6 +416,7 @@ local function AddCollectableWaypoints(collectable_id, acquire_id, location_id, 
 	end
 end
 
+--[=[
 local function AddAllWaypoints(acquire_id, location_id, npc_id)
 	local collectables = private.collectable_list
 	local sorted_collectables = addon.sorted_collectables
@@ -464,6 +463,7 @@ local function AddAllWaypoints(acquire_id, location_id, npc_id)
 		end
 	end
 end
+]=]--
 
 -- Replace the TomTom waypoint icon with the icon for the profession.
 local ICON_TEXTURE_FORMAT = [[Interface\ICONS\%s]]
@@ -486,7 +486,7 @@ end
 -- Expected result: Icons are added to the world map and mini-map.
 -- Input: An optional recipe ID, acquire ID, and location ID.
 -- Output: Points are added to the maps
-function addon:AddWaypoint(collectable_id, acquire_id, location_id, npc_id)
+function addon:AddWaypoint(collectable, acquire_id, location_id, npc_id)
 	if not _G.TomTom then
 		return
 	end
@@ -498,20 +498,18 @@ function addon:AddWaypoint(collectable_id, acquire_id, location_id, npc_id)
 	end
 	table.wipe(current_waypoints)
 
-	if collectable_id then
-		AddCollectableWaypoints(collectable_id, acquire_id, location_id, npc_id)
-	elseif addon.db.profile.autoscanmap then
-		AddAllWaypoints(acquire_id, location_id, npc_id)
+	if collectable then
+		AddCollectableWaypoints(collectable, acquire_id, location_id, npc_id)
+--	elseif addon.db.profile.autoscanmap then
+--		AddAllWaypoints(acquire_id, location_id, npc_id)
 	end
-	local collectables = private.collectable_list
 
-	for waypoint, collectable_id in pairs(current_waypoints) do
+	for waypoint, collectable in pairs(current_waypoints) do
 		local name
 		local x = waypoint.coord_x
 		local y = waypoint.coord_y
 		local location_name = waypoint.location or "nil"
 		local continent, zone
-		local collectable = collectables[collectable_id]
 		local _, _, _, quality_color = _G.GetItemQualityColor(collectable.quality)
 		local acquire_str = private.ACQUIRE_STRINGS[waypoint.acquire_type]:lower():gsub("_","")
 		local color_code = private.CATEGORY_COLORS[acquire_str] or "ffffff"
@@ -545,20 +543,20 @@ function addon:AddWaypoint(collectable_id, acquire_id, location_id, npc_id)
 			y = info.y
 			name = ("%s (%s)"):format(name, location_name)
 		else
-			self:Debug("No continent/zone map match for recipe ID %d. Location: %s.", collectable_id, location_name)
+			self:Debug("No continent/zone map match for recipe ID %d. Location: %s.", collectable, location_name)
 		end
 
 		--@debug@
 		if x and ((x < -100) or (x > 100)) or y and ((y < -100) or (y > 100)) then
 			x = nil
 			y = nil
-			self:Debug("Invalid location coordinates for recipe ID %d. Location: %s.", collectable_id, location_name)
+			self:Debug("Invalid location coordinates for recipe ID %d. Location: %s.", collectable, location_name)
 		end
 		--@end-debug@
 
 		if x and y and zone and continent then
 			if x == 0 and y == 0 and not INSTANCE_LOCATIONS[location_name] then
-				self:Debug("Location is \"0, 0\" for recipe ID %d. Location: %s.", collectable_id, location_name)
+				self:Debug("Location is \"0, 0\" for recipe ID %d. Location: %s.", collectable, location_name)
 			end
 
 			if _G.TomTom then
@@ -571,11 +569,11 @@ function addon:AddWaypoint(collectable_id, acquire_id, location_id, npc_id)
 		else
 			--@debug@
 			if not zone then
-				self:Debug("No zone for recipe ID %d. Location: %s.", collectable_id, location_name)
+				self:Debug("No zone for recipe ID %d. Location: %s.", collectable, location_name)
 			end
 
 			if not continent then
-				self:Debug("No continent for recipe ID %d. Location: %s.", collectable_id, location_name)
+				self:Debug("No continent for recipe ID %d. Location: %s.", collectable, location_name)
 			end
 			--@end-debug@
 		end

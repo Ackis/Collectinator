@@ -27,7 +27,6 @@ local BFAC = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 
 local A = private.ACQUIRE_TYPES
 
-private.collectable_list = {}
 private.category_collectable_list = {}
 private.num_category_collectables = {}
 
@@ -43,7 +42,10 @@ local collectable_meta = {
 }
 
 function addon:AddCollectable(collectable_id, collectable_type, genesis, quality)
-	local collectable_list = private.collectable_list
+	if not private.category_collectable_list[collectable_type] then
+		private.category_collectable_list[collectable_type] = {}
+	end
+	local collectable_list = private.category_collectable_list[collectable_type]
 
 	if collectable_list[collectable_id] then
 		self:Debug("Duplicate Collectable Item: %d - %s (%s)", collectable_id, collectable_list[collectable_id].name, collectable_list[collectable_id].ColType)
@@ -62,11 +64,6 @@ function addon:AddCollectable(collectable_id, collectable_type, genesis, quality
 	}, collectable_meta)
 
 	collectable_list[collectable_id] = collectable
-
-	if not private.category_collectable_list[collectable_type] then
-		private.category_collectable_list[collectable_type] = {}
-	end
-	private.category_collectable_list[collectable_type][collectable_id] = collectable
 	private.num_category_collectables[collectable_type] = (private.num_category_collectables[collectable_type] or 0) + 1
 
 	return collectable
@@ -660,10 +657,5 @@ function collectable_prototype:DumpTrainers(registry)
 	for identifier in pairs(trainer_data) do
 		registry[identifier] = true
 	end
-end
-
-function addon:GetRecipeData(collectable_id, data)
-	local collection = private.collection_list[collectable_id]
-	return collection and collection[data] or nil
 end
 

@@ -41,7 +41,7 @@ end	-- do block
 do
 	addon.sorted_collectables = {}
 
-	local collectable_list = private.collectable_list
+	local collectable_list
 	local sorted_collectables = addon.sorted_collectables
 
 	local function Sort_NameAsc(a, b)
@@ -65,10 +65,10 @@ do
 	function private.SortCollectables(collectables)
 		local sort_type = addon.db.profile.sorting
 		local skill_view = addon.db.profile.skill_view
-
 		local sort_func = COLLECTABLE_SORT_FUNCS[(skill_view and "Skill" or "Name")..sort_type] or Sort_NameAsc
 
 		table.wipe(sorted_collectables)
+		collectable_list = collectables
 
 		for collectable_id, collectable in pairs(collectables) do
 			sorted_collectables[#sorted_collectables + 1] = collectable_id

@@ -105,8 +105,8 @@ function private.InitializeTabs()
 			self[member][entry.location_id] = expanded or nil
 		end
 
-		if entry.collectable_id then
-			self[member][entry.collectable_id] = expanded or nil
+		if entry.collectable then
+			self[member][entry.collectable] = expanded or nil
 		end
 	end
 
@@ -378,20 +378,19 @@ function private.InitializeTabs()
 		local insert_index = 1
 
 		for i = 1, #sorted_collectables do
-			local collectable_id = sorted_collectables[i]
-			local collectable = collectables[collectable_id]
+			local collectable = collectables[sorted_collectables[i]]
 
 			if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable) then
-				local is_expanded = self[collection_type .." expanded"][collectable_id]
+				local is_expanded = self[collection_type .." expanded"][collectable]
 				local entry = AcquireTable()
 				entry.text = collectable:GetDisplayName()
-				entry.collectable_id = collectable_id
+				entry.collectable = collectable
 
 				collectable_count = collectable_count + 1
 
 				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[collection_type .." expanded"][collectable_id] = nil
+				self[collection_type .." expanded"][collectable] = nil
 			end
 		end
 		return collectable_count
