@@ -520,6 +520,7 @@ function private.InitializeListFrame()
 
 		local SOFT_FILTERS = {
 			["achievement"]	= { flag = COMMON1.ACHIEVEMENT,	field = "common1",	sv_root = obtain_filters },
+			["crafted"]	= { flag = COMMON1.CRAFTED,	field = "common1",	sv_root = obtain_filters },
 			["instance"]	= { flag = COMMON1.INSTANCE,	field = "common1",	sv_root = obtain_filters },
 			["mobdrop"]	= { flag = COMMON1.MOB_DROP,	field = "common1",	sv_root = obtain_filters },
 			["pvp"]		= { flag = COMMON1.PVP,		field = "common1",	sv_root = obtain_filters },

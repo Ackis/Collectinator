@@ -416,7 +416,7 @@ function private.InitializeFilterPanel()
 
 		local acquire_buttons = {
 			achievement	= { tt = L["ACHIEVEMENT_DESC"],		text = _G.ACHIEVEMENTS,				row = 1, col = 1 },
-			seasonal	= { tt = L["SEASONAL_DESC"],		text = private.ACQUIRE_NAMES[A.SEASONAL],	row = 1, col = 2 },
+			crafted		= { tt = L["CRAFTED_DESC"],		text = L["Crafted"],				row = 1, col = 2 },
 			instance	= { tt = L["INSTANCE_DESC"],		text = _G.INSTANCE,				row = 2, col = 1 },
 			mobdrop		= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 2, col = 2 },
 			pvp		= { tt = L["PVP_DESC"],			text = _G.PVP,					row = 3, col = 1 },
@@ -425,6 +425,7 @@ function private.InitializeFilterPanel()
 			reputation	= { tt = L["REPUTATION_DESC"],		text = _G.REPUTATION,				row = 4, col = 2 },
 			vendor		= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 5, col = 1 },
 			worlddrop	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 5, col = 2 },
+			seasonal	= { tt = L["SEASONAL_DESC"],		text = private.ACQUIRE_NAMES[A.SEASONAL],	row = 6, col = 1 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
@@ -1220,6 +1221,7 @@ function private.InitializeFilterPanel()
 		-- Obtain Options
 		------------------------------------------------------------------------------------------------
 		["achievement"]		= { cb = FilterPanel.obtain.achievement,	svroot = filterdb.obtain },
+		["crafted"]		= { cb = FilterPanel.obtain.crafted,		svroot = filterdb.obtain },
 		["expansion0"]		= { cb = FilterPanel.obtain.expansion0,		svroot = filterdb.obtain },
 		["expansion1"]		= { cb = FilterPanel.obtain.expansion1,		svroot = filterdb.obtain },
 		["expansion2"]		= { cb = FilterPanel.obtain.expansion2,		svroot = filterdb.obtain },
