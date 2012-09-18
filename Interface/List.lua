@@ -1741,6 +1741,7 @@ do
 		[A.WORLD_DROP] = true,
 		[A.CUSTOM] = true,
 		[A.ACHIEVEMENT] = true,
+		[A.CRAFTED] = true
 	}
 
 	function ListItem_ShowTooltip(owner, list_entry)
