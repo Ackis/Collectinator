@@ -32,7 +32,7 @@
 ## Notes: Latest alpha version of Collectinator
 #@end-debug@
 
-## Author: Torhal, Pompachomp, Ackis
+## Author: Ackis, Torhal
 ## X-Donate: http://www.wowace.com/addons/collectinator/
  
 ## Interface: 50001
