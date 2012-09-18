@@ -675,6 +675,8 @@ function private.InitializeFrame()
 		MainPanel.list_frame:Update(nil, false)
 	end)
 
+
+
 	SearchBox:SetScript("OnEditFocusLost", function(self)
 		_G.SearchBoxTemplate_OnEditFocusLost(self)
 
@@ -686,7 +688,6 @@ function private.InitializeFrame()
 		end
 		self:AddHistoryLine(text)
 	end)
-
 
 	SearchBox:SetScript("OnTextSet", function(self)
 		local text = self:GetText()

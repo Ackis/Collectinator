@@ -338,6 +338,10 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 	end
 end
 
+function collectable_prototype:AddCraftedProfession(_, profession, ...)
+	self:AddAcquireData(A.CRAFTED, profession, nil, ...)
+end
+
 function collectable_prototype:AddMobDrop(...)
 	self:AddAcquireData(A.MOB_DROP, "Mob", private.mob_list, ...)
 end
