@@ -4,7 +4,14 @@
 
 	<Include file="Database\Filters\Pet.lua"/>
 
-	<Include file="Database\PetDB.lua"/>
-	<Include file="Database\MountDB.lua"/>
+	<Include file="Database\Collections\PetDB.lua"/>
+	<Include file="Database\Collections\MountDB.lua"/>
+
+	<Include file="Database\Custom.lua"/>
+	<Include file="Database\Mob.lua"/>
+	<Include file="Database\Quest.lua"/>
+	<Include file="Database\Reputation.lua"/>
+	<Include file="Database\Seasonal.lua"/>
+	<Include file="Database\Vendor.lua"/>
 
 </Ui>
