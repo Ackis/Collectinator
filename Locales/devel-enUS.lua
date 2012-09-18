@@ -116,3 +116,5 @@ L["BOA_DESC"] = true
 L["QUALITY_GENERAL_DESC"] = true
 L["EXPANSION_FILTER_FORMAT"] = true
 L["SPECIFIC_REP_DESC"] = true
+L["Crafted"] = true
+L["CRAFTED_DESC"] = true
