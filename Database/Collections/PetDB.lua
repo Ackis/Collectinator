@@ -1689,5 +1689,208 @@ Category: Pet Battles ]]--
 Event:  Wanderer's Festival ]]--
 	pet = AddPet(67022, V.MOP, Q.COMMON)
 
+-- These came up as untracked
+
+	-- Terky -- 16445
+	--[[ Promotion: iCoke Taiwan ]]--
+	pet = AddPet(16445, V.MOP, Q.COMMON)
+
+	-- Silver Pig -- 25147
+	--[[ Promotion: Chinese New Years ]]--
+	pet = AddPet(25147, V.MOP, Q.COMMON)
+
+	-- Argent Squire -- 33238
+	--[[ Quest: A Champion Rises
+	Zone: Icecrown ]]--
+	pet = AddPet(33238, V.MOP, Q.COMMON)
+
+	-- Argent Gruntling -- 33239
+	--[[ Quest: A Champion Rises
+	Zone: Icecrown ]]--
+	pet = AddPet(33239, V.MOP, Q.COMMON)
+
+	-- Shimmering Wyrmling -- 34724
+	--[[ Vendor: Hiren Loresong
+	Zone: Icecrown
+	Faction: The Silver Covenant - Exalted
+	Cost: 40
+	 ]]--
+	pet = AddPet(34724, V.MOP, Q.COMMON)
+
+	-- Guild Page -- 49586
+	--[[ Vendor: World Vendors
+	Cost: 300
+	Cooldown: 8 hrs ]]--
+	pet = AddPet(49586, V.MOP, Q.COMMON)
+
+	-- Guild Herald -- 49587
+	--[[ Vendor: World Vendors
+	Cost: 500
+	Cooldown: 4 hrs
+	 ]]--
+	pet = AddPet(49587, V.MOP, Q.COMMON)
+
+	-- Guild Page -- 49588
+	--[[ Vendor: World Vendors
+	Cost: 300
+	Cooldown: 8 hrs
+	 ]]--
+	pet = AddPet(49588, V.MOP, Q.COMMON)
+
+	-- Guild Herald -- 49590
+	--[[ Vendor: World Vendors
+	Cost: 500
+	Cooldown: 4 hrs ]]--
+	pet = AddPet(49590, V.MOP, Q.COMMON)
+
+	-- Moonkin Hatchling -- 51601
+	--[[ Pet Store: Alliance ]]--
+	pet = AddPet(51601, V.MOP, Q.COMMON)
+
+	-- Moonkin Hatchling -- 51649
+	--[[ Pet Store: Horde ]]--
+	pet = AddPet(51649, V.MOP, Q.COMMON)
+
+	-- Green Balloon -- 56082
+	--[[ Vendor: Carl Goodup
+	Zone: Darkmoon Island
+	Cost: 10 ]]--
+	pet = AddPet(56082, V.MOP, Q.COMMON)
+
+	-- Darkmoon Rabbit -- 59358
+	--[[ Drop: Darkmoon Rabbit
+	Zone: Darkmoon Island ]]--
+	pet = AddPet(59358, V.MOP, Q.COMMON)
+
+	-- Porcupette -- 61086
+	--[[ Drop: Sack of Pet Supplies
+	 ]]--
+	pet = AddPet(61086, V.MOP, Q.COMMON)
+
+	-- Rat Snake -- 61258
+	--[[ Pet Battle: Duskwood ]]--
+	pet = AddPet(61258, V.MOP, Q.COMMON)
+
+	-- Parrot -- 61313
+	--[[ Pet Battle: Northern Stranglethorn, Swamp of Sorrows, The Cape of Stranglethorn, Un'Goro Crater ]]--
+	pet = AddPet(61313, V.MOP, Q.COMMON)
+
+	-- Long-tailed Mole -- 61317
+	--[[ Pet Battle: Dun Morogh, Northern Stranglethorn, The Cape of Stranglethorn, Un'Goro Crater ]]--
+	pet = AddPet(61317, V.MOP, Q.COMMON)
+
+	-- Tree Python -- 61318
+	--[[ Pet Battle: Northern Stranglethorn, The Cape of Stranglethorn, Un'Goro Crater ]]--
+	pet = AddPet(61318, V.MOP, Q.COMMON)
+
+	-- Beetle -- 61319
+	--[[ Pet Battle: Ahn'Qiraj, Ashenvale, Badlands, Drak'Tharon Keep, Eastern Plaguelands, Felwood, Northern Stranglethorn, Ruins of Ahn'Qiraj, Silithus, The Cape of Stranglethorn, Un'Goro Crater, Utgarde Keep, Utgarde Pinnacle ]]--
+	pet = AddPet(61319, V.MOP, Q.COMMON)
+
+	-- Lizard Hatchling -- 61321
+	--[[ Pet Battle: Northern Stranglethorn, The Cape of Stranglethorn ]]--
+	pet = AddPet(61321, V.MOP, Q.COMMON)
+
+	-- Polly -- 61322
+	--[[ Pet Battle: Northern Stranglethorn ]]--
+	pet = AddPet(61322, V.MOP, Q.COMMON)
+
+	-- Baby Ape -- 61324
+	--[[ Pet Battle: The Cape of Stranglethorn
+	Weather: Rain ]]--
+	pet = AddPet(61324, V.MOP, Q.COMMON)
+
+	-- Rat -- 61366
+	--[[ Pet Battle: Arathi Basin, Arathi Highlands, Ashenvale, Azshara, Azuremyst Isle, Bloodmyst Isle, Crystalsong Forest, Darkshore, Desolace, Drak'Tharon Keep, Dun Morogh, Ghostlands, Gilneas, Gilneas City, Hillsbrad Foothills, Howling Fjord, The Deadmines, Karazhan, Loch Modan, Nagrand, Naxxramas, Ruins of Gilneas, Scarlet Monastery, ScholomanceOLD, Shattrath City, Silverpine Forest, Stonetalon Mountains, Stormwind City, Sunken Temple, Swamp of Sorrows, Terokkar Forest, The Cape of Stranglethorn, The Culling of Stratholme, The Hinterlands, The Lost Isles, The Shattered Halls, The Violet Hold, Tirisfal Glades ]]--
+	pet = AddPet(61366, V.MOP, Q.COMMON)
+
+	-- Jade Owl -- 61877
+	--[[ Profession: Jewelcrafting
+	 ]]--
+	pet = AddPet(61877, V.MOP, Q.COMMON)
+
+	-- Sapphire Cub -- 61883
+	--[[ Profession: Jewelcrafting
+	 ]]--
+	pet = AddPet(61883, V.MOP, Q.COMMON)
+
+	-- Fishy -- 62829
+	--[[ Quest: Let Them Burn
+	Zone: The Jade Forest ]]--
+	pet = AddPet(62829, V.MOP, Q.COMMON)
+
+	-- Shore Crawler -- 63097
+	--[[ Vendor: Matty
+	Zone: Orgrimmar ]]--
+	pet = AddPet(63097, V.MOP, Q.COMMON)
+
+	-- Gilnean Raven -- 63098
+	--[[ Vendor: Will Larsons
+	Zone: Lor'danel ]]--
+	pet = AddPet(63098, V.MOP, Q.COMMON)
+
+	-- Terrible Turnip -- 63365
+	--[[ Drop: World Drop
+	Zone: Valley of the Four Winds ]]--
+	pet = AddPet(63365, V.MOP, Q.COMMON)
+
+	-- Red Cricket -- 63370
+	--[[ Quest: Sho in Valley of the Four Winds
+	 ]]--
+	pet = AddPet(63370, V.MOP, Q.COMMON)
+
+	-- Tiny Goldfish -- 63559
+	--[[ Vendor: Nat Pagle
+	Zone: Krasarang Wilds
+	Faction: The Anglers - Honored
+	Cost: 250 ]]--
+	pet = AddPet(63559, V.MOP, Q.COMMON)
+
+	-- Feral Vermling -- 63621
+	--[[ Achievement: Going to Need More Leashes
+	Category: Collect ]]--
+	pet = AddPet(63621, V.MOP, Q.COMMON)
+
+	-- Hopling -- 64632
+	--[[ Achievement: Ling-Ting's Herbal Journey
+	Category: Dungeons and Raids ]]--
+	pet = AddPet(64632, V.MOP, Q.COMMON)
+
+	-- Aqua Strider -- 64633
+	--[[ Drop: Nalash Verdantis
+	Zone: Dread Wastes
+
+	 ]]--
+	pet = AddPet(64633, V.MOP, Q.COMMON)
+
+	-- Grinder -- 64634
+	--[[ Drop: Karr the Darkener
+	Zone: Dread Wastes
+
+	 ]]--
+	pet = AddPet(64634, V.MOP, Q.COMMON)
+
+	-- Mechanical Pandaren Dragonling -- 64899
+	--[[ Profession: Engineering ]]--
+	pet = AddPet(64899, V.MOP, Q.COMMON)
+
+	-- Thundering Serpent Hatchling -- 65313
+	--[[ Vendor: Guild Vendor
+	Zone: Stormwind, Orgrimmar
+	Cost: 300
+	 ]]--
+	pet = AddPet(65313, V.MOP, Q.COMMON)
+
+	-- Jade Crane Chick -- 65314
+	--[[ Vendor: Audrey Burnhep, Varzog
+	Zone: Stormwind, Orgrimmar
+	Cost: 50 ]]--
+	pet = AddPet(65314, V.MOP, Q.COMMON)
+
+	-- Chi-ji Kite -- 66104
+	--[[ Profession: Inscription ]]--
+	pet = AddPet(66104, V.MOP, Q.COMMON)
+
+
 	self.InitCritters = nil
 end

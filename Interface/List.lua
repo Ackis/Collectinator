@@ -1178,7 +1178,7 @@ function private.InitializeListFrame()
 		local drop_location = type(identifier) == "string" and SetTextColor(CATEGORY_COLORS["location"], identifier)
 
 		if drop_location then
-			local collectable_item_id = collectable:RecipeItemID()
+			local collectable_item_id = collectable:CollectionItemID()
 			local collectable_item_level = collectable_item_id and select(4, _G.GetItemInfo(collectable_item_id))
 
 			if collectable_item_level then
@@ -1621,7 +1621,7 @@ do
 			if location and drop_location ~= location then
 				return
 			end
-			local collectable_item_id = collectable:RecipeItemID()
+			local collectable_item_id = collectable:CollectionItemID()
 			local collectable_item_level = collectable_item_id and select(4, _G.GetItemInfo(collectable_item_id))
 			local quality_color = select(4, _G.GetItemQualityColor(collectable.quality)):sub(3)
 			local location_text
@@ -1633,6 +1633,27 @@ do
 			end
 			addline_func(0, -1, false, L["World Drop"], quality_color, location_text, CATEGORY_COLORS["location"])
 		end,
+--[[
+		[A.CRAFTED] = function(collectable, identifier, location, acquire_info, addline_func)
+			local crafted_type = type(identifier) == "string" and identifier or _G.UNKNOWN
+
+			if not crafted_type then
+				return
+			end
+
+			local collectable_item_id = collectable:CollectionItemID()
+			local collectable_item_level = collectable_item_id and select(4, _G.GetItemInfo(collectable_item_id))
+			local quality_color = select(4, _G.GetItemQualityColor(collectable.quality)):sub(3)
+			local crafted_text
+
+			if collectable_item_level then
+				crafted_text = ("%s (%d - %d)"):format(crafted_type, collectable_item_level - 5, collectable_item_level + 5)
+			else
+				crafted_text = crafted_type
+			end
+			addline_func(0, -1, false, L["Crafted"], quality_color, crafted_text, CATEGORY_COLORS["location"])
+		end,
+]]--
 		[A.ACHIEVEMENT] = function(collectable, identifier, location, acquire_info, addline_func)
 			local _, achievement_name, _, _, _, _, _, achievement_desc = _G.GetAchievementInfo(identifier)
 
