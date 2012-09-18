@@ -557,11 +557,9 @@ function private.InitializeFrame()
 			SearchByAcquireType,
 			SearchByLocation,
 			SearchByReputation,
-			SearchByTrainer,
 			SearchByVendor,
 			SearchByMobDrop,
 			SearchByCustom,
-			SearchByDiscovery,
 		}
 		-- Scans through the collection database and toggles the flag on if the item is in the search criteria
 		function SearchCollections(search_pattern)
