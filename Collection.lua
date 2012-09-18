@@ -186,7 +186,6 @@ do
 end -- do-block
 
 do
-	local SKILL_LEVEL_FORMAT = "[%d]"
 	local UNKNOWN_FORMAT = _G.UNKNOWN .. " %d"
 
 	function collectable_prototype:GetDisplayName()
