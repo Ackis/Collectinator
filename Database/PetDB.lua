@@ -134,6 +134,7 @@ function addon:InitCritters()
 --PLAYERMADE
 	-- Mechanical Squirrel Box -- 2671
 	pet = AddPet(2671, V.ORIG, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- Pet Bombling -- 9656
 	pet = AddPet(9656, V.ORIG, Q.COMMON)
