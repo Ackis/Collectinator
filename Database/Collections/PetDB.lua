@@ -71,6 +71,9 @@ function addon:InitCritters()
 --ACHIEVEMENTS
 	-- Pilgrim Turkey -- 32818
 	pet = AddPet(32818, V.WOTLK, Q.RARE)
+	pet:AddAchievement(3478)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:SetCollectionItemID(44810)
 
 	-- Kirin Tor Familiar -- 32643
 	pet = AddPet(32643, V.WOTLK, Q.RARE)
@@ -166,6 +169,8 @@ function addon:InitCritters()
 
 	-- Crawling Claw -- 45128
 	pet = AddPet(45128, V.CATA, Q.EPIC)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.CRAFTED)
+	pet:SetCollectionItemID(60847)
 
 	-- Enchanted Lantern -- 46898
 	pet = AddPet(46898, V.CATA, Q.RARE)
