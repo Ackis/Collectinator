@@ -1204,9 +1204,9 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandDiscoveryData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
+	local function ExpandCraftedData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
 		local entry = AcquireTable()
-		entry.text = PADDING .. SetTextColor(CATEGORY_COLORS["discovery"], private.discovery_list[id_num].name)
+		entry.text = PADDING .. SetTextColor(CATEGORY_COLORS["crafted"], private.custom_list[id_num].name)
 		entry.collectable = collectable
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
@@ -1253,10 +1253,8 @@ function private.InitializeListFrame()
 				if not hide_type then
 					func = ExpandCustomData
 				end
-			elseif acquire_type == A.DISCOVERY then
-				if not hide_type then
-					func = ExpandDiscoveryData
-				end
+			elseif acquire_type == A.CRAFTED then
+				func = ExpandCraftedData
 				--@alpha@
 			elseif acquire_type == A.ACHIEVEMENT and obtain_filters.achievement then
 				func = ExpandAchievementData

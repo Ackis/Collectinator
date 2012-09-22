@@ -245,6 +245,7 @@ private.ACQUIRE_NAMES = {
 	[7]	= L["World Drop"],
 	[8]	= _G.ACHIEVEMENTS,
 	[9]	= _G.MISCELLANEOUS,
+	[10]	= L["Crafted"],
 }
 
 private.ACQUIRE_STRINGS = {
@@ -257,6 +258,7 @@ private.ACQUIRE_STRINGS = {
 	[7]	= "WORLD_DROP",
 	[8]	= "ACHIEVEMENT",
 	[9]	= "CUSTOM",
+	[10]	= "CRAFTED",
 }
 
 private.ACQUIRE_TYPES = {}
@@ -394,13 +396,13 @@ private.CATEGORY_COLORS = {
 	-- Acquire type colors
 	["achievement"]	= "faeb98",
 	["custom"]	= "73b7ff",
-	["discovery"]	= "ff9500",
 	["mobdrop"]	= "962626",
 	["quest"]	= "dbdb2c",
 	["reputation"]	= "855a99",
 	["seasonal"]	= "80590e",
-	["trainer"]	= "c98e26",
+	--["trainer"]	= "c98e26",
 	["vendor"]	= "aad372",
+	["crafted"]	= "c98e26",
 
 	-- Miscellaneous
 	["coords"]	= "d1ce6f",
