@@ -187,17 +187,17 @@ function private.InitializeFrame()
 		local panel
 
 		if init_func then
-			local panel_name = "items_" .. collection_name
+			local panel_name = "misc_" .. collection_name
 			panel = self.filter_menu:CreateSubMenu(panel_name)
 
-			self.filter_menu.item[panel_name] = self.filter_menu[panel_name]
+			self.filter_menu.misc[panel_name] = self.filter_menu[panel_name]
 			self.filter_menu[panel_name] = nil
 
 			init_func(private, panel)
 
 			ITEM_FILTER_INIT_FUNCS[collection_name] = nil
 		else
-			panel = self.filter_menu.item["items_" .. collection_name]
+			panel = self.filter_menu.misc["misc_" .. collection_name]
 		end
 		private.UpdateFilterMarks()
 
@@ -206,17 +206,17 @@ function private.InitializeFrame()
 			self.menu_toggle_item.bg_texture:SetVertexColor(1, 1, 1)
 			self.menu_toggle_item:Enable()
 
-			if self.filter_menu.item:IsVisible() then
-				self.filter_menu.item:Hide()
-				self.filter_menu.item:Show()
+			if self.filter_menu.misc:IsVisible() then
+				self.filter_menu.misc:Hide()
+				self.filter_menu.misc:Show()
 			end
 		else
 			self.menu_toggle_item.icon_texture:SetVertexColor(0.50, 0.50, 0.50)
 			self.menu_toggle_item.bg_texture:SetVertexColor(0.50, 0.50, 0.50)
 			self.menu_toggle_item:Disable()
 
-			if self.filter_menu.item:IsVisible() then
-				self.filter_menu.item:Hide()
+			if self.filter_menu.misc:IsVisible() then
+				self.filter_menu.misc:Hide()
 				self.menu_toggle_item:SetChecked(false)
 
 				self.menu_toggle_general:SetChecked(true)
@@ -280,7 +280,6 @@ function private.InitializeFrame()
 			["general"]	= true,
 			["obtain"]	= true,
 			["binding"]	= true,
-			["item"]	= true,
 			["quality"]	= true,
 			["rep"]		= true,
 			["misc"]	= true,
