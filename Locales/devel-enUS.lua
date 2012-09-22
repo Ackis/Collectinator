@@ -80,9 +80,10 @@ L["Trainer"] = true
 L["UI_SCALE_DESC"] = "Changes the scale of the UI. Ranges from .5 to 1.5 (1 is default)"
 L["UNIT_MAX_TOOLTIPS_DESC"] = "Maximum number of collectables to show in tooltips."
 L["UNIT_TOOLTIPS_DESC"] = "Toggles whether or not to display unknown collectables in the tooltips of the vendors, trainers, or NPCs which carry them."
+L["CONTRACTALL_DESC"] = "Minimize all collectables listed below."
 L["Vendor"] = true
 L["World Drop"] = true
-L["EXPANDALL_DESC"] = true
+L["EXPANDALL_DESC"] =  = "Maximize all collectables listed below."
 L["Display Exclusions"] = true
 L["DISPLAY_EXCLUSION_DESC"] = true
 L["FILTER_OPEN_DESC"] = true
