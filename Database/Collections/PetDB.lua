@@ -71,42 +71,53 @@ function addon:InitCritters()
 --ACHIEVEMENTS
 	-- Pilgrim Turkey -- 32818
 	pet = AddPet(32818, V.WOTLK, Q.RARE)
-	pet:AddAchievement(3478)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(3478)
 	pet:SetCollectionItemID(44810)
 
 	-- Kirin Tor Familiar -- 32643
 	pet = AddPet(32643, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 
 	-- Reeking Pet Carrier -- 23274
 	pet = AddPet(23274, V.TBC, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 
 	-- Little Fawn -- 32939
 	pet = AddPet(32939, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 
 	-- Perky Pug -- 37865
 	pet = AddPet(37865, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 
 	-- Pebble -- 45247
 	pet = AddPet(45247, V.CATA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 
 	-- Armadillo Pup -- 48242
 	pet = AddPet(48242, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 
 	-- Dark Phoenix Hatchling -- 47944
 	pet = AddPet(47944, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 
 	-- Nuts' Acorn -- 54227
 	pet = AddPet(54227, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 
 	-- Celestial Dragon -- 40624
 	pet = AddPet(40624, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 
 	-- Brilliant Kaliri -- 54374
 	pet = AddPet(54374, V.CATA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 
 	-- Lil' Tarecgosa -- 54027
 	pet = AddPet(54027, V.CATA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 
 	--FISHING
 
@@ -142,30 +153,39 @@ function addon:InitCritters()
 
 	-- Pet Bombling -- 9656
 	pet = AddPet(9656, V.ORIG, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- Lil' Smoky -- 9657
 	pet = AddPet(9657, V.ORIG, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- Lifelike Mechanical Toad -- 12419
 	pet = AddPet(12419, V.ORIG, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- Tranquil Mechanical Yeti -- 15699
 	pet = AddPet(15699, V.ORIG, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- Fossilized Hatchling -- 45340
 	pet = AddPet(45340, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- De-Weaponized Mechanical Companion -- 43916
 	pet = AddPet(43916, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- Elementium Geode -- 50722
 	pet = AddPet(50722, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- Personal World Destroyer -- 43800
 	pet = AddPet(43800, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- Clockwork Gnome -- 48609
 	pet = AddPet(48609, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- Crawling Claw -- 45128
 	pet = AddPet(45128, V.CATA, Q.EPIC)
@@ -174,15 +194,19 @@ function addon:InitCritters()
 
 	-- Enchanted Lantern -- 46898
 	pet = AddPet(46898, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- Magic Lamp -- 50545
 	pet = AddPet(50545, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- Pterrordax Hatchling -- 53225
 	pet = AddPet(53225, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 	-- Voodoo Figurine -- 53232
 	pet = AddPet(53232, V.CATA, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
 
 --WORLD EVENT DROP
 	-- Sinister Squashling -- 23909
