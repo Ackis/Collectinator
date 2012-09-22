@@ -396,7 +396,7 @@ function private.InitializeFrame()
 
 
 	-------------------------------------------------------------------------------
-	-- ProfCycle scripts/functions.
+	-- CollectionCycle scripts/functions.
 	-------------------------------------------------------------------------------
 	collection_cycler:SetScript("OnClick", function(self, button_name, down)
 		local current_index = MainPanel.current_collectable_type
@@ -418,7 +418,10 @@ function private.InitializeFrame()
 		if MainPanel.current_collectable_type == private.ORDERED_COLLECTIONS[current_index] then
 			return
 		end
-		MainPanel.current_collectable_type = private.ORDERED_COLLECTIONS[current_index]
+
+
+--		MainPanel.current_collectable_type = private.ORDERED_COLLECTIONS[current_index]
+		MainPanel.current_collectable_type = current_index
 
 		local is_shown = addon.scan_button:GetParent():IsVisible()
 		local sfx
@@ -430,11 +433,12 @@ function private.InitializeFrame()
 			sfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
 			_G.SetCVar("Sound_EnableSFX", 0)
 		end
-		_G.CastSpellByName(private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type])
+
+--		_G.CastSpellByName(private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type])
+		PanelTemplates_SetTab(_G.PetJournalParent, MainPanel.current_collectable_type)
 		addon:Scan()
 
 		if not is_shown then
-			_G.CloseTradeSkill()
 			_G.SetCVar("Sound_EnableSFX", sfx)
 		end
 	end)

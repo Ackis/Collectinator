@@ -40,17 +40,17 @@ private.REALM_NAME = _G.GetRealmName()
 
 private.COLLECTION_TYPE_IDS = {
 	MOUNT	= 1,
-	PET	= 2,
+	CRITTER	= 2,
 }
 
 private.COLLECTION_NAMES = {
 	MOUNT = "MOUNT",
-	PET = "CRITTER",
+	CRITTER = "CRITTER",
 }
 
 private.ORDERED_COLLECTIONS = {
 	private.COLLECTION_NAMES.MOUNT, -- 1
-	private.COLLECTION_NAMES.PET, 	-- 2
+	private.COLLECTION_NAMES.CRITTER, -- 2
 }
 
 private.COLLECTION_LABELS = {

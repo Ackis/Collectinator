@@ -416,7 +416,7 @@ function addon:OnInitialize()
 	-- Populate the collection initialization functions.
 	-------------------------------------------------------------------------------
 	COLLECTION_INIT_FUNCS = {
-		[private.COLLECTION_NAMES.PET] = addon.InitCritters,
+		[private.COLLECTION_NAMES.CRITTER] = addon.InitCritters,
 		[private.COLLECTION_NAMES.MOUNT] = addon.InitMounts,
 	}
 
@@ -590,7 +590,7 @@ do
 				private.TextDump:Display()
 			end
 		end,
-		[private.COLLECTION_TYPE_IDS.PET] = function(collectable_type, critters)
+		[private.COLLECTION_TYPE_IDS.CRITTER] = function(collectable_type, critters)
 			local pet_names = {}
 			local pet_ids = {}
 			local pet_sources = {}
