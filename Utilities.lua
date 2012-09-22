@@ -325,12 +325,10 @@ do
 	function addon:ShowEmptySources()
 		private.LoadAllRecipes()
 
-		find_empties(private.trainer_list, "Trainer")
 		find_empties(private.vendor_list, "Vendor")
 		find_empties(private.mob_list, "Mob")
 		find_empties(private.quest_list, "Quest")
 		find_empties(private.custom_list, "Custom Entry")
-		find_empties(private.discovery_list, "Discovery")
 		find_empties(private.seasonal_list, "World Event")
 	end
 end -- do
