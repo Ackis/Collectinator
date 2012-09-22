@@ -200,18 +200,6 @@ do
 	end
 end -- do-block
 
-function collectable_prototype:SetItemFilterType(filter_type)
-	if not private.ITEM_FILTER_TYPES[filter_type:upper()] then
-		addon:Debug("Attempting to set invalid item filter type '%s' for '%s' (%d)", filter_type, self.name, self.id)
-		return
-	end
-	self.item_filter_type = filter_type:lower()
-end
-
-function collectable_prototype:ItemFilterType()
-	return self.item_filter_type
-end
-
 local function SetFilterState(collectable, turn_on, ...)
 	local num_filters = select('#', ...)
 
@@ -220,6 +208,7 @@ local function SetFilterState(collectable, turn_on, ...)
 
 		if filter then
 			local filter_name = private.FILTER_STRINGS[filter]
+
 			local bitfield
 			local member_name
 

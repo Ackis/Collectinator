@@ -638,11 +638,6 @@ function private.InitializeListFrame()
 			if not filter_db.quality[QUALITY_FILTERS[collectable.quality]] then
 				return false
 			end
-			local item_filter_type = collectable:ItemFilterType()
-
-			if item_filter_type and not addon.db.profile.filters.item[item_filter_type] then
-				return false
-			end
 
 			-------------------------------------------------------------------------------
 			-- Check the hard filter flags.
