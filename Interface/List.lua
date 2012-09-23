@@ -1249,7 +1249,7 @@ function private.InitializeListFrame()
 				if not hide_type then
 					func = ExpandCustomData
 				end
-			elseif acquire_type == A.CRAFTED then
+			elseif acquire_type == A.CRAFTED and obtain_filters.crafted then
 				func = ExpandCraftedData
 				--@alpha@
 			elseif acquire_type == A.ACHIEVEMENT and obtain_filters.achievement then
@@ -1371,10 +1371,7 @@ function private.InitializeListFrame()
 				for acquire_type, acquire_data in pairs(collectable_entry.acquire_data) do
 					-- Only expand an acquisition entry if it is from this location.
 					for id_num, info in pairs(acquire_data) do
-						if acquire_type == A.TRAINER and private.trainer_list[id_num].location == location_id then
-							entry_index = ExpandTrainerData(entry_index, "subentry", current_entry,
-											id_num, current_entry.collectable, true)
-						elseif acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
+						if acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
 							entry_index = ExpandVendorData(entry_index, "subentry", current_entry,
 										       id_num, current_entry.collectable, true)
 						elseif acquire_type == A.MOB_DROP and private.mob_list[id_num].location == location_id then
@@ -1391,9 +1388,6 @@ function private.InitializeListFrame()
 						elseif acquire_type == A.CUSTOM and private.custom_list[id_num].location == location_id then
 							entry_index = ExpandCustomData(entry_index, "subentry", current_entry,
 										       id_num, current_entry.collectable, true, true)
-						elseif acquire_type == A.DISCOVERY and private.discovery_list[id_num].location == location_id then
-							entry_index = ExpandDiscoveryData(entry_index, "subentry", current_entry,
-											  id_num, current_entry.collectable, true, true)
 						elseif acquire_type == A.REPUTATION then
 							for rep_level, level_info in pairs(info) do
 								for vendor_id in pairs(level_info) do
