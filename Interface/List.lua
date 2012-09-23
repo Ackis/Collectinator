@@ -267,7 +267,8 @@ function private.InitializeListFrame()
 		if clicked_line.collectable and _G.IsModifierKeyDown() then
 			if _G.IsControlKeyDown() then
 				if _G.IsShiftKeyDown() then
-					addon:AddWaypoint(clicked_line.collectable, clicked_line.acquire_id, clicked_line.location_id, clicked_line.npc_id)
+					--addon:AddWaypoint(clicked_line.collectable, clicked_line.acquire_id, clicked_line.location_id, clicked_line.npc_id)
+					addon:Print("Waypoints are not yet supported.")
 				else
 					local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
