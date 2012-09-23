@@ -83,7 +83,7 @@ L["UNIT_TOOLTIPS_DESC"] = "Toggles whether or not to display unknown collectable
 L["CONTRACTALL_DESC"] = "Minimize all collectables listed below."
 L["Vendor"] = true
 L["World Drop"] = true
-L["EXPANDALL_DESC"] =  = "Maximize all collectables listed below."
+L["EXPANDALL_DESC"] = "Maximize all collectables listed below."
 L["Display Exclusions"] = true
 L["DISPLAY_EXCLUSION_DESC"] = true
 L["FILTER_OPEN_DESC"] = true
