@@ -1629,17 +1629,7 @@ do
 				return
 			end
 
-			local collectable_item_id = collectable:CollectionItemID()
-			local collectable_item_level = collectable_item_id and select(4, _G.GetItemInfo(collectable_item_id))
-			local quality_color = select(4, _G.GetItemQualityColor(collectable.quality)):sub(3)
-			local crafted_text
-
-			if collectable_item_level then
-				crafted_text = ("%s (%d - %d)"):format(crafted_type, collectable_item_level - 5, collectable_item_level + 5)
-			else
-				crafted_text = crafted_type
-			end
-			addline_func(0, -1, false, L["Crafted"], quality_color, crafted_text, CATEGORY_COLORS["location"])
+			addline_func(0, -1, false, L["Crafted"], CATEGORY_COLORS["location"], crafted_type, CATEGORY_COLORS["location"])
 		end,
 
 		[A.ACHIEVEMENT] = function(collectable, identifier, location, acquire_info, addline_func)
