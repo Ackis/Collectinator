@@ -301,9 +301,9 @@ function private.InitializeListFrame()
 			end
 		elseif clicked_line.type == "header" or clicked_line.type == "subheader" then
 			-- three possibilities here (all with no modifiers)
-			-- 1) We clicked on the recipe button on a closed recipe
-			-- 2) We clicked on the recipe button of an open recipe
-			-- 3) we clicked on the expanded text of an open recipe
+			-- 1) We clicked on the collectable button on a closed collectable
+			-- 2) We clicked on the collectable button of an open collectable
+			-- 3) we clicked on the expanded text of an open collectable
 			if clicked_line.is_expanded then
 				local check_type = clicked_line.type
 				local removal_index = clicked_index + 1
