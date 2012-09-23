@@ -1668,6 +1668,7 @@ do
 
 		for acquire_type, acquire_data in pairs(collectable.acquire_data) do
 			if not acquire_id or acquire_type == acquire_id then
+
 				local populate_func = TOOLTIP_ACQUIRE_FUNCS[acquire_type]
 
 				for identifier, info in pairs(acquire_data) do
