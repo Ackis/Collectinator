@@ -1621,7 +1621,7 @@ do
 			end
 			addline_func(0, -1, false, L["World Drop"], quality_color, location_text, CATEGORY_COLORS["location"])
 		end,
---[[
+
 		[A.CRAFTED] = function(collectable, identifier, location, acquire_info, addline_func)
 			local crafted_type = type(identifier) == "string" and identifier or _G.UNKNOWN
 
@@ -1641,7 +1641,7 @@ do
 			end
 			addline_func(0, -1, false, L["Crafted"], quality_color, crafted_text, CATEGORY_COLORS["location"])
 		end,
-]]--
+
 		[A.ACHIEVEMENT] = function(collectable, identifier, location, acquire_info, addline_func)
 			local _, achievement_name, _, _, _, _, _, achievement_desc = _G.GetAchievementInfo(identifier)
 
