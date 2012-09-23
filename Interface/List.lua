@@ -272,7 +272,7 @@ function private.InitializeListFrame()
 					local edit_box = _G.ChatEdit_ChooseBoxForSend()
 
 					_G.ChatEdit_ActivateChat(edit_box)
-					edit_box:Insert(_G.GetSpellLink(clicked_line.collectable.spell_id))
+					edit_box:Insert(_G.GetSpellLink(clicked_line.collectable.collection_spell_id))
 				end
 			elseif _G.IsShiftKeyDown() then
 				local crafted_item_id = clicked_line.collectable:CollectionItemID()
