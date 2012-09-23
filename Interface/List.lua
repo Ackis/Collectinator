@@ -275,7 +275,7 @@ function private.InitializeListFrame()
 					edit_box:Insert(_G.GetSpellLink(clicked_line.collectable.spell_id))
 				end
 			elseif _G.IsShiftKeyDown() then
-				local crafted_item_id = clicked_line.collectable:CraftedItemID()
+				local crafted_item_id = clicked_line.collectable:CollectionItemID()
 
 				if crafted_item_id then
 					local _, item_link = _G.GetItemInfo(crafted_item_id)
