@@ -121,19 +121,45 @@ function collectable_prototype:SpellID()
 	return self.spell_id
 end
 
--- Used to set the faction for collections which only can be learned by one faction (e.g. Moonkin Hatchling, etc.)
--- These collections will never be able to be learned so we do not want to load them.
+-- Used to set the faction for collectables which only can be learned by one class, faction, or race. These collectables
+-- will never be able to be learned by players who do not meet the requirements, so we do not want to show or count them.
+function collectable_prototype:SetRequiredClass(class_name)
+	self.required_class = class_name
+
+	if class_name and private.Player:Class() ~= class_name then
+		self.is_ignored = true
+		private.num_category_collectables[self.type] = private.num_category_collectables[self.type] - 1
+	end
+end
+
+function collectable_prototype:RequiredClass()
+	return self.required_class
+end
+
 function collectable_prototype:SetRequiredFaction(faction_name)
 	self.required_faction = faction_name
 
-	if faction_name and private.Player.faction ~= faction_name then
+	if faction_name and private.Player:Faction() ~= faction_name then
 		self.is_ignored = true
-		private.num_category_collectables[self.profession] = private.num_category_collectables[self.profession] - 1
+		private.num_category_collectables[self.type] = private.num_category_collectables[self.type] - 1
 	end
 end
 
 function collectable_prototype:RequiredFaction()
 	return self.required_faction
+end
+
+function collectable_prototype:SetRequiredRace(race_name)
+	self.required_race = race_name
+
+	if race_name and private.Player:Race() ~= race_name then
+		self.is_ignored = true
+		private.num_category_collectables[self.type] = private.num_category_collectables[self.type] - 1
+	end
+end
+
+function collectable_prototype:RequiredRace()
+	return self.required_race
 end
 
 -------------------------------------------------------------------------------
