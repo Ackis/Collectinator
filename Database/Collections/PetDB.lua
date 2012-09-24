@@ -111,6 +111,7 @@ function addon:InitCritters()
 	-- Celestial Dragon -- 40624
 	pet = AddPet(40624, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(5875)
 
 	-- Brilliant Kaliri -- 54374
 	pet = AddPet(54374, V.CATA, Q.COMMON)
@@ -544,6 +545,7 @@ function addon:InitCritters()
 
 	-- Albino Snake -- 7561
 	pet = AddPet(7561, V.WOTLK, Q.COMMON)
+	pet:AddVendor(28951)
 
 	-- Scorched Stone -- 25706
 	pet = AddPet(25706, V.TBC, Q.RARE)

@@ -39,5 +39,7 @@ function addon:InitVendor()
 		private:AddListEntry(private.vendor_list, id_num, name, zone_name, x, y, faction)
 	end
 
+	AddVendor(28951,	L["Breanni"],			Z.DALARAN,			40.5,	35.2,	"Neutral")
+
 	self.InitVendor = nil
 end

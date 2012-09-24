@@ -1526,11 +1526,12 @@ do
 			else
 				addline_func(1, -2, true, vendor.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
 			end
-			local quantity = vendor.item_list[collectable.type][collectable.id]
 
-			if type(quantity) == "number" then
-				addline_func(2, -2, true, L["LIMITED_SUPPLY"], CATEGORY_COLORS["vendor"], ("(%d)"):format(quantity), BASIC_COLORS["white"])
-			end
+--			local quantity = vendor.item_list[collectable.type][collectable.id]
+
+--			if type(quantity) == "number" then
+--				addline_func(2, -2, true, L["LIMITED_SUPPLY"], CATEGORY_COLORS["vendor"], ("(%d)"):format(quantity), BASIC_COLORS["white"])
+--			end
 		end,
 		[A.MOB_DROP] = function(collectable, identifier, location, acquire_info, addline_func)
 			local mob = private.mob_list[identifier]

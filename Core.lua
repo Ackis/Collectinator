@@ -488,7 +488,6 @@ end
 -------------------------------------------------------------------------------
 
 do
-
 	-- Code snippet stolen from GearGuage by Torhal and butchered by Ackis
 	local function StrSplit(input)
 		if not input then
@@ -530,21 +529,38 @@ do
 
 end
 
-function addon:InitializeCollection(collectable_type)
-	if not collectable_type then
-		addon:Debug("nil collection passed to InitializeCollection()")
-		return
+do
+
+	local function InitializeLookups()
+		addon:InitCustom()
+		addon:InitMob()
+		addon:InitQuest()
+		addon:InitReputation()
+		addon:InitSeasons()
+		addon:InitVendor()
+
+		InitializeLookups = nil
 	end
 
-	local func = COLLECTION_INIT_FUNCS[collectable_type]
+	function addon:InitializeCollection(collectable_type)
+		if not collectable_type then
+			addon:Debug("nil collection passed to InitializeCollection()")
+			return
+		end
 
-	if func then
-		func(addon)
-		COLLECTION_INIT_FUNCS[collectable_type] = nil
+		if InitializeLookups then
+			InitializeLookups()
+		end
+
+		local func = COLLECTION_INIT_FUNCS[collectable_type]
+
+		if func then
+			func(addon)
+			COLLECTION_INIT_FUNCS[collectable_type] = nil
+		end
 	end
+
 end
-
-
 -------------------------------------------------------------------------------
 -- Collection Scanning Functions
 -------------------------------------------------------------------------------

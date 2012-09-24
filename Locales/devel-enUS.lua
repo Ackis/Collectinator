@@ -123,3 +123,5 @@ L["NoItemLink"] = "There is no item in the database to link.  Please submit a bu
 L["Crafted by:"] = true
 L["Captured"] = true
 L["FILTER_DESC_FORMAT"] = true
+L["Breanni"] = true
+L["Day of the Dead"] = true
