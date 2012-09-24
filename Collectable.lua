@@ -128,7 +128,7 @@ function collectable_prototype:SetRequiredFaction(faction_name)
 
 	if faction_name and private.Player.faction ~= faction_name then
 		self.is_ignored = true
-		private.num_profession_collections[self.profession] = private.num_profession_collections[self.profession] - 1
+		private.num_category_collectables[self.profession] = private.num_category_collectables[self.profession] - 1
 	end
 end
 
@@ -440,12 +440,12 @@ function collectable_prototype:AddRepVendor(faction_id, rep_level, ...)
 end
 
 local DUMP_FUNCTION_FORMATS = {
-	[A.ACHIEVEMENT] = "collection:AddAchievement(%s)",
-	[A.CUSTOM] = "collection:AddCustom(%s)",
-	[A.SEASONAL] = "collection:AddSeason(%s)",
-	[A.MOB_DROP] = "collection:AddMobDrop(%s)",
-	[A.WORLD_DROP] = "collection:AddWorldDrop(%s)",
-	[A.QUEST] = "collection:AddQuest(%s)",
+	[A.ACHIEVEMENT] = "%s:AddAchievement(%s)",
+	[A.CUSTOM] = "%s:AddCustom(%s)",
+	[A.SEASONAL] = "%s:AddSeason(%s)",
+	[A.MOB_DROP] = "%s:AddMobDrop(%s)",
+	[A.WORLD_DROP] = "%s:AddWorldDrop(%s)",
+	[A.QUEST] = "%s:AddQuest(%s)",
 }
 
 local sorted_data = {}
@@ -453,20 +453,21 @@ local reverse_map = {}
 
 function collectable_prototype:Dump(output)
 	local genesis = private.GAME_VERSIONS[self.genesis]
+	local label = (self.type == "CRITTER") and "pet" or "mount"
 
 	table.insert(output, ("-- %s -- %d"):format(self.name, self.id))
-	table.insert(output, ("collection = AddCollection(%d, V.%s, Q.%s)"):format(self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
+	table.insert(output, ("%s = AddCollection(%d, V.%s, Q.%s)"):format(label, self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
 	if self.item_id then
-		table.insert(output, ("collection:SetItemID(%d)"):format(self.collection_item_id))
+		table.insert(output, ("%s:SetItemID(%d)"):format(label, self.collection_item_id))
 	end
 
 	if self.required_faction then
-		table.insert(output, ("collection:SetRequiredFaction(\"%s\")"):format(self.required_faction))
+		table.insert(output, ("%s:SetRequiredFaction(\"%s\")"):format(label, self.required_faction))
 	end
 
 	if self.item_filter_type then
-		table.insert(output, ("collection:SetItemFilterType(\"%s\")"):format(self.item_filter_type:upper()))
+		table.insert(output, ("%s:SetItemFilterType(\"%s\")"):format(label, self.item_filter_type:upper()))
 	end
 	local flag_string
 
@@ -496,7 +497,7 @@ function collectable_prototype:Dump(output)
 			end
 		end
 	end
-	table.insert(output, ("collection:AddFilters(%s)"):format(flag_string))
+	table.insert(output, ("%s:AddFilters(%s)"):format(label, flag_string))
 
 	flag_string = nil
 
@@ -511,7 +512,7 @@ function collectable_prototype:Dump(output)
 					faction_string = ("FAC.%s"):format(faction_string)
 				else
 					faction_string = rep_id
-					addon:Printf("Collection %d (%s) - no string for faction %d", self.id, self.name, rep_id)
+					addon:Printf("Collectable %d (%s) - no string for faction %d", self.id, self.name, rep_id)
 				end
 
 				for rep_level, level_info in pairs(rep_info) do
@@ -533,7 +534,7 @@ function collectable_prototype:Dump(output)
 							values = vendor_id
 						end
 					end
-					table.insert(output, ("collection:AddRepVendor(%s, %s, %s)"):format(faction_string, rep_string, values))
+					table.insert(output, ("%s:AddRepVendor(%s, %s, %s)"):format(label, faction_string, rep_string, values))
 				end
 			end
 		elseif acquire_type == A.VENDOR then
@@ -575,11 +576,11 @@ function collectable_prototype:Dump(output)
 			end
 
 			if values then
-				table.insert(output, ("collection:AddVendor(%s)"):format(values))
+				table.insert(output, ("%s:AddVendor(%s)"):format(label, values))
 			end
 
 			if limited_values then
-				table.insert(output, ("collection:AddLimitedVendor(%s)"):format(limited_values))
+				table.insert(output, ("%s:AddLimitedVendor(%s)"):format(label, limited_values))
 			end
 		elseif DUMP_FUNCTION_FORMATS[acquire_type] then
 			local values
@@ -611,7 +612,7 @@ function collectable_prototype:Dump(output)
 					values = saved_id
 				end
 			end
-			table.insert(output, (DUMP_FUNCTION_FORMATS[acquire_type]):format(values))
+			table.insert(output, (DUMP_FUNCTION_FORMATS[acquire_type]):format(label, values))
 		else
 			for identifier in pairs(acquire_info) do
 				local saved_id
@@ -632,7 +633,7 @@ function collectable_prototype:Dump(output)
 	end
 
 	if flag_string then
-		table.insert(output, ("collection:AddAcquireData(%s)"):format(flag_string))
+		table.insert(output, ("%s:AddAcquireData(%s)"):format(label, flag_string))
 	end
 	table.insert(output, "")
 end
