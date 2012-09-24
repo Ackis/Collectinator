@@ -1696,5 +1696,101 @@ function addon:InitMounts()
 	--AddMountFlags(102488, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	--self:AddCompanionAcquire(DB, 102488, A_CUSTOM, 1)
 
+
+--[[------------------------------------------------------------------------------
+-- MOP INTRO'D MOUNTS!!
+
+
+-- Albino Riding Crane 
+mount = AddMount(,,)
+
+-- Amber Scorpion 
+mount = AddMount(,,)
+
+-- Ashen Pandaren Phoenix 
+mount = AddMount(,,)
+
+-- Astral Cloud Serpent 
+mount = AddMount(,,)
+
+-- Azure Cloud Serpent 
+mount = AddMount(,,)
+
+-- Azure Riding Crane 
+mount = AddMount(,,)
+
+-- Azure Water Strider 
+mount = AddMount(,,)
+
+-- Black Dragon Turtle 
+mount = AddMount(,,)
+
+-- Black Riding Goat 
+mount = AddMount(,,)
+
+-- Black Riding Yak 
+mount = AddMount(,,)
+
+-- Blonde Riding Yakmount = AddMount(,,)
+-- Blue Dragon Turtlemount = AddMount(,,)
+-- Blue Shado-Pan Riding Tigermount = AddMount(,,)
+-- Brown Dragon Turtlemount = AddMount(,,)
+-- Brown Riding Goatmount = AddMount(,,)
+-- Brown Riding Yakmount = AddMount(,,)
+-- Cataclysmic Gladiator's Twilight Drakemount = AddMount(,,)
+-- Crimson Cloud Serpentmount = AddMount(,,)
+-- Crimson Pandaren Phoenixmount = AddMount(,,)
+-- Crimson Riding Cranemount = AddMount(,,)
+-- Crimson Water Stridermount = AddMount(,,)
+-- Depleted-Kyparium Rocketmount = AddMount(,,)
+-- Emerald Pandaren Phoenixmount = AddMount(,,)
+-- Geosynchronous World Spinnermount = AddMount(,,)
+-- Golden Cloud Serpentmount = AddMount(,,)
+-- Golden Riding Cranemount = AddMount(,,)
+-- Golden Water Stridermount = AddMount(,,)
+-- Grand Expedition Yakmount = AddMount(,,)
+-- Great Black Dragon Turtlemount = AddMount(,,)
+-- Great Blue Dragon Turtlemount = AddMount(,,)
+-- Great Brown Dragon Turtlemount = AddMount(,,)
+-- Great Green Dragon Turtlemount = AddMount(,,)
+-- Great Purple Dragon Turtlemount = AddMount(,,)
+-- Great Red Dragon Turtlemount = AddMount(,,)
+-- Green Dragon Turtlemount = AddMount(,,)
+-- Green Shado-Pan Riding Tigermount = AddMount(,,)
+-- Grey Riding Yakmount = AddMount(,,)
+-- Heavenly Azure Cloud Serpentmount = AddMount(,,)
+-- Heavenly Crimson Cloud Serpentmount = AddMount(,,)
+-- Heavenly Golden Cloud Serpentmount = AddMount(,,)
+-- Heavenly Jade Cloud Serpentmount = AddMount(,,)
+-- Heavenly Onyx Cloud Serpentmount = AddMount(,,)
+-- Imperial Quilenmount = AddMount(,,)
+-- Jade Cloud Serpentmount = AddMount(,,)
+-- Jade Panthermount = AddMount(,,)
+-- Jade Water Stridermount = AddMount(,,)
+-- Jeweled Onyx Panthermount = AddMount(,,)
+-- Jungle Riding Cranemount = AddMount(,,)
+-- Obsidian Nightwingmount = AddMount(,,)
+-- Onyx Cloud Serpentmount = AddMount(,,)
+-- Orange Water Stridermount = AddMount(,,)
+-- Pandaren Kitemount = AddMount(,,)
+-- Pandaren Kitemount = AddMount(,,)
+-- Purple Dragon Turtlemount = AddMount(,,)
+-- Red Dragon Turtlemount = AddMount(,,)
+-- Red Flying Cloudmount = AddMount(,,)
+-- Red Shado-Pan Riding Tigermount = AddMount(,,)
+-- Regal Riding Cranemount = AddMount(,,)
+-- Ruby Panthermount = AddMount(,,)
+-- Sapphire Panthermount = AddMount(,,)
+-- Son of Galleonmount = AddMount(,,)
+-- Sunstone Panthermount = AddMount(,,)
+-- Thundering August Cloud Serpentmount = AddMount(,,)
+-- Thundering Jade Cloud Serpentmount = AddMount(,,)
+-- Thundering Ruby Cloud Serpentmount = AddMount(,,)
+-- Violet Pandaren Phoenixmount = AddMount(,,)
+-- White Riding Goatmount = AddMount(,,)
+-- White Riding Yak
+mount = AddMount(,,)
+----------------------------------------------------------------------------------------------------]]
+
 	self.InitMounts = nil
 end
