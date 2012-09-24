@@ -548,7 +548,7 @@ function private.InitializeFilterPanel()
 		end)
 
 		item_frame:SetScript("OnShow", function(self)
-			local sub_panel = self["items_" .. private.PROFESSION_LABELS[MainPanel.profession]]
+			local sub_panel = self["item_" .. private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]
 
 			if sub_panel then
 				sub_panel:Show()
