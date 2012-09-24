@@ -431,10 +431,12 @@ function addon:InitCritters()
 
 	-- Alliance Balloon -- 54539
 	pet = AddPet(54539, V.CATA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
 	pet:AddQuest(29412)
 
 	-- Horde Balloon -- 54541
 	pet = AddPet(54541, V.CATA, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST)
 
 --REP VENDOR ARGENT
 	-- Teldrassil Sproutling -- 33188
@@ -1738,11 +1740,13 @@ Event:  Wanderer's Festival ]]--
 	--[[ Quest: A Champion Rises
 	Zone: Icecrown ]]--
 	pet = AddPet(33238, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
 
 	-- Argent Gruntling -- 33239
 	--[[ Quest: A Champion Rises
 	Zone: Icecrown ]]--
 	pet = AddPet(33239, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST)
 
 	-- Shimmering Wyrmling -- 34724
 	--[[ Vendor: Hiren Loresong
