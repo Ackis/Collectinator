@@ -37,6 +37,7 @@ local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
 local Z = private.ZONE_NAMES
+local P = private.LOCALIZED_PROFESSION_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -192,7 +193,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.CRAFTED)
 	pet:SetCollectionItemID(60847)
 	pet:SetCollectionSpellID(84263)
-	pet:AddCraftedProfession("Arch")
+	pet:AddCraftedProfession(P.ARCHAEOLOGY)
 
 	-- Enchanted Lantern -- 46898
 	pet = AddPet(46898, V.CATA, Q.RARE)

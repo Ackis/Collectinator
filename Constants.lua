@@ -59,6 +59,37 @@ private.COLLECTION_LABELS = {
 }
 
 -------------------------------------------------------------------------------
+-- Profession data for crafted collectables.
+-------------------------------------------------------------------------------
+
+private.PROFESSION_SPELL_IDS = {
+	ALCHEMY		= 2259,
+	BLACKSMITHING	= 2018,
+	COOKING		= 2550,
+	ENCHANTING	= 7411,
+	ENGINEERING	= 4036,
+	FIRSTAID	= 3273,
+	INSCRIPTION	= 45357,
+	JEWELCRAFTING	= 25229,
+	LEATHERWORKING	= 2108,
+	RUNEFORGING	= 53428,
+	SMELTING	= 2656,
+	TAILORING	= 3908,
+	ARCHAEOLOGY	= 78670,
+}
+
+private.LOCALIZED_PROFESSION_NAMES = {}
+
+for name, spell_id in pairs(private.PROFESSION_SPELL_IDS) do
+	private.LOCALIZED_PROFESSION_NAMES[name] = _G.GetSpellInfo(spell_id)
+end
+
+-- Special case for Runeforging is needed because the French translation is non-conforming.
+if _G.GetLocale() == "frFR" then
+	private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING = "Runeforger"
+end
+
+-------------------------------------------------------------------------------
 -- Item qualities.
 -------------------------------------------------------------------------------
 private.ITEM_QUALITY_NAMES = {
