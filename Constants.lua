@@ -43,14 +43,9 @@ private.COLLECTION_TYPE_IDS = {
 	CRITTER	= 2,
 }
 
-private.COLLECTION_NAMES = {
-	MOUNT = "MOUNT",
-	CRITTER = "CRITTER",
-}
-
 private.ORDERED_COLLECTIONS = {
-	private.COLLECTION_NAMES.MOUNT, -- 1
-	private.COLLECTION_NAMES.CRITTER, -- 2
+	"MOUNT", -- 1
+	"CRITTER", -- 2
 }
 
 private.COLLECTION_LABELS = {

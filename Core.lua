@@ -414,8 +414,8 @@ function addon:OnInitialize()
 	-- Populate the collection initialization functions.
 	-------------------------------------------------------------------------------
 	COLLECTION_INIT_FUNCS = {
-		[private.COLLECTION_NAMES.CRITTER] = addon.InitCritters,
-		[private.COLLECTION_NAMES.MOUNT] = addon.InitMounts,
+		CRITTER = addon.InitCritters,
+		MOUNT = addon.InitMounts,
 	}
 
 	-------------------------------------------------------------------------------
