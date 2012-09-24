@@ -359,7 +359,7 @@ function private.InitializeFilterPanel()
 
 	general_frame.general_toggle = general_toggle
 
-	local faction_text = (private.Player.faction == "Alliance") and _G.FACTION_HORDE or _G.FACTION_ALLIANCE
+	local faction_text = (private.Player:Faction() == "Alliance") and _G.FACTION_HORDE or _G.FACTION_ALLIANCE
 	local faction_desc = L["FACTION_DESC_FORMAT"]:format(faction_text)
 
 	local general_buttons = {
@@ -722,7 +722,7 @@ function private.InitializeFilterPanel()
 	-- Check to see if we're Horde or Alliance, and change the displayed
 	-- reputation strings to be faction-correct.
 	-------------------------------------------------------------------------------
-	local isAlliance = (private.Player.faction == "Alliance")
+	local isAlliance = (private.Player:Faction() == "Alliance")
 
 	local HonorHold_Thrallmar_Text = isAlliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]
 	local Kurenai_Maghar_Text = isAlliance and BFAC["Kurenai"] or BFAC["The Mag'har"]

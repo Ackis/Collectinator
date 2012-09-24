@@ -968,7 +968,7 @@ function private.InitializeListFrame()
 		if addon.db.profile.filters.general.faction then
 			return true
 		end
-		return (not faction or faction == private.Player.faction or faction == "Neutral")
+		return (not faction or faction == private.Player:Faction() or faction == "Neutral")
 	end
 
 	-- Padding for list entries/subentries
@@ -978,7 +978,7 @@ function private.InitializeListFrame()
 	local function ColorNameByFaction(name, faction)
 		if faction == "Neutral" then
 			name = SetTextColor(private.REPUTATION_COLORS["neutral"], name)
-		elseif faction == private.Player.faction then
+		elseif faction == private.Player:Faction() then
 			name = SetTextColor(private.REPUTATION_COLORS["exalted"], name)
 		else
 			name = SetTextColor(private.REPUTATION_COLORS["hated"], name)
@@ -1494,7 +1494,7 @@ do
 		if comp_faction == "Neutral" then
 			color = private.REPUTATION_COLORS["neutral"]
 			display_tip = true
-		elseif comp_faction == private.Player.faction then
+		elseif comp_faction == private.Player:Faction() then
 			color = private.REPUTATION_COLORS["exalted"]
 			display_tip = true
 		else
