@@ -181,7 +181,7 @@ function private.InitializeFrame()
 			private.InitializeFilterPanel()
 		end
 
-		local collection_name = private.COLLECTION_LABELS[self.current_collectable_type]
+		local collection_name = private.ORDERED_COLLECTIONS[self.current_collectable_type]
 
 		local init_func = ITEM_FILTER_INIT_FUNCS[collection_name]
 		local panel
@@ -441,7 +441,7 @@ function private.InitializeFrame()
 	end)
 
 	local function CurrentCollectableTypeTexture()
-		local collectable_type = private.COLLECTION_LABELS[MainPanel.current_collectable_type]
+		local collectable_type = private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
 		local texture_name
 
 		if collectable_type == "CRITTER" then

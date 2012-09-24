@@ -48,11 +48,6 @@ private.ORDERED_COLLECTIONS = {
 	"CRITTER", -- 2
 }
 
-private.COLLECTION_LABELS = {
-	"MOUNT",		-- 1
-	"CRITTER",		-- 2
-}
-
 -------------------------------------------------------------------------------
 -- Profession data for crafted collectables.
 -------------------------------------------------------------------------------

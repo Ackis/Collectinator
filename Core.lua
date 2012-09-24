@@ -651,7 +651,7 @@ do
 	-- Parses Collections and displays output
 	function addon:Scan(textdump, is_refresh)
 		local current_panel = _G.PanelTemplates_GetSelectedTab(_G.PetJournalParent)
-		local collectable_type = private.COLLECTION_LABELS[current_panel]
+		local collectable_type = private.ORDERED_COLLECTIONS[current_panel]
 		addon:InitializeCollection(collectable_type)
 
 		local collectables = private.collectable_list[collectable_type]
@@ -683,7 +683,7 @@ do
 			if private.InitializeFrame then
 				private.InitializeFrame()
 			end
-			self.Frame:Display(private.COLLECTION_LABELS[current_panel])
+			self.Frame:Display(private.ORDERED_COLLECTIONS[current_panel])
 		end
 	end
 end
