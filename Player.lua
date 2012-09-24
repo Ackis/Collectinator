@@ -58,6 +58,19 @@ private.Player = Player
 function Player:Initialize()
 	self.faction = _G.UnitFactionGroup("player")
 	self.class = _G.select(2, _G.UnitClass("player"))
+	self.race = _G.select(2, _G.UnitRace("player"))
+end
+
+function Player:Class()
+	return self.class
+end
+
+function Player:Faction()
+	return self.faction
+end
+
+function Player:Race()
+	return self.race
 end
 
 do
