@@ -187,6 +187,7 @@ function private.InitializeFrame()
 		local panel
 
 		if init_func then
+
 			local panel_name = "misc_" .. collection_name
 			panel = self.filter_menu:CreateSubMenu(panel_name)
 
