@@ -297,8 +297,8 @@ function addon:OnInitialize()
 					blackprince = true,
 					shangxiacademy = true,
 				},
-				pet = {
-					captured = true,
+				-- Populated later via CONSTANTS
+				misc = {
 				},
 			}
 		}
@@ -306,9 +306,9 @@ function addon:OnInitialize()
 
 
 
-	--for filter_name in pairs(private.ITEM_FILTER_TYPES) do
---		defaults.profile.filters.item[filter_name:lower()] = true
---	end
+	for filter_name in pairs(private.COLLECTION_FILTER_TYPES) do
+		defaults.profile.filters.misc[filter_name:lower()] = true
+	end
 	self.db = LibStub("AceDB-3.0"):New("COLLECTINATORDB2", defaults)
 
 	if not self.db then

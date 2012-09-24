@@ -55,8 +55,8 @@ function private:InitializeItemFilters_Pet(parent_panel)
 
 	for misc_type in pairs(misc_types) do
 		MainPanel.filter_menu.value_map[misc_type] = {
-			cb = MainPanel.filter_menu.misc.items_pets[misc_type],
-			svroot = addon.db.profile.filters.pet
+			cb = MainPanel.filter_menu.misc.misc_CRITTER[misc_type],
+			svroot = addon.db.profile.filters.misc
 		}
 	end
 	self.InitializeItemFilters_Pet = nil
