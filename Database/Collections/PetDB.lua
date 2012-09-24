@@ -431,6 +431,7 @@ function addon:InitCritters()
 
 	-- Alliance Balloon -- 54539
 	pet = AddPet(54539, V.CATA, Q.COMMON)
+	pet:AddQuest(29412)
 
 	-- Horde Balloon -- 54541
 	pet = AddPet(54541, V.CATA, Q.COMMON)

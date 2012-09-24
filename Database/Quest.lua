@@ -54,5 +54,7 @@ function addon:InitQuest()
 		private:AddListEntry(private.quest_list, quest_id, nil, zone_name, coord_x, coord_y, faction)
 	end
 
+	AddQuest(29412,	Z.STORMWIND_CITY,		67.2,	85.5,	"Alliance") -- needs coords updated
+
 	self.InitQuest = nil
 end
