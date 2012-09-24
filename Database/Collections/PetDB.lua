@@ -193,7 +193,7 @@ function addon:InitCritters()
 	pet = AddPet(45128, V.CATA, Q.EPIC)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.CRAFTED)
 	pet:SetItemID(60847)
-	pet:SetCollectionSpellID(84263)
+	pet:SetSpellID(84263)
 	pet:AddCraftedProfession(P.ARCHAEOLOGY)
 
 	-- Enchanted Lantern -- 46898

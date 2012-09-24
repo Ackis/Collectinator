@@ -113,12 +113,12 @@ function collectable_prototype:ItemID()
 	return self.item_id
 end
 
-function collectable_prototype:SetCollectionSpellID(spell_id)
-	self.collection_spell_id = spell_id
+function collectable_prototype:SetSpellID(spell_id)
+	self.spell_id = spell_id
 end
 
-function collectable_prototype:CollectionSpellID()
-	return self.collection_spell_id
+function collectable_prototype:SpellID()
+	return self.spell_id
 end
 
 -- Used to set the faction for collections which only can be learned by one faction (e.g. Moonkin Hatchling, etc.)
