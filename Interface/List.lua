@@ -1202,7 +1202,7 @@ function private.InitializeListFrame()
 
 	local function ExpandCraftedData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
 		local entry = AcquireTable()
-		entry.text = PADDING .. SetTextColor(CATEGORY_COLORS["crafted"], private.custom_list[id_num].name)
+		entry.text = ("%s%s %s"):format(PADDING,L["Crafted by:"] ,SetTextColor(CATEGORY_COLORS["crafted"], id_num))
 		entry.collectable = collectable
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)

@@ -120,3 +120,4 @@ L["SPECIFIC_REP_DESC"] = true
 L["Crafted"] = true
 L["CRAFTED_DESC"] = true
 L["NoItemLink"] = "There is no item in the database to link.  Please submit a bug report if you think this is in error."
+L["Crafted by:"] = true
