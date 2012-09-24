@@ -105,12 +105,12 @@ function collectable_prototype:Name()
 	return self.name
 end
 
-function collectable_prototype:SetCollectionItemID(item_id)
-	self.collection_item_id = item_id
+function collectable_prototype:SetItemID(item_id)
+	self.item_id = item_id
 end
 
-function collectable_prototype:CollectionItemID()
-	return self.collection_item_id
+function collectable_prototype:ItemID()
+	return self.item_id
 end
 
 function collectable_prototype:SetCollectionSpellID(spell_id)
@@ -457,8 +457,8 @@ function collectable_prototype:Dump(output)
 	table.insert(output, ("-- %s -- %d"):format(self.name, self.id))
 	table.insert(output, ("collection = AddCollection(%d, V.%s, Q.%s)"):format(self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
-	if self.collection_item_id then
-		table.insert(output, ("collection:SetCollectionItemID(%d)"):format(self.collection_item_id))
+	if self.item_id then
+		table.insert(output, ("collection:SetItemID(%d)"):format(self.collection_item_id))
 	end
 
 	if self.required_faction then

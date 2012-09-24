@@ -74,7 +74,7 @@ function addon:InitCritters()
 	pet = AddPet(32818, V.WOTLK, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	pet:AddAchievement(3478)
-	pet:SetCollectionItemID(44810)
+	pet:SetItemID(44810)
 
 	-- Kirin Tor Familiar -- 32643
 	pet = AddPet(32643, V.WOTLK, Q.RARE)
@@ -151,7 +151,7 @@ function addon:InitCritters()
 	-- Mechanical Squirrel Box -- 2671
 	pet = AddPet(2671, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
-	pet:SetCollectionItemID(4401)
+	pet:SetItemID(4401)
 
 	-- Pet Bombling -- 9656
 	pet = AddPet(9656, V.ORIG, Q.COMMON)
@@ -192,7 +192,7 @@ function addon:InitCritters()
 	-- Crawling Claw -- 45128
 	pet = AddPet(45128, V.CATA, Q.EPIC)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.CRAFTED)
-	pet:SetCollectionItemID(60847)
+	pet:SetItemID(60847)
 	pet:SetCollectionSpellID(84263)
 	pet:AddCraftedProfession(P.ARCHAEOLOGY)
 

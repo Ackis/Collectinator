@@ -276,7 +276,7 @@ function private.InitializeListFrame()
 					edit_box:Insert(_G.GetSpellLink(clicked_line.collectable.collection_spell_id))
 				end
 			elseif _G.IsShiftKeyDown() then
-				local crafted_item_id = clicked_line.collectable:CollectionItemID()
+				local crafted_item_id = clicked_line.collectable:ItemID()
 
 				if crafted_item_id then
 					local _, item_link = _G.GetItemInfo(crafted_item_id)
@@ -1174,7 +1174,7 @@ function private.InitializeListFrame()
 		local drop_location = type(identifier) == "string" and SetTextColor(CATEGORY_COLORS["location"], identifier)
 
 		if drop_location then
-			local collectable_item_id = collectable:CollectionItemID()
+			local collectable_item_id = collectable:ItemID()
 			local collectable_item_level = collectable_item_id and select(4, _G.GetItemInfo(collectable_item_id))
 
 			if collectable_item_level then
@@ -1604,7 +1604,7 @@ do
 			if location and drop_location ~= location then
 				return
 			end
-			local collectable_item_id = collectable:CollectionItemID()
+			local collectable_item_id = collectable:ItemID()
 			local collectable_item_level = collectable_item_id and select(4, _G.GetItemInfo(collectable_item_id))
 			local quality_color = select(4, _G.GetItemQualityColor(collectable.quality)):sub(3)
 			local location_text
