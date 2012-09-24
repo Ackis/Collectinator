@@ -166,7 +166,7 @@ do
 	end
 
 	function private.TextDump:Display(separator, collectable_type)
-		local display_text = (not collectable_type) and table.concat(self.output, separator or "\n") or self:GetTextDump(collectable_type)
+		local display_text = (not collectable_type) and table.concat(self.output, separator or "\n")
 
 		if display_text == "" then
 			return
@@ -244,18 +244,39 @@ do
 		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
 	end
 
-	function addon:DumpZones()
-		TextDump:AddLine("private.ZONE_NAMES = {")
+	function addon:DumpZones(name)
+		for index = 1, 100000 do
+			local zone_name = _G.GetMapNameByID(index)
 
-		--		for index = 1, 100000 do
-		--			local zone_name = _G.GetMapNameByID(index)
-		--
-		--			if zone_name then
-		----				TextDump:AddLine(("[%d] = \"%s\","):format(index, zone_name:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_")))
-		--				TextDump:AddLine(("%s = _G.GetMapNameByID(%d),"):format(zone_name:upper()
-		--				:gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", ""), index))
-		--			end
-		--		end
+			if zone_name and zone_name:lower():find(name:lower()) then
+				TextDump:AddLine(("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(zone_name), index))
+			end
+		end
+		TextDump:Display()
+	end
+
+	--[=[
+		private.ZONE_NAME_LIST = {}
+
+		local old_GetMapNameByID = _G.GetMapNameByID
+		local function My_GetMapNameByID(id_num)
+			if not id_num then
+				return
+			end
+			local Z = private.ZONE_NAME_LIST
+			local name = old_GetMapNameByID(id_num)
+
+			if not name then
+				return
+			end
+			Z[name] = id_num
+			return name
+		end
+		_G.GetMapNameByID = My_GetMapNameByID
+
+	function addon:DumpCapturedZones()
+		table.wipe(output)
+		TextDump:AddLine("private.ZONE_NAMES = {")
 		local sorted_zones = {}
 		for name, idnum in pairs(private.ZONE_NAME_LIST) do
 			sorted_zones[#sorted_zones + 1] = name
@@ -271,24 +292,7 @@ do
 		TextDump:AddLine("}\n")
 		TextDump:Display()
 	end
-
-	--	private.ZONE_NAME_LIST = {}
-	--
-	--	local old_GetMapNameByID = _G.GetMapNameByID
-	--	local function My_GetMapNameByID(id_num)
-	--		if not id_num then
-	--			return
-	--		end
-	--		local Z = private.ZONE_NAME_LIST
-	--		local name = old_GetMapNameByID(id_num)
-	--
-	--		if not name then
-	--			return
-	--		end
-	--		Z[name] = id_num
-	--		return name
-	--	end
-	--	_G.GetMapNameByID = My_GetMapNameByID
+--]=]
 
 	function addon:DumpBossIDs(name)
 		for index = 1, 10000 do
