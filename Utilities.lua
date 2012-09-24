@@ -67,7 +67,6 @@ function private:AddListEntry(lookup_list, identifier, name, location, coord_x, 
 	if not NO_LOCATION_LISTS then
 		NO_LOCATION_LISTS = {
 			[self.custom_list] = true,
-			--[self.discovery_list] = true,
 			[self.reputation_list] = true,
 		}
 	end

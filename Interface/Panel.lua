@@ -187,7 +187,6 @@ function private.InitializeFrame()
 		local panel
 
 		if init_func then
-
 			local panel_name = "misc_" .. collection_name
 			panel = self.filter_menu:CreateSubMenu(panel_name)
 
@@ -420,8 +419,6 @@ function private.InitializeFrame()
 			return
 		end
 
-
---		MainPanel.current_collectable_type = private.ORDERED_COLLECTIONS[current_index]
 		MainPanel.current_collectable_type = current_index
 
 		local is_shown = addon.scan_button:GetParent():IsVisible()
@@ -435,8 +432,7 @@ function private.InitializeFrame()
 			_G.SetCVar("Sound_EnableSFX", 0)
 		end
 
---		_G.CastSpellByName(private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type])
-		PanelTemplates_SetTab(_G.PetJournalParent, MainPanel.current_collectable_type)
+		_G.PanelTemplates_SetTab(_G.PetJournalParent, MainPanel.current_collectable_type)
 		addon:Scan()
 
 		if not is_shown then

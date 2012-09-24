@@ -216,7 +216,6 @@ local function SetFilterState(collectable, turn_on, ...)
 
 		if filter then
 			local filter_name = private.FILTER_STRINGS[filter]
-
 			local bitfield
 			local member_name
 

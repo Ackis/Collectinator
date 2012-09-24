@@ -304,8 +304,6 @@ function addon:OnInitialize()
 		}
 	}
 
-
-
 	for filter_name in pairs(private.COLLECTION_FILTER_TYPES) do
 		defaults.profile.filters.misc[filter_name:lower()] = true
 	end
@@ -559,7 +557,6 @@ do
 			COLLECTION_INIT_FUNCS[collectable_type] = nil
 		end
 	end
-
 end
 -------------------------------------------------------------------------------
 -- Collection Scanning Functions

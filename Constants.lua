@@ -579,7 +579,6 @@ private.CATEGORY_COLORS = {
 	["quest"]	= "dbdb2c",
 	["reputation"]	= "855a99",
 	["seasonal"]	= "80590e",
-	--["trainer"]	= "c98e26",
 	["vendor"]	= "aad372",
 	["crafted"]	= "c98e26",
 
