@@ -208,6 +208,18 @@ do
 	end
 end -- do-block
 
+function collectable_prototype:SetMiscFilterType(filter_type)
+	if not private.COLLECTION_FILTER_TYPES[filter_type:upper()] then
+		addon:Debug("Attempting to set invalid misc filter type '%s' for '%s' (%d)", filter_type, self.name, self.id)
+		return
+	end
+	self.misc_filter_type = filter_type:lower()
+end
+
+function collectable_prototype:MiscFilterType()
+	return self.misc_filter_type
+end
+
 local function SetFilterState(collectable, turn_on, ...)
 	local num_filters = select('#', ...)
 
