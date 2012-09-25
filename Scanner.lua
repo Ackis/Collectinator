@@ -90,7 +90,7 @@ end
 local COLDatamineTT = _G.CreateFrame("GameTooltip", "COLDatamineTT", _G.UIParent, "GameTooltipTemplate")
 
 do
-	local ORDERED_PROFESSIONS = private.ORDERED_PROFESSIONS
+	local ORDERED_COLLECTIONS = private.ORDERED_COLLECTIONS
 
 	local intermediary_recipe_list = {}
 
@@ -159,13 +159,13 @@ do
 		input_text = input_text:lower()
 
 		if input_text == "all" then
-			for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
+			for index, profession_name in ipairs(ORDERED_COLLECTIONS) do
 				ScheduleProfessionScan(profession_name)
 			end
 			return
 		end
 
-		for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
+		for index, profession_name in ipairs(ORDERED_COLLECTIONS) do
 			if input_text == profession_name:lower() then
 				ScheduleProfessionScan(profession_name)
 				return
@@ -221,12 +221,12 @@ do
 		input_text = input_text:lower()
 
 		if input_text == "all" then
-			for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
+			for index, profession_name in ipairs(ORDERED_COLLECTIONS) do
 				ProfessionDump(profession_name)
 			end
 		end
 
-		for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
+		for index, profession_name in ipairs(ORDERED_COLLECTIONS) do
 			if input_text == profession_name:lower() then
 				ProfessionDump(profession_name)
 				return
@@ -288,12 +288,12 @@ do
 		input_text = input_text:lower()
 
 		if input_text == "all" then
-			for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
+			for index, profession_name in ipairs(ORDERED_COLLECTIONS) do
 				ProfessionTrainerDump(profession_name)
 			end
 		end
 
-		for index, profession_name in ipairs(ORDERED_PROFESSIONS) do
+		for index, profession_name in ipairs(ORDERED_COLLECTIONS) do
 			if input_text == profession_name:lower() then
 				ProfessionTrainerDump(profession_name)
 				return
