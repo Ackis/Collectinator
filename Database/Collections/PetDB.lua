@@ -143,12 +143,6 @@ function addon:InitCritters()
 	pet = AddPet(63365, V.MOP, Q.COMMON)
 	--pet:AddFilters(
 
-	-- Sapphire Cub -- 61883
-	--[[ Profession: Jewelcrafting
-	 ]]--
-	pet = AddPet(61883, V.MOP, Q.COMMON)
-	--pet:AddFilters(
-
 	-- Fishy -- 62829
 	--[[ Quest: Let Them Burn
 	Zone: The Jade Forest ]]--
@@ -178,20 +172,19 @@ function addon:InitCritters()
 	Category: Dungeons and Raids ]]--
 	pet = AddPet(64632, V.MOP, Q.COMMON)
 	--pet:AddFilters(
+
 	-- Aqua Strider -- 64633
 	--[[ Drop: Nalash Verdantis
 	Zone: Dread Wastes]]--
 	pet = AddPet(64633, V.MOP, Q.COMMON)
 	--pet:AddFilters(
+
 	-- Grinder -- 64634
 	--[[ Drop: Karr the Darkener
 	Zone: Dread Wastes]]--
 	pet = AddPet(64634, V.MOP, Q.COMMON)
 	--pet:AddFilters(
-	-- Mechanical Pandaren Dragonling -- 64899
-	--[[ Profession: Engineering ]]--
-	pet = AddPet(64899, V.MOP, Q.COMMON)
-	--pet:AddFilters(
+
 	-- Thundering Serpent Hatchling -- 65313
 	--[[ Vendor: Guild Vendor
 	Zone: Stormwind, Orgrimmar
@@ -199,20 +192,14 @@ function addon:InitCritters()
 	 ]]--
 	pet = AddPet(65313, V.MOP, Q.COMMON)
 	--pet:AddFilters(
+
 	-- Jade Crane Chick -- 65314
 	--[[ Vendor: Audrey Burnhep, Varzog
 	Zone: Stormwind, Orgrimmar
 	Cost: 50 ]]--
 	pet = AddPet(65314, V.MOP, Q.COMMON)
 	--pet:AddFilters(
-	-- Chi-ji Kite -- 66104
-	--[[ Profession: Inscription ]]--
-	pet = AddPet(66104, V.MOP, Q.COMMON)
-	--pet:AddFilters(
-	-- Jade Owl -- 61877
-	--[[ Profession: Jewelcrafting ]]--
-	pet = AddPet(61877, V.MOP, Q.COMMON)
-	--pet:AddFilters(
+
 	-- Tiny Goldfish -- 63559
 	--[[ Vendor: Nat Pagle
 	Zone: Krasarang Wilds
@@ -220,11 +207,13 @@ function addon:InitCritters()
 	Cost: 250 ]]--
 	pet = AddPet(63559, V.MOP, Q.COMMON)
 	--pet:AddFilters(
+
 	-- Feral Vermling -- 63621
 	--[[ Achievement: Going to Need More Leashes
 	Category: Collect ]]--
 	pet = AddPet(63621, V.MOP, Q.COMMON)
 	--pet:AddFilters(
+
 --ACHIEVEMENTS
 	-- Pilgrim Turkey -- 32818
 	pet = AddPet(32818, V.WOTLK, Q.RARE)
@@ -277,7 +266,7 @@ function addon:InitCritters()
 	pet = AddPet(54027, V.CATA, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 
-	--FISHING
+--FISHING
 
 	-- Magical Crawdad Box -- 18839
 	pet = AddPet(18839, V.TBC, Q.RARE)
@@ -324,42 +313,52 @@ function addon:InitCritters()
 	pet = AddPet(2671, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:SetItemID(4401)
+	pet:AddProfession(P.ENGINEERING)
 
 	-- Pet Bombling -- 9656
 	pet = AddPet(9656, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(P.ENGINEERING)
 
 	-- Lil' Smoky -- 9657
 	pet = AddPet(9657, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(P.ENGINEERING)
 
 	-- Lifelike Mechanical Toad -- 12419
 	pet = AddPet(12419, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(P.ENGINEERING)
 
 	-- Tranquil Mechanical Yeti -- 15699
 	pet = AddPet(15699, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(P.ENGINEERING)
 
 	-- Fossilized Hatchling -- 45340
 	pet = AddPet(45340, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(P.ARCHAEOLOGY)
 
 	-- De-Weaponized Mechanical Companion -- 43916
 	pet = AddPet(43916, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(P.ENGINEERING)
 
 	-- Elementium Geode -- 50722
 	pet = AddPet(50722, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(P.MINING)
 
 	-- Personal World Destroyer -- 43800
 	pet = AddPet(43800, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(P.ENGINEERING)
 
 	-- Clockwork Gnome -- 48609
 	pet = AddPet(48609, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(P.ENGINEERING)
 
 	-- Crawling Claw -- 45128
 	pet = AddPet(45128, V.CATA, Q.EPIC)
@@ -379,10 +378,40 @@ function addon:InitCritters()
 	-- Pterrordax Hatchling -- 53225
 	pet = AddPet(53225, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(P.ARCHAEOLOGY)
 
 	-- Voodoo Figurine -- 53232
 	pet = AddPet(53232, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(P.ARCHAEOLOGY)
+
+	-- Sapphire Cub -- 61883
+	pet = AddPet(61883, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:SetItemID(82775)
+	pet:SetSpellID(120507)
+	pet:AddProfession(P.JEWELCRAFTING)
+
+	-- Mechanical Pandaren Dragonling -- 64899
+	pet = AddPet(64899, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:SetItemID(87526)
+	pet:SetSpellID(126885)
+	pet:AddProfession(P.ENGINEERING)
+
+	-- Chi-ji Kite -- 66104
+	pet = AddPet(66104, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:SetItemID(89368)
+	pet:SetSpellID(127008)
+	pet:AddProfession(P.INSCRIPTION)
+
+	-- Jade Owl -- 61877
+	pet = AddPet(61877, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:SetItemID(82774)
+	pet:SetSpellID(120501)
+	pet:AddProfession(P.JEWELCRAFTING)
 
 --WORLD EVENT DROP
 	-- Sinister Squashling -- 23909
