@@ -124,28 +124,36 @@ function addon:InitCritters()
 	--FISHING
 
 	-- Magical Crawdad Box -- 18839
-	pet = AddPet(18839, V.TBC, Q.COMMON)
+	pet = AddPet(18839, V.TBC, Q.RARW)
+	pet:AddProfession(P.FISHING)
 
 	-- Toothy's Bucket -- 24388
 	pet = AddPet(24388, V.TBC, Q.RARE)
+	pet:AddProfession(P.FISHING)
 
 	-- Muckbreath's Bucket -- 24389
 	pet = AddPet(24389, V.TBC, Q.RARE)
+	pet:AddProfession(P.FISHING)
 
 	-- Snarly's Bucket -- 26050
 	pet = AddPet(26050, V.TBC, Q.RARE)
+	pet:AddProfession(P.FISHING)
 
 	-- Chuck's Bucket -- 26056
 	pet = AddPet(26056, V.TBC, Q.RARE)
+	pet:AddProfession(P.FISHING)
 
 	-- Giant Sewer Rat -- 31575
 	pet = AddPet(31575, V.WOTLK, Q.RARE)
+	pet:AddProfession(P.FISHING)
 
 	-- Strand Crawler -- 33226
 	pet = AddPet(33226, V.WOTLK, Q.RARE)
+	pet:AddProfession(P.FISHING)
 
 	-- Sea Pony -- 55386
 	pet = AddPet(55386, V.CATA, Q.RARE)
+	pet:AddProfession(P.FISHING)
 
 --PLAYERMADE
 	-- Mechanical Squirrel Box -- 2671
