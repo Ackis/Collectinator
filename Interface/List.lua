@@ -674,7 +674,6 @@ function private.InitializeListFrame()
 					return true
 				end
 			end
-			return true
 		end
 
 		function ListFrame:Initialize(expand_mode)
