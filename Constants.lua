@@ -49,7 +49,7 @@ private.ORDERED_COLLECTIONS = {
 }
 
 -------------------------------------------------------------------------------
--- Profession data for profession collectables.
+-- Profession data for profession made/axquired collectables.
 -------------------------------------------------------------------------------
 
 private.PROFESSION_SPELL_IDS = {
@@ -147,7 +147,7 @@ private.COMMON_FLAGS_WORD1 = {
 --	DPS		= 0x00080000,	-- 20
 --	TANK		= 0x00100000,	-- 21
 --	HEALER		= 0x00200000,	-- 22
-	PROFESSION		= 0x00400000,	-- 23
+	PROFESSION	= 0x00400000,	-- 23
 	ACHIEVEMENT	= 0x00800000,	-- 24
 	REPUTATION	= 0x01000000,	-- 25
 }
