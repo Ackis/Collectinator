@@ -569,11 +569,11 @@ do
 		end
 
 		-- Parse the recipe database until we get a match on the name
-		local recipe_name = scan_data.match_name:gsub("%a+%?: ","")
-		local spell_id = scan_data.reverse_lookup[recipe_name]
+		local collectable_name = scan_data.match_name:gsub("%a+%?: ","")
+		local spell_id = scan_data.reverse_lookup[collectable_name]
 
 		if not spell_id then
-			addon:Debug(recipe_name .. " has no reverse lookup")
+			addon:Debug(collectable_name .. " has no reverse lookup")
 			return
 		end
 		local recipe = scan_data.collectable_list[spell_id]
@@ -863,13 +863,13 @@ do
 		end
 
 		if output:Lines() > start_line then
-			output:InsertLine(start_line + 1, ("%s: <a href=\"http://www.wowhead.com/?spell=%d\">%d</a>"):format(recipe_name, spell_id, spell_id))
+			output:InsertLine(start_line + 1, ("%s: <a href=\"http://www.wowhead.com/?spell=%d\">%d</a>"):format(collectable_name, spell_id, spell_id))
 		end
 	end
 
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
-	local function ScanTooltip(recipe_name, collectable_list, reverse_lookup, is_vendor)
-		scan_data.match_name = recipe_name
+	local function ScanTooltip(collectable_name, collectable_list, reverse_lookup, is_vendor)
+		scan_data.match_name = collectable_name
 		scan_data.collectable_list = collectable_list
 		scan_data.reverse_lookup = reverse_lookup
 		scan_data.is_vendor = is_vendor
@@ -914,7 +914,7 @@ do
 			-------------------------------------------------------------------------------
 			-- Do things the smart way and assign the filter type here. Uncomment when needed.
 			-------------------------------------------------------------------------------
-			local spell_id = scan_data.reverse_lookup[recipe_name]
+			local spell_id = scan_data.reverse_lookup[collectable_name]
 
 			if spell_id and collectable_list[spell_id].profession == "Inscription" then
 				scan_data.filter_type = nil
@@ -924,7 +924,7 @@ do
 						if text_l:match(pattern) then
 							local recipe = collectable_list[spell_id]
 							--							scan_data.filter_type = filter
-							--							addon:Printf("%s: %s", recipe_name, filter)
+							--							addon:Printf("%s: %s", collectable_name, filter)
 							recipe:SetItemFilterType(filter)
 							break
 						end
@@ -1000,13 +1000,13 @@ do
 			self:Debug("Spell ID %d does not exist in the database.", tonumber(spell_id))
 			return
 		end
-		local recipe_name = recipe.name
+		local collectable_name = recipe.name
 		local game_vers = private.GAME_VERSIONS[recipe.genesis]
 
 		if not game_vers then
-			output:AddLine("No expansion information: " .. tostring(spell_id) .. " " .. recipe_name)
+			output:AddLine("No expansion information: " .. tostring(spell_id) .. " " .. collectable_name)
 		elseif game_vers > #private.GAME_VERSION_NAMES then
-			output:AddLine("Expansion information too high: " .. tostring(spell_id) .. " " .. recipe_name)
+			output:AddLine("Expansion information too high: " .. tostring(spell_id) .. " " .. collectable_name)
 		end
 		local optimal = recipe.optimal_level
 		local medium = recipe.medium_level
@@ -1015,24 +1015,24 @@ do
 		local skill_level = recipe.skill_level
 
 		if not optimal then
-			output:AddLine("No skill level information: " .. tostring(spell_id) .. " " .. recipe_name)
+			output:AddLine("No skill level information: " .. tostring(spell_id) .. " " .. collectable_name)
 		else
 			-- Highest level is greater than the skill of the recipe
 			if optimal > skill_level then
-				output:AddLine("Skill Level Error (optimal_level > skill_level): " .. tostring(spell_id) .. " " .. recipe_name)
+				output:AddLine("Skill Level Error (optimal_level > skill_level): " .. tostring(spell_id) .. " " .. collectable_name)
 			elseif optimal < skill_level then
-				output:AddLine("Skill Level Error (optimal_level < skill_level): " .. tostring(spell_id) .. " " .. recipe_name)
+				output:AddLine("Skill Level Error (optimal_level < skill_level): " .. tostring(spell_id) .. " " .. collectable_name)
 			end
 
 			-- Level info is messed up
 			if optimal > medium or optimal > easy or optimal > trivial or medium > easy or medium > trivial or easy > trivial then
-				output:AddLine("Skill Level Error: " .. tostring(spell_id) .. " " .. recipe_name)
+				output:AddLine("Skill Level Error: " .. tostring(spell_id) .. " " .. collectable_name)
 			end
 		end
 		local recipe_link = _G.GetSpellLink(recipe.spell_id)
 
 		if not recipe_link then
-			self:Debug("Missing spell_link for ID %d (%s).", spell_id, recipe_name)
+			self:Debug("Missing spell_link for ID %d (%s).", spell_id, collectable_name)
 			return
 		end
 		ARLDatamineTT:SetOwner(_G.WorldFrame, "ANCHOR_NONE")
@@ -1053,7 +1053,7 @@ do
 			return
 		end
 		local reverse_lookup = GetReverseLookup(collectable_list)
-		ScanTooltip(recipe_name, collectable_list, reverse_lookup, is_vendor)
+		ScanTooltip(collectable_name, collectable_list, reverse_lookup, is_vendor)
 
 		local recipe_item_id = recipe:RecipeItemID()
 
@@ -1070,7 +1070,7 @@ do
 						scan_data.quality = item_quality
 
 						ARLDatamineTT:SetHyperlink(item_link)
-						ScanTooltip(recipe_name, collectable_list, reverse_lookup, is_vendor)
+						ScanTooltip(collectable_name, collectable_list, reverse_lookup, is_vendor)
 					else
 						output:AddLine(("Recipe %d (%s): Recipe item quality is 0 (junk), which probably means it has been removed from the game."):format(recipe.spell_id, recipe.name))
 					end
