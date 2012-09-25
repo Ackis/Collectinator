@@ -69,6 +69,162 @@ function addon:InitCritters()
 	-- Golden Pig -- 25146
 	pet = AddPet(25146, V.WOTLK, Q.RARE)
 
+	-- Terky -- 16445
+	--[[ Promotion: iCoke Taiwan ]]--
+	pet = AddPet(16445, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Silver Pig -- 25147
+	--[[ Promotion: Chinese New Years ]]--
+	pet = AddPet(25147, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Shimmering Wyrmling -- 34724
+	--[[ Vendor: Hiren Loresong
+	Zone: Icecrown
+	Faction: The Silver Covenant - Exalted
+	Cost: 40
+	 ]]--
+	pet = AddPet(34724, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Guild Page -- 49586
+	--[[ Vendor: World Vendors
+	Cost: 300
+	Cooldown: 8 hrs ]]--
+	pet = AddPet(49586, V.CATA, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Guild Herald -- 49587
+	--[[ Vendor: World Vendors
+	Cost: 500
+	Cooldown: 4 hrs
+	 ]]--
+	pet = AddPet(49587, V.CATA, Q.COMMON)
+	--pet:AddFilters(
+	-- Guild Page -- 49588
+
+	--[[ Vendor: World Vendors
+	Cost: 300
+	Cooldown: 8 hrs
+	 ]]--
+	pet = AddPet(49588, V.CATA, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Guild Herald -- 49590
+	--[[ Vendor: World Vendors
+	Cost: 500
+	Cooldown: 4 hrs ]]--
+	pet = AddPet(49590, V.CATA, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Green Balloon -- 56082
+	--[[ Vendor: Carl Goodup
+	Zone: Darkmoon Island
+	Cost: 10 ]]--
+	pet = AddPet(56082, V.CATA, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Darkmoon Rabbit -- 59358
+	--[[ Drop: Darkmoon Rabbit
+	Zone: Darkmoon Island ]]--
+	pet = AddPet(59358, V.MOP, Q.EPIC)
+	--pet:AddFilters(
+
+	-- Porcupette -- 61086
+	--[[ Drop: Sack of Pet Supplies
+	 ]]--
+	pet = AddPet(61086, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Terrible Turnip -- 63365
+	--[[ Drop: World Drop
+	Zone: Valley of the Four Winds ]]--
+	pet = AddPet(63365, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Sapphire Cub -- 61883
+	--[[ Profession: Jewelcrafting
+	 ]]--
+	pet = AddPet(61883, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Fishy -- 62829
+	--[[ Quest: Let Them Burn
+	Zone: The Jade Forest ]]--
+	pet = AddPet(62829, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Shore Crawler -- 63097
+	--[[ Vendor: Matty
+	Zone: Orgrimmar ]]--
+	pet = AddPet(63097, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Gilnean Raven -- 63098
+	--[[ Vendor: Will Larsons
+	Zone: Lor'danel ]]--
+	pet = AddPet(63098, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Red Cricket -- 63370
+	--[[ Quest: Sho in Valley of the Four Winds
+	 ]]--
+	pet = AddPet(63370, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+
+	-- Hopling -- 64632
+	--[[ Achievement: Ling-Ting's Herbal Journey
+	Category: Dungeons and Raids ]]--
+	pet = AddPet(64632, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+	-- Aqua Strider -- 64633
+	--[[ Drop: Nalash Verdantis
+	Zone: Dread Wastes]]--
+	pet = AddPet(64633, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+	-- Grinder -- 64634
+	--[[ Drop: Karr the Darkener
+	Zone: Dread Wastes]]--
+	pet = AddPet(64634, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+	-- Mechanical Pandaren Dragonling -- 64899
+	--[[ Profession: Engineering ]]--
+	pet = AddPet(64899, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+	-- Thundering Serpent Hatchling -- 65313
+	--[[ Vendor: Guild Vendor
+	Zone: Stormwind, Orgrimmar
+	Cost: 300
+	 ]]--
+	pet = AddPet(65313, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+	-- Jade Crane Chick -- 65314
+	--[[ Vendor: Audrey Burnhep, Varzog
+	Zone: Stormwind, Orgrimmar
+	Cost: 50 ]]--
+	pet = AddPet(65314, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+	-- Chi-ji Kite -- 66104
+	--[[ Profession: Inscription ]]--
+	pet = AddPet(66104, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+	-- Jade Owl -- 61877
+	--[[ Profession: Jewelcrafting ]]--
+	pet = AddPet(61877, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+	-- Tiny Goldfish -- 63559
+	--[[ Vendor: Nat Pagle
+	Zone: Krasarang Wilds
+	Faction: The Anglers - Honored
+	Cost: 250 ]]--
+	pet = AddPet(63559, V.MOP, Q.COMMON)
+	--pet:AddFilters(
+	-- Feral Vermling -- 63621
+	--[[ Achievement: Going to Need More Leashes
+	Category: Collect ]]--
+	pet = AddPet(63621, V.MOP, Q.COMMON)
+	--pet:AddFilters(
 --ACHIEVEMENTS
 	-- Pilgrim Turkey -- 32818
 	pet = AddPet(32818, V.WOTLK, Q.RARE)
@@ -454,6 +610,18 @@ function addon:InitCritters()
 	pet = AddPet(54541, V.CATA, Q.COMMON)
 	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST)
 
+	-- Argent Squire -- 33238
+	--[[ Quest: A Champion Rises
+	Zone: Icecrown ]]--
+	pet = AddPet(33238, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+
+	-- Argent Gruntling -- 33239
+	--[[ Quest: A Champion Rises
+	Zone: Icecrown ]]--
+	pet = AddPet(33239, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+
 --REP VENDOR ARGENT
 	-- Teldrassil Sproutling -- 33188
 	pet = AddPet(33188, V.WOTLK, Q.RARE)
@@ -756,1195 +924,963 @@ function addon:InitCritters()
 --PURCHASED
 	-- Lil' K.T. -- 36979
 	pet = AddPet(36979, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.IBOP)
 
 	-- Pandaren Monk -- 36911
 	pet = AddPet(36911, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.IBOP)
 
 	-- Gryphon Hatchling -- 36908
 	pet = AddPet(36908, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.IBOP)
 
 	-- Wind Rider Cub -- 36909
 	pet = AddPet(36909, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.IBOP)
 
 	-- Lil' XT -- 40703
 	pet = AddPet(40703, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.IBOP)
 
 	-- Lil' Ragnaros -- 51600
 	pet = AddPet(51600, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.IBOP)
 
 	-- Cenarion Hatchling -- 53623
 	pet = AddPet(53623, V.CATA, Q.EPIC)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.IBOP)
 
 	-- Guardian Cub -- 53283
 	pet = AddPet(53283, V.CATA, Q.RARE)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.IBOE)
 
 	-- Soul of the Aspects -- 58163
 	pet = AddPet(58163, V.CATA, Q.RARE)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.IBOP)
+
+	-- Moonkin Hatchling -- 51601
+	pet = AddPet(51601, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.IBOP)
+
+	-- Moonkin Hatchling -- 51649
+	pet = AddPet(51649, V.MOP, Q.RARE)
+	pet:AddFilters(F.HORDE, F.IBOP)
 
 --PET BATTLE
+
 	-- Snowy Owl -- 7554
 	--[[ Pet Battle: Winterspring
 	Season: Winter ]]--
 	pet = AddPet(7554, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Prairie Mouse -- 59702
 	--[[ Pet Battle: Kun-Lai Summit
-	]]--
+	 ]]--
 	pet = AddPet(59702, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Black Lamb -- 60649
 	--[[ Pet Battle: Elwynn Forest ]]--
 	pet = AddPet(60649, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Small Frog -- 61071
 	--[[ Pet Battle: Arathi Highlands, Darnassus, Desolace, Dun Morogh, Elwynn Forest, Eversong Woods, Ghostlands, Gilneas, Loch Modan, Northern Barrens, Southern Barrens, Swamp of Sorrows, Teldrassil, The Lost Isles, Zangarmarsh ]]--
 	pet = AddPet(61071, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Rabbit -- 61080
 	--[[ Pet Battle: Azshara, Azuremyst Isle, Blade's Edge Mountains, Crystalsong Forest, Darkshore, Dun Morogh, Duskwood, Elwynn Forest, Eversong Woods, Feralas, Hillsbrad Foothills, Howling Fjord, Moonglade, Mount Hyjal, Mulgore, Nagrand, Redridge Mountains, Scarlet Monastery, Silvermoon City, Silverpine Forest, Stonetalon Mountains, Stormwind City, Teldrassil, The Culling of Stratholme, Tirisfal Glades, Western Plaguelands, Wetlands ]]--
 	pet = AddPet(61080, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Squirrel -- 61081
 	--[[ Pet Battle: Ashenvale, Azshara, Azuremyst Isle, Blade's Edge Mountains, Crystalsong Forest, Darkshore, Dun Morogh, Duskwood, Dustwallow Marsh, Elwynn Forest, Feralas, Gilneas, Hillsbrad Foothills, Howling Fjord, Loch Modan, Magisters' Terrace, Moonglade, Mount Hyjal, Nagrand, Ruins of Gilneas, Sholazar Basin, Silverpine Forest, Stormwind City, Teldrassil, Terokkar Forest, Tol Barad Peninsula, Well of Eternity, Western Plaguelands, Wetlands, Zul'Aman ]]--
 	pet = AddPet(61081, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Prairie Dog -- 61141
 	--[[ Pet Battle: Arathi Highlands, Mulgore, Nagrand, Northern Barrens, Stormwind City, Westfall ]]--
 	pet = AddPet(61141, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Snake -- 61142
 	--[[ Pet Battle: Black Temple, Dun Morogh, Dustwallow Marsh, Eversong Woods, Feralas, Ghostlands, Gilneas, Gundrak, Howling Fjord, Loch Modan, Nagrand, Northern Stranglethorn, Sholazar Basin, Silverpine Forest, Sunken Temple, Terokkar Forest, The Black Morass, The Shattered Halls, Tol Barad, Wailing Caverns, Westfall, Zangarmarsh, Zul'Drak ]]--
 	pet = AddPet(61142, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Mouse -- 61143
 	--[[ Pet Battle: Duskwood, Dustwallow Marsh, Grizzly Hills, Mulgore, Netherstorm, Westfall, Wetlands ]]--
 	pet = AddPet(61143, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Shore Crab -- 61158
 	--[[ Pet Battle: Azshara, Borean Tundra, Howling Fjord, Krasarang Wilds, Twilight Highlands, Westfall ]]--
 	pet = AddPet(61158, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Tiny Harvester -- 61160
 	--[[ Pet Battle: Westfall ]]--
 	pet = AddPet(61160, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Fawn -- 61165
 	--[[ Pet Battle: Elwynn Forest, Grizzly Hills, Teldrassil, The Culling of Stratholme ]]--
 	pet = AddPet(61165, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Mountain Cottontail -- 61167
 	--[[ Pet Battle: Mulgore, Redridge Mountains ]]--
 	pet = AddPet(61167, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Redridge Rat -- 61168
 	--[[ Pet Battle: Redridge Mountains ]]--
 	pet = AddPet(61168, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Roach -- 61169
 	--[[ Pet Battle: Ahn'Qiraj, Ahn'kahet: The Old Kingdom, Ashenvale, Azjol-Nerub, Azshara, Desolace, Dun Morogh, Duskwood, Gilneas, Gilneas City, Howling Fjord, Icecrown Citadel, Kezan, Loch Modan, Northern Stranglethorn, Razorfen Downs, Redridge Mountains, Ruins of Ahn'Qiraj, Stonetalon Mountains, The Cape of Stranglethorn, The Culling of Stratholme, Thousand Needles, Tirisfal Glades ]]--
 	pet = AddPet(61169, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Fledgling Buzzard -- 61171
 	--[[ Pet Battle: Redridge Mountains ]]--
 	pet = AddPet(61171, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Dusk Spiderling -- 61253
 	--[[ Pet Battle: Duskwood ]]--
 	pet = AddPet(61253, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Skunk -- 61255
 	--[[ Pet Battle: Azshara, Azuremyst Isle, Bloodmyst Isle, Duskwood, Gilneas, Howling Fjord, Terokkar Forest ]]--
 	pet = AddPet(61255, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Black Rat -- 61257
 	--[[ Pet Battle: Ahn'kahet: The Old Kingdom, Badlands, Crypt of Forgotten Kings, Drak'Tharon Keep, Dun Morogh, Duskwood, Dustwallow Marsh, Eastern Plaguelands, Halls of Stone, Icecrown Citadel, Kezan, Pit of Saron, Razorfen Downs, ScholomanceOLD, Shadowfang Keep, Sunwell Plateau, The Forge of Souls, The Shattered Halls, The Violet Hold, Thousand Needles, Twilight Highlands, Utgarde Keep, Utgarde Pinnacle, Western Plaguelands, Wetlands ]]--
 	pet = AddPet(61257, V.MOP, Q.COMMON)
-
-	-- Strand Crab -- 61312
-	--[[ Pet Battle: Ashenvale, Dragonblight, Dun Morogh, Gilneas, Kezan, Northern Stranglethorn, Swamp of Sorrows, The Cape of Stranglethorn, The Lost Isles ]]--
-	pet = AddPet(61312, V.MOP, Q.COMMON)
-
-	-- Forest Spiderling -- 61320
-	--[[ Pet Battle: Northern Stranglethorn, The Cape of Stranglethorn ]]--
-	pet = AddPet(61320, V.MOP, Q.COMMON)
-
-	-- Adder -- 61325
-	--[[ Pet Battle: Blasted Lands, Dun Morogh, Durotar, Hellfire Peninsula, Nagrand, Northern Barrens, Northern Stranglethorn ]]--
-	pet = AddPet(61325, V.MOP, Q.COMMON)
-
-	-- Scorpid -- 61326
-	--[[ Pet Battle: Ahn'Qiraj, Blade's Edge Mountains, Blasted Lands, Burning Steppes, Eastern Plaguelands, Hellfire Peninsula, Orgrimmar, Ruins of Ahn'Qiraj, Shadowmoon Valley, Silithus, Thousand Needles, Twilight Highlands ]]--
-	pet = AddPet(61326, V.MOP, Q.COMMON)
-
-	-- Spider -- 61327
-	--[[ Pet Battle: Ahn'kahet: The Old Kingdom, Azjol-Nerub, Azshara, Black Temple, Blasted Lands, Drak'Tharon Keep, Dun Morogh, Dustwallow Marsh, Eastern Plaguelands, Elwynn Forest, Ghostlands, Gilneas, Gilneas City, Halls of Reflection, Hillsbrad Foothills, Howling Fjord, Icecrown Citadel, Karazhan, Naxxramas, Orgrimmar, Pit of Saron, Ruins of Gilneas, Stonetalon Mountains, Swamp of Sorrows, Teldrassil, The Culling of Stratholme, The Forge of Souls, The Hinterlands, The Storm Peaks, The Violet Hold, Tirisfal Glades, Utgarde Keep, Utgarde Pinnacle, Winterspring, Zul'Aman, Zul'Drak ]]--
-	pet = AddPet(61327, V.MOP, Q.COMMON)
-
-	-- Fire Beetle -- 61328
-	--[[ Pet Battle: Blasted Lands, Burning Steppes, Mount Hyjal, Searing Gorge, The Shattered Halls, Un'Goro Crater ]]--
-	pet = AddPet(61328, V.MOP, Q.COMMON)
-
-	-- Scorpling -- 61329
-	--[[ Pet Battle: Blasted Lands ]]--
-	pet = AddPet(61329, V.MOP, Q.COMMON)
-
-	-- Huge Toad -- 61368
-	--[[ Pet Battle: Hillsbrad Foothills, Swamp of Sorrows, Twilight Highlands, Zul'Drak ]]--
-	pet = AddPet(61368, V.MOP, Q.COMMON)
-
-	-- Toad -- 61369
-	--[[ Pet Battle: Ashenvale, Black Temple, Dun Morogh, Durotar, Dustwallow Marsh, Eversong Woods, Felwood, Ghostlands, Gilneas, Hillsbrad Foothills, Howling Fjord, Nagrand, Orgrimmar, Ruins of Gilneas, Silverpine Forest, Swamp of Sorrows, Teldrassil, Wetlands ]]--
-	pet = AddPet(61369, V.MOP, Q.COMMON)
-
-	-- Swamp Moth -- 61370
-	--[[ Pet Battle: Swamp of Sorrows ]]--
-	pet = AddPet(61370, V.MOP, Q.COMMON)
-
-	-- Moccasin -- 61372
-	--[[ Pet Battle: Swamp of Sorrows ]]--
-	pet = AddPet(61372, V.MOP, Q.COMMON)
-
-	-- Restless Shadeling -- 61375
-	--[[ Pet Battle: Deadwind Pass
-Time: Early Morning ]]--
-	pet = AddPet(61375, V.MOP, Q.COMMON)
-
-	-- Lava Crab -- 61383
-	--[[ Pet Battle: Burning Steppes, Searing Gorge ]]--
-	pet = AddPet(61383, V.MOP, Q.COMMON)
-
-	-- Cockroach -- 61384
-	--[[ Pet Battle: Burning Steppes, Eastern Plaguelands, End Time, Icecrown, The Hinterlands, Twilight Highlands, Un'Goro Crater ]]--
-	pet = AddPet(61384, V.MOP, Q.COMMON)
-
-	-- Ash Viper -- 61385
-	--[[ Pet Battle: Burning Steppes, Shadowmoon Valley ]]--
-	pet = AddPet(61385, V.MOP, Q.COMMON)
-
-	-- Lava Beetle -- 61386
-	--[[ Pet Battle: Burning Steppes ]]--
-	pet = AddPet(61386, V.MOP, Q.COMMON)
-
-	-- Ash Spiderling -- 61420
-	--[[ Pet Battle: Searing Gorge ]]--
-	pet = AddPet(61420, V.MOP, Q.COMMON)
-
-	-- Molten Hatchling -- 61425
-	--[[ Pet Battle: Searing Gorge ]]--
-	pet = AddPet(61425, V.MOP, Q.COMMON)
-
-	-- Gold Beetle -- 61438
-	--[[ Pet Battle: Badlands, Halls of Lightning, Halls of Stone, Tanaris ]]--
-	pet = AddPet(61438, V.MOP, Q.COMMON)
-
-	-- Rattlesnake -- 61439
-	--[[ Pet Battle: Badlands, Tanaris, Twilight Highlands ]]--
-	pet = AddPet(61439, V.MOP, Q.COMMON)
-
-	-- Stripe-Tailed Scorpid -- 61440
-	--[[ Pet Battle: Badlands, Tanaris, Terokkar Forest ]]--
-	pet = AddPet(61440, V.MOP, Q.COMMON)
-
-	-- Spiky Lizard -- 61441
-	--[[ Pet Battle: Badlands, Silithus ]]--
-	pet = AddPet(61441, V.MOP, Q.COMMON)
-
-	-- King Snake -- 61443
-	--[[ Pet Battle: Badlands ]]--
-	pet = AddPet(61443, V.MOP, Q.COMMON)
-
-	-- Little Black Ram -- 61459
-	--[[ Pet Battle: Loch Modan ]]--
-	pet = AddPet(61459, V.MOP, Q.COMMON)
-
-	-- Mountain Skunk -- 61677
-	--[[ Pet Battle: Grizzly Hills, Stonetalon Mountains, The Storm Peaks, Wetlands, Winterspring ]]--
-	pet = AddPet(61677, V.MOP, Q.COMMON)
-
-	-- Tiny Bog Beast -- 61686
-	--[[ Pet Battle: Wetlands ]]--
-	pet = AddPet(61686, V.MOP, Q.COMMON)
-
-	-- Snow Cub -- 61689
-	--[[ Pet Battle: Dun Morogh ]]--
-	pet = AddPet(61689, V.MOP, Q.COMMON)
-
-	-- Alpine Hare -- 61690
-	--[[ Pet Battle: Dun Morogh, Winterspring ]]--
-	pet = AddPet(61690, V.MOP, Q.COMMON)
-
-	-- Irradiated Roach -- 61691
-	--[[ Pet Battle: Dun Morogh ]]--
-	pet = AddPet(61691, V.MOP, Q.COMMON)
-
-	-- Tiny Twister -- 61703
-	--[[ Pet Battle: Arathi Highlands ]]--
-	pet = AddPet(61703, V.MOP, Q.COMMON)
-
-	-- Grasslands Cottontail -- 61704
-	--[[ Pet Battle: Arathi Highlands ]]--
-	pet = AddPet(61704, V.MOP, Q.COMMON)
-
-	-- Jade Oozeling -- 61718
-	--[[ Pet Battle: The Hinterlands ]]--
-	pet = AddPet(61718, V.MOP, Q.COMMON)
-
-	-- Hare -- 61751
-	--[[ Pet Battle: Arathi Highlands, Durotar, The Hinterlands ]]--
-	pet = AddPet(61751, V.MOP, Q.COMMON)
-
-	-- Brown Marmot -- 61752
-	--[[ Pet Battle: Blade's Edge Mountains, The Hinterlands ]]--
-	pet = AddPet(61752, V.MOP, Q.COMMON)
-
-	-- Maggot -- 61753
-	--[[ Pet Battle: Ashenvale, Dun Morogh, Ghostlands, Hillsbrad Foothills, Howling Fjord, Naxxramas, The Hinterlands, Tirisfal Glades ]]--
-	pet = AddPet(61753, V.MOP, Q.COMMON)
-
-	-- Snowshoe Hare -- 61755
-	--[[ Pet Battle: Hillsbrad Foothills ]]--
-	pet = AddPet(61755, V.MOP, Q.COMMON)
-
-	-- Red-Tailed Chipmunk -- 61757
-	--[[ Pet Battle: Darnassus, Desolace, Hillsbrad Foothills, Teldrassil ]]--
-	pet = AddPet(61757, V.MOP, Q.COMMON)
-
-	-- Infested Bear Cub -- 61758
-	--[[ Pet Battle: Hillsbrad Foothills ]]--
-	pet = AddPet(61758, V.MOP, Q.COMMON)
-
-	-- Blighthawk -- 61826
-	--[[ Pet Battle: Western Plaguelands ]]--
-	pet = AddPet(61826, V.MOP, Q.COMMON)
-
-	-- Infected Fawn -- 61827
-	--[[ Pet Battle: Bloodmyst Isle, Eastern Plaguelands, Silverpine Forest ]]--
-	pet = AddPet(61827, V.MOP, Q.COMMON)
-
-	-- Infected Squirrel -- 61828
-	--[[ Pet Battle: Bloodmyst Isle, Eastern Plaguelands, Silverpine Forest ]]--
-	pet = AddPet(61828, V.MOP, Q.COMMON)
-
-	-- Bat -- 61829
-	--[[ Pet Battle: Eastern Plaguelands, Mount Hyjal, Tirisfal Glades ]]--
-	pet = AddPet(61829, V.MOP, Q.COMMON)
-
-	-- Festering Maggot -- 61830
-	--[[ Pet Battle: Eastern Plaguelands ]]--
-	pet = AddPet(61830, V.MOP, Q.COMMON)
-
-	-- Undercity Rat -- 61889
-	--[[ Pet Battle: Tirisfal Glades ]]--
-	pet = AddPet(61889, V.MOP, Q.COMMON)
-
-	-- Blighted Squirrel -- 61890
-	--[[ Pet Battle: Silverpine Forest ]]--
-	pet = AddPet(61890, V.MOP, Q.COMMON)
-
-	-- Lost of Lordaeron -- 61905
-	--[[ Pet Battle: Tirisfal Glades ]]--
-	pet = AddPet(61905, V.MOP, Q.COMMON)
-
-	-- Cat -- 62019
-	--[[ Pet Battle: Arathi Highlands, Elwynn Forest, Eversong Woods, Gilneas City, Netherstorm, Silvermoon City, The Culling of Stratholme ]]--
-	pet = AddPet(62019, V.MOP, Q.COMMON)
-
-	-- Ruby Sapling -- 62020
-	--[[ Pet Battle: Eversong Woods ]]--
-	pet = AddPet(62020, V.MOP, Q.COMMON)
-
-	-- Larva -- 62022
-	--[[ Pet Battle: Ghostlands, Naxxramas ]]--
-	pet = AddPet(62022, V.MOP, Q.COMMON)
-
-	-- Spirit Crab -- 62034
-	--[[ Pet Battle: Ghostlands ]]--
-	pet = AddPet(62034, V.MOP, Q.COMMON)
-
-	-- Grey Moth -- 62050
-	--[[ Pet Battle: Azuremyst Isle ]]--
-	pet = AddPet(62050, V.MOP, Q.COMMON)
-
-	-- Ravager Hatchling -- 62051
-	--[[ Pet Battle: Bloodmyst Isle ]]--
-	pet = AddPet(62051, V.MOP, Q.COMMON)
-
-	-- Spiny Lizard -- 62114
-	--[[ Pet Battle: Durotar, Orgrimmar ]]--
-	pet = AddPet(62114, V.MOP, Q.COMMON)
-
-	-- Dung Beetle -- 62115
-	--[[ Pet Battle: Durotar, Lost City of the Tol'vir, Orgrimmar, Uldum ]]--
-	pet = AddPet(62115, V.MOP, Q.COMMON)
-
-	-- Creepy Crawly -- 62116
-	--[[ Pet Battle: Durotar ]]--
-	pet = AddPet(62116, V.MOP, Q.COMMON)
-
-	-- Twilight Spider -- 62117
-	--[[ Pet Battle: Azshara, Deepholm, Twilight Highlands ]]--
-	pet = AddPet(62117, V.MOP, Q.COMMON)
-
-	-- Twilight Beetle -- 62118
-	--[[ Pet Battle: Azshara, Deepholm, Mount Hyjal ]]--
-	pet = AddPet(62118, V.MOP, Q.COMMON)
-
-	-- Robo-Chick -- 62119
-	--[[ Pet Battle: Azshara, Kezan, Orgrimmar, Winterspring ]]--
-	pet = AddPet(62119, V.MOP, Q.COMMON)
-
-	-- Rabid Nut Varmint 5000 -- 62120
-	--[[ Pet Battle: Azshara, Kezan, Stonetalon Mountains, Winterspring ]]--
-	pet = AddPet(62120, V.MOP, Q.COMMON)
-
-	-- Turquoise Turtle -- 62121
-	--[[ Pet Battle: Azshara ]]--
-	pet = AddPet(62121, V.MOP, Q.COMMON)
-
-	-- Emerald Boa -- 62127
-	--[[ Pet Battle: Lost City of the Tol'vir, Northern Barrens, Southern Barrens, Uldum, Un'Goro Crater ]]--
-	pet = AddPet(62127, V.MOP, Q.COMMON)
-
-	-- Cheetah Cub -- 62129
-	--[[ Pet Battle: Northern Barrens ]]--
-	pet = AddPet(62129, V.MOP, Q.COMMON)
-
-	-- Giraffe Calf -- 62130
-	--[[ Pet Battle: Southern Barrens ]]--
-	pet = AddPet(62130, V.MOP, Q.COMMON)
-
-	-- Gazelle Fawn -- 62176
-	--[[ Pet Battle: Mulgore ]]--
-	pet = AddPet(62176, V.MOP, Q.COMMON)
-
-	-- Forest Moth -- 62177
-	--[[ Pet Battle: Ashenvale, Darnassus, Desolace, Moonglade, Mount Hyjal, Teldrassil ]]--
-	pet = AddPet(62177, V.MOP, Q.COMMON)
-
-	-- Elfin Rabbit -- 62178
-	--[[ Pet Battle: Darnassus, Desolace, Mount Hyjal, Teldrassil ]]--
-	pet = AddPet(62178, V.MOP, Q.COMMON)
-
-	-- Topaz Shale Hatchling -- 62181
-	--[[ Pet Battle: Deepholm, Desolace, The Stonecore ]]--
-	pet = AddPet(62181, V.MOP, Q.COMMON)
-
-	-- Amethyst Shale Hatchling -- 62182
-	--[[ Pet Battle: Deepholm, Desolace ]]--
-	pet = AddPet(62182, V.MOP, Q.COMMON)
-
-	-- Rock Viper -- 62184
-	--[[ Pet Battle: Blade's Edge Mountains, Desolace, Mount Hyjal, Silithus ]]--
-	pet = AddPet(62184, V.MOP, Q.COMMON)
-
-	-- Horny Toad -- 62185
-	--[[ Pet Battle: Desolace ]]--
-	pet = AddPet(62185, V.MOP, Q.COMMON)
-
-	-- Desert Spider -- 62186
-	--[[ Pet Battle: Desolace, Lost City of the Tol'vir, Silithus, Tanaris, Uldum ]]--
-	pet = AddPet(62186, V.MOP, Q.COMMON)
-
-	-- Stone Armadillo -- 62187
-	--[[ Pet Battle: Desolace
-Time: Night
-]]--
-	pet = AddPet(62187, V.MOP, Q.COMMON)
-
-	-- Alpine Chipmunk -- 62189
-	--[[ Pet Battle: Mount Hyjal, Stonetalon Mountains, Winterspring ]]--
-	pet = AddPet(62189, V.MOP, Q.COMMON)
-
-	-- Coral Snake -- 62190
-	--[[ Pet Battle: Stonetalon Mountains ]]--
-	pet = AddPet(62190, V.MOP, Q.COMMON)
-
-	-- Venomspitter Hatchling -- 62191
-	--[[ Pet Battle: Stonetalon Mountains ]]--
-	pet = AddPet(62191, V.MOP, Q.COMMON)
-
-	-- Spawn of Onyxia -- 62201
-	--[[ Pet Battle: Dustwallow Marsh ]]--
-	pet = AddPet(62201, V.MOP, Q.COMMON)
-
-	-- Crested Owl -- 62242
-	--[[ Pet Battle: Teldrassil ]]--
-	pet = AddPet(62242, V.MOP, Q.COMMON)
-
-	-- Shimmershell Snail -- 62246
-	--[[ Pet Battle: Darkshore ]]--
-	pet = AddPet(62246, V.MOP, Q.COMMON)
-
-	-- Darkshore Cub -- 62250
-	--[[ Pet Battle: Darkshore ]]--
-	pet = AddPet(62250, V.MOP, Q.COMMON)
-
-	-- Twilight Iguana -- 62255
-	--[[ Pet Battle: Thousand Needles ]]--
-	pet = AddPet(62255, V.MOP, Q.COMMON)
-
-	-- Stinkbug -- 62256
-	--[[ Pet Battle: Tanaris ]]--
-	pet = AddPet(62256, V.MOP, Q.COMMON)
-
-	-- Sand Kitten -- 62257
-	--[[ Pet Battle: Tanaris ]]--
-	pet = AddPet(62257, V.MOP, Q.COMMON)
-
-	-- Silithid Hatchling -- 62258
-	--[[ Pet Battle: Tanaris
-Weather: Sandstorm ]]--
-	pet = AddPet(62258, V.MOP, Q.COMMON)
-
-	-- Frog -- 62312
-	--[[ Pet Battle: Ashenvale, The Lost Isles ]]--
-	pet = AddPet(62312, V.MOP, Q.COMMON)
-
-	-- Rusty Snail -- 62313
-	--[[ Pet Battle: Ashenvale ]]--
-	pet = AddPet(62313, V.MOP, Q.COMMON)
-
-	-- Tainted Cockroach -- 62314
-	--[[ Pet Battle: Felwood, Shadowmoon Valley ]]--
-	pet = AddPet(62314, V.MOP, Q.COMMON)
-
-	-- Tainted Moth -- 62315
-	--[[ Pet Battle: Felwood ]]--
-	pet = AddPet(62315, V.MOP, Q.COMMON)
-
-	-- Tainted Rat -- 62316
-	--[[ Pet Battle: Felwood ]]--
-	pet = AddPet(62316, V.MOP, Q.COMMON)
-
-	-- Minfernal -- 62317
-	--[[ Pet Battle: Felwood ]]--
-	pet = AddPet(62317, V.MOP, Q.COMMON)
-
-	-- Ash Lizard -- 62364
-	--[[ Pet Battle: Mount Hyjal, Un'Goro Crater ]]--
-	pet = AddPet(62364, V.MOP, Q.COMMON)
-
-	-- Spotted Bell Frog -- 62370
-	--[[ Pet Battle: Un'Goro Crater ]]--
-	pet = AddPet(62370, V.MOP, Q.COMMON)
-
-	-- Silky Moth -- 62373
-	--[[ Pet Battle: Moonglade, Mount Hyjal, Un'Goro Crater ]]--
-	pet = AddPet(62373, V.MOP, Q.COMMON)
-
-	-- Diemetradon Hatchling -- 62375
-	--[[ Pet Battle: Un'Goro Crater ]]--
-	pet = AddPet(62375, V.MOP, Q.COMMON)
-
-	-- Nether Faerie Dragon -- 62395
-	--[[ Pet Battle: Feralas ]]--
-	pet = AddPet(62395, V.MOP, Q.COMMON)
-
-	-- Crystal Spider -- 62435
-	--[[ Pet Battle: Dun Morogh, The Oculus, Winterspring ]]--
-	pet = AddPet(62435, V.MOP, Q.COMMON)
-
-	-- Sidewinder -- 62523
-	--[[ Pet Battle: Silithus, Uldum ]]--
-	pet = AddPet(62523, V.MOP, Q.COMMON)
-
-	-- Scarab Hatchling -- 62524
-	--[[ Pet Battle: Silithus ]]--
-	pet = AddPet(62524, V.MOP, Q.COMMON)
-
-	-- Qiraji Guardling -- 62526
-	--[[ Pet Battle: Silithus
-Season: Summer ]]--
-	pet = AddPet(62526, V.MOP, Q.COMMON)
-
-	-- Flayer Youngling -- 62555
-	--[[ Pet Battle: Hellfire Peninsula ]]--
-	pet = AddPet(62555, V.MOP, Q.COMMON)
-
-	-- Sporeling Sprout -- 62564
-	--[[ Pet Battle: Zangarmarsh ]]--
-	pet = AddPet(62564, V.MOP, Q.COMMON)
-
-	-- Warpstalker Hatchling -- 62583
-	--[[ Pet Battle: Terokkar Forest ]]--
-	pet = AddPet(62583, V.MOP, Q.COMMON)
-
-	-- Clefthoof Runt -- 62620
-	--[[ Pet Battle: Nagrand ]]--
-	pet = AddPet(62620, V.MOP, Q.COMMON)
-
-	-- Fel Flame -- 62621
-	--[[ Pet Battle: Shadowmoon Valley ]]--
-	pet = AddPet(62621, V.MOP, Q.COMMON)
-
-	-- Nether Roach -- 62625
-	--[[ Pet Battle: Netherstorm ]]--
-	pet = AddPet(62625, V.MOP, Q.COMMON)
-
-	-- Fledgling Nether Ray -- 62627
-	--[[ Pet Battle: Netherstorm ]]--
-	pet = AddPet(62627, V.MOP, Q.COMMON)
-
-	-- Scalded Basilisk Hatchling -- 62628
-	--[[ Pet Battle: Blade's Edge Mountains ]]--
-	pet = AddPet(62628, V.MOP, Q.COMMON)
-
-	-- Skittering Cavern Crawler -- 62638
-	--[[ Pet Battle: Blade's Edge Mountains ]]--
-	pet = AddPet(62638, V.MOP, Q.COMMON)
-
-	-- Fjord Rat -- 62641
-	--[[ Pet Battle: Howling Fjord ]]--
-	pet = AddPet(62641, V.MOP, Q.COMMON)
-
-	-- Turkey -- 62648
-	--[[ Pet Battle: Howling Fjord ]]--
-	pet = AddPet(62648, V.MOP, Q.COMMON)
-
-	-- Chicken -- 62664
-	--[[ Pet Battle: Arathi Basin, Azuremyst Isle, Bloodmyst Isle, Duskwood, Dustwallow Marsh, Elwynn Forest, Gilneas, Hillsbrad Foothills, Howling Fjord, Northern Barrens, Redridge Mountains, Shattrath City, Tirisfal Glades, Westfall, Wetlands ]]--
-	pet = AddPet(62664, V.MOP, Q.COMMON)
-
-	-- Fjord Worg Pup -- 62669
-	--[[ Pet Battle: Howling Fjord ]]--
-	pet = AddPet(62669, V.MOP, Q.COMMON)
-
-	-- Arctic Hare -- 62693
-	--[[ Pet Battle: Borean Tundra, Dragonblight, The Storm Peaks, Zul'Drak ]]--
-	pet = AddPet(62693, V.MOP, Q.COMMON)
-
-	-- Borean Marmot -- 62695
-	--[[ Pet Battle: Borean Tundra ]]--
-	pet = AddPet(62695, V.MOP, Q.COMMON)
-
-	-- Oily Slimeling -- 62697
-	--[[ Pet Battle: Borean Tundra ]]--
-	pet = AddPet(62697, V.MOP, Q.COMMON)
-
-	-- Biletoad -- 62815
-	--[[ Pet Battle: Northern Barrens, Sholazar Basin, Wailing Caverns ]]--
-	pet = AddPet(62815, V.MOP, Q.COMMON)
-
-	-- Stunted Shardhorn -- 62816
-	--[[ Pet Battle: Sholazar Basin ]]--
-	pet = AddPet(62816, V.MOP, Q.COMMON)
-
-	-- Grizzly Squirrel -- 62818
-	--[[ Pet Battle: Grizzly Hills, Twilight Highlands ]]--
-	pet = AddPet(62818, V.MOP, Q.COMMON)
-
-	-- Imperial Eagle Chick -- 62819
-	--[[ Pet Battle: Grizzly Hills ]]--
-	pet = AddPet(62819, V.MOP, Q.COMMON)
-
-	-- Water Waveling -- 62820
-	--[[ Pet Battle: Zul'Drak ]]--
-	pet = AddPet(62820, V.MOP, Q.COMMON)
-
-	-- Tundra Penguin -- 62835
-	--[[ Pet Battle: Borean Tundra, Dragonblight ]]--
-	pet = AddPet(62835, V.MOP, Q.COMMON)
-
-	-- Dragonbone Hatchling -- 62852
-	--[[ Pet Battle: Dragonblight ]]--
-	pet = AddPet(62852, V.MOP, Q.COMMON)
-
-	-- Scourged Whelpling -- 62854
-	--[[ Pet Battle: Icecrown ]]--
-	pet = AddPet(62854, V.MOP, Q.COMMON)
-
-	-- Arctic Fox Kit -- 62864
-	--[[ Pet Battle: The Storm Peaks
-Weather: Snow ]]--
-	pet = AddPet(62864, V.MOP, Q.COMMON)
-
-	-- Grotto Vole -- 62884
-	--[[ Pet Battle: Mount Hyjal ]]--
-	pet = AddPet(62884, V.MOP, Q.COMMON)
-
-	-- Carrion Rat -- 62885
-	--[[ Pet Battle: Mount Hyjal ]]--
-	pet = AddPet(62885, V.MOP, Q.COMMON)
-
-	-- Fire-Proof Roach -- 62886
-	--[[ Pet Battle: Mount Hyjal ]]--
-	pet = AddPet(62886, V.MOP, Q.COMMON)
-
-	-- Death's Head Cockroach -- 62887
-	--[[ Pet Battle: Mount Hyjal
-]]--
-	pet = AddPet(62887, V.MOP, Q.COMMON)
-
-	-- Nordrassil Wisp -- 62888
-	--[[ Pet Battle: Mount Hyjal ]]--
-	pet = AddPet(62888, V.MOP, Q.COMMON)
-
-	-- Mac Frog -- 62892
-	--[[ Pet Battle: Lost City of the Tol'vir, Uldum ]]--
-	pet = AddPet(62892, V.MOP, Q.COMMON)
-
-	-- Locust -- 62893
-	--[[ Pet Battle: Lost City of the Tol'vir, Uldum ]]--
-	pet = AddPet(62893, V.MOP, Q.COMMON)
-
-	-- Horned Lizard -- 62894
-	--[[ Pet Battle: Badlands, Silithus ]]--
-	pet = AddPet(62894, V.MOP, Q.COMMON)
-
-	-- Oasis Moth -- 62895
-	--[[ Pet Battle: Lost City of the Tol'vir, Uldum ]]--
-	pet = AddPet(62895, V.MOP, Q.COMMON)
-
-	-- Leopard Scorpid -- 62896
-	--[[ Pet Battle: Uldum ]]--
-	pet = AddPet(62896, V.MOP, Q.COMMON)
-
-	-- Tol'vir Scarab -- 62899
-	--[[ Pet Battle: Uldum ]]--
-	pet = AddPet(62899, V.MOP, Q.COMMON)
-
-	-- Wildhammer Gryphon Hatchling -- 62900
-	--[[ Pet Battle: Twilight Highlands ]]--
-	pet = AddPet(62900, V.MOP, Q.COMMON)
-
-	-- Yellow-Bellied Marmot -- 62904
-	--[[ Pet Battle: Twilight Highlands ]]--
-	pet = AddPet(62904, V.MOP, Q.COMMON)
-
-	-- Highlands Mouse -- 62905
-	--[[ Pet Battle: Twilight Highlands ]]--
-	pet = AddPet(62905, V.MOP, Q.COMMON)
-
-	-- Highlands Turkey -- 62906
-	--[[ Pet Battle: Twilight Highlands ]]--
-	pet = AddPet(62906, V.MOP, Q.COMMON)
-
-	-- Highlands Skunk -- 62907
-	--[[ Pet Battle: Grizzly Hills, Stonetalon Mountains, The Storm Peaks, Wetlands, Winterspring ]]--
-	pet = AddPet(62907, V.MOP, Q.COMMON)
-
-	-- Twilight Fiendling -- 62914
-	--[[ Pet Battle: Twilight Highlands ]]--
-	pet = AddPet(62914, V.MOP, Q.COMMON)
-
-	-- Emerald Shale Hatchling -- 62915
-	--[[ Pet Battle: Deepholm, The Stonecore ]]--
-	pet = AddPet(62915, V.MOP, Q.COMMON)
-
-	-- Fungal Moth -- 62916
-	--[[ Pet Battle: Deepholm
-]]--
-	pet = AddPet(62916, V.MOP, Q.COMMON)
-
-	-- Stowaway Rat -- 62921
-	--[[ Pet Battle: Deepholm ]]--
-	pet = AddPet(62921, V.MOP, Q.COMMON)
-
-	-- Crimson Shale Hatchling -- 62922
-	--[[ Pet Battle: Deepholm, The Stonecore ]]--
-	pet = AddPet(62922, V.MOP, Q.COMMON)
-
-	-- Deepholm Cockroach -- 62924
-	--[[ Pet Battle: Deepholm ]]--
-	pet = AddPet(62924, V.MOP, Q.COMMON)
-
-	-- Crystal Beetle -- 62925
-	--[[ Pet Battle: Deepholm ]]--
-	pet = AddPet(62925, V.MOP, Q.COMMON)
-
-	-- Crimson Geode -- 62927
-	--[[ Pet Battle: Deepholm ]]--
-	pet = AddPet(62927, V.MOP, Q.COMMON)
-
-	-- Sea Gull -- 62953
-	--[[ Pet Battle: Elwynn Forest, Krasarang Wilds, Tanaris ]]--
-	pet = AddPet(62953, V.MOP, Q.COMMON)
-
-	-- Stormwind Rat -- 62954
-	--[[ Pet Battle: Elwynn Forest ]]--
-	pet = AddPet(62954, V.MOP, Q.COMMON)
-
-	-- Coral Adder -- 62991
-	--[[ Pet Battle: The Jade Forest
-]]--
-	pet = AddPet(62991, V.MOP, Q.COMMON)
-
-	-- Bucktooth Flapper -- 62992
-	--[[ Pet Battle: The Jade Forest ]]--
-	pet = AddPet(62992, V.MOP, Q.COMMON)
-
-	-- Emerald Turtle -- 62994
-	--[[ Pet Battle: The Jade Forest ]]--
-	pet = AddPet(62994, V.MOP, Q.COMMON)
-
-	-- Jungle Darter -- 62997
-	--[[ Pet Battle: The Jade Forest ]]--
-	pet = AddPet(62997, V.MOP, Q.COMMON)
-
-	-- Mirror Strider -- 62998
-	--[[ Pet Battle: The Jade Forest ]]--
-	pet = AddPet(62998, V.MOP, Q.COMMON)
-
-	-- Temple Snake -- 62999
-	--[[ Pet Battle: The Jade Forest ]]--
-	pet = AddPet(62999, V.MOP, Q.COMMON)
-
-	-- Garden Frog -- 63002
-	--[[ Pet Battle: The Jade Forest ]]--
-	pet = AddPet(63002, V.MOP, Q.COMMON)
-
-	-- Masked Tanuki -- 63003
-	--[[ Pet Battle: The Jade Forest ]]--
-	pet = AddPet(63003, V.MOP, Q.COMMON)
-
-	-- Grove Viper -- 63004
-	--[[ Pet Battle: The Jade Forest ]]--
-	pet = AddPet(63004, V.MOP, Q.COMMON)
-
-	-- Spirebound Crab -- 63005
-	--[[ Pet Battle: The Jade Forest ]]--
-	pet = AddPet(63005, V.MOP, Q.COMMON)
-
-	-- Sandy Petrel -- 63006
-	--[[ Pet Battle: The Jade Forest ]]--
-	pet = AddPet(63006, V.MOP, Q.COMMON)
-
-	-- Sifang Otter -- 63057
-	--[[ Pet Battle: Valley of Four Winds ]]--
-	pet = AddPet(63057, V.MOP, Q.COMMON)
-
-	-- Softshell Snapling -- 63060
-	--[[ Pet Battle:  Valley of the Four Winds ]]--
-	pet = AddPet(63060, V.MOP, Q.COMMON)
-
-	-- Bandicoon -- 63062
-	--[[ Pet Battle: Valley of Four Winds ]]--
-	pet = AddPet(63062, V.MOP, Q.COMMON)
-
-	-- Bandicoon Kit -- 63064
-	--[[ Pet Battle:  Valley of Four Winds ]]--
-	pet = AddPet(63064, V.MOP, Q.COMMON)
-
-	-- Malayan Quillrat -- 63094
-	--[[ Pet Battle:  Valley of Four Winds ]]--
-	pet = AddPet(63094, V.MOP, Q.COMMON)
-
-	-- Malayan Quillrat Pup -- 63095
-	--[[ Pet Battle:  Valley of Four Winds ]]--
-	pet = AddPet(63095, V.MOP, Q.COMMON)
-
-	-- Marsh Fiddler -- 63096
-	--[[ Pet Battle:  Valley of Four Winds ]]--
-	pet = AddPet(63096, V.MOP, Q.COMMON)
-
-	-- Amethyst Spiderling -- 63288
-	--[[ Pet Battle: Krasarang Wilds
-]]--
-	pet = AddPet(63288, V.MOP, Q.COMMON)
-
-	-- Savory Beetle -- 63291
-	--[[ Pet Battle: Krasarang Wilds
-
-]]--
-	pet = AddPet(63291, V.MOP, Q.COMMON)
-
-	-- Spiny Terrapin -- 63293
-	--[[ Pet Battle:  Krasarang Wilds ]]--
-	pet = AddPet(63293, V.MOP, Q.COMMON)
-
-	-- Jungle Grub -- 63304
-	--[[ Pet Battle: Krasarang Wilds ]]--
-	pet = AddPet(63304, V.MOP, Q.COMMON)
-
-	-- Sifang Otter Pup -- 63358
-	--[[ Pet Battle:  Valley of Four Winds ]]--
-	pet = AddPet(63358, V.MOP, Q.COMMON)
-
-	-- Plains Monitor -- 63547
-	--[[ Pet Battle: Kun-Lai Summit
-]]--
-	pet = AddPet(63547, V.MOP, Q.COMMON)
-
-	-- Crunchy Scorpion -- 63548
-	--[[ Pet Battle: Dread Wastes
-]]--
-	pet = AddPet(63548, V.MOP, Q.COMMON)
-
-	-- Grassland Hopper -- 63549
-	--[[ Pet Battle:  Townlong Steppes ]]--
-	pet = AddPet(63549, V.MOP, Q.COMMON)
-
-	-- Alpine Foxling -- 63550
-	--[[ Pet Battle: Kun-Lai Summit
-]]--
-	pet = AddPet(63550, V.MOP, Q.COMMON)
-
-	-- Alpine Foxling Kit -- 63551
-	--[[ Pet Battle: Kun-Lai Summit
-]]--
-	pet = AddPet(63551, V.MOP, Q.COMMON)
-
-	-- Zooey Snake -- 63555
-	--[[ Pet Battle: Kun-Lai Summit
-]]--
-	pet = AddPet(63555, V.MOP, Q.COMMON)
-
-	-- Tolai Hare -- 63557
-	--[[ Pet Battle: Kun-Lai Summit
-]]--
-	pet = AddPet(63557, V.MOP, Q.COMMON)
-
-	-- Tolai Hare Pup -- 63558
-	--[[ Pet Battle: Kun-Lai Summit
-]]--
-	pet = AddPet(63558, V.MOP, Q.COMMON)
-
-	-- Szechuan Chicken -- 63585
-	--[[ Pet Battle: Kun-Lai Summit ]]--
-	pet = AddPet(63585, V.MOP, Q.COMMON)
-
-	-- Jumping Spider -- 63715
-	--[[ Pet Battle: The Jade Forest
-]]--
-	pet = AddPet(63715, V.MOP, Q.COMMON)
-
-	-- Masked Tanuki Pup -- 63716
-	--[[ Pet Battle: The Jade Forest ]]--
-	pet = AddPet(63716, V.MOP, Q.COMMON)
-
-	-- Gilded Moth -- 63838
-	--[[ Pet Battle: Vale of Eternal Blossoms
-]]--
-	pet = AddPet(63838, V.MOP, Q.COMMON)
-
-	-- Golden Civet -- 63841
-	--[[ Pet Battle: Vale of Eternal Blossoms ]]--
-	pet = AddPet(63841, V.MOP, Q.COMMON)
-
-	-- Golden Civet Kitten -- 63842
-	--[[ Pet Battle: Vale of Eternal Blossoms ]]--
-	pet = AddPet(63842, V.MOP, Q.COMMON)
-
-	-- Dancing Water Skimmer -- 63847
-	--[[ Pet Battle: Vale of Eternal Blossoms
-]]--
-	pet = AddPet(63847, V.MOP, Q.COMMON)
-
-	-- Yellow-Bellied Bullfrog -- 63849
-	--[[ Pet Battle: Vale of Eternal Blossoms
-]]--
-	pet = AddPet(63849, V.MOP, Q.COMMON)
-
-	-- Effervescent Glowfly -- 63850
-	--[[ Pet Battle: Vale of Eternal Blossoms
-]]--
-	pet = AddPet(63850, V.MOP, Q.COMMON)
-
-	-- Leopard Tree Frog -- 63919
-	--[[ Pet Battle: The Jade Forest ]]--
-	pet = AddPet(63919, V.MOP, Q.COMMON)
-
-	-- Kuitan Mongoose -- 63953
-	--[[ Pet Battle: Townlong Steppes
-]]--
-	pet = AddPet(63953, V.MOP, Q.COMMON)
-
-	-- Mongoose Pup -- 63954
-	--[[ Pet Battle: Townlong Steppes
-]]--
-	pet = AddPet(63954, V.MOP, Q.COMMON)
-
-	-- Yakrat -- 63957
-	--[[ Pet Battle: Townlong Steppes
-Pet Battle: Dread Wastes
-]]--
-	pet = AddPet(63957, V.MOP, Q.COMMON)
-
-	-- Singing Cricket -- 64232
-	--[[ Achievement: Pro Pet Mob
-Category: Pet Battle ]]--
-	pet = AddPet(64232, V.MOP, Q.COMMON)
-
-	-- Resilient Roach -- 64238
-	--[[ Pet Battle: Dread Wastes
-]]--
-	pet = AddPet(64238, V.MOP, Q.COMMON)
-
-	-- Clouded Hedgehog -- 64242
-	--[[ Pet Battle: Dread Wastes
-]]--
-	pet = AddPet(64242, V.MOP, Q.COMMON)
-
-	-- Shy Bandicoon -- 64246
-	--[[ Pet Battle: Valley of the Four Winds ]]--
-	pet = AddPet(64246, V.MOP, Q.COMMON)
-
-	-- Summit Kid -- 64248
-	--[[ Pet Battle: Kun-Lai Summit
-]]--
-	pet = AddPet(64248, V.MOP, Q.COMMON)
-
-	-- Rapana Whelk -- 64352
-	--[[ Pet Battle: Dread Wastes
-
-]]--
-	pet = AddPet(64352, V.MOP, Q.COMMON)
-
-	-- Silent Hedgehog -- 64804
-	--[[ Pet Battle: Dread Wastes
-]]--
-	pet = AddPet(64804, V.MOP, Q.COMMON)
-
-	-- Luyu Moth -- 65124
-	--[[ Pet Battle: Krasarang Wilds
-]]--
-	pet = AddPet(65124, V.MOP, Q.COMMON)
-
-	-- Mei Li Sparkler -- 65185
-	--[[ Pet Battle: Krasarang Wilds
-]]--
-	pet = AddPet(65185, V.MOP, Q.COMMON)
-
-	-- Amber Moth -- 65187
-	--[[ Pet Battle: Dread Wastes
-Pet Battle: Townlong Steppes ]]--
-	pet = AddPet(65187, V.MOP, Q.COMMON)
-
-	-- Mongoose -- 65190
-	--[[ Pet Battle: Townlong Steppes
-]]--
-	pet = AddPet(65190, V.MOP, Q.COMMON)
-
-	-- Wild Crimson Hatchling -- 65321
-	--[[ Pet Battle: The Jade Forest
-Faction: Order of the Cloud Serpent (Exalted)
-]]--
-	pet = AddPet(65321, V.MOP, Q.COMMON)
-
-	-- Wild Jade Hatchling -- 65323
-	--[[ Pet Battle: The Jade Forest
-Faction: Order of the Cloud Serpent (Exalted)
-]]--
-	pet = AddPet(65323, V.MOP, Q.COMMON)
-
-	-- Wild Golden Hatchling -- 65324
-	--[[ Pet Battle: The Jade Forest
-Faction: Order of the Cloud Serpent (Exalted) ]]--
-	pet = AddPet(65324, V.MOP, Q.COMMON)
-
-	-- Jade Tentacle -- 66450
-	--[[ Achievement: Time To Open a Pet Store
-Category: Pet Battles ]]--
-	pet = AddPet(66450, V.MOP, Q.COMMON)
-
-	-- Wanderer's Festival Hatchling -- 67022
-	--[[ Pet Battle:  Krasarang Wilds
-Event:  Wanderer's Festival ]]--
-	pet = AddPet(67022, V.MOP, Q.COMMON)
-
--- These came up as untracked
-
-	-- Terky -- 16445
-	--[[ Promotion: iCoke Taiwan ]]--
-	pet = AddPet(16445, V.MOP, Q.COMMON)
-
-	-- Silver Pig -- 25147
-	--[[ Promotion: Chinese New Years ]]--
-	pet = AddPet(25147, V.MOP, Q.COMMON)
-
-	-- Argent Squire -- 33238
-	--[[ Quest: A Champion Rises
-	Zone: Icecrown ]]--
-	pet = AddPet(33238, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
-
-	-- Argent Gruntling -- 33239
-	--[[ Quest: A Champion Rises
-	Zone: Icecrown ]]--
-	pet = AddPet(33239, V.MOP, Q.COMMON)
-	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST)
-
-	-- Shimmering Wyrmling -- 34724
-	--[[ Vendor: Hiren Loresong
-	Zone: Icecrown
-	Faction: The Silver Covenant - Exalted
-	Cost: 40
-	 ]]--
-	pet = AddPet(34724, V.MOP, Q.COMMON)
-
-	-- Guild Page -- 49586
-	--[[ Vendor: World Vendors
-	Cost: 300
-	Cooldown: 8 hrs ]]--
-	pet = AddPet(49586, V.MOP, Q.COMMON)
-
-	-- Guild Herald -- 49587
-	--[[ Vendor: World Vendors
-	Cost: 500
-	Cooldown: 4 hrs
-	 ]]--
-	pet = AddPet(49587, V.MOP, Q.COMMON)
-
-	-- Guild Page -- 49588
-	--[[ Vendor: World Vendors
-	Cost: 300
-	Cooldown: 8 hrs
-	 ]]--
-	pet = AddPet(49588, V.MOP, Q.COMMON)
-
-	-- Guild Herald -- 49590
-	--[[ Vendor: World Vendors
-	Cost: 500
-	Cooldown: 4 hrs ]]--
-	pet = AddPet(49590, V.MOP, Q.COMMON)
-
-	-- Moonkin Hatchling -- 51601
-	--[[ Pet Store: Alliance ]]--
-	pet = AddPet(51601, V.MOP, Q.COMMON)
-
-	-- Moonkin Hatchling -- 51649
-	--[[ Pet Store: Horde ]]--
-	pet = AddPet(51649, V.MOP, Q.COMMON)
-
-	-- Green Balloon -- 56082
-	--[[ Vendor: Carl Goodup
-	Zone: Darkmoon Island
-	Cost: 10 ]]--
-	pet = AddPet(56082, V.MOP, Q.COMMON)
-
-	-- Darkmoon Rabbit -- 59358
-	--[[ Drop: Darkmoon Rabbit
-	Zone: Darkmoon Island ]]--
-	pet = AddPet(59358, V.MOP, Q.COMMON)
-
-	-- Porcupette -- 61086
-	--[[ Drop: Sack of Pet Supplies
-	 ]]--
-	pet = AddPet(61086, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Rat Snake -- 61258
 	--[[ Pet Battle: Duskwood ]]--
 	pet = AddPet(61258, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Strand Crab -- 61312
+	--[[ Pet Battle: Ashenvale, Dragonblight, Dun Morogh, Gilneas, Kezan, Northern Stranglethorn, Swamp of Sorrows, The Cape of Stranglethorn, The Lost Isles ]]--
+	pet = AddPet(61312, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Parrot -- 61313
 	--[[ Pet Battle: Northern Stranglethorn, Swamp of Sorrows, The Cape of Stranglethorn, Un'Goro Crater ]]--
 	pet = AddPet(61313, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Long-tailed Mole -- 61317
 	--[[ Pet Battle: Dun Morogh, Northern Stranglethorn, The Cape of Stranglethorn, Un'Goro Crater ]]--
 	pet = AddPet(61317, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Tree Python -- 61318
 	--[[ Pet Battle: Northern Stranglethorn, The Cape of Stranglethorn, Un'Goro Crater ]]--
 	pet = AddPet(61318, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Beetle -- 61319
 	--[[ Pet Battle: Ahn'Qiraj, Ashenvale, Badlands, Drak'Tharon Keep, Eastern Plaguelands, Felwood, Northern Stranglethorn, Ruins of Ahn'Qiraj, Silithus, The Cape of Stranglethorn, Un'Goro Crater, Utgarde Keep, Utgarde Pinnacle ]]--
 	pet = AddPet(61319, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Forest Spiderling -- 61320
+	--[[ Pet Battle: Northern Stranglethorn, The Cape of Stranglethorn ]]--
+	pet = AddPet(61320, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Lizard Hatchling -- 61321
 	--[[ Pet Battle: Northern Stranglethorn, The Cape of Stranglethorn ]]--
 	pet = AddPet(61321, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Polly -- 61322
 	--[[ Pet Battle: Northern Stranglethorn ]]--
 	pet = AddPet(61322, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Baby Ape -- 61324
 	--[[ Pet Battle: The Cape of Stranglethorn
 	Weather: Rain ]]--
 	pet = AddPet(61324, V.MOP, Q.COMMON)
-
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Adder -- 61325
+	--[[ Pet Battle: Blasted Lands, Dun Morogh, Durotar, Hellfire Peninsula, Nagrand, Northern Barrens, Northern Stranglethorn ]]--
+	pet = AddPet(61325, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Scorpid -- 61326
+	--[[ Pet Battle: Ahn'Qiraj, Blade's Edge Mountains, Blasted Lands, Burning Steppes, Eastern Plaguelands, Hellfire Peninsula, Orgrimmar, Ruins of Ahn'Qiraj, Shadowmoon Valley, Silithus, Thousand Needles, Twilight Highlands ]]--
+	pet = AddPet(61326, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Spider -- 61327
+	--[[ Pet Battle: Ahn'kahet: The Old Kingdom, Azjol-Nerub, Azshara, Black Temple, Blasted Lands, Drak'Tharon Keep, Dun Morogh, Dustwallow Marsh, Eastern Plaguelands, Elwynn Forest, Ghostlands, Gilneas, Gilneas City, Halls of Reflection, Hillsbrad Foothills, Howling Fjord, Icecrown Citadel, Karazhan, Naxxramas, Orgrimmar, Pit of Saron, Ruins of Gilneas, Stonetalon Mountains, Swamp of Sorrows, Teldrassil, The Culling of Stratholme, The Forge of Souls, The Hinterlands, The Storm Peaks, The Violet Hold, Tirisfal Glades, Utgarde Keep, Utgarde Pinnacle, Winterspring, Zul'Aman, Zul'Drak ]]--
+	pet = AddPet(61327, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Fire Beetle -- 61328
+	--[[ Pet Battle: Blasted Lands, Burning Steppes, Mount Hyjal, Searing Gorge, The Shattered Halls, Un'Goro Crater ]]--
+	pet = AddPet(61328, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Scorpling -- 61329
+	--[[ Pet Battle: Blasted Lands ]]--
+	pet = AddPet(61329, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 	-- Rat -- 61366
 	--[[ Pet Battle: Arathi Basin, Arathi Highlands, Ashenvale, Azshara, Azuremyst Isle, Bloodmyst Isle, Crystalsong Forest, Darkshore, Desolace, Drak'Tharon Keep, Dun Morogh, Ghostlands, Gilneas, Gilneas City, Hillsbrad Foothills, Howling Fjord, The Deadmines, Karazhan, Loch Modan, Nagrand, Naxxramas, Ruins of Gilneas, Scarlet Monastery, ScholomanceOLD, Shattrath City, Silverpine Forest, Stonetalon Mountains, Stormwind City, Sunken Temple, Swamp of Sorrows, Terokkar Forest, The Cape of Stranglethorn, The Culling of Stratholme, The Hinterlands, The Lost Isles, The Shattered Halls, The Violet Hold, Tirisfal Glades ]]--
 	pet = AddPet(61366, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Water Snake -- 61367
+	--[[ Pet Battle: Durotar, Northern Stranglethorn, Orgrimmar, Swamp of Sorrows, Twilight Highlands, Wetlands ]]--
+	pet = AddPet(61367, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Huge Toad -- 61368
+	--[[ Pet Battle: Hillsbrad Foothills, Swamp of Sorrows, Twilight Highlands, Zul'Drak ]]--
+	pet = AddPet(61368, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Toad -- 61369
+	--[[ Pet Battle: Ashenvale, Black Temple, Dun Morogh, Durotar, Dustwallow Marsh, Eversong Woods, Felwood, Ghostlands, Gilneas, Hillsbrad Foothills, Howling Fjord, Nagrand, Orgrimmar, Ruins of Gilneas, Silverpine Forest, Swamp of Sorrows, Teldrassil, Wetlands ]]--
+	pet = AddPet(61369, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Swamp Moth -- 61370
+	--[[ Pet Battle: Swamp of Sorrows ]]--
+	pet = AddPet(61370, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Moccasin -- 61372
+	--[[ Pet Battle: Swamp of Sorrows ]]--
+	pet = AddPet(61372, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Restless Shadeling -- 61375
+	--[[ Pet Battle: Deadwind Pass
+	Time: Early Morning ]]--
+	pet = AddPet(61375, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Lava Crab -- 61383
+	--[[ Pet Battle: Burning Steppes, Searing Gorge ]]--
+	pet = AddPet(61383, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Cockroach -- 61384
+	--[[ Pet Battle: Burning Steppes, Eastern Plaguelands, End Time, Icecrown, The Hinterlands, Twilight Highlands, Un'Goro Crater ]]--
+	pet = AddPet(61384, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Ash Viper -- 61385
+	--[[ Pet Battle: Burning Steppes, Shadowmoon Valley ]]--
+	pet = AddPet(61385, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Lava Beetle -- 61386
+	--[[ Pet Battle: Burning Steppes ]]--
+	pet = AddPet(61386, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Ash Spiderling -- 61420
+	--[[ Pet Battle: Searing Gorge ]]--
+	pet = AddPet(61420, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Molten Hatchling -- 61425
+	--[[ Pet Battle: Searing Gorge ]]--
+	pet = AddPet(61425, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Gold Beetle -- 61438
+	--[[ Pet Battle: Badlands, Halls of Lightning, Halls of Stone, Tanaris ]]--
+	pet = AddPet(61438, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Rattlesnake -- 61439
+	--[[ Pet Battle: Badlands, Tanaris, Twilight Highlands ]]--
+	pet = AddPet(61439, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Stripe-Tailed Scorpid -- 61440
+	--[[ Pet Battle: Badlands, Tanaris, Terokkar Forest ]]--
+	pet = AddPet(61440, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Spiky Lizard -- 61441
+	--[[ Pet Battle: Badlands, Silithus ]]--
+	pet = AddPet(61441, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- King Snake -- 61443
+	--[[ Pet Battle: Badlands ]]--
+	pet = AddPet(61443, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Little Black Ram -- 61459
+	--[[ Pet Battle: Loch Modan ]]--
+	pet = AddPet(61459, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Mountain Skunk -- 61677
+	--[[ Pet Battle: Grizzly Hills, Stonetalon Mountains, The Storm Peaks, Wetlands, Winterspring ]]--
+	pet = AddPet(61677, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Tiny Bog Beast -- 61686
+	--[[ Pet Battle: Wetlands ]]--
+	pet = AddPet(61686, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Snow Cub -- 61689
+	--[[ Pet Battle: Dun Morogh ]]--
+	pet = AddPet(61689, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Alpine Hare -- 61690
+	--[[ Pet Battle: Dun Morogh, Winterspring ]]--
+	pet = AddPet(61690, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Irradiated Roach -- 61691
+	--[[ Pet Battle: Dun Morogh ]]--
+	pet = AddPet(61691, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Tiny Twister -- 61703
+	--[[ Pet Battle: Arathi Highlands ]]--
+	pet = AddPet(61703, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Grasslands Cottontail -- 61704
+	--[[ Pet Battle: Arathi Highlands ]]--
+	pet = AddPet(61704, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Jade Oozeling -- 61718
+	--[[ Pet Battle: The Hinterlands ]]--
+	pet = AddPet(61718, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Hare -- 61751
+	--[[ Pet Battle: Arathi Highlands, Durotar, The Hinterlands ]]--
+	pet = AddPet(61751, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Brown Marmot -- 61752
+	--[[ Pet Battle: Blade's Edge Mountains, The Hinterlands ]]--
+	pet = AddPet(61752, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Maggot -- 61753
+	--[[ Pet Battle: Ashenvale, Dun Morogh, Ghostlands, Hillsbrad Foothills, Howling Fjord, Naxxramas, The Hinterlands, Tirisfal Glades ]]--
+	pet = AddPet(61753, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Snowshoe Hare -- 61755
+	--[[ Pet Battle: Hillsbrad Foothills ]]--
+	pet = AddPet(61755, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Red-Tailed Chipmunk -- 61757
+	--[[ Pet Battle: Darnassus, Desolace, Hillsbrad Foothills, Teldrassil ]]--
+	pet = AddPet(61757, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Infested Bear Cub -- 61758
+	--[[ Pet Battle: Hillsbrad Foothills ]]--
+	pet = AddPet(61758, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Blighthawk -- 61826
+	--[[ Pet Battle: Western Plaguelands ]]--
+	pet = AddPet(61826, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Infected Fawn -- 61827
+	--[[ Pet Battle: Bloodmyst Isle, Eastern Plaguelands, Silverpine Forest ]]--
+	pet = AddPet(61827, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Infected Squirrel -- 61828
+	--[[ Pet Battle: Bloodmyst Isle, Eastern Plaguelands, Silverpine Forest ]]--
+	pet = AddPet(61828, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Bat -- 61829
+	--[[ Pet Battle: Eastern Plaguelands, Mount Hyjal, Tirisfal Glades ]]--
+	pet = AddPet(61829, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Festering Maggot -- 61830
+	--[[ Pet Battle: Eastern Plaguelands ]]--
+	pet = AddPet(61830, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 
-	-- Jade Owl -- 61877
-	--[[ Profession: Jewelcrafting
+	-- Blighted Squirrel -- 61890
+	--[[ Pet Battle: Silverpine Forest ]]--
+	pet = AddPet(61890, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Lost of Lordaeron -- 61905
+	--[[ Pet Battle: Tirisfal Glades ]]--
+	pet = AddPet(61905, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Cat -- 62019
+	--[[ Pet Battle: Arathi Highlands, Elwynn Forest, Eversong Woods, Gilneas City, Netherstorm, Silvermoon City, The Culling of Stratholme ]]--
+	pet = AddPet(62019, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Ruby Sapling -- 62020
+	--[[ Pet Battle: Eversong Woods ]]--
+	pet = AddPet(62020, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Larva -- 62022
+	--[[ Pet Battle: Ghostlands, Naxxramas ]]--
+	pet = AddPet(62022, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Spirit Crab -- 62034
+	--[[ Pet Battle: Ghostlands ]]--
+	pet = AddPet(62034, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Grey Moth -- 62050
+	--[[ Pet Battle: Azuremyst Isle ]]--
+	pet = AddPet(62050, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Ravager Hatchling -- 62051
+	--[[ Pet Battle: Bloodmyst Isle ]]--
+	pet = AddPet(62051, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Spiny Lizard -- 62114
+	--[[ Pet Battle: Durotar, Orgrimmar ]]--
+	pet = AddPet(62114, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Dung Beetle -- 62115
+	--[[ Pet Battle: Durotar, Lost City of the Tol'vir, Orgrimmar, Uldum ]]--
+	pet = AddPet(62115, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Creepy Crawly -- 62116
+	--[[ Pet Battle: Durotar ]]--
+	pet = AddPet(62116, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Robo-Chick -- 62119
+	--[[ Pet Battle: Azshara, Kezan, Orgrimmar, Winterspring ]]--
+	pet = AddPet(62119, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Rabid Nut Varmint 5000 -- 62120
+	--[[ Pet Battle: Azshara, Kezan, Stonetalon Mountains, Winterspring ]]--
+	pet = AddPet(62120, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Emerald Boa -- 62127
+	--[[ Pet Battle: Lost City of the Tol'vir, Northern Barrens, Southern Barrens, Uldum, Un'Goro Crater ]]--
+	pet = AddPet(62127, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Cheetah Cub -- 62129
+	--[[ Pet Battle: Northern Barrens ]]--
+	pet = AddPet(62129, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Giraffe Calf -- 62130
+	--[[ Pet Battle: Southern Barrens ]]--
+	pet = AddPet(62130, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Gazelle Fawn -- 62176
+	--[[ Pet Battle: Mulgore ]]--
+	pet = AddPet(62176, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Forest Moth -- 62177
+	--[[ Pet Battle: Ashenvale, Darnassus, Desolace, Moonglade, Mount Hyjal, Teldrassil ]]--
+	pet = AddPet(62177, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Elfin Rabbit -- 62178
+	--[[ Pet Battle: Darnassus, Desolace, Mount Hyjal, Teldrassil ]]--
+	pet = AddPet(62178, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Topaz Shale Hatchling -- 62181
+	--[[ Pet Battle: Deepholm, Desolace, The Stonecore ]]--
+	pet = AddPet(62181, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Amethyst Shale Hatchling -- 62182
+	--[[ Pet Battle: Deepholm, Desolace ]]--
+	pet = AddPet(62182, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Rock Viper -- 62184
+	--[[ Pet Battle: Blade's Edge Mountains, Desolace, Mount Hyjal, Silithus ]]--
+	pet = AddPet(62184, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Horny Toad -- 62185
+	--[[ Pet Battle: Desolace ]]--
+	pet = AddPet(62185, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Desert Spider -- 62186
+	--[[ Pet Battle: Desolace, Lost City of the Tol'vir, Silithus, Tanaris, Uldum ]]--
+	pet = AddPet(62186, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Stone Armadillo -- 62187
+	--[[ Pet Battle: Desolace
+	Time: Night]]--
+	pet = AddPet(62187, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Alpine Chipmunk -- 62189
+	--[[ Pet Battle: Mount Hyjal, Stonetalon Mountains, Winterspring ]]--
+	pet = AddPet(62189, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Coral Snake -- 62190
+	--[[ Pet Battle: Stonetalon Mountains ]]--
+	pet = AddPet(62190, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Spawn of Onyxia -- 62201
+	--[[ Pet Battle: Dustwallow Marsh ]]--
+	pet = AddPet(62201, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Crested Owl -- 62242
+	--[[ Pet Battle: Teldrassil ]]--
+	pet = AddPet(62242, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Shimmershell Snail -- 62246
+	--[[ Pet Battle: Darkshore ]]--
+	pet = AddPet(62246, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Darkshore Cub -- 62250
+	--[[ Pet Battle: Darkshore ]]--
+	pet = AddPet(62250, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Stinkbug -- 62256
+	--[[ Pet Battle: Tanaris ]]--
+	pet = AddPet(62256, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Sand Kitten -- 62257
+	--[[ Pet Battle: Tanaris ]]--
+	pet = AddPet(62257, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Silithid Hatchling -- 62258
+	--[[ Pet Battle: Tanaris
+	Weather: Sandstorm ]]--
+	pet = AddPet(62258, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Frog -- 62312
+	--[[ Pet Battle: Ashenvale, The Lost Isles ]]--
+	pet = AddPet(62312, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Rusty Snail -- 62313
+	--[[ Pet Battle: Ashenvale ]]--
+	pet = AddPet(62313, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Tainted Cockroach -- 62314
+	--[[ Pet Battle: Felwood, Shadowmoon Valley ]]--
+	pet = AddPet(62314, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Tainted Moth -- 62315
+	--[[ Pet Battle: Felwood ]]--
+	pet = AddPet(62315, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Tainted Rat -- 62316
+	--[[ Pet Battle: Felwood ]]--
+	pet = AddPet(62316, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Minfernal -- 62317
+	--[[ Pet Battle: Felwood ]]--
+	pet = AddPet(62317, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Ash Lizard -- 62364
+	--[[ Pet Battle: Mount Hyjal, Un'Goro Crater ]]--
+	pet = AddPet(62364, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Spotted Bell Frog -- 62370
+	--[[ Pet Battle: Un'Goro Crater ]]--
+	pet = AddPet(62370, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Silky Moth -- 62373
+	--[[ Pet Battle: Moonglade, Mount Hyjal, Un'Goro Crater ]]--
+	pet = AddPet(62373, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Diemetradon Hatchling -- 62375
+	--[[ Pet Battle: Un'Goro Crater ]]--
+	pet = AddPet(62375, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Nether Faerie Dragon -- 62395
+	--[[ Pet Battle: Feralas ]]--
+	pet = AddPet(62395, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Crystal Spider -- 62435
+	--[[ Pet Battle: Dun Morogh, The Oculus, Winterspring ]]--
+	pet = AddPet(62435, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Sidewinder -- 62523
+	--[[ Pet Battle: Silithus, Uldum ]]--
+	pet = AddPet(62523, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Scarab Hatchling -- 62524
+	--[[ Pet Battle: Silithus ]]--
+	pet = AddPet(62524, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Qiraji Guardling -- 62526
+	--[[ Pet Battle: Silithus
+	Season: Summer ]]--
+	pet = AddPet(62526, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Flayer Youngling -- 62555
+	--[[ Pet Battle: Hellfire Peninsula ]]--
+	pet = AddPet(62555, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Sporeling Sprout -- 62564
+	--[[ Pet Battle: Zangarmarsh ]]--
+	pet = AddPet(62564, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Clefthoof Runt -- 62620
+	--[[ Pet Battle: Nagrand ]]--
+	pet = AddPet(62620, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Fel Flame -- 62621
+	--[[ Pet Battle: Shadowmoon Valley ]]--
+	pet = AddPet(62621, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Nether Roach -- 62625
+	--[[ Pet Battle: Netherstorm ]]--
+	pet = AddPet(62625, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Fledgling Nether Ray -- 62627
+	--[[ Pet Battle: Netherstorm ]]--
+	pet = AddPet(62627, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Scalded Basilisk Hatchling -- 62628
+	--[[ Pet Battle: Blade's Edge Mountains ]]--
+	pet = AddPet(62628, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Skittering Cavern Crawler -- 62638
+	--[[ Pet Battle: Blade's Edge Mountains ]]--
+	pet = AddPet(62638, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Fjord Rat -- 62641
+	--[[ Pet Battle: Howling Fjord ]]--
+	pet = AddPet(62641, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Chicken -- 62664
+	--[[ Pet Battle: Arathi Basin, Azuremyst Isle, Bloodmyst Isle, Duskwood, Dustwallow Marsh, Elwynn Forest, Gilneas, Hillsbrad Foothills, Howling Fjord, Northern Barrens, Redridge Mountains, Shattrath City, Tirisfal Glades, Westfall, Wetlands ]]--
+	pet = AddPet(62664, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Fjord Worg Pup -- 62669
+	--[[ Pet Battle: Howling Fjord ]]--
+	pet = AddPet(62669, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Arctic Hare -- 62693
+	--[[ Pet Battle: Borean Tundra, Dragonblight, The Storm Peaks, Zul'Drak ]]--
+	pet = AddPet(62693, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Borean Marmot -- 62695
+	--[[ Pet Battle: Borean Tundra ]]--
+	pet = AddPet(62695, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Oily Slimeling -- 62697
+	--[[ Pet Battle: Borean Tundra ]]--
+	pet = AddPet(62697, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Biletoad -- 62815
+	--[[ Pet Battle: Northern Barrens, Sholazar Basin, Wailing Caverns ]]--
+	pet = AddPet(62815, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Stunted Shardhorn -- 62816
+	--[[ Pet Battle: Sholazar Basin ]]--
+	pet = AddPet(62816, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Grizzly Squirrel -- 62818
+	--[[ Pet Battle: Grizzly Hills, Twilight Highlands ]]--
+	pet = AddPet(62818, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Imperial Eagle Chick -- 62819
+	--[[ Pet Battle: Grizzly Hills ]]--
+	pet = AddPet(62819, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+
+	-- Dragonbone Hatchling -- 62852
+	--[[ Pet Battle: Dragonblight ]]--
+	pet = AddPet(62852, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Scourged Whelpling -- 62854
+	--[[ Pet Battle: Icecrown ]]--
+	pet = AddPet(62854, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Arctic Fox Kit -- 62864
+	--[[ Pet Battle: The Storm Peaks
+	Weather: Snow ]]--
+	pet = AddPet(62864, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Grotto Vole -- 62884
+	--[[ Pet Battle: Mount Hyjal ]]--
+	pet = AddPet(62884, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Carrion Rat -- 62885
+	--[[ Pet Battle: Mount Hyjal ]]--
+	pet = AddPet(62885, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Fire-Proof Roach -- 62886
+	--[[ Pet Battle: Mount Hyjal ]]--
+	pet = AddPet(62886, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Death's Head Cockroach -- 62887
+	--[[ Pet Battle: Mount Hyjal
 	 ]]--
-	pet = AddPet(61877, V.MOP, Q.COMMON)
-
-	-- Sapphire Cub -- 61883
-	--[[ Profession: Jewelcrafting
+	pet = AddPet(62887, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Nordrassil Wisp -- 62888
+	--[[ Pet Battle: Mount Hyjal ]]--
+	pet = AddPet(62888, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Mac Frog -- 62892
+	--[[ Pet Battle: Lost City of the Tol'vir, Uldum ]]--
+	pet = AddPet(62892, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Locust -- 62893
+	--[[ Pet Battle: Lost City of the Tol'vir, Uldum ]]--
+	pet = AddPet(62893, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Horned Lizard -- 62894
+	--[[ Pet Battle: Badlands, Silithus ]]--
+	pet = AddPet(62894, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Oasis Moth -- 62895
+	--[[ Pet Battle: Lost City of the Tol'vir, Uldum ]]--
+	pet = AddPet(62895, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Leopard Scorpid -- 62896
+	--[[ Pet Battle: Uldum ]]--
+	pet = AddPet(62896, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Tol'vir Scarab -- 62899
+	--[[ Pet Battle: Uldum ]]--
+	pet = AddPet(62899, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Highlands Mouse -- 62905
+	--[[ Pet Battle: Twilight Highlands ]]--
+	pet = AddPet(62905, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Highlands Turkey -- 62906
+	--[[ Pet Battle: Twilight Highlands ]]--
+	pet = AddPet(62906, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Highlands Skunk -- 62907
+	--[[ Pet Battle: Grizzly Hills, Stonetalon Mountains, The Storm Peaks, Wetlands, Winterspring ]]--
+	pet = AddPet(62907, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Emerald Shale Hatchling -- 62915
+	--[[ Pet Battle: Deepholm, The Stonecore ]]--
+	pet = AddPet(62915, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Fungal Moth -- 62916
+	--[[ Pet Battle: Deepholm
 	 ]]--
-	pet = AddPet(61883, V.MOP, Q.COMMON)
-
-	-- Fishy -- 62829
-	--[[ Quest: Let Them Burn
-	Zone: The Jade Forest ]]--
-	pet = AddPet(62829, V.MOP, Q.COMMON)
-
-	-- Shore Crawler -- 63097
-	--[[ Vendor: Matty
-	Zone: Orgrimmar ]]--
-	pet = AddPet(63097, V.MOP, Q.COMMON)
-
-	-- Gilnean Raven -- 63098
-	--[[ Vendor: Will Larsons
-	Zone: Lor'danel ]]--
-	pet = AddPet(63098, V.MOP, Q.COMMON)
-
-	-- Terrible Turnip -- 63365
-	--[[ Drop: World Drop
-	Zone: Valley of the Four Winds ]]--
-	pet = AddPet(63365, V.MOP, Q.COMMON)
-
-	-- Red Cricket -- 63370
-	--[[ Quest: Sho in Valley of the Four Winds
+	pet = AddPet(62916, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Stowaway Rat -- 62921
+	--[[ Pet Battle: Deepholm ]]--
+	pet = AddPet(62921, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Crimson Shale Hatchling -- 62922
+	--[[ Pet Battle: Deepholm, The Stonecore ]]--
+	pet = AddPet(62922, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Deepholm Cockroach -- 62924
+	--[[ Pet Battle: Deepholm ]]--
+	pet = AddPet(62924, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Crystal Beetle -- 62925
+	--[[ Pet Battle: Deepholm ]]--
+	pet = AddPet(62925, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Crimson Geode -- 62927
+	--[[ Pet Battle: Deepholm ]]--
+	pet = AddPet(62927, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Sea Gull -- 62953
+	--[[ Pet Battle: Elwynn Forest, Krasarang Wilds, Tanaris ]]--
+	pet = AddPet(62953, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Stormwind Rat -- 62954
+	--[[ Pet Battle: Elwynn Forest ]]--
+	pet = AddPet(62954, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Coral Adder -- 62991
+	--[[ Pet Battle: The Jade Forest
 	 ]]--
-	pet = AddPet(63370, V.MOP, Q.COMMON)
+	pet = AddPet(62991, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Bucktooth Flapper -- 62992
+	--[[ Pet Battle: The Jade Forest ]]--
+	pet = AddPet(62992, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Emerald Turtle -- 62994
+	--[[ Pet Battle: The Jade Forest ]]--
+	pet = AddPet(62994, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Jungle Darter -- 62997
+	--[[ Pet Battle: The Jade Forest ]]--
+	pet = AddPet(62997, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Mirror Strider -- 62998
+	--[[ Pet Battle: The Jade Forest ]]--
+	pet = AddPet(62998, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Temple Snake -- 62999
+	--[[ Pet Battle: The Jade Forest ]]--
+	pet = AddPet(62999, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Garden Frog -- 63002
+	--[[ Pet Battle: The Jade Forest ]]--
+	pet = AddPet(63002, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Masked Tanuki -- 63003
+	--[[ Pet Battle: The Jade Forest ]]--
+	pet = AddPet(63003, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Grove Viper -- 63004
+	--[[ Pet Battle: The Jade Forest ]]--
+	pet = AddPet(63004, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Spirebound Crab -- 63005
+	--[[ Pet Battle: The Jade Forest ]]--
+	pet = AddPet(63005, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Sandy Petrel -- 63006
+	--[[ Pet Battle: The Jade Forest ]]--
+	pet = AddPet(63006, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Sifang Otter -- 63057
+	--[[ Pet Battle: Valley of Four Winds ]]--
+	pet = AddPet(63057, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Softshell Snapling -- 63060
+	--[[ Pet Battle:  Valley of the Four Winds ]]--
+	pet = AddPet(63060, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Bandicoon -- 63062
+	--[[ Pet Battle: Valley of Four Winds ]]--
+	pet = AddPet(63062, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Bandicoon Kit -- 63064
+	--[[ Pet Battle:  Valley of Four Winds ]]--
+	pet = AddPet(63064, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Malayan Quillrat -- 63094
+	--[[ Pet Battle:  Valley of Four Winds ]]--
+	pet = AddPet(63094, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Malayan Quillrat Pup -- 63095
+	--[[ Pet Battle:  Valley of Four Winds ]]--
+	pet = AddPet(63095, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Marsh Fiddler -- 63096
+	--[[ Pet Battle:  Valley of Four Winds ]]--
+	pet = AddPet(63096, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 
-	-- Tiny Goldfish -- 63559
-	--[[ Vendor: Nat Pagle
-	Zone: Krasarang Wilds
-	Faction: The Anglers - Honored
-	Cost: 250 ]]--
-	pet = AddPet(63559, V.MOP, Q.COMMON)
+	-- Amethyst Spiderling -- 63288
+	--[[ Pet Battle: Krasarang Wilds
+	 ]]--
+	pet = AddPet(63288, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Savory Beetle -- 63291
+	--[[ Pet Battle: Krasarang Wilds]]--
+	pet = AddPet(63291, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Spiny Terrapin -- 63293
+	--[[ Pet Battle:  Krasarang Wilds ]]--
+	pet = AddPet(63293, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Jungle Grub -- 63304
+	--[[ Pet Battle: Krasarang Wilds ]]--
+	pet = AddPet(63304, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Sifang Otter Pup -- 63358
+	--[[ Pet Battle:  Valley of Four Winds ]]--
+	pet = AddPet(63358, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Plains Monitor -- 63547
+	--[[ Pet Battle: Kun-Lai Summit
+	 ]]--
+	pet = AddPet(63547, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Crunchy Scorpion -- 63548
+	--[[ Pet Battle: Dread Wastes
+	 ]]--
+	pet = AddPet(63548, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Grassland Hopper -- 63549
+	--[[ Pet Battle:  Townlong Steppes ]]--
+	pet = AddPet(63549, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Alpine Foxling -- 63550
+	--[[ Pet Battle: Kun-Lai Summit
+	 ]]--
+	pet = AddPet(63550, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Alpine Foxling Kit -- 63551
+	--[[ Pet Battle: Kun-Lai Summit
+	 ]]--
+	pet = AddPet(63551, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Tolai Hare -- 63557
+	--[[ Pet Battle: Kun-Lai Summit
+	 ]]--
+	pet = AddPet(63557, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Tolai Hare Pup -- 63558
+	--[[ Pet Battle: Kun-Lai Summit
+	 ]]--
+	pet = AddPet(63558, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 
-	-- Feral Vermling -- 63621
-	--[[ Achievement: Going to Need More Leashes
-	Category: Collect ]]--
-	pet = AddPet(63621, V.MOP, Q.COMMON)
+	-- Szechuan Chicken -- 63585
+	--[[ Pet Battle: Kun-Lai Summit ]]--
+	pet = AddPet(63585, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 
-	-- Hopling -- 64632
-	--[[ Achievement: Ling-Ting's Herbal Journey
-	Category: Dungeons and Raids ]]--
-	pet = AddPet(64632, V.MOP, Q.COMMON)
-
-	-- Aqua Strider -- 64633
-	--[[ Drop: Nalash Verdantis
-	Zone: Dread Wastes
+	-- Jumping Spider -- 63715
+	--[[ Pet Battle: The Jade Forest
+	 ]]--
+	pet = AddPet(63715, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Masked Tanuki Pup -- 63716
+	--[[ Pet Battle: The Jade Forest ]]--
+	pet = AddPet(63716, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Gilded Moth -- 63838
+	--[[ Pet Battle: Vale of Eternal Blossoms
+	 ]]--
+	pet = AddPet(63838, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Golden Civet -- 63841
+	--[[ Pet Battle: Vale of Eternal Blossoms ]]--
+	pet = AddPet(63841, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Golden Civet Kitten -- 63842
+	--[[ Pet Battle: Vale of Eternal Blossoms ]]--
+	pet = AddPet(63842, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Dancing Water Skimmer -- 63847
+	--[[ Pet Battle: Vale of Eternal Blossoms
+	 ]]--
+	pet = AddPet(63847, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Effervescent Glowfly -- 63850
+	--[[ Pet Battle: Vale of Eternal Blossoms
+	 ]]--
+	pet = AddPet(63850, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Leopard Tree Frog -- 63919
+	--[[ Pet Battle: The Jade Forest ]]--
+	pet = AddPet(63919, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Kuitan Mongoose -- 63953
+	--[[ Pet Battle: Townlong Steppes
+	 ]]--
+	pet = AddPet(63953, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Mongoose Pup -- 63954
+	--[[ Pet Battle: Townlong Steppes
+	 ]]--
+	pet = AddPet(63954, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Singing Cricket -- 64232
+	--[[ Achievement: Pro Pet Mob
+	Category: Pet Battle ]]--
+	pet = AddPet(64232, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Resilient Roach -- 64238
+	--[[ Pet Battle: Dread Wastes
+	 ]]--
+	pet = AddPet(64238, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Clouded Hedgehog -- 64242
+	--[[ Pet Battle: Dread Wastes
+	 ]]--
+	pet = AddPet(64242, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Shy Bandicoon -- 64246
+	--[[ Pet Battle: Valley of the Four Winds ]]--
+	pet = AddPet(64246, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Summit Kid -- 64248
+	--[[ Pet Battle: Kun-Lai Summit
+	 ]]--
+	pet = AddPet(64248, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Rapana Whelk -- 64352
+	--[[ Pet Battle: Dread Wastes
 
 	 ]]--
-	pet = AddPet(64633, V.MOP, Q.COMMON)
-
-	-- Grinder -- 64634
-	--[[ Drop: Karr the Darkener
-	Zone: Dread Wastes
-
+	pet = AddPet(64352, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Silent Hedgehog -- 64804
+	--[[ Pet Battle: Dread Wastes]]--
+	pet = AddPet(64804, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Luyu Moth -- 65124
+	--[[ Pet Battle: Krasarang Wilds
 	 ]]--
-	pet = AddPet(64634, V.MOP, Q.COMMON)
-
-	-- Mechanical Pandaren Dragonling -- 64899
-	--[[ Profession: Engineering ]]--
-	pet = AddPet(64899, V.MOP, Q.COMMON)
-
-	-- Thundering Serpent Hatchling -- 65313
-	--[[ Vendor: Guild Vendor
-	Zone: Stormwind, Orgrimmar
-	Cost: 300
+	pet = AddPet(65124, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Mei Li Sparkler -- 65185
+	--[[ Pet Battle: Krasarang Wilds
 	 ]]--
-	pet = AddPet(65313, V.MOP, Q.COMMON)
+	pet = AddPet(65185, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Amber Moth -- 65187
+	--[[ Pet Battle: Dread Wastes
+	Pet Battle: Townlong Steppes ]]--
+	pet = AddPet(65187, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	-- Mongoose -- 65190
+	--[[ Pet Battle: Townlong Steppes
+	 ]]--
+	pet = AddPet(65190, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 
-	-- Jade Crane Chick -- 65314
-	--[[ Vendor: Audrey Burnhep, Varzog
-	Zone: Stormwind, Orgrimmar
-	Cost: 50 ]]--
-	pet = AddPet(65314, V.MOP, Q.COMMON)
-
-	-- Chi-ji Kite -- 66104
-	--[[ Profession: Inscription ]]--
-	pet = AddPet(66104, V.MOP, Q.COMMON)
+	-- Jade Tentacle -- 66450
+	--[[ Achievement: Time To Open a Pet Store
+	Category: Pet Battles ]]--
+	pet = AddPet(66450, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 
 	self.InitCritters = nil
 end

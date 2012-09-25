@@ -636,14 +636,24 @@ do
 
 			for index = 1, #pet_ids do
 				local creature_id = pet_ids[index]
+				local flag_list = {}
 				private.TextDump:AddLine(("-- %s -- %d"):format(pet_names[creature_id], creature_id))
+
+				if pet_sources[creature_id]:find("Pet Battle") then
+					flag_list["BATTLE_PET"] = true
+				end
 				private.TextDump:AddLine(("--[[ %s ]]--"):format(pet_sources[creature_id]))
-				private.TextDump:AddLine(("pet = AddPet(%d, V.MOP, Q.COMMON)\n"):format(creature_id))
+				private.TextDump:AddLine(("pet = AddPet(%d, V.MOP, Q.COMMON)"):format(creature_id))
+				local flag_string = "pet:AddFilters("
+				for i in pairs(flag_list) do 
+					flag_string = flag_string .. "F."..i..")"
+				end
+				private.TextDump:AddLine(flag_string)
 			end
 			local dump_lines = private.TextDump:Lines()
 
 			if dump_lines > 0 then
-				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 3))
+				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 4))
 				private.TextDump:Display()
 			end
 		end,

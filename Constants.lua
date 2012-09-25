@@ -222,13 +222,14 @@ private.REP_FLAGS_WORD2 = {
 -- Item filter bitfield word 1.
 -------------------------------------------------------------------------------
 private.ITEM_FLAGS_WORD1 = {
-	--	UNUSED	= 0x00000001 -- 1
+	BATTLE_PET		= 0x00000001 -- 1
 }
 
 private.FLAG_WORDS = {
 	private.COMMON_FLAGS_WORD1,
 	private.REP_FLAGS_WORD1,
 	private.REP_FLAGS_WORD2,
+	private.ITEM_FLAGS_WORD1,
 }
 
 -- Member names within a collectable's flags table.

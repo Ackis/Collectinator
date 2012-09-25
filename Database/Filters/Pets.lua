@@ -29,7 +29,7 @@ function private:InitializeItemFilters_Pet(parent_panel)
 	private.SetTooltipScripts(item_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.MISCELLANEOUS))
 
 	local item_types = {
-		captured	= { tt = L["FILTER_DESC_FORMAT"]:format(L["Captured"]),		text = L["Captured"],		row = 1, col = 1 },
+		BATTLE_PET	= { tt = L["FILTER_DESC_FORMAT"]:format(L["Captured"]),		text = L["Captured"],		row = 1, col = 1 },
 	}
 
 	item_toggle:SetScript("OnClick", function(self, button)
