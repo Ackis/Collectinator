@@ -1,21 +1,16 @@
 --[[
 ************************************************************************
 Scanner.lua
-Vendor/trainer scanning for Ackis Recipe List.
+Database scanning for Collectinator
 ************************************************************************
 File date: @file-date-iso@
 File hash: @file-abbreviated-hash@
 Project hash: @project-abbreviated-hash@
 Project version: @project-version@
 ************************************************************************
-Please see http://www.wowace.com/addons/arl/ for more information.
+Please see http://www.wowace.com/addons/collectinator/ for more information.
 ************************************************************************
 This source code is released under All Rights Reserved.
-************************************************************************
---- Vendor/trainer scanning for Ackis Recipe List.
-@class file
-@name Scanner.lua
-@release 2.0
 ************************************************************************
 ]]--
 
@@ -55,15 +50,15 @@ local NO_ROLE_FLAG	-- Populated at the end of the file.
 -------------------------------------------------------------------------------
 -- Functions/methods
 -------------------------------------------------------------------------------
-function private.LoadAllRecipes()
-	local recipe_list = private.recipe_list
+function private.LoadAllCollections()
+	local collectable_list = private.collectable_list
 
 	if addon.db.profile.autoloaddb then
-		for identifier, name in pairs(private.LOCALIZED_PROFESSION_NAMES) do
-			addon:InitializeProfession(name)
+		for identifier, name in pairs(private.ORDERED_COLLECTIONS) do
+			addon:InitializeCollection(name)
 		end
 	end
-	return recipe_list
+	return collectable_list
 end
 
 -------------------------------------------------------------------------------
@@ -73,16 +68,16 @@ local GetReverseLookup
 do
 	local reverse_lookup = {}
 
-	function GetReverseLookup(recipe_list)
-		if not recipe_list then
+	function GetReverseLookup(collectable_list)
+		if not collectable_list then
 			addon:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
 		table.wipe(reverse_lookup)
 
-		for i in pairs(recipe_list) do
-			--if t[recipe_list[i].name] then addon:Print("Dupe: " .. i) end
-			reverse_lookup[recipe_list[i].name] = i
+		for i in pairs(collectable_list) do
+			--if t[collectable_list[i].name] then addon:Print("Dupe: " .. i) end
+			reverse_lookup[collectable_list[i].name] = i
 		end
 		return reverse_lookup
 	end
@@ -92,242 +87,7 @@ end
 -------------------------------------------------------------------------------
 -- Tooltip for data-mining.
 -------------------------------------------------------------------------------
-local ARLDatamineTT = _G.CreateFrame("GameTooltip", "ARLDatamineTT", _G.UIParent, "GameTooltipTemplate")
-do
-	-- Tables used in addon:ScanTrainerData
-	local scanned_recipes, scanned_items = {}, {}
-	local missing_spell_ids, extra_spell_ids, fixed_item_spell_ids = {}, {}, {}
-	local mismatched_item_levels, mismatched_recipe_levels = {}, {}
-	local itemless_spells = {}
-
-	--- Function to compare which recipes are available from a trainer and compare with the internal ARL database.
-	-- @name AckisRecipeList:ScanTrainerData
-	-- @param autoscan True when autoscan is enabled in preferences, it will inform you when a scan has occured.
-	-- @return Does a comparison of the information in your internal ARL database, and those items which are available on the trainer.
-	-- Compares the acquire information of the ARL database with what is available on the trainer.
-	function addon:ScanTrainerData(autoscan)
-		if not _G.UnitExists("target") or _G.UnitIsPlayer("target") or _G.UnitIsEnemy("player", "target") then
-			if not autoscan then
-				self:Debug(L["DATAMINER_TRAINER_NOTTARGETTED"])
-			end
-			return
-		end
-
-		if not _G.IsTradeskillTrainer() then
-			if not autoscan then
-				self:Debug(L["DATAMINER_SKILLLEVEL_ERROR"])
-			end
-			return
-		end
-		-- Get the initial trainer filters
-		local avail = _G.GetTrainerServiceTypeFilter("available")
-		local unavail = _G.GetTrainerServiceTypeFilter("unavailable")
-		local used = _G.GetTrainerServiceTypeFilter("used")
-
-		-- Clear the trainer filters
-		_G.SetTrainerServiceTypeFilter("available", 1)
-		_G.SetTrainerServiceTypeFilter("unavailable", 1)
-		_G.SetTrainerServiceTypeFilter("used", 1)
-
-		if _G.GetNumTrainerServices() == 0 then
-			self:Debug("Warning: Trainer is bugged, reporting 0 trainer items.")
-			return
-		end
-		local trainer_profession = private.PROFESSION_NAME_MAP[_G.GetTrainerServiceSkillLine(1)]
-		addon:InitializeProfession(trainer_profession)
-
-		local recipe_list = private.profession_recipe_list[trainer_profession]
-
-		if not recipe_list then
-			self:Debug(L["DATAMINER_NODB_ERROR"])
-			return
-		end
-		table.wipe(scanned_items)
-		table.wipe(scanned_recipes)
-
-		for index = 1, _G.GetNumTrainerServices(), 1 do
-			local recipe_name = _G.GetTrainerServiceInfo(index)
-			local item_id = private.ItemLinkToID(_G.GetTrainerServiceItemLink(index))
-			local _, skill_level = _G.GetTrainerServiceSkillReq(index)
-
-			if not skill_level then
-				skill_level = 0
-			end
-			scanned_recipes[recipe_name] = skill_level
-
-			if item_id then
-				scanned_items[item_id] = skill_level
-			end
-		end
-		table.wipe(missing_spell_ids)
-		table.wipe(extra_spell_ids)
-		table.wipe(fixed_item_spell_ids)
-		table.wipe(mismatched_item_levels)
-		table.wipe(mismatched_recipe_levels)
-
-		-- Dump out trainer info
-		local trainer_id = private.MobGUIDToIDNum(_G.UnitGUID("target"))
-		local trainer_name = _G.UnitName("target")
-		local trainer_entry = private.trainer_list[trainer_id]
-		local trainer_x, trainer_y = _G.GetPlayerMapPosition("player")
-		trainer_x = ("%.2f"):format(trainer_x * 100)
-		trainer_y = ("%.2f"):format(trainer_y * 100)
-
-		local output = private.TextDump
-		output:Clear()
-
-		if trainer_entry then
-			if trainer_entry.coord_x ~= trainer_x or trainer_entry.coord_y ~= trainer_y then
-				output:AddLine(("%s appears to have different coordinates (%s, %s) than those in the database (%s, %s) - a trainer dump for %s will fix this."):format(trainer_name, trainer_entry.coord_x, trainer_entry.coord_y, trainer_x, trainer_y, trainer_profession))
-				trainer_entry.coord_x = trainer_x
-				trainer_entry.coord_y = trainer_y
-			end
-		else
-			output:AddLine(("%s was not found in the trainer list - a trainer dump for %s will fix this. (Dump localization phrases as well.)"):format(trainer_name, trainer_profession))
-			_G.SetMapToCurrentZone() -- Make sure were are looking at the right zone
-
-			L[trainer_name] = true
-			private:AddTrainer(trainer_id, trainer_name, _G.GetRealZoneText(), trainer_x, trainer_y, private.Player.faction)
-		end
-
-		for spell_id, recipe in pairs(recipe_list) do
-			local train_data = recipe.acquire_data[A.TRAINER]
-			local matching_trainer = false
-
-			if train_data and train_data[trainer_id] then
-				matching_trainer = true
-			end
-			local matching_recipe = scanned_recipes[recipe.name]
-			local matching_item = scanned_items[recipe:CraftedItemID()]
-
-			if matching_recipe or matching_item then
-				if not matching_trainer then
-					table.insert(missing_spell_ids, spell_id)
-
-					if not L[trainer_name] then
-						L[trainer_name] = true
-					end
-					recipe:AddTrainer(trainer_id)
-
-					if not recipe:HasFilter("common1", "TRAINER") then
-						recipe:AddFilters(F.TRAINER)
-
-						if matching_item then
-							output:AddLine(("Added trainer flag to recipe with spell ID %d. (matching crafted item ID %d)"):format(spell_id, recipe:CraftedItemID()))
-						elseif matching_recipe then
-							output:AddLine(("Added trainer flag to recipe with spell ID %d. (matching recipe name \"%s\")"):format(spell_id, recipe.name))
-						end
-					end
-				end
-				local recipe_skill = recipe:SkillLevels()
-
-				if matching_item and matching_item ~= recipe_skill then
-					table.insert(mismatched_item_levels, spell_id)
-				end
-
-				if matching_recipe and matching_recipe ~= recipe_skill then
-					table.insert(mismatched_recipe_levels, spell_id)
-				end
-			elseif matching_trainer then
-				table.wipe(itemless_spells)
-
-				if not recipe:CraftedItemID() then
-					for item_id in pairs(scanned_items) do
-						if recipe.name == _G.GetItemInfo(item_id) then
-							recipe:SetCraftedItemID(item_id)
-							itemless_spells[spell_id] = true
-						end
-					end
-				end
-
-				if itemless_spells[spell_id] then
-					table.insert(fixed_item_spell_ids, spell_id)
-				else
-					table.insert(extra_spell_ids, spell_id)
-				end
-			end
-		end
-
-		if #missing_spell_ids > 0 then
-			output:AddLine("\nTrainer is missing from the following entries:")
-			table.sort(missing_spell_ids)
-
-			for index in ipairs(missing_spell_ids) do
-				local spell_id = missing_spell_ids[index]
-				output:AddLine(("%d (%s)"):format(spell_id, recipe_list[spell_id].name))
-			end
-		end
-
-		if #extra_spell_ids > 0 then
-			output:AddLine("\nRecipes which are wrongly assigned to the trainer:")
-			table.sort(extra_spell_ids)
-
-			for index in ipairs(extra_spell_ids) do
-				local spell_id = extra_spell_ids[index]
-				local recipe = recipe_list[spell_id]
-				local crafted_item = recipe:CraftedItemID()
-
-				if crafted_item then
-					output:AddLine(("%d (%s) - Crafted item ID set to %d (%s)"):format(spell_id, recipe.name, crafted_item, _G.GetItemInfo(crafted_item) or _G.UNKNOWN))
-				else
-					output:AddLine(("%d (%s)"):format(spell_id, recipe.name))
-				end
-			end
-		end
-
-		if #fixed_item_spell_ids > 0 then
-			output:AddLine("\nRecipes which had no crafted item ID, but will once a dump is performed:")
-			table.sort(fixed_item_spell_ids)
-
-			for index in ipairs(fixed_item_spell_ids) do
-				local spell_id = fixed_item_spell_ids[index]
-				output:AddLine(("%d (%s)"):format(spell_id, recipe_list[spell_id].name))
-			end
-		end
-
-		if #mismatched_item_levels > 0 then
-			output:AddLine("\nRecipes with items which had an incorrect skill level, but will not once a dump is performed:")
-			table.sort(mismatched_item_levels)
-
-			for index in ipairs(mismatched_item_levels) do
-				local spell_id = mismatched_item_levels[index]
-				local recipe = recipe_list[spell_id]
-				local recipe_skill = recipe:SkillLevels()
-				local corrected_skill = scanned_items[recipe:CraftedItemID()]
-				output:AddLine(("%d (%s): Corrected skill level from %d to %d."):format(spell_id, recipe.name, recipe_skill, corrected_skill))
-				recipe:SetSkillLevels(corrected_skill)
-			end
-		end
-
-		if #mismatched_recipe_levels > 0 then
-			output:AddLine("\nRecipes which had an incorrect skill level, but will not once a dump is performed:")
-			table.sort(mismatched_recipe_levels)
-
-			for index in ipairs(mismatched_recipe_levels) do
-				local spell_id = mismatched_recipe_levels[index]
-				local recipe = recipe_list[spell_id]
-				local recipe_skill = recipe:SkillLevels()
-				local corrected_skill = scanned_recipes[recipe.name]
-				output:AddLine(("%d (%s): Skill set to %d; trainer reports %d."):format(spell_id, recipe.name, recipe_skill, scanned_recipes[recipe.name]))
-				recipe:SetSkillLevels(corrected_skill)
-			end
-		end
-
-		if output:Lines() > 0 then
-			output:InsertLine(1, ("ARL Version: %s"):format(self.version))
-			output:InsertLine(2, L["DATAMINER_TRAINER_INFO"]:format(trainer_name, trainer_id))
-
-			if #extra_spell_ids > 0 and trainer_profession == private.LOCALIZED_PROFESSION_NAMES.ENGINEERING then
-				output:AddLine("\nSome goggles may be listed as extra. These goggles ONLY show up for the classes who can make them, so they may be false positives.")
-			end
-			output:Display()
-		end
-		-- Reset the filters to what they were before
-		_G.SetTrainerServiceTypeFilter("available", avail or 0)
-		_G.SetTrainerServiceTypeFilter("unavailable", unavail or 0)
-		_G.SetTrainerServiceTypeFilter("used", used or 0)
-	end
-end	-- do
+local COLDatamineTT = _G.CreateFrame("GameTooltip", "COLDatamineTT", _G.UIParent, "GameTooltipTemplate")
 
 --- Generates tradeskill links for all professions so you can scan them for completeness.
 -- @name AckisRecipeList:GenerateLinks
