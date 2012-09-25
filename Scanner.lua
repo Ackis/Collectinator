@@ -271,6 +271,7 @@ local RECIPE_TYPES = {
 -- @name AckisRecipeList:ScanVendor
 -- @usage AckisRecipeList:ScanVendor()
 -- @return Obtains all the vendor information on tradeskill recipes and attempts to compare the current vendor with the internal database
+--[[
 do
 	local output = private.TextDump
 	local RECIPE_ITEM_TO_SPELL_MAP
@@ -421,7 +422,7 @@ do
 		ARLDatamineTT:Hide()
 	end
 end	-- do
-
+]]--
 --- Parses all the recipes in the database, and scanning their tooltips.
 -- @name AckisRecipeList:TooltipScanDatabase
 -- @usage AckisRecipeList:TooltipScanDatabase()
