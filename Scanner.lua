@@ -92,34 +92,34 @@ local COLDatamineTT = _G.CreateFrame("GameTooltip", "COLDatamineTT", _G.UIParent
 do
 	local ORDERED_COLLECTIONS = private.ORDERED_COLLECTIONS
 
-	local intermediary_recipe_list = {}
+	local intermediary_collectable_list = {}
 
 	local function Sort_AscID(a, b)
-		local reca, recb = private.recipe_list[a], private.recipe_list[b]
+		local reca, recb = private.collectable_list[a], private.collectable_list[b]
 
-		return reca.spell_id < recb.spell_id
+		return reca.creature_id < recb.creature_id
 	end
 
 	local function SortRecipesByID()
-		local sorted_recipes = addon.sorted_recipes
-		table.wipe(sorted_recipes)
+		local sorted_collectables = addon.sorted_collectables
+		table.wipe(sorted_collectables)
 
-		for spell_id in pairs(intermediary_recipe_list) do
-			table.insert(sorted_recipes, spell_id)
+		for creature_id in pairs(intermediary_collectable_list) do
+			table.insert(sorted_collectables, creature_id)
 		end
-		table.sort(sorted_recipes, Sort_AscID)
+		table.sort(sorted_collectables, Sort_AscID)
 	end
 
 	-------------------------------------------------------------------------------
 	--- Scans the items in the specified profession
 	-------------------------------------------------------------------------------
-	local function ProfessionScan(profession_name)
-		table.wipe(intermediary_recipe_list)
+	local function CollectionScan(collection_name)
+		table.wipe(intermediary_collectable_list)
 
-		local profession_recipe_list = private.profession_recipe_list[profession_name]
+		local profession_collectable_list = private.profession_collectable_list[collection_name]
 
-		for spell_id in pairs(profession_recipe_list) do
-			intermediary_recipe_list[spell_id] = profession_recipe_list[spell_id]
+		for spell_id in pairs(profession_collectable_list) do
+			intermediary_collectable_list[spell_id] = profession_collectable_list[spell_id]
 		end
 		local output = private.TextDump
 		output:Clear()
@@ -138,63 +138,63 @@ do
 		ARLDatamineTT:Hide()
 	end
 
-	local function ScheduleProfessionScan(profession_name)
-		if addon:InitializeProfession(profession_name) then
-			addon:ScheduleTimer(ProfessionScan, 2, profession_name)
-			addon:Printf("%s had to be loaded - starting scan in 2 seconds to ensure everything is in the cache.", profession_name)
+	local function ScheduleProfessionScan(collection_name)
+		if addon:InitializeProfession(collection_name) then
+			addon:ScheduleTimer(ProfessionScan, 2, collection_name)
+			addon:Printf("%s had to be loaded - starting scan in 2 seconds to ensure everything is in the cache.", collection_name)
 		else
-			ProfessionScan(profession_name)
+			ProfessionScan(collection_name)
 		end
 	end
 
 	--- Parses all recipes for a specified profession, scanning their tool tips.
-	-- @name AckisRecipeList:ScanProfession
-	-- @usage AckisRecipeList:ScanProfession("first aid")
+	-- @name AckisRecipeList:ScanCollection
+	-- @usage AckisRecipeList:ScanCollection("first aid")
 	-- @param prof_name The profession name or the spell ID of it, which you wish to scan.
 	-- @return Recipes in the given profession have their tooltips scanned.
-	function addon:ScanProfession(input_text)
+	function addon:ScanCollection(input_text)
 		if type(input_text) == "number" then
 			input_text = _G.GetSpellInfo(input_text)
 		end
 		input_text = input_text:lower()
 
 		if input_text == "all" then
-			for index, profession_name in ipairs(ORDERED_COLLECTIONS) do
-				ScheduleProfessionScan(profession_name)
+			for index, collection_name in ipairs(ORDERED_COLLECTIONS) do
+				ScheduleProfessionScan(collection_name)
 			end
 			return
 		end
 
-		for index, profession_name in ipairs(ORDERED_COLLECTIONS) do
-			if input_text == profession_name:lower() then
-				ScheduleProfessionScan(profession_name)
+		for index, collection_name in ipairs(ORDERED_COLLECTIONS) do
+			if input_text == collection_name:lower() then
+				ScheduleProfessionScan(collection_name)
 				return
 			end
 		end
 		self:Debug(L["DATAMINER_NODB_ERROR"])
 	end
 
-	local function RecipeDump(id, single)
-		local recipe = private.recipe_list[id or 1]
+	local function CollectableDump(id, single)
+		local collectable = private.collectable_list[id or 1]
 
-		if single and not recipe then
-			addon:Debug("Invalid recipe ID: %s", id or "nil")
+		if single and not collectable then
+			addon:Debug("Invalid collectable ID: %s", id or "nil")
 			return
 		end
-		recipe:Dump()
+		collectable:Dump()
 	end
 
 	-------------------------------------------------------------------------------
 	--- Dumps the items in the specified profession
 	-------------------------------------------------------------------------------
-	local function ProfessionDump(profession_name)
-		addon:InitializeProfession(profession_name)
-		table.wipe(intermediary_recipe_list)
+	local function CollectionDump(collection_name)
+		addon:InitializeProfession(collection_name)
+		table.wipe(intermediary_collectable_list)
 
-		local profession_recipe_list = private.profession_recipe_list[profession_name]
+		local profession_collectable_list = private.profession_collectable_list[collection_name]
 
-		for spell_id in pairs(profession_recipe_list) do
-			intermediary_recipe_list[spell_id] = profession_recipe_list[spell_id]
+		for spell_id in pairs(profession_collectable_list) do
+			intermediary_collectable_list[spell_id] = profession_collectable_list[spell_id]
 		end
 		SortRecipesByID()
 
@@ -214,21 +214,21 @@ do
 		output:Display()
 	end
 
-	function addon:DumpProfession(input_text)
+	function addon:DumpCollection(input_text)
 		if type(input_text) == "number" then
 			input_text = _G.GetSpellInfo(input_text)
 		end
 		input_text = input_text:lower()
 
 		if input_text == "all" then
-			for index, profession_name in ipairs(ORDERED_COLLECTIONS) do
-				ProfessionDump(profession_name)
+			for index, collection_name in ipairs(ORDERED_COLLECTIONS) do
+				CollectionDump(collection_name)
 			end
 		end
 
-		for index, profession_name in ipairs(ORDERED_COLLECTIONS) do
-			if input_text == profession_name:lower() then
-				ProfessionDump(profession_name)
+		for index, collection_name in ipairs(ORDERED_COLLECTIONS) do
+			if input_text == collection_name:lower() then
+				CollectionDump(collection_name)
 				return
 			end
 		end
@@ -241,14 +241,14 @@ do
 	local source_registry = {}
 	local sorted_data = {}
 
-	local function ProfessionTrainerDump(profession_name)
-		addon:InitializeProfession(profession_name)
-		table.wipe(intermediary_recipe_list)
+	local function ProfessionTrainerDump(collection_name)
+		addon:InitializeProfession(collection_name)
+		table.wipe(intermediary_collectable_list)
 
-		local profession_recipe_list = private.profession_recipe_list[profession_name]
+		local profession_collectable_list = private.profession_collectable_list[collection_name]
 
-		for spell_id in pairs(profession_recipe_list) do
-			intermediary_recipe_list[spell_id] = profession_recipe_list[spell_id]
+		for spell_id in pairs(profession_collectable_list) do
+			intermediary_collectable_list[spell_id] = profession_collectable_list[spell_id]
 		end
 		SortRecipesByID()
 
@@ -256,7 +256,7 @@ do
 		table.wipe(sorted_data)
 
 		for index, spell_id in ipairs(addon.sorted_recipes) do
-			private.recipe_list[spell_id]:DumpTrainers(source_registry)
+			private.collectable_list[spell_id]:DumpTrainers(source_registry)
 		end
 
 		for identifier in pairs(source_registry) do
@@ -288,14 +288,14 @@ do
 		input_text = input_text:lower()
 
 		if input_text == "all" then
-			for index, profession_name in ipairs(ORDERED_COLLECTIONS) do
-				ProfessionTrainerDump(profession_name)
+			for index, collection_name in ipairs(ORDERED_COLLECTIONS) do
+				ProfessionTrainerDump(collection_name)
 			end
 		end
 
-		for index, profession_name in ipairs(ORDERED_COLLECTIONS) do
-			if input_text == profession_name:lower() then
-				ProfessionTrainerDump(profession_name)
+		for index, collection_name in ipairs(ORDERED_COLLECTIONS) do
+			if input_text == collection_name:lower() then
+				ProfessionTrainerDump(collection_name)
 				return
 			end
 		end
@@ -342,7 +342,7 @@ do
 	local RECIPE_ITEM_TO_SPELL_MAP
 
 	local function NormalizeVendorData(spell_id, supply, vendor_id, vendor_name)
-		local recipe = private.recipe_list[spell_id]
+		local recipe = private.collectable_list[spell_id]
 		local acquire_data = recipe and recipe.acquire_data
 		local vendor_data = acquire_data and acquire_data[A.VENDOR]
 		local rep_data = acquire_data and acquire_data[A.REPUTATION]
@@ -426,9 +426,9 @@ do
 			self:Debug(L["DATAMINER_VENDOR_NOTTARGETTED"])
 			return
 		end
-		local recipe_list = private.LoadAllRecipes()		-- Get internal database
+		local collectable_list = private.LoadAllRecipes()		-- Get internal database
 
-		if not recipe_list then
+		if not collectable_list then
 			self:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
@@ -438,7 +438,7 @@ do
 		if not RECIPE_ITEM_TO_SPELL_MAP then
 			RECIPE_ITEM_TO_SPELL_MAP = {}
 
-			for spell_id, recipe in pairs(private.recipe_list) do
+			for spell_id, recipe in pairs(private.collectable_list) do
 				local recipe_item_id = recipe:RecipeItemID()
 
 				if recipe_item_id then
@@ -462,7 +462,7 @@ do
 						addon:ScanTooltipRecipe(spell_id, true, true)
 						NormalizeVendorData(spell_id, supply, vendor_id, vendor_name)
 					else
-						for spell_id, recipe in pairs(private.recipe_list) do
+						for spell_id, recipe in pairs(private.collectable_list) do
 							local recipe_type, match_text = (":"):split(item_name, 2)
 
 							if recipe.name == match_text:trim() then
@@ -493,16 +493,16 @@ end	-- do
 -- @usage AckisRecipeList:TooltipScanDatabase()
 -- @return Entire recipe database has its tooltips scanned.
 function addon:TooltipScanDatabase()
-	local recipe_list = private.LoadAllRecipes()
+	local collectable_list = private.LoadAllRecipes()
 
-	if not recipe_list then
+	if not collectable_list then
 		self:Debug(L["DATAMINER_NODB_ERROR"])
 		return
 	end
 	local output = private.TextDump
 	output:Clear()
 
-	for i in pairs(recipe_list) do
+	for i in pairs(collectable_list) do
 		addon:ScanTooltipRecipe(i, false, true)
 	end
 	output:Display()
@@ -873,7 +873,7 @@ do
 			addon:Debug(recipe_name .. " has no reverse lookup")
 			return
 		end
-		local recipe = scan_data.recipe_list[spell_id]
+		local recipe = scan_data.collectable_list[spell_id]
 		local acquire_data = recipe.acquire_data
 		local flag_format = "F.%s"
 		local start_line = output:Lines()
@@ -1165,9 +1165,9 @@ do
 	end
 
 	--- Parses the mining tooltip for certain keywords, comparing them with the database flags
-	local function ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
+	local function ScanTooltip(recipe_name, collectable_list, reverse_lookup, is_vendor)
 		scan_data.match_name = recipe_name
-		scan_data.recipe_list = recipe_list
+		scan_data.collectable_list = collectable_list
 		scan_data.reverse_lookup = reverse_lookup
 		scan_data.is_vendor = is_vendor
 
@@ -1213,13 +1213,13 @@ do
 			-------------------------------------------------------------------------------
 			local spell_id = scan_data.reverse_lookup[recipe_name]
 
-			if spell_id and recipe_list[spell_id].profession == "Inscription" then
+			if spell_id and collectable_list[spell_id].profession == "Inscription" then
 				scan_data.filter_type = nil
 
 				if not text_l:match("Tools: (.+)") and not text_l:match("Reagents:") and not text_l:match("Requires") then
 					for pattern, filter in pairs(INSCRIPTION_MATCH_FILTERS) do
 						if text_l:match(pattern) then
-							local recipe = recipe_list[spell_id]
+							local recipe = collectable_list[spell_id]
 							--							scan_data.filter_type = filter
 							--							addon:Printf("%s: %s", recipe_name, filter)
 							recipe:SetItemFilterType(filter)
@@ -1285,13 +1285,13 @@ do
 	-- @return Recipe has its tooltips scanned
 	-- Output is always returned by the caller.
 	function addon:ScanTooltipRecipe(spell_id, is_vendor, is_largescan)
-		local recipe_list = private.recipe_list
+		local collectable_list = private.collectable_list
 
-		if not recipe_list then
+		if not collectable_list then
 			self:Debug(L["DATAMINER_NODB_ERROR"])
 			return
 		end
-		local recipe = recipe_list[spell_id]
+		local recipe = collectable_list[spell_id]
 
 		if not recipe then
 			self:Debug("Spell ID %d does not exist in the database.", tonumber(spell_id))
@@ -1329,9 +1329,7 @@ do
 		local recipe_link = _G.GetSpellLink(recipe.spell_id)
 
 		if not recipe_link then
-			if recipe.profession ~= private.LOCALIZED_PROFESSION_NAMES.RUNEFORGING then
-				self:Debug("Missing spell_link for ID %d (%s).", spell_id, recipe_name)
-			end
+			self:Debug("Missing spell_link for ID %d (%s).", spell_id, recipe_name)
 			return
 		end
 		ARLDatamineTT:SetOwner(_G.WorldFrame, "ANCHOR_NONE")
@@ -1351,8 +1349,8 @@ do
 			ARLDatamineTT:Hide()
 			return
 		end
-		local reverse_lookup = GetReverseLookup(recipe_list)
-		ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
+		local reverse_lookup = GetReverseLookup(collectable_list)
+		ScanTooltip(recipe_name, collectable_list, reverse_lookup, is_vendor)
 
 		local recipe_item_id = recipe:RecipeItemID()
 
@@ -1369,7 +1367,7 @@ do
 						scan_data.quality = item_quality
 
 						ARLDatamineTT:SetHyperlink(item_link)
-						ScanTooltip(recipe_name, recipe_list, reverse_lookup, is_vendor)
+						ScanTooltip(recipe_name, collectable_list, reverse_lookup, is_vendor)
 					else
 						output:AddLine(("Recipe %d (%s): Recipe item quality is 0 (junk), which probably means it has been removed from the game."):format(recipe.spell_id, recipe.name))
 					end
