@@ -550,15 +550,14 @@ do
 	local FILTER_TO_ACQUIRE_MAP
 
 	local OBTAIN_FILTERS = {
-		DISC = true,
 		INSTANCE = true,
 		MOB_DROP = true,
+		PROFESSION = true,
 		PVP = true,
 		QUEST = true,
 		RAID = true,
 		REPUTATION = true,
 		SEASONAL = true,
-		TRAINER = true,
 		VENDOR = true,
 		WORLD_DROP = true,
 	}
