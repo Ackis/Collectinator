@@ -1623,7 +1623,7 @@ do
 				return
 			end
 
-			addline_func(0, -1, false, L["Crafted"], CATEGORY_COLORS["location"], profession_type, CATEGORY_COLORS["location"])
+			addline_func(0, -1, false, L["Profession Required:"], CATEGORY_COLORS["location"], profession_type, CATEGORY_COLORS["location"])
 		end,
 
 		[A.ACHIEVEMENT] = function(collectable, identifier, location, acquire_info, addline_func)
