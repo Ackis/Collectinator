@@ -49,7 +49,7 @@ private.ORDERED_COLLECTIONS = {
 }
 
 -------------------------------------------------------------------------------
--- Profession data for crafted collectables.
+-- Profession data for profession collectables.
 -------------------------------------------------------------------------------
 
 private.PROFESSION_SPELL_IDS = {
@@ -146,7 +146,7 @@ private.COMMON_FLAGS_WORD1 = {
 --	DPS		= 0x00080000,	-- 20
 --	TANK		= 0x00100000,	-- 21
 --	HEALER		= 0x00200000,	-- 22
-	CRAFTED		= 0x00400000,	-- 23
+	PROFESSION		= 0x00400000,	-- 23
 	ACHIEVEMENT	= 0x00800000,	-- 24
 	REPUTATION	= 0x01000000,	-- 25
 }
@@ -278,7 +278,7 @@ private.ACQUIRE_NAMES = {
 	[7]	= L["World Drop"],
 	[8]	= _G.ACHIEVEMENTS,
 	[9]	= _G.MISCELLANEOUS,
-	[10]	= L["Crafted"],
+	[10]	= L["Profession"],
 }
 
 private.ACQUIRE_STRINGS = {
@@ -291,7 +291,7 @@ private.ACQUIRE_STRINGS = {
 	[7]	= "WORLD_DROP",
 	[8]	= "ACHIEVEMENT",
 	[9]	= "CUSTOM",
-	[10]	= "CRAFTED",
+	[10]	= "PROFESSION",
 }
 
 private.ACQUIRE_TYPES = {}
@@ -570,7 +570,7 @@ private.CATEGORY_COLORS = {
 	["reputation"]	= "855a99",
 	["seasonal"]	= "80590e",
 	["vendor"]	= "aad372",
-	["crafted"]	= "c98e26",
+	["profession"]	= "c98e26",
 
 	-- Miscellaneous
 	["coords"]	= "d1ce6f",

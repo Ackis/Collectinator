@@ -204,7 +204,7 @@ function addon:OnInitialize()
 				-------------------------------------------------------------------------------
 				obtain = {
 					achievement = true,
-					crafted = true,
+					profession = true,
 					expansion0 = true,
 					expansion1 = true,
 					expansion2 = true,

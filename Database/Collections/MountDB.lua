@@ -95,27 +95,27 @@ function addon:InitMounts()
 	 -- Turbo-Charged Flying Machine Control - 44151
 	mount = AddMount(44151, V.TBC, Q.EPIC) -- Item: 34061
 	--AddMountFlags(44151, F_ALLIANCE, F_HORDE, F_BOP, F_ENG, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 44151, A_CRAFTED, 4036, 41157)
+	--self:AddCompanionAcquire(DB, 44151, A_PROFESSION, 4036, 41157)
 
 	 -- Flying Machine Control - 44153
 	mount = AddMount(44153, V.TBC, Q.RARE) -- Item: 34060
 	--AddMountFlags(44153, F_ALLIANCE, F_HORDE, F_BOE, F_ENG, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 44153, A_CRAFTED, 4036, 44155)
+	--self:AddCompanionAcquire(DB, 44153, A_PROFESSION, 4036, 44155)
 
 	-- Flying Carpet - 61451
 	mount = AddMount(61451, V.WOTLK, Q.RARE) -- Item: 44554
 	--AddMountFlags(61451, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 61451, A_CRAFTED, 3908, 60969)
+	--self:AddCompanionAcquire(DB, 61451, A_PROFESSION, 3908, 60969)
 
 	-- Magnificent Flying Carpet - 61309
 	mount = AddMount(61309, V.WOTLK, Q.EPIC) -- Item: 44558
 	--AddMountFlags(61309, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 61309, A_CRAFTED, 3908, 60971)
+	--self:AddCompanionAcquire(DB, 61309, A_PROFESSION, 3908, 60971)
 
 	-- Frosty Flying Carpet - 75596
 	mount = AddMount(75596, V.WOTLK, Q.EPIC) -- Item: 54797
 	--AddMountFlags(75596, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 75596, A_CRAFTED, 3908, 75597)
+	--self:AddCompanionAcquire(DB, 75596, A_PROFESSION, 3908, 75597)
 
 	-- Blue Dragonhawk - 61996
 	mount = AddMount(61996, V.WOTLK, Q.EPIC) -- Item: 44843
@@ -540,7 +540,7 @@ function addon:InitMounts()
 	-- Mekgineer's Chopper - 60424
 	mount = AddMount(60424, V.WOTLK, Q.EPIC) -- Item: 44413
 	--AddMountFlags(60424, F_ALLIANCE, F_BOE, F_ENG, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 60424, A_CRAFTED, 4036, 60867)
+	--self:AddCompanionAcquire(DB, 60424, A_PROFESSION, 4036, 60867)
 	
 	-- Spectral Gryphon -- 107516
 	mount = AddMount(107516, V.CATA, Q.EPIC) -- Item: 76889
@@ -960,7 +960,7 @@ function addon:InitMounts()
 	-- Mechano-Hog - 55531
 	mount = AddMount(55531, V.WOTLK, Q.EPIC) -- Item: 41508
 	--AddMountFlags(55531, F_HORDE, F_BOE, F_ENG, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 55531, A_CRAFTED, 4036, 60866)
+	--self:AddCompanionAcquire(DB, 55531, A_PROFESSION, 4036, 60866)
 	
 	-- Spectral Wind Rider -- 107517
 	mount = AddMount(107517, V.CATA, Q.EPIC) -- Item: 76902
@@ -1574,7 +1574,7 @@ function addon:InitMounts()
 	-- Sandstone Drake -- 93326
 	mount = AddMount(93326, V.CATA, Q.EPIC) -- Item: 65891
 	--AddMountFlags(93326, F_ALLIANCE, F_HORDE, F_CRAFT, F_BOP)
-	--self:AddCompanionAcquire(DB, 93326, A_CRAFTED, 51304, 93328)
+	--self:AddCompanionAcquire(DB, 93326, A_PROFESSION, 51304, 93328)
 
 	-- Drake of the East Wind -- 88335
 	mount = AddMount(88335, V.CATA, Q.EPIC) -- Item: 62901

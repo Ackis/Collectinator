@@ -150,67 +150,67 @@ function addon:InitCritters()
 --PLAYERMADE
 	-- Mechanical Squirrel Box -- 2671
 	pet = AddPet(2671, V.ORIG, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:SetItemID(4401)
 
 	-- Pet Bombling -- 9656
 	pet = AddPet(9656, V.ORIG, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 	-- Lil' Smoky -- 9657
 	pet = AddPet(9657, V.ORIG, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 	-- Lifelike Mechanical Toad -- 12419
 	pet = AddPet(12419, V.ORIG, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 	-- Tranquil Mechanical Yeti -- 15699
 	pet = AddPet(15699, V.ORIG, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 	-- Fossilized Hatchling -- 45340
 	pet = AddPet(45340, V.CATA, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 	-- De-Weaponized Mechanical Companion -- 43916
 	pet = AddPet(43916, V.CATA, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 	-- Elementium Geode -- 50722
 	pet = AddPet(50722, V.CATA, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 	-- Personal World Destroyer -- 43800
 	pet = AddPet(43800, V.CATA, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 	-- Clockwork Gnome -- 48609
 	pet = AddPet(48609, V.CATA, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 	-- Crawling Claw -- 45128
 	pet = AddPet(45128, V.CATA, Q.EPIC)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
 	pet:SetItemID(60847)
 	pet:SetSpellID(84263)
-	pet:AddCraftedProfession(P.ARCHAEOLOGY)
+	pet:AddProfession(P.ARCHAEOLOGY)
 
 	-- Enchanted Lantern -- 46898
 	pet = AddPet(46898, V.CATA, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 	-- Magic Lamp -- 50545
 	pet = AddPet(50545, V.CATA, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 	-- Pterrordax Hatchling -- 53225
 	pet = AddPet(53225, V.CATA, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 	-- Voodoo Figurine -- 53232
 	pet = AddPet(53232, V.CATA, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.CRAFTED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 
 --WORLD EVENT DROP
 	-- Sinister Squashling -- 23909
@@ -1929,7 +1929,6 @@ Event:  Wanderer's Festival ]]--
 	-- Chi-ji Kite -- 66104
 	--[[ Profession: Inscription ]]--
 	pet = AddPet(66104, V.MOP, Q.COMMON)
-
 
 	self.InitCritters = nil
 end

@@ -416,7 +416,7 @@ function private.InitializeFilterPanel()
 
 		local acquire_buttons = {
 			achievement	= { tt = L["ACHIEVEMENT_DESC"],		text = _G.ACHIEVEMENTS,				row = 1, col = 1 },
-			crafted		= { tt = L["CRAFTED_DESC"],		text = L["Crafted"],				row = 1, col = 2 },
+			profession	= { tt = L["PROFESSION_DESC"],		text = L["Profession"],				row = 1, col = 2 },
 			instance	= { tt = L["INSTANCE_DESC"],		text = _G.INSTANCE,				row = 2, col = 1 },
 			mobdrop		= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 2, col = 2 },
 			pvp		= { tt = L["PVP_DESC"],			text = _G.PVP,					row = 3, col = 1 },
@@ -1051,7 +1051,7 @@ function private.InitializeFilterPanel()
 		-- Obtain Options
 		------------------------------------------------------------------------------------------------
 		["achievement"]		= { cb = FilterPanel.obtain.achievement,	svroot = filterdb.obtain },
-		["crafted"]		= { cb = FilterPanel.obtain.crafted,		svroot = filterdb.obtain },
+		["profession"]		= { cb = FilterPanel.obtain.profession,		svroot = filterdb.obtain },
 		["expansion0"]		= { cb = FilterPanel.obtain.expansion0,		svroot = filterdb.obtain },
 		["expansion1"]		= { cb = FilterPanel.obtain.expansion1,		svroot = filterdb.obtain },
 		["expansion2"]		= { cb = FilterPanel.obtain.expansion2,		svroot = filterdb.obtain },

@@ -276,10 +276,10 @@ function private.InitializeListFrame()
 					edit_box:Insert(_G.GetSpellLink(clicked_line.collectable.collection_spell_id))
 				end
 			elseif _G.IsShiftKeyDown() then
-				local crafted_item_id = clicked_line.collectable:ItemID()
+				local profession_item_id = clicked_line.collectable:ItemID()
 
-				if crafted_item_id then
-					local _, item_link = _G.GetItemInfo(crafted_item_id)
+				if profession_item_id then
+					local _, item_link = _G.GetItemInfo(profession_item_id)
 
 					if item_link then
 						local edit_box = _G.ChatEdit_ChooseBoxForSend()
@@ -521,7 +521,7 @@ function private.InitializeListFrame()
 
 		local SOFT_FILTERS = {
 			["achievement"]	= { flag = COMMON1.ACHIEVEMENT,	field = "common1",	sv_root = obtain_filters },
-			["crafted"]	= { flag = COMMON1.CRAFTED,	field = "common1",	sv_root = obtain_filters },
+			["profession"]	= { flag = COMMON1.PROFESSION,	field = "common1",	sv_root = obtain_filters },
 			["instance"]	= { flag = COMMON1.INSTANCE,	field = "common1",	sv_root = obtain_filters },
 			["mobdrop"]	= { flag = COMMON1.MOB_DROP,	field = "common1",	sv_root = obtain_filters },
 			["pvp"]		= { flag = COMMON1.PVP,		field = "common1",	sv_root = obtain_filters },
@@ -1199,9 +1199,9 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandCraftedData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
+	local function ExpandProfessionData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
 		local entry = AcquireTable()
-		entry.text = ("%s%s %s"):format(PADDING,L["Crafted by:"] ,SetTextColor(CATEGORY_COLORS["crafted"], id_num))
+		entry.text = ("%s%s %s"):format(PADDING,L["Profession Required:"] ,SetTextColor(CATEGORY_COLORS["profession"], id_num))
 		entry.collectable = collectable
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
@@ -1248,8 +1248,8 @@ function private.InitializeListFrame()
 				if not hide_type then
 					func = ExpandCustomData
 				end
-			elseif acquire_type == A.CRAFTED and obtain_filters.crafted then
-				func = ExpandCraftedData
+			elseif acquire_type == A.PROFESSION and obtain_filters.profession then
+				func = ExpandProfessionData
 				--@alpha@
 			elseif acquire_type == A.ACHIEVEMENT and obtain_filters.achievement then
 				func = ExpandAchievementData
@@ -1616,14 +1616,14 @@ do
 			addline_func(0, -1, false, L["World Drop"], quality_color, location_text, CATEGORY_COLORS["location"])
 		end,
 
-		[A.CRAFTED] = function(collectable, identifier, location, acquire_info, addline_func)
-			local crafted_type = type(identifier) == "string" and identifier or _G.UNKNOWN
+		[A.PROFESSION] = function(collectable, identifier, location, acquire_info, addline_func)
+			local profession_type = type(identifier) == "string" and identifier or _G.UNKNOWN
 
-			if not crafted_type then
+			if not profession_type then
 				return
 			end
 
-			addline_func(0, -1, false, L["Crafted"], CATEGORY_COLORS["location"], crafted_type, CATEGORY_COLORS["location"])
+			addline_func(0, -1, false, L["Crafted"], CATEGORY_COLORS["location"], profession_type, CATEGORY_COLORS["location"])
 		end,
 
 		[A.ACHIEVEMENT] = function(collectable, identifier, location, acquire_info, addline_func)
@@ -1713,7 +1713,7 @@ do
 		[A.WORLD_DROP] = true,
 		[A.CUSTOM] = true,
 		[A.ACHIEVEMENT] = true,
-		[A.CRAFTED] = true
+		[A.PROFESSION] = true
 	}
 
 	function ListItem_ShowTooltip(owner, list_entry)
