@@ -762,16 +762,6 @@ do
 			table.insert(extra_flags, flag_format:format(FS[F.VENDOR]))
 		end
 
-		if acquire_data[A.TRAINER] and not recipe:HasFilter("common1", "TRAINER") then
-			recipe:AddFilters(F.TRAINER)
-			table.insert(missing_flags, flag_format:format(FS[F.TRAINER]))
-		end
-
-		if recipe:HasFilter("common1", "TRAINER") and not acquire_data[A.TRAINER] and not acquire_data[A.CUSTOM] then
-			recipe:RemoveFilters(F.TRAINER)
-			table.insert(extra_flags, flag_format:format(FS[F.TRAINER]))
-		end
-
 		if scan_data.quality and scan_data.quality ~= recipe.quality then
 			local QS = private.ITEM_QUALITY_NAMES
 			table.insert(general_issues, ("Wrong quality: Q.%s - should be Q.%s."):format(QS[recipe.quality], QS[scan_data.quality]))
