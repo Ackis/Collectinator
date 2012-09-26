@@ -50,7 +50,7 @@ local NO_ROLE_FLAG	-- Populated at the end of the file.
 -------------------------------------------------------------------------------
 -- Functions/methods
 -------------------------------------------------------------------------------
-function private.LoadAllCollections()
+function private.LoadAllCollectables()
 	local collectable_list = private.collectable_list
 
 	if addon.db.profile.autoloaddb then
