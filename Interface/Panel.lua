@@ -433,7 +433,7 @@ function private.InitializeFrame()
 			_G.SetCVar("Sound_EnableSFX", 0)
 		end
 
-		_G.PanelTemplates_SetTab(_G.PetJournalParent, MainPanel.current_collectable_type)
+		_G.PetJournalParent_SetTab(_G.PetJournalParent, MainPanel.current_collectable_type)
 		addon:Scan()
 
 		if not is_shown then
