@@ -149,7 +149,7 @@ function addon:OnInitialize()
 			-- Sorting Options
 			-------------------------------------------------------------------------------
 			sorting = "Ascending",
-			current_tab = 3, -- Name tab
+			current_tab = 2, -- Name tab
 
 			-------------------------------------------------------------------------------
 			-- Display Options
