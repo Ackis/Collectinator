@@ -414,18 +414,22 @@ function private.InitializeFilterPanel()
 
 		obtain_frame.acquire_toggle = acquire_toggle
 
+		local function AcquireDesc(phrase)
+			return L["ACQUISITION_DESC_FORMAT"]:format(phrase)
+		end
+
 		local acquire_buttons = {
-			achievement	= { tt = L["ACHIEVEMENT_DESC"],		text = _G.ACHIEVEMENTS,				row = 1, col = 1 },
-			profession	= { tt = L["PROFESSION_DESC"],		text = L["Profession"],				row = 1, col = 2 },
-			instance	= { tt = L["INSTANCE_DESC"],		text = _G.INSTANCE,				row = 2, col = 1 },
-			mobdrop		= { tt = L["MOB_DROP_DESC"],		text = L["Mob Drop"],				row = 2, col = 2 },
-			pvp		= { tt = L["PVP_DESC"],			text = _G.PVP,					row = 3, col = 1 },
-			quest		= { tt = L["QUEST_DESC"],		text = L["Quest"],				row = 3, col = 2 },
-			raid		= { tt = L["RAID_DESC"],		text = _G.RAID,					row = 4, col = 1 },
-			reputation	= { tt = L["REPUTATION_DESC"],		text = _G.REPUTATION,				row = 4, col = 2 },
-			vendor		= { tt = L["VENDOR_DESC"],		text = L["Vendor"],				row = 5, col = 1 },
-			worlddrop	= { tt = L["WORLD_DROP_DESC"],		text = L["World Drop"],				row = 5, col = 2 },
-			seasonal	= { tt = L["SEASONAL_DESC"],		text = private.ACQUIRE_NAMES[A.SEASONAL],	row = 6, col = 1 },
+			achievement	= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_6),	text = _G.BATTLE_PET_SOURCE_6,	row = 1, col = 1 },
+			instance	= { tt = AcquireDesc(_G.INSTANCE),		text = _G.INSTANCE,		row = 1, col = 2 },
+			mobdrop		= { tt = AcquireDesc(L["Mob Drop"]),		text = L["Mob Drop"],		row = 2, col = 1 },
+			profession	= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_4),	text = _G.BATTLE_PET_SOURCE_4,	row = 2, col = 2 },
+			pvp		= { tt = AcquireDesc(_G.PVP),			text = _G.PVP,			row = 3, col = 1 },
+			quest		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_2),	text = _G.BATTLE_PET_SOURCE_2,	row = 3, col = 2 },
+			raid		= { tt = AcquireDesc(_G.RAID),			text = _G.RAID,			row = 4, col = 1 },
+			reputation	= { tt = AcquireDesc(_G.REPUTATION),		text = _G.REPUTATION,		row = 4, col = 2 },
+			vendor		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_3),	text = _G.BATTLE_PET_SOURCE_3,	row = 5, col = 1 },
+			worlddrop	= { tt = AcquireDesc(L["World Drop"]),		text = L["World Drop"],		row = 5, col = 2 },
+			seasonal	= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_7),	text = _G.BATTLE_PET_SOURCE_7,	row = 6, col = 1 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
