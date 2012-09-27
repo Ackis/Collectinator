@@ -610,25 +610,29 @@ do
 			local pet_sources = {}
 
 			for index in LPJ:IterateCreatureIDs() do
-				local pet_id, species_id, is_owned, _, _, _, _, name, icon, petType, creature_id, source_text, description, is_wild  = _G.C_PetJournal.GetPetInfoByIndex(index)
-				local critter = critters[creature_id]
+				local pet_id, species_id, is_owned, _, _, _, _, name, icon, petType, creature_id, source_text, description, is_wild = _G.C_PetJournal.GetPetInfoByIndex(index)
 
-				if critter then
-					critter:SetName(name)
-					critter:SetIcon(icon)
-					critter:SetDescription(description)
+				if creature_id then -- Work around a bug in LibPetJournal-1.0
+					local critter = critters[creature_id]
 
-					critter.source_text_TEMPORARY = source_text
+					if critter then
+						if creature_id == 54027 then
+							print(("Found %s"):format(name))
+						end
+						critter:SetName(name)
+						critter:SetIcon(icon)
+						critter:SetDescription(description)
 
-					if is_owned then
-						critter:AddState("KNOWN")
-					end
-				elseif not pet_names[creature_id] then
---					if source_text:find("Pet Battle") then
+						critter.source_text_TEMPORARY = source_text
+
+						if is_owned then
+							critter:AddState("KNOWN")
+						end
+					elseif not pet_names[creature_id] then
 						pet_names[creature_id] = name
 						pet_sources[creature_id] = source_text
 						pet_ids[#pet_ids + 1] = creature_id
---					end
+					end
 				end
 			end
 			table.sort(pet_ids)
@@ -636,14 +640,19 @@ do
 			for index = 1, #pet_ids do
 				local creature_id = pet_ids[index]
 				local flag_list = {}
+				local flag_string
 				private.TextDump:AddLine(("-- %s -- %d"):format(pet_names[creature_id], creature_id))
+
+				private.TextDump:AddLine(("--[[ %s ]]--"):format(pet_sources[creature_id]))
+				private.TextDump:AddLine(("pet = AddPet(%d, V.MOP, Q.COMMON)"):format(creature_id))
 
 				if pet_sources[creature_id]:find("Pet Battle") then
 					flag_list["BATTLE_PET"] = true
+					flag_string = "pet:AddFilters("
+				else
+					flag_string = "\n"
 				end
-				private.TextDump:AddLine(("--[[ %s ]]--"):format(pet_sources[creature_id]))
-				private.TextDump:AddLine(("pet = AddPet(%d, V.MOP, Q.COMMON)"):format(creature_id))
-				local flag_string = "pet:AddFilters("
+
 				for i in pairs(flag_list) do
 					flag_string = flag_string .. "F."..i..")\n"
 				end
