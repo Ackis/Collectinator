@@ -204,7 +204,6 @@ function addon:OnInitialize()
 				-------------------------------------------------------------------------------
 				obtain = {
 					achievement = true,
-					profession = true,
 					expansion0 = true,
 					expansion1 = true,
 					expansion2 = true,
@@ -212,12 +211,12 @@ function addon:OnInitialize()
 					expansion4 = true,
 					instance = true,
 					mobdrop = true,
+					profession = true,
 					pvp = true,
 					quest = true,
 					raid = true,
 					reputation = true,
 					seasonal = true,
-					trainer = true,
 					vendor = true,
 					worlddrop = true,
 				},
@@ -645,8 +644,8 @@ do
 				private.TextDump:AddLine(("--[[ %s ]]--"):format(pet_sources[creature_id]))
 				private.TextDump:AddLine(("pet = AddPet(%d, V.MOP, Q.COMMON)"):format(creature_id))
 				local flag_string = "pet:AddFilters("
-				for i in pairs(flag_list) do 
-					flag_string = flag_string .. "F."..i..")"
+				for i in pairs(flag_list) do
+					flag_string = flag_string .. "F."..i..")\n"
 				end
 				private.TextDump:AddLine(flag_string)
 			end
