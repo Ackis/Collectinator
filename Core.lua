@@ -352,16 +352,16 @@ function addon:OnInitialize()
 
 		-- Alt-Shift (Warcraft Pets)
 		if shift_pressed and alt_pressed and not control_pressed then
-			addon:Scan(true, false, "pets")
-			-- Shift only (Text Dump)
+			--addon:Scan(true, false, "pets")
+		-- Shift only (Text Dump)
 		elseif shift_pressed and not alt_pressed and not control_pressed then
-			addon:Scan(true, false, companion_frame)
-			-- Alt only (Wipe icons from map)
+			--addon:Scan(true, false, companion_frame)
+		-- Alt only (Wipe icons from map)
 		elseif not shift_pressed and alt_pressed and not control_pressed then
-			addon:ClearMap()
-			-- If we are just clicking do the scan
+			--addon:ClearMap()
+		-- If we are just clicking do the scan
 		elseif not shift_pressed and not alt_pressed and not control_pressed then
-			addon:Scan(false, false, companion_frame)
+			--addon:Scan(false, false, companion_frame)
 			--self:SetupMap()
 		end
 	end)
