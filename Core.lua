@@ -345,23 +345,22 @@ function addon:OnInitialize()
 	scan_button:SetPoint("RIGHT", _G.PetJournalParentCloseButton, "LEFT", 4, 0)
 
 	scan_button:SetScript("OnClick", function()
-		local companion_frame = (_G.PetJournal:IsVisible() and _G.PetJournal) or (_G.MountJournal:IsVisible() and _G.MountJournal)
 		local shift_pressed = _G.IsShiftKeyDown()
 		local alt_pressed = _G.IsAltKeyDown()
 		local control_pressed = _G.IsControlKeyDown()
 
 		-- Alt-Shift (Warcraft Pets)
 		if shift_pressed and alt_pressed and not control_pressed then
-			--addon:Scan(true, false, "pets")
+			--addon:Scan(true, false)
 		-- Shift only (Text Dump)
 		elseif shift_pressed and not alt_pressed and not control_pressed then
-			--addon:Scan(true, false, companion_frame)
+			--addon:Scan(true, false)
 		-- Alt only (Wipe icons from map)
 		elseif not shift_pressed and alt_pressed and not control_pressed then
 			--addon:ClearMap()
 		-- If we are just clicking do the scan
 		elseif not shift_pressed and not alt_pressed and not control_pressed then
-			--addon:Scan(false, false, companion_frame)
+			addon:Scan(false, false)
 			--self:SetupMap()
 		end
 	end)
