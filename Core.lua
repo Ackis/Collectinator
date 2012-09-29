@@ -282,7 +282,6 @@ function addon:OnInitialize()
 					therazane = true,
 					foresthozen = true,
 					goldenlotus = true,
-					huojinpandaren = true,
 					cloudserpent = true,
 					pearlfinjinyu = true,
 					shadopan = true,
@@ -292,9 +291,9 @@ function addon:OnInitialize()
 					klaxxi = true,
 					lorewalkers = true,
 					tillers = true,
-					tushuipandaren = true,
 					blackprince = true,
 					shangxiacademy = true,
+					pandacommon1 = true,
 				},
 				-- Populated later via CONSTANTS
 				item = {
