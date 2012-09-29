@@ -565,6 +565,12 @@ end
 do
 	local UNKNOWN_PET_FORMAT = "%s: %d"
 
+	local pet_filters_main = {
+		LE_PET_JOURNAL_FLAG_COLLECTED,
+		LE_PET_JOURNAL_FLAG_FAVORITES,
+		LE_PET_JOURNAL_FLAG_NOT_COLLECTED,
+	}
+
 	local COLLECTABLE_SCAN_FUNCS = {
 		[private.COLLECTION_TYPE_IDS.MOUNT] = function(collectable_type, mounts)
 			local num_mounts = _G.GetNumCompanions(collectable_type)
@@ -608,6 +614,38 @@ do
 			local pet_names = {}
 			local pet_ids = {}
 			local pet_sources = {}
+
+			local pet_type_filters = {}
+			local pet_source_filters = {}
+
+			-- Get filter states for main, pet types and pet sources
+			for i in pairs(pet_filters_main) do
+				pet_filters_main[i] = not C_PetJournal.IsFlagFiltered(pet_filters_main[i])
+			end
+
+			for i = 1,C_PetJournal.GetNumPetTypes(),1 do
+				pet_type_filters[i] = not C_PetJournal.IsPetTypeFiltered(i)
+			end
+
+			for i = 1,C_PetJournal.GetNumPetSources(),1 do
+				pet_source_filters[i] = not C_PetJournal.IsPetSourceFiltered(i)
+			end
+
+			-- Clear all the filters showing all pets known/unknown
+			C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, true)
+			C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, false)
+			C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
+			C_PetJournal.AddAllPetTypesFilter()
+			C_PetJournal.AddAllPetSourcesFilter()
+
+			for i = 1,C_PetJournal.GetNumPetSources(),1 do
+				pet_source_filters[i] = not C_PetJournal.IsPetSourceFiltered(i)
+			end
+
+			for i = 1, C_PetJournal.GetNumPets(false) do
+				local petID, speciesID, owned = C_PetJournal.GetPetInfoByIndex(i, false)
+				addon:Print(petID)
+			end
 
 			for index in LPJ:IterateCreatureIDs() do
 				local pet_id, species_id, is_owned, _, _, _, _, name, icon, petType, creature_id, source_text, description, is_wild = _G.C_PetJournal.GetPetInfoByIndex(index)
