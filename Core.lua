@@ -615,10 +615,11 @@ do
 			local pet_ids = {}
 			local pet_sources = {}
 
+			
+			-- Filter state tracking/clearing
 			local pet_type_filters = {}
 			local pet_source_filters = {}
 
-			-- Get filter states for main, pet types and pet sources
 			for i in pairs(pet_filters_main) do
 				pet_filters_main[i] = not C_PetJournal.IsFlagFiltered(pet_filters_main[i])
 			end
@@ -631,22 +632,17 @@ do
 				pet_source_filters[i] = not C_PetJournal.IsPetSourceFiltered(i)
 			end
 
-			-- Clear all the filters showing all pets known/unknown
 			C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, true)
 			C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, false)
 			C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
 			C_PetJournal.AddAllPetTypesFilter()
 			C_PetJournal.AddAllPetSourcesFilter()
-
-			for i = 1,C_PetJournal.GetNumPetSources(),1 do
-				pet_source_filters[i] = not C_PetJournal.IsPetSourceFiltered(i)
-			end
-
+--[[
 			for i = 1, C_PetJournal.GetNumPets(false) do
 				local petID, speciesID, owned = C_PetJournal.GetPetInfoByIndex(i, false)
 				addon:Print(petID)
 			end
-
+]]--
 			for index in LPJ:IterateCreatureIDs() do
 				local pet_id, species_id, is_owned, _, _, _, _, name, icon, petType, creature_id, source_text, description, is_wild = _G.C_PetJournal.GetPetInfoByIndex(index)
 
@@ -674,34 +670,23 @@ do
 				end
 			end
 			table.sort(pet_ids)
-
+--[[
 			for index = 1, #pet_ids do
 				local creature_id = pet_ids[index]
-				local flag_list = {}
-				local flag_string
 				private.TextDump:AddLine(("-- %s -- %d"):format(pet_names[creature_id], creature_id))
 
 				private.TextDump:AddLine(("--[[ %s ]]--"):format(pet_sources[creature_id]))
 				private.TextDump:AddLine(("pet = AddPet(%d, V.MOP, Q.COMMON)"):format(creature_id))
 
-				if pet_sources[creature_id]:find("Pet Battle") then
-					flag_list["BATTLE_PET"] = true
-					flag_string = "pet:AddFilters("
-				else
-					flag_string = "\n"
-				end
-
-				for i in pairs(flag_list) do
-					flag_string = flag_string .. "F."..i..")\n"
-				end
 				private.TextDump:AddLine(flag_string)
 			end
 			local dump_lines = private.TextDump:Lines()
 
 			if dump_lines > 0 then
-				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 4))
+				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 3))
 				private.TextDump:Display()
 			end
+]]--
 		end,
 	}
 
