@@ -670,23 +670,36 @@ do
 				end
 			end
 			table.sort(pet_ids)
---[[
-			for index = 1, #pet_ids do
-				local creature_id = pet_ids[index]
-				private.TextDump:AddLine(("-- %s -- %d"):format(pet_names[creature_id], creature_id))
 
-				private.TextDump:AddLine(("--[[ %s ]]--"):format(pet_sources[creature_id]))
-				private.TextDump:AddLine(("pet = AddPet(%d, V.MOP, Q.COMMON)"):format(creature_id))
-
-				private.TextDump:AddLine(flag_string)
+			-- Restore filter state to what it was previously
+			for i in pairs(pet_filters_main) do
+				C_PetJournal.SetFlagFilter(i, pet_filters_main[i])
 			end
-			local dump_lines = private.TextDump:Lines()
 
-			if dump_lines > 0 then
-				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 3))
-				private.TextDump:Display()
+			for i = 1,C_PetJournal.GetNumPetTypes(),1 do
+				C_PetJournal.SetPetTypeFilter(i, pet_type_filters[i])
 			end
-]]--
+
+			for i = 1,C_PetJournal.GetNumPetSources(),1 do
+				C_PetJournal.SetPetSourceFilter(i, pet_source_filters[i])
+			end
+
+
+--			for index = 1, #pet_ids do
+--				local creature_id = pet_ids[index]
+--				private.TextDump:AddLine(("-- %s -- %d"):format(pet_names[creature_id], creature_id))
+
+--				private.TextDump:AddLine(("--[[ %s ]]--"):format(pet_sources[creature_id]))
+--				private.TextDump:AddLine(("pet = AddPet(%d, V.MOP, Q.COMMON)"):format(creature_id))
+
+--				private.TextDump:AddLine(flag_string)
+--			end
+--			local dump_lines = private.TextDump:Lines()
+
+--			if dump_lines > 0 then
+--				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 3))
+--				private.TextDump:Display()
+--			end
 		end,
 	}
 
