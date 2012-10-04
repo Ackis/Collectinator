@@ -42,6 +42,7 @@ function addon:InitVendor()
 	AddVendor(28951,	L["Breanni"],			Z.DALARAN,			40.5,	35.2,	"Neutral")
 	AddVendor(64518,	L["Uncle Bigpocket"],		Z.KUN_LAI_SUMMIT,		65.4,	61.6,	"Neutral")
 	AddVendor(64518,	L["Jaluu the Generous"],	Z.VALE_OF_ETERNAL_BLOSSOMS,	74.2,	42.6,	"Neutral")
+	AddVendor(64605,	L["Tan Shin Tiao"],		Z.VALE_OF_ETERNAL_BLOSSOMS,	82.2,	29.4,	"Neutral")
 
 
 
