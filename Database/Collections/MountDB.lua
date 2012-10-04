@@ -1701,96 +1701,304 @@ function addon:InitMounts()
 -- MOP INTRO'D MOUNTS!!
 
 
--- Albino Riding Crane 
-mount = AddMount(,,)
+
 
 -- Amber Scorpion 
-mount = AddMount(,,)
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
 
 -- Ashen Pandaren Phoenix 
-mount = AddMount(,,)
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
 
 -- Astral Cloud Serpent 
-mount = AddMount(,,)
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
 
 -- Azure Cloud Serpent 
-mount = AddMount(,,)
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
 
--- Azure Riding Crane 
-mount = AddMount(,,)
+
+-- Azure Riding Crane -- 127174
+-- mount = AddMount(127174, V.MOP, Q.EPIC)
+-- AddMountFlags(127174, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+-- self:AddCompanionAcquire(DB, 127174, A_REPUTATION, 1269, EXALTED, 59908)
+
 
 -- Azure Water Strider 
-mount = AddMount(,,)
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
 
 -- Black Dragon Turtle 
-mount = AddMount(,,)
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
 
 -- Black Riding Goat 
-mount = AddMount(,,)
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
 
--- Black Riding Yak 
-mount = AddMount(,,)
+-- Blonde Riding Yak -- 127220-- mount = AddMount(127220, V.MOP, Q.EPIC)
+-- AddMountFlags(127220, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+-- self:AddCompanionAcquire(DB, 127220, A_VENDOR, 64518)
 
--- Blonde Riding Yakmount = AddMount(,,)
--- Blue Dragon Turtlemount = AddMount(,,)
--- Blue Shado-Pan Riding Tigermount = AddMount(,,)
--- Brown Dragon Turtlemount = AddMount(,,)
--- Brown Riding Goatmount = AddMount(,,)
--- Brown Riding Yakmount = AddMount(,,)
--- Cataclysmic Gladiator's Twilight Drakemount = AddMount(,,)
--- Crimson Cloud Serpentmount = AddMount(,,)
--- Crimson Pandaren Phoenixmount = AddMount(,,)
--- Crimson Riding Cranemount = AddMount(,,)
--- Crimson Water Stridermount = AddMount(,,)
--- Depleted-Kyparium Rocketmount = AddMount(,,)
--- Emerald Pandaren Phoenixmount = AddMount(,,)
--- Geosynchronous World Spinnermount = AddMount(,,)
--- Golden Cloud Serpentmount = AddMount(,,)
--- Golden Riding Cranemount = AddMount(,,)
--- Golden Water Stridermount = AddMount(,,)
--- Grand Expedition Yakmount = AddMount(,,)
--- Great Black Dragon Turtlemount = AddMount(,,)
--- Great Blue Dragon Turtlemount = AddMount(,,)
--- Great Brown Dragon Turtlemount = AddMount(,,)
--- Great Green Dragon Turtlemount = AddMount(,,)
--- Great Purple Dragon Turtlemount = AddMount(,,)
--- Great Red Dragon Turtlemount = AddMount(,,)
--- Green Dragon Turtlemount = AddMount(,,)
--- Green Shado-Pan Riding Tigermount = AddMount(,,)
--- Grey Riding Yakmount = AddMount(,,)
--- Heavenly Azure Cloud Serpentmount = AddMount(,,)
--- Heavenly Crimson Cloud Serpentmount = AddMount(,,)
--- Heavenly Golden Cloud Serpentmount = AddMount(,,)
--- Heavenly Jade Cloud Serpentmount = AddMount(,,)
--- Heavenly Onyx Cloud Serpentmount = AddMount(,,)
--- Imperial Quilenmount = AddMount(,,)
--- Jade Cloud Serpentmount = AddMount(,,)
--- Jade Panthermount = AddMount(,,)
--- Jade Water Stridermount = AddMount(,,)
--- Jeweled Onyx Panthermount = AddMount(,,)
--- Jungle Riding Cranemount = AddMount(,,)
--- Obsidian Nightwingmount = AddMount(,,)
--- Onyx Cloud Serpentmount = AddMount(,,)
--- Orange Water Stridermount = AddMount(,,)
--- Pandaren Kitemount = AddMount(,,)
--- Pandaren Kitemount = AddMount(,,)
--- Purple Dragon Turtlemount = AddMount(,,)
--- Red Dragon Turtlemount = AddMount(,,)
--- Red Flying Cloudmount = AddMount(,,)
--- Red Shado-Pan Riding Tigermount = AddMount(,,)
--- Regal Riding Cranemount = AddMount(,,)
--- Ruby Panthermount = AddMount(,,)
--- Sapphire Panthermount = AddMount(,,)
--- Son of Galleonmount = AddMount(,,)
--- Sunstone Panthermount = AddMount(,,)
--- Thundering August Cloud Serpentmount = AddMount(,,)
--- Thundering Jade Cloud Serpentmount = AddMount(,,)
--- Thundering Ruby Cloud Serpentmount = AddMount(,,)
--- Violet Pandaren Phoenixmount = AddMount(,,)
--- White Riding Goatmount = AddMount(,,)
--- White Riding Yak
-mount = AddMount(,,)
+-- Blue Dragon Turtle-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Blue Shado-Pan Riding Tiger-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Brown Dragon Turtle-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Brown Riding Goat-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Cataclysmic Gladiator's Twilight Drake-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Crimson Cloud Serpent-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Crimson Pandaren Phoenix-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Crimson Water Strider-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Depleted-Kyparium Rocket-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Emerald Pandaren Phoenix-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Geosynchronous World Spinner-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Golden Cloud Serpent-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Golden Riding Crane -- -127176-- mount = AddMount(127176, V.MOP, Q.EPIC)
+-- AddMountFlags(127176, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+-- self:AddCompanionAcquire(DB, 127176, A_REPUTATION, 1269, EXALTED, 59908)
+
+-- Golden Water Strider-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Grand Expedition Yak -- 122708-- mount = AddMount(122708, V.MOP, Q.EPIC)
+-- AddMountFlags(122708, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+-- self:AddCompanionAcquire(DB, 122708, A_VENDOR, 64518)
+
+-- Great Black Dragon Turtle-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Great Blue Dragon Turtle-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Great Brown Dragon Turtle-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Great Green Dragon Turtle-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Great Purple Dragon Turtle-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Great Red Dragon Turtle-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Green Dragon Turtle-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Green Shado-Pan Riding Tiger-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+
+-- Grey Riding Yak -- 127216-- mount = AddMount(127216, V.MOP, Q.EPIC)
+-- AddMountFlags(127216, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+-- self:AddCompanionAcquire(DB, 127216, A_VENDOR, 64518)
+
+-- Heavenly Azure Cloud Serpent-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Heavenly Crimson Cloud Serpent-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Heavenly Golden Cloud Serpent-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Heavenly Jade Cloud Serpent-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Heavenly Onyx Cloud Serpent-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Jade Cloud Serpent-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Jade Panther-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Jade Water Strider-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Jeweled Onyx Panther-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Onyx Cloud Serpent-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Orange Water Strider-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Pandaren Kite-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Pandaren Kite-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Purple Dragon Turtle-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Red Dragon Turtle-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Red Flying Cloud-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Red Shado-Pan Riding Tiger-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Regal Riding Crane -- 127177-- mount = AddMount(127177, V.MOP, Q.EPIC)
+-- AddMountFlags(127177, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+-- self:AddCompanionAcquire(DB, 127177, A_REPUTATION, 1269, EXALTED, 59908)
+
+-- Ruby Panther-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Sapphire Panther-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Son of Galleon-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Sunstone Panther-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Thundering August Cloud Serpent-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Thundering Jade Cloud Serpent-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Thundering Ruby Cloud Serpent-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Violet Pandaren Phoenix-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- White Riding Goat-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
 ----------------------------------------------------------------------------------------------------]]
 
 	self.InitMounts = nil
 end
+
+
+
+--[[
+Apparentely not in game yet!
+
+-- White Riding Yak
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+
+-- Brown Riding Yak
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+
+-- Black Riding Yak 
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Albino Riding Crane 
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Crimson Riding Crane
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Jungle Riding Crane
+-- mount = AddMount(, V.MOP, )
+-- AddMountFlags(, F_ALLIANCE, F_HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-----------------------------]]

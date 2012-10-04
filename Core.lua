@@ -711,7 +711,7 @@ do
 		local collectables = private.collectable_list[collectable_type]
 
 		if not collectables then
-			addon:Debug("Errror, %s table not made.", collectable_type)
+			addon:Debug("Error, %s table not made.", collectable_type)
 			return
 		end
 
