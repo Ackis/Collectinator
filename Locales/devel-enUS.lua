@@ -99,6 +99,7 @@ L["Scan"] = true
 L["Scan Button Position"] = true
 L["Show Known"] = true
 L["Small Font"] = true
+L["Tan Shin Tiao"] = true
 L["TOOLTIP_HINT"] = "Hide Hint Text"
 L["TOOLTIP_HINT_DESC"] = "Hides the hint text at the bottom of the tooltip."
 L["TOOLTIP_OPTIONS_DESC"] = "Allows you to specify how the tooltips for Collectinator behave.  The acquire tooltip lists the different information on how to acquire a collectable, whereas the spell tooltip lists the collectable information itself."

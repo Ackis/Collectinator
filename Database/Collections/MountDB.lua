@@ -1911,9 +1911,9 @@ function addon:InitMounts()
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Red Flying Cloud-- mount = AddMount(, V.MOP, )
--- AddMountFlags(, F_ALLIANCE, F_HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Red Flying Cloud -- 130092-- mount = AddMount(130092, V.MOP, Q.RARE)
+-- AddMountFlags(130092, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
+-- self:AddCompanionAcquire(DB, 130092, A_REPUTATION, 1345, EXALTED, 64605)
 
 -- Red Shado-Pan Riding Tiger-- mount = AddMount(, V.MOP, )
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
