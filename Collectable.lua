@@ -293,7 +293,7 @@ local function SetFilterState(collectable, turn_on, ...)
 				collectable.flags[member_name] = nil
 			end
 		else
-			addon:Debug("Collectable '%s' (spell ID %d): Attempting to %s non-existent filter flag.", collectable.name, collectable.id, turn_on and "assign" or "remove")
+			addon:Debug("Collectable '%s' (spell ID %d): Attempting to %s non-existent filter flag.", collectable.name or _G.UNKNOWN, collectable.id, turn_on and "assign" or "remove")
 		end
 	end
 end
