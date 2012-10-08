@@ -13,7 +13,7 @@ local pairs = _G.pairs
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 
 -------------------------------------------------------------------------------
 -- Table cache mechanism
@@ -33,7 +33,7 @@ do
 		table.wipe(tbl)
 		table.insert(table_cache, tbl)
 	end
-end	-- do block
+end -- do block
 
 -------------------------------------------------------------------------------
 -- Sort functions
@@ -57,15 +57,18 @@ do
 	end
 
 	local COLLECTABLE_SORT_FUNCS = {
-		["NameAscending"]	= Sort_NameAsc,
-		["NameDescending"]	= Sort_NameDesc,
+		["NameAscending"] = Sort_NameAsc,
+		["NameDescending"] = Sort_NameDesc,
 	}
 
 	-- Sorts the collectable_list according to configuration settings.
 	function private.SortCollectables(collectables)
+		if not collectables then
+			return
+		end
 		local sort_type = addon.db.profile.sorting
 		local skill_view = addon.db.profile.skill_view
-		local sort_func = COLLECTABLE_SORT_FUNCS[(skill_view and "Skill" or "Name")..sort_type] or Sort_NameAsc
+		local sort_func = COLLECTABLE_SORT_FUNCS[(skill_view and "Skill" or "Name") .. sort_type] or Sort_NameAsc
 
 		table.wipe(sorted_collectables)
 		collectable_list = collectables
@@ -75,7 +78,7 @@ do
 		end
 		table.sort(sorted_collectables, sort_func)
 	end
-end	-- do
+end -- do
 
 -------------------------------------------------------------------------------
 -- Sets show and hide scripts as well as text for a tooltip for the given frame.
@@ -99,4 +102,4 @@ do
 		frame:SetScript("OnEnter", Show_Tooltip)
 		frame:SetScript("OnLeave", Hide_Tooltip)
 	end
-end	-- do
+end -- do
