@@ -444,10 +444,10 @@ function collectable_prototype:AddRepVendor(faction_id, rep_level, ...)
 				rep_vendor.item_list = rep_vendor.item_list or {}
 				rep_vendor.item_list[self.id] = true
 			else
-				self:Debug("Spell ID %d: Reputation Vendor ID %s does not exist in the database.", self.id, tostring(vendor_id))
+				addon:Debug("Spell ID %d: Reputation Vendor ID %s does not exist in the database.", self.id, tostring(vendor_id))
 			end
 		else
-			self:Debug("Spell ID %d: Faction ID %d does not exist in the database.", self.id, faction_id)
+			addon:Debug("Spell ID %d: Faction ID %d does not exist in the database.", self.id, faction_id)
 		end
 		acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
 		acquire_list[A.REPUTATION].collectables = acquire_list[A.REPUTATION].collectables or {}
