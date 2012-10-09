@@ -1,4 +1,4 @@
-﻿--[[
+--[[
 ************************************************************************
 MountDB.lua
 ************************************************************************
@@ -51,104 +51,126 @@ function addon:InitMounts()
 
 -- ACHIEVEMENTS
 	-- Reins of the Albino Drake - 60025
-	mount = AddMount(60025, V.WOTLK, Q.EPIC) -- Item: 44178
-	--AddMountFlags(60025, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 60025, A_ACHIEVEMENT, 2143)
+	mount = AddMount(60025, V.WOTLK, Q.EPIC)
+	mount:SetItemID(44178)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP)
+	mount:AddAchievement(2143)
 
 	-- Reins of the Red Proto-Drake - 59961
-	mount = AddMount(59961, V.WOTLK, Q.EPIC) -- Item: 44160
-	--AddMountFlags(59961, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 59961, A_ACHIEVEMENT, 2136)
+	mount = AddMount(59961, V.WOTLK, Q.EPIC)
+	mount:SetItemID(44160)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP)
+	mount:AddAchievement(2136)
 
 	-- Rusted Proto-Drake - 63963
-	mount = AddMount(63963, V.WOTLK, Q.EPIC) -- Item: 45802
-	--AddMountFlags(63963, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 63963, A_ACHIEVEMENT, 2957)
+	mount = AddMount(63963, V.WOTLK, Q.EPIC)
+	mount:SetItemID(45802)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP)
+	mount:AddAchievement(2957)
 
 	-- Ironbound Proto-Drake - 63956
-	mount = AddMount(63956, V.WOTLK, Q.EPIC) -- Item: 45801
-	--AddMountFlags(63956, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 63956, A_ACHIEVEMENT, 2958)
+	mount = AddMount(63956, V.WOTLK, Q.EPIC)
+	mount:SetItemID(45801)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP)
+	mount:AddAchievement(2958)
 
 	-- Violet Proto-Drake - 60024
-	mount = AddMount(60024, V.WOTLK, Q.EPIC) -- Item: 44177
-	--AddMountFlags(60024, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 60024, A_ACHIEVEMENT, 2145)
+	mount = AddMount(60024, V.WOTLK, Q.EPIC)
+	mount:SetItemID(44177)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP)
+	mount:AddAchievement(2144)
 
 	-- Bloodbathed Frostbrood Vanquisher - 72808
-	mount = AddMount(72808, V.WOTLK, Q.EPIC) -- Item: 51954
-	--AddMountFlags(72808, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 72808, A_ACHIEVEMENT, 4602)
+	mount = AddMount(72808, V.WOTLK, Q.EPIC)
+	mount:SetItemID(51954)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP)
+	mount:AddAchievement(4602)
 
 	-- Icebound Frostbrood Vanquisher - 72807
-	mount = AddMount(72807, V.WOTLK, Q.EPIC) -- Item: 51955
-	--AddMountFlags(72807, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 72807, A_ACHIEVEMENT, 4603)
+	mount = AddMount(72807, V.WOTLK, Q.EPIC)
+	mount:SetItemID(51955)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP)
+	mount:AddAchievement(4603)
 
 -- FISHING
 	-- Sea Turtle
 	mount = AddMount(64731, V.WOTLK, Q.RARE) -- Item: 46109
-	--AddMountFlags(64731, F_ALLIANCE, F_HORDE, F_CRAFT, F_FISHING, F_BOP)
-	--self:AddCompanionAcquire(DB, 64731, A_ACHIEVEMENT, 3218)
+	mount:SetItemID(46109)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	mount:AddWorldDrop(Z.ULDUM, Z.TWILIGHT_HIGHLANDS, Z.TOL_BARAD_PENINSULA, Z.NORTHREND, Z.MOUNT_HYJAL, Z.DEEPHOLM, Z.THE_JADE_FOREST, Z.DARKMOON_ISLAND)
 
 -- PLAYERMADE
 	 -- Turbo-Charged Flying Machine Control - 44151
-	mount = AddMount(44151, V.TBC, Q.EPIC) -- Item: 34061
-	--AddMountFlags(44151, F_ALLIANCE, F_HORDE, F_BOP, F_ENG, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 44151, A_PROFESSION, 4036, 41157)
+	mount = AddMount(44151, V.TBC, Q.EPIC)
+	mount:SetItemID(34061)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession("ENGINEERING")
 
 	 -- Flying Machine Control - 44153
 	mount = AddMount(44153, V.TBC, Q.RARE) -- Item: 34060
-	--AddMountFlags(44153, F_ALLIANCE, F_HORDE, F_BOE, F_ENG, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 44153, A_PROFESSION, 4036, 44155)
+	mount:SetItemID(34060)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession("ENGINEERING")
 
 	-- Flying Carpet - 61451
 	mount = AddMount(61451, V.WOTLK, Q.RARE) -- Item: 44554
-	--AddMountFlags(61451, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 61451, A_PROFESSION, 3908, 60969)
+	mount:SetItemID(44554)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession("TAILORING")
 
 	-- Magnificent Flying Carpet - 61309
 	mount = AddMount(61309, V.WOTLK, Q.EPIC) -- Item: 44558
-	--AddMountFlags(61309, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 61309, A_PROFESSION, 3908, 60971)
+	mount:SetItemID(44558)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession("TAILORING")
 
 	-- Frosty Flying Carpet - 75596
 	mount = AddMount(75596, V.WOTLK, Q.EPIC) -- Item: 54797
-	--AddMountFlags(75596, F_ALLIANCE, F_HORDE, F_BOP, F_TAILOR, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 75596, A_PROFESSION, 3908, 75597)
+	mount:SetItemID(54797)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession("TAILORING")
 
 	-- Blue Dragonhawk - 61996
 	mount = AddMount(61996, V.WOTLK, Q.EPIC) -- Item: 44843
-	--AddMountFlags(61996, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 61996, A_ACHIEVEMENT, 2536)
+	mount:SetItemID(44843)
+	mount:AddFilters(F.ALLIANCE, F.ACHIEVEMENT, F.IBOP)
+	mount:AddAchievement(2536)
 	
 	-- Reins of the Ice Mammoth - 59799
 	mount = AddMount(59799, V.WOTLK, Q.EPIC) -- Item: 43958
-	--AddMountFlags(59799, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
-	--self:AddCompanionAcquire(DB, 59799, A_REPUTATION, 1119, REVERED, 32540)
+	mount:SetItemID(43958)
+	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.HODIR)
+	mount:AddRepVendor(FAC.HODIR, REP.REVERED, 32540)
 
 	-- Reins of the Grand Ice Mammoth - 61470
 	mount = AddMount(61470, V.WOTLK, Q.EPIC) -- Item: 43961
-	--AddMountFlags(61470, F_ALLIANCE, F_VENDOR, F_BOP, F_HODIR)
-	--self:AddCompanionAcquire(DB, 61470, A_REPUTATION, 1119, EXALTED, 32540)
-	
+	mount:SetItemID(43961)
+	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.HODIR)
+	mount:AddRepVendor(FAC.HODIR, REP.EXALTED, 32540)
+
 	-- Reins of the Traveler's Tundra Mammoth - 61425
 	mount = AddMount(61425, V.WOTLK, Q.EPIC) -- Item: 44235
-	--AddMountFlags(61425, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 61425, A_VENDOR, 32216)
-	
+	mount:SetItemID(44235)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(32216)
+
 	-- Quel'dorei Steed - 66090
 	mount = AddMount(66090, V.WOTLK, Q.EPIC) -- Item: 46815
-	--AddMountFlags(66090, F_ALLIANCE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
-	--self:AddCompanionAcquire(DB, 66090, A_REPUTATION, 1094, EXALTED, 34881)
+	mount:SetItemID(46815)
+	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
+	mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
 
 	-- Silver Covenant Hippogryph - 66087
 	mount = AddMount(66087, V.WOTLK, Q.EPIC) -- Item: 46813
-	--AddMountFlags(66087, F_ALLIANCE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
-	--self:AddCompanionAcquire(DB, 66087, A_REPUTATION, 1094, EXALTED, 34881)
+	mount:SetItemID(46813)
+	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
+	mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
 	
 	-- White Mechanostrider Mod B - 15779
 	mount = AddMount(15779, V.ORIG, Q.EPIC) -- Item: 13326
+	mount:SetItemID(13326)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.RETIRED)
+
 	--AddMountFlags(15779, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
 	--self:AddCompanionAcquire(DB, 15779, A_CUSTOM, 23)
 
@@ -1961,6 +1983,9 @@ function addon:InitMounts()
 
 ----------------------------------------------------------------------------------------------------]]
 
+	-- Red Flying Cloud -- 130092
+	mount = AddMount(130092, V.MOP, Q.COMMON)
+
 	self.InitMounts = nil
 end
 
@@ -2000,5 +2025,8 @@ Apparentely not in game yet!
 -- mount = AddMount(, V.MOP, )
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)
+
+
+
 
 -----------------------------]]
