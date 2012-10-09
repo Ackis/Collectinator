@@ -171,58 +171,58 @@ function addon:InitMounts()
 	mount:SetItemID(13326)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.RETIRED)
 
-	--AddMountFlags(15779, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 15779, A_CUSTOM, 23)
-
 	-- Icy Blue Mechanostrider Mod A - 17459
 	mount = AddMount(17459, V.ORIG, Q.EPIC) -- Item: 13327
-	--AddMountFlags(17459, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 17459, A_CUSTOM, 23)
+	mount:SetItemID(13327)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.RETIRED)
 
 	-- Palomino Bridle - 16082
 	mount = AddMount(16082, V.ORIG, Q.EPIC) -- Item: 12354
-	--AddMountFlags(16082, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 16082, A_CUSTOM, 23)
+	mount:SetItemID(12354)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.RETIRED)
 
 	-- White Stallion Bridle - 16083
 	mount = AddMount(16083, V.ORIG, Q.EPIC) -- Item: 12353
-	--AddMountFlags(16083, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 16083, A_CUSTOM, 23)
+	mount:SetItemID(12353)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.RETIRED)
 
 	-- Frost Ram - 17460
 	mount = AddMount(17460, V.ORIG, Q.EPIC) -- Item: 13329
-	--AddMountFlags(17460, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 17460, A_CUSTOM, 23)
+	mount:SetItemID(13329)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.RETIRED)
 
 	-- Black Ram - 17461
 	mount = AddMount(17461, V.ORIG, Q.EPIC) -- Item: 13328
-	--AddMountFlags(17461, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 17461, A_CUSTOM, 23)
+	mount:SetItemID(13328)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.RETIRED)
 
 	-- Reins of the Nightsaber - 16055
 	mount = AddMount(16055, V.ORIG, Q.EPIC) -- Item: 12303
-	--AddMountFlags(16055, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 16055, A_CUSTOM, 23)
+	mount:SetItemID(12303)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.RETIRED)
 
 	-- Reins of the Ancient Frostsaber - 16056
 	mount = AddMount(16056, V.ORIG, Q.EPIC) -- Item: 12302
-	--AddMountFlags(16056, F_ALLIANCE, F_VENDOR, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 16056, A_CUSTOM, 23)
+	mount:SetItemID(12302)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.RETIRED)
 	
 	-- Reins of the Wooly Mammoth - 59793
 	mount = AddMount(59791, V.WOTLK, Q.EPIC) -- Item: 44230
-	--AddMountFlags(59791, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 59791, A_VENDOR, 32216)
+	mount:SetItemID(44230)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(32216)
 	
 	-- Armored Snowy Gryphon - 61229
 	mount = AddMount(61229, V.WOTLK, Q.EPIC) -- Item: 44689
-	--AddMountFlags(61229, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 61229, A_VENDOR, 32216)
+	mount:SetItemID(44689)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(32216)
 
 	-- Reins of the Armored Brown Bear - 60114
 	mount = AddMount(60114, V.WOTLK, Q.EPIC) -- Item: 44225
-	--AddMountFlags(60114, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 60114, A_VENDOR, 32216)
+	mount:SetItemID(44225)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(32216)
 
 	-- Great Green Elekk - 35712
 	mount = AddMount(35712, V.TBC, Q.EPIC) -- Item: 29746
