@@ -226,108 +226,135 @@ function addon:InitMounts()
 
 	-- Great Green Elekk - 35712
 	mount = AddMount(35712, V.TBC, Q.EPIC) -- Item: 29746
-	--AddMountFlags(35712, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 35712, A_VENDOR, 17584)
+	mount:SetItemID(29746)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(17584)
 
 	-- Great Blue Elekk - 35713
 	mount = AddMount(35713, V.TBC, Q.EPIC) -- Item: 29745
-	--AddMountFlags(35713, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 35713, A_VENDOR, 17584)
+	mount:SetItemID(29745)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(17584)
 
 	-- Great Purple Elekk - 35714
 	mount = AddMount(35714, V.TBC, Q.EPIC) -- Item: 29747
-	--AddMountFlags(35714, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 35714, A_VENDOR, 17584)
+	mount:SetItemID(29747)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(17584)
 
 	-- Reins of the Winterspring Frostsaber - 17229
 	mount = AddMount(17229, V.ORIG, Q.EPIC) -- Item: 13086
-	--AddMountFlags(17229, F_ALLIANCE, F_VENDOR, F_BOP, F_WINTERSPRING)
-	--self:AddCompanionAcquire(DB, 17229, A_REPUTATION, 589, EXALTED, 10618)
+	mount:SetItemID(13086)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	mount:AddQuest(29034)
 
 	-- Brown Horse Bridle - 458
 	mount = AddMount(458, V.ORIG, Q.RARE) -- Item: 5656
-	--AddMountFlags(458, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 458, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
+	mount:SetItemID(5656)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(384, 1460, 4885, 43694)
 
 	-- Black Stallion Bridle - 470
 	mount = AddMount(470, V.ORIG, Q.RARE) -- Item: 2411
-	--AddMountFlags(470, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 470, A_VENDOR, 1460)
+	mount:SetItemID(2411)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(1460, 43694)
 
 	-- Pinto Bridle - 472
 	mount = AddMount(472, V.ORIG, Q.RARE) -- Item: 2414
-	--AddMountFlags(472, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 472, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
+	mount:SetItemID(2414)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(384, 1460, 4885, 43694)
 
 	-- Chestnut Mare Bridle - 6648
 	mount = AddMount(6648, V.ORIG, Q.RARE) -- Item: 5655
-	--AddMountFlags(6648, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 6648, A_VENDOR, 384, A_VENDOR, 1460, A_VENDOR, 2357, A_VENDOR, 4885)
+	mount:SetItemID(5655)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(384, 1460, 4885, 43694)
 
 	-- Gray Ram - 6777
 	mount = AddMount(6777, V.ORIG, Q.RARE) -- Item: 5864
-	--AddMountFlags(6777, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 6777, A_VENDOR, 1261)
+	mount:SetItemID(5864)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(1261)
 
 	-- White Ram - 6898
 	mount = AddMount(6898, V.ORIG, Q.RARE) -- Item: 5873
-	--AddMountFlags(6898, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 6898, A_VENDOR, 1261)
+	mount:SetItemID(5873)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(1261)
 
 	-- Brown Ram - 6899
 	mount = AddMount(6899, V.ORIG, Q.RARE) -- Item: 5872
-	--AddMountFlags(6899, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 6899, A_VENDOR, 1261)
+	mount:SetItemID(5872)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(1261)
 
 	-- Red Mechanostrider - 10873
 	mount = AddMount(10873, V.ORIG, Q.RARE) -- Item: 8563
-	--AddMountFlags(10873, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 10873, A_VENDOR, 7955)
+	mount:SetItemID(8563)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(7955)
 
 	-- Blue Mechanostrider - 10969
 	mount = AddMount(10969, V.ORIG, Q.RARE) -- Item: 8595
-	--AddMountFlags(10969, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 10969, A_VENDOR, 7955)
+	mount:SetItemID(8595)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(7955)
 
 	-- Green Mechanostrider - 17453
 	mount = AddMount(17453, V.ORIG, Q.RARE) -- Item: 13321
-	--AddMountFlags(17453, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 17453, A_VENDOR, 7955)
+	mount:SetItemID(13321)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(7955)
 
 	-- Unpainted Mechanostrider - 17454
 	mount = AddMount(17454, V.ORIG, Q.RARE) -- Item: 13322
-	--AddMountFlags(17454, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 17454, A_VENDOR, 7955)
+	mount:SetItemID(13322)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(7955)
 
 	-- Swift Yellow Mechanostrider - 23222
 	mount = AddMount(23222, V.ORIG, Q.EPIC) -- Item: 18774
-	--AddMountFlags(23222, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23222, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
+	mount:SetItemID(18774)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddVendor(7955)
+	mount:AddQuest(7675,7676)
 
 	-- Swift White Mechanostrider - 23223
 	mount = AddMount(23223, V.ORIG, Q.EPIC) -- Item: 18773
-	--AddMountFlags(23223, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23223, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
+	mount:SetItemID(18773)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddVendor(7955)
+	mount:AddQuest(7675,7676)
 
 	-- Swift Green Mechanostrider - 23225
 	mount = AddMount(23225, V.ORIG, Q.EPIC) -- Item: 18772
-	--AddMountFlags(23225, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23225, A_VENDOR, 7955, A_QUEST, 7675, A_QUEST, 7676)
+	mount:SetItemID(18772)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddVendor(7955)
+	mount:AddQuest(7675,7676)
 
 	-- Swift Palomino - 23227
 	mount = AddMount(23227, V.ORIG, Q.EPIC) -- Item: 18776
-	--AddMountFlags(23227, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23227, A_VENDOR, 384, A_VENDOR, 2357, A_VENDOR, 4885, A_QUEST, 7677, A_QUEST, 7678)
+	mount:SetItemID(18776)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddVendor(384, 4885)
+	mount:AddQuest(7675, 7676)
 
 	-- Swift White Steed - 23228
 	mount = AddMount(23228, V.ORIG, Q.EPIC) -- Item: 18778
-	--AddMountFlags(23228, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23228, A_VENDOR, 384, A_VENDOR, 2357, A_VENDOR, 4885, A_QUEST, 7677, A_QUEST, 7678)
+	mount:SetItemID(18778)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddVendor(384, 4885)
+	mount:AddQuest(7675, 7676)
 
 	-- Swift Brown Steed - 23229
 	mount = AddMount(23229, V.ORIG, Q.EPIC) -- Item: 18777
-	--AddMountFlags(23229, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23229, A_VENDOR, 384, A_VENDOR, 2357, A_VENDOR, 4885, A_QUEST, 7677, A_QUEST, 7678)
+	mount:SetItemID(18777)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddVendor(384, 4885)
+	mount:AddQuest(7675, 7676)
 
 	-- Swift Brown Ram - 23238
 	mount = AddMount(23238, V.ORIG, Q.EPIC) -- Item: 18786
@@ -1985,6 +2012,10 @@ function addon:InitMounts()
 
 	-- Red Flying Cloud -- 130092
 	mount = AddMount(130092, V.MOP, Q.COMMON)
+	mount:SetItemID(89363)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.LOREWALKERS)
+	mount:AddRepVendor(FAC.LOREWALKERS, REP.EXALTED, 64605)
+
 
 	self.InitMounts = nil
 end
