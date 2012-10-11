@@ -1216,6 +1216,7 @@ function private.InitializeListFrame()
 	end
 
 	local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type, acquire_data, collectable, hide_location, hide_type)
+addon:Print("ExpandAcquire")
 		local obtain_filters = addon.db.profile.filters.obtain
 		local num_acquire_types = #private.ACQUIRE_STRINGS
 
@@ -1270,6 +1271,7 @@ function private.InitializeListFrame()
 
 	-- This function is called when an un-expanded entry in the list has been clicked.
 	function ListFrame:ExpandEntry(entry_index, expand_mode)
+addon:Print("ExpandEntry")
 		local orig_index = entry_index
 		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
