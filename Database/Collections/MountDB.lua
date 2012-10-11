@@ -1746,7 +1746,7 @@ function addon:InitMounts()
 	--self:AddCompanionAcquire(DB, 102488, A_CUSTOM, 1)
 
 
---[[------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- MOP INTRO'D MOUNTS!!
 
 
@@ -1960,9 +1960,11 @@ function addon:InitMounts()
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Red Flying Cloud -- 130092-- mount = AddMount(130092, V.MOP, Q.RARE)
--- AddMountFlags(130092, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
--- self:AddCompanionAcquire(DB, 130092, A_REPUTATION, 1345, EXALTED, 64605)
+	-- Red Flying Cloud -- 130092
+	mount = AddMount(130092, V.MOP, Q.RARE)
+	mount:SetItemID(89363)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.LOREWALKERS)
+	mount:AddRepVendor(FAC.LOREWALKERS, REP.EXALTED, 64605)
 
 -- Red Shado-Pan Riding Tiger-- mount = AddMount(, V.MOP, )
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
@@ -2008,14 +2010,7 @@ function addon:InitMounts()
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
-----------------------------------------------------------------------------------------------------]]
-
-	-- Red Flying Cloud -- 130092
-	mount = AddMount(130092, V.MOP, Q.COMMON)
-	mount:SetItemID(89363)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.LOREWALKERS)
-	mount:AddRepVendor(FAC.LOREWALKERS, REP.EXALTED, 64605)
-
+----------------------------------------------------------------------------------------------------
 
 	self.InitMounts = nil
 end
