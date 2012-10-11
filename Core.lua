@@ -563,7 +563,9 @@ end
 do
 	local UNKNOWN_PET_FORMAT = "%s: %d"
 
-	local pet_filters_main = {
+	local pet_filters_main = {}
+
+	local pet_filters_flags = {
 		LE_PET_JOURNAL_FLAG_COLLECTED,
 		LE_PET_JOURNAL_FLAG_FAVORITES,
 		LE_PET_JOURNAL_FLAG_NOT_COLLECTED,
@@ -618,8 +620,9 @@ do
 			local pet_type_filters = {}
 			local pet_source_filters = {}
 
-			for i in pairs(pet_filters_main) do
-				pet_filters_main[i] = not C_PetJournal.IsFlagFiltered(pet_filters_main[i])
+			for i in pairs(pet_filters_flags) do
+				local flag = pet_filters_flags[i]
+				pet_filters_main[i] = not C_PetJournal.IsFlagFiltered(flag)
 			end
 
 			for i = 1,C_PetJournal.GetNumPetTypes(),1 do
