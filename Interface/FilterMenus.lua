@@ -18,7 +18,6 @@ local FOLDER_NAME, private = ...
 local LibStub = _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local QTip	= LibStub("LibQTip-1.0")
 
 -------------------------------------------------------------------------------
@@ -50,6 +49,8 @@ local CATEGORY_TOOLTIP = {
 	["rep"]		= L["FILTERING_REP_DESC"],
 	["misc"]	= L["FILTERING_MISC_DESC"]
 }
+
+local BFAC = private.LOCALIZED_FACTION_STRINGS
 
 -------------------------------------------------------------------------------
 -- Function to create and initialize a check-button with the given values.

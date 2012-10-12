@@ -20,7 +20,6 @@ local FOLDER_NAME, private = ...
 local LibStub	= _G.LibStub
 local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
-local BFAC	= LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local QTip	= LibStub("LibQTip-1.0")
 local Dialog	= LibStub("LibDialog-1.0")
 
@@ -38,6 +37,7 @@ local BASIC_COLORS	= private.BASIC_COLORS
 local COMMON1		= private.COMMON_FLAGS_WORD1
 
 local A			= private.ACQUIRE_TYPES
+local BFAC		= private.LOCALIZED_FACTION_STRINGS
 
 local COORD_FORMAT	= "(%.2f, %.2f)"
 
