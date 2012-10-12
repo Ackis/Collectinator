@@ -37,6 +37,9 @@ function addon:InitCustom()
 		private:AddListEntry(private.custom_list, identifier, L[identifier], zone_name, coord_x, coord_y, nil)
 	end
 
+	AddCustom("CHAMPION_SEALS", Z.ICECROWN)
+	AddCustom("SOR")
+
 	self.InitCustom = nil
 end
 

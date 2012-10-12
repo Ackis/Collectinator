@@ -137,12 +137,12 @@ private.COMMON_FLAGS_WORD1 = {
 	PVP		= 0x00000100,	-- 9
 	WORLD_DROP	= 0x00000200,	-- 10
 	MOB_DROP	= 0x00000400,	-- 11
---	DISC		= 0x00000800,	-- 12
+	STORE		= 0x00000800,	-- 12
 	RETIRED		= 0x00001000,	-- 13
 	IBOE		= 0x00002000,	-- 14
 	IBOP		= 0x00004000,	-- 15
 	IBOA		= 0x00008000,	-- 16
---	RBOE		= 0x00010000,	-- 17
+	TCG		= 0x00010000,	-- 17
 --	RBOP		= 0x00020000,	-- 18
 --	RBOA		= 0x00040000,	-- 19
 --	DPS		= 0x00080000,	-- 20
@@ -216,6 +216,7 @@ private.REP_FLAGS_WORD2 = {
 	BLACKPRINCE		= 0X00040000,	-- 19
 	SHANGXIACADEMY		= 0X00080000,	-- 20
 	PANDACOMMON1		= 0X00100000,	-- 21
+	GUILD			= 0X00200000,	-- 22
 }
 
 -------------------------------------------------------------------------------
@@ -281,6 +282,8 @@ private.ACQUIRE_NAMES = {
 	[8]	= _G.ACHIEVEMENTS,
 	[9]	= _G.MISCELLANEOUS,
 	[10]	= L["Profession"],
+	[11]	= L["Store"],
+	[12]	= L["TCG"],
 }
 
 private.ACQUIRE_STRINGS = {
@@ -294,6 +297,8 @@ private.ACQUIRE_STRINGS = {
 	[8]	= "ACHIEVEMENT",
 	[9]	= "CUSTOM",
 	[10]	= "PROFESSION",
+	[11]	= "STORE",
+	[12]	= "TCG",
 }
 
 private.ACQUIRE_TYPES = {}
@@ -365,6 +370,7 @@ private.FACTION_STRINGS = {
 	[1156]	= "ASHEN_VERDICT",
 	[1135]	= "EARTHEN_RING",
 	[1158]	= "GUARDIANS",
+	[1168]	= "GUILD",
 	[1171]	= "THERAZANE",
 	[1172]	= "DRAGONMAW",
 	[1173]	= "RAMKAHEN",
@@ -450,6 +456,7 @@ private.LOCALIZED_FACTION_STRINGS = {
 	["Tranquillien Conversion"] = _G.GetFactionInfoByID(1136),
 	["The Ashen Verdict"] = _G.GetFactionInfoByID(1156),
 	["Guardians of Hyjal"] = _G.GetFactionInfoByID(1158),
+	["Guild"] = _G.GetFactionInfoByID(1168),
 	["Therazane"] = _G.GetFactionInfoByID(1171),
 	["Dragonmaw Clan"] = _G.GetFactionInfoByID(1172),
 	["Ramkahen"] = _G.GetFactionInfoByID(1173),
@@ -535,6 +542,7 @@ private.LOCALIZED_FACTION_STRINGS = {
 	["TRANQUILLIEN_CONVERSION"] = _G.GetFactionInfoByID(1136),
 	["THE_ASHEN_VERDICT"] = _G.GetFactionInfoByID(1156),
 	["GUARDIANS_OF_HYJAL"] = _G.GetFactionInfoByID(1158),
+	["GUILD"] = _G.GetFactionInfoByID(1168),
 	["THERAZANE"] = _G.GetFactionInfoByID(1171),
 	["DRAGONMAW_CLAN"] = _G.GetFactionInfoByID(1172),
 	["RAMKAHEN"] = _G.GetFactionInfoByID(1173),

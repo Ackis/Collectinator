@@ -358,283 +358,356 @@ function addon:InitMounts()
 
 	-- Swift Brown Ram - 23238
 	mount = AddMount(23238, V.ORIG, Q.EPIC) -- Item: 18786
-	--AddMountFlags(23238, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23238, A_VENDOR, 1261, A_QUEST, 7673, A_QUEST, 7674)
+	mount:SetItemID(18786)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddVendor(1261)
+	mount:AddQuest(7673, 7674)
 
 	-- Swift Gray Ram - 23239
 	mount = AddMount(23239, V.ORIG, Q.EPIC) -- Item: 18787
-	--AddMountFlags(23239, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23239, A_VENDOR, 1261, A_QUEST, 7673, A_QUEST, 7674)
+	mount:SetItemID(18787)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddVendor(1261)
+	mount:AddQuest(7673, 7674)
 
 	-- Swift White Ram - 23240
 	mount = AddMount(23240, V.ORIG, Q.EPIC) -- Item: 18785
-	--AddMountFlags(23240, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23240, A_VENDOR, 1261, A_QUEST, 7673, A_QUEST, 7674)
+	mount:SetItemID(18785)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddVendor(1261)
+	mount:AddQuest(7673, 7674)
 
 	-- Brown Elekk - 34406
 	mount = AddMount(34406, V.TBC, Q.RARE) -- Item: 28481
-	--AddMountFlags(34406, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 34406, A_VENDOR, 17584)
+	mount:SetItemID(28481)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(17584)
 
 	-- Gray Elekk - 35710
 	mount = AddMount(35710, V.TBC, Q.RARE) -- Item: 29744
-	--AddMountFlags(35710, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 35710, A_VENDOR, 17584)
+	mount:SetItemID(29744)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(17584)
 
 	-- Purple Elekk - 35711
 	mount = AddMount(35711, V.TBC, Q.RARE) -- Item: 29743
-	--AddMountFlags(35711, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 35711, A_VENDOR, 17584)
+	mount:SetItemID(29743)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(17584)
 
 	-- Reins of the Swift Mistsaber - 23219
 	mount = AddMount(23219, V.ORIG, Q.EPIC) -- Item: 18767
-	--AddMountFlags(23219, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23219, A_VENDOR, 4730, A_QUEST, 7671, A_QUEST, 7672)
+	mount:SetItemID(18767)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddVendor(4730)
+	mount:AddQuest(7671, 7672)
 
 	-- Reins of the Swift Frostsaber - 23221
 	mount = AddMount(23221, V.ORIG, Q.EPIC) -- Item: 18766
-	--AddMountFlags(23221, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23221, A_VENDOR, 4730, A_QUEST, 7671, A_QUEST, 7672)
+	mount:SetItemID(18766)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddVendor(4730)
+	mount:AddQuest(7671, 7672)
 
 	-- Reins of the Swift Stormsaber - 23338
 	mount = AddMount(23338, V.ORIG, Q.EPIC) -- Item: 18902
-	--AddMountFlags(23338, F_ALLIANCE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23338, A_VENDOR, 4730, A_QUEST, 7671, A_QUEST, 7672)
+	mount:SetItemID(18902)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddVendor(4730)
+	mount:AddQuest(7671, 7672)
 
 	-- Reins of the Striped Dawnsaber - 66847
 	mount = AddMount(66847, V.WOTLK, Q.RARE) -- Item: 47100
-	--AddMountFlags(66847, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 66847, A_VENDOR, 4730)
+	mount:SetItemID(47100)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(4730)
 
 	-- Reins of the Striped Frostsaber - 8394
 	mount = AddMount(8394, V.ORIG, Q.RARE) -- Item: 8631
-	--AddMountFlags(8394, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 8394, A_VENDOR, 4730)
+	mount:SetItemID(8631)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(4730)
 
 	-- Reins of the Spotted Frostsaber - 10789
 	mount = AddMount(10789, V.ORIG, Q.RARE) -- Item: 8632
-	--AddMountFlags(10789, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 10789, A_VENDOR, 4730)
+	mount:SetItemID(8632)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(4730)
 
 	-- Reins of the Striped Nightsaber - 10793
 	mount = AddMount(10793, V.ORIG, Q.RARE) -- Item: 8629
-	--AddMountFlags(10793, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 10793, A_VENDOR, 4730)
+	mount:SetItemID(8629)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(4730)
 
 	-- Reins of the Black War Bear - 60118
 	mount = AddMount(60118, V.WOTLK, Q.EPIC) -- Item: 44223
-	--AddMountFlags(60118, F_ALLIANCE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 60118, A_ACHIEVEMENT, 614)
+	mount:SetItemID(44223)
+	mount:AddFilters(F.ALLIANCE, F.ACHIEVEMENT, F.IBOP)
+	mount:AddAchievement(614)
 
 	-- Reins of the Black War Mammoth - 59785
 	mount = AddMount(59785, V.WOTLK, Q.EPIC) -- Item: 43956
-	--AddMountFlags(59785, F_ALLIANCE, F_VENDOR, F_BOP, F_PVP)
-	--self:AddCompanionAcquire(DB, 59785, A_VENDOR, 32294)
+	mount:SetItemID(43956)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP)
+	mount:AddVendor(32294)
 
 	-- Black War Steed Bridle - 22717
 	mount = AddMount(22717, V.ORIG, Q.EPIC) -- Item: 29468
-	--AddMountFlags(22717, F_ALLIANCE, F_VENDOR, F_PVP, F_BOP)
-	--self:AddCompanionAcquire(DB, 22717, A_VENDOR, 12783)
+	mount:SetItemID(29468)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP)
+	mount:AddVendor(12783)
 
 	-- Black Battlestrider - 22719
 	mount = AddMount(22719, V.ORIG, Q.EPIC) -- Item: 29465
-	--AddMountFlags(22719, F_ALLIANCE, F_VENDOR, F_PVP, F_BOP)
-	--self:AddCompanionAcquire(DB, 22719, A_VENDOR, 12783)
+	mount:SetItemID(29465)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP)
+	mount:AddVendor(12783)
 
 	-- Black War Ram - 22720
 	mount = AddMount(22720, V.ORIG, Q.EPIC) -- Item: 29467
-	--AddMountFlags(22720, F_ALLIANCE, F_VENDOR, F_BOP, F_PVP)
-	--self:AddCompanionAcquire(DB, 22720, A_VENDOR, 12783)
+	mount:SetItemID(29467)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP)
+	mount:AddVendor(12783)
 
 	-- Stormpike Battle Charger - 23510
 	mount = AddMount(23510, V.ORIG, Q.EPIC) -- Item: 19030
-	--AddMountFlags(23510, F_ALLIANCE, F_VENDOR, F_PVP, F_BOP)
-	--self:AddCompanionAcquire(DB, 23510, A_VENDOR, 13216, A_VENDOR, 13217)
+	mount:SetItemID(19030)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP)
+	mount:AddVendor(13216, 13217)
 
 	-- Reins of the Black War Tiger - 22723
 	mount = AddMount(22723, V.ORIG, Q.EPIC) -- Item: 29471
-	--AddMountFlags(22723, F_ALLIANCE, F_VENDOR, F_BOP, F_PVP)
-	--self:AddCompanionAcquire(DB, 22723, A_VENDOR, 12783)
+	mount:SetItemID(29471)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP)
+	mount:AddVendor(12783)
 
 	-- Reins of the Black War Elekk - 48027
 	mount = AddMount(48027, V.TBC, Q.EPIC) -- Item: 35906
-	--AddMountFlags(48027, F_ALLIANCE, F_VENDOR, F_BOP, F_PVP)
-	--self:AddCompanionAcquire(DB, 48027, A_VENDOR, 12783)
+	mount:SetItemID(35906)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP)
+	mount:AddVendor(13216, 13217)
 
 	-- Grand Black War Mammoth - 61465
 	mount = AddMount(61465, V.WOTLK, Q.EPIC) -- Item: 43959
-	--AddMountFlags(61465, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP)
-	--self:AddCompanionAcquire(DB, 61465, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125, A_MOB, 38433)
+	mount:SetItemID(43959)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP, F.RAID)
+	mount:AddMobdrop(31125, 33993, 35013, 38433)
 	
 	-- Golden Gryphon - 32235
 	mount = AddMount(32235, V.TBC, Q.RARE) -- Item: 25470
-	--AddMountFlags(32235, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32235, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+	mount:SetItemID(25470)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(20510, 32216, 35101, 35131, 43768)
 
 	-- Ebon Gryphon - 32239
 	mount = AddMount(32239, V.TBC, Q.RARE) -- Item: 25471
-	--AddMountFlags(32239, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32239, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+	mount:SetItemID(25471)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(20510, 32216, 35101, 35131, 43768)
 
 	-- Snowy Gryphon - 32240
 	mount = AddMount(32240, V.TBC, Q.RARE) -- Item: 25472
-	--AddMountFlags(32240, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32240, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+	mount:SetItemID(25472)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(20510, 32216, 35101, 35131, 43768)
 
 	-- Swift Blue Gryphon - 32242
 	mount = AddMount(32242, V.TBC, Q.EPIC) -- Item: 25473
-	--AddMountFlags(32242, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32242, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+	mount:SetItemID(25473)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(20510, 32216, 35101, 35131, 43768)
 
 	-- Swift Red Gryphon - 32289
 	mount = AddMount(32289, V.TBC, Q.EPIC) -- Item: 25527
-	--AddMountFlags(32289, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32289, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+	mount:SetItemID(25527)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(20510, 32216, 35101, 35131, 43768)
 
 	-- Swift Green Gryphon - 32290
 	mount = AddMount(32290, V.TBC, Q.EPIC) -- Item: 25528
-	--AddMountFlags(32290, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32290, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+	mount:SetItemID(25528)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(20510, 32216, 35101, 35131, 43768)
 
 	-- Swift Purple Gryphon - 32292
 	mount = AddMount(32292, V.TBC, Q.EPIC) -- Item: 25529
-	--AddMountFlags(32292, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32292, A_VENDOR, 20510, A_VENDOR, 35131, A_VENDOR, 35101, A_VENDOR, 32216)
+	mount:SetItemID(25529)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(20510, 32216, 35101, 35131, 43768)
 
 	-- Darnassian Nightsaber - 63637
 	mount = AddMount(63637, V.WOTLK, Q.EPIC) -- Item: 45591
-	--AddMountFlags(63637, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY1)
-	--self:AddCompanionAcquire(DB, 63637, A_VENDOR, 33653)
+	mount:SetItemID(45591)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(33653)
+	mount:SetCustom("CHAMPION_SEALS")
 
 	-- Swift Moonsaber - 65638
 	mount = AddMount(65638, V.WOTLK, Q.EPIC) -- Item: 46744
-	--AddMountFlags(65638, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY1)
-	--self:AddCompanionAcquire(DB, 65638, A_REPUTATION, 69, EXALTED, 33653)
+	mount:SetItemID(46744)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(33653)
+	mount:SetCustom("CHAMPION_SEALS")
 
 	-- Stormwind Steed - 63232
 	mount = AddMount(63232, V.WOTLK, Q.EPIC) -- Item: 45125
-	--AddMountFlags(63232, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY2)
-	--self:AddCompanionAcquire(DB, 63232, A_VENDOR, 33307)
+	mount:SetItemID(45125)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(33307)
+	mount:SetCustom("CHAMPION_SEALS")
 
 	-- Swift Gray Steed - 65640
 	mount = AddMount(65640, V.WOTLK, Q.EPIC) -- Item: 46752
-	--AddMountFlags(65640, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY2)
-	--self:AddCompanionAcquire(DB, 65640, A_REPUTATION, 72, EXALTED, 33307)
+	mount:SetItemID(46752)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(33307)
+	mount:SetCustom("CHAMPION_SEALS")
 
 	-- Gnomeregan Mechanostrider - 63638
 	mount = AddMount(63638, V.WOTLK, Q.EPIC) -- Item: 45589
-	--AddMountFlags(63638, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY3)
-	--self:AddCompanionAcquire(DB, 63638, A_VENDOR, 33650)
+	mount:SetItemID(45589)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(33650)
+	mount:SetCustom("CHAMPION_SEALS")
 
 	-- Turbostrider - 65642
 	mount = AddMount(65642, V.WOTLK, Q.EPIC) -- Item: 46747
-	--AddMountFlags(65642, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY3)
-	--self:AddCompanionAcquire(DB, 65642, A_REPUTATION, 54, EXALTED, 33650)
+	mount:SetItemID(46747)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(33650)
+	mount:SetCustom("CHAMPION_SEALS")
 
 	-- Ironforge Ram - 63636
 	mount = AddMount(63636, V.WOTLK, Q.EPIC) -- Item: 45586
-	--AddMountFlags(63636, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY4)
-	--self:AddCompanionAcquire(DB, 63636, A_VENDOR, 33310)
+	mount:SetItemID(45586)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(33310)
+	mount:SetCustom("CHAMPION_SEALS")
 
 	-- Swift Violet Ram - 65643
 	mount = AddMount(65643, V.WOTLK, Q.EPIC) -- Item: 46748
-	--AddMountFlags(65643, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY4)
-	--self:AddCompanionAcquire(DB, 65643, A_REPUTATION, 47, EXALTED, 33310)
+	mount:SetItemID(46748)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(33310)
+	mount:SetCustom("CHAMPION_SEALS")
 
 	-- Exodar Elekk - 63639
 	mount = AddMount(63639, V.WOTLK, Q.EPIC) -- Item: 45590
-	--AddMountFlags(63639, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY5)
-	--self:AddCompanionAcquire(DB, 63639, A_VENDOR, 33657)
+	mount:SetItemID(45590)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(33657)
+	mount:SetCustom("CHAMPION_SEALS")
 
 	-- Great Red Elekk - 65637
 	mount = AddMount(65637, V.WOTLK, Q.EPIC) -- Item: 46745
-	--AddMountFlags(65637, F_ALLIANCE, F_VENDOR, F_BOP, F_CITY5)
-	--self:AddCompanionAcquire(DB, 65637, A_REPUTATION, 930, EXALTED, 33657)
+	mount:SetItemID(46745)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
+	mount:AddVendor(33657)
+	mount:SetCustom("CHAMPION_SEALS")
 	
 	-- Crusader's White Warhorse
 	mount = AddMount(68187, V.WOTLK, Q.EPIC)
-	--AddMountFlags(68187, F_ALLIANCE, F_ACHIEVEMENT, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 68187, A_ACHIEVEMENT, 4156)
+	mount:SetItemID(49096)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.RETIRED, F.ACHIEVEMENT)
+	mount:SetAchievement(4156)
 	
 	-- Swift Alliance Steed
 	mount = AddMount(68057, V.WOTLK, Q.EPIC) -- Item: 49044
-	--AddMountFlags(68057, F_ALLIANCE, F_MOB_DROP, F_RAID, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 68057, A_MOB, 34564)
+	mount:SetItemID(49044)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.RETIRED, F.RAID, F.MOB_DROP)
+	mount:SetMobDrop(34564)
 
 	-- Golden King -- 90621
 	mount = AddMount(90621, V.CATA, Q.EPIC) -- Item: 62298
-	--AddMountFlags(90621, F_ALLIANCE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 90621, A_ACHIEVEMENT, 4912)
+	mount:SetItemID(62298)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.ACHIEVEMENT, F.GUILD)
+	mount:SetAchievement(4912)
+	mount:SetRepVendor(FAC.GUILD, REP.EXALTED, 51512, 52268, 46602, 541495, 51504)
 	
 	-- Spectral Steed -- 92231
 	mount = AddMount(92231, V.CATA, Q.EPIC) -- Item: 64998
-	--AddMountFlags(92231, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 92231, A_REPUTATION, 1177, EXALTED, 47328)
+	mount:SetItemID(64998)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP, F.REPUTATION, F.BARADINS_WARDENS)
+	mount:SetRepVendor(FAC.BARADINS_WARDENS, REP.EXALTED, 47328)
 	
 	-- Vicious War Steed -- 100332
 	mount = AddMount(100332, V.CATA, Q.EPIC) -- Item: 70909
-	--AddMountFlags(100332, F_ALLIANCE, F_ACHIEVEMENT, F_BOE)
-	--self:AddCompanionAcquire(DB, 100332, A_ACHIEVEMENT, 5823)
+	mount:SetItemID(70909)
+	mount:AddFilters(F.ALLIANCE, F.IBOA, F.PVP, F.ACHIEVEMENT)
+	mount:SetAchievement(5328, 5329, 5823)
 	
 	-- Mountain Horse -- 103195
 	mount = AddMount(103195, V.CATA, Q.RARE) -- Item: 73838
-	--AddMountFlags(103195, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 103195, A_VENDOR, 55285)
+	mount:SetItemID(73838)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:SetVendor(55285)
 
 	-- Swift Mountain Horse -- 103196
 	mount = AddMount(103196, V.CATA, Q.EPIC) -- Item: 73839
-	--AddMountFlags(103196, F_ALLIANCE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 103196, A_VENDOR, 55285)
+	mount:SetItemID(73839)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:SetVendor(55285)
 	
 	-- Mekgineer's Chopper - 60424
 	mount = AddMount(60424, V.WOTLK, Q.EPIC) -- Item: 44413
-	--AddMountFlags(60424, F_ALLIANCE, F_BOE, F_ENG, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 60424, A_PROFESSION, 4036, 60867)
+	mount:SetItemID(73839)
+	mount:AddFilters(F.ALLIANCE, F.IBOE, F.PROFESSION)
+	mount:SetProfession("ENGINEERING")
 	
 	-- Spectral Gryphon -- 107516
 	mount = AddMount(107516, V.CATA, Q.EPIC) -- Item: 76889
-	--AddMountFlags(107516, F_ALLIANCE, F_SPEC_EVENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 107516, A_CUSTOM, 62)
+	mount:SetItemID(76889)
+	mount:AddFilters(F.ALLIANCE, F.IBOP)
+	mount:SetCustom("SOR")
 
 	-- Red Dragonhawk -- 61997
 	mount = AddMount(61997, V.WOTLK, Q.EPIC) -- Item: 44842
-	--AddMountFlags(61997, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 61997, A_ACHIEVEMENT, 2537)
+	mount:SetItemID(70909)
+	mount:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:SetAchievement(2537)
 	
 	-- Reins of the Black War Bear - Horde - 60119
 	mount = AddMount(60119, V.WOTLK, Q.EPIC) -- Item: 44224
-	--AddMountFlags(60119, F_HORDE, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 60119, A_ACHIEVEMENT, 619)
+	mount:SetItemID(4424)
+	mount:AddFilters(F.HORDE, F.IBOP, F.PVP, F.ACHIEVEMENT)
+	mount:SetAchievement(619)
 
 	-- Grand Black War Mammoth - Horde - 61467
 	mount = AddMount(61467, V.WOTLK, Q.EPIC) -- Item: 44083
-	--AddMountFlags(61467, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
-	--self:AddCompanionAcquire(DB, 61467, A_MOB, 35013, A_MOB, 33993, A_MOB, 31125, A_MOB, 38433)
+	mount:SetItemID(44083)
+	mount:AddFilters(F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:SetMobDrop(31125, 33993, 38433, 61467)
 
 	-- Goblin Trike -- 87090
 	mount = AddMount(87090, V.WOTLK, Q.RARE) -- Item: 62461
-	--AddMountFlags(87090, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 87090, A_VENDOR, 48510, A_CUSTOM, 37)
+	mount:SetItemID(62461)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetVendor(48510)
 
 	-- Goblin Turbo-Trike -- 87091
 	mount = AddMount(87091, V.WOTLK, Q.EPIC) -- Item: 62462
-	--AddMountFlags(87091, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 87091, A_VENDOR, 48510, A_CUSTOM, 37)
+	mount:SetItemID(62462)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetVendor(48510)
 
 	-- Venomhide Ravasaur
 	mount = AddMount(64659, V.WOTLK, Q.EPIC) -- Item: 46102
-	--AddMountFlags(64659, F_HORDE, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 64659, A_ACHIEVEMENT, 3357, A_QUEST, 13906)
+	mount:SetItemID(46102)
+	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	mount:SetQuest(13906)
 
 	-- Reins of the Armored Brown Bear - 60116
 	mount = AddMount(60116, V.WOTLK, Q.EPIC) -- Item: 44226
-	--AddMountFlags(60116, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 60116, A_VENDOR, 32216)
+	mount:SetItemID(44226)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetVendor(32216)
 
 	-- Reins of the Wooly Mammoth - 59791
 	mount = AddMount(59793, V.WOTLK, Q.EPIC) -- Item: 44231
-	--AddMountFlags(59793, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 59793, A_VENDOR, 32216)
+	mount:SetItemID(44231)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetVendor(32216)
 
 	-- Reins of the Traveler's Tundra Mammoth - 61447
 	mount = AddMount(61447, V.WOTLK, Q.EPIC) -- Item: 44234
