@@ -89,7 +89,6 @@ local COLLECTION_INIT_FUNCS
 local REQUIRED_LIBS = {
 	"AceLocale-3.0",
 	"LibBabble-Boss-3.0",
-	"LibBabble-Faction-3.0",
 	"LibQTip-1.0",
 	"LibToast-1.0"
 }
