@@ -273,9 +273,9 @@ private.COLLECTION_FILTER_TYPES = {
 -------------------------------------------------------------------------------
 private.ACQUIRE_NAMES = {
 	[1]	= L["Trainer"],
-	[2]	= _G.BATTLE_PET_SOURCE_3, -- Vendor
+	[2]	= L["Vendor"], -- Vendor
 	[3]	= L["Mob Drop"],
-	[4]	= _G.BATTLE_PET_SOURCE_2, -- Quest
+	[4]	= L["Quest"], -- Quest
 	[5]	= _G.GetCategoryInfo(155),
 	[6]	= _G.REPUTATION,
 	[7]	= L["World Drop"],
@@ -631,6 +631,7 @@ private.ZONE_NAMES = {
 	THUNDER_BLUFF = _G.GetMapNameByID(362),
 	DARNASSUS = _G.GetMapNameByID(381),
 	UNDERCITY = _G.GetMapNameByID(382),
+	ALTERAC_VALLEY = _G.GetMapNameByID(401),
 	EVERSONG_WOODS = _G.GetMapNameByID(462),
 	GHOSTLANDS = _G.GetMapNameByID(463),
 	AZUREMYST_ISLE = _G.GetMapNameByID(464),
@@ -664,6 +665,7 @@ private.ZONE_NAMES = {
 	HALLS_OF_STONE = _G.GetMapNameByID(526),
 	THE_OCULUS = _G.GetMapNameByID(528),
 	ULDUAR = _G.GetMapNameByID(529),
+	VAULT_OF_ARCHAVON = _G.GetMapNameByID(532),
 	AZJOL_NERUB = _G.GetMapNameByID(533),
 	DRAKTHARON_KEEP = _G.GetMapNameByID(534),
 	THE_VIOLET_HOLD = _G.GetMapNameByID(536),
@@ -751,7 +753,9 @@ end
 -- Boss names.
 -------------------------------------------------------------------------------
 private.BOSS_NAMES = {
-	--LORD_ROCCOR = _G.EJ_GetEncounterInfo(370),
+
+	ANUBARAK = _G.EJ_GetEncounterInfo(587),
+
 }
 
 -------------------------------------------------------------------------------

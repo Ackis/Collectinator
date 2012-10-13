@@ -677,7 +677,7 @@ function addon:InitMounts()
 	mount = AddMount(61467, V.WOTLK, Q.EPIC) -- Item: 44083
 	mount:SetItemID(44083)
 	mount:AddFilters(F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
-	mount:AddMobDrop(31125, 33993, 38433, 61467)
+	mount:AddMobDrop(31125, 33993, 35013, 38433)
 
 	-- Goblin Trike -- 87090
 	mount = AddMount(87090, V.WOTLK, Q.RARE) -- Item: 62461

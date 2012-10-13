@@ -38,5 +38,11 @@ function addon:InitMob()
 		private:AddListEntry(private.mob_list, mob_id, mob_name, zone_name, coord_x, coord_y, nil)
 	end
 
+	AddMob(31125,	BB["Archavon the Stone Watcher"],	Z.VAULT_OF_ARCHAVON,	49.2, 17.0)
+	AddMob(33993,	BB["Emalon the Storm Watcher"],		Z.VAULT_OF_ARCHAVON,	62.6, 55.4)
+	AddMob(35013,	BB["Koralon the Flame Watcher"],	Z.VAULT_OF_ARCHAVON,	36.0, 55.4)
+	AddMob(38433,	BB["Toravon the Ice Watcher"],		Z.VAULT_OF_ARCHAVON,	62.6, 36.8)
+	AddMob(34564,	BN.ANUBARAK,				Z.TRIAL_OF_THE_CRUSADER, 0.0,  0.0)
+
 	self.InitMob = nil
 end
