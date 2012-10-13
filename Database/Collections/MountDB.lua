@@ -157,14 +157,14 @@ function addon:InitMounts()
 	-- Quel'dorei Steed - 66090
 	mount = AddMount(66090, V.WOTLK, Q.EPIC) -- Item: 46815
 	mount:SetItemID(46815)
-	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
-	mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
+	--mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
+	--mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
 
 	-- Silver Covenant Hippogryph - 66087
 	mount = AddMount(66087, V.WOTLK, Q.EPIC) -- Item: 46813
 	mount:SetItemID(46813)
-	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
-	mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
+	--mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
+	--mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
 	
 	-- White Mechanostrider Mod B - 15779
 	mount = AddMount(15779, V.ORIG, Q.EPIC) -- Item: 13326
@@ -492,7 +492,7 @@ function addon:InitMounts()
 	mount = AddMount(61465, V.WOTLK, Q.EPIC) -- Item: 43959
 	mount:SetItemID(43959)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP, F.RAID)
-	mount:AddMobdrop(31125, 33993, 35013, 38433)
+	mount:AddMobDrop(31125, 33993, 35013, 38433)
 	
 	-- Golden Gryphon - 32235
 	mount = AddMount(32235, V.TBC, Q.RARE) -- Item: 25470
@@ -541,173 +541,173 @@ function addon:InitMounts()
 	mount:SetItemID(45591)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:AddVendor(33653)
-	mount:SetCustom("CHAMPION_SEALS")
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Swift Moonsaber - 65638
 	mount = AddMount(65638, V.WOTLK, Q.EPIC) -- Item: 46744
 	mount:SetItemID(46744)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:AddVendor(33653)
-	mount:SetCustom("CHAMPION_SEALS")
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Stormwind Steed - 63232
 	mount = AddMount(63232, V.WOTLK, Q.EPIC) -- Item: 45125
 	mount:SetItemID(45125)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:AddVendor(33307)
-	mount:SetCustom("CHAMPION_SEALS")
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Swift Gray Steed - 65640
 	mount = AddMount(65640, V.WOTLK, Q.EPIC) -- Item: 46752
 	mount:SetItemID(46752)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:AddVendor(33307)
-	mount:SetCustom("CHAMPION_SEALS")
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Gnomeregan Mechanostrider - 63638
 	mount = AddMount(63638, V.WOTLK, Q.EPIC) -- Item: 45589
 	mount:SetItemID(45589)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:AddVendor(33650)
-	mount:SetCustom("CHAMPION_SEALS")
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Turbostrider - 65642
 	mount = AddMount(65642, V.WOTLK, Q.EPIC) -- Item: 46747
 	mount:SetItemID(46747)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:AddVendor(33650)
-	mount:SetCustom("CHAMPION_SEALS")
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Ironforge Ram - 63636
 	mount = AddMount(63636, V.WOTLK, Q.EPIC) -- Item: 45586
 	mount:SetItemID(45586)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:AddVendor(33310)
-	mount:SetCustom("CHAMPION_SEALS")
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Swift Violet Ram - 65643
 	mount = AddMount(65643, V.WOTLK, Q.EPIC) -- Item: 46748
 	mount:SetItemID(46748)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:AddVendor(33310)
-	mount:SetCustom("CHAMPION_SEALS")
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Exodar Elekk - 63639
 	mount = AddMount(63639, V.WOTLK, Q.EPIC) -- Item: 45590
 	mount:SetItemID(45590)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:AddVendor(33657)
-	mount:SetCustom("CHAMPION_SEALS")
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Great Red Elekk - 65637
 	mount = AddMount(65637, V.WOTLK, Q.EPIC) -- Item: 46745
 	mount:SetItemID(46745)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:AddVendor(33657)
-	mount:SetCustom("CHAMPION_SEALS")
+	mount:AddCustom("CHAMPION_SEALS")
 	
 	-- Crusader's White Warhorse
 	mount = AddMount(68187, V.WOTLK, Q.EPIC)
 	mount:SetItemID(49096)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.RETIRED, F.ACHIEVEMENT)
-	mount:SetAchievement(4156)
+	mount:AddAchievement(4156)
 	
 	-- Swift Alliance Steed
 	mount = AddMount(68057, V.WOTLK, Q.EPIC) -- Item: 49044
 	mount:SetItemID(49044)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.RETIRED, F.RAID, F.MOB_DROP)
-	mount:SetMobDrop(34564)
+	mount:AddMobDrop(34564)
 
 	-- Golden King -- 90621
 	mount = AddMount(90621, V.CATA, Q.EPIC) -- Item: 62298
 	mount:SetItemID(62298)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.ACHIEVEMENT, F.GUILD)
-	mount:SetAchievement(4912)
-	mount:SetRepVendor(FAC.GUILD, REP.EXALTED, 51512, 52268, 46602, 541495, 51504)
+	mount:AddAchievement(4912)
+	mount:AddRepVendor(FAC.GUILD, REP.EXALTED, 51512, 52268, 46602, 51495, 51504)
 	
 	-- Spectral Steed -- 92231
 	mount = AddMount(92231, V.CATA, Q.EPIC) -- Item: 64998
 	mount:SetItemID(64998)
-	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP, F.REPUTATION, F.BARADINS_WARDENS)
-	mount:SetRepVendor(FAC.BARADINS_WARDENS, REP.EXALTED, 47328)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP, F.REPUTATION, F.CATACOMMON2)
+	mount:AddRepVendor(FAC.BARADINS_WARDENS, REP.EXALTED, 47328)
 	
 	-- Vicious War Steed -- 100332
 	mount = AddMount(100332, V.CATA, Q.EPIC) -- Item: 70909
 	mount:SetItemID(70909)
 	mount:AddFilters(F.ALLIANCE, F.IBOA, F.PVP, F.ACHIEVEMENT)
-	mount:SetAchievement(5328, 5329, 5823)
+	mount:AddAchievement(5328, 5329, 5823)
 	
 	-- Mountain Horse -- 103195
 	mount = AddMount(103195, V.CATA, Q.RARE) -- Item: 73838
 	mount:SetItemID(73838)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
-	mount:SetVendor(55285)
+	mount:AddVendor(55285)
 
 	-- Swift Mountain Horse -- 103196
 	mount = AddMount(103196, V.CATA, Q.EPIC) -- Item: 73839
 	mount:SetItemID(73839)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
-	mount:SetVendor(55285)
+	mount:AddVendor(55285)
 	
 	-- Mekgineer's Chopper - 60424
 	mount = AddMount(60424, V.WOTLK, Q.EPIC) -- Item: 44413
 	mount:SetItemID(73839)
 	mount:AddFilters(F.ALLIANCE, F.IBOE, F.PROFESSION)
-	mount:SetProfession("ENGINEERING")
+	mount:AddProfession("ENGINEERING")
 	
 	-- Spectral Gryphon -- 107516
 	mount = AddMount(107516, V.CATA, Q.EPIC) -- Item: 76889
 	mount:SetItemID(76889)
 	mount:AddFilters(F.ALLIANCE, F.IBOP)
-	mount:SetCustom("SOR")
+	mount:AddCustom("SOR")
 
 	-- Red Dragonhawk -- 61997
 	mount = AddMount(61997, V.WOTLK, Q.EPIC) -- Item: 44842
 	mount:SetItemID(70909)
 	mount:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
-	mount:SetAchievement(2537)
+	mount:AddAchievement(2537)
 	
 	-- Reins of the Black War Bear - Horde - 60119
 	mount = AddMount(60119, V.WOTLK, Q.EPIC) -- Item: 44224
 	mount:SetItemID(4424)
 	mount:AddFilters(F.HORDE, F.IBOP, F.PVP, F.ACHIEVEMENT)
-	mount:SetAchievement(619)
+	mount:AddAchievement(619)
 
 	-- Grand Black War Mammoth - Horde - 61467
 	mount = AddMount(61467, V.WOTLK, Q.EPIC) -- Item: 44083
 	mount:SetItemID(44083)
 	mount:AddFilters(F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
-	mount:SetMobDrop(31125, 33993, 38433, 61467)
+	mount:AddMobDrop(31125, 33993, 38433, 61467)
 
 	-- Goblin Trike -- 87090
 	mount = AddMount(87090, V.WOTLK, Q.RARE) -- Item: 62461
 	mount:SetItemID(62461)
 	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
-	mount:SetVendor(48510)
+	mount:AddVendor(48510)
 
 	-- Goblin Turbo-Trike -- 87091
 	mount = AddMount(87091, V.WOTLK, Q.EPIC) -- Item: 62462
 	mount:SetItemID(62462)
 	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
-	mount:SetVendor(48510)
+	mount:AddVendor(48510)
 
 	-- Venomhide Ravasaur
 	mount = AddMount(64659, V.WOTLK, Q.EPIC) -- Item: 46102
 	mount:SetItemID(46102)
 	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST)
-	mount:SetQuest(13906)
+	mount:AddQuest(13906)
 
 	-- Reins of the Armored Brown Bear - 60116
 	mount = AddMount(60116, V.WOTLK, Q.EPIC) -- Item: 44226
 	mount:SetItemID(44226)
 	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
-	mount:SetVendor(32216)
+	mount:AddVendor(32216)
 
 	-- Reins of the Wooly Mammoth - 59791
 	mount = AddMount(59793, V.WOTLK, Q.EPIC) -- Item: 44231
 	mount:SetItemID(44231)
 	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
-	mount:SetVendor(32216)
+	mount:AddVendor(32216)
 
 	-- Reins of the Traveler's Tundra Mammoth - 61447
 	mount = AddMount(61447, V.WOTLK, Q.EPIC) -- Item: 44234
