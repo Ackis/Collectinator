@@ -196,8 +196,8 @@ private.REP_FLAGS_WORD1 = {
 -------------------------------------------------------------------------------
 private.REP_FLAGS_WORD2 = {
 	ASHEN_VERDICT		= 0x00000001,	-- 1
-	CATACOMMON1		= 0x00000002,	-- 2
-	CATACOMMON2		= 0x00000004,	-- 3
+	CATACOMMON1		= 0x00000002,	-- 2  -- Wildhammer Clan / Dragonmaw Clan
+	CATACOMMON2		= 0x00000004,	-- 3  -- Baradin's Wardens / Hellscream's Reach
 	GUARDIANS		= 0x00000008,	-- 4
 	RAMKAHEN		= 0x00000010,	-- 5
 	EARTHEN_RING		= 0x00000020,	-- 6
@@ -273,17 +273,17 @@ private.COLLECTION_FILTER_TYPES = {
 -------------------------------------------------------------------------------
 private.ACQUIRE_NAMES = {
 	[1]	= L["Trainer"],
-	[2]	= L["Vendor"],
+	[2]	= _G.BATTLE_PET_SOURCE_3, -- Vendor
 	[3]	= L["Mob Drop"],
-	[4]	= L["Quest"],
+	[4]	= _G.BATTLE_PET_SOURCE_2, -- Quest
 	[5]	= _G.GetCategoryInfo(155),
 	[6]	= _G.REPUTATION,
 	[7]	= L["World Drop"],
 	[8]	= _G.ACHIEVEMENTS,
 	[9]	= _G.MISCELLANEOUS,
-	[10]	= L["Profession"],
-	[11]	= L["Store"],
-	[12]	= L["TCG"],
+	[10]	= _G.BATTLE_PET_SOURCE_4, -- Profession
+--	[12]	= _G.BATTLE_PET_SOURCE_10, -- Store
+--	[13]	= _G.BATTLE_PET_SOURCE_9, -- TCG
 }
 
 private.ACQUIRE_STRINGS = {
@@ -297,8 +297,8 @@ private.ACQUIRE_STRINGS = {
 	[8]	= "ACHIEVEMENT",
 	[9]	= "CUSTOM",
 	[10]	= "PROFESSION",
-	[11]	= "STORE",
-	[12]	= "TCG",
+--	[12]	= "STORE",
+--	[13]	= "TCG",
 }
 
 private.ACQUIRE_TYPES = {}
