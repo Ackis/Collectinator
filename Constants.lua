@@ -282,8 +282,8 @@ private.ACQUIRE_NAMES = {
 	[8]	= _G.ACHIEVEMENTS,
 	[9]	= _G.MISCELLANEOUS,
 	[10]	= _G.BATTLE_PET_SOURCE_4, -- Profession
---	[12]	= _G.BATTLE_PET_SOURCE_10, -- Store
---	[13]	= _G.BATTLE_PET_SOURCE_9, -- TCG
+	[11]	= _G.BATTLE_PET_SOURCE_10, -- Store
+	[12]	= _G.BATTLE_PET_SOURCE_9, -- TCG
 }
 
 private.ACQUIRE_STRINGS = {
@@ -297,8 +297,8 @@ private.ACQUIRE_STRINGS = {
 	[8]	= "ACHIEVEMENT",
 	[9]	= "CUSTOM",
 	[10]	= "PROFESSION",
---	[12]	= "STORE",
---	[13]	= "TCG",
+	[11]	= "STORE",
+	[12]	= "TCG",
 }
 
 private.ACQUIRE_TYPES = {}
