@@ -157,14 +157,14 @@ function addon:InitMounts()
 	-- Quel'dorei Steed - 66090
 	mount = AddMount(66090, V.WOTLK, Q.EPIC) -- Item: 46815
 	mount:SetItemID(46815)
-	--mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
-	--mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
+	-- mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
+	-- mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
 
 	-- Silver Covenant Hippogryph - 66087
 	mount = AddMount(66087, V.WOTLK, Q.EPIC) -- Item: 46813
 	mount:SetItemID(46813)
-	--mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
-	--mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
+	-- mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
+	-- mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
 	
 	-- White Mechanostrider Mod B - 15779
 	mount = AddMount(15779, V.ORIG, Q.EPIC) -- Item: 13326
@@ -629,7 +629,7 @@ function addon:InitMounts()
 	mount = AddMount(92231, V.CATA, Q.EPIC) -- Item: 64998
 	mount:SetItemID(64998)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP, F.REPUTATION, F.CATACOMMON2)
-	mount:AddRepVendor(FAC.BARADINS_WARDENS, REP.EXALTED, 47328)
+--	mount:AddRepVendor(FAC.BARADINS_WARDENS, REP.EXALTED, 47328)
 	
 	-- Vicious War Steed -- 100332
 	mount = AddMount(100332, V.CATA, Q.EPIC) -- Item: 70909
