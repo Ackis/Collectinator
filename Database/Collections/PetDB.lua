@@ -37,7 +37,7 @@ local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
 local Z = private.ZONE_NAMES
-local P = private.LOCALIZED_PROFESSION_NAMES
+local PROF = private.LOCALIZED_PROFESSION_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -271,101 +271,101 @@ function addon:InitCritters()
 	-- Magical Crawdad Box -- 18839
 	pet = AddPet(18839, V.TBC, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	pet:AddProfession(P.FISHING)
+	pet:AddProfession(PROF.FISHING)
 
 	-- Toothy's Bucket -- 24388
 	pet = AddPet(24388, V.TBC, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	pet:AddProfession(P.FISHING)
+	pet:AddProfession(PROF.FISHING)
 
 	-- Muckbreath's Bucket -- 24389
 	pet = AddPet(24389, V.TBC, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	pet:AddProfession(P.FISHING)
+	pet:AddProfession(PROF.FISHING)
 
 	-- Snarly's Bucket -- 26050
 	pet = AddPet(26050, V.TBC, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	pet:AddProfession(P.FISHING)
+	pet:AddProfession(PROF.FISHING)
 
 	-- Chuck's Bucket -- 26056
 	pet = AddPet(26056, V.TBC, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	pet:AddProfession(P.FISHING)
+	pet:AddProfession(PROF.FISHING)
 
 	-- Giant Sewer Rat -- 31575
 	pet = AddPet(31575, V.WOTLK, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	pet:AddProfession(P.FISHING)
+	pet:AddProfession(PROF.FISHING)
 
 	-- Strand Crawler -- 33226
 	pet = AddPet(33226, V.WOTLK, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	pet:AddProfession(P.FISHING)
+	pet:AddProfession(PROF.FISHING)
 
 	-- Sea Pony -- 55386
 	pet = AddPet(55386, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	pet:AddProfession(P.FISHING)
+	pet:AddProfession(PROF.FISHING)
 
 --PLAYERMADE
 	-- Mechanical Squirrel Box -- 2671
 	pet = AddPet(2671, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:SetItemID(4401)
-	pet:AddProfession(P.ENGINEERING)
+	pet:AddProfession(PROF.ENGINEERING)
 
 	-- Pet Bombling -- 9656
 	pet = AddPet(9656, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(P.ENGINEERING)
+	pet:AddProfession(PROF.ENGINEERING)
 
 	-- Lil' Smoky -- 9657
 	pet = AddPet(9657, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(P.ENGINEERING)
+	pet:AddProfession(PROF.ENGINEERING)
 
 	-- Lifelike Mechanical Toad -- 12419
 	pet = AddPet(12419, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(P.ENGINEERING)
+	pet:AddProfession(PROF.ENGINEERING)
 
 	-- Tranquil Mechanical Yeti -- 15699
 	pet = AddPet(15699, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(P.ENGINEERING)
+	pet:AddProfession(PROF.ENGINEERING)
 
 	-- Fossilized Hatchling -- 45340
 	pet = AddPet(45340, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(P.ARCHAEOLOGY)
+	pet:AddProfession(PROF.ARCHAEOLOGY)
 
 	-- De-Weaponized Mechanical Companion -- 43916
 	pet = AddPet(43916, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(P.ENGINEERING)
+	pet:AddProfession(PROF.ENGINEERING)
 
 	-- Elementium Geode -- 50722
 	pet = AddPet(50722, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(P.MINING)
+	pet:AddProfession(PROF.MINING)
 
 	-- Personal World Destroyer -- 43800
 	pet = AddPet(43800, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(P.ENGINEERING)
+	pet:AddProfession(PROF.ENGINEERING)
 
 	-- Clockwork Gnome -- 48609
 	pet = AddPet(48609, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(P.ENGINEERING)
+	pet:AddProfession(PROF.ENGINEERING)
 
 	-- Crawling Claw -- 45128
 	pet = AddPet(45128, V.CATA, Q.EPIC)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
 	pet:SetItemID(60847)
 	pet:SetSpellID(84263)
-	pet:AddProfession(P.ARCHAEOLOGY)
+	pet:AddProfession(PROF.ARCHAEOLOGY)
 
 	-- Enchanted Lantern -- 46898
 	pet = AddPet(46898, V.CATA, Q.RARE)
@@ -378,40 +378,40 @@ function addon:InitCritters()
 	-- Pterrordax Hatchling -- 53225
 	pet = AddPet(53225, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(P.ARCHAEOLOGY)
+	pet:AddProfession(PROF.ARCHAEOLOGY)
 
 	-- Voodoo Figurine -- 53232
 	pet = AddPet(53232, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(P.ARCHAEOLOGY)
+	pet:AddProfession(PROF.ARCHAEOLOGY)
 
 	-- Sapphire Cub -- 61883
 	pet = AddPet(61883, V.MOP, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:SetItemID(82775)
 	pet:SetSpellID(120507)
-	pet:AddProfession(P.JEWELCRAFTING)
+	pet:AddProfession(PROF.JEWELCRAFTING)
 
 	-- Mechanical Pandaren Dragonling -- 64899
 	pet = AddPet(64899, V.MOP, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:SetItemID(87526)
 	pet:SetSpellID(126885)
-	pet:AddProfession(P.ENGINEERING)
+	pet:AddProfession(PROF.ENGINEERING)
 
 	-- Chi-ji Kite -- 66104
 	pet = AddPet(66104, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:SetItemID(89368)
 	pet:SetSpellID(127008)
-	pet:AddProfession(P.INSCRIPTION)
+	pet:AddProfession(PROF.INSCRIPTION)
 
 	-- Jade Owl -- 61877
 	pet = AddPet(61877, V.MOP, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:SetItemID(82774)
 	pet:SetSpellID(120501)
-	pet:AddProfession(P.JEWELCRAFTING)
+	pet:AddProfession(PROF.JEWELCRAFTING)
 
 --WORLD EVENT DROP
 	-- Sinister Squashling -- 23909

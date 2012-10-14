@@ -30,13 +30,15 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
 -------------------------------------------------------------------------------
-local F = private.FILTER_IDS
 local A = private.ACQUIRE_TYPES
+local F = private.FILTER_IDS
+local PROF = private.LOCALIZED_PROFESSION_NAMES
 local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
 local Z = private.ZONE_NAMES
+
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -104,38 +106,38 @@ function addon:InitMounts()
 	mount = AddMount(44151, V.TBC, Q.EPIC)
 	mount:SetItemID(34061)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	mount:AddProfession("ENGINEERING")
+	mount:AddProfession(PROF.ENGINEERING)
 
 	 -- Flying Machine Control - 44153
 	mount = AddMount(44153, V.TBC, Q.RARE) -- Item: 34060
 	mount:SetItemID(34060)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	mount:AddProfession("ENGINEERING")
+	mount:AddProfession(PROF.ENGINEERING)
 
 	-- Flying Carpet - 61451
 	mount = AddMount(61451, V.WOTLK, Q.RARE) -- Item: 44554
 	mount:SetItemID(44554)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	mount:AddProfession("TAILORING")
+	mount:AddProfession(PROF.TAILORING)
 
 	-- Magnificent Flying Carpet - 61309
 	mount = AddMount(61309, V.WOTLK, Q.EPIC) -- Item: 44558
 	mount:SetItemID(44558)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	mount:AddProfession("TAILORING")
+	mount:AddProfession(PROF.TAILORING)
 
 	-- Frosty Flying Carpet - 75596
 	mount = AddMount(75596, V.WOTLK, Q.EPIC) -- Item: 54797
 	mount:SetItemID(54797)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	mount:AddProfession("TAILORING")
+	mount:AddProfession(PROF.TAILORING)
 
 	-- Blue Dragonhawk - 61996
 	mount = AddMount(61996, V.WOTLK, Q.EPIC) -- Item: 44843
 	mount:SetItemID(44843)
 	mount:AddFilters(F.ALLIANCE, F.ACHIEVEMENT, F.IBOP)
 	mount:AddAchievement(2536)
-	
+
 	-- Reins of the Ice Mammoth - 59799
 	mount = AddMount(59799, V.WOTLK, Q.EPIC) -- Item: 43958
 	mount:SetItemID(43958)
@@ -165,7 +167,7 @@ function addon:InitMounts()
 	mount:SetItemID(46813)
 	-- mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
 	-- mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
-	
+
 	-- White Mechanostrider Mod B - 15779
 	mount = AddMount(15779, V.ORIG, Q.EPIC) -- Item: 13326
 	mount:SetItemID(13326)
@@ -205,13 +207,13 @@ function addon:InitMounts()
 	mount = AddMount(16056, V.ORIG, Q.EPIC) -- Item: 12302
 	mount:SetItemID(12302)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.RETIRED)
-	
+
 	-- Reins of the Wooly Mammoth - 59793
 	mount = AddMount(59791, V.WOTLK, Q.EPIC) -- Item: 44230
 	mount:SetItemID(44230)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:AddVendor(32216)
-	
+
 	-- Armored Snowy Gryphon - 61229
 	mount = AddMount(61229, V.WOTLK, Q.EPIC) -- Item: 44689
 	mount:SetItemID(44689)
@@ -493,7 +495,7 @@ function addon:InitMounts()
 	mount:SetItemID(43959)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP, F.RAID)
 	mount:AddMobDrop(31125, 33993, 35013, 38433)
-	
+
 	-- Golden Gryphon - 32235
 	mount = AddMount(32235, V.TBC, Q.RARE) -- Item: 25470
 	mount:SetItemID(25470)
@@ -605,13 +607,13 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:AddVendor(33657)
 	mount:AddCustom("CHAMPION_SEALS")
-	
+
 	-- Crusader's White Warhorse
 	mount = AddMount(68187, V.WOTLK, Q.EPIC)
 	mount:SetItemID(49096)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.RETIRED, F.ACHIEVEMENT)
 	mount:AddAchievement(4156)
-	
+
 	-- Swift Alliance Steed
 	mount = AddMount(68057, V.WOTLK, Q.EPIC) -- Item: 49044
 	mount:SetItemID(49044)
@@ -624,19 +626,19 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.ACHIEVEMENT, F.GUILD)
 	mount:AddAchievement(4912)
 	mount:AddRepVendor(FAC.GUILD, REP.EXALTED, 51512, 52268, 46602, 51495, 51504)
-	
+
 	-- Spectral Steed -- 92231
 	mount = AddMount(92231, V.CATA, Q.EPIC) -- Item: 64998
 	mount:SetItemID(64998)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP, F.REPUTATION, F.CATACOMMON2)
 --	mount:AddRepVendor(FAC.BARADINS_WARDENS, REP.EXALTED, 47328)
-	
+
 	-- Vicious War Steed -- 100332
 	mount = AddMount(100332, V.CATA, Q.EPIC) -- Item: 70909
 	mount:SetItemID(70909)
 	mount:AddFilters(F.ALLIANCE, F.IBOA, F.PVP, F.ACHIEVEMENT)
 	mount:AddAchievement(5328, 5329, 5823)
-	
+
 	-- Mountain Horse -- 103195
 	mount = AddMount(103195, V.CATA, Q.RARE) -- Item: 73838
 	mount:SetItemID(73838)
@@ -648,13 +650,13 @@ function addon:InitMounts()
 	mount:SetItemID(73839)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
 	mount:AddVendor(55285)
-	
+
 	-- Mekgineer's Chopper - 60424
 	mount = AddMount(60424, V.WOTLK, Q.EPIC) -- Item: 44413
 	mount:SetItemID(73839)
 	mount:AddFilters(F.ALLIANCE, F.IBOE, F.PROFESSION)
-	mount:AddProfession("ENGINEERING")
-	
+	mount:AddProfession(PROF.ENGINEERING)
+
 	-- Spectral Gryphon -- 107516
 	mount = AddMount(107516, V.CATA, Q.EPIC) -- Item: 76889
 	mount:SetItemID(76889)
@@ -666,7 +668,7 @@ function addon:InitMounts()
 	mount:SetItemID(70909)
 	mount:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(2537)
-	
+
 	-- Reins of the Black War Bear - Horde - 60119
 	mount = AddMount(60119, V.WOTLK, Q.EPIC) -- Item: 44224
 	mount:SetItemID(4424)
@@ -1078,12 +1080,12 @@ function addon:InitMounts()
 	mount = AddMount(100333, V.CATA, Q.EPIC) -- Item: 70910
 	--AddMountFlags(100333, F_HORDE, F_ACHIEVEMENT, F_BOE)
 	--self:AddCompanionAcquire(DB, 100333, A_ACHIEVEMENT, 5824)
-	
+
 	-- Mechano-Hog - 55531
 	mount = AddMount(55531, V.WOTLK, Q.EPIC) -- Item: 41508
 	--AddMountFlags(55531, F_HORDE, F_BOE, F_ENG, F_CRAFT)
 	--self:AddCompanionAcquire(DB, 55531, A_PROFESSION, 4036, 60866)
-	
+
 	-- Spectral Wind Rider -- 107517
 	mount = AddMount(107517, V.CATA, Q.EPIC) -- Item: 76902
 	--AddMountFlags(107517, F_HORDE, F_SPEC_EVENT, F_BOP)
@@ -1160,7 +1162,7 @@ function addon:InitMounts()
 	mount = AddMount(75973, V.WOTLK, Q.EPIC) -- Item: 54860
 	--AddMountFlags(75973, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP, F_REMOVED)
 	--self:AddCompanionAcquire(DB, 75973, A_ACHIEVEMENT, 4832)
-	
+
 	-- Obsidian Nightwing (Heart of the Nightwing) - 121820
 	mount = AddMount(121820, V.CATA, Q.EPIC) -- Item: 83086
 	--AddMountFlags(121820, F_ALLIANCE, F_HORDE, F_SPEC_EVENT, F_BOP)
@@ -1772,27 +1774,27 @@ function addon:InitMounts()
 	mount = AddMount(96503, V.CATA, Q.EPIC) -- Item: 68825
 	--AddMountFlags(96503, F_ALLIANCE, F_HORDE, F_TCG, F_BOE)
 	--self:AddCompanionAcquire(DB, 96503,  A_CUSTOM, 1)
-	
+
 	-- Blazing Drake -- 107842
 	mount = AddMount(107842, V.CATA, Q.EPIC) -- Item: 77067
 	--AddMountFlags(107842, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	--self:AddCompanionAcquire(DB, 107842, A_MOB, 56173, A_CUSTOM, 51)
-	
+
 	-- Experiment 12-B -- 110039
 	mount = AddMount(110039, V.CATA, Q.EPIC) -- Item: 78919
 	--AddMountFlags(110039, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	--self:AddCompanionAcquire(DB, 110039, A_MOB, 55294)
-	
+
 	-- Life-Binder's Handmaiden -- 107845
 	mount = AddMount(107845, V.CATA, Q.EPIC) -- Item: 77069
 	--AddMountFlags(107845, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_BOP)
 	--self:AddCompanionAcquire(DB, 107845, A_MOB, 56173, A_CUSTOM, 50)
-	
+
 	-- Ruthless Gladiator's Twilight Drake -- 101821
 	mount = AddMount(101821, V.CATA, Q.EPIC) -- Item: 71954
 	--AddMountFlags(101821, F_ALLIANCE, F_HORDE, F_BOP, F_REMOVED, F_PVP)
 	--self:AddCompanionAcquire(DB, 101821, A_CUSTOM, 52)
-	
+
 	-- Twilight Harbinger -- 107844
 	mount = AddMount(107844, V.CATA, Q.EPIC) -- Item: 77068
 	--AddMountFlags(107844, F_ALLIANCE, F_HORDE, F_ACHIEVEMENT, F_BOP)
@@ -1807,7 +1809,7 @@ function addon:InitMounts()
 	mount = AddMount(102349, V.CATA, Q.EPIC) -- Item: 72145
 	--AddMountFlags(102349, F_ALLIANCE, F_HORDE, F_SEASONAL, F_VENDOR, F_BOP)
 	--self:AddCompanionAcquire(DB, 102349, A_SEASONAL, 9, A_CUSTOM, 64)
-	
+
 	-- Imperial Quilen -- 124659
 	mount = AddMount(124659, V.CATA, Q.EPIC) -- Item: 85870
 	--AddMountFlags(124659, F_ALLIANCE, F_HORDE, F_TCG, F_BOP) -- its not tcg, apparently this function fails on using the F_COLLECTORS filter flag, prevents scan
@@ -1825,25 +1827,25 @@ function addon:InitMounts()
 
 
 
--- Amber Scorpion 
+-- Amber Scorpion
 -- mount = AddMount(, V.MOP, )
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
 
--- Ashen Pandaren Phoenix 
+-- Ashen Pandaren Phoenix
 -- mount = AddMount(, V.MOP, )
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
 
--- Astral Cloud Serpent 
+-- Astral Cloud Serpent
 -- mount = AddMount(, V.MOP, )
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
 
--- Azure Cloud Serpent 
+-- Azure Cloud Serpent
 -- mount = AddMount(, V.MOP, )
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)
@@ -1855,19 +1857,19 @@ function addon:InitMounts()
 -- self:AddCompanionAcquire(DB, 127174, A_REPUTATION, 1269, EXALTED, 59908)
 
 
--- Azure Water Strider 
+-- Azure Water Strider
 -- mount = AddMount(, V.MOP, )
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
 
--- Black Dragon Turtle 
+-- Black Dragon Turtle
 -- mount = AddMount(, V.MOP, )
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
 
--- Black Riding Goat 
+-- Black Riding Goat
 -- mount = AddMount(, V.MOP, )
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)
@@ -2207,12 +2209,12 @@ Apparentely not in game yet!
 -- self:AddCompanionAcquire(DB,)
 
 
--- Black Riding Yak 
+-- Black Riding Yak
 -- mount = AddMount(, V.MOP, )
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Albino Riding Crane 
+-- Albino Riding Crane
 -- mount = AddMount(, V.MOP, )
 -- AddMountFlags(, F_ALLIANCE, F_HORDE, )
 -- self:AddCompanionAcquire(DB,)

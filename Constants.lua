@@ -579,7 +579,7 @@ private.LOCALIZED_FACTION_STRINGS = {
 ]]--
 private.FACTION_IDS = {}
 
-for id, name in pairs(private.FACTION_STRINGS) do
+for id, name in _G.pairs(private.FACTION_STRINGS) do
 	private.FACTION_IDS[name] = id
 end
 
