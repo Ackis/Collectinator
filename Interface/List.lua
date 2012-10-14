@@ -1274,8 +1274,8 @@ function private.InitializeListFrame()
 		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
-		local collection_type = private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
-		local collectables = private.collectable_list[collection_type]
+		local collectable_type = private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
+		local collectables = private.collectable_list[collectable_type]
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -1288,7 +1288,7 @@ function private.InitializeListFrame()
 			local acquire_id = current_entry.acquire_id
 
 			if current_entry.type == "header" then
-				local acquired_collectables = private.acquire_list[acquire_id].collectables[collection_type]
+				local acquired_collectables = private.acquire_list[acquire_id].collectables[collectable_type]
 				local sorted_collectables = addon.sorted_collectables
 
 				private.SortCollectables(acquired_collectables)
@@ -1306,8 +1306,8 @@ function private.InitializeListFrame()
 							expand = true
 							type = "entry"
 						end
-						local is_expanded = (current_tab[collection_type .." expanded"][collectable_entry]
-								     and current_tab[collection_type .." expanded"][private.ACQUIRE_NAMES[acquire_id]])
+						local is_expanded = (current_tab[collectable_type .." expanded"][collectable_entry]
+								     and current_tab[collectable_type .." expanded"][private.ACQUIRE_NAMES[acquire_id]])
 
 						entry.text = collectable_entry:GetDisplayName()
 						entry.collectable = collectable_entry
@@ -1332,14 +1332,14 @@ function private.InitializeListFrame()
 			local location_id = current_entry.location_id
 
 			if current_entry.type == "header" then
-				local location_collectables = private.location_list[location_id].collectables[collection_type]
+				local location_collectables = private.location_list[location_id].collectables[collectable_type]
 				local sorted_collectables = addon.sorted_collectables
 
-				private.SortCollectables(collectables)
+				private.SortCollectables(location_collectables)
 
 				for index = 1, #sorted_collectables do
-					local spell_id = sorted_collectables[index]
-					local collectable = collectables[spell_id]
+					local collectable_id = sorted_collectables[index]
+					local collectable = collectables[collectable_id]
 
 					if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable) then
 						local expand = false
@@ -1347,12 +1347,12 @@ function private.InitializeListFrame()
 						local entry = AcquireTable()
 
 						-- Add World Drop entries as normal entries.
-						if location_collectables[spell_id] == "world_drop" then
+						if location_collectables[collectable_id] and location_collectables[collectable_id] == "world_drop" then
 							expand = true
 							type = "entry"
 						end
-						local is_expanded = (current_tab[collection_type .." expanded"][collectable]
-								     and current_tab[collection_type .." expanded"][location_id])
+						local is_expanded = (current_tab[collectable_type .." expanded"][collectable]
+								     and current_tab[collectable_type .." expanded"][location_id])
 
 						entry.text = collectable:GetDisplayName()
 						entry.collectable = collectable
