@@ -454,9 +454,9 @@ do
 
 	local output = private.TextDump
 
--------------------------------------------------------------------------------
--- Tooltip-scanning code
--------------------------------------------------------------------------------
+	-------------------------------------------------------------------------------
+	-- Tooltip-scanning code
+	-------------------------------------------------------------------------------
 	local FACTION_TEXT = {
 		["thorium brotherhood"] = 98,
 		["zandalar tribe"] = 100,
@@ -559,6 +559,15 @@ do
 		VENDOR = true,
 		WORLD_DROP = true,
 	}
+
+	function addon:ScanCompanions()
+
+		for index in LPJ:IterateCreatureIDs() do
+			local pet_id, species_id, _, _, _, _, _, name, icon, petType, creature_id, source_text, description, is_wild = _G.C_PetJournal.GetPetInfoByIndex(index)
+			addon:Print(source_text)
+		end
+	
+	end
 
 	--- Prints out the results of the tooltip scan.
 	local function ProcessScanData()
