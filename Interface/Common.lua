@@ -67,8 +67,7 @@ do
 			return
 		end
 		local sort_type = addon.db.profile.sorting
-		local skill_view = addon.db.profile.skill_view
-		local sort_func = COLLECTABLE_SORT_FUNCS[(skill_view and "Skill" or "Name") .. sort_type] or Sort_NameAsc
+		local sort_func = COLLECTABLE_SORT_FUNCS["Name" .. sort_type] or Sort_NameAsc
 
 		table.wipe(sorted_collectables)
 		collectable_list = collectables
