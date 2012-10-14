@@ -344,16 +344,9 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 			else
 				addon:Debug("Spell ID %d: %s ID %s does not exist in the database.", self.id, type_string, identifier)
 			end
-		else
-			local string_id = type(identifier) == "string"
-
-			location_name = string_id and identifier or nil
-
-			if location_name then
-				affiliation = "world_drop"
-			elseif string_id then
-				addon:Debug("WORLD_DROP with no location: %d %s", self.id, self.name)
-			end
+		elseif type(identifier) == "string" and private.ZONE_LABELS_FROM_NAME[identifier] then
+			location_name = identifier
+			affiliation = "world_drop"
 		end
 		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
 		acquire_list[acquire_type].collectables = acquire_list[acquire_type].collectables or {}
