@@ -1216,7 +1216,6 @@ function private.InitializeListFrame()
 	end
 
 	local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type, acquire_data, collectable, hide_location, hide_type)
-addon:Print("ExpandAcquire")
 		local obtain_filters = addon.db.profile.filters.obtain
 		local num_acquire_types = #private.ACQUIRE_STRINGS
 
@@ -1271,13 +1270,12 @@ addon:Print("ExpandAcquire")
 
 	-- This function is called when an un-expanded entry in the list has been clicked.
 	function ListFrame:ExpandEntry(entry_index, expand_mode)
-addon:Print("ExpandEntry")
 		local orig_index = entry_index
 		local current_entry = self.entries[orig_index]
 		local expand_all = expand_mode == "deep"
 		local current_tab = MainPanel.tabs[MainPanel.current_tab]
 		local collection_type = private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
-		local collectable_list = private.collectable_list[collection_type]
+		local collectables = private.collectable_list[collection_type]
 
 		-- Entry_index is the position in self.entries that we want to expand. Since we are expanding the current entry, the return
 		-- value should be the index of the next button after the expansion occurs
@@ -1290,14 +1288,14 @@ addon:Print("ExpandEntry")
 			local acquire_id = current_entry.acquire_id
 
 			if current_entry.type == "header" then
-				local collectable_list = private.acquire_list[acquire_id].collectables[collection_type]
+				local acquired_collectables = private.acquire_list[acquire_id].collectables[collection_type]
 				local sorted_collectables = addon.sorted_collectables
 
-				private.SortCollectables(collectable_list)
+				private.SortCollectables(acquired_collectables)
 
 				for index = 1, #sorted_collectables do
 					local collectable_id = sorted_collectables[index]
-					local collectable_entry = collectable_list[collectable_id]
+					local collectable_entry = collectables[collectable_id]
 
 					if collectable_entry and collectable_entry:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable_entry) then
 						local entry = AcquireTable()
@@ -1334,7 +1332,7 @@ addon:Print("ExpandEntry")
 			local location_id = current_entry.location_id
 
 			if current_entry.type == "header" then
-				local collectables = private.location_list[location_id].collectables[collection_type]
+				local location_collectables = private.location_list[location_id].collectables[collection_type]
 				local sorted_collectables = addon.sorted_collectables
 
 				private.SortCollectables(collectables)
@@ -1349,7 +1347,7 @@ addon:Print("ExpandEntry")
 						local entry = AcquireTable()
 
 						-- Add World Drop entries as normal entries.
-						if collectables[spell_id] == "world_drop" then
+						if location_collectables[spell_id] == "world_drop" then
 							expand = true
 							type = "entry"
 						end
