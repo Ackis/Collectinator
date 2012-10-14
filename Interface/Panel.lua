@@ -459,15 +459,15 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- The search entry box and associated methods.
 	-------------------------------------------------------------------------------
-	local SearchCollections
+	local SearchCollectables
 	do
-		local collection_fields = {
+		local collectable_fields = {
 			"name",
 		}
 
-		local function SearchByField(collection, search_pattern)
-			for index, field in ipairs(collection_fields) do
-				local str = collection[field] and tostring(collection[field]):lower()
+		local function SearchByField(collectable, search_pattern)
+			for index, field in ipairs(collectable_fields) do
+				local str = collectable[field] and tostring(collectable[field]):lower()
 
 				if str and str:find(search_pattern) then
 					return true
@@ -476,11 +476,11 @@ function private.InitializeFrame()
 			return false
 		end
 
-		local function SearchByAcquireType(collection, search_pattern)
+		local function SearchByAcquireType(collectable, search_pattern)
 			local ACQUIRE_NAMES = private.ACQUIRE_NAMES
 
 			for acquire_type in pairs(ACQUIRE_NAMES) do
-				if collection.acquire_data[acquire_type] then
+				if collectable.acquire_data[acquire_type] then
 					local acquire_name = ACQUIRE_NAMES[acquire_type]:lower()
 
 					if acquire_name:find(search_pattern) then
@@ -491,12 +491,12 @@ function private.InitializeFrame()
 			return false
 		end
 
-		local function SearchByLocation(collection, search_pattern)
+		local function SearchByLocation(collectable, search_pattern)
 			local location_list = private.location_list
 
 			for location_name in pairs(location_list) do
 				for id in pairs(location_list[location_name].collectables) do
-					if id == collection.id then
+					if id == collectable.id then
 						local location = location_name:lower()
 
 						if location:find(search_pattern) then
@@ -508,36 +508,36 @@ function private.InitializeFrame()
 			return false
 		end
 
-		local function SearchByQuality(collection, search_pattern)
-			if private.ITEM_QUALITY_NAMES[collection.quality]:lower():find(search_pattern) then
+		local function SearchByQuality(collectable, search_pattern)
+			if private.ITEM_QUALITY_NAMES[collectable.quality]:lower():find(search_pattern) then
 				return true
 			end
 			return false
 		end
 
-		local function SearchByList(collection, search_pattern, list)
+		local function SearchByList(collectable, search_pattern, list)
 			for id_num, unit in pairs(list) do
-				if unit.item_list and unit.item_list[collection.spell_id] and unit.name:lower():find(search_pattern) then
+				if unit.item_list and unit.item_list[collectable.spell_id] and unit.name:lower():find(search_pattern) then
 					return true
 				end
 			end
 		end
-		local function SearchByVendor(collection, search_pattern)
-			return SearchByList(collection, search_pattern, private.vendor_list)
+		local function SearchByVendor(collectable, search_pattern)
+			return SearchByList(collectable, search_pattern, private.vendor_list)
 		end
 
-		local function SearchByMobDrop(collection, search_pattern)
-			return SearchByList(collection, search_pattern, private.mob_list)
+		local function SearchByMobDrop(collectable, search_pattern)
+			return SearchByList(collectable, search_pattern, private.mob_list)
 		end
 
-		local function SearchByCustom(collection, search_pattern)
-			return SearchByList(collection, search_pattern, private.custom_list)
+		local function SearchByCustom(collectable, search_pattern)
+			return SearchByList(collectable, search_pattern, private.custom_list)
 		end
 
-		local function SearchByReputation(collection, search_pattern)
+		local function SearchByReputation(collectable, search_pattern)
 			local reputation_list = private.reputation_list
 
-			for acquire_type, acquire_data in pairs(collection.acquire_data) do
+			for acquire_type, acquire_data in pairs(collectable.acquire_data) do
 				if acquire_type == A.REPUTATION then
 					for id_num, info in pairs(acquire_data) do
 						local str = reputation_list[id_num].name:lower()
@@ -561,8 +561,8 @@ function private.InitializeFrame()
 			SearchByMobDrop,
 			SearchByCustom,
 		}
-		-- Scans through the collection database and toggles the flag on if the item is in the search criteria
-		function SearchCollections(search_pattern)
+		-- Scans through the collectable database and toggles the flag on if the item is in the search criteria
+		function SearchCollectables(search_pattern)
 			if not search_pattern then
 				return
 			end
@@ -671,7 +671,7 @@ function private.InitializeFrame()
 		self.prev_search = searchtext
 
 		self:AddHistoryLine(searchtext)
-		SearchCollections(searchtext)
+		SearchCollectables(searchtext)
 		MainPanel.list_frame:Update(nil, false)
 	end)
 
@@ -718,7 +718,7 @@ function private.InitializeFrame()
 			end
 			last_update = 0
 
-			SearchCollections(search_text)
+			SearchCollectables(search_text)
 			MainPanel.list_frame:Update(nil, false)
 			self:Hide()
 		end)
