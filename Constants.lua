@@ -800,9 +800,9 @@ private.CATEGORY_COLORS = {
 }
 
 private.BASIC_COLORS = {
-	["grey"]	= "666666",
-	["white"]	= "ffffff",
-	["yellow"]	= "ffff00",
-	["normal"]	= "ffd100",
-	["optimal"]	= "00ff00",
+	green	= "00ff00",
+	grey	= "666666",
+	white	= "ffffff",
+	yellow	= "ffff00",
+	normal	= "ffd100",
 }
