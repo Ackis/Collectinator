@@ -14,13 +14,13 @@ local pairs, ipairs = _G.pairs, _G.ipairs
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
-local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 -------------------------------------------------------------------------------
 -- Constants
 -------------------------------------------------------------------------------
-local ORDERED_COLLECTIONS	= private.ORDERED_COLLECTIONS
+local ORDERED_COLLECTIONS = private.ORDERED_COLLECTIONS
 
 local A = private.ACQUIRE_TYPES
 
@@ -157,6 +157,7 @@ function private.InitializeTabs()
 
 		return tab
 	end
+
 	local AcquisitionTab = CreateTab(1, L["Acquisition"], "TOPLEFT", MainPanel, "BOTTOMLEFT", 4, 81)
 	local CollectablesTab = CreateTab(2, _G.COMPANIONS, "LEFT", AcquisitionTab, "RIGHT", -14, 0)
 	local LocationTab = CreateTab(3, L["Location"], "LEFT", CollectablesTab, "RIGHT", -14, 0)
@@ -182,169 +183,168 @@ function private.InitializeTabs()
 		return good, bad
 	end
 
-	-------------------------------------------------------------------------------
-	-- Variables used to hold tables for sorting the various tabs:
-	-- The tables are only sorted once, upon creation.
-	-------------------------------------------------------------------------------
-	local sorted_acquires
-	local sorted_locations
+	local sorted_acquires = {}
+
+	local function Sort_Acquisition(a, b)
+		local acquire_list = private.acquire_list
+		local acquire_a = acquire_list[a]
+		local acquire_b = acquire_list[b]
+
+		return acquire_a.name < acquire_b.name
+	end
 
 	function AcquisitionTab:Initialize(expand_mode)
+		local collectable_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
+		local collectables = private.collectable_list[collectable_type]
 		local collectable_count = 0
 		local insert_index = 1
 
 		table.wipe(collectable_registry)
+		table.wipe(sorted_acquires)
 
-		if not sorted_acquires then
-			-- Sorting function: Only used once and then thrown away.
-			local function Sort_Acquisition(a, b)
-				local acquire_list = private.acquire_list
-				local acquire_a = acquire_list[a]
-				local acquire_b = acquire_list[b]
+		sorted_acquires = {}
 
-				return acquire_a.name < acquire_b.name
-			end
-			sorted_acquires = {}
-
-			for acquire_name in pairs(private.acquire_list) do
-				sorted_acquires[#sorted_acquires + 1] = acquire_name
-			end
-			table.sort(sorted_acquires, Sort_Acquisition)
+		for acquire_name in pairs(private.acquire_list) do
+			sorted_acquires[#sorted_acquires + 1] = acquire_name
 		end
-		local collectable_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
-		local collectables = private.collectable_list[collectable_type]
+		table.sort(sorted_acquires, Sort_Acquisition)
 
-		self[collectable_type .." expanded"] = self[collectable_type .." expanded"] or {}
+		self[collectable_type .. " expanded"] = self[collectable_type .. " expanded"] or {}
 
 		for index = 1, #sorted_acquires do
 			local acquire_type = sorted_acquires[index]
+			local acquire_list = private.acquire_list[acquire_type].collectables[collectable_type]
 			local count = 0
 
 			-- Check to see if any recipes for this acquire type will be shown - otherwise, don't show the type in the list.
-			for spell_id, affiliation in pairs(private.acquire_list[acquire_type].collectables) do
-				local collectable = collectables[spell_id]
+			if acquire_list then
+				for collectable_id, affiliation in pairs(acquire_list) do
+					local collectable = collectables[collectable_id]
 
-				if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable) then
-					count = count + 1
-
-					if not collectable_registry[collectable] then
-						collectable_registry[collectable] = true
-						collectable_count = collectable_count + 1
-					end
-				else
-					self[collectable_type .." expanded"][spell_id] = nil
-				end
-			end
-
-			if count > 0 then
-				local entry = AcquireTable()
-
-				local acquire_str = private.ACQUIRE_STRINGS[acquire_type]:lower():gsub("_","")
-				local color_code = private.CATEGORY_COLORS[acquire_str] or "ffffff"
-				local is_expanded = self[collectable_type .." expanded"][private.ACQUIRE_NAMES[acquire_type]]
-
-				entry.text = ("%s (%d)"):format(SetTextColor(color_code, private.ACQUIRE_NAMES[acquire_type]),count)
-				entry.acquire_id = acquire_type
-
-				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
-			else
-				self[collectable_type .." expanded"][private.ACQUIRE_NAMES[acquire_type]] = nil
-			end
-		end
-		return collectable_count
-	end
-
-	function LocationTab:Initialize(expand_mode)
-		local search_box = MainPanel.search_editbox
-
-		local collectable_count = 0
-		local insert_index = 1
-
-		table.wipe(collectable_registry)
-
-		if not sorted_locations then
-			-- Sorting function: Only used once and then thrown away.
-			local function Sort_Location(a, b)
-				local location_list = private.location_list
-				local loc_a = location_list[a]
-				local loc_b = location_list[b]
-
-				return loc_a.name < loc_b.name
-			end
-			sorted_locations = {}
-
-			for loc_name in pairs(private.location_list) do
-				table.insert(sorted_locations, loc_name)
-			end
-			table.sort(sorted_locations, Sort_Location)
-		end
-		local collectable_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
-		local collectables = private.collectable_list[collectable_type]
-
-		self[collectable_type .." expanded"] = self[collectable_type .." expanded"] or {}
-
-		for index = 1, #sorted_locations do
-			local loc_name = sorted_locations[index]
-			local count = 0
-
-			-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
-			for spell_id, affiliation in pairs(private.location_list[loc_name].collectables) do
-				local collectable = collectables[spell_id]
-
-				if collectable and collectable:HasState("VISIBLE") and search_box:MatchesCollectable(collectable) then
-					local trainer_data = collectable.acquire_data[A.TRAINER]
-					local good_count, bad_count = 0, 0
-					local fac_toggle = addon.db.profile.filters.general.faction
-
-					if not fac_toggle then
-						if trainer_data then
-							local good, bad = FactionTally(trainer_data, private.trainer_list, loc_name)
-
-							if good == 0 and bad > 0 then
-								bad_count = bad_count + 1
-							else
-								good_count = good_count + 1
-							end
-						end
-						local vendor_data = collectable.acquire_data[A.VENDOR]
-
-						if vendor_data then
-							local good, bad = FactionTally(vendor_data, private.vendor_list, loc_name)
-
-							if good == 0 and bad > 0 then
-								bad_count = bad_count + 1
-							else
-								good_count = good_count + 1
-							end
-						end
-						local quest_data = collectable.acquire_data[A.QUEST]
-
-						if quest_data then
-							local good, bad = FactionTally(quest_data, private.quest_list, loc_name)
-
-							if good == 0 and bad > 0 then
-								bad_count = bad_count + 1
-							else
-								good_count = good_count + 1
-							end
-						end
-					end
-
-					if fac_toggle or not (good_count == 0 and bad_count > 0) then
+					if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable) then
 						count = count + 1
 
 						if not collectable_registry[collectable] then
 							collectable_registry[collectable] = true
 							collectable_count = collectable_count + 1
 						end
+					else
+						self[collectable_type .. " expanded"][collectable_type] = nil
 					end
-				else
-					self[collectable_type .." expanded"][spell_id] = nil
 				end
 			end
 
 			if count > 0 then
-				local is_expanded = self[collectable_type .." expanded"][loc_name]
+				local entry = AcquireTable()
+
+				local acquire_str = private.ACQUIRE_STRINGS[acquire_type]:lower():gsub("_", "")
+				local color_code = private.CATEGORY_COLORS[acquire_str] or "ffffff"
+				local is_expanded = self[collectable_type .. " expanded"][private.ACQUIRE_NAMES[acquire_type]]
+
+				entry.text = ("%s (%d)"):format(SetTextColor(color_code, private.ACQUIRE_NAMES[acquire_type]), count)
+				entry.acquire_id = acquire_type
+
+				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+			else
+				self[collectable_type .. " expanded"][private.ACQUIRE_NAMES[acquire_type]] = nil
+			end
+		end
+		return collectable_count
+	end
+
+	local sorted_locations = {}
+
+	local function Sort_Location(a, b)
+		local location_list = private.location_list
+		local loc_a = location_list[a]
+		local loc_b = location_list[b]
+
+		return loc_a.name < loc_b.name
+	end
+
+	function LocationTab:Initialize(expand_mode)
+		local search_box = MainPanel.search_editbox
+		local collectable_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
+		local collectable_count = 0
+		local insert_index = 1
+
+		table.wipe(collectable_registry)
+		table.wipe(sorted_locations)
+
+		for loc_name in pairs(private.location_list) do
+			table.insert(sorted_locations, loc_name)
+		end
+		table.sort(sorted_locations, Sort_Location)
+
+		local collectables = private.collectable_list[collectable_type]
+
+		self[collectable_type .. " expanded"] = self[collectable_type .. " expanded"] or {}
+
+		for index = 1, #sorted_locations do
+			local loc_name = sorted_locations[index]
+			local location_list = private.location_list[loc_name].collectables[collectable_type]
+			local count = 0
+
+			-- Check to see if any recipes for this location will be shown - otherwise, don't show the location in the list.
+			if location_list then
+				for collectable_id, affiliation in pairs(location_list) do
+					local collectable = collectables[collectable_id]
+
+					if collectable and collectable:HasState("VISIBLE") and search_box:MatchesCollectable(collectable) then
+						local trainer_data = collectable.acquire_data[A.TRAINER]
+						local good_count, bad_count = 0, 0
+						local fac_toggle = addon.db.profile.filters.general.faction
+
+						if not fac_toggle then
+							if trainer_data then
+								local good, bad = FactionTally(trainer_data, private.trainer_list, loc_name)
+
+								if good == 0 and bad > 0 then
+									bad_count = bad_count + 1
+								else
+									good_count = good_count + 1
+								end
+							end
+							local vendor_data = collectable.acquire_data[A.VENDOR]
+
+							if vendor_data then
+								local good, bad = FactionTally(vendor_data, private.vendor_list, loc_name)
+
+								if good == 0 and bad > 0 then
+									bad_count = bad_count + 1
+								else
+									good_count = good_count + 1
+								end
+							end
+							local quest_data = collectable.acquire_data[A.QUEST]
+
+							if quest_data then
+								local good, bad = FactionTally(quest_data, private.quest_list, loc_name)
+
+								if good == 0 and bad > 0 then
+									bad_count = bad_count + 1
+								else
+									good_count = good_count + 1
+								end
+							end
+						end
+
+						if fac_toggle or not (good_count == 0 and bad_count > 0) then
+							count = count + 1
+
+							if not collectable_registry[collectable] then
+								collectable_registry[collectable] = true
+								collectable_count = collectable_count + 1
+							end
+						end
+					else
+						self[collectable_type .. " expanded"][collectable_id] = nil
+					end
+				end
+			end
+
+			if count > 0 then
+				local is_expanded = self[collectable_type .. " expanded"][loc_name]
 				local entry = AcquireTable()
 
 				if loc_name == _G.GetRealZoneText() then
@@ -358,17 +358,17 @@ function private.InitializeTabs()
 
 				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[collectable_type .." expanded"][loc_name] = nil
+				self[collectable_type .. " expanded"][loc_name] = nil
 			end
 		end
 		return collectable_count
 	end
 
 	function CollectablesTab:Initialize(expand_mode)
-		local collection_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
-		local collectables = private.collectable_list[collection_type]
+		local collectable_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
+		local collectables = private.collectable_list[collectable_type]
 
-		self[collection_type .." expanded"] = self[collection_type .." expanded"] or {}
+		self[collectable_type .. " expanded"] = self[collectable_type .. " expanded"] or {}
 
 		private.SortCollectables(collectables, collectable_type)
 
@@ -380,7 +380,7 @@ function private.InitializeTabs()
 			local collectable = collectables[sorted_collectables[i]]
 
 			if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable) then
-				local is_expanded = self[collection_type .." expanded"][collectable]
+				local is_expanded = self[collectable_type .. " expanded"][collectable]
 				local entry = AcquireTable()
 				entry.text = collectable:GetDisplayName()
 				entry.collectable = collectable
@@ -389,7 +389,7 @@ function private.InitializeTabs()
 
 				insert_index = ListFrame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
 			else
-				self[collection_type .." expanded"][collectable] = nil
+				self[collectable_type .. " expanded"][collectable] = nil
 			end
 		end
 		return collectable_count
