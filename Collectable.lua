@@ -339,7 +339,8 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 				location_name = unit.location
 
 				unit.item_list = unit.item_list or {}
-				unit.item_list[self.id] = quantity
+				unit.item_list[self.type] = unit.item_list[self.type] or {}
+				unit.item_list[self.type][self.id] = quantity
 			else
 				addon:Debug("Spell ID %d: %s ID %s does not exist in the database.", self.id, type_string, identifier)
 			end
@@ -356,16 +357,18 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 		end
 		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
 		acquire_list[acquire_type].collectables = acquire_list[acquire_type].collectables or {}
+		acquire_list[acquire_type].collectables[self.type] = acquire_list[acquire_type].collectables[self.type] or {}
 
 		acquire_list[acquire_type].name = private.ACQUIRE_NAMES[acquire_type]
-		acquire_list[acquire_type].collectables[self.id] = affiliation or true
+		acquire_list[acquire_type].collectables[self.type][self.id] = affiliation or true
 
 		if location_name then
 			location_list[location_name] = location_list[location_name] or {}
 			location_list[location_name].collectables = location_list[location_name].collectables or {}
+			location_list[location_name].collectables[self.type] = location_list[location_name].collectables[self.type] or {}
 
 			location_list[location_name].name = location_name
-			location_list[location_name].collectables[self.id] = affiliation or true
+			location_list[location_name].collectables[self.type][self.id] = affiliation or true
 		end
 	end
 end
