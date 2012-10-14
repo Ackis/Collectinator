@@ -348,7 +348,7 @@ function private.InitializeTabs()
 				local entry = AcquireTable()
 
 				if loc_name == _G.GetRealZoneText() then
-					entry.text = ("%s (%d)"):format(SetTextColor(private.DIFFICULTY_COLORS["optimal"], loc_name), count)
+					entry.text = ("%s (%d)"):format(SetTextColor(private.BASIC_COLORS["optimal"], loc_name), count)
 					entry.emphasized = true
 				else
 					entry.text = ("%s (%d)"):format(SetTextColor(private.CATEGORY_COLORS["location"], loc_name), count)

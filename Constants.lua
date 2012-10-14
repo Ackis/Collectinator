@@ -804,4 +804,5 @@ private.BASIC_COLORS = {
 	["white"]	= "ffffff",
 	["yellow"]	= "ffff00",
 	["normal"]	= "ffd100",
+	["optimal"]	= "00ff00",
 }
