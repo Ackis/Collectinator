@@ -58,7 +58,7 @@ do
 	}
 
 	-- Sorts the collectable_list according to configuration settings.
-	function private.SortCollectables(collectables)
+	function private.SortCollectables(collectables, collectable_type)
 		if not collectables then
 			return
 		end
@@ -66,9 +66,9 @@ do
 		local sort_func = COLLECTABLE_SORT_FUNCS["Name" .. sort_type] or Sort_NameAsc
 
 		table.wipe(sorted_collectables)
-		collectable_list = collectables
+		collectable_list = private.collectable_list[collectable_type]
 
-		for collectable_id, collectable in pairs(collectables) do
+		for collectable_id in pairs(collectables) do
 			sorted_collectables[#sorted_collectables + 1] = collectable_id
 		end
 		table.sort(sorted_collectables, sort_func)

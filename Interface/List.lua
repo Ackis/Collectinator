@@ -1291,7 +1291,7 @@ function private.InitializeListFrame()
 				local acquired_collectables = private.acquire_list[acquire_id].collectables[collectable_type]
 				local sorted_collectables = addon.sorted_collectables
 
-				private.SortCollectables(acquired_collectables)
+				private.SortCollectables(acquired_collectables, collectable_type)
 
 				for index = 1, #sorted_collectables do
 					local collectable_id = sorted_collectables[index]
@@ -1335,7 +1335,7 @@ function private.InitializeListFrame()
 				local location_collectables = private.location_list[location_id].collectables[collectable_type]
 				local sorted_collectables = addon.sorted_collectables
 
-				private.SortCollectables(location_collectables)
+				private.SortCollectables(location_collectables, collectable_type)
 
 				for index = 1, #sorted_collectables do
 					local collectable_id = sorted_collectables[index]

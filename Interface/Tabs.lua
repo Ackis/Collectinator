@@ -370,7 +370,7 @@ function private.InitializeTabs()
 
 		self[collection_type .." expanded"] = self[collection_type .." expanded"] or {}
 
-		private.SortCollectables(collectables)
+		private.SortCollectables(collectables, collectable_type)
 
 		local sorted_collectables = addon.sorted_collectables
 		local collectable_count = 0
