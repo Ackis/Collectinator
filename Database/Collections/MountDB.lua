@@ -159,14 +159,14 @@ function addon:InitMounts()
 	-- Quel'dorei Steed - 66090
 	mount = AddMount(66090, V.WOTLK, Q.EPIC) -- Item: 46815
 	mount:SetItemID(46815)
-	-- mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
-	-- mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
+	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
+	mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
 
 	-- Silver Covenant Hippogryph - 66087
 	mount = AddMount(66087, V.WOTLK, Q.EPIC) -- Item: 46813
 	mount:SetItemID(46813)
-	-- mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
-	-- mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
+	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
+	mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
 
 	-- White Mechanostrider Mod B - 15779
 	mount = AddMount(15779, V.ORIG, Q.EPIC) -- Item: 13326
@@ -713,68 +713,84 @@ function addon:InitMounts()
 
 	-- Reins of the Traveler's Tundra Mammoth - 61447
 	mount = AddMount(61447, V.WOTLK, Q.EPIC) -- Item: 44234
-	--AddMountFlags(61447, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 61447, A_VENDOR, 32216)
+	mount:SetItemID(44234)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(32216)
 
 	-- Armored Blue Wind Rider - 61230
 	mount = AddMount(61230, V.WOTLK, Q.EPIC) -- Item: 44690
-	--AddMountFlags(61230, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 61230, A_VENDOR, 32216)
+	mount:SetItemID(44690)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(32216)
 
 	-- Sunreaver Hawkstrider - 66091
 	mount = AddMount(66091, V.WOTLK, Q.EPIC) -- Item: 46816
-	--AddMountFlags(66091, F_HORDE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
-	--self:AddCompanionAcquire(DB, 66091, A_REPUTATION, 1124, EXALTED, 34772)
+	mount:SetItemID(46816)
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.WRATHCOMMON1)
+	mount:AddRepVendor(FAC.SUNREAVERS, REP.EXALTED, 34772)
 
 	-- Sunreaver Dragonhawk - 66088
 	mount = AddMount(66088, V.WOTLK, Q.EPIC) -- Item: 46814
-	--AddMountFlags(66088, F_HORDE, F_VENDOR, F_BOP, F_WRATHCOMMON1)
-	--self:AddCompanionAcquire(DB, 66088, A_REPUTATION, 1124, EXALTED, 34772)
+	mount:SetItemID(46814)
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.WRATHCOMMON1)
+	mount:AddRepVendor(FAC.SUNREAVERS, REP.EXALTED, 34772)
 
 	-- Reins of the Ice Mammoth - 59797
 	mount = AddMount(59797, V.WOTLK, Q.EPIC) -- Item: 44080
-	--AddMountFlags(59797, F_HORDE, F_VENDOR, F_BOP, F_HODIR)
-	--self:AddCompanionAcquire(DB, 59797, A_REPUTATION, 1119, REVERED, 32540)
+	mount:SetItemID(44080)
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.HODIR)
+	mount:AddRepVendor(FAC.HODIR, REP.REVERED, 32540)
 
 	-- Reins of the Grand Ice Mammoth - 61469
 	mount = AddMount(61469, V.WOTLK, Q.EPIC) -- Item: 44086
-	--AddMountFlags(61469, F_HORDE, F_VENDOR, F_BOP, F_HODIR)
-	--self:AddCompanionAcquire(DB, 61469, A_REPUTATION, 1119, EXALTED, 32540)
+	mount:SetItemID(44086)
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.HODIR)
+	mount:AddRepVendor(FAC.HODIR, REP.EXALTED, 32540)
 
 	-- Horn of the Swift Brown Wolf - 23250
 	mount = AddMount(23250, V.ORIG, Q.EPIC) -- Item: 18796
-	--AddMountFlags(23250, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 23250, A_VENDOR, 3362, A_QUEST, 7660, A_QUEST, 7661)
+	mount:SetItemID(18796)
+	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST, F.VENDOR)
+	mount:AddVendor(3362)
+	mount:AddQuest(7660, 7661)
 
 	-- Horn of the Swift Timber Wolf - 23251
 	mount = AddMount(23251, V.ORIG, Q.EPIC) -- Item: 18797
-	--AddMountFlags(23251, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 23251, A_VENDOR, 3362, A_QUEST, 7660, A_QUEST, 7661)
+	mount:SetItemID(18797)
+	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST, F.VENDOR)
+	mount:AddVendor(3362)
+	mount:AddQuest(7660, 7661)
 
 	-- Horn of the Swift Gray Wolf - 23252
 	mount = AddMount(23252, V.ORIG, Q.EPIC) -- Item: 18798
-	--AddMountFlags(23252, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 23252, A_VENDOR, 3362, A_QUEST, 7660, A_QUEST, 7661)
+	mount:SetItemID(18798)
+	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST, F.VENDOR)
+	mount:AddVendor(3362)
+	mount:AddQuest(7660, 7661)
 
 	-- Black Wolf
 	mount = AddMount(64658, V.WOTLK, Q.RARE) -- Item: 46099
-	--AddMountFlags(64658, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 64658, A_VENDOR, 3362)
+	mount:SetItemID(46099)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(3362)
 
 	-- Horn of the Timber Wolf - 580
 	mount = AddMount(580, V.ORIG, Q.RARE) -- Item: 1132
-	--AddMountFlags(580, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 580, A_VENDOR, 3362)
+	mount:SetItemID(1132)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(3362)
 
 	-- Horn of the Dire Wolf - 6653
 	mount = AddMount(6653, V.ORIG, Q.RARE) -- Item: 5665
-	--AddMountFlags(6653, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 6653, A_VENDOR, 3362)
+	mount:SetItemID(5665)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(3362)
 
 	-- Horn of the Brown Wolf - 6654
 	mount = AddMount(6654, V.ORIG, Q.RARE) -- Item: 5668
-	--AddMountFlags(6654, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 6654, A_VENDOR, 3362)
+	mount:SetItemID(5668)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(3362)
 
 	-- Horn of the Red Wolf - 16080
 	mount = AddMount(16080, V.ORIG, Q.EPIC) -- Item: 12330
