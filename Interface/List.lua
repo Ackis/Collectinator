@@ -1035,7 +1035,7 @@ function private.InitializeListFrame()
 		local entry = AcquireTable()
 		local quantity = vendor.item_list[collectable.id]
 
-		entry.text = ("%s%s %s%s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["vendor"], L["Vendor"]) .. ":", name, type(quantity) == "number" and SetTextColor(BASIC_COLORS["white"], (" (%d)"):format(quantity)) or "")
+		entry.text = ("%s%s %s%s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["vendor"], _G.BATTLE_PET_SOURCE_3) .. ":", name, type(quantity) == "number" and SetTextColor(BASIC_COLORS["white"], (" (%d)"):format(quantity)) or "")
 		entry.collectable = collectable
 		entry.npc_id = id_num
 
@@ -1093,7 +1093,7 @@ function private.InitializeListFrame()
 			coord_text = SetTextColor(CATEGORY_COLORS["coords"], COORD_FORMAT:format(quest.coord_x, quest.coord_y))
 		end
 		local entry = AcquireTable()
-		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["quest"], L["Quest"]) .. ":", name)
+		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["quest"], _G.BATTLE_PET_SOURCE_2) .. ":", name)
 		entry.collectable = collectable
 
 		entry_index = ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
@@ -1519,7 +1519,7 @@ do
 			if not display_tip then
 				return
 			end
-			addline_func(0, -1, false, L["Vendor"], CATEGORY_COLORS["vendor"], vendor.name, name_color)
+			addline_func(0, -1, false, _G.BATTLE_PET_SOURCE_3, CATEGORY_COLORS["vendor"], vendor.name, name_color)
 
 			if vendor.coord_x ~= 0 and vendor.coord_y ~= 0 then
 				addline_func(1, -2, true, vendor.location, CATEGORY_COLORS["location"], COORD_FORMAT:format(vendor.coord_x, vendor.coord_y), CATEGORY_COLORS["coords"])
@@ -1553,7 +1553,7 @@ do
 			if not display_tip then
 				return
 			end
-			addline_func(0, -1, false, L["Quest"], CATEGORY_COLORS["quest"], private.quest_names[identifier], name_color)
+			addline_func(0, -1, false, _G.BATTLE_PET_SOURCE_2, CATEGORY_COLORS["quest"], private.quest_names[identifier], name_color)
 
 			if quest.coord_x ~= 0 and quest.coord_y ~= 0 then
 				addline_func(1, -2, true, quest.location, CATEGORY_COLORS["location"], COORD_FORMAT:format(quest.coord_x, quest.coord_y), CATEGORY_COLORS["coords"])

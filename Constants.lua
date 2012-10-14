@@ -273,9 +273,9 @@ private.COLLECTION_FILTER_TYPES = {
 -------------------------------------------------------------------------------
 private.ACQUIRE_NAMES = {
 	[1]	= L["Trainer"],
-	[2]	= L["Vendor"], -- Vendor
+	[2]	= _G.BATTLE_PET_SOURCE_3, -- Vendor
 	[3]	= L["Mob Drop"],
-	[4]	= L["Quest"], -- Quest
+	[4]	= _G.BATTLE_PET_SOURCE_2, -- Quest
 	[5]	= _G.GetCategoryInfo(155),
 	[6]	= _G.REPUTATION,
 	[7]	= L["World Drop"],

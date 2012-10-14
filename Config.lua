@@ -249,8 +249,8 @@ local function GetMapOptions()
 				mapvendor = {
 					order	= 3,
 					type	= "toggle",
-					name	= L["Vendor"],
-					desc	= L["WAYPOINT_TOGGLE_FORMAT"]:format(L["Vendor"]),
+					name	= _G.BATTLE_PET_SOURCE_3,
+					desc	= L["WAYPOINT_TOGGLE_FORMAT"]:format(_G.BATTLE_PET_SOURCE_3),
 					disabled = not has_waypoints,
 					get	= function()
 							  return addon.db.profile.mapvendor
