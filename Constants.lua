@@ -783,19 +783,20 @@ private.REPUTATION_COLORS = {
 -- Colors used in tooltips and the collectable list.
 private.CATEGORY_COLORS = {
 	-- Acquire type colors
-	["achievement"]	= "faeb98",
-	["custom"]	= "73b7ff",
-	["mobdrop"]	= "962626",
-	["quest"]	= "dbdb2c",
-	["reputation"]	= "855a99",
-	["seasonal"]	= "80590e",
-	["vendor"]	= "aad372",
-	["profession"]	= "c98e26",
+	achievement	= "faeb98",
+	custom		= "73b7ff",
+	mobdrop		= "962626",
+	quest		= "dbdb2c",
+	reputation	= "855a99",
+	seasonal	= "80590e",
+	trainer		= "c98e26",
+	vendor		= "aad372",
+	profession	= "9c6b98",
 
 	-- Miscellaneous
-	["coords"]	= "d1ce6f",
-	["location"]	= "ffecc1",
-	["repname"]	= "6a9ad9",
+	coords		= "d1ce6f",
+	location	= "ffecc1",
+	repname		= "6a9ad9",
 
 }
 

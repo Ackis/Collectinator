@@ -438,7 +438,7 @@ function private.InitializeFilterPanel()
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
-		acquire_panel:SetHeight(120)
+		acquire_panel:SetHeight(150)
 		acquire_panel:SetPoint("TOP", acquire_toggle, "BOTTOM")
 		acquire_panel:SetPoint("LEFT", obtain_frame, "LEFT")
 		acquire_panel:SetPoint("RIGHT", obtain_frame, "RIGHT")
@@ -1074,6 +1074,7 @@ function private.InitializeFilterPanel()
 		["raid"]		= { cb = FilterPanel.obtain.raid,		svroot = filterdb.obtain },
 		["reputation"]		= { cb = FilterPanel.obtain.reputation,		svroot = filterdb.obtain },
 		["seasonal"]		= { cb = FilterPanel.obtain.seasonal,		svroot = filterdb.obtain },
+		["trainer"]		= { cb = FilterPanel.obtain.trainer,		svroot = filterdb.obtain },
 		["vendor"]		= { cb = FilterPanel.obtain.vendor,		svroot = filterdb.obtain },
 		["worlddrop"]		= { cb = FilterPanel.obtain.worlddrop,		svroot = filterdb.obtain },
 		["store"]		= { cb = FilterPanel.obtain.store,		svroot = filterdb.obtain },

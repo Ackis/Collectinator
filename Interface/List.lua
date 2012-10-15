@@ -1369,7 +1369,10 @@ function private.InitializeListFrame()
 				for acquire_type, acquire_data in pairs(collectable_entry.acquire_data) do
 					-- Only expand an acquisition entry if it is from this location.
 					for id_num, info in pairs(acquire_data) do
-						if acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
+						if acquire_type == A.TRAINER and private.trainer_list[id_num].location == location_id then
+							entry_index = ExpandTrainerData(entry_index, "subentry", current_entry,
+								id_num, current_entry.collectable, true)
+						elseif acquire_type == A.VENDOR and private.vendor_list[id_num].location == location_id then
 							entry_index = ExpandVendorData(entry_index, "subentry", current_entry,
 										       id_num, current_entry.collectable, true)
 						elseif acquire_type == A.MOB_DROP and private.mob_list[id_num].location == location_id then
@@ -1506,6 +1509,25 @@ do
 	-- Functions for adding individual acquire type data to the tooltip.
 	-------------------------------------------------------------------------------
 	local TOOLTIP_ACQUIRE_FUNCS = {
+		[A.TRAINER] = function(collectable, identifier, location, acquire_info, addline_func)
+			local trainer = private.trainer_list[identifier]
+
+			if not trainer or (location and trainer.location ~= location) then
+				return
+			end
+			local display_tip, name_color = GetTipFactionInfo(trainer.faction)
+
+			if not display_tip then
+				return
+			end
+			addline_func(0, -2, false, L["Trainer"], CATEGORY_COLORS["trainer"], trainer.name, name_color)
+
+			if trainer.coord_x ~= 0 and trainer.coord_y ~= 0 then
+				addline_func(1, -2, true, trainer.location, CATEGORY_COLORS["location"], COORD_FORMAT:format(trainer.coord_x, trainer.coord_y), CATEGORY_COLORS["coords"])
+			else
+				addline_func(1, -2, true, trainer.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
+			end
+		end,
 		[A.VENDOR] = function(collectable, identifier, location, acquire_info, addline_func)
 			local vendor = private.vendor_list[identifier]
 

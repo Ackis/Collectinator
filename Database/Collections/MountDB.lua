@@ -1351,28 +1351,28 @@ function addon:InitMounts()
 
 	-- Warhorse (Alliance) -- 13819
 	mount = AddMount(13819, V.ORIG, Q.COMMON)
-	mount:AddFilters(F.ALLIANCE)
+	mount:AddFilters(F.ALLIANCE, F.TRAINER)
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredRaces("Human", "Dwarf")
 	mount:SetRequiredFaction("Alliance")
 
 	-- Charger (Alliance) -- 23214
 	mount = AddMount(23214, V.ORIG, Q.COMMON)
-	mount:AddFilters(F.ALLIANCE)
+	mount:AddFilters(F.ALLIANCE, F.TRAINER)
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredRaces("Human", "Dwarf")
 	mount:SetRequiredFaction("Alliance")
 
 	-- Charger (Horde) -- 34767
 	mount = AddMount(34767, V.ORIG, Q.COMMON)
-	mount:AddFilters(F.HORDE, F.VENDOR, F.BOP)
+	mount:AddFilters(F.HORDE, F.TRAINER)
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredRaces("BloodElf")
 	mount:SetRequiredFaction("Horde")
 
 	-- Warhorse (Horde) -- 34769
 	mount = AddMount(34769, V.ORIG, Q.COMMON)
-	mount:AddFilters(F.HORDE, F.VENDOR, F.BOP)
+	mount:AddFilters(F.HORDE, F.TRAINER)
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredRaces("BloodElf")
 	mount:SetRequiredFaction("Horde")
@@ -1554,29 +1554,21 @@ function addon:InitMounts()
 	mount = AddMount(72286, V.WOTLK, Q.EPIC) -- Item: 50818
 	--AddMountFlags(72286, F_ALLIANCE, F_HORDE, F_MOB_DROP, F_RAID, F_BOP)
 	--self:AddCompanionAcquire(DB, 72286, A_MOB, 36597, A_ACHIEVEMENT, 4625)
---[[
+
+	-- Felsteed - 5784
+	mount = AddMount(5784, V.ORIG, Q.COMMON)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
+	mount:SetRequiredClass("WARLOCK")
+	mount:AddTrainer(50028)
+
+	-- Dreadsteed - 23161
+	mount = AddMount(23161, V.ORIG, Q.COMMON)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
+	mount:SetRequiredClass("WARLOCK")
+	mount:AddTrainer(50028)
+
+	--[[
 --CLASS
-	if MY_CLASS == "WARLOCK" then
-		-- Felsteed - 5784
-		mount = AddMount(5784, nil, Q.RARE, V.ORIG, C_WARLOCK)
-		--AddMountFlags(5784, F_ALLIANCE, F_HORDE, F_VENDOR, F_BOP)
-		--self:AddCompanionAcquire(DB, 5784,
-					 A_VENDOR, 16646, A_VENDOR, 5173, A_VENDOR, 23534, A_VENDOR, 5172, A_VENDOR, 16266,
-					 A_VENDOR, 461, A_VENDOR, 3172, A_VENDOR, 5612, A_VENDOR, 3324, A_VENDOR, 4563,
-					 A_VENDOR, 988, A_VENDOR, 4564, A_VENDOR, 906, A_VENDOR, 3325, A_VENDOR, 4565,
-					 A_VENDOR, 2127, A_VENDOR, 5496, A_VENDOR, 6251, A_VENDOR, 16647, A_VENDOR, 5171,
-					 A_VENDOR, 5495, A_VENDOR, 16648, A_VENDOR, 3326)
-
-		-- Dreadsteed - 23161
-		mount = AddMount(23161, nil, Q.EPIC, V.ORIG, C_WARLOCK)
-		--AddMountFlags(23161, F_ALLIANCE, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-		--self:AddCompanionAcquire(DB, 23161, A_VENDOR, 16646, A_VENDOR, 5173, A_VENDOR, 23534,
-					A_VENDOR, 5172, A_VENDOR, 16266, A_VENDOR, 461, A_VENDOR, 3172, A_VENDOR, 5612,
-					A_VENDOR, 3324, A_VENDOR, 4563,	A_VENDOR, 988, A_VENDOR, 4564, A_VENDOR, 906,
-					A_VENDOR, 3325, A_VENDOR, 4565,	A_VENDOR, 2127, A_VENDOR, 5496, A_VENDOR, 6251,
-					A_VENDOR, 16647, A_VENDOR, 5171, A_VENDOR, 5495, A_VENDOR, 16648, A_VENDOR, 3326)
-	end
-
 	if MY_CLASS == "DEATHKNIGHT" then
 		-- Acherus Deathcharger - 48778
 		mount = AddMount(48778, nil, 1, V.WOTLK, C_DK)

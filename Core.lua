@@ -215,6 +215,7 @@ function addon:OnInitialize()
 					raid = true,
 					reputation = true,
 					seasonal = true,
+					trainer = true,
 					vendor = true,
 					worlddrop = true,
 				},

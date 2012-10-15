@@ -43,6 +43,7 @@ L["Brunn Flamebeard"] = true
 L["Challenger Soong"] = true
 L["Challenger Wuli"] = true
 L["CHAMPION_SEALS"] = "Champion the city associated with this collectable at the Argent Tournament."
+L["Chintoka"] = true
 L["CLOSEGUI_DESC"] = "Close the Collectinator window when the PetJournal window is closed."
 L["CLOSE_DESC"] = true
 L["CONTRACTALL_DESC"] = "Minimize all collectables listed below."

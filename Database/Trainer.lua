@@ -26,7 +26,7 @@ function private:AddTrainer(id_num, trainer_name, zone_name, coord_x, coord_y, f
 end
 
 function addon:InitTrainer()
-	private:AddTrainer(47384, "Lien Farner", Z.ELWYNN_FOREST, 41.95, 67.16, "Alliance") -- COMPLETELY UPDATED
+	private:AddTrainer(50028, "Chintoka", Z.NORTHERN_BARRENS, 49.80, 58.60, "Horde")
 
 	self.InitTrainer = nil
 end
