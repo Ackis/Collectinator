@@ -98,7 +98,7 @@ function addon:InitMounts()
 	mount = AddMount(64731, V.WOTLK, Q.RARE) -- Item: 46109
 	mount:SetItemID(46109)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
-	mount:AddCustom("SEA_TURTLE")
+	mount:AddWorldDrop(Z.ULDUM, Z.TWILIGHT_HIGHLANDS, Z.TOL_BARAD_PENINSULA, Z.NORTHREND, Z.MOUNT_HYJAL, Z.DEEPHOLM, Z.THE_JADE_FOREST, Z.DARKMOON_ISLAND)
 
 -- PLAYERMADE
 	 -- Turbo-Charged Flying Machine Control - 44151
