@@ -431,9 +431,10 @@ function private.InitializeFilterPanel()
 			vendor		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_3),	text = _G.BATTLE_PET_SOURCE_3,	row = 5, col = 1 },
 			worlddrop	= { tt = AcquireDesc(L["World Drop"]),		text = L["World Drop"],		row = 5, col = 2 },
 			seasonal	= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_7),	text = _G.BATTLE_PET_SOURCE_7,	row = 6, col = 1 },
-			guild		= { tt = AcquireDesc(_G.GUILD),			text = _G.GUILD,		row = 6, col = 2 },
-			store		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_10),	text = _G.BATTLE_PET_SOURCE_10,		row = 7, col = 1 },
-			tcg		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_9),	text = _G.BATTLE_PET_SOURCE_9,		row = 7, col = 2 },
+			trainer		= { tt = AcquireDesc(L["Trainer"]),		text = L["Trainer"],		row = 6, col = 2 },
+			guild		= { tt = AcquireDesc(_G.GUILD),			text = _G.GUILD,		row = 7, col = 1 },
+			store		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_10),	text = _G.BATTLE_PET_SOURCE_10,	row = 7, col = 2 },
+			tcg		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_9),	text = _G.BATTLE_PET_SOURCE_9,	row = 8, col = 1 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)

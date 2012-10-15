@@ -531,6 +531,7 @@ do
 		addon:InitMob()
 		addon:InitQuest()
 		addon:InitReputation()
+		addon:InitTrainer()
 		addon:InitSeasons()
 		addon:InitVendor()
 
