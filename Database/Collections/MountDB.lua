@@ -1355,7 +1355,6 @@ function addon:InitMounts()
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredRaces("Human", "Dwarf")
 	mount:SetRequiredFaction("Alliance")
-	mount:AddCustom("CLASS_TRAINER")
 
 	-- Charger (Alliance) -- 23214
 	mount = AddMount(23214, V.ORIG, Q.COMMON)
@@ -1363,7 +1362,6 @@ function addon:InitMounts()
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredRaces("Human", "Dwarf")
 	mount:SetRequiredFaction("Alliance")
-	mount:AddCustom("CLASS_TRAINER")
 
 	-- Charger (Horde) -- 34767
 	mount = AddMount(34767, V.ORIG, Q.COMMON)
@@ -1371,7 +1369,6 @@ function addon:InitMounts()
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredRaces("BloodElf")
 	mount:SetRequiredFaction("Horde")
-	mount:AddCustom("CLASS_TRAINER")
 
 	-- Warhorse (Horde) -- 34769
 	mount = AddMount(34769, V.ORIG, Q.COMMON)
@@ -1379,7 +1376,6 @@ function addon:InitMounts()
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredRaces("BloodElf")
 	mount:SetRequiredFaction("Horde")
-	mount:AddCustom("CLASS_TRAINER")
 	--[[
 
 	if MY_CLASS == "PALADIN" and MY_RACE == "Draenei" then
