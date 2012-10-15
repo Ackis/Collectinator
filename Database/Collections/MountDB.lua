@@ -1355,6 +1355,7 @@ function addon:InitMounts()
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredRaces("Human", "Dwarf")
 	mount:SetRequiredFaction("Alliance")
+	mount:AddTrainer(927, 928, 1232, 5148, 5149, 5491, 17844, 49793, 50023, 50160)
 
 	-- Charger (Alliance) -- 23214
 	mount = AddMount(23214, V.ORIG, Q.COMMON)
@@ -1362,6 +1363,7 @@ function addon:InitMounts()
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredRaces("Human", "Dwarf")
 	mount:SetRequiredFaction("Alliance")
+	mount:AddTrainer(927, 928, 1232, 5148, 5149, 5491, 17844, 49793, 50023, 50160)
 
 	-- Charger (Horde) -- 34767
 	mount = AddMount(34767, V.ORIG, Q.COMMON)
@@ -1369,6 +1371,7 @@ function addon:InitMounts()
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredRaces("BloodElf")
 	mount:SetRequiredFaction("Horde")
+	mount:AddTrainer(16681, 20406, 23128, 44725, 50012, 50150)
 
 	-- Warhorse (Horde) -- 34769
 	mount = AddMount(34769, V.ORIG, Q.COMMON)
@@ -1376,36 +1379,40 @@ function addon:InitMounts()
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredRaces("BloodElf")
 	mount:SetRequiredFaction("Horde")
-	--[[
+	mount:AddTrainer(16681, 20406, 23128, 44725, 50012, 50150)
 
-	if MY_CLASS == "PALADIN" and MY_RACE == "Draenei" then
+	-- Exarch's Elekk -- 73629
+	mount = AddMount(73629, V.CATA, Q.COMMON)
+	mount:AddFilters(F.ALLIANCE, F.TRAINER)
+	mount:SetRequiredClass("PALADIN")
+	mount:SetRequiredRaces"("Draenei")
+	mount:SetRequiredFaction("Alliance")
+	mount:AddTrainer(928, 5492, 17483, 17844, 50023)
 
-		-- Exarch's Elekk -- 73629
-		mount = AddMount(73629, nil, Q.COMMON, V.CATA, C_PALADIN)
-		--AddMountFlags(73629, F_ALLIANCE, F_VENDOR, F_BOP)
-		--self:AddCompanionAcquire(DB, 73629, A_CUSTOM, 40)
+	-- Great Exarch's Elekk -- 73630
+	mount = AddMount(73630, V.CATA, Q.COMMON)
+	mount:AddFilters(F.ALLIANCE, F.TRAINER)
+	mount:SetRequiredClass("PALADIN")
+	mount:SetRequiredRaces"("Draenei")
+	mount:SetRequiredFaction("Alliance")
+	mount:AddTrainer(928, 5492, 17483, 17844, 50023)
 
-		-- Great Exarch's Elekk -- 73629
-		mount = AddMount(73630, nil, Q.COMMON, V.CATA, C_PALADIN)
-		--AddMountFlags(73630, F_ALLIANCE, F_VENDOR, F_BOP)
-		--self:AddCompanionAcquire(DB, 73630, A_CUSTOM, 40)
+	-- Sunwalker Kodo -- 69820
+	mount = AddMount(69820, V.CATA, Q.COMMON)
+	mount:AddFilters(F.HORDE, F.TRAINER)
+	mount:SetRequiredClass("PALADIN")
+	mount:SetRequiredRaces"("Tauren")
+	mount:SetRequiredFaction("Horde")
+	mount:AddTrainer(8664, 43013, 50035, 50150)
 
-	end
+	-- Great Sunwalker Kodo -- 69826
+	mount = AddMount(69826, V.CATA, Q.COMMON)
+	mount:AddFilters(F.HORDE, F.TRAINER)
+	mount:SetRequiredClass("PALADIN")
+	mount:SetRequiredRaces"("Tauren")
+	mount:SetRequiredFaction("Horde")
+	mount:AddTrainer(8664, 43013, 50035, 50150)
 
-	if MY_CLASS == "PALADIN" and MY_RACE == "Tauren" then
-
-		-- Sunwalker Kodo -- 69820
-		mount = AddMount(69820, nil, Q.COMMON, V.CATA, C_PALADIN)
-		--AddMountFlags(69820, F_HORDE, F_VENDOR, F_BOP)
-		--self:AddCompanionAcquire(DB, 69820, A_CUSTOM, 40)
-
-		-- Great Sunwalker Kodo -- 69826
-		mount = AddMount(69826, nil, Q.COMMON, V.CATA, C_PALADIN)
-		--AddMountFlags(69826, F_HORDE, F_VENDOR, F_BOP)
-		--self:AddCompanionAcquire(DB, 69826, A_CUSTOM, 40)
-
-	end
-]]--
 	-------------------------------------------------------------------------------
 	-- Mounts for Alliance AND Horde.
 	-------------------------------------------------------------------------------
