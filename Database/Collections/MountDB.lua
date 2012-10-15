@@ -39,7 +39,6 @@ local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
 local Z = private.ZONE_NAMES
 
-
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
 --------------------------------------------------------------------------------------------------------------------
@@ -1353,31 +1352,35 @@ function addon:InitMounts()
 	-- Warhorse (Alliance) -- 13819
 	mount = AddMount(13819, V.ORIG, Q.COMMON)
 	mount:AddFilters(F.ALLIANCE)
-	mount:RequiredClass(PALADIN)
-	mount:RequiredRace(HUMAN, DWARF)
+	mount:SetRequiredClass("PALADIN")
+	mount:SetRequiredRace("Human", "Dwarf")
 	mount:SetRequiredFaction("Alliance")
 	mount:AddCustom("CLASS_TRAINER")
 
 	-- Charger (Alliance) -- 23214
-	mount = AddMount(23214, nil, Q.COMMON, V.ORIG, C_PALADIN)
-	mount:RequiredClass(PALADIN)
-	mount:RequiredRace(HUMAN, DWARF)
+	mount = AddMount(23214, V.ORIG, Q.COMMON)
+	mount:AddFilters(F.ALLIANCE)
+	mount:SetRequiredClass("PALADIN")
+	mount:SetRequiredRace("Human", "Dwarf")
 	mount:SetRequiredFaction("Alliance")
 	mount:AddCustom("CLASS_TRAINER")
---[[
-	if MY_CLASS == "PALADIN" and MY_RACE == "BloodElf" then
 
-		-- Charger (Horde) -- 34767
-		mount = AddMount(34767, nil, Q.COMMON, V.ORIG, C_PALADIN)
-		--AddMountFlags(34767, F_HORDE, F_VENDOR, F_BOP)
-		--self:AddCompanionAcquire(DB, 34767, A_CUSTOM, 40)
+	-- Charger (Horde) -- 34767
+	mount = AddMount(34767, V.ORIG, Q.COMMON)
+	mount:AddFilters(F.HORDE, F.VENDOR, F.BOP)
+	mount:SetRequiredClass("PALADIN")
+	mount:SetRequiredRace("BloodElf")
+	mount:SetRequiredFaction("Horde")
+	mount:AddCustom("CLASS_TRAINER")
 
-		-- Warhorse (Horde) -- 34769
-		mount = AddMount(34769, nil, Q.COMMON, V.ORIG, C_PALADIN)
-		--AddMountFlags(34769, F_HORDE, F_VENDOR, F_BOP)
-		--self:AddCompanionAcquire(DB, 34769, A_CUSTOM, 40)
-
-	end
+	-- Warhorse (Horde) -- 34769
+	mount = AddMount(34769, V.ORIG, Q.COMMON)
+	mount:AddFilters(F.HORDE, F.VENDOR, F.BOP)
+	mount:SetRequiredClass("PALADIN")
+	mount:SetRequiredRace("BloodElf")
+	mount:SetRequiredFaction("Horde")
+	mount:AddCustom("CLASS_TRAINER")
+	--[[
 
 	if MY_CLASS == "PALADIN" and MY_RACE == "Draenei" then
 
