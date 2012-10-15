@@ -39,6 +39,7 @@ function addon:InitCustom()
 
 	AddCustom("CHAMPION_SEALS", Z.ICECROWN)
 	AddCustom("SOR")
+	AddCustom("SEA_TURTLE")
 
 	self.InitCustom = nil
 end

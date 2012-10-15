@@ -147,6 +147,7 @@ L["Rillie Spindlenut"] = true
 L["Rook Hawkfist"] = true
 L["Rulen Lightsreap"] = true
 L["Rushi the Fox"] = true
+L["SEA_TURTLE"] = "Fish up a Sea Turtle mount from any fishing pool in Deepholm, Mount Hyjal, Twilight Highlands, Uldum, Northrend, Darkmoon Island, or Pandaria."
 L["SCANBUTTONPOSITION_DESC"] = "Allows you to customize where the scan button is placed on the Mounts and Pets frame."
 L["SCAN_COMPANIONS_DESC"] = "Scans the specific collection to determine what you are missing and where to get them from."
 L["SEARCH_FILTERED"] = "Your search has no results."
