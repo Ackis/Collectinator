@@ -1356,14 +1356,14 @@ function addon:InitMounts()
 	mount:RequiredClass(PALADIN)
 	mount:RequiredRace(HUMAN, DWARF)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddCustom("Class_Trainer")
+	mount:AddCustom("CLASS_TRAINER")
 
 	-- Charger (Alliance) -- 23214
 	mount = AddMount(23214, nil, Q.COMMON, V.ORIG, C_PALADIN)
 	mount:RequiredClass(PALADIN)
 	mount:RequiredRace(HUMAN, DWARF)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddCustom("Class_Trainer")
+	mount:AddCustom("CLASS_TRAINER")
 --[[
 	if MY_CLASS == "PALADIN" and MY_RACE == "BloodElf" then
 
