@@ -695,9 +695,8 @@ function addon:InitMounts()
 	-- Swift Alliance Steed
 	mount = AddMount(68057, V.WOTLK, Q.EPIC) -- Item: 49044
 	mount:SetItemID(49044)
-	mount:AddFilters(F.ALLIANCE, F.IBOP, F.RETIRED, F.RAID, F.MOB_DROP)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.RETIRED)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddMobDrop(34564)
 
 	-- Golden King -- 90621
 	mount = AddMount(90621, V.CATA, Q.EPIC) -- Item: 62298
@@ -957,296 +956,415 @@ function addon:InitMounts()
 
 	-- Whistle of the Mottled Red Raptor - 16084
 	mount = AddMount(16084, V.ORIG, Q.EPIC) -- Item: 8586
-	--AddMountFlags(16084, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 16084, A_CUSTOM, 23)
+	mount:SetItemID(8586)
+	mount:AddFilters(F.HORDE, F.IBOP, F.RETIRED)
+	mount:SetRequiredFaction("Horde")
 
 	-- Whistle of the Ivory Raptor - 17450
 	mount = AddMount(17450, V.ORIG, Q.EPIC) -- Item: 13317
-	--AddMountFlags(17450, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 17450, A_CUSTOM, 23)
+	mount:SetItemID(13317)
+	mount:AddFilters(F.HORDE, F.IBOP, F.RETIRED)
+	mount:SetRequiredFaction("Horde")
 
 	-- Great White Kodo - 23247
 	mount = AddMount(23247, V.ORIG, Q.EPIC) -- Item: 18793
-	--AddMountFlags(23247, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23247, A_VENDOR, 3685, A_QUEST, 7662, A_QUEST, 7663)
+	mount:SetItemID(18793)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.QUEST)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(3685)
+	mount:AddQuest(7662, 7663)
 
 	-- Great Gray Kodo - 23248
 	mount = AddMount(23248, V.ORIG, Q.EPIC) -- Item: 18795
-	--AddMountFlags(23248, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23248, A_VENDOR, 3685, A_QUEST, 7662, A_QUEST, 7663)
+	mount:SetItemID(18795)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.QUEST)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(3685)
+	mount:AddQuest(7662, 7663)
 
 	-- Great Brown Kodo - 23249
 	mount = AddMount(23249, V.ORIG, Q.EPIC) -- Item: 18794
-	--AddMountFlags(23249, F_HORDE, F_VENDOR, F_QUEST, F_BOP)
-	--self:AddCompanionAcquire(DB, 23249, A_VENDOR, 3685, A_QUEST, 7662, A_QUEST, 7663)
+	mount:SetItemID(18794)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.QUEST)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(3685)
+	mount:AddQuest(7662, 7663)
 
 	-- White Kodo
 	mount = AddMount(64657, V.WOTLK, Q.RARE) -- Item: 46100
-	--AddMountFlags(64657, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 64657, A_VENDOR, 3685)
+	mount:SetItemID(46100)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(3685)
 
 	-- Gray Kodo - 18989
 	mount = AddMount(18989, V.ORIG, Q.RARE) -- Item: 15277
-	--AddMountFlags(18989, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 18989, A_VENDOR, 3685)
+	mount:SetItemID(15277)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(3685)
 
 	-- Brown Kodo - 18990
 	mount = AddMount(18990, V.ORIG, Q.RARE) -- Item: 15290
-	--AddMountFlags(18990, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 18990, A_VENDOR, 3685)
+	mount:SetItemID(15290)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(3685)
 
 	-- Green Kodo - 18991
 	mount = AddMount(18991, V.ORIG, Q.EPIC) -- Item: 15292
-	--AddMountFlags(18991, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 18991, A_CUSTOM, 23)
+	mount:SetItemID(15292)
+	mount:AddFilters(F.HORDE, F.IBOP, F.RETIRED)
+	mount:SetRequiredFaction("Horde")
 
 	-- Teal Kodo - 18992
 	mount = AddMount(18992, V.ORIG, Q.EPIC) -- Item: 15293
-	--AddMountFlags(18992, F_HORDE, F_VENDOR, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 18992, A_CUSTOM, 23)
+	mount:SetItemID(15293)
+	mount:AddFilters(F.HORDE, F.IBOP, F.RETIRED)
+	mount:SetRequiredFaction("Horde")
 
 	-- Swift Pink Hawkstrider - 33660
 	mount = AddMount(33660, V.TBC, Q.EPIC) -- Item: 28936
-	--AddMountFlags(33660, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 33660, A_VENDOR, 16264)
+	mount:SetItemID(28936)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(16264)
 
 	-- Swift Green Hawkstrider - 35025
 	mount = AddMount(35025, V.TBC, Q.EPIC) -- Item: 29223
-	--AddMountFlags(35025, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 35025, A_VENDOR, 16264)
+	mount:SetItemID(29223)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(16264)
 
 	-- Swift Purple Hawkstrider - 35027
 	mount = AddMount(35027, V.TBC, Q.EPIC) -- Item: 29224
-	--AddMountFlags(35027, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 35027, A_VENDOR, 16264)
+	mount:SetItemID(29224)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(16264)
 
 	-- Red Hawkstrider - 34795
 	mount = AddMount(34795, V.TBC, Q.RARE) -- Item: 28927
-	--AddMountFlags(34795, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 34795, A_VENDOR, 16264)
+	mount:SetItemID(28927)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(16264)
 
 	-- Purple Hawkstrider - 35018
 	mount = AddMount(35018, V.TBC, Q.RARE) -- Item: 29222
-	--AddMountFlags(35018, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 35018, A_VENDOR, 16264)
+	mount:SetItemID(29222)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(16264)
 
 	-- Blue Hawkstrider - 35020
 	mount = AddMount(35020, V.TBC, Q.RARE) -- Item: 29220
-	--AddMountFlags(35020, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 35020, A_VENDOR, 16264)
+	mount:SetItemID(29220)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(16264)
 
 	-- Black Hawkstrider - 35022
 	mount = AddMount(35022, V.TBC, Q.RARE) -- Item: 29221
-	--AddMountFlags(35022, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 35022, A_VENDOR, 16264)
+	mount:SetItemID(29221)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(16264)
 
 	-- Black Skeletal Horse
 	mount = AddMount(64977, V.WOTLK, Q.RARE) -- Item: 46308
-	--AddMountFlags(64977, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 64977, A_VENDOR, 4731)
+	mount:SetItemID(46308)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(4731)
 
 	-- Red Skeletal Horse - 17462
 	mount = AddMount(17462, V.ORIG, Q.RARE) -- Item: 13331
-	--AddMountFlags(17462, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 17462, A_VENDOR, 4731)
+	mount:SetItemID(13331)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(4731)
 
 	-- Blue Skeletal Horse - 17463
 	mount = AddMount(17463, V.ORIG, Q.RARE) -- Item: 13332
-	--AddMountFlags(17463, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 17463, A_VENDOR, 4731)
+	mount:SetItemID(1332)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(4731)
 
 	-- Brown Skeletal Horse - 17464
 	mount = AddMount(17464, V.ORIG, Q.RARE) -- Item: 13333
-	--AddMountFlags(17464, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 17464, A_VENDOR, 4731)
+	mount:SetItemID(13333)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(4731)
 
 	-- Ochre Skeletal Warhorse - 66846
 	mount = AddMount(66846, V.WOTLK, Q.EPIC) -- Item: 47101
-	--AddMountFlags(66846, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 66846, A_VENDOR, 4731)
+	mount:SetItemID(47101)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(4731)
 
 	-- Purple Skeletal Warhorse - 23246
 	mount = AddMount(23246, V.ORIG, Q.EPIC) -- Item: 18791
-	--AddMountFlags(23246, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 23246, A_VENDOR, 4731)
+	mount:SetItemID(18791)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(4731)
 
 	-- Green Skeletal Warhorse - 17465
 	mount = AddMount(17465, V.ORIG, Q.EPIC) -- Item: 13334
-	--AddMountFlags(17465, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 17465, A_VENDOR, 4731)
+	mount:SetItemID(13334)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(4731)
 
 	-- Reins of the Black War Mammoth - 59788
 	mount = AddMount(59788, V.WOTLK, Q.EPIC) -- Item: 44077
-	--AddMountFlags(59788, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	--self:AddCompanionAcquire(DB, 59788, A_VENDOR, 32296)
+	mount:SetItemID(44077)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(32296)
 
 	-- Swift Warstrider - 35028
 	mount = AddMount(35028, V.TBC, Q.EPIC) -- Item: 34129
-	--AddMountFlags(35028, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	--self:AddCompanionAcquire(DB, 35028, A_VENDOR, 12796)
+	mount:SetItemID(34129)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(12796)
 
 	-- Black War Kodo - 22718
 	mount = AddMount(22718, V.ORIG, Q.EPIC) -- Item: 29466
-	--AddMountFlags(22718, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	--self:AddCompanionAcquire(DB, 22718, A_VENDOR, 12796)
+	mount:SetItemID(29466)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(12796)
 
 	-- Whistle of the Black War Raptor - 22721
 	mount = AddMount(22721, V.ORIG, Q.EPIC) -- Item: 29472
-	--AddMountFlags(22721, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	--self:AddCompanionAcquire(DB, 22721, A_VENDOR, 12796)
+	mount:SetItemID(29472)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(12796)
 
 	-- Red Skeletal Warhorse - 22722
 	mount = AddMount(22722, V.ORIG, Q.EPIC) -- Item: 29470
-	--AddMountFlags(22722, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	--self:AddCompanionAcquire(DB, 22722, A_VENDOR, 12796)
+	mount:SetItemID(29470)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(12796)
 
 	-- Horn of the Black War Wolf - 22724
 	mount = AddMount(22724, V.ORIG, Q.EPIC) -- Item: 18245
-	--AddMountFlags(22724, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	--self:AddCompanionAcquire(DB, 22724, A_VENDOR, 12796)
+	mount:SetItemID(18245)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(12796)
 
 	-- Horn of the Frostwolf Howler - 23509
 	mount = AddMount(23509, V.ORIG, Q.EPIC) -- Item: 19029
-	--AddMountFlags(23509, F_HORDE, F_VENDOR, F_BOP, F_PVP)
-	--self:AddCompanionAcquire(DB, 23509, A_VENDOR, 13218, A_VENDOR, 13219)
+	mount:SetItemID(34129)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(13218, 13219)
 
 	-- Tawny Wind Rider - 32243
 	mount = AddMount(32243, V.TBC, Q.RARE) -- Item: 25474
-	--AddMountFlags(32243, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32243, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+	mount:SetItemID(25474)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(20494, 32216, 35099, 35132)
 
 	-- Blue Wind Rider - 32244
 	mount = AddMount(32244, V.TBC, Q.RARE) -- Item: 25475
-	--AddMountFlags(32244, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32244, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+	mount:SetItemID(25475)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(20494, 32216, 35099, 35132)
 
 	-- Green Wind Rider - 32245
 	mount = AddMount(32245, V.TBC, Q.RARE) -- Item: 25476
-	--AddMountFlags(32245, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32245, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+	mount:SetItemID(25476)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(20494, 32216, 35099, 35132)
 
 	-- Swift Red Wind Rider - 32246
 	mount = AddMount(32246, V.TBC, Q.EPIC) -- Item: 25477
-	--AddMountFlags(32246, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32246, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+	mount:SetItemID(25477)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(20494, 32216, 35099, 35132)
 
 	-- Swift Green Wind Rider - 32295
 	mount = AddMount(32295, V.TBC, Q.EPIC) -- Item: 25531
-	--AddMountFlags(32295, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32295, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+	mount:SetItemID(25531)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(20494, 32216, 35099, 35132)
 
 	-- Swift Yellow Wind Rider - 32296
 	mount = AddMount(32296, V.TBC, Q.EPIC) -- Item: 25532
-	--AddMountFlags(32296, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32296, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+	mount:SetItemID(25532)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(20494, 32216, 35099, 35132)
 
 	-- Swift Purple Wind Rider - 32297
 	mount = AddMount(32297, V.TBC, Q.EPIC) -- Item: 25533
-	--AddMountFlags(32297, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 32297, A_VENDOR, 35099, A_VENDOR, 20494, A_VENDOR, 32216, A_VENDOR, 35132)
+	mount:SetItemID(25533)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(20494, 32216, 35099, 35132)
 
 	-- Darkspear Raptor
 	mount = AddMount(63635, V.WOTLK, Q.EPIC) -- Item: 45593
-	--AddMountFlags(63635, F_HORDE, F_VENDOR, F_BOP, F_CITY1)
-	--self:AddCompanionAcquire(DB, 63635, A_VENDOR, 33554)
+	mount:SetItemID(45593)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(33554)
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Swift Purple Raptor
 	mount = AddMount(65644, V.WOTLK, Q.EPIC) -- Item: 46743
-	--AddMountFlags(65644, F_HORDE, F_VENDOR, F_BOP, F_CITY1)
-	--self:AddCompanionAcquire(DB, 65644, A_REPUTATION, 530, EXALTED, 33554)
+	mount:SetItemID(45593)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(33554)
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Orgrimmar Wolf - 63640
 	mount = AddMount(63640, V.WOTLK, Q.EPIC) -- Item: 45595
-	--AddMountFlags(63640, F_HORDE, F_VENDOR, F_BOP, F_CITY2)
-	--self:AddCompanionAcquire(DB, 63640, A_VENDOR, 33553)
+	mount:SetItemID(45595)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(33553)
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Swift Burgundy Wolf
 	mount = AddMount(65646, V.WOTLK, Q.EPIC) -- Item: 46749
-	--AddMountFlags(65646, F_HORDE, F_VENDOR, F_BOP, F_CITY2)
-	--self:AddCompanionAcquire(DB, 65646, A_REPUTATION, 76, EXALTED, 33553)
+	mount:SetItemID(46749)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(33553)
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Thunder Bluff Kodo - 63641
 	mount = AddMount(63641, V.WOTLK, Q.EPIC) -- Item: 45592
-	--AddMountFlags(63641, F_HORDE, F_VENDOR, F_BOP, F_CITY3)
-	--self:AddCompanionAcquire(DB, 63641, A_VENDOR, 33556)
+	mount:SetItemID(45592)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(33556)
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Great Golden Kodo
 	mount = AddMount(65641, V.WOTLK, Q.EPIC) -- Item: 46750
-	--AddMountFlags(65641, F_HORDE, F_VENDOR, F_BOP, F_CITY3)
-	--self:AddCompanionAcquire(DB, 65641, A_REPUTATION, 81, EXALTED, 33556)
+	mount:SetItemID(46750)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(33556)
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Forsaken Warhorse
 	mount = AddMount(63643, V.WOTLK, Q.EPIC) -- Item: 45597
-	--AddMountFlags(63643, F_HORDE, F_VENDOR, F_BOP, F_CITY4)
-	--self:AddCompanionAcquire(DB, 63643, A_VENDOR, 33555)
+	mount:SetItemID(45597)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(33555)
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- White Skeletal Warhorse
 	mount = AddMount(65645, V.WOTLK, Q.EPIC) -- Item: 46746
-	--AddMountFlags(65645, F_HORDE, F_VENDOR, F_BOP, F_CITY4)
-	--self:AddCompanionAcquire(DB, 65645, A_REPUTATION, 68, EXALTED, 33555)
+	mount:SetItemID(46746)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(33555)
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Silvermoon Hawkstrider
 	mount = AddMount(63642, V.WOTLK, Q.EPIC) -- Item: 45596
-	--AddMountFlags(63642, F_HORDE, F_VENDOR, F_BOP, F_CITY5)
-	--self:AddCompanionAcquire(DB, 63642, A_VENDOR, 33557)
+	mount:SetItemID(45596)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(33557)
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Swift Red Hawkstrider
 	mount = AddMount(65639, V.WOTLK, Q.EPIC) -- Item: 46751
-	--AddMountFlags(65639, F_HORDE, F_VENDOR, F_BOP, F_CITY5)
-	--self:AddCompanionAcquire(DB, 65639, A_REPUTATION, 911, EXALTED, 33557)
+	mount:SetItemID(46751)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(33557)
+	mount:AddCustom("CHAMPION_SEALS")
 
 	-- Crusader's Black Warhorse
-	mount = AddMount(68188, V.WOTLK, Q.EPIC)
-	--AddMountFlags(68188, F_HORDE, F_ACHIEVEMENT, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 68188, A_ACHIEVEMENT, 4156)
+	mount = AddMount(68188, V.WOTLK, Q.EPIC) -- Item: 49098
+	mount:SetItemID(49098)
+	mount:AddFilters(F.HORDE, F.IBOP, F.RETIRED)
+	mount:SetRequiredFaction("Horde")
 
 	-- Swift Horde Wolf
 	mount = AddMount(68056, V.WOTLK, Q.EPIC) -- Item: 49046
-	--AddMountFlags(68056, F_HORDE, F_MOB_DROP, F_RAID, F_BOP, F_REMOVED)
-	--self:AddCompanionAcquire(DB, 68056, A_MOB, 34564)
+	mount:SetItemID(49046)
+	mount:AddFilters(F.HORDE, F.IBOP, F.RETIRED)
+	mount:SetRequiredFaction("Horde")
 
 	-- Spectral Wolf -- 92232
 	mount = AddMount(92232, V.CATA, Q.EPIC) -- Item: 64999
-	--AddMountFlags(92232, F_HORDE, F_VENDOR, F_BOP)
-	--self:AddCompanionAcquire(DB, 92232, A_REPUTATION, 1178, EXALTED, 48531)
+	mount:SetItemID(64999)
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.CATACOMMON2)
+	mount:SetRequiredFaction("Horde")
+	mount:AddRepVendor(FAC.HELLSCREAMS_REACH, REP.EXALTED, 48531)
 
 	-- Kor'kron Annihilator -- 93644
 	mount = AddMount(93644, V.CATA, Q.EPIC) -- Item: 67107
-	--AddMountFlags(93644, F_HORDE, F_VENDOR, F_ACHIEVEMENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 93644, A_ACHIEVEMENT, 5492)
+	mount:SetItemID(67107)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.ACHIEVEMENT, F.GUILD, F.REPUTATION)
+	mount:SetRequiredFaction("Horde")
+	mount:AddAchievement(5492)
+	mount:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51503, 51512, 52268)
 
 	-- Vicious War Wolf -- 100333
 	mount = AddMount(100333, V.CATA, Q.EPIC) -- Item: 70910
-	--AddMountFlags(100333, F_HORDE, F_ACHIEVEMENT, F_BOE)
-	--self:AddCompanionAcquire(DB, 100333, A_ACHIEVEMENT, 5824)
+	mount:SetItemID(70910)
+	mount:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:SetRequiredFaction("Horde")
+	mount:AddAchievement(5325, 5326, 5824)
 
 	-- Mechano-Hog - 55531
 	mount = AddMount(55531, V.WOTLK, Q.EPIC) -- Item: 41508
-	--AddMountFlags(55531, F_HORDE, F_BOE, F_ENG, F_CRAFT)
-	--self:AddCompanionAcquire(DB, 55531, A_PROFESSION, 4036, 60866)
+	mount:SetItemID(41508)
+	mount:AddFilters(F.HORDE, F.IBOE, F.PROFESSION)
+	mount:SetRequiredFaction("Horde")
+	mount:AddProfession(PROF.ENGINEERING)
 
 	-- Spectral Wind Rider -- 107517
 	mount = AddMount(107517, V.CATA, Q.EPIC) -- Item: 76902
-	--AddMountFlags(107517, F_HORDE, F_SPEC_EVENT, F_BOP)
-	--self:AddCompanionAcquire(DB, 107517, A_CUSTOM, 62)
---[[
+	mount:SetItemID(76902)
+	mount:AddFilters(F.HORDE, F.IBOP)
+	mount:AddCustom("SOR")
+
 	-------------------------------------------------------------------------------
 	-- Paladin Mounts.
 	-------------------------------------------------------------------------------
-	if MY_CLASS == "PALADIN" and (MY_RACE == "Human" or MY_RACE == "Dwarf") then
 
-		-- Warhorse (Alliance) -- 13819
-		mount = AddMount(13819, nil, Q.COMMON, V.ORIG, C_PALADIN)
-		--AddMountFlags(13819, F_ALLIANCE, F_VENDOR, F_BOP)
-		--self:AddCompanionAcquire(DB, 13819, A_CUSTOM, 40)
+	-- Warhorse (Alliance) -- 13819
+	mount = AddMount(13819, V.ORIG, Q.COMMON)
+	mount:AddFilters(F.ALLIANCE)
+	mount:RequiredClass(PALADIN)
+	mount:RequiredRace(HUMAN, DWARF)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddCustom("Class_Trainer")
 
-		-- Charger (Alliance) -- 23214
-		mount = AddMount(23214, nil, Q.COMMON, V.ORIG, C_PALADIN)
-		--AddMountFlags(23214, F_ALLIANCE, F_VENDOR, F_BOP)
-		--self:AddCompanionAcquire(DB, 23214, A_CUSTOM, 40)
-
-	end
-
+	-- Charger (Alliance) -- 23214
+	mount = AddMount(23214, nil, Q.COMMON, V.ORIG, C_PALADIN)
+	mount:RequiredClass(PALADIN)
+	mount:RequiredRace(HUMAN, DWARF)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddCustom("Class_Trainer")
+--[[
 	if MY_CLASS == "PALADIN" and MY_RACE == "BloodElf" then
 
 		-- Charger (Horde) -- 34767
