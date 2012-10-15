@@ -148,17 +148,24 @@ function collectable_prototype:RequiredFaction()
 	return self.required_faction
 end
 
-function collectable_prototype:SetRequiredRace(race_name)
-	self.required_race = race_name
+function collectable_prototype:SetRequiredRaces(...)
+	local num_races = select('#', ...)
 
-	if race_name and private.Player:Race() ~= race_name then
+	self.required_races = self.required_races or {}
+
+	for index = 1, num_races do
+		local race_name = select(index, ...)
+		self.required_races[race_name] = true
+	end
+
+	if not self.required_races[private.Player:Race()] then
 		self.is_ignored = true
 		private.num_category_collectables[self.type] = private.num_category_collectables[self.type] - 1
 	end
 end
 
-function collectable_prototype:RequiredRace()
-	return self.required_race
+function collectable_prototype:RequiredRaces()
+	return self.required_races
 end
 
 -------------------------------------------------------------------------------
@@ -372,6 +379,10 @@ end
 
 function collectable_prototype:AddMobDrop(...)
 	self:AddAcquireData(A.MOB_DROP, "Mob", private.mob_list, ...)
+end
+
+function collectable_prototype:AddTrainer(...)
+	self:AddAcquireData(A.TRAINER, "Trainer", private.trainer_list, ...)
 end
 
 function collectable_prototype:AddVendor(...)
