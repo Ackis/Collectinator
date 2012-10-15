@@ -561,14 +561,6 @@ end
 do
 	local UNKNOWN_PET_FORMAT = "%s: %d"
 
-	local pet_filters_main = {}
-
-	local pet_filters_flags = {
-		LE_PET_JOURNAL_FLAG_COLLECTED,
-		LE_PET_JOURNAL_FLAG_FAVORITES,
-		LE_PET_JOURNAL_FLAG_NOT_COLLECTED,
-	}
-
 	local COLLECTABLE_SCAN_FUNCS = {
 		[private.COLLECTION_TYPE_IDS.MOUNT] = function(collectable_type, mounts)
 			local num_mounts = _G.GetNumCompanions(collectable_type)
@@ -609,96 +601,9 @@ do
 			end
 		end,
 		[private.COLLECTION_TYPE_IDS.CRITTER] = function(collectable_type, critters)
-			local pet_names = {}
-			local pet_ids = {}
-			local pet_sources = {}
-
-			
-			-- Filter state tracking/clearing
-			local pet_type_filters = {}
-			local pet_source_filters = {}
-
-			for i in pairs(pet_filters_flags) do
-				local flag = pet_filters_flags[i]
-				pet_filters_main[i] = not C_PetJournal.IsFlagFiltered(flag)
-			end
-
-			for i = 1,C_PetJournal.GetNumPetTypes(),1 do
-				pet_type_filters[i] = not C_PetJournal.IsPetTypeFiltered(i)
-			end
-
-			for i = 1,C_PetJournal.GetNumPetSources(),1 do
-				pet_source_filters[i] = not C_PetJournal.IsPetSourceFiltered(i)
-			end
-
-			C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, true)
-			C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, false)
-			C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
-			C_PetJournal.AddAllPetTypesFilter()
-			C_PetJournal.AddAllPetSourcesFilter()
---[[
-			for i = 1, C_PetJournal.GetNumPets(false) do
-				local petID, speciesID, owned = C_PetJournal.GetPetInfoByIndex(i, false)
-				addon:Print(petID)
-			end
-]]--
-			for index in LPJ:IterateCreatureIDs() do
-				local pet_id, species_id, is_owned, _, _, _, _, name, icon, petType, creature_id, source_text, description, is_wild = _G.C_PetJournal.GetPetInfoByIndex(index)
-
-				if creature_id then -- Work around a bug in LibPetJournal-1.0
-					local critter = critters[creature_id]
-
-					if critter then
-						if creature_id == 54027 then
-							print(("Found %s"):format(name))
-						end
-						critter:SetName(name)
-						critter:SetIcon(icon)
-						critter:SetDescription(description)
-
-						critter.source_text_TEMPORARY = source_text
-
-						if is_owned then
-							critter:AddState("KNOWN")
-						end
-					elseif not pet_names[creature_id] then
-						pet_names[creature_id] = name
-						pet_sources[creature_id] = source_text
-						pet_ids[#pet_ids + 1] = creature_id
-					end
-				end
-			end
-			table.sort(pet_ids)
-
-			-- Restore filter state to what it was previously
-			for i in pairs(pet_filters_main) do
-				C_PetJournal.SetFlagFilter(i, pet_filters_main[i])
-			end
-
-			for i = 1,C_PetJournal.GetNumPetTypes(),1 do
-				C_PetJournal.SetPetTypeFilter(i, pet_type_filters[i])
-			end
-
-			for i = 1,C_PetJournal.GetNumPetSources(),1 do
-				C_PetJournal.SetPetSourceFilter(i, pet_source_filters[i])
-			end
-
-
---			for index = 1, #pet_ids do
---				local creature_id = pet_ids[index]
---				private.TextDump:AddLine(("-- %s -- %d"):format(pet_names[creature_id], creature_id))
-
---				private.TextDump:AddLine(("--[[ %s ]]--"):format(pet_sources[creature_id]))
---				private.TextDump:AddLine(("pet = AddPet(%d, V.MOP, Q.COMMON)"):format(creature_id))
-
---				private.TextDump:AddLine(flag_string)
---			end
---			local dump_lines = private.TextDump:Lines()
-
---			if dump_lines > 0 then
---				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 3))
---				private.TextDump:Display()
---			end
+		-- We're doing nothing here for the moment since all of this is handled when the PetJournal is updated.
+		--			for pet_id, pet in pairs(critters) do
+		--			end
 		end,
 	}
 
@@ -717,7 +622,6 @@ do
 		end
 
 		for id, collectable in pairs(collectables) do
-			collectable:RemoveState("KNOWN")
 			collectable:RemoveState("RELEVANT")
 			collectable:RemoveState("VISIBLE")
 		end

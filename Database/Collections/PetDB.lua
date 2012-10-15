@@ -18,6 +18,9 @@ This source code is released under All Rights Reserved.
 -------------------------------------------------------------------------------
 local _G = getfenv(0)
 
+-- Libraries
+local table = _G.table
+
 -------------------------------------------------------------------------------
 -- AddOn namespace.
 -------------------------------------------------------------------------------
@@ -26,6 +29,7 @@ local FOLDER_NAME, private = ...
 local LibStub	= _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+local LPJ = LibStub("LibPetJournal-2.0")
 
 -------------------------------------------------------------------------------
 -- Filter flags. Acquire types, and Reputation levels.
@@ -43,8 +47,49 @@ local PROF = private.LOCALIZED_PROFESSION_NAMES
 -- Initialize!
 --------------------------------------------------------------------------------------------------------------------
 
-function addon:InitCritters()
+local UpdatePetList
+do
+	local known_pets = {}
 
+	function UpdatePetList()
+		local pet_list = private.collectable_list["CRITTER"]
+
+		if not pet_list then
+			return
+		end
+		table.wipe(known_pets)
+
+		for index, pet_id in LPJ:IteratePetIDs() do
+			local species_id, custom_name, level, exp, max_exp, display_id, name, icon, pet_type, creature_id = _G.C_PetJournal.GetPetInfoByPetID(pet_id)
+			local pet = pet_list[creature_id]
+
+			if pet then
+				pet:AddState("KNOWN")
+				known_pets[creature_id] = true
+			end
+		end
+		local num_pets = _G.C_PetJournal.GetNumPets(_G.PetJournal.isWild)
+
+		for pet_index = 1, num_pets do
+			local pet_id, _, _, _, _, _, _, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByIndex(pet_index, false)
+			local pet = pet_list[creature_id]
+
+			if pet then
+				if not known_pets[creature_id] then
+					pet:RemoveState("KNOWN")
+				end
+				pet:SetName(name)
+				pet:SetIcon(icon)
+				pet:SetDescription(description)
+
+				pet.source_text_TEMPORARY = source_text
+			end
+		end
+	end
+end
+
+
+function addon:InitCritters()
 	local function AddPet(spell_id, genesis, quality)
 		return addon:AddCollectable(spell_id, "CRITTER", genesis, quality)
 	end
@@ -1912,4 +1957,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 
 	self.InitCritters = nil
+
+	LPJ:RegisterCallback("PetListUpdated", UpdatePetList)
+	UpdatePetList()
 end
