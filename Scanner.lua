@@ -561,6 +561,15 @@ do
 		WORLD_DROP = true,
 	}
 
+	-- Copy/pasta from Utilities.lua
+	local function TableKeyFormat(input)
+		if not input then
+			return ""
+		end
+
+		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
+	end
+
 	function addon:ScanCompanions()
 		addon:InitializeCollection("CRITTER")
 
@@ -576,9 +585,13 @@ do
 			if not pet_list[creature_id] then
 				addon:Print("Found CRITTER not in database: " .. creature_id)
 				addon:Print(string.format("-- %s - %d", name, creature_id))
-				addon:Print(string.format("pet = AddPet(%d, ???, ???)", creature_id))
+				if source_text:match("Pet Battle:") then
+					addon:Print(string.format("pet = AddPet(%d, ???, Q.COMMON)", creature_id))
+				else
+					addon:Print(string.format("pet = AddPet(%d, ???, ???)", creature_id))
+				end
 			else
-				addon:Print(string.format("-- %s - %d", name, creature_id))
+				--addon:Print(string.format("-- %s - %d", name, creature_id))
 				local quality
 				if pet_list[creature_id].quality == 1 then
 					quality = "Q.COMMON"
@@ -589,12 +602,25 @@ do
 				elseif pet_list[creature_id].quality == 4 then
 					quality = "Q.EPIC"
 				end
-				addon:Print(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet_list[creature_id].genesis, quality))
+				--addon:Print(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet_list[creature_id].genesis, quality))
 			end
 
 			if source_text:match("Pet Battle:") then
+				--addon:Print(string.format("AddWorldDrop()"))
+				source_text = source_text:gsub("Pet Battle:", "")
+				source_text = source_text:gsub("|n", "")
+				for token in source_text:gmatch("([^,]+)[,%s]*") do 
+					print(TableKeyFormat(token))
+				end
 
 			elseif source_text:match("Achievement:") then
+
+			elseif source_text:match("Profession:") then
+			elseif source_text:match("World Event:") then
+			elseif source_text:match("Quest:") then
+			elseif source_text:match("Vendor:") then
+			elseif source_text:match("Drop:") then
+			elseif source_text:match("Promotion:") then
 			
 			else
 				addon:Print(source_text)
