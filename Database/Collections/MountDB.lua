@@ -2082,10 +2082,10 @@ function addon:InitMounts()
 
 
 
--- Amber Scorpion
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Amber Scorpion -- 123886
+	mount = AddMount(123886, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
+	mount:AddRepVendor(FAC.KLAXXI, REP.EXALTED, 64599)
 
 
 -- Ashen Pandaren Phoenix
@@ -2124,10 +2124,10 @@ function addon:InitMounts()
 -- self:AddCompanionAcquire(DB,)
 
 
--- Black Riding Goat
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Black Riding Goat -- 130138
+	mount = AddMount(130138, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
+	mount:AddRepVendor(FAC.TILLERS, REP.EXALTED, 58706)
 
 	-- Blonde Riding Yak -- 127220
 	mount = AddMount(127220, V.MOP, Q.EPIC)
@@ -2149,10 +2149,10 @@ function addon:InitMounts()
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Brown Riding Goat
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Brown Riding Goat -- 130086
+	mount = AddMount(130086, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
+	mount:AddRepVendor(FAC.TILLERS, REP.EXALTED, 58706)
 
 -- Cataclysmic Gladiator's Twilight Drake
 -- mount = AddMount(, V.MOP, )
@@ -2385,10 +2385,10 @@ function addon:InitMounts()
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- White Riding Goat
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- White Riding Goat -- 130137
+	mount = AddMount(130137, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
+	mount:AddRepVendor(FAC.TILLERS, REP.EXALTED, 58706)
 
 ----------------------------------------------------------------------------------------------------
 
