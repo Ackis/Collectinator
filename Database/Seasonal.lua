@@ -42,6 +42,9 @@ function addon:InitSeasons()
 	AddSeason("MIDSUMMER", _G.GetCategoryInfo(161))
 	AddSeason("PILGRIMS_BOUNTY", _G.GetCategoryInfo(14981))
 	AddSeason("DAY_OF_THE_DEAD", L["Day of the Dead"])
+--	AddSeason("BREWFEST", _G.GetCategoryInfo())
+--	AddSeason("HALLOWS_END", _G.GetCategoryInfo())
+--	AddSeason("LOVE_IS", _G.GetCategoryInfo())
 
 	self.InitSeasons = nil
 end

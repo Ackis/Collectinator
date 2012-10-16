@@ -1418,109 +1418,132 @@ function addon:InitMounts()
 	-------------------------------------------------------------------------------
 	-- Swift Zhevra - 49322
 	mount = AddMount(49322, V.TBC, Q.EPIC) -- Item: 37719
-	--mount:AddFilters(49322, F.ALLIANCE, F.HORDE, F.SPEC_EVENT, F.BOP, F.REMOVED)
-	--self:AddCompanionAcquire(DB, 49322, A_ACHIEVEMENT, 1436)
+	mount:SetItemID(37719)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
 
 	-- X-53 Touring Rocket - 75973
 	mount = AddMount(75973, V.WOTLK, Q.EPIC) -- Item: 54860
-	--mount:AddFilters(75973, F.ALLIANCE, F.HORDE, F.SPEC_EVENT, F.BOP, F.REMOVED)
-	--self:AddCompanionAcquire(DB, 75973, A_ACHIEVEMENT, 4832)
+	mount:SetItemID(54860)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
 
 	-- Obsidian Nightwing (Heart of the Nightwing) - 121820
 	mount = AddMount(121820, V.CATA, Q.EPIC) -- Item: 83086
-	--mount:AddFilters(121820, F.ALLIANCE, F.HORDE, F.SPEC_EVENT, F.BOP)
-	--self:AddCompanionAcquire(DB, 121820, A_CUSTOM, 67)
+	mount:SetItemID(83086)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddCustom("RECRUIT")
 
 	-- Big Blizzard Bear - 58983
 	mount = AddMount(58983, V.WOTLK, Q.RARE) -- Item: 43599
-	--mount:AddFilters(58983, F.ALLIANCE, F.HORDE, F.SPEC_EVENT, F.BOA, F.REMOVED)
-	--self:AddCompanionAcquire(DB, 58983, A_ACHIEVEMENT, 415)
+	mount:SetItemID(43599)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REMOVED)
 
 	 -- Argent Hippogryph - 63844
 	mount = AddMount(63844, V.WOTLK, Q.EPIC) -- Item: 45725
-	--mount:AddFilters(63844, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
-	--self:AddCompanionAcquire(DB, 63844, A_VENDOR, 33307, A_VENDOR, 33310, A_VENDOR, 33556, A_VENDOR, 33555, A_VENDOR, 33553, A_VENDOR, 33657, A_VENDOR, 33650, A_VENDOR, 33653, A_VENDOR, 33554, A_VENDOR, 33557)
+	mount:SetItemID(45725)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(33307, 33310, 33553, 33554, 33555, 33556, 33557, 33650, 33653, 33657)
 
 	-- Reins of the Dark Riding Talbuk - 39316
 	mount = AddMount(39316, V.TBC, Q.EPIC) -- Item: 28915
-	--mount:AddFilters(39316, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.PVP)
-	--self:AddCompanionAcquire(DB, 39316, A_VENDOR, 21485, A_VENDOR, 21474)
+	mount:SetItemID(28915)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:AddVendor(21474, 21485)
 
 	-- Reins of the Dark War Talbuk - 34790
 	mount = AddMount(34790, V.TBC, Q.EPIC) -- Item: 29228
-	--mount:AddFilters(34790, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.PVP)
-	--self:AddCompanionAcquire(DB, 34790, A_VENDOR, 21485, A_VENDOR, 21474)
+	mount:SetItemID(29228)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:AddVendor(21474, 21485)
 
 	-- Brewfest Ram - 43899
 	mount = AddMount(43899, V.TBC, Q.RARE) -- Item: 33976
-	--mount:AddFilters(43899, F.ALLIANCE, F.HORDE, F.SEASONAL, F.VENDOR, F.REMOVED, F.BOP)
-	--self:AddCompanionAcquire(DB, 43899, A_VENDOR, 24468, A_VENDOR, 24510, A_SEASONAL, 6)
+	mount:SetItemID(33976)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL, F.VENDOR)
+	mount:AddVendor(24468, 24510)
+	mount:AddCustom("BREWFEST")
 
 	-- Great Brewfest Kodo - 49379
 	mount = AddMount(49379, V.TBC, Q.EPIC) -- Item: 37828
-	--mount:AddFilters(49379, F.ALLIANCE, F.HORDE, F.SEASONAL, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 49379, A_MOB, 23872, A_SEASONAL, 6, A_CUSTOM, 35, A_ACHIEVEMENT, 3496)
+	mount:SetItemID(37828)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL, F.MOB_DROP)
+	mount:AddMobDrop(23872)
+	mount:AddCustom("BREWFEST")
 
 	-- Swift Brewfest Ram - 43900
 	mount = AddMount(43900, V.TBC, Q.EPIC) -- Item: 33977
-	--mount:AddFilters(43900, F.ALLIANCE, F.HORDE, F.SEASONAL, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 43900, A_MOB, 23872, A_SEASONAL, 6, A_CUSTOM, 35, A_ACHIEVEMENT, 3496)
+	mount:SetItemID(33977)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL, F.MOB_DROP)
+	mount:AddMobDrop(23872)
+	mount:AddCustom("BREWFEST")
 
 	-- The Horseman's Reins - 48025
 	mount = AddMount(48025, V.TBC, Q.EPIC) -- Item: 37012
-	--mount:AddFilters(48025, F.ALLIANCE, F.HORDE, F.SEASONAL, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 48025, A_MOB, 23682, A_ACHIEVEMENT, 980, A_SEASONAL, 7)
+	mount:SetItemID(37012)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL, F.MOB_DROP)
+	mount:AddMobDrop(23682)
+	mount:AddCustom("BREWFEST")
 
 	-- Big Love Rocket - 71342
 	mount = AddMount(71342, V.WOTLK, Q.EPIC) -- Item: 50250
-	--mount:AddFilters(71342, F.ALLIANCE, F.HORDE, F.SEASONAL, F.MOB_DROP, F.INSTANCE, F.BOP)
-	--self:AddCompanionAcquire(DB, 71342, A_SEASONAL, 5, A_ACHIEVEMENT, 4627, A_MOB, 36296)
+	mount:SetItemID(50250)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL, F.MOB_DROP)
+	mount:AddMobDrop(36296)
+	mount:AddCustom("LOVE_IS")
 
 --DROP
 	 -- Reins of the Onyxian Drake - 69395
 	mount = AddMount(69395, V.WOTLK, Q.EPIC) -- Item: 49636
-	--mount:AddFilters(69395, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 69395, A_MOB, 10184)
+	mount:SetItemID(49636)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:AddMobDrop(10184)
 
 	 -- Mimiron's Head - 63796
 	mount = AddMount(63796, V.WOTLK, Q.EPIC) -- Item: 45693
-	--mount:AddFilters(63796, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 63796, A_MOB, 33288, A_ACHIEVEMENT, 4626)
+	mount:SetItemID(49636)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:AddMobDrop(33288)
 
 	-- Reins of the Bronze Drake - 59569
 	mount = AddMount(59569, V.WOTLK, Q.EPIC) -- Item: 43951
-	--mount:AddFilters(59569, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.BOP)
-	--self:AddCompanionAcquire(DB, 59569, A_MOB, 32273)
+	mount:SetItemID(43951)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
+	mount:AddMobDrop(32273)
 
 	-- Black Drake
 	mount = AddMount(59650, V.WOTLK, Q.EPIC) -- Item: 43986
-	--mount:AddFilters(59650, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 59650, A_MOB, 28860)
+	mount:SetItemID(43986)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:AddMobDrop(28860)
 
 	-- Twilight Drake
 	mount = AddMount(59571, V.WOTLK, Q.EPIC) -- Item: 43954
-	--mount:AddFilters(59571, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 59571, A_MOB, 28860)
+	mount:SetItemID(43954)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:AddMobDrop(28860)
 
 	-- Reins of the Azure Drake - 59567
 	mount = AddMount(59567, V.WOTLK, Q.EPIC) -- Item: 43952
-	--mount:AddFilters(59567, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 59567, A_MOB, 28859)
+	mount:SetItemID(43592)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:AddMobDrop(28859)
 
 	-- Reins of the Blue Drake - 59568
 	mount = AddMount(59568, V.WOTLK, Q.EPIC) -- Item: 43953
-	--mount:AddFilters(59568, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 59568, A_MOB, 28859, A_MOB, 27656)
+	mount:SetItemID(43953)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.RAID, F.MOB_DROP)
+	mount:AddMobDrop(27656, 28859)
 
 	-- Reins of the Blue Proto-Drake - 59996
 	mount = AddMount(59996, V.WOTLK, Q.EPIC) -- Item: 44151
-	--mount:AddFilters(59996, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 59996, A_MOB, 26693)
+	mount:SetItemID(44151)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
+	mount:AddMobDrop(26693)
 
 	-- Reins of the Time-Lost Proto-Drake - 60002
 	mount = AddMount(60002, V.WOTLK, Q.EPIC) -- Item: 44168
-	--mount:AddFilters(60002, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 60002, A_MOB, 32491)
+	mount:SetItemID(44168)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(32491)
 
 	 -- Green Proto-Drake - 61294
 	mount = AddMount(61294, V.WOTLK, Q.EPIC) -- Item: 44707
@@ -2084,7 +2107,8 @@ function addon:InitMounts()
 
 	-- Amber Scorpion -- 123886
 	mount = AddMount(123886, V.MOP, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
+	mount:SetItemID(85262)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.REPUTATION, F.KLAXXI)
 	mount:AddRepVendor(FAC.KLAXXI, REP.EXALTED, 64599)
 
 
@@ -2108,7 +2132,8 @@ function addon:InitMounts()
 
 	-- Azure Riding Crane -- 127174
 	mount = AddMount(127174, V.MOP, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
+	mount:SetItemID(87781)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.REPUTATION, F.TILLERS)
 	mount:AddRepVendor(FAC.GOLDENLOTUS, REP.EXALTED, 59908)
 
 
@@ -2126,11 +2151,13 @@ function addon:InitMounts()
 
 	-- Black Riding Goat -- 130138
 	mount = AddMount(130138, V.MOP, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
+	mount:SetItemID(89391)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.REPUTATION, F.TILLERS)
 	mount:AddRepVendor(FAC.TILLERS, REP.EXALTED, 58706)
 
 	-- Blonde Riding Yak -- 127220
 	mount = AddMount(127220, V.MOP, Q.EPIC)
+	mount:SetItemID(87789)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
 	mount:AddVendor(64518)
 
@@ -2151,7 +2178,8 @@ function addon:InitMounts()
 
 	-- Brown Riding Goat -- 130086
 	mount = AddMount(130086, V.MOP, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
+	mount:SetItemID(89362)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.REPUTATION, F.TILLERS)
 	mount:AddRepVendor(FAC.TILLERS, REP.EXALTED, 58706)
 
 -- Cataclysmic Gladiator's Twilight Drake
@@ -2196,7 +2224,8 @@ function addon:InitMounts()
 
 	-- Golden Riding Crane -- -127176
 	mount = AddMount(127176, V.MOP, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
+	mount:SetItemID(87782)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.REPUTATION, F.GOLDENLOTUS)
 	mount:AddRepVendor(FAC.GOLDENLOTUS, REP.EXALTED, 59908)
 
 -- Golden Water Strider
@@ -2206,6 +2235,7 @@ function addon:InitMounts()
 
 	-- Grand Expedition Yak -- 122708
 	mount = AddMount(122708, V.MOP, Q.EPIC)
+	mount:SetItemID(84101)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
 	mount:AddVendor(64518)
 
@@ -2251,6 +2281,7 @@ function addon:InitMounts()
 
 	-- Grey Riding Yak -- 127216
 	mount = AddMount(127216, V.MOP, Q.EPIC)
+	mount:SetItemID(87788)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
 	mount:AddVendor(64518)
 
@@ -2342,7 +2373,8 @@ function addon:InitMounts()
 
 	-- Regal Riding Crane -- 127177
 	mount = AddMount(127177, V.MOP, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
+	mount:SetItemID(87783)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.REPUTATION, F.GOLDENLOTUS)
 	mount:AddRepVendor(FAC.GOLDENLOTUS, REP.EXALTED, 59908)
 
 -- Ruby Panther
@@ -2387,7 +2419,8 @@ function addon:InitMounts()
 
 	-- White Riding Goat -- 130137
 	mount = AddMount(130137, V.MOP, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
+	mount:SetItemID(89390)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.REPUTATION, F.TILLERS)
 	mount:AddRepVendor(FAC.TILLERS, REP.EXALTED, 58706)
 
 ----------------------------------------------------------------------------------------------------
