@@ -38,6 +38,7 @@ local LibStub = _G.LibStub
 
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+local LPJ = LibStub("LibPetJournal-2.0")
 
 -------------------------------------------------------------------------------
 -- Constants
