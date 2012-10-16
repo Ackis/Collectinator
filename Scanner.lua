@@ -613,10 +613,10 @@ do
 		end
 
 		if source_text:match("Pet Battle:") then
-			--addon:Print(string.format("AddWorldDrop()"))
 			source_text = source_text:gsub("Pet Battle:", "", 1)
 			source_text = source_text:gsub("Pet Battle:", ",")
 			source_text = source_text:gsub("|n", "")
+
 			local temp_text = "pet:AddWorldDrop("
 			for token in source_text:gmatch(" ([^,]+)[,%s]*") do
 				temp_text = temp_text .. "Z." .. TableKeyFormat(token) .. ", "
