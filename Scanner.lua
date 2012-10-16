@@ -570,10 +570,79 @@ do
 		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
 	end
 
-	function addon:ScanCompanions()
+
+	function addon:ScanSpecificCompanion(creature_id)
 		addon:InitializeCollection("CRITTER")
 
 		local pet_list = private.collectable_list["CRITTER"]
+		local source_text
+
+		if not pet_list[creature_id] then
+			addon:Print("Found CRITTER not in database: " .. creature_id)
+
+			local num_pets = _G.C_PetJournal.GetNumPets(_G.PetJournal.isWild)
+			local name
+
+			for pet_index = 1, num_pets do
+				local pet_id, _, _, _, _, _, _, c_name, _, _, c_id, s_text = _G.C_PetJournal.GetPetInfoByIndex(pet_index, false)
+				if c_id == creature_id then
+					name = c_name
+					source_text = s_text
+					break
+				end
+			end
+			addon:Print(string.format("-- %s - %d", name, creature_id))
+			if source_text:match("Pet Battle:") then
+				addon:Print(string.format("pet = AddPet(%d, ???, Q.COMMON)", creature_id))
+			else
+				addon:Print(string.format("pet = AddPet(%d, ???, ???)", creature_id))
+			end
+		else
+			--addon:Print(string.format("-- %s - %d", name, creature_id))
+			local quality
+			if pet_list[creature_id].quality == 1 then
+				quality = "Q.COMMON"
+			elseif pet_list[creature_id].quality == 2 then
+				quality = "Q.UNCOMMON"
+			elseif pet_list[creature_id].quality == 3 then
+				quality = "Q.RARE"
+			elseif pet_list[creature_id].quality == 4 then
+				quality = "Q.EPIC"
+			end
+			--addon:Print(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet_list[creature_id].genesis, quality))
+		end
+
+		if source_text:match("Pet Battle:") then
+			--addon:Print(string.format("AddWorldDrop()"))
+			source_text = source_text:gsub("Pet Battle: ", "", 1)
+			source_text = source_text:gsub("Pet Battle: ", ",")
+			source_text = source_text:gsub("|n", "")
+			local temp_text = "pet:AddWorldDrop("
+			for token in source_text:gmatch("([^,]+)[,%s]*") do
+				addon:Print(token)
+				temp_text = temp_text .. "Z." .. TableKeyFormat(token) .. ", "
+			end
+			temp_text = temp_text .. ")"
+			addon:Print(temp_text)
+
+		elseif source_text:match("Achievement:") then
+
+		elseif source_text:match("Profession:") then
+		elseif source_text:match("World Event:") then
+		elseif source_text:match("Quest:") then
+		elseif source_text:match("Vendor:") then
+		elseif source_text:match("Drop:") then
+		elseif source_text:match("Promotion:") then
+		elseif source_text:match("Pet Store") then
+		
+		else
+			addon:Print(source_text)
+		end
+
+	end
+
+	function addon:ScanCompanions()
+		addon:InitializeCollection("CRITTER")
 
 		local output = private.TextDump
 		--output:Clear()
@@ -581,50 +650,7 @@ do
 
 		for index, pet_id in LPJ:IteratePetIDs() do
 			local species_id, custom_name, level, exp, max_exp, display_id, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByPetID(pet_id)
-
-			if not pet_list[creature_id] then
-				addon:Print("Found CRITTER not in database: " .. creature_id)
-				addon:Print(string.format("-- %s - %d", name, creature_id))
-				if source_text:match("Pet Battle:") then
-					addon:Print(string.format("pet = AddPet(%d, ???, Q.COMMON)", creature_id))
-				else
-					addon:Print(string.format("pet = AddPet(%d, ???, ???)", creature_id))
-				end
-			else
-				--addon:Print(string.format("-- %s - %d", name, creature_id))
-				local quality
-				if pet_list[creature_id].quality == 1 then
-					quality = "Q.COMMON"
-				elseif pet_list[creature_id].quality == 2 then
-					quality = "Q.UNCOMMON"
-				elseif pet_list[creature_id].quality == 3 then
-					quality = "Q.RARE"
-				elseif pet_list[creature_id].quality == 4 then
-					quality = "Q.EPIC"
-				end
-				--addon:Print(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet_list[creature_id].genesis, quality))
-			end
-
-			if source_text:match("Pet Battle:") then
-				--addon:Print(string.format("AddWorldDrop()"))
-				source_text = source_text:gsub("Pet Battle:", "")
-				source_text = source_text:gsub("|n", "")
-				for token in source_text:gmatch("([^,]+)[,%s]*") do 
-					print(TableKeyFormat(token))
-				end
-
-			elseif source_text:match("Achievement:") then
-
-			elseif source_text:match("Profession:") then
-			elseif source_text:match("World Event:") then
-			elseif source_text:match("Quest:") then
-			elseif source_text:match("Vendor:") then
-			elseif source_text:match("Drop:") then
-			elseif source_text:match("Promotion:") then
-			
-			else
-				addon:Print(source_text)
-			end
+			addon:ScanSpecificCompanion(creature_id)
 		end
 	
 	end
