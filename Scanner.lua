@@ -562,39 +562,34 @@ do
 	}
 
 	function addon:ScanCompanions()
+		addon:InitializeCollection("CRITTER")
 
-		if not private.collectable_list["CRITTER"] then
-			private.collectable_list["CRITTER"] = {}
-			addon:InitCritters()
-		end
-
-		local collectable_list = private.collectable_list["CRITTER"]
+		local pet_list = private.collectable_list["CRITTER"]
 
 		local output = private.TextDump
 		--output:Clear()
 
 
-		for index in LPJ:IterateCreatureIDs() do
-			local pet_id, species_id, _, _, _, _, _, name, icon, petType, creature_id, source_text, description, is_wild = _G.C_PetJournal.GetPetInfoByIndex(index)
+		for index, pet_id in LPJ:IteratePetIDs() do
+			local species_id, custom_name, level, exp, max_exp, display_id, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByPetID(pet_id)
 
-			-- Torhal: Why is everything coming up as "not in the database" here?
-			if not collectable_list[creature_id] then
+			if not pet_list[creature_id] then
 				addon:Print("Found CRITTER not in database: " .. creature_id)
 				addon:Print(string.format("-- %s - %d", name, creature_id))
 				addon:Print(string.format("pet = AddPet(%d, ???, ???)", creature_id))
 			else
 				addon:Print(string.format("-- %s - %d", name, creature_id))
 				local quality
-				if collectable_list[creature_id].quality == 1 then
+				if pet_list[creature_id].quality == 1 then
 					quality = "Q.COMMON"
-				elseif collectable_list[creature_id].quality == 2 then
+				elseif pet_list[creature_id].quality == 2 then
 					quality = "Q.UNCOMMON"
-				elseif collectable_list[creature_id].quality == 3 then
+				elseif pet_list[creature_id].quality == 3 then
 					quality = "Q.RARE"
-				elseif collectable_list[creature_id].quality == 4 then
+				elseif pet_list[creature_id].quality == 4 then
 					quality = "Q.EPIC"
 				end
-				addon:Print(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, collectable_list[creature_id].genesis, quality))
+				addon:Print(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet_list[creature_id].genesis, quality))
 			end
 
 			if source_text:match("Pet Battle:") then
