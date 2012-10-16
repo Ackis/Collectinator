@@ -27,6 +27,7 @@ L["ALL_FILTERED"] = "Although you have already scanned this collection, your fil
 L["ALL_KNOWN"] = "You know all the collectables for this collection.  Congratualtions on your accomplishment!"
 L["ALT_CLICK"] = "Alt-Click to add/remove this collectable to your ignore list."
 L["Acquisition"] = true
+L["Ambersmith Zikk"] = true
 L["Arthur the Faithful"] = true
 L["Astrid Langstrump"] = true
 L["Azar Stronghammer"] = true
