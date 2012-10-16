@@ -593,7 +593,7 @@ do
 			end
 			addon:Print(string.format("-- %s - %d", name, creature_id))
 			if source_text:match("Pet Battle:") then
-				addon:Print(string.format("pet = AddPet(%d, ???, Q.COMMON)", creature_id))
+				addon:Print(string.format("pet = AddPet(%d, V.MOP, Q.COMMON)", creature_id))
 			else
 				addon:Print(string.format("pet = AddPet(%d, ???, ???)", creature_id))
 			end
@@ -614,12 +614,11 @@ do
 
 		if source_text:match("Pet Battle:") then
 			--addon:Print(string.format("AddWorldDrop()"))
-			source_text = source_text:gsub("Pet Battle: ", "", 1)
-			source_text = source_text:gsub("Pet Battle: ", ",")
+			source_text = source_text:gsub("Pet Battle:", "", 1)
+			source_text = source_text:gsub("Pet Battle:", ",")
 			source_text = source_text:gsub("|n", "")
 			local temp_text = "pet:AddWorldDrop("
-			for token in source_text:gmatch("([^,]+)[,%s]*") do
-				addon:Print(token)
+			for token in source_text:gmatch(" ([^,]+)[,%s]*") do
 				temp_text = temp_text .. "Z." .. TableKeyFormat(token) .. ", "
 			end
 			temp_text = temp_text .. ")"
