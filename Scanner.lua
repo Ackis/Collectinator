@@ -605,6 +605,51 @@ do
 
 	end
 
+	local function GetExistingFlags(collectable)
+		local flags = {}
+		if not collectable then
+			return
+		end
+
+		if collectable:HasFilter("common1", "ALLIANCE") then
+			table.insert(flags, #flags + 1, "F.ALLIANCE")
+		end
+
+		if collectable:HasFilter("common1", "HORDE") then
+			table.insert(flags, #flags + 1, "F.HORDE")
+		end
+
+		if collectable:HasFilter("common1", "IBOE") then
+			table.insert(flags, #flags + 1, "F.IBOE")
+		end
+
+		if collectable:HasFilter("common1", "IBOP") then
+			table.insert(flags, #flags + 1, "F.IBOP")
+		end
+
+		if collectable:HasFilter("common1", "IBOA") then
+			table.insert(flags, #flags + 1, "F.IBOA")
+		end
+
+		return flags
+	end
+
+	local function CheckExistingFlags(collectable)
+
+		if not collectable then
+			return
+		end
+
+		if not collectable:HasFilter("common1", "ALLIANCE") and not collectable:HasFilter("common1", "HORDE") then
+			addon:Print("No faction.")
+		end
+
+		if not collectable:HasFilter("common1", "IBOE") and not collectable:HasFilter("common1", "IBOP") and not collectable:HasFilter("common1", "IBOA") then
+			addon:Print("No binding.")
+		end
+
+	end
+
 	function addon:ScanSpecificCompanion(pet_index, hide_display)
 		addon:InitializeCollection("CRITTER")
 
@@ -614,10 +659,13 @@ do
 
 		local pet_list = private.collectable_list["CRITTER"]
 		local pet_id, _, _, _, _, _, _, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByIndex(pet_index, false)
+		local flag_list = {}
 
 		output:AddLine(string.format("-- %s - %d", name, creature_id))
 
-		if not pet_list[creature_id] then
+		local pet = pet_list[creature_id]
+
+		if not pet then
 			--addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ")")
 
 			if source_text:match("Pet Battle:") then
@@ -628,16 +676,22 @@ do
 		else
 			--addon:Print(string.format("-- %s - %d", name, creature_id))
 			local quality
-			if pet_list[creature_id].quality == 1 then
+			if pet.quality == 1 then
 				quality = "Q.COMMON"
-			elseif pet_list[creature_id].quality == 2 then
+			elseif pet.quality == 2 then
 				quality = "Q.UNCOMMON"
-			elseif pet_list[creature_id].quality == 3 then
+			elseif pet.quality == 3 then
 				quality = "Q.RARE"
-			elseif pet_list[creature_id].quality == 4 then
+			elseif pet.quality == 4 then
 				quality = "Q.EPIC"
 			end
-			output:AddLine(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet_list[creature_id].genesis, quality))
+			output:AddLine(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet.genesis, quality))
+		end
+
+		--CheckExistingFlags(pet)
+		flag_list = GetExistingFlags(pet)
+		if flag_list then
+			--addon:Print(table.concat(flag_list,", "))
 		end
 
 		if source_text:match("Pet Battle:") then
@@ -668,7 +722,7 @@ do
 			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)")
 			if source_text:match("Zone") then
 				output:AddLine("pet:AddProfession(PROF.FISHING)")
-			elseif source_text:match("Formula")
+			elseif source_text:match("Formula") then
 				output:AddLine("pet:AddProfession(PROF.ENCHANTING)")
 			else
 				output:AddLine("pet:AddProfession(PROF." .. string.upper(source_text) .. ")")
