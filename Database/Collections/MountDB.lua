@@ -2112,24 +2112,20 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.KLAXXI)
 	mount:AddRepVendor(FAC.KLAXXI, REP.EXALTED, 64599)
 
-
 -- Ashen Pandaren Phoenix
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
-
 
 -- Astral Cloud Serpent
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
-
 -- Azure Cloud Serpent
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
-
 
 	-- Azure Riding Crane -- 127174
 	mount = AddMount(127174, V.MOP, Q.EPIC)
@@ -2137,18 +2133,15 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.GOLDENLOTUS)
 	mount:AddRepVendor(FAC.GOLDENLOTUS, REP.EXALTED, 59908)
 
-
--- Azure Water Strider
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
+	-- Azure Water Strider -- 118089
+	mount = AddMount(118089, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.ANGLERS)
+	mount:AddRepVendor(FAC.ANGLERS, REP.EXALTED, 63721)
 
 -- Black Dragon Turtle
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
-
 
 	-- Black Riding Goat -- 130138
 	mount = AddMount(130138, V.MOP, Q.EPIC)
@@ -2167,10 +2160,10 @@ function addon:InitMounts()
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Blue Shado-Pan Riding Tiger
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Blue Shado-Pan Riding Tiger -- 129934
+	mount = AddMount(129934, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHADOPAN)
+	mount:AddRepVendor(FAC.SHADOPAN, REP.EXALTED, 64595)
 
 -- Brown Dragon Turtle
 -- mount = AddMount(, V.MOP, )
@@ -2194,11 +2187,6 @@ function addon:InitMounts()
 -- self:AddCompanionAcquire(DB,)
 
 -- Crimson Pandaren Phoenix
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Crimson Water Strider
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
@@ -2229,10 +2217,6 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.GOLDENLOTUS)
 	mount:AddRepVendor(FAC.GOLDENLOTUS, REP.EXALTED, 59908)
 
--- Golden Water Strider
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
 
 	-- Grand Expedition Yak -- 122708
 	mount = AddMount(122708, V.MOP, Q.EPIC)
@@ -2275,10 +2259,10 @@ function addon:InitMounts()
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Green Shado-Pan Riding Tiger
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Green Shado-Pan Riding Tiger -- 129932
+	mount = AddMount(129932, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHADOPAN)
+	mount:AddRepVendor(FAC.SHADOPAN, REP.EXALTED, 64595)
 
 	-- Grey Riding Yak -- 127216
 	mount = AddMount(127216, V.MOP, Q.EPIC)
@@ -2321,22 +2305,12 @@ function addon:InitMounts()
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Jade Water Strider
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
 -- Jeweled Onyx Panther
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
 -- Onyx Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Orange Water Strider
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
@@ -2367,10 +2341,10 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.IBOP, F.LOREWALKERS)
 	mount:AddRepVendor(FAC.LOREWALKERS, REP.EXALTED, 64605)
 
--- Red Shado-Pan Riding Tiger
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Red Shado-Pan Riding Tiger -- 129935
+	mount = AddMount(129935, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHADOPAN)
+	mount:AddRepVendor(FAC.SHADOPAN, REP.EXALTED, 64595)
 
 	-- Regal Riding Crane -- 127177
 	mount = AddMount(127177, V.MOP, Q.EPIC)
@@ -2466,8 +2440,24 @@ Apparentely not in game yet!
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
+-- Crimson Water Strider
+-- mount = AddMount(, V.MOP, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
 
+-- Golden Water Strider
+-- mount = AddMount(, V.MOP, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
 
+-- Jade Water Strider
+-- mount = AddMount(, V.MOP, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
 
+-- Orange Water Strider
+-- mount = AddMount(, V.MOP, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
 
 -----------------------------]]
