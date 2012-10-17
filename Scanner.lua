@@ -580,15 +580,14 @@ do
 		for pet_index = 1, num_pets do
 			local pet_id, _, _, _, _, _, _, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByIndex(pet_index, false)
 			if c_id == creature_id then
-				addon:ScanSpecificCompanion(pet_id)
+				addon:ScanSpecificCompanion(pet_index)
 				break
 			end
 		end
 
 	end
 
-
-	function addon:ScanSpecificCompanion(pet_id, hide_display)
+	function addon:ScanSpecificCompanion(pet_index, hide_display)
 		addon:InitializeCollection("CRITTER")
 
 		if not hide_display then
@@ -596,7 +595,7 @@ do
 		end
 
 		local pet_list = private.collectable_list["CRITTER"]
-		local species_id, custom_name, level, exp, max_exp, display_id, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByPetID(pet_id)
+		local pet_id, _, _, _, _, _, _, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByIndex(pet_index, false)
 
 		if not pet_list[creature_id] then
 			addon:Print("Found CRITTER not in database: " .. creature_id)
@@ -658,8 +657,10 @@ do
 
 		output:Clear()
 
-		for index, pet_id in LPJ:IteratePetIDs() do
-			addon:ScanSpecificCompanion(pet_id, true)
+		local num_pets = _G.C_PetJournal.GetNumPets(_G.PetJournal.isWild)
+
+		for pet_index = 1, num_pets do
+			addon:ScanSpecificCompanion(pet_index, true)
 		end
 
 		output:Display()
