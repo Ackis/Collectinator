@@ -509,7 +509,7 @@ function private.InitializeFrame()
 		end
 
 		local function SearchByQuality(collectable, search_pattern)
-			if private.ITEM_QUALITY_NAMES[collectable.quality]:lower():find(search_pattern) then
+			if collectable.quality and private.ITEM_QUALITY_NAMES[collectable.quality]:lower():find(search_pattern) then
 				return true
 			end
 			return false

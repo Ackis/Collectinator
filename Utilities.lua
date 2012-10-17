@@ -163,6 +163,10 @@ do
 		self:InsertLine(#self.output + 1, text)
 	end
 
+	function private.TextDump:Clear()
+		table.wipe(self.output)
+	end
+
 	function private.TextDump:Display(separator, collectable_type)
 		local display_text = (not collectable_type) and table.concat(self.output, separator or "\n")
 
@@ -173,7 +177,6 @@ do
 		edit_box:HighlightText(0)
 		edit_box:SetCursorPosition(1)
 		copy_frame:Show()
-		table.wipe(self.output)
 	end
 
 	function private.TextDump:InsertLine(position, text)
@@ -187,6 +190,9 @@ do
 		return #self.output
 	end
 
+	function private.TextDump:String(separator)
+		return table.concat(self.output, separator or "\n")
+	end
 end -- do
 
 --@debug@
