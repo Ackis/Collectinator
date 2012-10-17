@@ -1925,10 +1925,10 @@ function addon:InitCritters()
 	 ]]--
 	pet = AddPet(64352, V.MOP, Q.COMMON)
 	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
-	-- Silent Hedgehog -- 64804
-	--[[ Pet Battle: Dread Wastes]]--
+	-- Silent Hedgehog - 64804
 	pet = AddPet(64804, V.MOP, Q.COMMON)
-	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.DREAD_WASTES)
 	-- Luyu Moth -- 65124
 	--[[ Pet Battle: Krasarang Wilds
 	 ]]--
