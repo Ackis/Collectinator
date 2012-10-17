@@ -623,7 +623,7 @@ do
 				temp_text = temp_text .. "Z." .. TableKeyFormat(token) .. ", "
 			end
 			temp_text = temp_text .. ")"
-			temp_text = temp_text:gsub(" ,)",")")
+			--temp_text = temp_text:gsub(", )",")")
 			addon:Print(temp_text)
 
 		elseif source_text:match("Achievement:") then
