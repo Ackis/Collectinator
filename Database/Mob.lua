@@ -38,6 +38,7 @@ function addon:InitMob()
 		private:AddListEntry(private.mob_list, mob_id, mob_name, zone_name, coord_x, coord_y, nil)
 	end
 
+	AddMob(10184,	BB["Onyxia"],				Z.ONYXIAS_LAIR,			68.0, 35.2)
 	AddMob(23682,	BB["Headless Horseman"],		Z.SCARLET_MONASTERY,		 0.0,  0.0)
 	AddMob(23872,	BB["Coren Direbrew"],			Z.BLACKROCK_DEPTHS,		 0.0,  0.0)
 	AddMob(26693,	BB["Skadi the Ruthless"],		Z.UTGARDE_PINNACLE,		69.8, 36.4)
@@ -53,7 +54,6 @@ function addon:InitMob()
 	AddMob(36296,	L["Apothecary Hummel"],			Z.SHADOWFANG_KEEP,		41.8, 53.6)
 	AddMob(38433,	BB["Toravon the Ice Watcher"],		Z.VAULT_OF_ARCHAVON,		62.6, 36.8)
 	AddMob(34564,	BN.ANUBARAK,				Z.TRIAL_OF_THE_CRUSADER,	 0.0,  0.0)
-	AddMob(49636,	BB["Onyxia"],				Z.ONYXIAS_LAIR,			68.0, 35.2)
 
 	self.InitMob = nil
 end
