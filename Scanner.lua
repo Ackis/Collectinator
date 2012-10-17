@@ -577,6 +577,7 @@ do
 		["Time To Open a Pet Store"] = 7521,
 		["Jade Tiger"] = 3636,
 		["Pro Pet Mob"] = 6582,
+		["That's a Lot of Pet Food"] = 7501,
 	}
 
 	-- Copy/pasta from Utilities.lua
@@ -663,7 +664,17 @@ do
 				addon:Print("Unknown achievement found: " .. source_text)
 			end
 		elseif source_text:match("Profession:") then
+			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Profession: ", ""):trim()
+			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)")
+			if source_text:match("Zone") then
+				output:AddLine("pet:AddProfession(PROF.FISHING)")
+			elseif source_text:match("Formula")
+				output:AddLine("pet:AddProfession(PROF.ENCHANTING)")
+			else
+				output:AddLine("pet:AddProfession(PROF." .. string.upper(source_text) .. ")")
+			end
 		elseif source_text:match("Fishing:") then -- Fuck blizzard
+			output:AddLine("pet:AddProfession(PROF.FISHING)")
 		elseif source_text:match("World Event:") then
 		elseif source_text:match("Quest:") then
 		elseif source_text:match("Vendor:") then
