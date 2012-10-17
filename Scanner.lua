@@ -571,7 +571,23 @@ do
 	end
 
 	local output = private.TextDump
---/script COL:ScanSpecificCompanion(63555) -- pet I don't know
+--/script COL:ScanCompanionCreature(63555) -- pet I don't know
+
+	function addon:ScanCompanionCreature(c_id)
+
+		local num_pets = _G.C_PetJournal.GetNumPets(_G.PetJournal.isWild)
+
+		for pet_index = 1, num_pets do
+			local pet_id, _, _, _, _, _, _, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByIndex(pet_index, false)
+			if c_id == creature_id then
+				addon:ScanSpecificCompanion(pet_id)
+				break
+			end
+		end
+
+	end
+
+
 	function addon:ScanSpecificCompanion(pet_id, hide_display)
 		addon:InitializeCollection("CRITTER")
 
