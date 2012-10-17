@@ -597,10 +597,11 @@ do
 		local pet_list = private.collectable_list["CRITTER"]
 		local pet_id, _, _, _, _, _, _, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByIndex(pet_index, false)
 
-		if not pet_list[creature_id] then
-			addon:Print("Found CRITTER not in database: " .. creature_id)
+		output:AddLine(string.format("-- %s - %d", name, creature_id))
 
-			output:AddLine(string.format("-- %s - %d", name, creature_id))
+		if not pet_list[creature_id] then
+			addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ")")
+
 			if source_text:match("Pet Battle:") then
 				output:AddLine(string.format("pet = AddPet(%d, V.MOP, Q.COMMON)", creature_id))
 			else
@@ -618,7 +619,7 @@ do
 			elseif pet_list[creature_id].quality == 4 then
 				quality = "Q.EPIC"
 			end
-			--addon:Print(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet_list[creature_id].genesis, quality))
+			output:AddLine(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet_list[creature_id].genesis, quality))
 		end
 
 		if source_text:match("Pet Battle:") then
@@ -647,6 +648,9 @@ do
 		else
 			addon:Print(source_text)
 		end
+
+		output:AddLine("\n")
+
 		if not hide_display then
 			output:Display()
 		end
