@@ -37,14 +37,16 @@ function addon:InitSeasons()
 		private:AddListEntry(private.seasonal_list, identifier, name, _G.GetCategoryInfo(155))
 	end
 
+	AddSeason("DAY_OF_THE_DEAD", L["Day of the Dead"])
 	AddSeason("WINTER_VEIL", _G.GetCategoryInfo(156))
+	AddSeason("HALLOWS_END", _G.GetCategoryInfo(158))
 	AddSeason("LUNAR_FESTIVAL", _G.GetCategoryInfo(160))
 	AddSeason("MIDSUMMER", _G.GetCategoryInfo(161))
+	AddSeason("BREWFEST", _G.GetCategoryInfo(162))
+	AddSeason("CHILDRENS_WEEK", _G.GetCategoryInfo(163))
+	AddSeason("LOVE_IS_IN_THE_AIR", _G.GetCategoryInfo(187))
 	AddSeason("PILGRIMS_BOUNTY", _G.GetCategoryInfo(14981))
-	AddSeason("DAY_OF_THE_DEAD", L["Day of the Dead"])
---	AddSeason("BREWFEST", _G.GetCategoryInfo())
---	AddSeason("HALLOWS_END", _G.GetCategoryInfo())
---	AddSeason("LOVE_IS", _G.GetCategoryInfo())
+	AddSeason("DARKMOON_FAIRE", _G.GetCategoryInfo(15101))
 
 	self.InitSeasons = nil
 end

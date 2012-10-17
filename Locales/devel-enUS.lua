@@ -29,6 +29,7 @@ L["ALT_CLICK"] = "Alt-Click to add/remove this collectable to your ignore list."
 L["Acquisition"] = true
 L["Aldraan"] = true
 L["Ambersmith Zikk"] = true
+L["Apothecary Hummel"] = true
 L["Arthur the Faithful"] = true
 L["Astrid Langstrump"] = true
 L["Azar Stronghammer"] = true
