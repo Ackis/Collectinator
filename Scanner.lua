@@ -570,31 +570,21 @@ do
 		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
 	end
 
---/script COL:ScanSpecificCompanion(61257)
---/script COL:ScanSpecificCompanion(63555)
---/script COL:ScanSpecificCompanion(63957)
-	function addon:ScanSpecificCompanion(creature_id)
+
+--/script COL:ScanSpecificCompanion(63555) -- pet I don't know
+	function addon:ScanSpecificCompanion(pet_id)
 		addon:InitializeCollection("CRITTER")
 
 		local pet_list = private.collectable_list["CRITTER"]
 		local output = private.TextDump
-		local source_text
+
+		local species_id, custom_name, level, exp, max_exp, display_id, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByPetID(pet_id)
+		addon:Print(name)
+		output:Clear()
 
 		if not pet_list[creature_id] then
-			output:Clear()
 			addon:Print("Found CRITTER not in database: " .. creature_id)
 
-			local num_pets = _G.C_PetJournal.GetNumPets(_G.PetJournal.isWild)
-			local name
-
-			for pet_index = 1, num_pets do
-				local pet_id, _, _, _, _, _, _, c_name, _, _, c_id, s_text = _G.C_PetJournal.GetPetInfoByIndex(pet_index, false)
-				if c_id == creature_id then
-					name = c_name
-					source_text = s_text
-					break
-				end
-			end
 			output:AddLine(string.format("-- %s - %d", name, creature_id))
 			if source_text:match("Pet Battle:") then
 				output:AddLine(string.format("pet = AddPet(%d, V.MOP, Q.COMMON)", creature_id))
@@ -620,7 +610,6 @@ do
 			-- We are assuming all pet battles are bop, availible to both alliance and horde.
 			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)")
 			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim()
-			addon:Print(source_text)
 
 			local temp_text = "pet:AddWorldDrop("
 			local zone_text = {}
@@ -649,13 +638,9 @@ do
 	function addon:ScanCompanions()
 		addon:InitializeCollection("CRITTER")
 
-		local output = private.TextDump
-		--output:Clear()
-
-
 		for index, pet_id in LPJ:IteratePetIDs() do
-			local species_id, custom_name, level, exp, max_exp, display_id, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByPetID(pet_id)
-			addon:ScanSpecificCompanion(creature_id)
+			addon:Print("Pet ID: " .. pet_id)
+			addon:ScanSpecificCompanion(pet_id)
 		end
 	
 	end
