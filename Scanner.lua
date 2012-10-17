@@ -621,11 +621,11 @@ do
 			addon:Print(source_text)
 
 			local temp_text = "pet:AddWorldDrop("
+			local zone_text = {}
 			for token in source_text:gmatch("([^,]+)[,%s]*") do
-				temp_text = temp_text .. "Z." .. TableKeyFormat(token) .. ", "
+				table.insert(zone_text, "Z." .. TableKeyFormat(token))
 			end
-			temp_text = temp_text .. ")"
-			--temp_text = temp_text:gsub(", )",")")
+			temp_text = temp_text .. table.concat(zone_text, ",") .. ")"
 			output:AddLine(temp_text)
 
 		elseif source_text:match("Achievement:") then
