@@ -570,7 +570,9 @@ do
 		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
 	end
 
-
+--/script COL:ScanSpecificCompanion(61257)
+--/script COL:ScanSpecificCompanion(63555)
+--/script COL:ScanSpecificCompanion(63957)
 	function addon:ScanSpecificCompanion(creature_id)
 		addon:InitializeCollection("CRITTER")
 
@@ -613,15 +615,15 @@ do
 		end
 
 		if source_text:match("Pet Battle:") then
-			source_text = source_text:gsub("Pet Battle:", "", 1)
-			source_text = source_text:gsub("Pet Battle:", ",")
-			source_text = source_text:gsub("|n", "")
+			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim()
+			addon:Print(source_text)
 
 			local temp_text = "pet:AddWorldDrop("
-			for token in source_text:gmatch(" ([^,]+)[,%s]*") do
+			for token in source_text:gmatch("([^,]+)[,%s]*") do
 				temp_text = temp_text .. "Z." .. TableKeyFormat(token) .. ", "
 			end
 			temp_text = temp_text .. ")"
+			temp_text = temp_text:gsub(" ,)",")")
 			addon:Print(temp_text)
 
 		elseif source_text:match("Achievement:") then
