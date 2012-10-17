@@ -1956,6 +1956,11 @@ function addon:InitCritters()
 	pet = AddPet(66450, V.MOP, Q.COMMON)
 	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
 
+	-- Yakrat - 63957
+	pet = AddPet(63957, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.TOWNLONG_STEPPES,Z.DREAD_WASTES)
+
 	self.InitCritters = nil
 
 	LPJ:RegisterCallback("PetListUpdated", UpdatePetList)
