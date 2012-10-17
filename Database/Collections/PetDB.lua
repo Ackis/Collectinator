@@ -1961,6 +1961,11 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.TOWNLONG_STEPPES,Z.DREAD_WASTES)
 
+	-- Zooey Snake - 63555
+	pet = AddPet(63555, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
+
 	self.InitCritters = nil
 
 	LPJ:RegisterCallback("PetListUpdated", UpdatePetList)
