@@ -600,7 +600,7 @@ do
 		output:AddLine(string.format("-- %s - %d", name, creature_id))
 
 		if not pet_list[creature_id] then
-			addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ")")
+			--addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ")")
 
 			if source_text:match("Pet Battle:") then
 				output:AddLine(string.format("pet = AddPet(%d, V.MOP, Q.COMMON)", creature_id))
@@ -638,12 +638,14 @@ do
 		elseif source_text:match("Achievement:") then
 
 		elseif source_text:match("Profession:") then
+		elseif source_text:match("Fishing:") then -- Fuck blizzard
 		elseif source_text:match("World Event:") then
 		elseif source_text:match("Quest:") then
 		elseif source_text:match("Vendor:") then
 		elseif source_text:match("Drop:") then
 		elseif source_text:match("Promotion:") then
 		elseif source_text:match("Pet Store") then
+		elseif source_text:match("Trading Card Game:") then
 		
 		else
 			addon:Print(source_text)
