@@ -617,6 +617,8 @@ do
 		end
 
 		if source_text:match("Pet Battle:") then
+			-- We are assuming all pet battles are bop, availible to both alliance and horde.
+			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET")
 			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim()
 			addon:Print(source_text)
 
