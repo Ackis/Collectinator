@@ -564,6 +564,19 @@ do
 	local ACHIEVEMENT_LOOK_UP = {
 		["Menagerie"] = 5877,
 		["Petting Zoo"] = 5876,
+		["WoW's 4th Anniversary"] = 2398,
+		["Littlest Pet Shop"] = 5875,
+		["Going to Need More Leashes"] = 7500,
+		["Higher Learning"] = 1956,
+		["Lil' Game Hunter"] = 2516,
+		["WoW's 5th Anniversary"] = 4400,
+		["Rock Lover"] = 5449,
+		["Looking For Multitudes"] = 4478,
+		["Shop Smart, Shop Pet...Smart"] = 1250,
+		["Ling-Ting's Herbal Journey"] = 6402,
+		["Time To Open a Pet Store"] = 7521,
+		["Jade Tiger"] = 3636,
+		["Pro Pet Mob"] = 6582,
 	}
 
 	-- Copy/pasta from Utilities.lua
@@ -643,11 +656,12 @@ do
 
 			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)")
 
-			source_text = source_text:gsub("Achievement: ", ""):gsub("|n",""):gsub("Category: (.+)",""):trim()
+			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Achievement: ", ""):gsub("Category: (.+)",""):trim()
 			if ACHIEVEMENT_LOOK_UP[source_text] then
-				addon:Print(ACHIEVEMENT_LOOK_UP[source_text])
+				output:AddLine("pet:AddAchievement(" .. ACHIEVEMENT_LOOK_UP[source_text] .. ")")
+			else
+				addon:Print("Unknown achievement found: " .. source_text)
 			end
-			addon:Print(source_text)
 		elseif source_text:match("Profession:") then
 		elseif source_text:match("Fishing:") then -- Fuck blizzard
 		elseif source_text:match("World Event:") then
