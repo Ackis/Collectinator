@@ -577,9 +577,11 @@ do
 		addon:InitializeCollection("CRITTER")
 
 		local pet_list = private.collectable_list["CRITTER"]
+		local output = private.TextDump
 		local source_text
 
 		if not pet_list[creature_id] then
+			output:Clear()
 			addon:Print("Found CRITTER not in database: " .. creature_id)
 
 			local num_pets = _G.C_PetJournal.GetNumPets(_G.PetJournal.isWild)
@@ -593,11 +595,11 @@ do
 					break
 				end
 			end
-			addon:Print(string.format("-- %s - %d", name, creature_id))
+			output:AddLine(string.format("-- %s - %d", name, creature_id))
 			if source_text:match("Pet Battle:") then
-				addon:Print(string.format("pet = AddPet(%d, V.MOP, Q.COMMON)", creature_id))
+				output:AddLine(string.format("pet = AddPet(%d, V.MOP, Q.COMMON)", creature_id))
 			else
-				addon:Print(string.format("pet = AddPet(%d, ???, ???)", creature_id))
+				output:AddLine(string.format("pet = AddPet(%d, ???, ???)", creature_id))
 			end
 		else
 			--addon:Print(string.format("-- %s - %d", name, creature_id))
@@ -624,7 +626,7 @@ do
 			end
 			temp_text = temp_text .. ")"
 			--temp_text = temp_text:gsub(", )",")")
-			addon:Print(temp_text)
+			output:AddLine(temp_text)
 
 		elseif source_text:match("Achievement:") then
 
@@ -639,7 +641,7 @@ do
 		else
 			addon:Print(source_text)
 		end
-
+		output:Display()
 	end
 
 	function addon:ScanCompanions()
