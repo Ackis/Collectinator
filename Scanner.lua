@@ -570,17 +570,17 @@ do
 		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
 	end
 
-
+	local output = private.TextDump
 --/script COL:ScanSpecificCompanion(63555) -- pet I don't know
-	function addon:ScanSpecificCompanion(pet_id)
+	function addon:ScanSpecificCompanion(pet_id, hide_display)
 		addon:InitializeCollection("CRITTER")
 
-		local pet_list = private.collectable_list["CRITTER"]
-		local output = private.TextDump
+		if not hide_display then
+			output:Clear()
+		end
 
+		local pet_list = private.collectable_list["CRITTER"]
 		local species_id, custom_name, level, exp, max_exp, display_id, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByPetID(pet_id)
-		addon:Print(name)
-		output:Clear()
 
 		if not pet_list[creature_id] then
 			addon:Print("Found CRITTER not in database: " .. creature_id)
@@ -632,17 +632,21 @@ do
 		else
 			addon:Print(source_text)
 		end
-		output:Display()
+		if not hide_display then
+			output:Display()
+		end
 	end
 
 	function addon:ScanCompanions()
 		addon:InitializeCollection("CRITTER")
 
+		output:Clear()
+
 		for index, pet_id in LPJ:IteratePetIDs() do
-			addon:Print("Pet ID: " .. pet_id)
-			addon:ScanSpecificCompanion(pet_id)
+			addon:ScanSpecificCompanion(pet_id, true)
 		end
-	
+
+		output:Display()
 	end
 
 	--- Prints out the results of the tooltip scan.
