@@ -1895,11 +1895,7 @@ function addon:InitCritters()
 	 ]]--
 	pet = AddPet(63954, V.MOP, Q.COMMON)
 	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
-	-- Singing Cricket -- 64232
-	--[[ Achievement: Pro Pet Mob
-	Category: Pet Battle ]]--
-	pet = AddPet(64232, V.MOP, Q.COMMON)
-	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+
 	-- Resilient Roach -- 64238
 	--[[ Pet Battle: Dread Wastes
 	 ]]--
@@ -1965,6 +1961,11 @@ function addon:InitCritters()
 	pet = AddPet(63555, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
+
+	-- Singing Cricket - 64232
+	pet = AddPet(64232, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(6582)
 
 	self.InitCritters = nil
 
