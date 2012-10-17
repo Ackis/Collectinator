@@ -561,6 +561,11 @@ do
 		WORLD_DROP = true,
 	}
 
+	local ACHIEVEMENT_LOOK_UP = {
+		["Menagerie"] = 5877,
+		["Petting Zoo"] = 5876,
+	}
+
 	-- Copy/pasta from Utilities.lua
 	local function TableKeyFormat(input)
 		if not input then
@@ -571,7 +576,6 @@ do
 	end
 
 	local output = private.TextDump
---/script COL:ScanCompanionCreature(63555) -- pet I don't know
 
 	function addon:ScanCompanionCreature(c_id)
 
@@ -637,6 +641,13 @@ do
 
 		elseif source_text:match("Achievement:") then
 
+			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)")
+
+			source_text = source_text:gsub("Achievement: ", ""):gsub("|n",""):gsub("Category: (.+)",""):trim()
+			if ACHIEVEMENT_LOOK_UP[source_text] then
+				addon:Print(ACHIEVEMENT_LOOK_UP[source_text])
+			end
+			addon:Print(source_text)
 		elseif source_text:match("Profession:") then
 		elseif source_text:match("Fishing:") then -- Fuck blizzard
 		elseif source_text:match("World Event:") then
@@ -648,7 +659,7 @@ do
 		elseif source_text:match("Trading Card Game:") then
 		
 		else
-			addon:Print(source_text)
+			addon:Print("Unknown acquire method; " .. source_text)
 		end
 
 		output:AddLine("\n")
