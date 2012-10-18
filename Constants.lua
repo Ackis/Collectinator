@@ -674,6 +674,7 @@ private.ZONE_NAMES = {
 	THE_VIOLET_HOLD = _G.GetMapNameByID(536),
 	GILNEAS = _G.GetMapNameByID(539),
 	TRIAL_OF_THE_CRUSADER = _G.GetMapNameByID(543),
+	THE_LOST_ISLES = _G.GetMapNameByID(544),
 	ICECROWN_CITADEL = _G.GetMapNameByID(604),
 	MOUNT_HYJAL = _G.GetMapNameByID(606),
 	SOUTHERN_BARRENS = _G.GetMapNameByID(607),
@@ -759,7 +760,12 @@ end
 -------------------------------------------------------------------------------
 private.BOSS_NAMES = {
 
+	LORD_AURIUS_RIVENDARE = _G.EJ_GetEncounterInfo(456),
+	KAELTHAS_SUNSTRIDER = _G.EJ_GetEncounterInfo(533),
+	ANZU = _G.EJ_GetEncounterInfo(542),
 	ANUBARAK = _G.EJ_GetEncounterInfo(587),
+	LEY_GUARDIAN_EREGOS = _G.EJ_GetEncounterInfo(625),
+	SKADI_THE_RUTHLESS = _G.EJ_GetEncounterInfo(643),
 
 }
 

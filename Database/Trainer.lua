@@ -27,11 +27,16 @@ end
 
 function addon:InitTrainer()
 
+	private:AddTrainer(461,		L["Demisette Cloyce"],		Z.STORMWIND_CITY,	39.6,	84.4, "Alliance")
+	private:AddTrainer(906,		L["Maximillian Crowe"],		Z.ELWYNN_FOREST,	44.4,	66.0, "Alliance")
 	private:AddTrainer(927,		L["Brother Wilhelm"],		Z.ELWYNN_FOREST,	41.0,	65.8, "Alliance")
 	private:AddTrainer(928,		L["Lord Grayson Shadowbreaker"],Z.STORMWIND_CITY,	52.6,	45.0, "Alliance")
+	private:AddTrainer(3172,	L["Dhugru Gorelust"],		Z.DUROTAR,		54.2,	41.2, "Horde")
 	private:AddTrainer(1232,	L["Azar Stronghammer"],		Z.DUN_MOROGH,		54.6,	50.4, "Alliance")
+	private:AddTrainer(2127,	L["Rupert Boch"],		Z.TIRISFAL_GLADES,	61.0,	50.4, "Horde")
 	private:AddTrainer(5148,	L["Beldruk Doombrow"],		Z.IRONFORGE,		24.6,	 5.6, "Alliance")
 	private:AddTrainer(5149,	L["Brandur Ironhammer"],	Z.IRONFORGE,		24.0,	 6.8, "Alliance")
+	private:AddTrainer(5172,	L["Briarthorn"],		Z.IRONFORGE,		51.0,	 5.2, "Alliance")
 	private:AddTrainer(5491,	L["Arthur the Faithful"],	Z.STORMWIND_CITY,	52.6,	45.4, "Alliance")
 	private:AddTrainer(5492,	L["Katherine the Pure"],	Z.STORMWIND_CITY,	52.6,	45.0, "Alliance")
 	private:AddTrainer(8664,	L["Sunwalker Saern"],		Z.THUNDER_BLUFF,	63.0,	79.8, "Horde")
@@ -40,6 +45,7 @@ function addon:InitTrainer()
 	private:AddTrainer(17844,	L["Vindicator Aesom"], 		Z.BLOODMYST_ISLE, 	55.6,	55.6, "Alliance")
 	private:AddTrainer(20406,	L["Champion Cyssa Dawnrose"], 	Z.UNDERCITY,	 	57.8,	90.8, "Horde")
 	private:AddTrainer(23128,	L["Master Pyreanor"], 		Z.ORGRIMMAR,	 	49.2,	71.2, "Horde")
+	private:AddTrainer(36519,	L["Evol Fingers"], 		Z.THE_LOST_ISLES, 	36.0,	67.2, "Horde")
 	private:AddTrainer(43013,	L["Sunwalker Iopi"], 		Z.MULGORE,	 	48.6,	58.8, "Horde")
 	private:AddTrainer(44725,	L["Sunwalker Atohmo"], 		Z.ORGRIMMAR,	 	45.2,	53.6, "Horde")
 	private:AddTrainer(49793,	L["Faldoc Stonefaith"],		Z.LOCH_MODAN,		35.4,	48.4, "Alliance")
@@ -49,6 +55,7 @@ function addon:InitTrainer()
 	private:AddTrainer(50035,	L["Sunwalker Lonaki"],		Z.NORTHERN_BARRENS, 	49.6,	61.2, "Horde")
 	private:AddTrainer(50150,	L["Nelur Lightsown"], 		Z.DALARAN,	 	60.2,	25.8, "Horde")
 	private:AddTrainer(50160,	L["Rulen Lightsreap"], 		Z.DALARAN,	 	39.6,	62.6, "Alliance")
+	private:AddTrainer(50729,	L["Darba the Crone"],		Z.IRONFORGE,		52.0,	 7.0, "Alliance")
 
 	self.InitTrainer = nil
 end

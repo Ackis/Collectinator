@@ -69,6 +69,10 @@ function addon:InitQuest()
 	AddQuest(7675,	Z.DUN_MOROGH,			56.2,	46.2,	"Alliance")
 	AddQuest(7676,	Z.DUN_MOROGH,			56.2,	46.2,	"Alliance")
 	AddQuest(10898,	Z.TEROKKAR_FOREST,		56.6,	72.8,	"Neutral")
+	AddQuest(13422,	Z.THE_STORM_PEAKS,		49.4,	68.8,	"Neutral")
+	AddQuest(13423,	Z.THE_STORM_PEAKS,		49.4,	68.8,	"Neutral")
+	AddQuest(13424,	Z.THE_STORM_PEAKS,		49.4,	68.8,	"Neutral")
+	AddQuest(13425,	Z.THE_STORM_PEAKS,		49.4,	68.8,	"Neutral")
 	AddQuest(13570,	Z.DARKSHORE,			50.8,	18.0,	"Alliance")
 	AddQuest(13702,	Z.ICECROWN,			76.6,	19.2,	"Alliance") -- Quest IDs 13702, 13732-13735
 	AddQuest(13736,	Z.ICECROWN,			76.6,	24.4,	"Horde") -- Quest IDs 13736-13740
@@ -83,6 +87,9 @@ function addon:InitQuest()
 	AddQuest(29401, Z.ORGRIMMAR,			48.0,	47.0,	"Horde")
 	AddQuest(29412,	Z.STORMWIND_CITY,		58.8,	52.8,	"Alliance")
 	AddQuest(29905,	Z.THE_JADE_FOREST,		58.9,	81.7,	"Alliance")
+	AddQuest(30188,	Z.THE_JADE_FOREST,		57.6,	44.8,	"Neutral")
+	AddQuest(31810,	Z.THE_JADE_FOREST,		57.6,	44.8,	"Neutral")
+	AddQuest(31811,	Z.THE_JADE_FOREST,		57.6,	44.8,	"Neutral")
 
 	self.InitQuest = nil
 end

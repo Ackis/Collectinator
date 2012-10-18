@@ -1320,7 +1320,7 @@ function addon:InitMounts()
 	-- Kor'kron Annihilator -- 93644
 	mount = AddMount(93644, V.CATA, Q.EPIC) -- Item: 67107
 	mount:SetItemID(67107)
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.ACHIEVEMENT, F.GUILD, F.REPUTATION)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.ACHIEVEMENT, F.REPUTATION)
 	mount:SetRequiredFaction("Horde")
 	mount:AddAchievement(5492)
 	mount:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51503, 51512, 52268)
@@ -1551,55 +1551,59 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	mount:AddCustom("MYSTERIOUS_EGG")
 
-	--mount:AddFilters(61294, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.ORACLES)
-	--self:AddCompanionAcquire(DB, 61294, A_REPUTATION, 1105, REVERED, 31910, A_CUSTOM, 16)
-
 	-- Ashes of Al'ar - 40192
 	mount = AddMount(40192, V.TBC, Q.EPIC) -- Item: 32458
-	--mount:AddFilters(40192, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 40192, A_MOB, 19622)
+	mount:SetItemID(32458)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:AddMobDrop(19622)
 
 	-- Reins of the White Polar Bear - 54753
 	mount = AddMount(54753, V.WOTLK, Q.EPIC) -- Item: 43962
-	--mount:AddFilters(54753, F.ALLIANCE, F.HORDE, F.QUEST, F.BOP)
-	--self:AddCompanionAcquire(DB, 54753, A_QUEST, 13422, A_QUEST, 13423, A_QUEST, 13424, A_QUEST, 13425)
+	mount:SetItemID(43962)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(13422, 13423, 13424, 13425)
 
 	-- Swift White Hawkstrider - 46628
 	mount = AddMount(46628, V.TBC, Q.EPIC) -- Item: 35513
-	--mount:AddFilters(46628, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 46628, A_MOB, 24664)
+	mount:SetItemID(35513)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
+	mount:AddMobDrop(24664)
 
 	-- Reins of the Raven Lord - 41252
 	mount = AddMount(41252, V.TBC, Q.EPIC) -- Item: 32768
-	--mount:AddFilters(41252, F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 41252, A_MOB, 23035, A_ACHIEVEMENT, 883)
+	mount:SetItemID(32768)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
+	mount:AddMobDrop(23035)
 
 	-- Fiery Warhorse's Reins - 36702
 	mount = AddMount(36702, V.TBC, Q.EPIC) -- Item: 30480
-	--mount:AddFilters(36702, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 36702, A_MOB, 15550)
+	mount:SetItemID(30480)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:AddMobDrop(15550)
 
 	-- Deathcharger's Reins - 17481
 	mount = AddMount(17481, V.ORIG, Q.EPIC) -- Item: 13335
-	--mount:AddFilters(17481, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.BOP)
-	--self:AddCompanionAcquire(DB, 17481, A_MOB, 10440)
+	mount:SetItemID(13335)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
+	mount:AddMobDrop(45412)
 
 	-- Invincible's Reins - 72286
 	mount = AddMount(72286, V.WOTLK, Q.EPIC) -- Item: 50818
-	--mount:AddFilters(72286, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.BOP)
-	--self:AddCompanionAcquire(DB, 72286, A_MOB, 36597, A_ACHIEVEMENT, 4625)
+	mount:SetItemID(50818)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:AddMobDrop(36597)
 
 	-- Felsteed - 5784
 	mount = AddMount(5784, V.ORIG, Q.COMMON)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
 	mount:SetRequiredClass("WARLOCK")
-	mount:AddTrainer(50028)
+	mount:AddTrainer(461, 906, 2127, 3172, 3324, 3325, 3326, 4565, 5171, 5172, 5495, 5496, 6251, 35778, 36519, 45720, 49998, 50028, 50142, 50156, 50502, 50729)
 
 	-- Dreadsteed - 23161
 	mount = AddMount(23161, V.ORIG, Q.COMMON)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
 	mount:SetRequiredClass("WARLOCK")
-	mount:AddTrainer(50028)
+	mount:AddTrainer(461, 906, 2127, 3172, 3324, 3325, 3326, 4565, 5171, 5172, 5495, 5496, 6251, 35778, 36519, 45720, 49998, 50028, 50142, 50156, 50502, 50729)
 
 	--[[
 --CLASS
@@ -2122,10 +2126,12 @@ function addon:InitMounts()
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Azure Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Azure Cloud Serpent -- 123992
+	mount = AddMount(123992, V.MOP, Q.EPIC)
+	mount:SetItemID(85430)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.REPUTATION, F.CLOUDSERPENT)
+	mount:AddRepVendor(FAC.CLOUDSERPENT, REP.EXALTED, 58414)
+	mount:AddQuest(31810)
 
 	-- Azure Riding Crane -- 127174
 	mount = AddMount(127174, V.MOP, Q.EPIC)
@@ -2211,12 +2217,17 @@ function addon:InitMounts()
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
+	-- Golden Cloud Serpent -- 123993
+	mount = AddMount(123993, V.MOP, Q.EPIC)
+	mount:SetItemID(85429)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.REPUTATION, F.CLOUDSERPENT)
+	mount:AddRepVendor(FAC.CLOUDSERPENT, REP.EXALTED, 58414)
+
 	-- Golden Riding Crane -- -127176
 	mount = AddMount(127176, V.MOP, Q.EPIC)
 	mount:SetItemID(87782)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.GOLDENLOTUS)
 	mount:AddRepVendor(FAC.GOLDENLOTUS, REP.EXALTED, 59908)
-
 
 	-- Grand Expedition Yak -- 122708
 	mount = AddMount(122708, V.MOP, Q.EPIC)
@@ -2295,10 +2306,12 @@ function addon:InitMounts()
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Jade Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Jade Cloud Serpent -- 113199
+	mount = AddMount(113199, V.MOP, Q.EPIC)
+	mount:SetItemID(79802)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.REPUTATION, F.CLOUDSERPENT)
+	mount:AddRepVendor(FAC.CLOUDSERPENT, REP.EXALTED, 58414)
+	mount:AddQuest(30188)
 
 -- Jade Panther
 -- mount = AddMount(, V.MOP, )

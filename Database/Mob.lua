@@ -39,10 +39,14 @@ function addon:InitMob()
 	end
 
 	AddMob(10184,	BB["Onyxia"],				Z.ONYXIAS_LAIR,			68.0, 35.2)
+	AddMob(15550,	BB["Attumen the Huntsman"],		Z.KARAZHAN,			 0.0,  0.0)
+	AddMob(19622,   BN.KAELTHAS_SUNSTRIDER,			Z.TEMPEST_KEEP,			50.0, 15.6)
+	AddMob(23035,	BN.ANZU,				Z.SETHEKK_HALLS,		32.6, 58.0)
 	AddMob(23682,	BB["Headless Horseman"],		Z.SCARLET_MONASTERY,		 0.0,  0.0)
 	AddMob(23872,	BB["Coren Direbrew"],			Z.BLACKROCK_DEPTHS,		 0.0,  0.0)
-	AddMob(26693,	BB["Skadi the Ruthless"],		Z.UTGARDE_PINNACLE,		69.8, 36.4)
-	AddMob(27656,	BB["Ley-Guardian Eregos"],		Z.THE_OCULUS,			 0.0,  0.0)
+	AddMob(24664,   BN.KAELTHAS_SUNSTRIDER,			Z.MAGISTERS_TERRACE,		 8.6, 50.6)
+	AddMob(26693,	BN.SKADI_THE_RUTHLESS,			Z.UTGARDE_PINNACLE,		69.8, 36.4)
+	AddMob(27656,	BN.LEY_GUARDIAN_EREGOS,			Z.THE_OCULUS,			 0.0,  0.0)
 	AddMob(28859,	BB["Malygos"],				Z.THE_EYE_OF_ETERNITY,		 0.0,  0.0)
 	AddMob(28860,	BB["Sartharion"],			Z.THE_OBSIDIAN_SANCTUM,		 0.0,  0.0)
 	AddMob(31125,	BB["Archavon the Stone Watcher"],	Z.VAULT_OF_ARCHAVON,		49.2, 17.0)
@@ -52,8 +56,10 @@ function addon:InitMob()
 	AddMob(33993,	BB["Emalon the Storm Watcher"],		Z.VAULT_OF_ARCHAVON,		62.6, 55.4)
 	AddMob(35013,	BB["Koralon the Flame Watcher"],	Z.VAULT_OF_ARCHAVON,		36.0, 55.4)
 	AddMob(36296,	L["Apothecary Hummel"],			Z.SHADOWFANG_KEEP,		41.8, 53.6)
+	AddMob(36597,	BB["The Lich King"],			Z.ICECROWN_CITADEL,		 0.0,  0.0)
 	AddMob(38433,	BB["Toravon the Ice Watcher"],		Z.VAULT_OF_ARCHAVON,		62.6, 36.8)
 	AddMob(34564,	BN.ANUBARAK,				Z.TRIAL_OF_THE_CRUSADER,	 0.0,  0.0)
+	AddMob(45412,	BN.LORD_AURIUS_RIVENDARE,		Z.STRATHOLME,			38.6, 20.2)
 
 	self.InitMob = nil
 end
