@@ -1605,98 +1605,117 @@ function addon:InitMounts()
 	mount:SetRequiredClass("WARLOCK")
 	mount:AddTrainer(461, 906, 2127, 3172, 3324, 3325, 3326, 4565, 5171, 5172, 5495, 5496, 6251, 35778, 36519, 45720, 49998, 50028, 50142, 50156, 50502, 50729)
 
-	--[[
---CLASS
-	if MY_CLASS == "DEATHKNIGHT" then
-		-- Acherus Deathcharger - 48778
-		mount = AddMount(48778, nil, 1, V.WOTLK, C_DK)
-		--mount:AddFilters(48778, F.ALLIANCE, F.HORDE, F.QUEST, F.BOP)
-		--self:AddCompanionAcquire(DB, 48778, A_QUEST, 12687)
+	-- Acherus Deathcharger - 48778
+	mount = AddMount(48778, V.WOTLK, Q.COMMON)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
+	mount:SetRequiredClass("DEATHKNIGHT")
+	mount:AddQuest(12687)
 
-		-- Winged Steed of the Ebon Blade - 54729
-		mount = AddMount(54729, C_DK, Q.EPIC, V.WOTLK) -- Item: 40775
-		--mount:AddFilters(54729, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
-		--self:AddCompanionAcquire(DB, 54729, A_VENDOR, 29587)
-	end
+	-- Winged Steed of the Ebon Blade - 54729
+	mount = AddMount(54729, V.WOTLK, Q.EPIC) -- Item: 40775
+	mount:SetItemID(40775)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.IBOP, F.EBONBLADE)
+	mount:SetRequiredClass("DEATHKNIGHT")
+	mount:AddRepVendor(FAC.EBONBLADE, REP.EXALTED, 29587)
 
 --REP VENDOR ARGENT
-	if MY_CLASS == "PALADIN" then
-		-- Argent Charger - 66906
-		mount = AddMount(66906, C_PALADIN, Q.EPIC, V.WOTLK) -- Item: 47179
-		--mount:AddFilters(66906, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
-		--self:AddCompanionAcquire(DB, 66906, A_VENDOR, 34885)
-	end
-]]--
+	-- Argent Charger - 66906
+	mount = AddMount(66906, V.WOTLK, Q.EPIC) -- Item: 47179
+	mount:SetItemID(47179)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredClass("PALADIN")
+	mount:AddVendor(34885)
+
 --REP VENDOR NEUTRAL
 	-- Argent Warhorse - 67466
 	mount = AddMount(67466, V.WOTLK, Q.EPIC) -- Item: 47180
-	--mount:AddFilters(67466, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
-	--self:AddCompanionAcquire(DB, 67466, A_VENDOR, 34885)
+	mount:SetItemID(47180)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(34885)
 
 	-- Reins of the Red Drake - 59570
 	mount = AddMount(59570, V.WOTLK, Q.EPIC) -- Item: 43955
-	--mount:AddFilters(59570, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.WYRMREST)
-	--self:AddCompanionAcquire(DB, 59570, A_REPUTATION, 1091, EXALTED, 32533)
+	mount:SetItemID(43955)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.WYRMREST)
+	mount:AddRepVendor(FAC.WYRMREST, REP.EXALTED, 32533)
 
 	-- Cenarion War Hippogryph - 43927
 	mount = AddMount(43927, V.TBC, Q.EPIC) -- Item: 33999
-	--mount:AddFilters(43927, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.CENARION_EXPEDITION)
-	--self:AddCompanionAcquire(DB, 43927, A_REPUTATION, 942, EXALTED, 17904)
+	mount:SetItemID(33999)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.CENARION_EXPEDITION)
+	mount:AddRepVendor(FAC.CENARION_EXPEDITION, REP.EXALTED, 17904)
 
 	-- Green Riding Nether Ray - 39798
 	mount = AddMount(39798, V.TBC, Q.EPIC) -- Item: 32314
-	--mount:AddFilters(39798, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.SKYGUARD)
-	--self:AddCompanionAcquire(DB, 39798, A_REPUTATION, 1031, EXALTED, 23367)
+	mount:SetItemID(32314)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SKYGUARD)
+	mount:AddRepVendor(FAC.SKYGUARD, REP.EXALTED, 23367)
 
 	-- Red Riding Nether Ray - 39800
 	mount = AddMount(39800, V.TBC, Q.EPIC) -- Item: 32317
-	--mount:AddFilters(39800, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.SKYGUARD)
-	--self:AddCompanionAcquire(DB, 39800, A_REPUTATION, 1031, EXALTED, 23367)
+	mount:SetItemID(32317)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SKYGUARD)
+	mount:AddRepVendor(FAC.SKYGUARD, REP.EXALTED, 23367)
 
 	-- Purple Riding Nether Ray - 39801
 	mount = AddMount(39801, V.TBC, Q.EPIC) -- Item: 32316
-	--mount:AddFilters(39801, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.SKYGUARD)
-	--self:AddCompanionAcquire(DB, 39801, A_REPUTATION, 1031, EXALTED, 23367)
+	mount:SetItemID(32316)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SKYGUARD)
+	mount:AddRepVendor(FAC.SKYGUARD, REP.EXALTED, 23367)
 
 	-- Silver Riding Nether Ray - 39802
 	mount = AddMount(39802, V.TBC, Q.EPIC) -- Item: 32318
-	--mount:AddFilters(39802, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.SKYGUARD)
-	--self:AddCompanionAcquire(DB, 39802, A_REPUTATION, 1031, EXALTED, 23367)
+	mount:SetItemID(32318)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SKYGUARD)
+	mount:AddRepVendor(FAC.SKYGUARD, REP.EXALTED, 23367)
 
 	-- Blue Riding Nether Ray - 39803
 	mount = AddMount(39803, V.TBC, Q.EPIC) -- Item: 32319
-	--mount:AddFilters(39803, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.SKYGUARD)
-	--self:AddCompanionAcquire(DB, 39803, A_REPUTATION, 1031, EXALTED, 23367)
+	mount:SetItemID(32319)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SKYGUARD)
+	mount:AddRepVendor(FAC.SKYGUARD, REP.EXALTED, 23367)
 
 	-- Reins of the Onyx Netherwing Drake - 41513
 	mount = AddMount(41513, V.TBC, Q.EPIC) -- Item: 32857
-	--mount:AddFilters(41513, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NETHERWING)
-	--self:AddCompanionAcquire(DB, 41513, A_REPUTATION, 1015, EXALTED, 23489, A_QUEST, 11111)
+	mount:SetItemID(32319)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NETHERWING, F.QUEST)
+	mount:AddRepVendor(FAC.NETHERWING, REP.EXALTED, 23489)
+	mount:AddQuest(11111)
 
 	-- Reins of the Azure Netherwing Drake - 41514
 	mount = AddMount(41514, V.TBC, Q.EPIC) -- Item: 32858
-	--mount:AddFilters(41514, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NETHERWING)
-	--self:AddCompanionAcquire(DB, 41514, A_REPUTATION, 1015, EXALTED, 23489, A_QUEST, 11111)
+	mount:SetItemID(32858)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NETHERWING, F.QUEST)
+	mount:AddRepVendor(FAC.NETHERWING, REP.EXALTED, 23489)
+	mount:AddQuest(11111)
 
 	-- Reins of the Cobalt Netherwing Drake - 41515
 	mount = AddMount(41515, V.TBC, Q.EPIC) -- Item: 32859
-	--mount:AddFilters(41515, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NETHERWING)
-	--self:AddCompanionAcquire(DB, 41515, A_REPUTATION, 1015, EXALTED, 23489, A_QUEST, 11111)
+	mount:SetItemID(32859)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NETHERWING, F.QUEST)
+	mount:AddRepVendor(FAC.NETHERWING, REP.EXALTED, 23489)
+	mount:AddQuest(11111)
 
 	-- Reins of the Purple Netherwing Drake - 41516
 	mount = AddMount(41516, V.TBC, Q.EPIC) -- Item: 32860
-	--mount:AddFilters(41516, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NETHERWING)
-	--self:AddCompanionAcquire(DB, 41516, A_REPUTATION, 1015, EXALTED, 23489, A_QUEST, 11111)
+	mount:SetItemID(32860)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NETHERWING, F.QUEST)
+	mount:AddRepVendor(FAC.NETHERWING, REP.EXALTED, 23489)
+	mount:AddQuest(11111)
 
 	-- Reins of the Veridian Netherwing Drake - 41517
 	mount = AddMount(41517, V.TBC, Q.EPIC) -- Item: 32861
-	--mount:AddFilters(41517, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NETHERWING)
-	--self:AddCompanionAcquire(DB, 41517, A_REPUTATION, 1015, EXALTED, 23489, A_QUEST, 11111)
+	mount:SetItemID(32861)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NETHERWING, F.QUEST)
+	mount:AddRepVendor(FAC.NETHERWING, REP.EXALTED, 23489)
+	mount:AddQuest(11111)
 
 	-- Reins of the Violet Netherwing Drake - 41518
 	mount = AddMount(41518, V.TBC, Q.EPIC) -- Item: 32862
-	--mount:AddFilters(41518, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NETHERWING)
-	--self:AddCompanionAcquire(DB, 41518, A_REPUTATION, 1015, EXALTED, 23489, A_QUEST, 11111)
+	mount:SetItemID(32862)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NETHERWING, F.QUEST)
+	mount:AddRepVendor(FAC.NETHERWING, REP.EXALTED, 23489)
+	mount:AddQuest(11111)
 
 	-- Reins of the Cobalt Riding Talbuk - 39315
 	mount = AddMount(39315, V.TBC, Q.EPIC) -- Item: 31829
