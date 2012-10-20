@@ -237,7 +237,7 @@ private.FLAG_WORDS = {
 -- Member names within a collectable's flags table.
 private.FLAG_MEMBERS = {
 	"common1",
-	"class1",
+	--"class1",
 	"reputation1",
 	"reputation2",
 	"item1",

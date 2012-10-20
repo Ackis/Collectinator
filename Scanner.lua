@@ -610,25 +610,15 @@ do
 		if not collectable then
 			return
 		end
-
-		if collectable:HasFilter("common1", "ALLIANCE") then
-			table.insert(flags, #flags + 1, "F.ALLIANCE")
-		end
-
-		if collectable:HasFilter("common1", "HORDE") then
-			table.insert(flags, #flags + 1, "F.HORDE")
-		end
-
-		if collectable:HasFilter("common1", "IBOE") then
-			table.insert(flags, #flags + 1, "F.IBOE")
-		end
-
-		if collectable:HasFilter("common1", "IBOP") then
-			table.insert(flags, #flags + 1, "F.IBOP")
-		end
-
-		if collectable:HasFilter("common1", "IBOA") then
-			table.insert(flags, #flags + 1, "F.IBOA")
+	
+		for i,k in pairs(private.FLAG_WORDS) do
+			local flag_word = private.FLAG_MEMBERS[i]
+			for flag_name,l in pairs(k) do
+				if collectable:HasFilter(flag_word, flag_name) then
+					print(private.FLAG_MEMBERS[i] .. "." .. flag_name)
+					table.insert(flags, #flags + 1, flag_name)
+				end
+			end
 		end
 
 		return flags
@@ -688,7 +678,7 @@ do
 			output:AddLine(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet.genesis, quality))
 		end
 
-		--CheckExistingFlags(pet)
+		CheckExistingFlags(pet)
 		flag_list = GetExistingFlags(pet)
 		if flag_list then
 			--addon:Print(table.concat(flag_list,", "))
