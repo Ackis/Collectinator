@@ -434,6 +434,7 @@ function private.InitializeFilterPanel()
 			trainer		= { tt = AcquireDesc(L["Trainer"]),		text = L["Trainer"],		row = 6, col = 2 },
 			store		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_10),	text = _G.BATTLE_PET_SOURCE_10,	row = 7, col = 1 },
 			tcg		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_9),	text = _G.BATTLE_PET_SOURCE_9,	row = 7, col = 2 },
+			coll_edition	= { tt = AcquireDesc(L["Collectors Edition"]),	text = L["Collectors Edition"],	row = 8, col = 1 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
@@ -1079,6 +1080,7 @@ function private.InitializeFilterPanel()
 		["worlddrop"]		= { cb = FilterPanel.obtain.worlddrop,		svroot = filterdb.obtain },
 		["store"]		= { cb = FilterPanel.obtain.store,		svroot = filterdb.obtain },
 		["tcg"]			= { cb = FilterPanel.obtain.tcg,		svroot = filterdb.obtain },
+		["coll_edition"]	= { cb = FilterPanel.obtain.coll_edition,	svroot = filterdb.obtain },
 		------------------------------------------------------------------------------------------------
 		-- Binding Options
 		------------------------------------------------------------------------------------------------

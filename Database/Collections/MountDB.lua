@@ -2022,46 +2022,59 @@ function addon:InitMounts()
 
 	-- Vitreous Stone Drake -- 88746
 	mount = AddMount(88746, V.CATA, Q.EPIC) -- Item: 63043
-	--mount:AddFilters(88746, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 88746, A_MOB, 43214)
+	mount:SetItemID(63043)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.IBOP)
+	mount:AddMobDrop(43214)
 
 	-- Phosphorescent Stone Drake -- 88718
 	mount = AddMount(88718, V.CATA, Q.EPIC) -- Item: 63042
-	--mount:AddFilters(88718, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 88718, A_MOB, 50062)
+	mount:SetItemID(63042)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	mount:AddMobDrop(50062)
 
 	-- Dark Phoenix -- 88990
 	mount = AddMount(88990, V.CATA, Q.EPIC) -- Item: 63125
-	--mount:AddFilters(88990, F.ALLIANCE, F.HORDE, F.VENDOR, F.ACHIEVEMENT, F.BOP)
-	--self:AddCompanionAcquire(DB, 88990, A_ACHIEVEMENT, 4988)
+	mount:SetItemID(63125)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.ACHIEVEMENT, F.IBOP)
+	mount:AddAchievement(4988)
+	mount:AddVendor(46572, 46602, 51495, 51496, 51503, 51504, 51512, 52268)
 
 	-- Ultramarine Qiraji Battle Tank -- 92155
 	mount = AddMount(92155, V.CATA, Q.EPIC) -- Item: 64883
-	--mount:AddFilters(92155, F.ALLIANCE, F.HORDE, F.CRAFT, F.BOP)
-	--self:AddCompanionAcquire(DB, 92155, A_CUSTOM, 42)
+	mount:SetItemID(64883)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PROFESSION, F.IBOP)
+	mount:AddProfession(PROF.ARCHAEOLOGY)
 
 	-- Volcanic Stone Drake -- 88331
 	mount = AddMount(88331, V.CATA, Q.EPIC) -- Item: 62900
-	--mount:AddFilters(88331, F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.BOP)
-	--self:AddCompanionAcquire(DB, 88331, A_ACHIEVEMENT, 4845)
+	mount:SetItemID(62900)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP)
+	mount:AddAchievement(4845)
 
 	-- Sandstone Drake -- 93326
 	mount = AddMount(93326, V.CATA, Q.EPIC) -- Item: 65891
-	--mount:AddFilters(93326, F.ALLIANCE, F.HORDE, F.CRAFT, F.BOP)
-	--self:AddCompanionAcquire(DB, 93326, A_PROFESSION, 51304, 93328)
+	mount:SetItemID(65891)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PROFESSION, F.IBOP)
+	mount:AddProfession(PROF.ALCHEMY)
 
 	-- Drake of the East Wind -- 88335
 	mount = AddMount(88335, V.CATA, Q.EPIC) -- Item: 62901
-	--mount:AddFilters(88335, F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.BOP)
-	--self:AddCompanionAcquire(DB, 88335, A_ACHIEVEMENT, 4853)
+	mount:SetItemID(62901)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP)
+	mount:AddAchievement(4853)
 
 	-- Armored Razzashi Raptor -- 96491
 	mount = AddMount(96491, V.CATA, Q.EPIC) -- Item: 68823
-	--mount:AddFilters(96491, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 96491, A_MOB, 52151)
+	mount:SetItemID(68823)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.IBOP)
+	mount:AddMobDrop(52151)
 
 	-- Swift Zulian Panther -- 96499
 	mount = AddMount(96499, V.CATA, Q.EPIC) -- Item: 68824
+	mount:SetItemID(68824)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.IBOP)
+	mount:AddMobDrop(52151)
+	
 	--mount:AddFilters(96499, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.BOP)
 	--self:AddCompanionAcquire(DB, 96499, A_MOB, 52059)
 
@@ -2510,7 +2523,6 @@ function addon:InitMounts()
 
 	-- Great Brown Dragon Turtle -- 127308
 	mount = AddMount(127308, V.MOP, Q.COMMON)
-
 
 ----------------------------------------------------------------------------------------------------
 

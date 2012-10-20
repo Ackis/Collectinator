@@ -528,13 +528,14 @@ function private.InitializeListFrame()
 			["quest"]	= { flag = COMMON1.QUEST,	field = "common1",	sv_root = obtain_filters },
 			["raid"]	= { flag = COMMON1.RAID,	field = "common1",	sv_root = obtain_filters },
 			["retired"]	= { flag = COMMON1.RETIRED,	field = "common1",	sv_root = general_filters },
-			["reputation"]	= { flag = COMMON1.REPUTATION,	field = "common1",	sv_root = obtain_filters},
+			["reputation"]	= { flag = COMMON1.REPUTATION,	field = "common1",	sv_root = obtain_filters },
 			["seasonal"]	= { flag = COMMON1.SEASONAL,	field = "common1",	sv_root = obtain_filters },
 			["store"]	= { flag = COMMON1.STORE,	field = "common1",	sv_root = obtain_filters },
 			["trainer"]	= { flag = COMMON1.TRAINER,	field = "common1",	sv_root = obtain_filters },
 			["vendor"]	= { flag = COMMON1.VENDOR,	field = "common1",	sv_root = obtain_filters },
 			["worlddrop"]	= { flag = COMMON1.WORLD_DROP,	field = "common1",	sv_root = obtain_filters },
 			["tcg"]		= { flag = COMMON1.TCG	,	field = "common1",	sv_root = obtain_filters },
+			["coll_edition"]= { flag = COMMON1.COLLECTORS_EDITION,	field = "common1",	sv_root = obtain_filters },
 		}
 
 		local REP1 = private.REP_FLAGS_WORD1

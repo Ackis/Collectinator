@@ -143,7 +143,7 @@ private.COMMON_FLAGS_WORD1 = {
 	IBOP		= 0x00004000,	-- 15
 	IBOA		= 0x00008000,	-- 16
 	TCG		= 0x00010000,	-- 17
---	RBOP		= 0x00020000,	-- 18
+	COLLECTORS_EDITION		= 0x00020000,	-- 18
 --	RBOA		= 0x00040000,	-- 19
 --	DPS		= 0x00080000,	-- 20
 --	TANK		= 0x00100000,	-- 21
@@ -285,6 +285,7 @@ private.ACQUIRE_NAMES = {
 	[10]	= _G.BATTLE_PET_SOURCE_4, -- Profession
 	[11]	= _G.BATTLE_PET_SOURCE_10, -- Store
 	[12]	= _G.BATTLE_PET_SOURCE_9, -- TCG
+	[13]	= L["Collectors Edition"],
 }
 
 private.ACQUIRE_STRINGS = {
@@ -300,6 +301,7 @@ private.ACQUIRE_STRINGS = {
 	[10]	= "PROFESSION",
 	[11]	= "STORE",
 	[12]	= "TCG",
+	[13]	= "COLLECTORS_EDITION",
 }
 
 private.ACQUIRE_TYPES = {}
@@ -718,6 +720,7 @@ private.ZONE_NAMES = {
 	SCARLET_MONASTERY = _G.GetMapNameByID(762),
 	SHADOWFANG_KEEP = _G.GetMapNameByID(764),
 	STRATHOLME = _G.GetMapNameByID(765),
+	THE_STONECORE = _G.GetMapNameByID(768),
 	THE_VORTEX_PINNACLE = _G.GetMapNameByID(769),
 	TWILIGHT_HIGHLANDS = _G.GetMapNameByID(770),
 	AHNQIRAJ_THE_FALLEN_KINGDOM = _G.GetMapNameByID(772),
@@ -726,6 +729,7 @@ private.ZONE_NAMES = {
 	SERPENTSHRINE_CAVERN = _G.GetMapNameByID(780),
 	TEMPEST_KEEP = _G.GetMapNameByID(782),
 	SUNWELL_PLATEAU = _G.GetMapNameByID(789),
+	ZULGURUB = _G.GetMapNameByID(793),
 	BLACK_TEMPLE = _G.GetMapNameByID(796),
 	MAGISTERS_TERRACE = _G.GetMapNameByID(798),
 	KARAZHAN = _G.GetMapNameByID(799),
@@ -769,8 +773,11 @@ end
 -------------------------------------------------------------------------------
 private.BOSS_NAMES = {
 
+	SLABHIDE = _G.EJ_GetEncounterInfo(111),
 	ALTAIRUS = _G.EJ_GetEncounterInfo(115),
 	ALAKIR = _G.EJ_GetEncounterInfo(155),
+	BLOODLORD_MANDOKIR = _G.EJ_GetEncounterInfo(176),
+	HIGH_PRIESTESS_KILNARA = _G.EJ_GetEncounterInfo(181),
 	LORD_AURIUS_RIVENDARE = _G.EJ_GetEncounterInfo(456),
 	KAELTHAS_SUNSTRIDER = _G.EJ_GetEncounterInfo(533),
 	ANZU = _G.EJ_GetEncounterInfo(542),
