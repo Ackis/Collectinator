@@ -492,13 +492,8 @@ private.LOCALIZED_FACTION_STRINGS = {
 }
 --[[
 private.LOCALIZED_FACTION_STRINGS = {
-	["Neutral"] = _G.FACTION_STANDING_LABEL4,
-	["Friendly"] = _G.FACTION_STANDING_LABEL5,
-	["Honored"] = _G.FACTION_STANDING_LABEL6,
-	["Revered"] = _G.FACTION_STANDING_LABEL7,
-	["Exalted"] = _G.FACTION_STANDING_LABEL8,
-	["Horde"] = _G.GetFactionInfoByID(67),
-	["Alliance"] = _G.GetFactionInfoByID(469),
+	["HORDE"] = _G.GetFactionInfoByID(67),
+	["ALLIANCE"] = _G.GetFactionInfoByID(469),
 	["THORIUM_BROTHERHOOD"] = _G.GetFactionInfoByID(59),
 	["ZANDALAR_TRIBE"] = _G.GetFactionInfoByID(270),
 	["ARGENT_DAWN"] = _G.GetFactionInfoByID(529),
