@@ -40,7 +40,9 @@ function addon:InitCustom()
 	AddCustom("CHAMPION_SEALS",	Z.ICECROWN)
 	AddCustom("SOR")
 	AddCustom("RECRUIT")
-	AddCustom("MYSTERIOUS_EGG",	Z.SHOLAZAR_BASIN,	54.6,	56.2)
+	AddCustom("MYSTERIOUS_EGG",	Z.SHOLAZAR_BASIN,		54.6,	56.2)
+	AddCustom("TCG",		Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	71.6)
+	AddCustom("STORE")
 
 	self.InitCustom = nil
 end

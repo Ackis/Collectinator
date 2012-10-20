@@ -700,7 +700,7 @@ function addon:InitMounts()
 	-- Golden King -- 90621
 	mount = AddMount(90621, V.CATA, Q.EPIC) -- Item: 62298
 	mount:SetItemID(62298)
-	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.ACHIEVEMENT, F.GUILD)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.ACHIEVEMENT, F.GUILD)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddAchievement(4912)
 	mount:AddRepVendor(FAC.GUILD, REP.EXALTED, 51512, 52268, 46602, 51495, 51504)
@@ -1719,43 +1719,59 @@ function addon:InitMounts()
 
 	-- Reins of the Cobalt Riding Talbuk - 39315
 	mount = AddMount(39315, V.TBC, Q.EPIC) -- Item: 31829
-	--mount:AddFilters(39315, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NAGRAND)
-	--self:AddCompanionAcquire(DB, 39315, A_REPUTATION, 978, EXALTED, 20240, A_REPUTATION, 941, EXALTED, 20241)
+	mount:SetItemID(31829)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
+	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
+	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the Silver Riding Talbuk - 39317
 	mount = AddMount(39317, V.TBC, Q.EPIC) -- Item: 31831
-	--mount:AddFilters(39317, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NAGRAND)
-	--self:AddCompanionAcquire(DB, 39317, A_REPUTATION, 978, EXALTED, 20240, A_REPUTATION, 941, EXALTED, 20241)
+	mount:SetItemID(31831)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
+	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
+	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the Tan Riding Talbuk - 39318
 	mount = AddMount(39318, V.TBC, Q.EPIC) -- Item: 31833
-	--mount:AddFilters(39318, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NAGRAND)
-	--self:AddCompanionAcquire(DB, 39318, A_REPUTATION, 978, EXALTED, 20240, A_REPUTATION, 941, EXALTED, 20241)
+	mount:SetItemID(31833)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
+	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
+	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the White Riding Talbuk - 39319
 	mount = AddMount(39319, V.TBC, Q.EPIC) -- Item: 31835
-	--mount:AddFilters(39319, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NAGRAND)
-	--self:AddCompanionAcquire(DB, 39319, A_REPUTATION, 978, EXALTED, 20240, A_REPUTATION, 941, EXALTED, 20241)
+	mount:SetItemID(31835)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
+	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
+	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the Cobalt War Talbuk - 34896
 	mount = AddMount(34896, V.TBC, Q.EPIC) -- Item: 29102
-	--mount:AddFilters(34896, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NAGRAND)
-	--self:AddCompanionAcquire(DB, 34896, A_REPUTATION, 978, EXALTED, 20240, A_REPUTATION, 941, EXALTED, 20241)
+	mount:SetItemID(29102)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
+	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
+	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the White War Talbuk - 34897
 	mount = AddMount(34897, V.TBC, Q.EPIC) -- Item: 29103
-	--mount:AddFilters(34897, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NAGRAND)
-	--self:AddCompanionAcquire(DB, 34897, A_REPUTATION, 978, EXALTED, 20240, A_REPUTATION, 941, EXALTED, 20241)
+	mount:SetItemID(29103)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
+	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
+	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the Silver War Talbuk - 34898
 	mount = AddMount(34898, V.TBC, Q.EPIC) -- Item: 29104
-	--mount:AddFilters(34898, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NAGRAND)
-	--self:AddCompanionAcquire(DB, 34898, A_REPUTATION, 978, EXALTED, 20240, A_REPUTATION, 941, EXALTED, 20241)
+	mount:SetItemID(29104)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
+	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
+	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the Tan War Talbuk - 34899
 	mount = AddMount(34899, V.TBC, Q.EPIC) -- Item: 29105
-	--mount:AddFilters(34899, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP, F.NAGRAND)
-	--self:AddCompanionAcquire(DB, 34899, A_REPUTATION, 978, EXALTED, 20240, A_REPUTATION, 941, EXALTED, 20241)
+	mount:SetItemID(31829)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
+	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
+	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
 
 --REP VENDOR ALLIANCE
 
@@ -1763,217 +1779,246 @@ function addon:InitMounts()
 
 	-- Swift Zulian Tiger - 24252
 	mount = AddMount(24252, V.ORIG, Q.EPIC) -- Item: 19902
-	--mount:AddFilters(24252, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.BOP, F.RETIRED)
-	--self:AddCompanionAcquire(DB, 24252, A_MOB, 14509)
+	mount:SetItemID(19902)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	-- Swift Razzashi Raptor - 24242
 	mount = AddMount(24242, V.ORIG, Q.EPIC) -- Item: 19872
-	--mount:AddFilters(24242, F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.BOP, F.RETIRED)
-	--self:AddCompanionAcquire(DB, 24242, A_MOB, 11382)
+	mount:SetItemID(19872)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	 -- Black Proto-Drake - 59976
 	mount = AddMount(59976, V.WOTLK, Q.EPIC) -- Item: 44164
-	--mount:AddFilters(59976, F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.ACHIEVEMENT)
-	--self:AddCompanionAcquire(DB, 59976, A_ACHIEVEMENT, 2138)
+	mount:SetItemID(44164)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	 -- Plagued Proto-Drake - 60021
 	mount = AddMount(60021, V.WOTLK, Q.EPIC) -- Item: 44175
-	--mount:AddFilters(60021, F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.ACHIEVEMENT)
-	--self:AddCompanionAcquire(DB, 60021, A_ACHIEVEMENT, 2137)
+	mount:SetItemID(44175)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	-- Amani War Bear - 43688
 	mount = AddMount(43688, V.TBC, Q.EPIC) -- Item: 33809
-	--mount:AddFilters(43688, F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.RAID)
-	--self:AddCompanionAcquire(DB, 43688, A_ACHIEVEMENT, 430)
+	mount:SetItemID(33809)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	-- Swift Nether Drake - 37015
 	mount = AddMount(37015, V.TBC, Q.EPIC) -- Item: 30609
-	--mount:AddFilters(37015, F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.PVP)
-	--self:AddCompanionAcquire(DB, 37015, A_CUSTOM, 30, A_ACHIEVEMENT, 886)
+	mount:SetItemID(30609)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	-- Merciless Nether Drake - 44744
 	mount = AddMount(44744, V.TBC, Q.EPIC) -- Item: 34092
-	--mount:AddFilters(44744, F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.PVP)
-	--self:AddCompanionAcquire(DB, 44744, A_CUSTOM, 20, A_ACHIEVEMENT, 887)
+	mount:SetItemID(34092)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	-- Vengeful Nether Drake - 49193
 	mount = AddMount(49193, V.TBC, Q.EPIC) -- Item: 37676
-	--mount:AddFilters(49193, F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.PVP)
-	--self:AddCompanionAcquire(DB, 49193, A_CUSTOM, 17, A_ACHIEVEMENT, 888)
+	mount:SetItemID(37676)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	-- Brutal Nether Drake - 58615
 	mount = AddMount(58615, V.WOTLK, Q.EPIC) -- Item: 43516
-	--mount:AddFilters(58615, F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.PVP)
-	--self:AddCompanionAcquire(DB, 58615, A_CUSTOM, 22, A_ACHIEVEMENT, 2316)
+	mount:SetItemID(43516)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	-- Deadly Gladiator's Frostwyrm - 64927
 	mount = AddMount(64927, V.WOTLK, Q.EPIC) -- Item: 46708
-	--mount:AddFilters(64927, F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.PVP)
-	--self:AddCompanionAcquire(DB, 64927, A_CUSTOM, 25, A_ACHIEVEMENT, 3096)
+	mount:SetItemID(46708)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	-- Furious Gladiator's Frostwyrm - 65439
 	mount = AddMount(65439, V.WOTLK, Q.EPIC) -- Item: 46171
-	--mount:AddFilters(65439, F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.PVP)
-	--self:AddCompanionAcquire(DB, 65439, A_CUSTOM, 26, A_ACHIEVEMENT, 3756)
+	mount:SetItemID(19902)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	-- Relentless Gladiator's Frostwyrm - 67336
 	mount = AddMount(67336, V.WOTLK, Q.EPIC)
-	--mount:AddFilters(67336, F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.PVP)
-	--self:AddCompanionAcquire(DB, 67336, A_CUSTOM, 32, A_ACHIEVEMENT, 3757)
+	mount:SetItemID(19902)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	-- Wrathful Gladiator's Frostwyrm - 71810
 	mount = AddMount(71810, V.WOTLK, Q.EPIC)
-	--mount:AddFilters(71810, F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.PVP)
-	--self:AddCompanionAcquire(DB, 71810, A_CUSTOM, 33, A_ACHIEVEMENT, 4600)
+	mount:SetItemID(19902)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
 	-- Blue Qiraji Battle Tank -- 25953
 	mount = AddMount(25953, V.ORIG, Q.RARE) -- Item: 21218
-	--mount:AddFilters(25953, F.ALLIANCE, F.HORDE, F.BOP, F.RAID)
-	--self:AddCompanionAcquire(DB, 25953, A_CUSTOM, 29)
+	mount:SetItemID(21218)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.WORLD_DROP)
+	mount:AddWorldDrop(Z.AHNQIRAJ_THE_FALLEN_KINGDOM)
 
 	-- Red Qiraji Battle Tank -- 26054
 	mount = AddMount(26054, V.ORIG, Q.RARE) -- Item: 21321
-	--mount:AddFilters(26054, F.ALLIANCE, F.HORDE, F.BOP, F.RAID)
-	--self:AddCompanionAcquire(DB, 26054, A_CUSTOM, 29)
+	mount:SetItemID(21321)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.WORLD_DROP)
+	mount:AddWorldDrop(Z.AHNQIRAJ_THE_FALLEN_KINGDOM)
 
 	-- Yellow Qiraji Battle Tank -- 26055
 	mount = AddMount(26055, V.ORIG, Q.RARE) -- Item: 21324
-	--mount:AddFilters(26055, F.ALLIANCE, F.HORDE, F.BOP, F.RAID)
-	--self:AddCompanionAcquire(DB, 26055, A_CUSTOM, 29)
+	mount:SetItemID(21324)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.WORLD_DROP)
+	mount:AddWorldDrop(Z.AHNQIRAJ_THE_FALLEN_KINGDOM)
 
 	-- Green Qiraji Battle Tank -- 26056
 	mount = AddMount(26056, V.ORIG, Q.RARE) -- Item: 21323
-	--mount:AddFilters(26056, F.ALLIANCE, F.HORDE, F.BOP, F.RAID)
-	--self:AddCompanionAcquire(DB, 26056, A_CUSTOM, 29)
+	mount:SetItemID(21323)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.WORLD_DROP)
+	mount:AddWorldDrop(Z.AHNQIRAJ_THE_FALLEN_KINGDOM)
 
 	-- Black Qiraji Resonating Crystal - 26656
 	mount = AddMount(26656, V.ORIG, R_LEGENDARY) -- Item: 21176
-	--mount:AddFilters(26656, F.ALLIANCE, F.HORDE, F.BOP, F.RAID, F.RETIRED)
-	--self:AddCompanionAcquire(DB, 26656, A_ACHIEVEMENT, 416)
+	mount:SetItemID(21176)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.RETIRED)
 
 --TCG
 	-- Riding Tutle - 30174
 	mount = AddMount(30174, V.ORIG, Q.EPIC) -- Item: 23720
-	--mount:AddFilters(30174, F.ALLIANCE, F.HORDE, F.TCG, F.BOP)
-	--self:AddCompanionAcquire(DB, 30174, A_CUSTOM, 1)
+	mount:SetItemID(23720)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOP)
+	mount:AddCustom("TCG")
 
 	-- Reins of the Spectral Tiger - 42776
 	mount = AddMount(42776, V.TBC, Q.RARE) -- Item: 49283
-	--mount:AddFilters(42776, F.ALLIANCE, F.HORDE, F.TCG, F.BOE)
-	--self:AddCompanionAcquire(DB, 42776, A_CUSTOM, 1)
+	mount:SetItemID(49283)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddCustom("TCG")
 
 	-- Reins of the Swift Spectral Tiger - 42777
 	mount = AddMount(42777, V.TBC, Q.EPIC) -- Item: 49284
-	--mount:AddFilters(42777, F.ALLIANCE, F.HORDE, F.TCG, F.BOE)
-	--self:AddCompanionAcquire(DB, 42777, A_CUSTOM, 1)
+	mount:SetItemID(49284)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddCustom("TCG")
 
 	-- X-51 Nether-Rocket - 46197
 	mount = AddMount(46197, V.TBC, Q.RARE) -- Item: 49285
-	--mount:AddFilters(46197, F.ALLIANCE, F.HORDE, F.TCG, F.BOE)
-	--self:AddCompanionAcquire(DB, 46197, A_CUSTOM, 1)
+	mount:SetItemID(49285)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddCustom("TCG")
 
 	-- X-51 Nether-Rocket X-TREME-- 46199
 	mount = AddMount(46199, V.TBC, Q.EPIC) -- Item: 49286
-	--mount:AddFilters(46199, F.ALLIANCE, F.HORDE, F.TCG, F.BOE)
-	--self:AddCompanionAcquire(DB, 46199, A_CUSTOM, 1)
+	mount:SetItemID(49286)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddCustom("TCG")
 
 	-- Big Battle Bear - 51412
 	mount = AddMount(51412, V.WOTLK, Q.EPIC) -- Item: 49282
-	--mount:AddFilters(51412, F.ALLIANCE, F.HORDE, F.TCG, F.BOE)
-	--self:AddCompanionAcquire(DB, 51412, A_CUSTOM, 1)
+	mount:SetItemID(49282)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddCustom("TCG")
 
 	-- Magic Rooster - 65917
 	mount = AddMount(65917, V.WOTLK, Q.EPIC) -- Item: 49290
-	--mount:AddFilters(65917, F.ALLIANCE, F.HORDE, F.TCG, F.BOE)
-	--self:AddCompanionAcquire(DB, 65917, A_CUSTOM, 1)
+	mount:SetItemID(49290)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddCustom("TCG")
 
 	-- Blazing Hippogryph - 74856
 	mount = AddMount(74856, V.WOTLK, Q.EPIC) -- Item: 54069
-	--mount:AddFilters(74856, F.ALLIANCE, F.HORDE, F.TCG, F.BOE)
-	--self:AddCompanionAcquire(DB, 74856, A_CUSTOM, 1)
+	mount:SetItemID(54069)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddCustom("TCG")
 
 	-- Savage Raptor -- 97581
 	mount = AddMount(97581, V.CATA, Q.EPIC) -- Item: 69228
-	--mount:AddFilters(97581, F.ALLIANCE, F.HORDE, F.TCG, F.BOP)
-	--self:AddCompanionAcquire(DB, 97581, A_CUSTOM, 1)
+	mount:SetItemID(69228)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOP)
+	mount:AddCustom("TCG")
 
 	-- Mottled Drake -- 93623
 	mount = AddMount(93623, V.CATA, Q.EPIC) -- Item: 68008
-	--mount:AddFilters(93623, F.ALLIANCE, F.HORDE, F.TCG, F.BOE)
-	--self:AddCompanionAcquire(DB, 93623, A_CUSTOM, 1)
+	mount:SetItemID(68008)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddCustom("TCG")
 
 	-- Wooly White Rhino -- 74918
 	mount = AddMount(74918, V.WOTLK, Q.EPIC) -- Item: 54068
-	--mount:AddFilters(74918, F.ALLIANCE, F.HORDE, F.TCG, F.BOE)
-	--self:AddCompanionAcquire(DB, 74918, A_CUSTOM, 1)
+	mount:SetItemID(54068)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddCustom("TCG")
 
 	-- Corrupted Hippogryph -- 102514
 	mount = AddMount(102514, V.CATA, Q.EPIC) -- Item: 72582
-	--mount:AddFilters(102514, F.ALLIANCE, F.HORDE, F.TCG, F.BOE)
-	--self:AddCompanionAcquire(DB, 102514, A_CUSTOM, 1)
+	mount:SetItemID(72582)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddCustom("TCG")
 
 -- PURCHASED
 	-- Celestial Steed - 75614
 	mount = AddMount(75614, V.WOTLK, Q.EPIC) -- Item: 54811
-	--mount:AddFilters(75614, F.ALLIANCE, F.HORDE, F.STORE, F.BOA)
-	--self:AddCompanionAcquire(DB, 75614, A_CUSTOM, 4)
+	mount:SetItemID(54811)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOA)
+	mount:AddCustom("STORE")
 
 	-- Winged Guardian -- 98727
 	mount = AddMount(98727, V.CATA, Q.EPIC) -- Item: 69846
-	--mount:AddFilters(98727, F.ALLIANCE, F.HORDE, F.STORE, F.BOA)
-	--self:AddCompanionAcquire(DB, 98727, A_CUSTOM, 4)
+	mount:SetItemID(69846)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOA)
+	mount:AddCustom("STORE")
 
 	-- Heart of the Aspects -- 110051
 	mount = AddMount(110051, V.CATA, Q.EPIC) -- Item: 78924
-	--mount:AddFilters(110051, F.ALLIANCE, F.HORDE, F.STORE, F.BOP)
-	--self:AddCompanionAcquire(DB, 110051, A_CUSTOM, 4)
+	mount:SetItemID(78924)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
+	mount:AddCustom("STORE")
 
 -- QUEST
 	-- Reins of the Crimson Deathcharger - 73313
 	mount = AddMount(73313, V.WOTLK, Q.EPIC) -- Item: 52200
-	--mount:AddFilters(73313, F.ALLIANCE, F.HORDE, F.QUEST, F.BOE)
-	--self:AddCompanionAcquire(DB, 73313, A_QUEST, 24915)
+	mount:SetItemID(52200)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE)
+	mount:AddQuest(24915)
 
 -- CATACLYSM ADDED
 	-- Abyssal Seahorse -- 75207
 	mount = AddMount(75207, V.CATA, Q.RARE) -- Item: 54465
-	--mount:AddFilters(75207, F.ALLIANCE, F.HORDE, F.QUEST, F.BOP)
-	--self:AddCompanionAcquire(DB, 75207, A_QUEST, 25371)
+	mount:SetItemID(54465)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
+	mount:AddQuest(25371)
 
 	-- Fossilized Raptor -- 84751
 	mount = AddMount(84751, V.CATA, Q.EPIC) -- Item: 60954
-	--mount:AddFilters(84751, F.ALLIANCE, F.HORDE, F.CRAFT, F.BOP)
-	--self:AddCompanionAcquire(DB, 84751, A_CUSTOM, 38)
+	mount:SetItemID(60954)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	mount:AddProfession(PROF.ARCHAEOLOGY)
 
-	-- Brown Riding Camel -- 88748  -- NNEED TO ADD THE NEW FACTION REPUTATION SHIT
+	-- Brown Riding Camel -- 88748
 	mount = AddMount(88748, V.CATA, Q.EPIC) -- Item: 63044
-	--mount:AddFilters(88748, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
-	--self:AddCompanionAcquire(DB, 88748, A_VENDOR, 48617)
+	mount:SetItemID(63044)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.RAMKAHEN)
+	mount:AddRepVendor(FAC.RAMKAHEN, REP.EXALTED, 48617)
 
 	-- Drake of the West Wind -- 88741
 	mount = AddMount(88741, V.CATA, Q.EPIC) -- Item: 65356
-	--mount:AddFilters(88741, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
-	--self:AddCompanionAcquire(DB, 88741, A_REPUTATION, 1178, EXALTED, 48531, A_REPUTATION, 1177, EXALTED, 47328)
+	mount:SetItemID(35356)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.IBOP, F.CATACOMMON2)
+	mount:AddRepVendor(FAC.BARADINS_WARDENS, REP.EXALTED, 47328)
+	mount:AddRepVendor(FAC.HELLSCREAMS_REACH, REP.EXALTED, 48531)
 
-	-- Tan Riding Camel -- 88749 -- NNEED TO ADD THE NEW FACTION REPUTATION SHIT
+	-- Tan Riding Camel -- 88749
 	mount = AddMount(88749, V.CATA, Q.EPIC) -- Item: 63045
-	--mount:AddFilters(88749, F.ALLIANCE, F.HORDE, F.VENDOR, F.BOP)
-	--self:AddCompanionAcquire(DB, 88749, A_VENDOR, 48617)
+	mount:SetItemID(63045)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.RAMKAHEN)
+	mount:AddRepVendor(FAC.RAMKAHEN, REP.EXALTED, 48617)
 
 	-- Grey Riding Camel -- 88750
 	mount = AddMount(88750, V.CATA, Q.EPIC) -- Item: 63046
-	--mount:AddFilters(88750, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 88750, A_MOB,  50245)
+	mount:SetItemID(63046)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	mount:AddMobDrop(50245)
 
 	-- Drake of the South Wind -- 88744
 	mount = AddMount(88744, V.CATA, Q.EPIC) -- Item: 63041
-	--mount:AddFilters(88744, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 88744, A_MOB, 46753)
+	mount:SetItemID(63041)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
+	mount:AddMobDrop(46753)
 
 	-- Drake of the North Wind -- 88742
 	mount = AddMount(88742, V.CATA, Q.EPIC) -- Item: 63040
-	--mount:AddFilters(88742, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.BOP)
-	--self:AddCompanionAcquire(DB, 88742, A_MOB, 43873)
+	mount:SetItemID(63040)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
+	mount:AddMobDrop(43873)
 
 	-- Vitreous Stone Drake -- 88746
 	mount = AddMount(88746, V.CATA, Q.EPIC) -- Item: 63043
