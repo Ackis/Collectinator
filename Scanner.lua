@@ -722,13 +722,18 @@ do
 		elseif source_text:match("Quest:") then
 			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Quest: ", ""):trim()
 			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)")
-			print(source_text)
+			local quest_name,quest_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
+			output:AddLine("--pet:AddQuest()")
 		elseif source_text:match("Vendor:") then
+			print(source_text)
 		elseif source_text:match("Drop:") then
+			print(source_text)
 		elseif source_text:match("Promotion:") then
+			print(source_text)
 		elseif source_text:match("Pet Store") then
+			print(source_text)
 		elseif source_text:match("Trading Card Game:") then
-		
+			print(source_text)
 		else
 			addon:Print("Unknown acquire method; " .. source_text)
 		end
