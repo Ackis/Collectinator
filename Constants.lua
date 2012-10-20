@@ -525,6 +525,7 @@ private.LOCALIZED_FACTION_STRINGS = {
 	["THE_SCALE_OF_THE_SANDS"] = _G.GetFactionInfoByID(990),
 	["LOWER_CITY"] = _G.GetFactionInfoByID(1011),
 	["ASHTONGUE_DEATHSWORN"] = _G.GetFactionInfoByID(1012),
+	["NETHERWING"] = _G.GetFactionInfoByID(1015),
 	["ALLIANCE_VANGUARD"] = _G.GetFactionInfoByID(1037),
 	["VALIANCE_EXPEDITION"] = _G.GetFactionInfoByID(1050),
 	["HORDE_EXPEDITION"] = _G.GetFactionInfoByID(1052),
