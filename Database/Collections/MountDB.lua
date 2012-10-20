@@ -1678,43 +1678,43 @@ function addon:InitMounts()
 	-- Reins of the Onyx Netherwing Drake - 41513
 	mount = AddMount(41513, V.TBC, Q.EPIC) -- Item: 32857
 	mount:SetItemID(32319)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.QUEST)
-	mount:AddVendor(23489)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NETHERWING, F.QUEST)
+	mount:AddRepVendor(FAC.NETHERWING, REP.EXALTED, 23489)
 	mount:AddQuest(11111)
 
 	-- Reins of the Azure Netherwing Drake - 41514
 	mount = AddMount(41514, V.TBC, Q.EPIC) -- Item: 32858
 	mount:SetItemID(32858)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.QUEST)
-	mount:AddVendor(23489)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NETHERWING, F.QUEST)
+	mount:AddRepVendor(FAC.NETHERWING, REP.EXALTED, 23489)
 	mount:AddQuest(11111)
 
 	-- Reins of the Cobalt Netherwing Drake - 41515
 	mount = AddMount(41515, V.TBC, Q.EPIC) -- Item: 32859
 	mount:SetItemID(32859)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.QUEST)
-	mount:AddVendor(23489)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NETHERWING, F.QUEST)
+	mount:AddRepVendor(FAC.NETHERWING, REP.EXALTED, 23489)
 	mount:AddQuest(11111)
 
 	-- Reins of the Purple Netherwing Drake - 41516
 	mount = AddMount(41516, V.TBC, Q.EPIC) -- Item: 32860
 	mount:SetItemID(32860)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.QUEST)
-	mount:AddVendor(23489)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NETHERWING, F.QUEST)
+	mount:AddRepVendor(FAC.NETHERWING, REP.EXALTED, 23489)
 	mount:AddQuest(11111)
 
 	-- Reins of the Veridian Netherwing Drake - 41517
 	mount = AddMount(41517, V.TBC, Q.EPIC) -- Item: 32861
 	mount:SetItemID(32861)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.QUEST)
-	mount:AddVendor(23489)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NETHERWING, F.QUEST)
+	mount:AddRepVendor(FAC.NETHERWING, REP.EXALTED, 23489)
 	mount:AddQuest(11111)
 
 	-- Reins of the Violet Netherwing Drake - 41518
 	mount = AddMount(41518, V.TBC, Q.EPIC) -- Item: 32862
 	mount:SetItemID(32862)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.QUEST)
-	mount:AddVendor(23489)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NETHERWING, F.QUEST)
+	mount:AddRepVendor(FAC.NETHERWING, REP.EXALTED, 23489)
 	mount:AddQuest(11111)
 
 	-- Reins of the Cobalt Riding Talbuk - 39315

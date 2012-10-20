@@ -77,6 +77,7 @@ L["Demisette Cloyce"] = true
 L["Derrick Brindlebeard"] = true
 L["Dhugru Gorelust"] = true
 L["Display Exclusions"] = true
+L["Drake Dealer Hurlunk"] = true
 L["Dread Commander Thalanor"] = true
 L["Driz Tumblequick"] = true
 L["Durgan Thunderbeak"] = true
