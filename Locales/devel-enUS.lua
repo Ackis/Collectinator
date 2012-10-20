@@ -153,7 +153,6 @@ L["Ogunaro Wolfrunner"] = true
 L["Ordo"] = true
 L["Pol Amberstill"] = true
 L["Pogg"] = true
-L["Profession Required:"] = true
 L["Profile Options"] = true
 L["QUALITY_GENERAL_DESC"] = "Include %s quality recipe items in the scan."
 L["Quartermaster Brazie"] = true
