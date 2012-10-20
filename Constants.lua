@@ -216,7 +216,8 @@ private.REP_FLAGS_WORD2 = {
 	BLACKPRINCE		= 0X00040000,	-- 19
 	SHANGXIACADEMY		= 0X00080000,	-- 20
 	PANDACOMMON1		= 0X00100000,	-- 21
-	GUILD			= 0X00200000,	-- 22
+	GUILD			= 0X00200000,	-- 22.
+	NETHERWING		= 0x00400000,	-- 23
 }
 
 -------------------------------------------------------------------------------
@@ -348,6 +349,7 @@ private.FACTION_STRINGS = {
 	[990]	= "SCALE_OF_SANDS",
 	[1011]	= "LOWERCITY",
 	[1012]	= "ASHTONGUE",
+	[1015]  = "NETHERWING",
 	[1031]  = "SHATAR",
 	[1037]	= "ALLIANCE_VANGUARD",
 	[1050]  = "VALLIANCE",
@@ -435,6 +437,7 @@ private.LOCALIZED_FACTION_STRINGS = {
 	["The Scale of the Sands"] = _G.GetFactionInfoByID(990),
 	["Lower City"] = _G.GetFactionInfoByID(1011),
 	["Ashtongue Deathsworn"] = _G.GetFactionInfoByID(1012),
+	["Netherwing"] = _G.GetFactionInfoByID(1015),
 	["Sha'tari Skyguard"] = _G.GetFactionInfoByID(1031),
 	["Alliance Vanguard"] = _G.GetFactionInfoByID(1037),
 	["Valiance Expedition"] = _G.GetFactionInfoByID(1050),
