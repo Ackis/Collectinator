@@ -582,10 +582,8 @@ function private.InitializeListFrame()
 			[REP2.RAMKAHEN]			= "ramkahen",
 			[REP2.EARTHEN_RING]		= "earthenring",
 			[REP2.THERAZANE]		= "therazane",
-			[REP2.FORESTHOZEN]		= "foresthozen",
 			[REP2.GOLDEN_LOTUS]		= "goldenlotus",
 			[REP2.CLOUDSERPENT]		= "cloudserpent",
-			[REP2.PEARLFINJINYU]		= "pearlfinjinyu",
 			[REP2.SHADOPAN]			= "shadopan",
 			[REP2.ANGLERS]			= "anglers",
 			[REP2.AUGUSTCELESTIALS]		= "augustcelestials",
@@ -596,6 +594,7 @@ function private.InitializeListFrame()
 			[REP2.BLACKPRINCE]		= "blackprince",
 			[REP2.SHANGXIACADEMY]		= "shangxiacademy",
 			[REP2.PANDACOMMON1]		= "pandacommon1",
+			[REP2.PANDACOMMON2]		= "pandacommon2",
 			[REP2.GUILD]			= "guild",
 			[REP2.NETHERWING]		= "netherwing",
 		}

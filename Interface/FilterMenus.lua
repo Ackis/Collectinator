@@ -742,6 +742,7 @@ function private.InitializeFilterPanel()
 	local Tol_Barad = isAlliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]
 	local Wildhammer_Dragonmaw = isAlliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]
 	local Tushui_Huojin = isAlliance and BFAC["Tushui Pandaren"] or BFAC["Huojin Pandaren"]
+	local Jinyu_Hozen = isAlliance and BFAC["Pearlfin Jinyu"] or BFAC["Forest Hozen"]
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -992,20 +993,19 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion4_buttons = {
-			foresthozen		= { tt = ReputationDesc(BFAC["Forest Hozen"]),			text = BFAC["Forest Hozen"],				row = 2,	col = 1 },
-			goldenlotus		= { tt = ReputationDesc(BFAC["Golden Lotus"]),			text = BFAC["Golden Lotus"],				row = 3,	col = 1 },
-			cloudserpent		= { tt = ReputationDesc(BFAC["Order of the Cloud Serpent"]),	text = BFAC["Order of the Cloud Serpent"],		row = 4,	col = 1 },
-			pearlfinjinyu		= { tt = ReputationDesc(BFAC["Pearlfin Jinyu"]),		text = BFAC["Pearlfin Jinyu"],				row = 5,	col = 1 },
-			shadopan		= { tt = ReputationDesc(BFAC["Shado-Pan"]),			text = BFAC["Shado-Pan"],				row = 6,	col = 1 },
-			anglers			= { tt = ReputationDesc(BFAC["The Anglers"]),			text = BFAC["The Anglers"],				row = 7,	col = 1 },
-			augustcelestials	= { tt = ReputationDesc(BFAC["The August Celestials"]),		text = BFAC["The August Celestials"],			row = 8,	col = 1 },
-			brewmasters		= { tt = ReputationDesc(BFAC["The Brewmasters"]),		text = BFAC["The Brewmasters"],				row = 9,	col = 1 },
-			klaxxi			= { tt = ReputationDesc(BFAC["The Klaxxi"]),			text = BFAC["The Klaxxi"],				row = 10,	col = 1 },
-			lorewalkers		= { tt = ReputationDesc(BFAC["The Lorewalkers"]),		text = BFAC["The Lorewalkers"],				row = 11,	col = 1 },
-			tillers			= { tt = ReputationDesc(BFAC["The Tillers"]),			text = BFAC["The Tillers"],				row = 12,	col = 1 },
-			blackprince		= { tt = ReputationDesc(BFAC["The Black Prince"]),		text = BFAC["The Black Prince"],			row = 13,	col = 1 },
-			shangxiacademy		= { tt = ReputationDesc(BFAC["Shang Xi's Academy"]),		text = BFAC["Shang Xi's Academy"],			row = 14,	col = 1 },
-			pandacommon1		= { tt = ReputationDesc(Tushui_Huojin),				text = Tushui_Huojin,					row = 15,	col = 1 },
+			goldenlotus		= { tt = ReputationDesc(BFAC["Golden Lotus"]),			text = BFAC["Golden Lotus"],				row = 2,	col = 1 },
+			cloudserpent		= { tt = ReputationDesc(BFAC["Order of the Cloud Serpent"]),	text = BFAC["Order of the Cloud Serpent"],		row = 3,	col = 1 },
+			shadopan		= { tt = ReputationDesc(BFAC["Shado-Pan"]),			text = BFAC["Shado-Pan"],				row = 4,	col = 1 },
+			anglers			= { tt = ReputationDesc(BFAC["The Anglers"]),			text = BFAC["The Anglers"],				row = 5,	col = 1 },
+			augustcelestials	= { tt = ReputationDesc(BFAC["The August Celestials"]),		text = BFAC["The August Celestials"],			row = 6,	col = 1 },
+			brewmasters		= { tt = ReputationDesc(BFAC["The Brewmasters"]),		text = BFAC["The Brewmasters"],				row = 7,	col = 1 },
+			klaxxi			= { tt = ReputationDesc(BFAC["The Klaxxi"]),			text = BFAC["The Klaxxi"],				row = 8,	col = 1 },
+			lorewalkers		= { tt = ReputationDesc(BFAC["The Lorewalkers"]),		text = BFAC["The Lorewalkers"],				row = 9,	col = 1 },
+			tillers			= { tt = ReputationDesc(BFAC["The Tillers"]),			text = BFAC["The Tillers"],				row = 10,	col = 1 },
+			blackprince		= { tt = ReputationDesc(BFAC["The Black Prince"]),		text = BFAC["The Black Prince"],			row = 11,	col = 1 },
+			shangxiacademy		= { tt = ReputationDesc(BFAC["Shang Xi's Academy"]),		text = BFAC["Shang Xi's Academy"],			row = 12,	col = 1 },
+			pandacommon1		= { tt = ReputationDesc(Tushui_Huojin),				text = Tushui_Huojin,					row = 13,	col = 1 },
+			pandacommon2		= { tt = ReputationDesc(Jinyu_Hozen),				text = Jinyu_Hozen,					row = 14,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
 
@@ -1148,10 +1148,8 @@ function private.InitializeFilterPanel()
 		------------------------------------------------------------------------------------------------
 		-- Mists of Pandaria Rep Options
 		-----------------------------------------------------------------------------------------------
-		["foresthozen"]		= { cb = expansion4.foresthozen,		svroot = filterdb.rep },
 		["goldenlotus"]		= { cb = expansion4.goldenlotus,		svroot = filterdb.rep },
 		["cloudserpent"]	= { cb = expansion4.cloudserpent,		svroot = filterdb.rep },
-		["pearlfinjinyu"]	= { cb = expansion4.pearlfinjinyu,		svroot = filterdb.rep },
 		["shadopan"]		= { cb = expansion4.shadopan,			svroot = filterdb.rep },
 		["anglers"]		= { cb = expansion4.anglers,			svroot = filterdb.rep },
 		["augustcelestials"]	= { cb = expansion4.augustcelestials,		svroot = filterdb.rep },
@@ -1162,6 +1160,7 @@ function private.InitializeFilterPanel()
 		["blackprince"]		= { cb = expansion4.blackprince,		svroot = filterdb.rep },
 		["shangxiacademy"]	= { cb = expansion4.shangxiacademy,		svroot = filterdb.rep },
 		["pandacommon1"]	= { cb = expansion4.pandacommon1,		svroot = filterdb.rep },
+		["pandacommon2"]	= { cb = expansion4.pandacommon2,		svroot = filterdb.rep },
 	}
 	private.InitializeFilterPanel = nil
 end
