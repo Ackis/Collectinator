@@ -677,7 +677,7 @@ do
 			output:AddLine(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet.genesis, quality))
 		end
 
-		CheckExistingFlags(pet)
+		--CheckExistingFlags(pet)
 		flag_list = GetExistingFlags(pet)
 
 		if source_text:match("Pet Battle:") then
@@ -716,7 +716,13 @@ do
 		elseif source_text:match("Fishing:") then -- Fuck blizzard
 			output:AddLine("pet:AddProfession(PROF.FISHING)")
 		elseif source_text:match("World Event:") then
+			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("World Event: ", ""):trim()
+			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL)")
+			output:AddLine("pet:AddSeason(\"" .. TableKeyFormat(source_text) .. "\")")
 		elseif source_text:match("Quest:") then
+			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Quest: ", ""):trim()
+			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)")
+			print(source_text)
 		elseif source_text:match("Vendor:") then
 		elseif source_text:match("Drop:") then
 		elseif source_text:match("Promotion:") then
