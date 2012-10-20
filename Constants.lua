@@ -409,11 +409,6 @@ private.FACTION_STRINGS = {
 }
 
 private.LOCALIZED_FACTION_STRINGS = {
-	["Neutral"]	= _G.FACTION_STANDING_LABEL4,
-	["Friendly"]	= _G.FACTION_STANDING_LABEL5,
-	["Honored"]	= _G.FACTION_STANDING_LABEL6,
-	["Revered"]	= _G.FACTION_STANDING_LABEL7,
-	["Exalted"]	= _G.FACTION_STANDING_LABEL8,
 	["Horde"] = _G.GetFactionInfoByID(67),
 	["Alliance"] = _G.GetFactionInfoByID(469),
 	["Thorium Brotherhood"] = _G.GetFactionInfoByID(59),
@@ -583,6 +578,15 @@ private.LOCALIZED_FACTION_STRINGS = {
 	["THE_BLACK_PRINCE"] = _G.GetFactionInfoByID(1359),
 }
 ]]--
+
+private.LOCALIZED_REPUTATION_LEVELS = {
+	["Neutral"]	= _G.FACTION_STANDING_LABEL4,
+	["Friendly"]	= _G.FACTION_STANDING_LABEL5,
+	["Honored"]	= _G.FACTION_STANDING_LABEL6,
+	["Revered"]	= _G.FACTION_STANDING_LABEL7,
+	["Exalted"]	= _G.FACTION_STANDING_LABEL8,
+}
+
 private.FACTION_IDS = {}
 
 for id, name in _G.pairs(private.FACTION_STRINGS) do
