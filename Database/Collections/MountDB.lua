@@ -1547,7 +1547,7 @@ function addon:InitMounts()
 
 	 -- Green Proto-Drake - 61294
 	mount = AddMount(61294, V.WOTLK, Q.EPIC) -- Item: 44707
-	mount:SetItemID(44168)
+	mount:SetItemID(44707)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	mount:AddCustom("MYSTERIOUS_EGG")
 
