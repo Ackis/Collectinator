@@ -531,8 +531,12 @@ function addon:InitCritters()
 	-- Lumpy -- 55215
 	pet = AddPet(55215, V.CATA, Q.RARE)
 
-	-- Red Helper Box -- 15705
+	-- Winter's Little Helper - 15705
 	pet = AddPet(15705, V.ORIG, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL)
+	pet:AddSeason("FEAST_OF_WINTER_VEIL")
+	pet:SetItemID(21395)
+	pet:SetSpellID(26541)
 
 	-- Creepy Crate -- 54128
 	pet = AddPet(54128, V.CATA, Q.COMMON)
