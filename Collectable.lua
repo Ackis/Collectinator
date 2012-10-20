@@ -452,7 +452,8 @@ function collectable_prototype:AddRepVendor(faction_id, rep_level, ...)
 				location_name = rep_vendor.location
 
 				rep_vendor.item_list = rep_vendor.item_list or {}
-				rep_vendor.item_list[self.id] = true
+				rep_vendor.item_list[self.type] = rep_vendor.item_list[self.type] or {}
+				rep_vendor.item_list[self.type][self.id] = true
 			else
 				addon:Debug("Spell ID %d: Reputation Vendor ID %s does not exist in the database.", self.id, tostring(vendor_id))
 			end
@@ -461,16 +462,18 @@ function collectable_prototype:AddRepVendor(faction_id, rep_level, ...)
 		end
 		acquire_list[A.REPUTATION] = acquire_list[A.REPUTATION] or {}
 		acquire_list[A.REPUTATION].collectables = acquire_list[A.REPUTATION].collectables or {}
+		acquire_list[A.REPUTATION].collectables[self.type] = acquire_list[A.REPUTATION].collectables[self.type] or {}
 
 		acquire_list[A.REPUTATION].name = private.ACQUIRE_NAMES[A.REPUTATION]
-		acquire_list[A.REPUTATION].collectables[self.id] = affiliation or true
+		acquire_list[A.REPUTATION].collectables[self.type][self.id] = affiliation or true
 
 		if location_name then
 			location_list[location_name] = location_list[location_name] or {}
 			location_list[location_name].collectables = location_list[location_name].collectables or {}
+			location_list[location_name].collectables[self.type] = location_list[location_name].collectables[self.type] or {}
 
 			location_list[location_name].name = location_name
-			location_list[location_name].collectables[self.id] = affiliation or true
+			location_list[location_name].collectables[self.type][self.id] = affiliation or true
 		end
 	end
 end
