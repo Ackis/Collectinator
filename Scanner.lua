@@ -610,13 +610,12 @@ do
 		if not collectable then
 			return
 		end
-	
+
 		for i,k in pairs(private.FLAG_WORDS) do
 			local flag_word = private.FLAG_MEMBERS[i]
 			for flag_name,l in pairs(k) do
 				if collectable:HasFilter(flag_word, flag_name) then
-					print(private.FLAG_MEMBERS[i] .. "." .. flag_name)
-					table.insert(flags, #flags + 1, flag_name)
+					table.insert(flags, #flags + 1, "F."..flag_name)
 				end
 			end
 		end
@@ -680,9 +679,6 @@ do
 
 		CheckExistingFlags(pet)
 		flag_list = GetExistingFlags(pet)
-		if flag_list then
-			--addon:Print(table.concat(flag_list,", "))
-		end
 
 		if source_text:match("Pet Battle:") then
 			-- We are assuming all pet battles are bop, availible to both alliance and horde.
@@ -729,6 +725,26 @@ do
 		
 		else
 			addon:Print("Unknown acquire method; " .. source_text)
+		end
+
+		if pet:RequiredRaces() then
+			output:AddLine("pet:SetRequiredRaces(" .. pet:RequiredRaces() .. ")")
+		end
+
+		if pet:RequiredFaction() then
+			output:AddLine("pet:SetRequiredFaction(" .. pet:RequiredFaction() .. ")")
+		end
+
+		if pet:RequiredClass() then
+			output:AddLine("pet:SetRequiredClass(" .. pet:RequiredClass() .. ")")
+		end
+
+		if pet:SpellID() then
+			output:AddLine("pet:SetSpellID(" .. pet:SpellID() .. ")")
+		end
+
+		if pet:ItemID() then
+			output:AddLine("pet:SetItemID(" .. pet:ItemID() .. ")")
 		end
 
 		output:AddLine("\n")

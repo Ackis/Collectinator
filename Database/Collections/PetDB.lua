@@ -679,6 +679,7 @@ function addon:InitCritters()
 	pet = AddPet(54539, V.CATA, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
 	pet:AddQuest(29412)
+	pet:SetRequiredFaction("Alliance")
 
 	-- Horde Balloon -- 54541
 	pet = AddPet(54541, V.CATA, Q.COMMON)
