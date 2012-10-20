@@ -733,24 +733,26 @@ do
 			addon:Print("Unknown acquire method; " .. source_text)
 		end
 
-		if pet:RequiredRaces() then
-			output:AddLine("pet:SetRequiredRaces(" .. pet:RequiredRaces() .. ")")
-		end
+		if pet then
+			if pet:RequiredRaces() then
+				output:AddLine("pet:SetRequiredRaces(" .. pet:RequiredRaces() .. ")")
+			end
 
-		if pet:RequiredFaction() then
-			output:AddLine("pet:SetRequiredFaction(" .. pet:RequiredFaction() .. ")")
-		end
+			if pet:RequiredFaction() then
+				output:AddLine("pet:SetRequiredFaction(" .. pet:RequiredFaction() .. ")")
+			end
 
-		if pet:RequiredClass() then
-			output:AddLine("pet:SetRequiredClass(" .. pet:RequiredClass() .. ")")
-		end
+			if pet:RequiredClass() then
+				output:AddLine("pet:SetRequiredClass(" .. pet:RequiredClass() .. ")")
+			end
 
-		if pet:SpellID() then
-			output:AddLine("pet:SetSpellID(" .. pet:SpellID() .. ")")
-		end
+			if pet:SpellID() then
+				output:AddLine("pet:SetSpellID(" .. pet:SpellID() .. ")")
+			end
 
-		if pet:ItemID() then
-			output:AddLine("pet:SetItemID(" .. pet:ItemID() .. ")")
+			if pet:ItemID() then
+				output:AddLine("pet:SetItemID(" .. pet:ItemID() .. ")")
+			end
 		end
 
 		output:AddLine("\n")

@@ -45,6 +45,10 @@ do
 	local sorted_collectables = addon.sorted_collectables
 
 	local function Sort_NameAsc(a, b)
+	print(a)
+	print(b)
+	print(collectable_list[a].name)
+	print(collectable_list[b].name)
 		return collectable_list[a].name < collectable_list[b].name
 	end
 
