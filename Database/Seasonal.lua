@@ -38,7 +38,7 @@ function addon:InitSeasons()
 	end
 
 	AddSeason("DAY_OF_THE_DEAD", L["Day of the Dead"])
-	AddSeason("WINTER_VEIL", _G.GetCategoryInfo(156))
+	AddSeason("FEAST_OF_WINTER_VEIL", _G.GetCategoryInfo(156))
 	AddSeason("HALLOWS_END", _G.GetCategoryInfo(158))
 	AddSeason("LUNAR_FESTIVAL", _G.GetCategoryInfo(160))
 	AddSeason("MIDSUMMER", _G.GetCategoryInfo(161))
