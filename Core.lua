@@ -293,6 +293,8 @@ function addon:OnInitialize()
 					blackprince = true,
 					shangxiacademy = true,
 					pandacommon1 = true,
+					guild = true,
+					netherwing = true,
 				},
 				-- Populated later via CONSTANTS
 				item = {

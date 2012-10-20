@@ -530,9 +530,11 @@ function private.InitializeListFrame()
 			["retired"]	= { flag = COMMON1.RETIRED,	field = "common1",	sv_root = general_filters },
 			["reputation"]	= { flag = COMMON1.REPUTATION,	field = "common1",	sv_root = obtain_filters},
 			["seasonal"]	= { flag = COMMON1.SEASONAL,	field = "common1",	sv_root = obtain_filters },
+			["store"]	= { flag = COMMON1.STORE,	field = "common1",	sv_root = obtain_filters },
 			["trainer"]	= { flag = COMMON1.TRAINER,	field = "common1",	sv_root = obtain_filters },
 			["vendor"]	= { flag = COMMON1.VENDOR,	field = "common1",	sv_root = obtain_filters },
 			["worlddrop"]	= { flag = COMMON1.WORLD_DROP,	field = "common1",	sv_root = obtain_filters },
+			["tcg"]		= { flag = COMMON1.TCG	,	field = "common1",	sv_root = obtain_filters },
 		}
 
 		local REP1 = private.REP_FLAGS_WORD1
@@ -594,6 +596,8 @@ function private.InitializeListFrame()
 			[REP2.BLACKPRINCE]		= "blackprince",
 			[REP2.SHANGXIACADEMY]		= "shangxiacademy",
 			[REP2.PANDACOMMON1]		= "pandacommon1",
+			[REP2.GUILD]			= "guild",
+			[REP2.NETHERWING]		= "netherwing",
 		}
 
 		-- Returns true if any of the filter flags are turned on.

@@ -432,9 +432,8 @@ function private.InitializeFilterPanel()
 			worlddrop	= { tt = AcquireDesc(L["World Drop"]),		text = L["World Drop"],		row = 5, col = 2 },
 			seasonal	= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_7),	text = _G.BATTLE_PET_SOURCE_7,	row = 6, col = 1 },
 			trainer		= { tt = AcquireDesc(L["Trainer"]),		text = L["Trainer"],		row = 6, col = 2 },
-			guild		= { tt = AcquireDesc(_G.GUILD),			text = _G.GUILD,		row = 7, col = 1 },
-			store		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_10),	text = _G.BATTLE_PET_SOURCE_10,	row = 7, col = 2 },
-			tcg		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_9),	text = _G.BATTLE_PET_SOURCE_9,	row = 8, col = 1 },
+			store		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_10),	text = _G.BATTLE_PET_SOURCE_10,	row = 7, col = 1 },
+			tcg		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_9),	text = _G.BATTLE_PET_SOURCE_9,	row = 7, col = 2 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
@@ -835,13 +834,14 @@ function private.InitializeFilterPanel()
 			hellfire		= { tt = ReputationDesc(HonorHold_Thrallmar_Text),		text = HonorHold_Thrallmar_Text,	row = 6,	col = 1 },
 			keepersoftime		= { tt = ReputationDesc(BFAC["Keepers of Time"]),		text = BFAC["Keepers of Time"],		row = 7,	col = 1 },
 			nagrand			= { tt = ReputationDesc(Kurenai_Maghar_Text),			text = Kurenai_Maghar_Text,		row = 8,	col = 1 },
-			lowercity		= { tt = ReputationDesc(BFAC["Lower City"]),			text = BFAC["Lower City"],		row = 9,	col = 1 },
-			scaleofthesands		= { tt = ReputationDesc(BFAC["The Scale of the Sands"]),	text = BFAC["The Scale of the Sands"],	row = 10,	col = 1 },
-			scryer			= { tt = ReputationDesc(BFAC["The Scryers"]),			text = BFAC["The Scryers"],		row = 11,	col = 1 },
-			shatar			= { tt = ReputationDesc(BFAC["The Sha'tar"]),			text = BFAC["The Sha'tar"],		row = 12,	col = 1 },
-			shatteredsun		= { tt = ReputationDesc(BFAC["Shattered Sun Offensive"]),	text = BFAC["Shattered Sun Offensive"],	row = 13,	col = 1 },
-			sporeggar		= { tt = ReputationDesc(BFAC["Sporeggar"]),			text = BFAC["Sporeggar"],		row = 14,	col = 1 },
-			violeteye		= { tt = ReputationDesc(BFAC["The Violet Eye"]),		text = BFAC["The Violet Eye"],		row = 15,	col = 1 },
+			netherwing		= { tt = ReputationDesc(BFAC["Netherwing"]),			text = BFAC["Netherwing"],		row = 9,	col = 1 },
+			lowercity		= { tt = ReputationDesc(BFAC["Lower City"]),			text = BFAC["Lower City"],		row = 10,	col = 1 },
+			scaleofthesands		= { tt = ReputationDesc(BFAC["The Scale of the Sands"]),	text = BFAC["The Scale of the Sands"],	row = 11,	col = 1 },
+			scryer			= { tt = ReputationDesc(BFAC["The Scryers"]),			text = BFAC["The Scryers"],		row = 12,	col = 1 },
+			shatar			= { tt = ReputationDesc(BFAC["The Sha'tar"]),			text = BFAC["The Sha'tar"],		row = 13,	col = 1 },
+			shatteredsun		= { tt = ReputationDesc(BFAC["Shattered Sun Offensive"]),	text = BFAC["Shattered Sun Offensive"],	row = 14,	col = 1 },
+			sporeggar		= { tt = ReputationDesc(BFAC["Sporeggar"]),			text = BFAC["Sporeggar"],		row = 15,	col = 1 },
+			violeteye		= { tt = ReputationDesc(BFAC["The Violet Eye"]),		text = BFAC["The Violet Eye"],		row = 16,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion1_frame, expansion1_buttons)
 
@@ -948,6 +948,7 @@ function private.InitializeFilterPanel()
 			ramkahen		= { tt = ReputationDesc(BFAC["Ramkahen"]),			text = BFAC["Ramkahen"],			row = 5,	col = 1 },
 			earthenring		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = BFAC["The Earthen Ring"],		row = 6,	col = 1 },
 			therazane		= { tt = ReputationDesc(BFAC["Therazane"]),			text = BFAC["Therazane"],			row = 7,	col = 1 },
+			guild			= { tt = ReputationDesc(BFAC["Guild"]),				text = BFAC["Guild"],				row = 8,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
 
@@ -1067,7 +1068,6 @@ function private.InitializeFilterPanel()
 		["expansion3"]		= { cb = FilterPanel.obtain.expansion3,		svroot = filterdb.obtain },
 		["expansion4"]		= { cb = FilterPanel.obtain.expansion4,		svroot = filterdb.obtain },
 		["instance"]		= { cb = FilterPanel.obtain.instance,		svroot = filterdb.obtain },
-		["guild"]		= { cb = FilterPanel.obtain.guild,		svroot = filterdb.obtain },
 		["mobdrop"]		= { cb = FilterPanel.obtain.mobdrop,		svroot = filterdb.obtain },
 		["pvp"]			= { cb = FilterPanel.obtain.pvp,		svroot = filterdb.obtain },
 		["quest"]		= { cb = FilterPanel.obtain.quest,		svroot = filterdb.obtain },
@@ -1110,6 +1110,7 @@ function private.InitializeFilterPanel()
 		["hellfire"]		= { cb = expansion1.hellfire,			svroot = filterdb.rep },
 		["keepersoftime"]	= { cb = expansion1.keepersoftime,		svroot = filterdb.rep },
 		["nagrand"]		= { cb = expansion1.nagrand,			svroot = filterdb.rep },
+		["netherwing"]		= { cb = expansion1.netherwing,			svroot = filterdb.rep },
 		["lowercity"]		= { cb = expansion1.lowercity,			svroot = filterdb.rep },
 		["scaleofthesands"]	= { cb = expansion1.scaleofthesands,		svroot = filterdb.rep },
 		["scryer"]		= { cb = expansion1.scryer,			svroot = filterdb.rep },
@@ -1140,6 +1141,7 @@ function private.InitializeFilterPanel()
 		["catacommon1"]		= { cb = expansion3.catacommon1,		svroot = filterdb.rep },
 		["catacommon2"]		= { cb = expansion3.catacommon2,		svroot = filterdb.rep },
 		["guardiansofhyjal"]	= { cb = expansion3.guardiansofhyjal,		svroot = filterdb.rep },
+		["guild	"]		= { cb = expansion3.guild,			svroot = filterdb.rep },
 		["ramkahen"]		= { cb = expansion3.ramkahen,			svroot = filterdb.rep },
 		["earthenring"]		= { cb = expansion3.earthenring,		svroot = filterdb.rep },
 		["therazane"]		= { cb = expansion3.therazane,			svroot = filterdb.rep },
