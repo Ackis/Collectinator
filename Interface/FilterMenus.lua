@@ -1141,10 +1141,10 @@ function private.InitializeFilterPanel()
 		["catacommon1"]		= { cb = expansion3.catacommon1,		svroot = filterdb.rep },
 		["catacommon2"]		= { cb = expansion3.catacommon2,		svroot = filterdb.rep },
 		["guardiansofhyjal"]	= { cb = expansion3.guardiansofhyjal,		svroot = filterdb.rep },
-		["guild	"]		= { cb = expansion3.guild,			svroot = filterdb.rep },
 		["ramkahen"]		= { cb = expansion3.ramkahen,			svroot = filterdb.rep },
 		["earthenring"]		= { cb = expansion3.earthenring,		svroot = filterdb.rep },
 		["therazane"]		= { cb = expansion3.therazane,			svroot = filterdb.rep },
+		["guild"]		= { cb = expansion3.guild,			svroot = filterdb.rep },
 		------------------------------------------------------------------------------------------------
 		-- Mists of Pandaria Rep Options
 		-----------------------------------------------------------------------------------------------
