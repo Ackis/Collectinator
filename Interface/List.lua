@@ -581,7 +581,7 @@ function private.InitializeListFrame()
 			[REP2.EARTHEN_RING]		= "earthenring",
 			[REP2.THERAZANE]		= "therazane",
 			[REP2.FORESTHOZEN]		= "foresthozen",
-			[REP2.GOLDENLOTUS]		= "goldenlotus",
+			[REP2.GOLDEN_LOTUS]		= "goldenlotus",
 			[REP2.CLOUDSERPENT]		= "cloudserpent",
 			[REP2.PEARLFINJINYU]		= "pearlfinjinyu",
 			[REP2.SHADOPAN]			= "shadopan",

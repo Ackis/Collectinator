@@ -1002,7 +1002,7 @@ function private.InitializeFilterPanel()
 			klaxxi			= { tt = ReputationDesc(BFAC["The Klaxxi"]),			text = BFAC["The Klaxxi"],				row = 10,	col = 1 },
 			lorewalkers		= { tt = ReputationDesc(BFAC["The Lorewalkers"]),		text = BFAC["The Lorewalkers"],				row = 11,	col = 1 },
 			tillers			= { tt = ReputationDesc(BFAC["The Tillers"]),			text = BFAC["The Tillers"],				row = 12,	col = 1 },
-			blackprince		= { tt = ReputationDesc(BFAC["The Black Prince"]),		text = BFAC["The Black Prince"],				row = 13,	col = 1 },
+			blackprince		= { tt = ReputationDesc(BFAC["The Black Prince"]),		text = BFAC["The Black Prince"],			row = 13,	col = 1 },
 			shangxiacademy		= { tt = ReputationDesc(BFAC["Shang Xi's Academy"]),		text = BFAC["Shang Xi's Academy"],			row = 14,	col = 1 },
 			pandacommon1		= { tt = ReputationDesc(Tushui_Huojin),				text = Tushui_Huojin,					row = 15,	col = 1 },
 		}
