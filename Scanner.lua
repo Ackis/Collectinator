@@ -662,6 +662,8 @@ do
 			else
 				output:AddLine(string.format("pet = AddPet(%d, ???, ???)", creature_id))
 			end
+
+			addon:Print("Re-run the scan to get more information for this pet after it is added in to the database.")
 		else
 			--addon:Print(string.format("-- %s - %d", name, creature_id))
 			local quality
@@ -675,83 +677,83 @@ do
 				quality = "Q.EPIC"
 			end
 			output:AddLine(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet.genesis, quality))
-		end
 
-		--CheckExistingFlags(pet)
+			--CheckExistingFlags(pet)
 
-		-- Strip formatting
-		source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", "")
+			-- Strip formatting
+			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", "")
 
-		if source_text:match("Pet Battle:") then
-			pet:AddFilters(F.BATTLE_PET)
-			source_text = source_text:gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim() -- Blizzard uses different formats for Pet Battles, some are just listed others have Pet Battle before each zone
+			if source_text:match("Pet Battle:") then
+				pet:AddFilters(F.BATTLE_PET)
+				source_text = source_text:gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim() -- Blizzard uses different formats for Pet Battles, some are just listed others have Pet Battle before each zone
 
-			local temp_text = "pet:AddWorldDrop("
-			local zone_text = {}
-			for token in source_text:gmatch("([^,]+)[,%s]*") do
-				table.insert(zone_text, "Z." .. TableKeyFormat(token))
-			end
-			temp_text = temp_text .. table.concat(zone_text, ",") .. ")"
-			output:AddLine(temp_text)
+				local temp_text = "pet:AddWorldDrop("
+				local zone_text = {}
+				for token in source_text:gmatch("([^,]+)[,%s]*") do
+					table.insert(zone_text, "Z." .. TableKeyFormat(token))
+				end
+				temp_text = temp_text .. table.concat(zone_text, ",") .. ")"
+				output:AddLine(temp_text)
 
-		elseif source_text:match("Achievement:") then
-			pet:AddFilters(F.ACHIEVEMENT)
+			elseif source_text:match("Achievement:") then
+				pet:AddFilters(F.ACHIEVEMENT)
 
-			source_text = source_text:gsub("Achievement: ", ""):gsub("Category: (.+)",""):trim()
-			if ACHIEVEMENT_LOOK_UP[source_text] then
-				output:AddLine("pet:AddAchievement(" .. ACHIEVEMENT_LOOK_UP[source_text] .. ")")
-			else
-				addon:Print("Unknown achievement found: " .. source_text)
-			end
-		elseif source_text:match("Profession:") then
-			source_text = source_text:gsub("Profession: ", ""):trim()
-			pet:AddFilters(F.PROFESSION)
-			if source_text:match("Zone") then
+				source_text = source_text:gsub("Achievement: ", ""):gsub("Category: (.+)",""):trim()
+				if ACHIEVEMENT_LOOK_UP[source_text] then
+					output:AddLine("pet:AddAchievement(" .. ACHIEVEMENT_LOOK_UP[source_text] .. ")")
+				else
+					addon:Print("Unknown achievement found: " .. source_text)
+				end
+			elseif source_text:match("Profession:") then
+				source_text = source_text:gsub("Profession: ", ""):trim()
+				pet:AddFilters(F.PROFESSION)
+				if source_text:match("Zone") then
+					output:AddLine("pet:AddProfession(PROF.FISHING)")
+				elseif source_text:match("Formula") then
+					output:AddLine("pet:AddProfession(PROF.ENCHANTING)")
+				else
+					output:AddLine("pet:AddProfession(PROF." .. string.upper(source_text) .. ")")
+				end
+			elseif source_text:match("Fishing:") then -- Fuck blizzard
 				output:AddLine("pet:AddProfession(PROF.FISHING)")
-			elseif source_text:match("Formula") then
-				output:AddLine("pet:AddProfession(PROF.ENCHANTING)")
+			elseif source_text:match("World Event:") then
+				source_text = source_text:gsub("World Event: ", ""):trim()
+				pet:AddFilters(F.SEASONAL)
+				output:AddLine("pet:AddSeason(\"" .. TableKeyFormat(source_text) .. "\")")
+			elseif source_text:match("Quest:") then
+				source_text = source_text:gsub("Quest: ", ""):trim()
+				pet:AddFilters(F.QUEST)
+				local quest_name,quest_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
+				output:AddLine("--pet:AddQuest()")
+			elseif source_text:match("Vendor:") then
+				pet:AddFilters(F.VENDOR)
+				--print(source_text)
+			elseif source_text:match("Drop:") then -- Blizzard has no space after the : here
+				source_text = source_text:gsub("Drop:", ""):trim()
+				print(source_text)
+				local mob_name,mob_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
+				if mob_name == "World Drop" then
+					pet:AddFilters(F.WORLD_DROP)
+					output:AddLine("pet:AddWorldDrop(Z." .. TableKeyFormat(mob_zone) ..")")
+				else
+					pet:AddFilters(F.MOB_DROP)
+					output:AddLine("--pet:AddMobDrop() -- " .. (mob_name or source_text) .. ": " .. (mob_zone or "Unknown"))
+				end
+			elseif source_text:match("Promotion:") then
+				source_text = source_text:gsub("Promotion:", ""):trim()
+				print(source_text)
+			elseif source_text:match("Pet Store") then
+				source_text = source_text:gsub("Pet Store", ""):trim()
+				pet:AddFilters(F.STORE)
+				print(source_text)
+			elseif source_text:match("Trading Card Game:") then
+				pet:AddFilters(F.TCG)
+				output:AddLine("pet:AddCustom(\"TCG\")")
 			else
-				output:AddLine("pet:AddProfession(PROF." .. string.upper(source_text) .. ")")
+				addon:Print("Unknown acquire method; " .. source_text)
 			end
-		elseif source_text:match("Fishing:") then -- Fuck blizzard
-			output:AddLine("pet:AddProfession(PROF.FISHING)")
-		elseif source_text:match("World Event:") then
-			source_text = source_text:gsub("World Event: ", ""):trim()
-			pet:AddFilters(F.SEASONAL)
-			output:AddLine("pet:AddSeason(\"" .. TableKeyFormat(source_text) .. "\")")
-		elseif source_text:match("Quest:") then
-			source_text = source_text:gsub("Quest: ", ""):trim()
-			pet:AddFilters(F.QUEST)
-			local quest_name,quest_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
-			output:AddLine("--pet:AddQuest()")
-		elseif source_text:match("Vendor:") then
-			pet:AddFilters(F.VENDOR)
-			print(source_text)
-		elseif source_text:match("Drop:") then -- Blizzard has no space after the : here
-			source_text = source_text:gsub("Drop:", ""):trim()
-			local mob_name,mob_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
-			if mob_name == "World Drop" then
-				pet:AddFilters(F.WORLD_DROP)
-				output:AddLine("pet:AddWorldDrop(Z." .. TableKeyFormat(mob_zone) ..")")
-			else
-				pet:AddFilters(F.MOB_DROP)
-				output:AddLine("--pet:AddMobDrop() -- " .. mob_name .. ": " .. mob_zone)
-			end
-		elseif source_text:match("Promotion:") then
-			source_text = source_text:gsub("Promotion:", ""):trim()
-			print(source_text)
-		elseif source_text:match("Pet Store") then
-			source_text = source_text:gsub("Pet Store", ""):trim()
-			pet:AddFilters(F.STORE)
-			print(source_text)
-		elseif source_text:match("Trading Card Game:") then
-			pet:AddFilters(F.TCG)
-			output:AddLine("pet:AddCustom(\"TCG\")")
-		else
-			addon:Print("Unknown acquire method; " .. source_text)
-		end
 
-		if pet then
+
 
 			flag_list = GetExistingFlags(pet)
 			output:AddLine("pet:AddFilters(" .. table.concat(flag_list,", ") ..")")
