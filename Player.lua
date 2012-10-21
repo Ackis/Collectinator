@@ -131,8 +131,8 @@ function Player:HasProperRepLevel(rep_data)
 		for rep_level in pairs(rep_info) do
 			if rep_id == FAC.HONOR_HOLD or rep_id == FAC.THRALLMAR then
 				rep_id = is_alliance and FAC.HONOR_HOLD or FAC.THRALLMAR
-			elseif rep_id == FAC.MAGHAR or rep_id == FAC.KURENAI then
-				rep_id = is_alliance and FAC.KURENAI or FAC.MAGHAR
+			elseif rep_id == FAC.THE_MAGHAR or rep_id == FAC.KURENAI then
+				rep_id = is_alliance and FAC.KURENAI or FAC.THE_MAGHAR
 			end
 			local rep_name = private.reputation_list[rep_id].name
 
