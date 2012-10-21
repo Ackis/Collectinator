@@ -45,6 +45,8 @@ local LPJ = LibStub("LibPetJournal-2.0")
 -------------------------------------------------------------------------------
 local F = private.FILTER_IDS
 local A = private.ACQUIRE_TYPES
+local FS = private.LOCALIZED_FACTION_STRINGS
+local REP = private.LOCALIZED_REPUTATION_LEVELS
 
 -------------------------------------------------------------------------------
 -- Functions/methods
@@ -642,6 +644,8 @@ do
 	function addon:ScanSpecificCompanion(pet_index, hide_display)
 		addon:InitializeCollection("CRITTER")
 
+		local vendor_list = private.vendor_list
+
 		if not hide_display then
 			output:Clear()
 		end
@@ -723,9 +727,29 @@ do
 				local quest_name,quest_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
 				output:AddLine("--pet:AddQuest()")
 			elseif source_text:match("Vendor:") then -- Blizzard has no space after the : here
+				-- TODO: Fix pattern so I don't have to trim it.
 				local vendor_name, faction, rep_level = source_text:match("Vendor: ([%a ]+)Zone: .+Faction: ([%a ]+)[ -]+ (%a+)Cost")
+				local vendor_id
+				for i,k in pairs(vendor_list) do
+					local vendor = vendor_list[i]
+					if vendor.name == vendor_name then
+						vendor_id = i
+						break
+					end
+				end
+				if not vendor_id then
+					addon:Print("Vendor: " .. vendor_name .. " not in database.")
+				else
+					if vendor_list[vendor_id].faction == FS.ALLIANCE then
+						pet:AddFilters(F.ALLIANCE)
+					elseif vendor_list[vendor_id].faction == FS.HORDE then
+						pet:AddFilters(F.HORDE)
+					elseif vendor_list[vendor_id].faction == REP.NEUTRAL then
+						pet:AddFilters(F.ALLIANCE, F.HORDE)
+					end
+				end
 				if source_text:match("Faction:") then
-					output:AddLine("pet:AddRepVendor(FAC." .. TableKeyFormat(faction:trim()) .. ", REP." .. string.upper(rep_level) .. ", ???)")
+					output:AddLine("pet:AddRepVendor(FAC." .. TableKeyFormat(faction:trim()) .. ", REP." .. string.upper(rep_level) .. ", " .. (vendor_id or "???") .. ")")
 					pet:AddFilters(F.REPUTATION)
 				else
 					pet:AddFilters(F.VENDOR)
