@@ -727,13 +727,22 @@ do
 		elseif source_text:match("Vendor:") then
 			pet:AddFilters(F.VENDOR)
 			print(source_text)
-		elseif source_text:match("Drop:") then
-			print(source_text)
+		elseif source_text:match("Drop:") then -- Blizzard has no space after the : here
+			source_text = source_text:gsub("Drop:", ""):trim()
+			local mob_name,mob_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
+			if mob_name == "World Drop" then
+				pet:AddFilters(F.WORLD_DROP)
+				output:AddLine("pet:AddWorldDrop(Z." .. TableKeyFormat(mob_zone) ..")")
+			else
+			
+			end
 		elseif source_text:match("Promotion:") then
 			print(source_text)
 		elseif source_text:match("Pet Store") then
+			pet:AddFilters(F.STORE)
 			print(source_text)
 		elseif source_text:match("Trading Card Game:") then
+			pet:AddFilters(F.TCG)
 			print(source_text)
 		else
 			addon:Print("Unknown acquire method; " .. source_text)
