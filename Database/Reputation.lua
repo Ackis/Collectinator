@@ -32,7 +32,7 @@ private.reputation_list	= {}
 
 function addon:InitReputation()
 	local function AddReputation(rep_id, name)
-		private:AddListEntry(private.reputation_list, rep_id, GetFactionInfoByID(rep_id))
+		private:AddListEntry(private.reputation_list, rep_id, _G.GetFactionInfoByID(rep_id))
 	end
 	AddReputation(59)
 	AddReputation(270)
@@ -55,6 +55,7 @@ function addon:InitReputation()
 	AddReputation(1011)
 	AddReputation(1012)
 	AddReputation(1015)
+	AddReputation(1031)
 	AddReputation(1037)
 	AddReputation(1050)
 	AddReputation(1052)

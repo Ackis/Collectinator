@@ -149,7 +149,6 @@ L["Mob Drop"] = true
 L["NOTSCANNED"] = "You have not yet scanned this collection. Please open this collection and click on Scan."
 L["NOT_YET_SCANNED"] = "Not yet scanned!"
 L["NO_DISPLAY"] = "No collectables to display.  If you get this message please submit a ticket at http://www.wowace.com/addons/collectinator/tickets listing what filters you have, what is in your exclusion list, which collectable type, and the number of known/unknown collectables."
-L["Nat Pagle"] = true
 L["Nelur Lightsown"] = true
 L["NoItemLink"] = "There is no item in the database to link.  Please submit a bug report if you think this is in error."
 L["Obtained From"] = true

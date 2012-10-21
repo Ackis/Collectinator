@@ -50,7 +50,7 @@ local CATEGORY_TOOLTIP = {
 	["misc"]	= L["FILTERING_MISC_DESC"]
 }
 
-local BFAC = private.LOCALIZED_FACTION_STRINGS
+local FN = private.LOCALIZED_FACTION_STRINGS
 
 -------------------------------------------------------------------------------
 -- Function to create and initialize a check-button with the given values.
@@ -733,17 +733,17 @@ function private.InitializeFilterPanel()
 	-------------------------------------------------------------------------------
 	local isAlliance = (private.Player:Faction() == "Alliance")
 
-	local HonorHold_Thrallmar_Text = isAlliance and BFAC["Honor Hold"] or BFAC["Thrallmar"]
-	local Kurenai_Maghar_Text = isAlliance and BFAC["Kurenai"] or BFAC["The Mag'har"]
-	local Vanguard_Expedition_Text = isAlliance and BFAC["Alliance Vanguard"] or BFAC["Horde Expedition"]
-	local SilverCov_Sunreaver_Text = isAlliance and BFAC["The Silver Covenant"] or BFAC["The Sunreavers"]
-	local Valiance_Warsong_Text = isAlliance and BFAC["Valiance Expedition"] or BFAC["Warsong Offensive"]
-	local Frostborn_Taunka_Text = isAlliance and BFAC["The Frostborn"] or BFAC["The Taunka"]
-	local Explorer_Hand_Text = isAlliance and BFAC["Explorers' League"] or BFAC["The Hand of Vengeance"]
-	local Tol_Barad = isAlliance and BFAC["Baradin's Wardens"] or BFAC["Hellscream's Reach"]
-	local Wildhammer_Dragonmaw = isAlliance and BFAC["Wildhammer Clan"] or BFAC["Dragonmaw Clan"]
-	local Tushui_Huojin = isAlliance and BFAC["Tushui Pandaren"] or BFAC["Huojin Pandaren"]
-	local Jinyu_Hozen = isAlliance and BFAC["Pearlfin Jinyu"] or BFAC["Forest Hozen"]
+	local HonorHold_Thrallmar_Text = isAlliance and FN.HONOR_HOLD or FN.THRALLMAR
+	local Kurenai_Maghar_Text = isAlliance and FN.KURENAI or FN.THE_MAGHAR
+	local Vanguard_Expedition_Text = isAlliance and FN.ALLIANCE_VANGUARD or FN.HORDE_EXPEDITION
+	local SilverCov_Sunreaver_Text = isAlliance and FN.THE_SILVER_COVENANT or FN.THE_SUNREAVERS
+	local Valiance_Warsong_Text = isAlliance and FN.VALIANCE_EXPEDITION or FN.WARSONG_OFFENSIVE
+	local Frostborn_Taunka_Text = isAlliance and FN.THE_FROSTBORN or FN.THE_TAUNKA
+	local Explorer_Hand_Text = isAlliance and FN.EXPLORERS_LEAGUE or FN.THE_HAND_OF_VENGEANCE
+	local Tol_Barad = isAlliance and FN.BARADINS_WARDENS or FN.HELLSCREAMS_REACH
+	local Wildhammer_Dragonmaw = isAlliance and FN.WILDHAMMER_CLAN or FN.DRAGONMAW_CLAN
+	local Tushui_Huojin = isAlliance and FN.TUSHUI_PANDAREN or FN.HUOJIN_PANDAREN
+	local Jinyu_Hozen = isAlliance and FN.PEARLFIN_JINYU or FN.FOREST_HOZEN
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -785,11 +785,11 @@ function private.InitializeFilterPanel()
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
 		local expansion0_buttons = {
-			argentdawn		= { tt = ReputationDesc(BFAC["Argent Dawn"]),		text = BFAC["Argent Dawn"],		row = 2, col = 1 },
-			cenarioncircle		= { tt = ReputationDesc(BFAC["Cenarion Circle"]),	text = BFAC["Cenarion Circle"],		row = 3, col = 1 },
-			thoriumbrotherhood	= { tt = ReputationDesc(BFAC["Thorium Brotherhood"]),	text = BFAC["Thorium Brotherhood"],	row = 4, col = 1 },
-			timbermaw		= { tt = ReputationDesc(BFAC["Timbermaw Hold"]),	text = BFAC["Timbermaw Hold"],		row = 5, col = 1 },
-			zandalar		= { tt = ReputationDesc(BFAC["Zandalar Tribe"]),	text = BFAC["Zandalar Tribe"],		row = 6, col = 1 },
+			argentdawn		= { tt = ReputationDesc(FN.ARGENT_DAWN),		text = FN.ARGENT_DAWN,		row = 2, col = 1 },
+			cenarioncircle		= { tt = ReputationDesc(FN.CENARION_CIRCLE),		text = FN.CENARION_CIRCLE,	row = 3, col = 1 },
+			thoriumbrotherhood	= { tt = ReputationDesc(FN.THORIUM_BROTHERHOOD),	text = FN.THORIUM_BROTHERHOOD,	row = 4, col = 1 },
+			timbermaw		= { tt = ReputationDesc(FN.TIMBERMAW_HOLD),		text = FN.TIMBERMAW_HOLD,	row = 5, col = 1 },
+			zandalar		= { tt = ReputationDesc(FN.ZANDALAR_TRIBE),		text = FN.ZANDALAR_TRIBE,	row = 6, col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion0_frame, expansion0_buttons)
 
@@ -829,21 +829,21 @@ function private.InitializeFilterPanel()
 		-- Create the Reputation toggle and CheckButtons
 		-------------------------------------------------------------------------------
 		local expansion1_buttons = {
-			aldor			= { tt = ReputationDesc(BFAC["The Aldor"]),			text = BFAC["The Aldor"],		row = 2,	col = 1 },
-			ashtonguedeathsworn	= { tt = ReputationDesc(BFAC["Ashtongue Deathsworn"]),		text = BFAC["Ashtongue Deathsworn"],	row = 3,	col = 1 },
-			cenarionexpedition	= { tt = ReputationDesc(BFAC["Cenarion Expedition"]),		text = BFAC["Cenarion Expedition"],	row = 4,	col = 1 },
-			consortium		= { tt = ReputationDesc(BFAC["The Consortium"]),		text = BFAC["The Consortium"],		row = 5,	col = 1 },
-			hellfire		= { tt = ReputationDesc(HonorHold_Thrallmar_Text),		text = HonorHold_Thrallmar_Text,	row = 6,	col = 1 },
-			keepersoftime		= { tt = ReputationDesc(BFAC["Keepers of Time"]),		text = BFAC["Keepers of Time"],		row = 7,	col = 1 },
-			nagrand			= { tt = ReputationDesc(Kurenai_Maghar_Text),			text = Kurenai_Maghar_Text,		row = 8,	col = 1 },
-			netherwing		= { tt = ReputationDesc(BFAC["Netherwing"]),			text = BFAC["Netherwing"],		row = 9,	col = 1 },
-			lowercity		= { tt = ReputationDesc(BFAC["Lower City"]),			text = BFAC["Lower City"],		row = 10,	col = 1 },
-			scaleofthesands		= { tt = ReputationDesc(BFAC["The Scale of the Sands"]),	text = BFAC["The Scale of the Sands"],	row = 11,	col = 1 },
-			scryer			= { tt = ReputationDesc(BFAC["The Scryers"]),			text = BFAC["The Scryers"],		row = 12,	col = 1 },
-			shatar			= { tt = ReputationDesc(BFAC["The Sha'tar"]),			text = BFAC["The Sha'tar"],		row = 13,	col = 1 },
-			shatteredsun		= { tt = ReputationDesc(BFAC["Shattered Sun Offensive"]),	text = BFAC["Shattered Sun Offensive"],	row = 14,	col = 1 },
-			sporeggar		= { tt = ReputationDesc(BFAC["Sporeggar"]),			text = BFAC["Sporeggar"],		row = 15,	col = 1 },
-			violeteye		= { tt = ReputationDesc(BFAC["The Violet Eye"]),		text = BFAC["The Violet Eye"],		row = 16,	col = 1 },
+			aldor			= { tt = ReputationDesc(FN.THE_ALDOR),			text = FN.THE_ALDOR,			row = 2,	col = 1 },
+			ashtonguedeathsworn	= { tt = ReputationDesc(FN.ASHTONGUE_DEATHSWORN),	text = FN.ASHTONGUE_DEATHSWORN,		row = 3,	col = 1 },
+			cenarionexpedition	= { tt = ReputationDesc(FN.CENARION_EXPEDITION),	text = FN.CENARION_EXPEDITION,		row = 4,	col = 1 },
+			consortium		= { tt = ReputationDesc(FN.THE_CONSORTIUM),		text = FN.THE_CONSORTIUM,		row = 5,	col = 1 },
+			hellfire		= { tt = ReputationDesc(HonorHold_Thrallmar_Text),	text = HonorHold_Thrallmar_Text,	row = 6,	col = 1 },
+			keepersoftime		= { tt = ReputationDesc(FN.KEEPERS_OF_TIME),		text = FN.KEEPERS_OF_TIME,		row = 7,	col = 1 },
+			nagrand			= { tt = ReputationDesc(Kurenai_Maghar_Text),		text = Kurenai_Maghar_Text,		row = 8,	col = 1 },
+			netherwing		= { tt = ReputationDesc(FN.NETHERWING),			text = FN.NETHERWING,			row = 9,	col = 1 },
+			lowercity		= { tt = ReputationDesc(FN.LOWER_CITY),			text = FN.LOWER_CITY,			row = 10,	col = 1 },
+			scaleofthesands		= { tt = ReputationDesc(FN.THE_SCALE_OF_THE_SANDS),	text = FN.THE_SCALE_OF_THE_SANDS,	row = 11,	col = 1 },
+			scryer			= { tt = ReputationDesc(FN.THE_SCRYERS),		text = FN.THE_SCRYERS,			row = 12,	col = 1 },
+			shatar			= { tt = ReputationDesc(FN.THE_SHATAR),			text = FN.THE_SHATAR,			row = 13,	col = 1 },
+			shatteredsun		= { tt = ReputationDesc(FN.SHATTERED_SUN_OFFENSIVE),	text = FN.SHATTERED_SUN_OFFENSIVE,	row = 14,	col = 1 },
+			sporeggar		= { tt = ReputationDesc(FN.SPOREGGAR),			text = FN.SPOREGGAR,			row = 15,	col = 1 },
+			violeteye		= { tt = ReputationDesc(FN.THE_VIOLET_EYE),		text = FN.THE_VIOLET_EYE,		row = 16,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion1_frame, expansion1_buttons)
 
@@ -887,20 +887,20 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion2_buttons = {
-			wrathcommon1	= { tt = ReputationDesc(Vanguard_Expedition_Text),		text = Vanguard_Expedition_Text,		row = 2,	col = 1 },
-			argentcrusade	= { tt = ReputationDesc(BFAC["Argent Crusade"]),		text = BFAC["Argent Crusade"],			row = 3,	col = 1 },
-			wrathcommon5	= { tt = ReputationDesc(Explorer_Hand_Text),			text = Explorer_Hand_Text,			row = 4,	col = 1 },
-			frenzyheart	= { tt = ReputationDesc(BFAC["Frenzyheart Tribe"]),		text = BFAC["Frenzyheart Tribe"],		row = 5,	col = 1 },
-			kaluak		= { tt = ReputationDesc(BFAC["The Kalu'ak"]),			text = BFAC["The Kalu'ak"],			row = 6,	col = 1 },
-			kirintor	= { tt = ReputationDesc(BFAC["Kirin Tor"]),			text = BFAC["Kirin Tor"],			row = 7,	col = 1 },
-			ebonblade	= { tt = ReputationDesc(BFAC["Knights of the Ebon Blade"]),	text = BFAC["Knights of the Ebon Blade"],	row = 8,	col = 1 },
-			oracles		= { tt = ReputationDesc(BFAC["The Oracles"]),			text = BFAC["The Oracles"],			row = 9,	col = 1 },
-			wrathcommon2	= { tt = ReputationDesc(SilverCov_Sunreaver_Text),		text = SilverCov_Sunreaver_Text,		row = 10,	col = 1 },
-			sonsofhodir	= { tt = ReputationDesc(BFAC["The Sons of Hodir"]),		text = BFAC["The Sons of Hodir"],		row = 11,	col = 1 },
-			wrathcommon4	= { tt = ReputationDesc(Frostborn_Taunka_Text),			text = Frostborn_Taunka_Text,			row = 12,	col = 1 },
-			wrathcommon3	= { tt = ReputationDesc(Valiance_Warsong_Text),			text = Valiance_Warsong_Text,			row = 13,	col = 1 },
-			wyrmrest	= { tt = ReputationDesc(BFAC["The Wyrmrest Accord"]),		text = BFAC["The Wyrmrest Accord"],		row = 14,	col = 1 },
-			ashenverdict	= { tt = ReputationDesc(BFAC["The Ashen Verdict"]),		text = BFAC["The Ashen Verdict"],		row = 15,	col = 1 },
+			wrathcommon1	= { tt = ReputationDesc(Vanguard_Expedition_Text),	text = Vanguard_Expedition_Text,	row = 2,	col = 1 },
+			argentcrusade	= { tt = ReputationDesc(FN.ARGENT_CRUSADE),		text = FN.ARGENT_CRUSADE,		row = 3,	col = 1 },
+			wrathcommon5	= { tt = ReputationDesc(Explorer_Hand_Text),		text = Explorer_Hand_Text,		row = 4,	col = 1 },
+			frenzyheart	= { tt = ReputationDesc(FN.FRENZYHEART_TRIBE),		text = FN.FRENZYHEART_TRIBE,		row = 5,	col = 1 },
+			kaluak		= { tt = ReputationDesc(FN.THE_KALUAK),			text = FN.THE_KALUAK,			row = 6,	col = 1 },
+			kirintor	= { tt = ReputationDesc(FN.KIRIN_TOR),			text = FN.KIRIN_TOR,			row = 7,	col = 1 },
+			ebonblade	= { tt = ReputationDesc(FN.KNIGHTS_OF_THE_EBON_BLADE),	text = FN.KNIGHTS_OF_THE_EBON_BLADE,	row = 8,	col = 1 },
+			oracles		= { tt = ReputationDesc(FN.THE_ORACLES),		text = FN.THE_ORACLES,			row = 9,	col = 1 },
+			wrathcommon2	= { tt = ReputationDesc(SilverCov_Sunreaver_Text),	text = SilverCov_Sunreaver_Text,	row = 10,	col = 1 },
+			sonsofhodir	= { tt = ReputationDesc(FN.THE_SONS_OF_HODIR),		text = FN.THE_SONS_OF_HODIR,		row = 11,	col = 1 },
+			wrathcommon4	= { tt = ReputationDesc(Frostborn_Taunka_Text),		text = Frostborn_Taunka_Text,		row = 12,	col = 1 },
+			wrathcommon3	= { tt = ReputationDesc(Valiance_Warsong_Text),		text = Valiance_Warsong_Text,		row = 13,	col = 1 },
+			wyrmrest	= { tt = ReputationDesc(FN.THE_WYRMREST_ACCORD),	text = FN.THE_WYRMREST_ACCORD,		row = 14,	col = 1 },
+			ashenverdict	= { tt = ReputationDesc(FN.THE_ASHEN_VERDICT),		text = FN.THE_ASHEN_VERDICT,		row = 15,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion2_frame, expansion2_buttons)
 
@@ -944,13 +944,15 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion3_buttons = {
-			catacommon1		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = Wildhammer_Dragonmaw,			row = 2,	col = 1 },
-			catacommon2		= { tt = ReputationDesc(Tol_Barad),				text = Tol_Barad,				row = 3,	col = 1 },
-			guardiansofhyjal	= { tt = ReputationDesc(BFAC["Guardians of Hyjal"]),		text = BFAC["Guardians of Hyjal"],		row = 4,	col = 1 },
-			ramkahen		= { tt = ReputationDesc(BFAC["Ramkahen"]),			text = BFAC["Ramkahen"],			row = 5,	col = 1 },
-			earthenring		= { tt = ReputationDesc(BFAC["The Earthen Ring"]),		text = BFAC["The Earthen Ring"],		row = 6,	col = 1 },
-			therazane		= { tt = ReputationDesc(BFAC["Therazane"]),			text = BFAC["Therazane"],			row = 7,	col = 1 },
-			guild			= { tt = ReputationDesc(BFAC["Guild"]),				text = BFAC["Guild"],				row = 8,	col = 1 },
+			catacommon1		= { tt = ReputationDesc(Wildhammer_Dragonmaw),			text = Wildhammer_Dragonmaw,		row = 2,	col = 1 },
+			catacommon2		= { tt = ReputationDesc(Tol_Barad),				text = Tol_Barad,			row = 3,	col = 1 },
+			guardiansofhyjal	= { tt = ReputationDesc(FN.GUARDIANS_OF_HYJAL),			text = FN.GUARDIANS_OF_HYJAL,		row = 4,	col = 1 },
+			ramkahen		= { tt = ReputationDesc(FN.RAMKAHEN),				text = FN.RAMKAHEN,			row = 5,	col = 1 },
+			earthenring		= { tt = ReputationDesc(FN.THE_EARTHEN_RING),			text = FN.THE_EARTHEN_RING,		row = 6,	col = 1 },
+			therazane		= { tt = ReputationDesc(FN.THERAZANE),				text = FN.THERAZANE,			row = 7,	col = 1 },
+			-- TODO: Make this work even if someone quits their guild and joins another.
+			-- The way it is now, it will display the old guild name
+			guild 			= { tt = ReputationDesc(FN.GUILD), 				text = FN.GUILD, 			row = 8, col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion3_frame, expansion3_buttons)
 
@@ -994,19 +996,19 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion4_buttons = {
-			goldenlotus		= { tt = ReputationDesc(BFAC["Golden Lotus"]),			text = BFAC["Golden Lotus"],				row = 2,	col = 1 },
-			cloudserpent		= { tt = ReputationDesc(BFAC["Order of the Cloud Serpent"]),	text = BFAC["Order of the Cloud Serpent"],		row = 3,	col = 1 },
-			shadopan		= { tt = ReputationDesc(BFAC["Shado-Pan"]),			text = BFAC["Shado-Pan"],				row = 4,	col = 1 },
-			anglers			= { tt = ReputationDesc(BFAC["The Anglers"]),			text = BFAC["The Anglers"],				row = 5,	col = 1 },
-			augustcelestials	= { tt = ReputationDesc(BFAC["The August Celestials"]),		text = BFAC["The August Celestials"],			row = 6,	col = 1 },
-			brewmasters		= { tt = ReputationDesc(BFAC["The Brewmasters"]),		text = BFAC["The Brewmasters"],				row = 7,	col = 1 },
-			klaxxi			= { tt = ReputationDesc(BFAC["The Klaxxi"]),			text = BFAC["The Klaxxi"],				row = 8,	col = 1 },
-			lorewalkers		= { tt = ReputationDesc(BFAC["The Lorewalkers"]),		text = BFAC["The Lorewalkers"],				row = 9,	col = 1 },
-			tillers			= { tt = ReputationDesc(BFAC["The Tillers"]),			text = BFAC["The Tillers"],				row = 10,	col = 1 },
-			blackprince		= { tt = ReputationDesc(BFAC["The Black Prince"]),		text = BFAC["The Black Prince"],			row = 11,	col = 1 },
-			shangxiacademy		= { tt = ReputationDesc(BFAC["Shang Xi's Academy"]),		text = BFAC["Shang Xi's Academy"],			row = 12,	col = 1 },
-			pandacommon1		= { tt = ReputationDesc(Tushui_Huojin),				text = Tushui_Huojin,					row = 13,	col = 1 },
-			pandacommon2		= { tt = ReputationDesc(Jinyu_Hozen),				text = Jinyu_Hozen,					row = 14,	col = 1 },
+			goldenlotus		= { tt = ReputationDesc(FN.GOLDEN_LOTUS),		text = FN.GOLDEN_LOTUS,			row = 2,	col = 1 },
+			cloudserpent		= { tt = ReputationDesc(FN.ORDER_OF_THE_CLOUD_SERPENT),	text = FN.ORDER_OF_THE_CLOUD_SERPENT,	row = 3,	col = 1 },
+			shadopan		= { tt = ReputationDesc(FN.SHADO_PAN),			text = FN.SHADO_PAN,			row = 4,	col = 1 },
+			anglers			= { tt = ReputationDesc(FN.THE_ANGLERS),		text = FN.THE_ANGLERS,			row = 5,	col = 1 },
+			augustcelestials	= { tt = ReputationDesc(FN.THE_AUGUST_CELESTIALS),	text = FN.THE_AUGUST_CELESTIALS,	row = 6,	col = 1 },
+			brewmasters		= { tt = ReputationDesc(FN.THE_BREWMASTERS),		text = FN.THE_BREWMASTERS,		row = 7,	col = 1 },
+			klaxxi			= { tt = ReputationDesc(FN.THE_KLAXXI),			text = FN.THE_KLAXXI,			row = 8,	col = 1 },
+			lorewalkers		= { tt = ReputationDesc(FN.THE_LOREWALKERS),		text = FN.THE_LOREWALKERS,		row = 9,	col = 1 },
+			tillers			= { tt = ReputationDesc(FN.THE_TILLERS),		text = FN.THE_TILLERS,			row = 10,	col = 1 },
+			blackprince		= { tt = ReputationDesc(FN.THE_BLACK_PRINCE),		text = FN.THE_BLACK_PRINCE,		row = 11,	col = 1 },
+			shangxiacademy		= { tt = ReputationDesc(FN.SHANG_XIS_ACADEMY),		text = FN.SHANG_XIS_ACADEMY,		row = 12,	col = 1 },
+			pandacommon1		= { tt = ReputationDesc(Tushui_Huojin),			text = Tushui_Huojin,			row = 13,	col = 1 },
+			pandacommon2		= { tt = ReputationDesc(Jinyu_Hozen),			text = Jinyu_Hozen,			row = 14,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
 

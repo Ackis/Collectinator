@@ -30,6 +30,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local BB = LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
 local BN = private.BOSS_NAMES
+local FN = private.LOCALIZED_FACTION_STRINGS
 local Z = private.ZONE_NAMES
 
 private.vendor_list = {}
@@ -110,7 +111,7 @@ function addon:InitVendor()
 	AddVendor(58414,	L["San Redscale"],		Z.THE_JADE_FOREST,		56.6,	44.4,	"Neutral")
 	AddVendor(58706,	L["Gina Mudclaw"],		Z.VALLEY_OF_THE_FOUR_WINDS,	53.2,	51.6,	"Neutral")
 	AddVendor(59908,	L["Jaluu the Generous"],	Z.VALE_OF_ETERNAL_BLOSSOMS,	74.2,	42.6,	"Neutral")
-	AddVendor(63721,	L["Nat Pagle"],			Z.KRASARANG_WILDS,		68.4,	43.4,	"Neutral")
+	AddVendor(63721,	FN.NAT_PAGLE,			Z.KRASARANG_WILDS,		68.4,	43.4,	"Neutral")
 	AddVendor(63994,	L["Challenger Wuli"],		Z.SHRINE_OF_TWO_MOONS,		61.0,	21.0,	"Horde")
 	AddVendor(64001,	L["Sage Lotusbloom"],		Z.SHRINE_OF_TWO_MOONS,		62.6,	23.2,	"Horde")
 	AddVendor(64028,	L["Challenger Soong"],		Z.SHRINE_OF_SEVEN_STARS,	86.2,	61.6,	"Alliance")

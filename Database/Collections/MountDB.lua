@@ -141,16 +141,16 @@ function addon:InitMounts()
 	-- Reins of the Ice Mammoth - 59799
 	mount = AddMount(59799, V.WOTLK, Q.EPIC) -- Item: 43958
 	mount:SetItemID(43958)
-	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.HODIR)
+	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.THE_SONS_OF_HODIR)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddRepVendor(FAC.HODIR, REP.REVERED, 32540)
+	mount:AddRepVendor(FAC.THE_SONS_OF_HODIR, REP.REVERED, 32540)
 
 	-- Reins of the Grand Ice Mammoth - 61470
 	mount = AddMount(61470, V.WOTLK, Q.EPIC) -- Item: 43961
 	mount:SetItemID(43961)
-	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.HODIR)
+	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.THE_SONS_OF_HODIR)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddRepVendor(FAC.HODIR, REP.EXALTED, 32540)
+	mount:AddRepVendor(FAC.THE_SONS_OF_HODIR, REP.EXALTED, 32540)
 
 	-- Reins of the Traveler's Tundra Mammoth - 61425
 	mount = AddMount(61425, V.WOTLK, Q.EPIC) -- Item: 44235
@@ -164,14 +164,14 @@ function addon:InitMounts()
 	mount:SetItemID(46815)
 	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
+	mount:AddRepVendor(FAC.THE_SILVER_COVENANT, REP.EXALTED, 34881)
 
 	-- Silver Covenant Hippogryph - 66087
 	mount = AddMount(66087, V.WOTLK, Q.EPIC) -- Item: 46813
 	mount:SetItemID(46813)
 	mount:AddFilters(F.ALLIANCE, F.REPUTATION, F.IBOP, F.WRATHCOMMON1)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddRepVendor(FAC.SILVER_COVENANT, REP.EXALTED, 34881)
+	mount:AddRepVendor(FAC.THE_SILVER_COVENANT, REP.EXALTED, 34881)
 
 	-- White Mechanostrider Mod B - 15779
 	mount = AddMount(15779, V.ORIG, Q.EPIC) -- Item: 13326
@@ -822,28 +822,28 @@ function addon:InitMounts()
 	mount:SetItemID(46816)
 	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.WRATHCOMMON1)
 	mount:SetRequiredFaction("Horde")
-	mount:AddRepVendor(FAC.SUNREAVERS, REP.EXALTED, 34772)
+	mount:AddRepVendor(FAC.THE_SUNREAVERS, REP.EXALTED, 34772)
 
 	-- Sunreaver Dragonhawk - 66088
 	mount = AddMount(66088, V.WOTLK, Q.EPIC) -- Item: 46814
 	mount:SetItemID(46814)
 	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.WRATHCOMMON1)
 	mount:SetRequiredFaction("Horde")
-	mount:AddRepVendor(FAC.SUNREAVERS, REP.EXALTED, 34772)
+	mount:AddRepVendor(FAC.THE_SUNREAVERS, REP.EXALTED, 34772)
 
 	-- Reins of the Ice Mammoth - 59797
 	mount = AddMount(59797, V.WOTLK, Q.EPIC) -- Item: 44080
 	mount:SetItemID(44080)
-	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.HODIR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.THE_SONS_OF_HODIR)
 	mount:SetRequiredFaction("Horde")
-	mount:AddRepVendor(FAC.HODIR, REP.REVERED, 32540)
+	mount:AddRepVendor(FAC.THE_SONS_OF_HODIR, REP.REVERED, 32540)
 
 	-- Reins of the Grand Ice Mammoth - 61469
 	mount = AddMount(61469, V.WOTLK, Q.EPIC) -- Item: 44086
 	mount:SetItemID(44086)
-	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.HODIR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.VENDOR, F.THE_SONS_OF_HODIR)
 	mount:SetRequiredFaction("Horde")
-	mount:AddRepVendor(FAC.HODIR, REP.EXALTED, 32540)
+	mount:AddRepVendor(FAC.THE_SONS_OF_HODIR, REP.EXALTED, 32540)
 
 	-- Horn of the Swift Brown Wolf - 23250
 	mount = AddMount(23250, V.ORIG, Q.EPIC) -- Item: 18796
@@ -1320,7 +1320,7 @@ function addon:InitMounts()
 	-- Kor'kron Annihilator -- 93644
 	mount = AddMount(93644, V.CATA, Q.EPIC) -- Item: 67107
 	mount:SetItemID(67107)
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.ACHIEVEMENT, F.REPUTATION)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.ACHIEVEMENT, F.REPUTATION, F.GUILD)
 	mount:SetRequiredFaction("Horde")
 	mount:AddAchievement(5492)
 	mount:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51503, 51512, 52268)
@@ -1614,9 +1614,9 @@ function addon:InitMounts()
 	-- Winged Steed of the Ebon Blade - 54729
 	mount = AddMount(54729, V.WOTLK, Q.EPIC) -- Item: 40775
 	mount:SetItemID(40775)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.IBOP, F.EBONBLADE)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.IBOP, F.KNIGHTS_OF_THE_EBON_BLADE)
 	mount:SetRequiredClass("DEATHKNIGHT")
-	mount:AddRepVendor(FAC.EBONBLADE, REP.EXALTED, 29587)
+	mount:AddRepVendor(FAC.KNIGHTS_OF_THE_EBON_BLADE, REP.EXALTED, 29587)
 
 --REP VENDOR ARGENT
 	-- Argent Charger - 66906
@@ -1636,8 +1636,8 @@ function addon:InitMounts()
 	-- Reins of the Red Drake - 59570
 	mount = AddMount(59570, V.WOTLK, Q.EPIC) -- Item: 43955
 	mount:SetItemID(43955)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.WYRMREST)
-	mount:AddRepVendor(FAC.WYRMREST, REP.EXALTED, 32533)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_WYRMREST_ACCORD)
+	mount:AddRepVendor(FAC.THE_WYRMREST_ACCORD, REP.EXALTED, 32533)
 
 	-- Cenarion War Hippogryph - 43927
 	mount = AddMount(43927, V.TBC, Q.EPIC) -- Item: 33999
@@ -1648,32 +1648,32 @@ function addon:InitMounts()
 	-- Green Riding Nether Ray - 39798
 	mount = AddMount(39798, V.TBC, Q.EPIC) -- Item: 32314
 	mount:SetItemID(32314)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHATAR)
-	mount:AddRepVendor(FAC.SHATAR, REP.EXALTED, 23367)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHATARI_SKYGUARD)
+	mount:AddRepVendor(FAC.SHATARI_SKYGUARD, REP.EXALTED, 23367)
 
 	-- Red Riding Nether Ray - 39800
 	mount = AddMount(39800, V.TBC, Q.EPIC) -- Item: 32317
 	mount:SetItemID(32317)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHATAR)
-	mount:AddRepVendor(FAC.SHATAR, REP.EXALTED, 23367)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHATARI_SKYGUARD)
+	mount:AddRepVendor(FAC.SHATARI_SKYGUARD, REP.EXALTED, 23367)
 
 	-- Purple Riding Nether Ray - 39801
 	mount = AddMount(39801, V.TBC, Q.EPIC) -- Item: 32316
 	mount:SetItemID(32316)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHATAR)
-	mount:AddRepVendor(FAC.SHATAR, REP.EXALTED, 23367)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHATARI_SKYGUARD)
+	mount:AddRepVendor(FAC.SHATARI_SKYGUARD, REP.EXALTED, 23367)
 
 	-- Silver Riding Nether Ray - 39802
 	mount = AddMount(39802, V.TBC, Q.EPIC) -- Item: 32318
 	mount:SetItemID(32318)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHATAR)
-	mount:AddRepVendor(FAC.SHATAR, REP.EXALTED, 23367)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHATARI_SKYGUARD)
+	mount:AddRepVendor(FAC.SHATARI_SKYGUARD, REP.EXALTED, 23367)
 
 	-- Blue Riding Nether Ray - 39803
 	mount = AddMount(39803, V.TBC, Q.EPIC) -- Item: 32319
 	mount:SetItemID(32319)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHATAR)
-	mount:AddRepVendor(FAC.SHATAR, REP.EXALTED, 23367)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHATARI_SKYGUARD)
+	mount:AddRepVendor(FAC.SHATARI_SKYGUARD, REP.EXALTED, 23367)
 
 	-- Reins of the Onyx Netherwing Drake - 41513
 	mount = AddMount(41513, V.TBC, Q.EPIC) -- Item: 32857
@@ -1722,56 +1722,56 @@ function addon:InitMounts()
 	mount:SetItemID(31829)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
 	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
-	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
+	mount:AddRepVendor(FAC.THE_MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the Silver Riding Talbuk - 39317
 	mount = AddMount(39317, V.TBC, Q.EPIC) -- Item: 31831
 	mount:SetItemID(31831)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
 	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
-	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
+	mount:AddRepVendor(FAC.THE_MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the Tan Riding Talbuk - 39318
 	mount = AddMount(39318, V.TBC, Q.EPIC) -- Item: 31833
 	mount:SetItemID(31833)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
 	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
-	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
+	mount:AddRepVendor(FAC.THE_MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the White Riding Talbuk - 39319
 	mount = AddMount(39319, V.TBC, Q.EPIC) -- Item: 31835
 	mount:SetItemID(31835)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
 	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
-	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
+	mount:AddRepVendor(FAC.THE_MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the Cobalt War Talbuk - 34896
 	mount = AddMount(34896, V.TBC, Q.EPIC) -- Item: 29102
 	mount:SetItemID(29102)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
 	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
-	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
+	mount:AddRepVendor(FAC.THE_MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the White War Talbuk - 34897
 	mount = AddMount(34897, V.TBC, Q.EPIC) -- Item: 29103
 	mount:SetItemID(29103)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
 	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
-	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
+	mount:AddRepVendor(FAC.THE_MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the Silver War Talbuk - 34898
 	mount = AddMount(34898, V.TBC, Q.EPIC) -- Item: 29104
 	mount:SetItemID(29104)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
 	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
-	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
+	mount:AddRepVendor(FAC.THE_MAGHAR, REP.EXALTED, 20241)
 
 	-- Reins of the Tan War Talbuk - 34899
 	mount = AddMount(34899, V.TBC, Q.EPIC) -- Item: 29105
 	mount:SetItemID(31829)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.NAGRAND)
 	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
-	mount:AddRepVendor(FAC.MAGHAR, REP.EXALTED, 20241)
+	mount:AddRepVendor(FAC.THE_MAGHAR, REP.EXALTED, 20241)
 
 --REP VENDOR ALLIANCE
 
@@ -2074,7 +2074,7 @@ function addon:InitMounts()
 	mount:SetItemID(68824)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.IBOP)
 	mount:AddMobDrop(52151)
-	
+
 	--mount:AddFilters(96499, F.ALLIANCE, F.HORDE, F.MOB_DROP, F.BOP)
 	--self:AddCompanionAcquire(DB, 96499, A_MOB, 52059)
 
@@ -2190,8 +2190,8 @@ function addon:InitMounts()
 	-- Amber Scorpion -- 123886
 	mount = AddMount(123886, V.MOP, Q.EPIC)
 	mount:SetItemID(85262)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.KLAXXI)
-	mount:AddRepVendor(FAC.KLAXXI, REP.EXALTED, 64599)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_KLAXXI)
+	mount:AddRepVendor(FAC.THE_KLAXXI, REP.EXALTED, 64599)
 
 -- Ashen Pandaren Phoenix
 -- mount = AddMount(, V.MOP, )
@@ -2206,8 +2206,8 @@ function addon:InitMounts()
 	-- Azure Cloud Serpent -- 123992
 	mount = AddMount(123992, V.MOP, Q.EPIC)
 	mount:SetItemID(85430)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.REPUTATION, F.CLOUDSERPENT)
-	mount:AddRepVendor(FAC.CLOUDSERPENT, REP.EXALTED, 58414)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.REPUTATION, F.ORDER_OF_THE_CLOUD_SERPENT)
+	mount:AddRepVendor(FAC.ORDER_OF_THE_CLOUD_SERPENT, REP.EXALTED, 58414)
 	mount:AddQuest(31810)
 
 	-- Azure Riding Crane -- 127174
@@ -2218,8 +2218,8 @@ function addon:InitMounts()
 
 	-- Azure Water Strider -- 118089
 	mount = AddMount(118089, V.MOP, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.ANGLERS)
-	mount:AddRepVendor(FAC.ANGLERS, REP.EXALTED, 63721)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_ANGLERS)
+	mount:AddRepVendor(FAC.THE_ANGLERS, REP.EXALTED, 63721)
 
 -- Black Dragon Turtle
 -- mount = AddMount(, V.MOP, )
@@ -2229,8 +2229,8 @@ function addon:InitMounts()
 	-- Black Riding Goat -- 130138
 	mount = AddMount(130138, V.MOP, Q.EPIC)
 	mount:SetItemID(89391)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.TILLERS)
-	mount:AddRepVendor(FAC.TILLERS, REP.EXALTED, 58706)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_TILLERS)
+	mount:AddRepVendor(FAC.THE_TILLERS, REP.EXALTED, 58706)
 
 	-- Blonde Riding Yak -- 127220
 	mount = AddMount(127220, V.MO58983P, Q.EPIC)
@@ -2245,8 +2245,8 @@ function addon:InitMounts()
 
 	-- Blue Shado-Pan Riding Tiger -- 129934
 	mount = AddMount(129934, V.MOP, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHADOPAN)
-	mount:AddRepVendor(FAC.SHADOPAN, REP.EXALTED, 64595)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHADO_PAN)
+	mount:AddRepVendor(FAC.SHADO_PAN, REP.EXALTED, 64595)
 
 -- Brown Dragon Turtle
 -- mount = AddMount(, V.MOP, )
@@ -2256,8 +2256,8 @@ function addon:InitMounts()
 	-- Brown Riding Goat -- 130086
 	mount = AddMount(130086, V.MOP, Q.EPIC)
 	mount:SetItemID(89362)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.TILLERS)
-	mount:AddRepVendor(FAC.TILLERS, REP.EXALTED, 58706)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_TILLERS)
+	mount:AddRepVendor(FAC.THE_TILLERS, REP.EXALTED, 58706)
 
 -- Cataclysmic Gladiator's Twilight Drake
 -- mount = AddMount(, V.MOP, )
@@ -2297,8 +2297,8 @@ function addon:InitMounts()
 	-- Golden Cloud Serpent -- 123993
 	mount = AddMount(123993, V.MOP, Q.EPIC)
 	mount:SetItemID(85429)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.REPUTATION, F.CLOUDSERPENT)
-	mount:AddRepVendor(FAC.CLOUDSERPENT, REP.EXALTED, 58414)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.REPUTATION, F.ORDER_OF_THE_CLOUD_SERPENT)
+	mount:AddRepVendor(FAC.ORDER_OF_THE_CLOUD_SERPENT, REP.EXALTED, 58414)
 
 	-- Golden Riding Crane -- -127176
 	mount = AddMount(127176, V.MOP, Q.EPIC)
@@ -2349,8 +2349,8 @@ function addon:InitMounts()
 
 	-- Green Shado-Pan Riding Tiger -- 129932
 	mount = AddMount(129932, V.MOP, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHADOPAN)
-	mount:AddRepVendor(FAC.SHADOPAN, REP.EXALTED, 64595)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHADO_PAN)
+	mount:AddRepVendor(FAC.SHADO_PAN, REP.EXALTED, 64595)
 
 	-- Grey Riding Yak -- 127216
 	mount = AddMount(127216, V.MOP, Q.EPIC)
@@ -2386,8 +2386,8 @@ function addon:InitMounts()
 	-- Jade Cloud Serpent -- 113199
 	mount = AddMount(113199, V.MOP, Q.EPIC)
 	mount:SetItemID(79802)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.REPUTATION, F.CLOUDSERPENT)
-	mount:AddRepVendor(FAC.CLOUDSERPENT, REP.EXALTED, 58414)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.REPUTATION, F.ORDER_OF_THE_CLOUD_SERPENT)
+	mount:AddRepVendor(FAC.ORDER_OF_THE_CLOUD_SERPENT, REP.EXALTED, 58414)
 	mount:AddQuest(30188)
 
 -- Jade Panther
@@ -2428,13 +2428,13 @@ function addon:InitMounts()
 	-- Red Flying Cloud -- 130092
 	mount = AddMount(130092, V.MOP, Q.RARE)
 	mount:SetItemID(89363)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.IBOP, F.LOREWALKERS)
-	mount:AddRepVendor(FAC.LOREWALKERS, REP.EXALTED, 64605)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.IBOP, F.THE_LOREWALKERS)
+	mount:AddRepVendor(FAC.THE_LOREWALKERS, REP.EXALTED, 64605)
 
 	-- Red Shado-Pan Riding Tiger -- 129935
 	mount = AddMount(129935, V.MOP, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHADOPAN)
-	mount:AddRepVendor(FAC.SHADOPAN, REP.EXALTED, 64595)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHADO_PAN)
+	mount:AddRepVendor(FAC.SHADO_PAN, REP.EXALTED, 64595)
 
 	-- Regal Riding Crane -- 127177
 	mount = AddMount(127177, V.MOP, Q.EPIC)
@@ -2485,8 +2485,8 @@ function addon:InitMounts()
 	-- White Riding Goat -- 130137
 	mount = AddMount(130137, V.MOP, Q.EPIC)
 	mount:SetItemID(89390)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.TILLERS)
-	mount:AddRepVendor(FAC.TILLERS, REP.EXALTED, 58706)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_TILLERS)
+	mount:AddRepVendor(FAC.THE_TILLERS, REP.EXALTED, 58706)
 
 	-- Green Dragon Turtle -- 120395
 	mount = AddMount(120395, V.MOP, Q.COMMON)
