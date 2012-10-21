@@ -435,7 +435,7 @@ function private.InitializeFilterPanel()
 			store		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_10),	text = _G.BATTLE_PET_SOURCE_10,	row = 7, col = 1 },
 			tcg		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_9),	text = _G.BATTLE_PET_SOURCE_9,	row = 7, col = 2 },
 			coll_edition	= { tt = AcquireDesc(L["Collectors Edition"]),	text = L["Collectors Edition"],	row = 8, col = 1 },
-			raf		= { tt = AcquireDesc(L["Refer-A-Friend"]),	text = L["Refer-A-Friend"],	row = 8, col = 2 },
+			promo		= { tt = AcquireDesc(L["Promotions"]),		text = L["Promotions"],		row = 8, col = 2 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
@@ -1085,7 +1085,7 @@ function private.InitializeFilterPanel()
 		["store"]		= { cb = FilterPanel.obtain.store,		svroot = filterdb.obtain },
 		["tcg"]			= { cb = FilterPanel.obtain.tcg,		svroot = filterdb.obtain },
 		["coll_edition"]	= { cb = FilterPanel.obtain.coll_edition,	svroot = filterdb.obtain },
-		["raf"]			= { cb = FilterPanel.obtain.raf,		svroot = filterdb.obtain },
+		["promo"]		= { cb = FilterPanel.obtain.promo,		svroot = filterdb.obtain },
 		------------------------------------------------------------------------------------------------
 		-- Binding Options
 		------------------------------------------------------------------------------------------------

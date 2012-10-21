@@ -146,7 +146,7 @@ private.COMMON_FLAGS_WORD1 = {
 	IBOA		= 0x00008000,	-- 16
 	TCG		= 0x00010000,	-- 17
 	COLLECTORS_EDITION		= 0x00020000,	-- 18
-	RAF		= 0x00040000,	-- 19
+	PROMO		= 0x00040000,	-- 19
 --	DPS		= 0x00080000,	-- 20
 --	TANK		= 0x00100000,	-- 21
 --	HEALER		= 0x00200000,	-- 22
@@ -288,7 +288,7 @@ private.ACQUIRE_NAMES = {
 	[11]	= _G.BATTLE_PET_SOURCE_10, -- Store
 	[12]	= _G.BATTLE_PET_SOURCE_9, -- TCG
 	[13]	= L["Collectors Edition"],
-	[14]	= L["Refer-A-Friend"],
+	[14]	= L["Promotions"],
 }
 
 private.ACQUIRE_STRINGS = {
@@ -305,7 +305,7 @@ private.ACQUIRE_STRINGS = {
 	[11]	= "STORE",
 	[12]	= "TCG",
 	[13]	= "COLLECTORS_EDITION",
-	[14]	= "RAF",
+	[14]	= "PROMO",
 }
 
 private.ACQUIRE_TYPES = {}
