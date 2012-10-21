@@ -86,6 +86,7 @@ function addon:InitQuest()
 	AddQuest(29412,	Z.STORMWIND_CITY,			58.8,	52.8,	"Alliance")
 	AddQuest(29905,	Z.THE_JADE_FOREST,			58.9,	81.7,	"Alliance")
 	AddQuest(30188,	Z.THE_JADE_FOREST,			57.6,	44.8,	"Neutral")
+	AddQuest(31277,	Z.TOWNLONG_STEPPES,			41.0,	60.2,	"Neutral")
 	AddQuest(31810,	Z.THE_JADE_FOREST,			57.6,	44.8,	"Neutral")
 	AddQuest(31811,	Z.THE_JADE_FOREST,			57.6,	44.8,	"Neutral")
 

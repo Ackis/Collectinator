@@ -67,6 +67,10 @@ function addon:InitMob()
 	AddMob(50245,	L["Dormus the Camel-Hoarder"],		Z.FERALAS,			69.6, 73.2)
 	AddMob(52059,	BN.HIGH_PRIESTESS_KILNARA,		Z.ZULGURUB,			47.8, 20.6)
 	AddMob(52151,	BN.BLOODLORD_MANDOKIR,			Z.ZULGURUB,			60.6, 80.6)
+	AddMob(60410,	BB["Elegon"],				Z.MOGUSHAN_VAULTS,		20.6, 51.5)
+	AddMob(60491,	L["Sha of Anger"], 			Z.KUN_LAI_SUMMIT,		67.8, 77.8)
+	AddMob(62346,	L["Galleon"], 				Z.VALLEY_OF_THE_FOUR_WINDS,	70.8, 63.4)
+	AddMob(64403,	L["Alani"], 				Z.VALE_OF_ETERNAL_BLOSSOMS,	39.4, 30.8)
 	
 
 	self.InitMob = nil
