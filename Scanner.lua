@@ -753,6 +753,7 @@ do
 					output:AddLine("pet:AddRepVendor(FAC." .. TableKeyFormat(faction:trim()) .. ", REP." .. string.upper(rep_level) .. ", " .. (vendor_id or "???") .. ")")
 					pet:AddFilters(F.REPUTATION)
 				else
+					print(source_text)
 					pet:AddFilters(F.VENDOR)
 				end
 			elseif source_text:match("Drop:") then -- Blizzard has no space after the : here
