@@ -738,13 +738,15 @@ do
 				output:AddLine("--pet:AddMobDrop() -- " .. mob_name .. ": " .. mob_zone)
 			end
 		elseif source_text:match("Promotion:") then
+			source_text = source_text:gsub("Promotion:", ""):trim()
 			print(source_text)
 		elseif source_text:match("Pet Store") then
+			source_text = source_text:gsub("Pet Store", ""):trim()
 			pet:AddFilters(F.STORE)
 			print(source_text)
 		elseif source_text:match("Trading Card Game:") then
 			pet:AddFilters(F.TCG)
-			print(source_text)
+			output:AddLine("pet:AddCustom(\"TCG\")")
 		else
 			addon:Print("Unknown acquire method; " .. source_text)
 		end
