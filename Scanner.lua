@@ -734,7 +734,8 @@ do
 				pet:AddFilters(F.WORLD_DROP)
 				output:AddLine("pet:AddWorldDrop(Z." .. TableKeyFormat(mob_zone) ..")")
 			else
-			
+				pet:AddFilters(F.MOB_DROP)
+				output:AddLine("--pet:AddMobDrop() -- " .. mob_name .. ": " .. mob_zone)
 			end
 		elseif source_text:match("Promotion:") then
 			print(source_text)
