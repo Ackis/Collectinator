@@ -56,6 +56,7 @@ function addon:InitQuest()
 
 	AddQuest(3721,	Z.THE_CAPE_OF_STRANGLETHORN,		43.0,	72.0,	"Neutral")
 	AddQuest(3861,	Z.WESTFALL,				56.0,	31.6,	"Neutral")
+	AddQuest(8743,	Z.AHNQIRAJ_THE_FALLEN_KINGDOM,		0,	0,	"Neutral")
 	AddQuest(10898,	Z.TEROKKAR_FOREST,			56.6,	72.8,	"Neutral")
 	AddQuest(11109, Z.SHATTRATH_CITY,			67.4,	18.4,	"Neutral")
 	AddQuest(11110, Z.SHATTRATH_CITY,			67.4,	18.4,	"Neutral")

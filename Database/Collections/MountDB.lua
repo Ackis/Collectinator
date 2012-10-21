@@ -1846,9 +1846,10 @@ function addon:InitMounts()
 	mount:AddWorldDrop(Z.AHNQIRAJ_THE_FALLEN_KINGDOM)
 
 	-- Black Qiraji Resonating Crystal - 26656
-	mount = AddMount(26656, V.ORIG, R_LEGENDARY) -- Item: 21176
+	mount = AddMount(26656, V.ORIG, Q.LEGENDARY) -- Item: 21176
 	mount:SetItemID(21176)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.RETIRED)
+	mount:AddQuest(8743)
 
 --TCG
 	-- Riding Tutle - 30174
