@@ -2173,15 +2173,15 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_KLAXXI)
 	mount:AddRepVendor(FAC.THE_KLAXXI, REP.EXALTED, 64599)
 
--- Ashen Pandaren Phoenix
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Ashen Pandaren Phoenix -- 132117
+	mount = AddMount(132117, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(63994, 64028, 66973)
 
--- Astral Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Astral Cloud Serpent -- 127170
+	mount = AddMount(127170, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(60410)
 
 	-- Azure Cloud Serpent -- 123992
 	mount = AddMount(123992, V.MOP, Q.EPIC)
@@ -2201,11 +2201,11 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_ANGLERS)
 	mount:AddRepVendor(FAC.THE_ANGLERS, REP.EXALTED, 63721)
 
--- Black Dragon Turtle -- 127286
-mount = AddMount(127286, V.MOP, Q.EPIC)
-mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
-mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
-mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
+	-- Black Dragon Turtle -- 127286
+	mount = AddMount(127286, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+	mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+	mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
 	-- Black Riding Goat -- 130138
 	mount = AddMount(130138, V.MOP, Q.EPIC)
@@ -2219,22 +2219,22 @@ mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
 	mount:AddVendor(64518)
 
--- Blue Dragon Turtle -- 127287
-mount = AddMount(127287, V.MOP, Q.EPIC)
-mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
-mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
-mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
+	-- Blue Dragon Turtle -- 127287
+	mount = AddMount(127287, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+	mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+	mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
 	-- Blue Shado-Pan Riding Tiger -- 129934
 	mount = AddMount(129934, V.MOP, Q.EPIC)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHADO_PAN)
 	mount:AddRepVendor(FAC.SHADO_PAN, REP.EXALTED, 64595)
 
--- Brown Dragon Turtle -- 127288
-mount = AddMount(127288, V.MOP, Q.EPIC)
-mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
-mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
-mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
+	-- Brown Dragon Turtle -- 127288
+	mount = AddMount(127288, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+	mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+	mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
 	-- Brown Riding Goat -- 130086
 	mount = AddMount(130086, V.MOP, Q.EPIC)
@@ -2242,46 +2242,42 @@ mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_TILLERS)
 	mount:AddRepVendor(FAC.THE_TILLERS, REP.EXALTED, 58706)
 
--- Cataclysmic Gladiator's Twilight Drake
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Cataclysmic Gladiator's Twilight Drake -- 124550
+	mount = AddMount(124550, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 
--- Crimson Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
 
--- Crimson Pandaren Phoenix
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Crimson Cloud Serpent -- 127156
+	mount = AddMount(127156, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(6927)
 
--- Depleted-Kyparium Rocket
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Crimson Pandaren Phoenix -- 129552
+	mount = AddMount(129552, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(63994, 64028, 66973)
 
--- Emerald Pandaren Phoenix
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Depleted-Kyparium Rocket -- 126507
+	mount = AddMount(126507, V.MOP, Q.RARE)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession(PROF.ENGINEERING)
 
--- Geosynchronous World Spinner
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Emerald Pandaren Phoenix -- 132118
+	mount = AddMount(132118, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(63994, 64028, 66973)
 
--- Golden Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Geosynchronous World Spinner -- 126508
+	mount = AddMount(126508, V.MOP, Q.RARE)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession(PROF.ENGINEERING)
 
 	-- Golden Cloud Serpent -- 123993
 	mount = AddMount(123993, V.MOP, Q.EPIC)
 	mount:SetItemID(85429)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.REPUTATION, F.ORDER_OF_THE_CLOUD_SERPENT)
 	mount:AddRepVendor(FAC.ORDER_OF_THE_CLOUD_SERPENT, REP.EXALTED, 58414)
+	mount:AddQuest(31811)
 
 	-- Golden Riding Crane -- -127176
 	mount = AddMount(127176, V.MOP, Q.EPIC)
@@ -2295,47 +2291,47 @@ mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
 	mount:AddVendor(64518)
 
--- Great Black Dragon Turtle -- 127295
-mount = AddMount(127295, V.MOP, Q.EPIC)
-mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
-mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
-mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
+	-- Great Black Dragon Turtle -- 127295
+	mount = AddMount(127295, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+	mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+	mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Great Blue Dragon Turtle -- 127302
-mount = AddMount(127302, V.MOP, Q.EPIC)
-mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
-mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
-mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
+	-- Great Blue Dragon Turtle -- 127302
+	mount = AddMount(127302, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+	mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+	mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Great Brown Dragon Turtle -- 127308
-mount = AddMount(127308, V.MOP, Q.EPIC)
-mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
-mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
-mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
+	-- Great Brown Dragon Turtle -- 127308
+	mount = AddMount(127308, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+	mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+	mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Great Green Dragon Turtle -- 127293
-mount = AddMount(127293, V.MOP, Q.EPIC)
-mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
-mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
-mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
+	-- Great Green Dragon Turtle -- 127293
+	mount = AddMount(127293, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+	mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+	mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Great Purple Dragon Turtle -- 127310
-mount = AddMount(127310, V.MOP, Q.EPIC)
-mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
-mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
-mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
+	-- Great Purple Dragon Turtle -- 127310
+	mount = AddMount(127310, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+	mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+	mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Great Red Dragon Turtle -- 120822
-mount = AddMount(120822, V.MOP, Q.EPIC)
-mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
-mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
-mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
+	-- Great Red Dragon Turtle -- 120822
+	mount = AddMount(120822, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+	mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+	mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Green Dragon Turtle -- 120395
-mount = AddMount(120395, V.MOP, Q.EPIC)
-mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
-mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
-mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
+	-- Green Dragon Turtle -- 120395
+	mount = AddMount(120395, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+	mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+	mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
 	-- Green Shado-Pan Riding Tiger -- 129932
 	mount = AddMount(129932, V.MOP, Q.EPIC)
@@ -2348,30 +2344,15 @@ mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
 	mount:AddVendor(64518)
 
--- Heavenly Azure Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Heavenly Crimson Cloud Serpent -- 127161
+	mount = AddMount(127161, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(6932)
 
--- Heavenly Crimson Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Heavenly Golden Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Heavenly Jade Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Heavenly Onyx Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Heavenly Onyx Cloud Serpent -- 127158
+	mount = AddMount(127158, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(60491)
 
 	-- Jade Cloud Serpent -- 113199
 	mount = AddMount(113199, V.MOP, Q.EPIC)
@@ -2390,32 +2371,36 @@ mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	mount:AddProfession(PROF.JEWELCRAFTING)
 
--- Onyx Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Onyx Cloud Serpent -- 127154
+	mount = AddMount(127154, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(31277)
 
--- Pandaren Kite
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Pandaren Kite -- 118737
+	mount = AddMount(118737, V.MOP, Q.EPIC)
+	mount:SetItemID(81559)
+	mount:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:SetRequiredFaction("Horde")
+	mount:AddAchievement(6827)
 
--- Pandaren Kite
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Pandaren Kite -- 130985
+	mount = AddMount(130985, V.MOP, Q.EPIC)
+	mount:SetItemID(89785)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.ACHIEVEMENT)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddAchievement(6828)
 
--- Purple Dragon Turtle -- 127289
-mount = AddMount(127289, V.MOP, Q.EPIC)
-mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
-mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
-mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
+	-- Purple Dragon Turtle -- 127289
+	mount = AddMount(127289, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+	mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+	mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Red Dragon Turtle -- 127290
-mount = AddMount(127290, V.MOP, Q.EPIC)
-mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
-mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
-mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
+	-- Red Dragon Turtle -- 127290
+	mount = AddMount(127290, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+	mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+	mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
 	-- Red Flying Cloud -- 130092
 	mount = AddMount(130092, V.MOP, Q.RARE)
@@ -2444,35 +2429,35 @@ mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	mount:AddProfession(PROF.JEWELCRAFTING)
 
--- Son of Galleon
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Son of Galleon -- 130965
+	mount = AddMount(130965, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(62346)
 
 	-- Sunstone Panther -- 121839
 	mount = AddMount(121839, V.MOP, Q.RARE)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	mount:AddProfession(PROF.JEWELCRAFTING)
 
--- Thundering August Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Thundering August Cloud Serpent -- 129918
+	mount = AddMount(129918, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.THE_AUGUST_CELESTIALS)
+	mount:AddRepVendor(FAC.THE_AUGUST_CELESTIALS, REP.EXALTED, 64001, 64032)
 
--- Thundering Jade Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Thundering Jade Cloud Serpent -- 124408
+	mount = AddMount(124408, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(6682)
 
--- Thundering Ruby Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Thundering Ruby Cloud Serpent -- 132036
+	mount = AddMount(132036, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.THE_AUGUST_CELESTIALS)
+	mount:AddMobDrop(64403)
 
--- Violet Pandaren Phoenix
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Violet Pandaren Phoenix -- 132119
+	mount = AddMount(132119, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(63994, 64028, 66973)
 
 	-- White Riding Goat -- 130137
 	mount = AddMount(130137, V.MOP, Q.EPIC)
@@ -2495,12 +2480,10 @@ Apparentely not in game yet!
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
-
 -- Brown Riding Yak
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
-
 
 -- Black Riding Yak
 -- mount = AddMount(, V.MOP, )
@@ -2538,6 +2521,21 @@ Apparentely not in game yet!
 -- self:AddCompanionAcquire(DB,)
 
 -- Orange Water Strider
+-- mount = AddMount(, V.MOP, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Heavenly Golden Cloud Serpent
+-- mount = AddMount(, V.MOP, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Heavenly Jade Cloud Serpent
+-- mount = AddMount(, V.MOP, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Heavenly Azure Cloud Serpent
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
