@@ -43,6 +43,11 @@ function addon:InitCustom()
 	AddCustom("MYSTERIOUS_EGG",	Z.SHOLAZAR_BASIN,		54.6,	56.2)
 	AddCustom("TCG",		Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	71.6)
 	AddCustom("STORE")
+	AddCustom("ARENA")
+	AddCustom("ANNUAL_PASS")
+	AddCustom("CITY")
+	AddCustom("NOBLE_VENDOR")
+	AddCustom("CE")
 
 	self.InitCustom = nil
 end
