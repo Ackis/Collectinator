@@ -2201,10 +2201,11 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_ANGLERS)
 	mount:AddRepVendor(FAC.THE_ANGLERS, REP.EXALTED, 63721)
 
--- Black Dragon Turtle
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Black Dragon Turtle -- 127286
+mount = AddMount(127286, V.MOP, Q.EPIC)
+mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
 	-- Black Riding Goat -- 130138
 	mount = AddMount(130138, V.MOP, Q.EPIC)
@@ -2218,20 +2219,22 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
 	mount:AddVendor(64518)
 
--- Blue Dragon Turtle
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Blue Dragon Turtle -- 127287
+mount = AddMount(127287, V.MOP, Q.EPIC)
+mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
 	-- Blue Shado-Pan Riding Tiger -- 129934
 	mount = AddMount(129934, V.MOP, Q.EPIC)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SHADO_PAN)
 	mount:AddRepVendor(FAC.SHADO_PAN, REP.EXALTED, 64595)
 
--- Brown Dragon Turtle
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Brown Dragon Turtle -- 127288
+mount = AddMount(127288, V.MOP, Q.EPIC)
+mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
 	-- Brown Riding Goat -- 130086
 	mount = AddMount(130086, V.MOP, Q.EPIC)
@@ -2292,40 +2295,47 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
 	mount:AddVendor(64518)
 
--- Great Black Dragon Turtle
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Great Black Dragon Turtle -- 127295
+mount = AddMount(127295, V.MOP, Q.EPIC)
+mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Great Blue Dragon Turtle
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Great Blue Dragon Turtle -- 127302
+mount = AddMount(127302, V.MOP, Q.EPIC)
+mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Great Brown Dragon Turtle
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Great Brown Dragon Turtle -- 127308
+mount = AddMount(127308, V.MOP, Q.EPIC)
+mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Great Green Dragon Turtle
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Great Green Dragon Turtle -- 127293
+mount = AddMount(127293, V.MOP, Q.EPIC)
+mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Great Purple Dragon Turtle
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Great Purple Dragon Turtle -- 127310
+mount = AddMount(127310, V.MOP, Q.EPIC)
+mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Great Red Dragon Turtle
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Great Red Dragon Turtle -- 120822
+mount = AddMount(120822, V.MOP, Q.EPIC)
+mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Green Dragon Turtle
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Green Dragon Turtle -- 120395
+mount = AddMount(120395, V.MOP, Q.EPIC)
+mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
 	-- Green Shado-Pan Riding Tiger -- 129932
 	mount = AddMount(129932, V.MOP, Q.EPIC)
@@ -2395,15 +2405,17 @@ function addon:InitMounts()
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Purple Dragon Turtle
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Purple Dragon Turtle -- 127289
+mount = AddMount(127289, V.MOP, Q.EPIC)
+mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
--- Red Dragon Turtle
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+-- Red Dragon Turtle -- 127290
+mount = AddMount(127290, V.MOP, Q.EPIC)
+mount:AddFilters(F.ALLIANCE, F.HORDE,  F.VENDOR, F.IBOP, F.PANDACOMMON1)
+mount:AddRepVendor(FAC.HUOJIN_PANDAREN, REP.EXALTED, 66022)
+mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 
 	-- Red Flying Cloud -- 130092
 	mount = AddMount(130092, V.MOP, Q.RARE)
