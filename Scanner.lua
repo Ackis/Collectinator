@@ -678,11 +678,9 @@ do
 		end
 
 		--CheckExistingFlags(pet)
-		flag_list = GetExistingFlags(pet)
 
 		if source_text:match("Pet Battle:") then
-			-- We are assuming all pet battles are bop, availible to both alliance and horde.
-			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)")
+			pet:AddFilters(F.BATTLE_PET)
 			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim()
 
 			local temp_text = "pet:AddWorldDrop("
@@ -694,8 +692,7 @@ do
 			output:AddLine(temp_text)
 
 		elseif source_text:match("Achievement:") then
-
-			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)")
+			pet:AddFilters(F.ACHIEVEMENT)
 
 			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Achievement: ", ""):gsub("Category: (.+)",""):trim()
 			if ACHIEVEMENT_LOOK_UP[source_text] then
@@ -705,7 +702,7 @@ do
 			end
 		elseif source_text:match("Profession:") then
 			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Profession: ", ""):trim()
-			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)")
+			pet:AddFilters(F.PROFESSION)
 			if source_text:match("Zone") then
 				output:AddLine("pet:AddProfession(PROF.FISHING)")
 			elseif source_text:match("Formula") then
@@ -717,14 +714,15 @@ do
 			output:AddLine("pet:AddProfession(PROF.FISHING)")
 		elseif source_text:match("World Event:") then
 			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("World Event: ", ""):trim()
-			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL)")
+			pet:AddFilters(F.SEASONAL)
 			output:AddLine("pet:AddSeason(\"" .. TableKeyFormat(source_text) .. "\")")
 		elseif source_text:match("Quest:") then
 			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Quest: ", ""):trim()
-			output:AddLine("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)")
+			pet:AddFilters(F.QUEST)
 			local quest_name,quest_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
 			output:AddLine("--pet:AddQuest()")
 		elseif source_text:match("Vendor:") then
+			pet:AddFilters(F.VENDOR)
 			print(source_text)
 		elseif source_text:match("Drop:") then
 			print(source_text)
@@ -739,6 +737,10 @@ do
 		end
 
 		if pet then
+
+			flag_list = GetExistingFlags(pet)
+			output:AddLine("pet:AddFilters(" .. table.concat(flag_list,", ") ..")")
+
 			if pet:RequiredRaces() then
 				output:AddLine("pet:SetRequiredRaces(" .. pet:RequiredRaces() .. ")")
 			end
