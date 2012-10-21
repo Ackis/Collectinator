@@ -1398,17 +1398,19 @@ function addon:InitMounts()
 	-- Swift Zhevra - 49322
 	mount = AddMount(49322, V.TBC, Q.EPIC) -- Item: 37719
 	mount:SetItemID(37719)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.RETIRED, F.IBOP)
+	mount:AddCustom("RECRUIT")
 
 	-- X-53 Touring Rocket - 75973
 	mount = AddMount(75973, V.WOTLK, Q.EPIC) -- Item: 54860
 	mount:SetItemID(54860)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.RETIRED, F.IBOP)
+	mount:AddCustom("RECRUIT")
 
 	-- Obsidian Nightwing (Heart of the Nightwing) - 121820
 	mount = AddMount(121820, V.CATA, Q.EPIC) -- Item: 83086
 	mount:SetItemID(83086)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 	mount:AddCustom("RECRUIT")
 
 	-- Big Blizzard Bear - 58983
@@ -1932,6 +1934,12 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
 	mount:AddCustom("TCG")
 
+	-- Feldrake -- 113120
+	mount = AddMount(113120, V.MOP, Q.EPIC) -- Item: 79771
+	mount:SetItemID(79771)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddCustom("TCG")
+
 -- PURCHASED
 	-- Celestial Steed - 75614
 	mount = AddMount(75614, V.WOTLK, Q.EPIC) -- Item: 54811
@@ -2108,7 +2116,7 @@ function addon:InitMounts()
 	-- Tyrael's Charger -- 107203
 	mount = AddMount(107203, V.CATA, Q.EPIC) -- Item: 76755
 	mount:SetItemID(76755)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
 	mount:AddCustom("ANNUAL_PASS")
 
 	-- Swift Shorestrider -- 101573
@@ -2248,7 +2256,7 @@ function addon:InitMounts()
 	mount:AddRepVendor(FAC.THE_TILLERS, REP.EXALTED, 58706)
 
 	-- Blonde Riding Yak -- 127220
-	mount = AddMount(127220, V.MO58983P, Q.EPIC)
+	mount = AddMount(127220, V.MOP, Q.EPIC)
 	mount:SetItemID(87789)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
 	mount:AddVendor(64518)
@@ -2542,9 +2550,15 @@ end
 --[[
 Apparentely not in game yet!
 
--- Peep's Whistle -- 32345
--- mount = AddMount(32345, V.TBC, Q.LEGENDARY) -- Item: 25596
--- mount:SetItemID(25596)
+
+-- Albino Riding Crane
+-- mount = AddMount(, V.MOP, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Black Polar Bear -- 59572
+-- mount = AddMount(62048, V.TBC,) -- Item: 43964
+-- mount:SetItemID(43964)
 -- mount:AddFilters(F.ALLIANCE, F.HORDE)
 
 -- Black Dragonhawk Mount -- 62048
@@ -2552,12 +2566,22 @@ Apparentely not in game yet!
 -- mount:SetItemID()
 -- mount:AddFilters(F.ALLIANCE, F.HORDE)
 
--- Black Polar Bear -- 59572
--- mount = AddMount(62048, V.TBC,) -- Item: 43964
--- mount:SetItemID(43964)
--- mount:AddFilters(F.ALLIANCE, F.HORDE)
+-- Black Riding Yak
+-- mount = AddMount(, V.MOP, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
 
--- White Riding Yak
+-- Black Warp Stalker
+-- mount = AddMount(, V.TBC, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Blue Ram
+-- mount = AddMount(, V.CATA, )
+-- mount:AddFilters(, F.ALLIANCE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Brewfest Kodo  -- Only learn this mount if you don't have 100% riding, it is in-game however.
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
@@ -2567,22 +2591,12 @@ Apparentely not in game yet!
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Black Riding Yak
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Albino Riding Crane
--- mount = AddMount(, V.MOP, )
+-- Brown Polar Bear
+-- mount = AddMount(, V.WRATH, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
 -- Crimson Riding Crane
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Jungle Riding Crane
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
@@ -2592,17 +2606,29 @@ Apparentely not in game yet!
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
+-- Fluorescent Green Mechanostrider -- Only 1, on EU servers accidentally given to a player.
+-- mount = AddMount(, V.TBC, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Golden Sabercat
+-- mount = AddMount(16060, V.ORIG, )
+-- mount:SetItemID(12327)
+-- mount:AddFilters(, F.ALLIANCE, )
+-- self:AddCompanionAcquire(DB,)
+
 -- Golden Water Strider
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Jade Water Strider
--- mount = AddMount(, V.MOP, )
+-- Green Fire Hawk
+-- mount = AddMount(97501, V.CATA, Q.EPIC)
+-- mount:SetItemID(69226)
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Orange Water Strider
+-- Heavenly Azure Cloud Serpent
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
@@ -2617,7 +2643,37 @@ Apparentely not in game yet!
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Heavenly Azure Cloud Serpent
+-- Jade Water Strider
+-- mount = AddMount(, V.MOP, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Jungle Riding Crane
+-- mount = AddMount(, V.MOP, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Orange Water Strider
+-- mount = AddMount(, V.MOP, )
+-- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Peep's Whistle -- 32345
+-- mount = AddMount(32345, V.TBC, Q.LEGENDARY) -- Item: 25596
+-- mount:SetItemID(25596)
+-- mount:AddFilters(F.ALLIANCE, F.HORDE)
+
+-- Primal Leopard
+-- mount = AddMount(16058, V.ORIG, )
+-- mount:AddFilters(12325, F.ALLIANCE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- Purple Mechanostrider
+-- mount = AddMount(17455, V.ORIG, )
+-- mount:AddFilters(13323, F.ALLIANCE, )
+-- self:AddCompanionAcquire(DB,)
+
+-- White Riding Yak
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
