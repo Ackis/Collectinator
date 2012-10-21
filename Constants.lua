@@ -625,6 +625,8 @@ private.BOSS_NAMES = {
 	ANUBARAK = _G.EJ_GetEncounterInfo(587),
 	LEY_GUARDIAN_EREGOS = _G.EJ_GetEncounterInfo(625),
 	SKADI_THE_RUTHLESS = _G.EJ_GetEncounterInfo(643),
+	SHA_OF_ANGER = _G.EJ_GetEncounterInfo(691),
+	ELEGON = _G.EJ_GetEncounterInfo(726),
 }
 
 -------------------------------------------------------------------------------

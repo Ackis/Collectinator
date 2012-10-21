@@ -181,7 +181,6 @@ L["Rushi the Fox"] = true
 L["SCANBUTTONPOSITION_DESC"] = "Allows you to customize where the scan button is placed on the Mounts and Pets frame."
 L["SCAN_COMPANIONS_DESC"] = "Scans the specific collection to determine what you are missing and where to get them from."
 L["SEARCH_FILTERED"] = "Your search has no results."
-L["Sha of Anger"] = true
 L["SHIFT_CLICK"] = "Shift-Click to add the item profession by this collectable's link to your chat."
 L["SMALL_FONT_DESC"] = "Toggle on to use a smaller font for entries in the collection list."
 L["SOR"] = "Available via Scroll of Resurrection"
