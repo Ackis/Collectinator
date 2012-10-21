@@ -350,74 +350,65 @@ function addon:InitMounts()
 	-- Swift Yellow Mechanostrider - 23222
 	mount = AddMount(23222, V.ORIG, Q.EPIC) -- Item: 18774
 	mount:SetItemID(18774)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(7955)
-	mount:AddQuest(7675,7676)
 
 	-- Swift White Mechanostrider - 23223
 	mount = AddMount(23223, V.ORIG, Q.EPIC) -- Item: 18773
 	mount:SetItemID(18773)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(7955)
-	mount:AddQuest(7675,7676)
 
 	-- Swift Green Mechanostrider - 23225
 	mount = AddMount(23225, V.ORIG, Q.EPIC) -- Item: 18772
 	mount:SetItemID(18772)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(7955)
-	mount:AddQuest(7675,7676)
 
 	-- Swift Palomino - 23227
 	mount = AddMount(23227, V.ORIG, Q.EPIC) -- Item: 18776
 	mount:SetItemID(18776)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(384, 4885)
-	mount:AddQuest(7675, 7676)
 
 	-- Swift White Steed - 23228
 	mount = AddMount(23228, V.ORIG, Q.EPIC) -- Item: 18778
 	mount:SetItemID(18778)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(384, 4885)
-	mount:AddQuest(7675, 7676)
 
 	-- Swift Brown Steed - 23229
 	mount = AddMount(23229, V.ORIG, Q.EPIC) -- Item: 18777
 	mount:SetItemID(18777)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(384, 4885)
-	mount:AddQuest(7675, 7676)
 
 	-- Swift Brown Ram - 23238
 	mount = AddMount(23238, V.ORIG, Q.EPIC) -- Item: 18786
 	mount:SetItemID(18786)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(1261)
-	mount:AddQuest(7673, 7674)
 
 	-- Swift Gray Ram - 23239
 	mount = AddMount(23239, V.ORIG, Q.EPIC) -- Item: 18787
 	mount:SetItemID(18787)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(1261)
-	mount:AddQuest(7673, 7674)
 
 	-- Swift White Ram - 23240
 	mount = AddMount(23240, V.ORIG, Q.EPIC) -- Item: 18785
 	mount:SetItemID(18785)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(1261)
-	mount:AddQuest(7673, 7674)
 
 	-- Brown Elekk - 34406
 	mount = AddMount(34406, V.TBC, Q.RARE) -- Item: 28481
@@ -443,26 +434,23 @@ function addon:InitMounts()
 	-- Reins of the Swift Mistsaber - 23219
 	mount = AddMount(23219, V.ORIG, Q.EPIC) -- Item: 18767
 	mount:SetItemID(18767)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(4730)
-	mount:AddQuest(7671, 7672)
 
 	-- Reins of the Swift Frostsaber - 23221
 	mount = AddMount(23221, V.ORIG, Q.EPIC) -- Item: 18766
 	mount:SetItemID(18766)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(4730)
-	mount:AddQuest(7671, 7672)
 
 	-- Reins of the Swift Stormsaber - 23338
 	mount = AddMount(23338, V.ORIG, Q.EPIC) -- Item: 18902
 	mount:SetItemID(18902)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.QUEST, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(4730)
-	mount:AddQuest(7671, 7672)
 
 	-- Reins of the Striped Dawnsaber - 66847
 	mount = AddMount(66847, V.WOTLK, Q.RARE) -- Item: 47100
@@ -848,26 +836,23 @@ function addon:InitMounts()
 	-- Horn of the Swift Brown Wolf - 23250
 	mount = AddMount(23250, V.ORIG, Q.EPIC) -- Item: 18796
 	mount:SetItemID(18796)
-	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(3362)
-	mount:AddQuest(7660, 7661)
 
 	-- Horn of the Swift Timber Wolf - 23251
 	mount = AddMount(23251, V.ORIG, Q.EPIC) -- Item: 18797
 	mount:SetItemID(18797)
-	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(3362)
-	mount:AddQuest(7660, 7661)
 
 	-- Horn of the Swift Gray Wolf - 23252
 	mount = AddMount(23252, V.ORIG, Q.EPIC) -- Item: 18798
 	mount:SetItemID(18798)
-	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(3362)
-	mount:AddQuest(7660, 7661)
 
 	-- Black Wolf
 	mount = AddMount(64658, V.WOTLK, Q.RARE) -- Item: 46099
@@ -912,26 +897,23 @@ function addon:InitMounts()
 	-- Swift Blue Raptor - 23241
 	mount = AddMount(23241, V.ORIG, Q.EPIC) -- Item: 18788
 	mount:SetItemID(18788)
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.QUEST)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(7952)
-	mount:AddQuest(7664, 7665)
 
 	-- Swift Olive Raptor - 23242
 	mount = AddMount(23242, V.ORIG, Q.EPIC) -- Item: 18789
 	mount:SetItemID(18789)
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.QUEST)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(7952)
-	mount:AddQuest(7664, 7665)
 
 	-- Swift Orange Raptor - 23243
 	mount = AddMount(23243, V.ORIG, Q.EPIC) -- Item: 18790
 	mount:SetItemID(187902)
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.QUEST)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(7952)
-	mount:AddQuest(7664, 7665)
 
 	-- Whistle of the Turquoise Raptor - 10796
 	mount = AddMount(10796, V.ORIG, Q.RARE) -- Item: 8591
@@ -968,26 +950,23 @@ function addon:InitMounts()
 	-- Great White Kodo - 23247
 	mount = AddMount(23247, V.ORIG, Q.EPIC) -- Item: 18793
 	mount:SetItemID(18793)
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.QUEST)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(3685)
-	mount:AddQuest(7662, 7663)
 
 	-- Great Gray Kodo - 23248
 	mount = AddMount(23248, V.ORIG, Q.EPIC) -- Item: 18795
 	mount:SetItemID(18795)
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.QUEST)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(3685)
-	mount:AddQuest(7662, 7663)
 
 	-- Great Brown Kodo - 23249
 	mount = AddMount(23249, V.ORIG, Q.EPIC) -- Item: 18794
 	mount:SetItemID(18794)
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.QUEST)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(3685)
-	mount:AddQuest(7662, 7663)
 
 	-- White Kodo
 	mount = AddMount(64657, V.WOTLK, Q.RARE) -- Item: 46100
