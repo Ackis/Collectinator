@@ -2480,42 +2480,6 @@ mount:AddRepVendor(FAC.TUSHUI_PANDAREN, REP.EXALTED, 65068)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_TILLERS)
 	mount:AddRepVendor(FAC.THE_TILLERS, REP.EXALTED, 58706)
 
-	-- Green Dragon Turtle -- 120395
-	mount = AddMount(120395, V.MOP, Q.COMMON)
-
-	-- Great Red Dragon Turtle -- 120822
-	mount = AddMount(120822, V.MOP, Q.COMMON)
-
-	-- Black Dragon Turtle -- 127286
-	mount = AddMount(127286, V.MOP, Q.COMMON)
-
-	-- Blue Dragon Turtle -- 127287
-	mount = AddMount(127287, V.MOP, Q.COMMON)
-
-	-- Brown Dragon Turtle -- 127288
-	mount = AddMount(127288, V.MOP, Q.COMMON)
-
-	-- Purple Dragon Turtle -- 127289
-	mount = AddMount(127289, V.MOP, Q.COMMON)
-
-	-- Red Dragon Turtle -- 127290
-	mount = AddMount(127290, V.MOP, Q.COMMON)
-
-	-- Great Green Dragon Turtle -- 127293
-	mount = AddMount(127293, V.MOP, Q.COMMON)
-
-	-- Great Black Dragon Turtle -- 127295
-	mount = AddMount(127295, V.MOP, Q.COMMON)
-
-	-- Great Blue Dragon Turtle -- 127302
-	mount = AddMount(127302, V.MOP, Q.COMMON)
-
-	-- Great Purple Dragon Turtle -- 127310
-	mount = AddMount(127310, V.MOP, Q.COMMON)
-
-	-- Great Brown Dragon Turtle -- 127308
-	mount = AddMount(127308, V.MOP, Q.COMMON)
-
 ----------------------------------------------------------------------------------------------------
 
 	self.InitMounts = nil
