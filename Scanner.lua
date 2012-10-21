@@ -655,17 +655,14 @@ do
 		local pet = pet_list[creature_id]
 
 		if not pet then
-			--addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ")")
+			addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ")")
 
 			if source_text:match("Pet Battle:") then
 				output:AddLine(string.format("pet = AddPet(%d, V.MOP, Q.COMMON)", creature_id))
 			else
 				output:AddLine(string.format("pet = AddPet(%d, ???, ???)", creature_id))
 			end
-
-			addon:Print("Re-run the scan to get more information for this pet after it is added in to the database.")
 		else
-			--addon:Print(string.format("-- %s - %d", name, creature_id))
 			local quality
 			if pet.quality == 1 then
 				quality = "Q.COMMON"
@@ -725,15 +722,18 @@ do
 				pet:AddFilters(F.QUEST)
 				local quest_name,quest_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
 				output:AddLine("--pet:AddQuest()")
-			elseif source_text:match("Vendor:") then
-				pet:AddFilters(F.VENDOR)
-				--print(source_text)
+			elseif source_text:match("Vendor:") then -- Blizzard has no space after the : here
+				if source_text:match("Faction:") then
+					pet:AddFilters(F.REPUTATION)
+				else
+					pet:AddFilters(F.VENDOR)
+				end
 			elseif source_text:match("Drop:") then -- Blizzard has no space after the : here
 				source_text = source_text:gsub("Drop:", ""):trim()
-				--print(source_text)
 				local mob_name,mob_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
 				if mob_name == "World Drop" then
 					pet:AddFilters(F.WORLD_DROP)
+					-- TODO: Deal with weather/time of day/time of year
 					mob_zone = mob_zone:gsub("Weather: (%a+)", "")
 					output:AddLine("pet:AddWorldDrop(Z." .. TableKeyFormat(mob_zone) ..")")
 				else
