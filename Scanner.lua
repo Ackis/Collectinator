@@ -679,9 +679,12 @@ do
 
 		--CheckExistingFlags(pet)
 
+		-- Strip formatting
+		source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", "")
+
 		if source_text:match("Pet Battle:") then
 			pet:AddFilters(F.BATTLE_PET)
-			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim()
+			source_text = source_text:gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim() -- Blizzard uses different formats for Pet Battles, some are just listed others have Pet Battle before each zone
 
 			local temp_text = "pet:AddWorldDrop("
 			local zone_text = {}
@@ -694,14 +697,14 @@ do
 		elseif source_text:match("Achievement:") then
 			pet:AddFilters(F.ACHIEVEMENT)
 
-			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Achievement: ", ""):gsub("Category: (.+)",""):trim()
+			source_text = source_text:gsub("Achievement: ", ""):gsub("Category: (.+)",""):trim()
 			if ACHIEVEMENT_LOOK_UP[source_text] then
 				output:AddLine("pet:AddAchievement(" .. ACHIEVEMENT_LOOK_UP[source_text] .. ")")
 			else
 				addon:Print("Unknown achievement found: " .. source_text)
 			end
 		elseif source_text:match("Profession:") then
-			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Profession: ", ""):trim()
+			source_text = source_text:gsub("Profession: ", ""):trim()
 			pet:AddFilters(F.PROFESSION)
 			if source_text:match("Zone") then
 				output:AddLine("pet:AddProfession(PROF.FISHING)")
@@ -713,11 +716,11 @@ do
 		elseif source_text:match("Fishing:") then -- Fuck blizzard
 			output:AddLine("pet:AddProfession(PROF.FISHING)")
 		elseif source_text:match("World Event:") then
-			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("World Event: ", ""):trim()
+			source_text = source_text:gsub("World Event: ", ""):trim()
 			pet:AddFilters(F.SEASONAL)
 			output:AddLine("pet:AddSeason(\"" .. TableKeyFormat(source_text) .. "\")")
 		elseif source_text:match("Quest:") then
-			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", ""):gsub("Quest: ", ""):trim()
+			source_text = source_text:gsub("Quest: ", ""):trim()
 			pet:AddFilters(F.QUEST)
 			local quest_name,quest_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
 			output:AddLine("--pet:AddQuest()")
