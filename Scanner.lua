@@ -723,6 +723,7 @@ do
 					-- TODO: Fix pattern so I don't have to trim it.
 					local vendor_name, faction, rep_level = source_text:match("Vendor: ([%a ]+)Zone: .+Faction: ([%a ]+)[ -]+ (%a+)Cost")
 					local vendor_id
+
 					for i,k in pairs(vendor_list) do
 						local vendor = vendor_list[i]
 						if vendor.name == vendor_name then
@@ -730,9 +731,8 @@ do
 							break
 						end
 					end
-					if not vendor_id then
-						addon:Print("Vendor: " .. vendor_name .. " not in database.")
-					else
+
+					if vendor_id then
 						if vendor_list[vendor_id].faction == "Alliance" then
 							pet:AddFilters(F.ALLIANCE)
 						elseif vendor_list[vendor_id].faction == "Horde" then
@@ -740,8 +740,13 @@ do
 						elseif vendor_list[vendor_id].faction == "Neutral" then
 							pet:AddFilters(F.ALLIANCE, F.HORDE)
 						end
+					elseif vendor_name then
+						addon:Print("Vendor: " .. vendor_name .. " not in database.")
 					end
-					output:AddLine("pet:AddRepVendor(FAC." .. TableKeyFormat(faction:trim()) .. ", REP." .. string.upper(rep_level) .. ", " .. (vendor_id or "???") .. ")")
+
+					if faction then
+						output:AddLine("pet:AddRepVendor(FAC." .. TableKeyFormat(faction:trim()) .. ", REP." .. string.upper(rep_level) .. ", " .. (vendor_id or "???") .. ")")
+					end
 					pet:AddFilters(F.REPUTATION)
 				else
 					print(source_text)
