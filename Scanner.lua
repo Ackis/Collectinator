@@ -730,10 +730,11 @@ do
 				--print(source_text)
 			elseif source_text:match("Drop:") then -- Blizzard has no space after the : here
 				source_text = source_text:gsub("Drop:", ""):trim()
-				print(source_text)
+				--print(source_text)
 				local mob_name,mob_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
 				if mob_name == "World Drop" then
 					pet:AddFilters(F.WORLD_DROP)
+					mob_zone = mob_zone:gsub("Weather: (%a+)", "")
 					output:AddLine("pet:AddWorldDrop(Z." .. TableKeyFormat(mob_zone) ..")")
 				else
 					pet:AddFilters(F.MOB_DROP)
@@ -745,7 +746,7 @@ do
 			elseif source_text:match("Pet Store") then
 				source_text = source_text:gsub("Pet Store", ""):trim()
 				pet:AddFilters(F.STORE)
-				print(source_text)
+				--print(source_text)
 			elseif source_text:match("Trading Card Game:") then
 				pet:AddFilters(F.TCG)
 				output:AddLine("pet:AddCustom(\"TCG\")")
