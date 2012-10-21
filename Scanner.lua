@@ -668,16 +668,7 @@ do
 				output:AddLine(string.format("pet = AddPet(%d, ???, ???)", creature_id))
 			end
 		else
-			local quality
-			if pet.quality == 1 then
-				quality = "Q.COMMON"
-			elseif pet.quality == 2 then
-				quality = "Q.UNCOMMON"
-			elseif pet.quality == 3 then
-				quality = "Q.RARE"
-			elseif pet.quality == 4 then
-				quality = "Q.EPIC"
-			end
+			local quality = "Q." .. Q[pet.quality]
 			output:AddLine(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet.genesis, quality))
 
 			--CheckExistingFlags(pet)
