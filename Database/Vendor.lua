@@ -120,6 +120,8 @@ function addon:InitVendor()
 	AddVendor(64595,	L["Rushi the Fox"],		Z.TOWNLONG_STEPPES,		48.8,	70.6,	"Neutral")
 	AddVendor(64599,	L["Ambersmith Zikk"],		Z.DREAD_WASTES,			55.0,	35.6,	"Neutral")
 	AddVendor(64605,	L["Tan Shin Tiao"],		Z.VALE_OF_ETERNAL_BLOSSOMS,	82.2,	29.4,	"Neutral")
+	AddVendor(65068,	L["Old Whitenose"],		Z.STORMWIND_CITY,		67.8,	18.6,	"Alliance")
+	AddVendor(66022,	L["Turtlemaster Odai"],		Z.ORGRIMMAR,			69.8,	41.0,	"Horde")
 	AddVendor(66973,	L["Kay Featherfall"],		Z.VALE_OF_ETERNAL_BLOSSOMS,	82.2,	34.0,	"Neutral")
 
 	self.InitVendor = nil
