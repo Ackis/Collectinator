@@ -178,6 +178,7 @@ L["RESET_WINDOW_DESC"] = "Resets the Collectinator GUI to default position."
 L["RETIRED_DESC"] = "Include collectables which can no longer be acquired."
 L["Raider Bork"] = true
 L["Randah Songhorn"] = true
+L["Refer-A-Friend"] = true
 L["Reset Window Position"] = true
 L["Retired"] = true
 L["Richard Kerwin"] = true
