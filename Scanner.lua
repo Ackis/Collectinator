@@ -685,7 +685,7 @@ do
 				for token in source_text:gmatch("([^,]+)[,%s]*") do
 					table.insert(zone_text, "Z." .. TableKeyFormat(token))
 				end
-				temp_text = temp_text .. table.concat(zone_text, ",") .. ")"
+				temp_text = temp_text .. table.concat(zone_text, ", ") .. ")"
 				output:AddLine(temp_text)
 
 			elseif source_text:match("Achievement:") then
