@@ -227,6 +227,7 @@ function addon:OnInitialize()
 					uncommon = true,
 					rare = true,
 					epic = true,
+					legendary = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Binding Filters

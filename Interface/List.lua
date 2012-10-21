@@ -506,6 +506,7 @@ function private.InitializeListFrame()
 			[Q.UNCOMMON]	= "uncommon",
 			[Q.RARE]	= "rare",
 			[Q.EPIC]	= "epic",
+			[Q.LEGENDARY]	= "legendary",
 		}
 
 		-- HARD_FILTERS and SOFT_FILTERS are used to determine if a recipe should be shown based on the value of the key compared to the value
