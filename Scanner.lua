@@ -723,7 +723,9 @@ do
 				local quest_name,quest_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
 				output:AddLine("--pet:AddQuest()")
 			elseif source_text:match("Vendor:") then -- Blizzard has no space after the : here
+				local vendor_name, faction, rep_level = source_text:match("Vendor: ([%a ]+)Zone: .+Faction: ([%a ]+)[ -]+ (%a+)Cost")
 				if source_text:match("Faction:") then
+					output:AddLine("pet:AddRepVendor(FAC." .. TableKeyFormat(faction:trim()) .. ", REP." .. string.upper(rep_level) .. ", ???)")
 					pet:AddFilters(F.REPUTATION)
 				else
 					pet:AddFilters(F.VENDOR)
