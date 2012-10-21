@@ -2370,15 +2370,15 @@ function addon:InitMounts()
 	mount:AddRepVendor(FAC.ORDER_OF_THE_CLOUD_SERPENT, REP.EXALTED, 58414)
 	mount:AddQuest(30188)
 
--- Jade Panther
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Jade Panther -- 121837
+	mount = AddMount(121837, V.MOP, Q.RARE)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession(PROF.JEWELCRAFTING)
 
--- Jeweled Onyx Panther
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Jeweled Onyx Panther -- 120043
+	mount = AddMount(120043, V.MOP, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession(PROF.JEWELCRAFTING)
 
 -- Onyx Cloud Serpent
 -- mount = AddMount(, V.MOP, )
@@ -2422,25 +2422,25 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.GOLDEN_LOTUS)
 	mount:AddRepVendor(FAC.GOLDEN_LOTUS, REP.EXALTED, 59908)
 
--- Ruby Panther
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Ruby Panther -- 121838
+	mount = AddMount(121838, V.MOP, Q.RARE)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession(PROF.JEWELCRAFTING)
 
--- Sapphire Panther
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Sapphire Panther -- 121836
+	mount = AddMount(121836, V.MOP, Q.RARE)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession(PROF.JEWELCRAFTING)
 
 -- Son of Galleon
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Sunstone Panther
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
+	-- Sunstone Panther -- 121839
+	mount = AddMount(121839, V.MOP, Q.RARE)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession(PROF.JEWELCRAFTING)
 
 -- Thundering August Cloud Serpent
 -- mount = AddMount(, V.MOP, )
