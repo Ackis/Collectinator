@@ -677,7 +677,7 @@ do
 			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", "")
 
 			if source_text:match("Pet Battle:") then
-				pet:AddFilters(F.BATTLE_PET)
+				pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
 				source_text = source_text:gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim() -- Blizzard uses different formats for Pet Battles, some are just listed others have Pet Battle before each zone
 
 				local temp_text = "pet:AddWorldDrop("
