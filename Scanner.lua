@@ -47,6 +47,7 @@ local F = private.FILTER_IDS
 local A = private.ACQUIRE_TYPES
 local FS = private.LOCALIZED_FACTION_STRINGS
 local REP = private.LOCALIZED_REPUTATION_LEVELS
+local Q = private.ITEM_QUALITY_NAMES
 
 -------------------------------------------------------------------------------
 -- Functions/methods
@@ -740,11 +741,11 @@ do
 				if not vendor_id then
 					addon:Print("Vendor: " .. vendor_name .. " not in database.")
 				else
-					if vendor_list[vendor_id].faction == FS.ALLIANCE then
+					if vendor_list[vendor_id].faction == "Alliance" then
 						pet:AddFilters(F.ALLIANCE)
-					elseif vendor_list[vendor_id].faction == FS.HORDE then
+					elseif vendor_list[vendor_id].faction == "Horde" then
 						pet:AddFilters(F.HORDE)
-					elseif vendor_list[vendor_id].faction == REP.NEUTRAL then
+					elseif vendor_list[vendor_id].faction == "Neutral" then
 						pet:AddFilters(F.ALLIANCE, F.HORDE)
 					end
 				end
