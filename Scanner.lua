@@ -859,6 +859,13 @@ do
 	end
 
 	function addon:ScanCompanions()
+
+		-- Clear all the filters showing all pets known/unknown
+		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, true)
+		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, false)
+		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
+		C_PetJournal.AddAllPetTypesFilter()
+		C_PetJournal.AddAllPetSourcesFilter()
 		addon:InitializeCollection("CRITTER")
 
 		output:Clear()
