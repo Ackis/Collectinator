@@ -169,7 +169,6 @@ L["Pol Amberstill"] = true
 L["Pogg"] = true
 L["Poseidus"] = true
 L["Profile Options"] = true
-L["Promotions"] = true
 L["Provisioner Nasela"] = true
 L["QUALITY_GENERAL_DESC"] = "Include %s quality recipe items in the scan."
 L["Quartermaster Brazie"] = true

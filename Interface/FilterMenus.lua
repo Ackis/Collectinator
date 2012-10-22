@@ -435,7 +435,7 @@ function private.InitializeFilterPanel()
 			store		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_10),	text = _G.BATTLE_PET_SOURCE_10,	row = 7, col = 1 },
 			tcg		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_9),	text = _G.BATTLE_PET_SOURCE_9,	row = 7, col = 2 },
 			coll_edition	= { tt = AcquireDesc(L["Collectors Edition"]),	text = L["Collectors Edition"],	row = 8, col = 1 },
-			promo		= { tt = AcquireDesc(L["Promotions"]),		text = L["Promotions"],		row = 8, col = 2 },
+			promo		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_8),	text = _G.BATTLE_PET_SOURCE_8,	row = 8, col = 2 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
