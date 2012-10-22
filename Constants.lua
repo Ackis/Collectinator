@@ -288,7 +288,7 @@ private.ACQUIRE_NAMES = {
 	[11]	= _G.BATTLE_PET_SOURCE_10, -- Store
 	[12]	= _G.BATTLE_PET_SOURCE_9, -- TCG
 	[13]	= L["Collectors Edition"],
-	[14]	= L["Promotions"],
+	[14]	= _G.BATTLE_PET_SOURCE_8, -- Promotion
 }
 
 private.ACQUIRE_STRINGS = {
