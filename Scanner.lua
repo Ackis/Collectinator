@@ -749,7 +749,29 @@ do
 					end
 					pet:AddFilters(F.REPUTATION)
 				else
-					print(source_text)
+					local vendor_name_list = source_text:match("Vendor: (.+)Zone:")
+					for vendor_name in vendor_name_list:gmatch("([^,]+)[,%s]*") do
+						local vendor_id
+						for i,k in pairs(vendor_list) do
+							local vendor = vendor_list[i]
+							if vendor.name == vendor_name then
+								vendor_id = i
+								break
+							end
+						end
+						if vendor_id then
+							if vendor_list[vendor_id].faction == "Alliance" then
+								pet:AddFilters(F.ALLIANCE)
+							elseif vendor_list[vendor_id].faction == "Horde" then
+								pet:AddFilters(F.HORDE)
+							elseif vendor_list[vendor_id].faction == "Neutral" then
+								pet:AddFilters(F.ALLIANCE, F.HORDE)
+							end
+							output:AddLine("pet:AddVendor(" .. vendor_id .. ")")
+						elseif vendor_name then
+							addon:Print("Vendor: " .. vendor_name .. " not in database.")
+						end
+					end
 					pet:AddFilters(F.VENDOR)
 				end
 			elseif source_text:match("Drop:") then -- Blizzard has no space after the : here
