@@ -1206,7 +1206,8 @@ function private.InitializeListFrame()
 
 	local function ExpandProfessionData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
 		local entry = AcquireTable()
-		entry.text = ("%s%s %s"):format(PADDING, _G.BATTLE_PET_SOURCE_4, SetTextColor(CATEGORY_COLORS["profession"], id_num))
+		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["profession"], _G.BATTLE_PET_SOURCE_4) .. ":",
+			SetTextColor(BASIC_COLORS["normal"], id_num))
 		entry.collectable = collectable
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
