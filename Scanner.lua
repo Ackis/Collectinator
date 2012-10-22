@@ -660,7 +660,7 @@ do
 		local pet = pet_list[creature_id]
 
 		if not pet then
-			addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ")")
+			addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ") -- Will add to the entry table.")
 
 			if source_text:match("Pet Battle:") then
 				output:AddLine(string.format("pet = AddPet(%d, V.MOP, Q.COMMON)", creature_id))
@@ -749,27 +749,34 @@ do
 					end
 					pet:AddFilters(F.REPUTATION)
 				else
-					local vendor_name_list = source_text:match("Vendor: (.+)Zone:")
-					for vendor_name in vendor_name_list:gmatch("([^,]+)[,%s]*") do
-						local vendor_id
-						for i,k in pairs(vendor_list) do
-							local vendor = vendor_list[i]
-							if vendor.name == vendor_name then
-								vendor_id = i
-								break
+					local vendor_name_list = source_text:match("Vendor: (.+)Zone:") or source_text:match("World Vendors")
+					-- World Vendors are special names for the guild vendors.
+					-- TODO: Deal with these special vendors.
+					if vendor_name_list == "World Vendors" then
+						-- mount:AddRepVendor(FAC.GUILD, REP.EXALTED, 51512, 52268, 46602, 51495, 51504) -- ally
+						-- mount:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51503, 51512, 52268) -- horde
+					else
+						for vendor_name in vendor_name_list:gmatch("([^,]+)[,%s]*") do
+							local vendor_id
+							for i,k in pairs(vendor_list) do
+								local vendor = vendor_list[i]
+								if vendor.name == vendor_name then
+									vendor_id = i
+									break
+								end
 							end
-						end
-						if vendor_id then
-							if vendor_list[vendor_id].faction == "Alliance" then
-								pet:AddFilters(F.ALLIANCE)
-							elseif vendor_list[vendor_id].faction == "Horde" then
-								pet:AddFilters(F.HORDE)
-							elseif vendor_list[vendor_id].faction == "Neutral" then
-								pet:AddFilters(F.ALLIANCE, F.HORDE)
+							if vendor_id then
+								if vendor_list[vendor_id].faction == "Alliance" then
+									pet:AddFilters(F.ALLIANCE)
+								elseif vendor_list[vendor_id].faction == "Horde" then
+									pet:AddFilters(F.HORDE)
+								elseif vendor_list[vendor_id].faction == "Neutral" then
+									pet:AddFilters(F.ALLIANCE, F.HORDE)
+								end
+								output:AddLine("pet:AddVendor(" .. vendor_id .. ")")
+							elseif vendor_name then
+								addon:Print("Vendor: " .. vendor_name .. " not in database.")
 							end
-							output:AddLine("pet:AddVendor(" .. vendor_id .. ")")
-						elseif vendor_name then
-							addon:Print("Vendor: " .. vendor_name .. " not in database.")
 						end
 					end
 					pet:AddFilters(F.VENDOR)
@@ -788,7 +795,25 @@ do
 				end
 			elseif source_text:match("Promotion:") then
 				source_text = source_text:gsub("Promotion:", ""):trim()
-				print(source_text)
+				if source_text:match("World of Warcraft Collectors Edition") or source_text:match("World of Warcraft Collector's Edition") then -- Seriously fuck blizzard
+					pet:AddFilters(F.ALLIANCE, F.HORDE, F.COLLECTORS_EDITION, F.IBOP)
+					output:AddLine("pet:AddCustom(\"CE\")")
+				elseif source_text:match("BlizzCon") then
+					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+					output:AddLine("pet:AddCustom(\"BLIZZCON\")")
+				elseif source_text:match("World Event") or source_text:match("iCoke") then
+					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+					--output:AddLine("pet:AddCustom()")
+				elseif source_text:match("Starcraft") then
+					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+					output:AddLine("pet:AddCustom(\"STARCRAFTCE\")")
+				elseif source_text:match("PVP") or source_text:match("Arena") then
+					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP, F.PVP)
+					--output:AddLine("pet:AddCustom()")
+				else
+					print(pet.name)
+					print(source_text)
+				end
 			elseif source_text:match("Pet Store") then
 				source_text = source_text:gsub("Pet Store", ""):trim()
 				pet:AddFilters(F.STORE)
