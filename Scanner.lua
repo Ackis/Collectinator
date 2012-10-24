@@ -705,8 +705,7 @@ do
 				elseif source_text:match("Formula") then
 					pet:AddProfession(PROF.ENCHANTING)
 				else
-					addon:Print(source_text)
-					pet:AddProfession(PROF[string.upper(source_text)])
+					pet:AddProfession(PROF[string.upper(source_text:gsub(" ", "_"))])
 				end
 			elseif source_text:match("Fishing:") then -- Fuck blizzard
 				pet:AddProfession(PROF.FISHING)
