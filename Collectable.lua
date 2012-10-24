@@ -486,19 +486,21 @@ local DUMP_FUNCTION_FORMATS = {
 local sorted_data = {}
 local reverse_map = {}
 
-function collectable_prototype:Dump(output)
+function collectable_prototype:Dump()
+	local output = private.TextDump
 	local genesis = private.GAME_VERSIONS[self.genesis]
 	local label = (self.type == "CRITTER") and "pet" or "mount"
 print(self.name)
-	table.insert(output, ("-- %s -- %d"):format(self.name, self.id))
-	table.insert(output, ("%s = AddCollection(%d, V.%s, Q.%s)"):format(label, self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
+print(label)
+	output:AddLine(("-- %s -- %d"):format(self.name, self.id))
+	output:AddLine(("%s = AddCollection(%d, V.%s, Q.%s)"):format(label, self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
 	if self.item_id then
-		table.insert(output, ("%s:SetItemID(%d)"):format(label, self.collection_item_id))
+		output:AddLine(("%s:SetItemID(%d)"):format(label, self.collection_item_id))
 	end
 
 	if self.required_faction then
-		table.insert(output, ("%s:SetRequiredFaction(\"%s\")"):format(label, self.required_faction))
+		output:AddLine(("%s:SetRequiredFaction(\"%s\")"):format(label, self.required_faction))
 	end
 
 	local flag_string
@@ -529,7 +531,7 @@ print(self.name)
 			end
 		end
 	end
-	table.insert(output, ("%s:AddFilters(%s)"):format(label, flag_string))
+	output:AddLine(("%s:AddFilters(%s)"):format(label, flag_string))
 
 	flag_string = nil
 
@@ -566,7 +568,7 @@ print(self.name)
 							values = vendor_id
 						end
 					end
-					table.insert(output, ("%s:AddRepVendor(%s, %s, %s)"):format(label, faction_string, rep_string, values))
+					output:AddLine(("%s:AddRepVendor(%s, %s, %s)"):format(label, faction_string, rep_string, values))
 				end
 			end
 		elseif acquire_type == A.VENDOR then
@@ -608,11 +610,11 @@ print(self.name)
 			end
 
 			if values then
-				table.insert(output, ("%s:AddVendor(%s)"):format(label, values))
+				output:AddLine(("%s:AddVendor(%s)"):format(label, values))
 			end
 
 			if limited_values then
-				table.insert(output, ("%s:AddLimitedVendor(%s)"):format(label, limited_values))
+				output:AddLine(("%s:AddLimitedVendor(%s)"):format(label, limited_values))
 			end
 		elseif DUMP_FUNCTION_FORMATS[acquire_type] then
 			local values
@@ -644,7 +646,7 @@ print(self.name)
 					values = saved_id
 				end
 			end
-			table.insert(output, (DUMP_FUNCTION_FORMATS[acquire_type]):format(label, values))
+			output:AddLine((DUMP_FUNCTION_FORMATS[acquire_type]):format(label, values))
 		else
 			for identifier in pairs(acquire_info) do
 				local saved_id
@@ -665,9 +667,9 @@ print(self.name)
 	end
 
 	if flag_string then
-		table.insert(output, ("%s:AddAcquireData(%s)"):format(label, flag_string))
+		output:AddLine(("%s:AddAcquireData(%s)"):format(label, flag_string))
 	end
-	table.insert(output, "")
+	output:AddLine("")
 end
 
 function collectable_prototype:DumpTrainers(registry)
