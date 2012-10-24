@@ -803,16 +803,16 @@ do
 				source_text = source_text:gsub("Promotion:", ""):trim()
 				if source_text:match("World of Warcraft Collectors Edition") or source_text:match("World of Warcraft Collector's Edition") then -- Seriously fuck blizzard
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.COLLECTORS_EDITION, F.IBOP)
-					--output:AddLine("pet:AddCustom(\"CE\")")
+					pet:AddCustom("CE")
 				elseif source_text:match("BlizzCon") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
-					--output:AddLine("pet:AddCustom(\"BLIZZCON\")")
+					pet:AddCustom("BLIZZCON")
 				elseif source_text:match("World Event") or source_text:match("iCoke") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 					----output:AddLine("pet:AddCustom()")
 				elseif source_text:match("Starcraft") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
-					--output:AddLine("pet:AddCustom(\"STARCRAFTCE\")")
+					pet:AddCustom("STARCRAFTCE")
 				elseif source_text:match("PVP") or source_text:match("Arena") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP, F.PVP)
 					----output:AddLine("pet:AddCustom()")
