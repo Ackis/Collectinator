@@ -642,6 +642,21 @@ do
 
 	end
 
+	function addon:DumpPet(creature_id)
+		addon:InitializeCollection("CRITTER")
+
+		local output = private.TextDump
+
+		local pet_list = private.collectable_list["CRITTER"]
+		local pet = pet_list[creature_id]
+
+		if pet then
+			output:Clear()
+			pet:Dump()
+			output:Display()
+		end
+	end
+
 	function addon:ScanSpecificCompanion(pet_index, hide_display)
 		addon:InitializeCollection("CRITTER")
 
@@ -850,14 +865,14 @@ do
 				--output:AddLine("pet:SetItemID(" .. pet:ItemID() .. ")")
 			end
 			output:Clear()
-			pet:Dump(output)
+			pet:Dump()
 			output:Display()
 		end
 
 		--output:AddLine("\n")
 
 		if not hide_display then
-			output:Display()
+			--output:Display()
 		end
 	end
 
