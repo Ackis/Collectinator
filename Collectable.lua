@@ -489,7 +489,7 @@ local reverse_map = {}
 function collectable_prototype:Dump(output)
 	local genesis = private.GAME_VERSIONS[self.genesis]
 	local label = (self.type == "CRITTER") and "pet" or "mount"
-
+print(self.name)
 	table.insert(output, ("-- %s -- %d"):format(self.name, self.id))
 	table.insert(output, ("%s = AddCollection(%d, V.%s, Q.%s)"):format(label, self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
@@ -501,9 +501,6 @@ function collectable_prototype:Dump(output)
 		table.insert(output, ("%s:SetRequiredFaction(\"%s\")"):format(label, self.required_faction))
 	end
 
-	if self.item_filter_type then
-		table.insert(output, ("%s:SetItemFilterType(\"%s\")"):format(label, self.item_filter_type:upper()))
-	end
 	local flag_string
 
 	for table_index, bits in ipairs(private.FLAG_WORDS) do
