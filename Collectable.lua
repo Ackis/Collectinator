@@ -481,6 +481,7 @@ local DUMP_FUNCTION_FORMATS = {
 	[A.MOB_DROP] = "%s:AddMobDrop(%s)",
 	[A.WORLD_DROP] = "%s:AddWorldDrop(%s)",
 	[A.QUEST] = "%s:AddQuest(%s)",
+	[A.PROFESSION] = "%s:AddProfession(%s)",
 }
 
 local sorted_data = {}
@@ -492,10 +493,14 @@ function collectable_prototype:Dump()
 	local label = (self.type == "CRITTER") and "pet" or "mount"
 
 	output:AddLine(("-- %s -- %d"):format(self.name, self.id))
-	output:AddLine(("%s = AddCollection(%d, V.%s, Q.%s)"):format(label, self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
+	output:AddLine(("%s = Add%s(%d, V.%s, Q.%s)"):format(label, label, self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
 	if self.item_id then
 		output:AddLine(("%s:SetItemID(%d)"):format(label, self.collection_item_id))
+	end
+
+	if self.spell_id then
+		output:AddLine(("%s:SetSpellID(%d)"):format(label, self.collection_spell_id))
 	end
 
 	if self.required_faction then
@@ -632,6 +637,8 @@ function collectable_prototype:Dump()
 				if type(identifier) == "string" then
 					if acquire_type == A.WORLD_DROP then
 						saved_id = ("Z.%s"):format(ZL[identifier])
+					elseif acquire_type == A.PROFESSION then
+						saved_id = ("PROF.%s"):format(string.upper(identifier:gsub(" ", "_")))
 					else
 						saved_id = ("\"%s\""):format(identifier)
 					end
