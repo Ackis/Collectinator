@@ -794,8 +794,10 @@ do
 					pet:AddFilters(F.WORLD_DROP)
 					-- TODO: Deal with weather/time of day/time of year
 					mob_zone = mob_zone:gsub("Weather: (%a+)", "")
-					--output:AddLine("pet:AddWorldDrop(Z." .. TableKeyFormat(mob_zone) ..")")
+					print(mob_zone)
+					pet:AddWorldDrop(Z[TableKeyFormat(mob_zone)])
 				else
+					-- TODO: How do we get the id from a name?
 					pet:AddFilters(F.MOB_DROP)
 					--output:AddLine("--pet:AddMobDrop() -- " .. (mob_name or source_text) .. ": " .. (mob_zone or "Unknown"))
 				end
