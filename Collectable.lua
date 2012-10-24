@@ -428,6 +428,7 @@ function collectable_prototype:AddRepVendor(faction_id, rep_level, ...)
 	if not faction then
 		acquire[faction_id] = {}
 		faction = acquire[faction_id]
+		print(rep_level)
 		faction[rep_level] = {}
 	end
 	local num_vars = select('#', ...)

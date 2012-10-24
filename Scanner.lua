@@ -46,9 +46,10 @@ local LPJ = LibStub("LibPetJournal-2.0")
 local F = private.FILTER_IDS
 local A = private.ACQUIRE_TYPES
 local FS = private.LOCALIZED_FACTION_STRINGS
-local REP = private.LOCALIZED_REPUTATION_LEVELS
+local REP = private.REP_LEVELS
 local Q = private.ITEM_QUALITY_NAMES
 local PROF = private.LOCALIZED_PROFESSION_NAMES
+local FAC = private.FACTION_IDS
 
 -------------------------------------------------------------------------------
 -- Functions/methods
@@ -717,11 +718,12 @@ do
 				source_text = source_text:gsub("Quest: ", ""):trim()
 				pet:AddFilters(F.QUEST)
 				local quest_name,quest_zone = source_text:match("(%a+%s*%a*)Zone: (%a+%s*%a*)")
+				-- TODO: How do I get the quest ID from a quest name?
 				--output:AddLine("--pet:AddQuest()")
 			elseif source_text:match("Vendor:") then -- Blizzard has no space after the : here
 				if source_text:match("Faction:") then
 					-- TODO: Fix pattern so I don't have to trim it.
-					local vendor_name, faction, rep_level = source_text:match("Vendor: ([%a ]+)Zone: .+Faction: ([%a ]+)[ -]+ (%a+)Cost")
+					local vendor_name, faction, rep_level = source_text:match("Vendor: ([%a ]+)Zone: .+Faction: ([%a ]+)[ -]+(%a+)Cost")
 					local vendor_id
 
 					for i,k in pairs(vendor_list) do
@@ -745,7 +747,11 @@ do
 					end
 
 					if faction then
-						--pet:AddRepVendor(FAC." .. TableKeyFormat(faction:trim()) .. ", REP." .. string.upper(rep_level) .. ", " .. (vendor_id or "???") .. ")
+						local temp_id = vendor_id or 0
+						local formatted_faction = TableKeyFormat(faction:trim())
+						local formatted_rep_level = string.upper(rep_level)
+						pet:AddFilters(F[formatted_faction])
+						pet:AddRepVendor(FAC[formatted_faction], REP[formatted_rep_level], temp_id)
 					end
 					pet:AddFilters(F.REPUTATION)
 				else
@@ -753,8 +759,8 @@ do
 					-- World Vendors are special names for the guild vendors.
 					-- TODO: Deal with these special vendors.
 					if vendor_name_list == "World Vendors" then
-						-- mount:AddRepVendor(FAC.GUILD, REP.EXALTED, 51512, 52268, 46602, 51495, 51504) -- ally
-						-- mount:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51503, 51512, 52268) -- horde
+						-- pet:AddRepVendor(FAC.GUILD, REP.EXALTED, 51512, 52268, 46602, 51495, 51504) -- ally
+						-- pet:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51503, 51512, 52268) -- horde
 					else
 						for vendor_name in vendor_name_list:gmatch("([^,]+)[,%s]*") do
 							local vendor_id
