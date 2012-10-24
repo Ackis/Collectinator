@@ -48,6 +48,7 @@ local A = private.ACQUIRE_TYPES
 local FS = private.LOCALIZED_FACTION_STRINGS
 local REP = private.LOCALIZED_REPUTATION_LEVELS
 local Q = private.ITEM_QUALITY_NAMES
+local PROF = private.LOCALIZED_PROFESSION_NAMES
 
 -------------------------------------------------------------------------------
 -- Functions/methods
@@ -657,35 +658,21 @@ do
 		end
 	end
 
-	function addon:ScanSpecificCompanion(pet_index, hide_display)
+	function addon:ScanSpecificCompanion(pet_index)
 		addon:InitializeCollection("CRITTER")
 
 		local vendor_list = private.vendor_list
-
-		if not hide_display then
-			output:Clear()
-		end
 
 		local pet_list = private.collectable_list["CRITTER"]
 		local pet_id, _, _, _, _, _, _, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByIndex(pet_index, false)
 		local flag_list = {}
 
-		--output:AddLine(string.format("-- %s - %d", name, creature_id))
-
 		local pet = pet_list[creature_id]
 
 		if not pet then
 			addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ") -- Will add to the entry table.")
-
-			if source_text:match("Pet Battle:") then
-				--output:AddLine(string.format("pet = AddPet(%d, V.MOP, Q.COMMON)", creature_id))
-			else
-				--output:AddLine(string.format("pet = AddPet(%d, ???, ???)", creature_id))
-			end
 		else
 			local quality = "Q." .. Q[pet.quality]
-			--output:AddLine(string.format("pet = AddPet(%d, V.%s, %s)", creature_id, pet.genesis, quality))
-
 			--CheckExistingFlags(pet)
 
 			-- Strip formatting
@@ -695,20 +682,18 @@ do
 				pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
 				source_text = source_text:gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim() -- Blizzard uses different formats for Pet Battles, some are just listed others have Pet Battle before each zone
 
-				local temp_text = "pet:AddWorldDrop("
 				local zone_text = {}
 				for token in source_text:gmatch("([^,]+)[,%s]*") do
 					table.insert(zone_text, "Z." .. TableKeyFormat(token))
 				end
-				temp_text = temp_text .. table.concat(zone_text, ", ") .. ")"
-				--output:AddLine(temp_text)
+				pet:AddWorldDrop(table.concat(zone_text, ", "))
 
 			elseif source_text:match("Achievement:") then
 				pet:AddFilters(F.ACHIEVEMENT)
 
 				source_text = source_text:gsub("Achievement: ", ""):gsub("Category: (.+)",""):trim()
 				if ACHIEVEMENT_LOOK_UP[source_text] then
-					--output:AddLine("pet:AddAchievement(" .. ACHIEVEMENT_LOOK_UP[source_text] .. ")")
+					pet:AddAchievement(ACHIEVEMENT_LOOK_UP[source_text])
 				else
 					addon:Print("Unknown achievement found: " .. source_text)
 				end
@@ -716,18 +701,19 @@ do
 				source_text = source_text:gsub("Profession: ", ""):trim()
 				pet:AddFilters(F.PROFESSION)
 				if source_text:match("Zone") then
-					--output:AddLine("pet:AddProfession(PROF.FISHING)")
+					pet:AddProfession(PROF.FISHING)
 				elseif source_text:match("Formula") then
-					--output:AddLine("pet:AddProfession(PROF.ENCHANTING)")
+					pet:AddProfession(PROF.ENCHANTING)
 				else
-					--output:AddLine("pet:AddProfession(PROF." .. string.upper(source_text) .. ")")
+					addon:Print(source_text)
+					pet:AddProfession(PROF[string.upper(source_text)])
 				end
 			elseif source_text:match("Fishing:") then -- Fuck blizzard
-				--output:AddLine("pet:AddProfession(PROF.FISHING)")
+				pet:AddProfession(PROF.FISHING)
 			elseif source_text:match("World Event:") then
 				source_text = source_text:gsub("World Event: ", ""):trim()
 				pet:AddFilters(F.SEASONAL)
-				--output:AddLine("pet:AddSeason(\"" .. TableKeyFormat(source_text) .. "\")")
+				pet:AddSeason(TableKeyFormat(source_text))
 			elseif source_text:match("Quest:") then
 				source_text = source_text:gsub("Quest: ", ""):trim()
 				pet:AddFilters(F.QUEST)
@@ -760,7 +746,7 @@ do
 					end
 
 					if faction then
-						--output:AddLine("pet:AddRepVendor(FAC." .. TableKeyFormat(faction:trim()) .. ", REP." .. string.upper(rep_level) .. ", " .. (vendor_id or "???") .. ")")
+						--pet:AddRepVendor(FAC." .. TableKeyFormat(faction:trim()) .. ", REP." .. string.upper(rep_level) .. ", " .. (vendor_id or "???") .. ")
 					end
 					pet:AddFilters(F.REPUTATION)
 				else
@@ -788,7 +774,7 @@ do
 								elseif vendor_list[vendor_id].faction == "Neutral" then
 									pet:AddFilters(F.ALLIANCE, F.HORDE)
 								end
-								--output:AddLine("pet:AddVendor(" .. vendor_id .. ")")
+								pet:AddVendor(vendor_id )
 							elseif vendor_name then
 								addon:Print("Vendor: " .. vendor_name .. " not in database.")
 							end
@@ -835,44 +821,10 @@ do
 				--print(source_text)
 			elseif source_text:match("Trading Card Game:") then
 				pet:AddFilters(F.TCG)
-				--output:AddLine("pet:AddCustom(\"TCG\")")
+				pet:AddCustom("TCG")
 			else
 				addon:Print("Unknown acquire method; " .. source_text)
 			end
-
-
-
-			flag_list = GetExistingFlags(pet)
-			--output:AddLine("pet:AddFilters(" .. table.concat(flag_list,", ") ..")")
-
-			if pet:RequiredRaces() then
-				--output:AddLine("pet:SetRequiredRaces(" .. pet:RequiredRaces() .. ")")
-			end
-
-			if pet:RequiredFaction() then
-				--output:AddLine("pet:SetRequiredFaction(" .. pet:RequiredFaction() .. ")")
-			end
-
-			if pet:RequiredClass() then
-				--output:AddLine("pet:SetRequiredClass(" .. pet:RequiredClass() .. ")")
-			end
-
-			if pet:SpellID() then
-				--output:AddLine("pet:SetSpellID(" .. pet:SpellID() .. ")")
-			end
-
-			if pet:ItemID() then
-				--output:AddLine("pet:SetItemID(" .. pet:ItemID() .. ")")
-			end
-			output:Clear()
-			pet:Dump()
-			output:Display()
-		end
-
-		--output:AddLine("\n")
-
-		if not hide_display then
-			--output:Display()
 		end
 	end
 

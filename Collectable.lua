@@ -490,8 +490,7 @@ function collectable_prototype:Dump()
 	local output = private.TextDump
 	local genesis = private.GAME_VERSIONS[self.genesis]
 	local label = (self.type == "CRITTER") and "pet" or "mount"
-print(self.name)
-print(label)
+
 	output:AddLine(("-- %s -- %d"):format(self.name, self.id))
 	output:AddLine(("%s = AddCollection(%d, V.%s, Q.%s)"):format(label, self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
