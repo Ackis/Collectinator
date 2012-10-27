@@ -219,7 +219,6 @@ do
 	end
 
 	local function PetWorldDrops(collectable, source_text)
-print(source_text)
 		collectable:AddFilters(F.WORLD_DROP)
 		for token in source_text:gmatch("([^,]+)[,%s]*") do
 			print(token)
@@ -234,7 +233,6 @@ print(source_text)
 			-- TODO: Deal with weather/time of day/time of year
 			token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):trim()
 			token = TableKeyFormat(token)
-			print(token)
 			if (Z[token]) then
 				collectable:AddWorldDrop(Z[token])
 			else
