@@ -283,7 +283,10 @@ do
 								break
 							end
 						end
-						if vendor_id then
+						-- This vendor appears in all major cities and has the same NPC ID in each.
+						if vendor_name == "Lovely Merchant" then
+							mount:AddCustom("CITY")
+						elseif vendor_id then
 							if vendor_list[vendor_id].faction == "Alliance" then
 								pet:AddFilters(F.ALLIANCE)
 							elseif vendor_list[vendor_id].faction == "Horde" then
