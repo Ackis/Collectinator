@@ -241,12 +241,12 @@ do
 				pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
 				source_text = source_text:gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim() -- Blizzard uses different formats for Pet Battles, some are just listed others have Pet Battle before each zone
 
-				local zone_text = {}
 				for token in source_text:gmatch("([^,]+)[,%s]*") do
+					-- TODO: Deal with weather/time of day/time of year
 					token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):trim()
-					table.insert(zone_text, Z[TableKeyFormat(token)])
+					token = TableKeyFormat(token)
+					pet:AddWorldDrop(Z[token])
 				end
-				pet:AddWorldDrop(table.concat(zone_text, ", "))
 
 			elseif source_text:match("Achievement:") then
 				pet:AddFilters(F.ACHIEVEMENT)
@@ -379,10 +379,12 @@ do
 				local mob_name,mob_zone = source_text:match("Drop:*%s+(.+)Zone:%s+(.+)")
 				if mob_name == "World Drop" then
 					pet:AddFilters(F.WORLD_DROP)
-					-- TODO: Deal with weather/time of day/time of year
-					mob_zone = mob_zone:gsub("Weather: (%a+)", "")
-					print(mob_zone)
-					pet:AddWorldDrop(Z[TableKeyFormat(mob_zone)])
+					for token in mob_zone:gmatch("([^,]+)[,%s]*") do
+						-- TODO: Deal with weather/time of day/time of year
+						token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):trim()
+						token = TableKeyFormat(token)
+						pet:AddWorldDrop(Z[token])
+					end
 				else
 					-- TODO: How do we get the id from a name?
 					pet:AddFilters(F.MOB_DROP)
