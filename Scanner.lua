@@ -173,7 +173,13 @@ do
 		if not input then
 			return ""
 		end
-
+print(input)
+print(input:upper():gsub(" ", "_"))
+print(input:upper():gsub(" ", "_"):gsub("'", ""))
+print(input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""))
+print(input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"))
+print(input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""))
+print(input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", ""))
 		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
 	end
 
@@ -271,9 +277,17 @@ do
 			elseif source_text:match("Fishing:") then -- Fuck blizzard
 				pet:AddProfession(PROF.FISHING)
 			elseif source_text:match("World Event:") then
-				source_text = source_text:gsub("World Event: ", ""):trim()
 				pet:AddFilters(F.SEASONAL)
-				pet:AddSeason(TableKeyFormat(source_text))
+				if source_text:match("Vendor") then
+					source_text = source_text:gsub("World Event: ", ""):gsub("Vendor: (.+)",""):trim()
+					addon:Print(source_text)
+					pet:AddSeason(TableKeyFormat(source_text))
+				else
+					addon:Print(source_text)
+					source_text = source_text:gsub("World Event: ", ""):trim()
+					addon:Print(TableKeyFormat(source_text))
+					pet:AddSeason(TableKeyFormat(source_text))
+				end
 			elseif source_text:match("Quest:") then
 				source_text = source_text:gsub("Quest: ", ""):trim()
 				pet:AddFilters(F.QUEST)
