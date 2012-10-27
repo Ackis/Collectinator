@@ -403,6 +403,9 @@ do
 				elseif source_text:match("Starcraft") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 					pet:AddCustom("STARCRAFTCE")
+				elseif source_text:match("Authenticator Account Link") then
+					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+					pet:AddCustom("AUTH")
 				elseif source_text:match("PVP") or source_text:match("Arena") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP, F.PVP)
 					----output:AddLine("pet:AddCustom()")

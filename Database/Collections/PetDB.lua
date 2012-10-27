@@ -1,4 +1,4 @@
-﻿--[[
+--[[
 ************************************************************************
 PetDB.lua
 ************************************************************************
@@ -461,6 +461,11 @@ function addon:InitCritters()
 --WORLD EVENT DROP
 	-- Sinister Squashling -- 23909
 	pet = AddPet(23909, V.TBC, Q.RARE)
+	pet:SetItemID(33154)
+	pet:SetSpellID(42609)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL)
+	pet:AddSeason("HALLOWS_END")
+	pet:AddVendor(53757, 53728)
 
 	-- Peddlefeet -- 16085
 	pet = AddPet(16085, V.ORIG, Q.COMMON)

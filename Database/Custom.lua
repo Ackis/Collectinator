@@ -49,6 +49,8 @@ function addon:InitCustom()
 	AddCustom("NOBLE_VENDOR")
 	AddCustom("CE")
 	AddCustom("BLIZZCON")
+	AddCustom("STARCRAFTCE")
+	AddCustom("AUTH")
 
 	self.InitCustom = nil
 end
