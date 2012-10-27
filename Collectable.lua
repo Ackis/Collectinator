@@ -536,7 +536,10 @@ function collectable_prototype:Dump()
 			end
 		end
 	end
-	output:AddLine(("%s:AddFilters(%s)"):format(label, flag_string))
+
+	if flag_string then
+		output:AddLine(("%s:AddFilters(%s)"):format(label, flag_string))
+	end
 
 	flag_string = nil
 
@@ -573,7 +576,9 @@ function collectable_prototype:Dump()
 							values = vendor_id
 						end
 					end
-					output:AddLine(("%s:AddRepVendor(%s, %s, %s)"):format(label, faction_string, rep_string, values))
+					if faction_string and rep_string and values then
+						output:AddLine(("%s:AddRepVendor(%s, %s, %s)"):format(label, faction_string, rep_string, values))
+					end
 				end
 			end
 		elseif acquire_type == A.VENDOR then
