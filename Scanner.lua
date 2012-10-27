@@ -455,6 +455,17 @@ do
 			addon:ScanSpecificCompanion(pet_index, true)
 		end
 
+		local output = private.TextDump
+
+		local pet_list = private.collectable_list["CRITTER"]
+
+		output:Clear()
+
+		for pet in pairs(pet_list) do
+			if pet_list[pet] then
+				pet_list[pet]:Dump()
+			end
+		end
 		output:Display()
 	end
 end
