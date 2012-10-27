@@ -179,7 +179,20 @@ do
 
 	local output = private.TextDump
 
+	function addon:UpdatePet(c_id)
+		addon:ScanCompanionCreature(c_id)
+		addon:DumpPet(c_id)
+	end
+
 	function addon:ScanCompanionCreature(c_id)
+
+		-- Clear all the filters showing all pets known/unknown
+		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, true)
+		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, false)
+		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
+		C_PetJournal.AddAllPetTypesFilter()
+		C_PetJournal.AddAllPetSourcesFilter()
+
 		local num_pets = _G.C_PetJournal.GetNumPets(_G.PetJournal.isWild)
 
 		for pet_index = 1, num_pets do
@@ -231,7 +244,8 @@ do
 
 				local zone_text = {}
 				for token in source_text:gmatch("([^,]+)[,%s]*") do
-					table.insert(zone_text, "Z." .. TableKeyFormat(token))
+					token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):trim()
+					table.insert(zone_text, Z[TableKeyFormat(token)])
 				end
 				pet:AddWorldDrop(table.concat(zone_text, ", "))
 
