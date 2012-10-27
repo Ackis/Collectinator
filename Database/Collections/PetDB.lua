@@ -535,6 +535,10 @@ function addon:InitCritters()
 
 	-- Lumpy -- 55215
 	pet = AddPet(55215, V.CATA, Q.RARE)
+	pet:SetItemID(73797)
+	pet:SetSpellID(103125)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL)
+	pet:AddSeason("FEAST_OF_WINTER_VEIL")
 
 	-- Winter's Little Helper - 15705
 	pet = AddPet(15705, V.ORIG, Q.COMMON)
