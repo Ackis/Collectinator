@@ -376,8 +376,7 @@ do
 					pet:AddFilters(F.VENDOR)
 				end
 			elseif source_text:match("Drop:") then -- Blizzard has no space after the : here
-				source_text = source_text:gsub("Drop:", ""):trim()
-				local mob_name,mob_zone = source_text:match("(%a+%s*%a*%s*%a*%s*%a*%s*%a*)Zone: (%a+%s*%a*%s*%a*%s*%a*%s*%a*%s*%a*)")
+				local mob_name,mob_zone = source_text:match("Drop:*%s+(.+)Zone:%s+(.+)")
 				if mob_name == "World Drop" then
 					pet:AddFilters(F.WORLD_DROP)
 					-- TODO: Deal with weather/time of day/time of year
