@@ -494,7 +494,7 @@ function collectable_prototype:Dump()
 	local label = (self.type == "CRITTER") and "pet" or "mount"
 
 	output:AddLine(("-- %s -- %d"):format(self.name, self.id))
-	output:AddLine(("%s = Add%s(%d, V.%s, Q.%s)"):format(label, label, self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
+	output:AddLine(("%s = Add%s(%d, V.%s, Q.%s)"):format(label, label:gsub("^%l", string.upper), self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
 	if self.item_id then
 		output:AddLine(("%s:SetItemID(%d)"):format(label, self.item_id))
