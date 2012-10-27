@@ -464,6 +464,11 @@ function addon:InitCritters()
 
 	-- Peddlefeet -- 16085
 	pet = AddPet(16085, V.ORIG, Q.COMMON)
+	pet:SetItemID(22235)
+	pet:SetSpellID(27570)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL)
+	pet:AddSeason("LOVE_IS_IN_THE_AIR")
+	pet:AddVendor(37674)
 
 	-- Egbert -- 23258
 	pet = AddPet(23258, V.TBC, Q.RARE)
