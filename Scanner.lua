@@ -293,7 +293,7 @@ do
 							end
 							pet:AddVendor(vendor_id )
 						elseif vendor_name then
-							addon:Print("Vendor: " .. vendor_name .. " not in database.")
+							addon:Print("Vendor: " .. vendor_name .. " (" .. vendor_id .. ") not in database.")
 						end
 					end
 				end
@@ -366,7 +366,7 @@ do
 								end
 								pet:AddVendor(vendor_id )
 							elseif vendor_name then
-								addon:Print("Vendor: " .. vendor_name .. " not in database.")
+								addon:Print("Vendor: " .. vendor_name .. " (" .. vendor_id .. ") not in database.")
 							end
 						end
 					end
