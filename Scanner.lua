@@ -228,9 +228,11 @@ do
 				token = "Ruins of Ahn'Qiraj"
 			elseif token == "ScholomanceOLD" then -- Black Rat
 				token = "Scholomance"
+			elseif token == "Sunken Temple" then
+				token = "The Temple of Atal'hakkar"
 			end
 			-- TODO: Deal with weather/time of day/time of year
-			token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):trim()
+			token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):gsub("Time: (%a+)", ""):gsub("Morning(%a+)", ""):trim()
 			token = TableKeyFormat(token)
 			if (Z[token]) then
 				collectable:AddWorldDrop(Z[token])
