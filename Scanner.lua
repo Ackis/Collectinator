@@ -221,7 +221,6 @@ do
 	local function PetWorldDrops(collectable, source_text)
 		collectable:AddFilters(F.WORLD_DROP)
 		for token in source_text:gmatch("([^,]+)[,%s]*") do
-			print(token)
 			-- Deal with Blizzard
 			if token == "Valley of Four Winds" then -- Bandicoon
 				token = "Valley of the Four Winds"
@@ -251,7 +250,7 @@ do
 		local flag_list = {}
 
 		local pet = pet_list[creature_id]
-print("Scanning: " .. name .. " " .. creature_id)
+--print("Scanning: " .. name .. " " .. creature_id)
 		if not pet then
 			addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ") -- You will manually have to add this collectable into the database.")
 		else
