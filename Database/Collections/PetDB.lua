@@ -468,7 +468,7 @@ function addon:InitCritters()
 	pet:SetSpellID(27570)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL)
 	pet:AddSeason("LOVE_IS_IN_THE_AIR")
-	pet:AddVendor(37674)
+	pet:AddCustom("CITY")
 
 	-- Egbert -- 23258
 	pet = AddPet(23258, V.TBC, Q.RARE)

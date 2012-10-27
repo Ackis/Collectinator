@@ -145,7 +145,6 @@ L["Lieutenant Karter"] = true
 L["Lillehoff"] = true
 L["Location"] = true
 L["Lord Grayson Shadowbreaker"] = true
-L["Lovely Merchant"] = true
 L["MYSTERIOUS_EGG"] = "Chance at this collectable from Mysterious Egg every 3 days."
 L["Master Pyreanor"] = true
 L["Maximillian Crowe"] = true
