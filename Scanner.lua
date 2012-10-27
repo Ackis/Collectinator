@@ -218,6 +218,28 @@ do
 		end
 	end
 
+	local function PetWorldDrops(collectable, source_text)
+		collectable:AddFilters(F.WORLD_DROP)
+		for token in source_text:gmatch("([^,]+)[,%s]*") do
+			-- Deal with Blizzard
+			if token == "Valley of Four Winds" then -- Bandicoon
+				token = "Valley of the Four Winds"
+			elseif token == "Ahn'Qiraj" then -- Beetle
+				token = "Ruins of Ahn'Qiraj"
+			elseif token == "ScholomanceOLD" then -- Black Rat
+				token = "Scholomance"
+			end
+			-- TODO: Deal with weather/time of day/time of year
+			token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):trim()
+			token = TableKeyFormat(token)
+			if (Z[token]) then
+				collectable:AddWorldDrop(Z[token])
+			else
+				addon:Print("Zone: " .. token .. " not found.")
+			end
+		end
+	end
+
 	function addon:ScanSpecificCompanion(pet_index)
 		addon:InitializeCollection("CRITTER")
 
@@ -228,7 +250,7 @@ do
 		local flag_list = {}
 
 		local pet = pet_list[creature_id]
-
+--print("Scanning: " .. name .. " " .. creature_id)
 		if not pet then
 			addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ") -- You will manually have to add this collectable into the database.")
 		else
@@ -240,14 +262,7 @@ do
 			if source_text:match("Pet Battle:") then
 				pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
 				source_text = source_text:gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim() -- Blizzard uses different formats for Pet Battles, some are just listed others have Pet Battle before each zone
-
-				local zone_text = {}
-				for token in source_text:gmatch("([^,]+)[,%s]*") do
-					token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):trim()
-					table.insert(zone_text, Z[TableKeyFormat(token)])
-				end
-				pet:AddWorldDrop(table.concat(zone_text, ", "))
-
+				PetWorldDrops(pet, source_text)
 			elseif source_text:match("Achievement:") then
 				pet:AddFilters(F.ACHIEVEMENT)
 
@@ -378,11 +393,7 @@ do
 			elseif source_text:match("Drop:") then -- Blizzard has no space after the : here
 				local mob_name,mob_zone = source_text:match("Drop:*%s+(.+)Zone:%s+(.+)")
 				if mob_name == "World Drop" then
-					pet:AddFilters(F.WORLD_DROP)
-					-- TODO: Deal with weather/time of day/time of year
-					mob_zone = mob_zone:gsub("Weather: (%a+)", "")
-					print(mob_zone)
-					pet:AddWorldDrop(Z[TableKeyFormat(mob_zone)])
+					PetWorldDrops(pet, mob_zone)
 				else
 					-- TODO: How do we get the id from a name?
 					pet:AddFilters(F.MOB_DROP)
@@ -444,6 +455,17 @@ do
 			addon:ScanSpecificCompanion(pet_index, true)
 		end
 
+		local output = private.TextDump
+
+		local pet_list = private.collectable_list["CRITTER"]
+
+		output:Clear()
+
+		for pet in pairs(pet_list) do
+			if pet_list[pet] then
+				pet_list[pet]:Dump()
+			end
+		end
 		output:Display()
 	end
 end
