@@ -218,6 +218,20 @@ do
 		end
 	end
 
+	local function PetWorldDrops(collectable, source_text)
+		collectable:AddFilters(F.WORLD_DROP)
+		for token in source_text:gmatch("([^,]+)[,%s]*") do
+			-- Deal with Blizzard
+			if token == "Valley of Four Winds" then
+				token = "Valley of the Four Winds"
+			end
+			-- TODO: Deal with weather/time of day/time of year
+			token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):trim()
+			token = TableKeyFormat(token)
+			collectable:AddWorldDrop(Z[token])
+		end
+	end
+
 	function addon:ScanSpecificCompanion(pet_index)
 		addon:InitializeCollection("CRITTER")
 
@@ -228,7 +242,7 @@ do
 		local flag_list = {}
 
 		local pet = pet_list[creature_id]
-
+print("Scanning: " .. name .. " " .. creature_id)
 		if not pet then
 			addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ") -- You will manually have to add this collectable into the database.")
 		else
@@ -240,14 +254,7 @@ do
 			if source_text:match("Pet Battle:") then
 				pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
 				source_text = source_text:gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim() -- Blizzard uses different formats for Pet Battles, some are just listed others have Pet Battle before each zone
-
-				for token in source_text:gmatch("([^,]+)[,%s]*") do
-					-- TODO: Deal with weather/time of day/time of year
-					token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):trim()
-					token = TableKeyFormat(token)
-					pet:AddWorldDrop(Z[token])
-				end
-
+				PetWorldDrops(pet, source_text)
 			elseif source_text:match("Achievement:") then
 				pet:AddFilters(F.ACHIEVEMENT)
 
@@ -378,13 +385,7 @@ do
 			elseif source_text:match("Drop:") then -- Blizzard has no space after the : here
 				local mob_name,mob_zone = source_text:match("Drop:*%s+(.+)Zone:%s+(.+)")
 				if mob_name == "World Drop" then
-					pet:AddFilters(F.WORLD_DROP)
-					for token in mob_zone:gmatch("([^,]+)[,%s]*") do
-						-- TODO: Deal with weather/time of day/time of year
-						token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):trim()
-						token = TableKeyFormat(token)
-						pet:AddWorldDrop(Z[token])
-					end
+					PetWorldDrops(pet, mob_zone)
 				else
 					-- TODO: How do we get the id from a name?
 					pet:AddFilters(F.MOB_DROP)
