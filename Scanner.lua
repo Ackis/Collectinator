@@ -173,13 +173,6 @@ do
 		if not input then
 			return ""
 		end
-print(input)
-print(input:upper():gsub(" ", "_"))
-print(input:upper():gsub(" ", "_"):gsub("'", ""))
-print(input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""))
-print(input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"))
-print(input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""))
-print(input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", ""))
 		return input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gsub("%(", ""):gsub("%)", "")
 	end
 
@@ -278,16 +271,34 @@ print(input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gs
 				pet:AddProfession(PROF.FISHING)
 			elseif source_text:match("World Event:") then
 				pet:AddFilters(F.SEASONAL)
+				source_text = source_text:gsub("World Event: ", "")
 				if source_text:match("Vendor") then
-					source_text = source_text:gsub("World Event: ", ""):gsub("Vendor: (.+)",""):trim()
-					addon:Print(source_text)
-					pet:AddSeason(TableKeyFormat(source_text))
-				else
-					addon:Print(source_text)
-					source_text = source_text:gsub("World Event: ", ""):trim()
-					addon:Print(TableKeyFormat(source_text))
-					pet:AddSeason(TableKeyFormat(source_text))
+					local vendor_name_list = source_text:match("Vendor: (.+)Zone:") or source_text:match("Vendor: (.+)Cost:") or source_text:match("World Vendors")
+					for vendor_name in vendor_name_list:gmatch("([^,]+)[,%s]*") do
+						local vendor_id
+						for i,k in pairs(vendor_list) do
+							local vendor = vendor_list[i]
+							if vendor.name == vendor_name then
+								vendor_id = i
+								break
+							end
+						end
+						if vendor_id then
+							if vendor_list[vendor_id].faction == "Alliance" then
+								pet:AddFilters(F.ALLIANCE)
+							elseif vendor_list[vendor_id].faction == "Horde" then
+								pet:AddFilters(F.HORDE)
+							elseif vendor_list[vendor_id].faction == "Neutral" then
+								pet:AddFilters(F.ALLIANCE, F.HORDE)
+							end
+							pet:AddVendor(vendor_id )
+						elseif vendor_name then
+							addon:Print("Vendor: " .. vendor_name .. " not in database.")
+						end
+					end
 				end
+				source_text = TableKeyFormat(source_text:gsub("Vendor: (.+)",""):trim())
+				pet:AddSeason(source_text)
 			elseif source_text:match("Quest:") then
 				source_text = source_text:gsub("Quest: ", ""):trim()
 				pet:AddFilters(F.QUEST)
@@ -329,7 +340,7 @@ print(input:upper():gsub(" ", "_"):gsub("'", ""):gsub(":", ""):gsub("-", "_"):gs
 					end
 					pet:AddFilters(F.REPUTATION)
 				else
-					local vendor_name_list = source_text:match("Vendor: (.+)Zone:") or source_text:match("World Vendors")
+					local vendor_name_list = source_text:match("Vendor: (.+)Zone:") or source_text:match("Vendor: (.+)Cost:") or source_text:match("World Vendors")
 					-- World Vendors are special names for the guild vendors.
 					-- TODO: Deal with these special vendors.
 					if vendor_name_list == "World Vendors" then
