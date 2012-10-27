@@ -50,6 +50,7 @@ local REP = private.REP_LEVELS
 local Q = private.ITEM_QUALITY_NAMES
 local PROF = private.LOCALIZED_PROFESSION_NAMES
 local FAC = private.FACTION_IDS
+local Z = private.ZONE_NAMES
 
 -------------------------------------------------------------------------------
 -- Functions/methods
