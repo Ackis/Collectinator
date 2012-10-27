@@ -218,19 +218,24 @@ do
 		end
 	end
 
+	-- Move this to contstants when Ressy is done playing with them.
+	private.ZONE_NAME_MAP = {
+		["Valley of Four Winds"] = _G.GetMapNameByID(807),
+		["Ahn'Qiraj"] = _G.GetMapNameByID(717),
+		["ScholomanceOLD"] = _G.GetMapNameByID(898),
+		["Sunken Temple"] = _G.GetMapNameByID(687),
+	}
+
+	local ZM = private.ZONE_NAME_MAP
+
 	local function PetWorldDrops(collectable, source_text)
 		collectable:AddFilters(F.WORLD_DROP)
 		for token in source_text:gmatch("([^,]+)[,%s]*") do
 			-- Deal with Blizzard
-			if token == "Valley of Four Winds" then -- Bandicoon
-				token = "Valley of the Four Winds"
-			elseif token == "Ahn'Qiraj" then -- Beetle
-				token = "Ruins of Ahn'Qiraj"
-			elseif token == "ScholomanceOLD" then -- Black Rat
-				token = "Scholomance"
-			elseif token == "Sunken Temple" then
-				token = "The Temple of Atal'hakkar"
+			if ZM[token] then
+				token = ZM[token]
 			end
+
 			-- TODO: Deal with weather/time of day/time of year
 			token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):gsub("Time: (%a+)", ""):gsub("Morning(%a+)", ""):trim()
 			token = TableKeyFormat(token)
