@@ -230,7 +230,7 @@ do
 		local pet = pet_list[creature_id]
 
 		if not pet then
-			addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ") -- Will add to the entry table.")
+			addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ") -- You will manually have to add this collectable into the database.")
 		else
 			local quality = "Q." .. Q[pet.quality]
 
@@ -296,7 +296,7 @@ do
 							end
 							pet:AddVendor(vendor_id )
 						elseif vendor_name then
-							addon:Print("Vendor: " .. vendor_name .. " not in database.")
+							addon:Print("Vendor: " .. vendor_name .. " not in database. Manually add it to the Vendor.lua file and rescan this collectable.")
 						end
 					end
 				end
@@ -331,7 +331,7 @@ do
 							pet:AddFilters(F.ALLIANCE, F.HORDE)
 						end
 					elseif vendor_name then
-						addon:Print("Vendor: " .. vendor_name .. " not in database.")
+						addon:Print("Vendor: " .. vendor_name .. " not in database. Manually add it to the Vendor.lua file and rescan this collectable.")
 					end
 
 					if faction then
