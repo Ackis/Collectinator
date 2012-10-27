@@ -219,16 +219,27 @@ do
 	end
 
 	local function PetWorldDrops(collectable, source_text)
+print(source_text)
 		collectable:AddFilters(F.WORLD_DROP)
 		for token in source_text:gmatch("([^,]+)[,%s]*") do
+			print(token)
 			-- Deal with Blizzard
-			if token == "Valley of Four Winds" then
+			if token == "Valley of Four Winds" then -- Bandicoon
 				token = "Valley of the Four Winds"
+			elseif token == "Ahn'Qiraj" then -- Beetle
+				token = "Ruins of Ahn'Qiraj"
+			elseif token == "ScholomanceOLD" then -- Black Rat
+				token = "Scholomance"
 			end
 			-- TODO: Deal with weather/time of day/time of year
 			token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):trim()
 			token = TableKeyFormat(token)
-			collectable:AddWorldDrop(Z[token])
+			print(token)
+			if (Z[token]) then
+				collectable:AddWorldDrop(Z[token])
+			else
+				addon:Print("Zone: " .. token .. " not found.")
+			end
 		end
 	end
 
