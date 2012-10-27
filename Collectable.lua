@@ -497,11 +497,11 @@ function collectable_prototype:Dump()
 	output:AddLine(("%s = Add%s(%d, V.%s, Q.%s)"):format(label, label, self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
 	if self.item_id then
-		output:AddLine(("%s:SetItemID(%d)"):format(label, self.collection_item_id))
+		output:AddLine(("%s:SetItemID(%d)"):format(label, self.item_id))
 	end
 
 	if self.spell_id then
-		output:AddLine(("%s:SetSpellID(%d)"):format(label, self.collection_spell_id))
+		output:AddLine(("%s:SetSpellID(%d)"):format(label, self.spell_id))
 	end
 
 	if self.required_faction then
