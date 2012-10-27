@@ -48,6 +48,7 @@ function addon:InitCustom()
 	AddCustom("CITY")
 	AddCustom("NOBLE_VENDOR")
 	AddCustom("CE")
+	AddCustom("BLIZZCON")
 
 	self.InitCustom = nil
 end
