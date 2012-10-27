@@ -179,7 +179,6 @@ do
 	local output = private.TextDump
 
 	function addon:ScanCompanionCreature(c_id)
-
 		local num_pets = _G.C_PetJournal.GetNumPets(_G.PetJournal.isWild)
 
 		for pet_index = 1, num_pets do
@@ -189,41 +188,6 @@ do
 				break
 			end
 		end
-
-	end
-
-	local function GetExistingFlags(collectable)
-		local flags = {}
-		if not collectable then
-			return
-		end
-
-		for i,k in pairs(private.FLAG_WORDS) do
-			local flag_word = private.FLAG_MEMBERS[i]
-			for flag_name,l in pairs(k) do
-				if collectable:HasFilter(flag_word, flag_name) then
-					table.insert(flags, #flags + 1, "F."..flag_name)
-				end
-			end
-		end
-
-		return flags
-	end
-
-	local function CheckExistingFlags(collectable)
-
-		if not collectable then
-			return
-		end
-
-		if not collectable:HasFilter("common1", "ALLIANCE") and not collectable:HasFilter("common1", "HORDE") then
-			addon:Print("No faction.")
-		end
-
-		if not collectable:HasFilter("common1", "IBOE") and not collectable:HasFilter("common1", "IBOP") and not collectable:HasFilter("common1", "IBOA") then
-			addon:Print("No binding.")
-		end
-
 	end
 
 	function addon:DumpPet(creature_id)
@@ -256,7 +220,6 @@ do
 			addon:Print("Found CRITTER not in database: " .. name .. " (" .. creature_id .. ") -- Will add to the entry table.")
 		else
 			local quality = "Q." .. Q[pet.quality]
-			--CheckExistingFlags(pet)
 
 			-- Strip formatting
 			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", "")
