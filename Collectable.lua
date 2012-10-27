@@ -299,7 +299,7 @@ local function SetFilterState(collectable, turn_on, ...)
 				collectable.flags[member_name] = nil
 			end
 		else
-			addon:Debug("Collectable '%s' (spell ID %d): Attempting to %s non-existent filter flag.", collectable.name or _G.UNKNOWN, collectable.id, turn_on and "assign" or "remove")
+			addon:Debug("Collectable '%s' (ID %d): Attempting to %s non-existent filter flag.", collectable.name or _G.UNKNOWN, collectable.id, turn_on and "assign" or "remove")
 		end
 	end
 end
@@ -349,7 +349,7 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 				unit.item_list[self.type] = unit.item_list[self.type] or {}
 				unit.item_list[self.type][self.id] = quantity
 			else
-				addon:Debug("Spell ID %d: %s ID %s does not exist in the database.", self.id, type_string, identifier)
+				addon:Debug("Collectable ID %d: %s ID %s does not exist in the database.", self.id, type_string, identifier)
 			end
 		elseif type(identifier) == "string" and private.ZONE_LABELS_FROM_NAME[identifier] then
 			location_name = identifier
