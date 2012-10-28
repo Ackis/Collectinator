@@ -493,6 +493,10 @@ function collectable_prototype:Dump()
 	local genesis = private.GAME_VERSIONS[self.genesis]
 	local label = (self.type == "CRITTER") and "pet" or "mount"
 
+	if not self.name or not self.id then
+		addon:Print("ID: " .. self.id .. " has an issue.")
+		return
+	end
 	output:AddLine(("-- %s -- %d"):format(self.name, self.id))
 	output:AddLine(("%s = Add%s(%d, V.%s, Q.%s)"):format(label, label:gsub("^%l", string.upper), self.id, private.GAME_VERSION_NAMES[genesis], private.ITEM_QUALITY_NAMES[self.quality]))
 
