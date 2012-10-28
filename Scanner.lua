@@ -413,6 +413,8 @@ do
 					if source_text:match("World Vendors") then
 						-- pet:AddRepVendor(FAC.GUILD, REP.EXALTED, 51512, 52268, 46602, 51495, 51504) -- ally
 						-- pet:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51503, 51512, 52268) -- horde
+					elseif source_text:match("Lovely Merchant") then
+						pet:AddCustom("CITY")
 					else
 						local vendor_name_list
 						-- Blizzard has two formats for vendors.  I have not seen a case where they intermingle yet.
@@ -500,13 +502,13 @@ do
 				end
 			elseif source_text:match("Promotion:") then
 				source_text = source_text:gsub("Promotion:", ""):trim()
-				if source_text:match("World of Warcraft Collectors Edition") or source_text:match("World of Warcraft Collector's Edition") then -- Seriously fuck blizzard
+				if source_text:match("World of Warcraft Collectors Edition") or source_text:match("World of Warcraft Collector's Edition") or source_text:match("Wrath of the Lich King Collector's Edition") or source_text:match("Cataclysm Collector's Edition") or source_text:match("Mists of Pandaria Collector's Edition") or source_text:match("Burning Crusade Collector's Edition") then -- Seriously fuck blizzard
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.COLLECTORS_EDITION, F.IBOP)
 					pet:AddCustom("CE")
 				elseif source_text:match("BlizzCon") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 					pet:AddCustom("BLIZZCON")
-				elseif source_text:match("World Event") or source_text:match("iCoke") then
+				elseif source_text:match("World Event") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 					----output:AddLine("pet:AddCustom()")
 				elseif source_text:match("Starcraft") then
@@ -518,6 +520,12 @@ do
 				elseif source_text:match("Authenticator Account Link") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 					pet:AddCustom("AUTH")
+				elseif source_text:match("World Wide Invitational") then
+					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+					pet:AddCustom("WWI")
+				elseif source_text:match("China New Year's Celebration") or source_text:match("Chinese New Years") or source_text:match("China Billing Promotion") or source_text:match("iCoke") then
+					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+					pet:AddCustom("CHINA")
 				elseif source_text:match("PVP") or source_text:match("Arena") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP, F.PVP)
 					----output:AddLine("pet:AddCustom()")

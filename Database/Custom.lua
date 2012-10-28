@@ -50,7 +50,10 @@ function addon:InitCustom()
 	AddCustom("CE")
 	AddCustom("BLIZZCON")
 	AddCustom("STARCRAFTCE")
+	AddCustom("DIABLOCE")
 	AddCustom("AUTH")
+	AddCustom("WWI")
+	AddCustom("CHINA")
 
 	self.InitCustom = nil
 end
