@@ -218,14 +218,6 @@ do
 		end
 	end
 
-	-- Move this to contstants when Ressy is done playing with them.
-	private.ZONE_NAME_MAP = {
-		["Valley of Four Winds"] = _G.GetMapNameByID(807),
-		["Ahn'Qiraj"] = _G.GetMapNameByID(717),
-		["ScholomanceOLD"] = _G.GetMapNameByID(898),
-		["Sunken Temple"] = _G.GetMapNameByID(687),
-	}
-
 	local ZM = private.ZONE_NAME_MAP
 
 	local function PetWorldDrops(collectable, source_text)

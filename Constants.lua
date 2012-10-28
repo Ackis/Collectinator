@@ -629,6 +629,15 @@ for label, name in pairs(private.ZONE_NAMES) do
 	private.ZONE_LABELS_FROM_NAME[name] = label
 end
 
+	-- Mappings for issues within the pet journal.
+	private.ZONE_NAME_MAP = {
+		["Valley of Four Winds"] = _G.GetMapNameByID(807),
+		["Ahn'Qiraj"] = _G.GetMapNameByID(717),
+		["ScholomanceOLD"] = _G.GetMapNameByID(898),
+		["Sunken Temple"] = _G.GetMapNameByID(687),
+		["Jade Forest"] = _G.GetMapNameByID(880),
+	}
+
 -------------------------------------------------------------------------------
 -- Boss names.
 -------------------------------------------------------------------------------
