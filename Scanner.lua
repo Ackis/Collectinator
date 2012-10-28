@@ -469,6 +469,9 @@ do
 				elseif source_text:match("Starcraft") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 					pet:AddCustom("STARCRAFTCE")
+				elseif source_text:match("Diablo") then
+					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+					pet:AddCustom("DIABLOCE")
 				elseif source_text:match("Authenticator Account Link") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 					pet:AddCustom("AUTH")
@@ -478,6 +481,7 @@ do
 				else
 					print(pet.name)
 					print(source_text)
+					pet:AddCustom(TableKeyFormat(source_text))
 				end
 			elseif source_text:match("Pet Store") then
 				source_text = source_text:gsub("Pet Store", ""):trim()
