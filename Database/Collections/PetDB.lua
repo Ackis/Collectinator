@@ -123,7 +123,6 @@ function addon:InitCritters()
 	pet = AddPet(62255, V.MOP, Q.COMMON)
 	pet = AddPet(67022, V.MOP, Q.COMMON)
 	pet = AddPet(61323, V.MOP, Q.COMMON)
-	pet = AddPet(69200, V.MOP, Q.COMMON)
 	pet = AddPet(56083, V.MOP, Q.COMMON)
 	pet = AddPet(62904, V.MOP, Q.COMMON)
 --UNKNOWN/MISC
