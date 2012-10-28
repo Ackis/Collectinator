@@ -295,32 +295,75 @@ do
 				pet:AddFilters(F.SEASONAL)
 				source_text = source_text:gsub("World Event: ", "")
 				if source_text:match("Vendor") then
-					local vendor_name_list = source_text:match("Vendor: (.+)Zone:") or source_text:match("Vendor: (.+)Cost:") or source_text:match("World Vendors")
-					for vendor_name in vendor_name_list:gmatch("([^,]+)[,%s]*") do
-						local vendor_id
-						for i,k in pairs(vendor_list) do
-							local vendor = vendor_list[i]
-							if vendor.name == vendor_name then
-								vendor_id = i
-								break
+						local vendor_name_list
+						if source_text:match("Vendor: (.-)Zone") then
+							vendor_name_list = ""
+							local index = 1
+							for vendor_name,i in source_text:gmatch("Vendor: (.-)Zone") do
+								if index == 1 then
+									vendor_name_list = vendor_name
+								else
+									vendor_name_list = vendor_name_list .. ", " .. vendor_name
+								end
+								index = index + 1
+							end
+							for vendor_name in vendor_name_list:gmatch("([^,]+)[,%s]*") do
+								local vendor_id
+								for i,k in pairs(vendor_list) do
+									local vendor = vendor_list[i]
+									if vendor.name == vendor_name then
+										vendor_id = i
+										break
+									end
+								end
+								if vendor_id then
+									if vendor_list[vendor_id].faction == "Alliance" then
+										pet:AddFilters(F.ALLIANCE)
+									elseif vendor_list[vendor_id].faction == "Horde" then
+										pet:AddFilters(F.HORDE)
+									elseif vendor_list[vendor_id].faction == "Neutral" then
+										pet:AddFilters(F.ALLIANCE, F.HORDE)
+									end
+									pet:AddVendor(vendor_id )
+								elseif vendor_name then
+									addon:Print("Vendor: " .. vendor_name .. " not in database.")
+								end
+							end
+						elseif source_text:match("Vendor: (.+)Cost:") then
+							print(pet.name)
+							vendor_name_list = ""
+							local index = 1
+							for vendor_name,i in source_text:gmatch("Vendor: (.-)Cost") do
+								if index == 1 then
+									vendor_name_list = vendor_name
+								else
+									vendor_name_list = vendor_name_list .. ", " .. vendor_name
+								end
+								index = index + 1
+							end
+							for vendor_name in vendor_name_list:gmatch("([^,]+)[,%s]*") do
+								local vendor_id
+								for i,k in pairs(vendor_list) do
+									local vendor = vendor_list[i]
+									if vendor.name == vendor_name then
+										vendor_id = i
+										break
+									end
+								end
+								if vendor_id then
+									if vendor_list[vendor_id].faction == "Alliance" then
+										pet:AddFilters(F.ALLIANCE)
+									elseif vendor_list[vendor_id].faction == "Horde" then
+										pet:AddFilters(F.HORDE)
+									elseif vendor_list[vendor_id].faction == "Neutral" then
+										pet:AddFilters(F.ALLIANCE, F.HORDE)
+									end
+									pet:AddVendor(vendor_id )
+								elseif vendor_name then
+									addon:Print("Vendor: " .. vendor_name .. " not in database.")
+								end
 							end
 						end
-						-- This vendor appears in all major cities and has the same NPC ID in each.
-						if vendor_name == "Lovely Merchant" then
-							pet:AddCustom("CITY")
-						elseif vendor_id then
-							if vendor_list[vendor_id].faction == "Alliance" then
-								pet:AddFilters(F.ALLIANCE)
-							elseif vendor_list[vendor_id].faction == "Horde" then
-								pet:AddFilters(F.HORDE)
-							elseif vendor_list[vendor_id].faction == "Neutral" then
-								pet:AddFilters(F.ALLIANCE, F.HORDE)
-							end
-							pet:AddVendor(vendor_id )
-						elseif vendor_name then
-							addon:Print("Vendor: " .. vendor_name .. " not in database. Manually add it to the Vendor.lua file and rescan this collectable.")
-						end
-					end
 				end
 				source_text = TableKeyFormat(source_text:gsub("Vendor: (.+)",""):trim())
 				pet:AddSeason(source_text)
@@ -481,7 +524,7 @@ do
 				else
 					print(pet.name)
 					print(source_text)
-					pet:AddCustom(TableKeyFormat(source_text))
+					--pet:AddCustom(TableKeyFormat(source_text))
 				end
 			elseif source_text:match("Pet Store") then
 				source_text = source_text:gsub("Pet Store", ""):trim()
