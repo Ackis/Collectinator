@@ -365,35 +365,82 @@ do
 					end
 					pet:AddFilters(F.REPUTATION)
 				else
-					--print(source_text)
-					--/script COL:UpdatePet(7389)
-					local vendor_name_list = source_text:match("Vendor: (.+)Zone:") or source_text:match("Vendor: (.+)Cost:") or source_text:match("World Vendors")
 					-- World Vendors are special names for the guild vendors.
 					-- TODO: Deal with these special vendors.
-					if vendor_name_list == "World Vendors" then
+					if source_text:match("World Vendors") then
 						-- pet:AddRepVendor(FAC.GUILD, REP.EXALTED, 51512, 52268, 46602, 51495, 51504) -- ally
 						-- pet:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51503, 51512, 52268) -- horde
 					else
-						for vendor_name in vendor_name_list:gmatch("([^,]+)[,%s]*") do
-							local vendor_id
-							for i,k in pairs(vendor_list) do
-								local vendor = vendor_list[i]
-								if vendor.name == vendor_name then
-									vendor_id = i
-									break
+						local vendor_name_list
+						-- Blizzard has two formats for vendors.  I have not seen a case where they intermingle yet.
+						-- Format 1: Vendor: XZone: YCost: Z
+						if source_text:match("Vendor: (.-)Zone") then
+							vendor_name_list = ""
+							local index = 1
+							for vendor_name,i in source_text:gmatch("Vendor: (.-)Zone") do
+								if index == 1 then
+									vendor_name_list = vendor_name
+								else
+									vendor_name_list = vendor_name_list .. ", " .. vendor_name
+								end
+								index = index + 1
+							end
+							for vendor_name in vendor_name_list:gmatch("([^,]+)[,%s]*") do
+								local vendor_id
+								for i,k in pairs(vendor_list) do
+									local vendor = vendor_list[i]
+									if vendor.name == vendor_name then
+										vendor_id = i
+										break
+									end
+								end
+								if vendor_id then
+									if vendor_list[vendor_id].faction == "Alliance" then
+										pet:AddFilters(F.ALLIANCE)
+									elseif vendor_list[vendor_id].faction == "Horde" then
+										pet:AddFilters(F.HORDE)
+									elseif vendor_list[vendor_id].faction == "Neutral" then
+										pet:AddFilters(F.ALLIANCE, F.HORDE)
+									end
+									pet:AddVendor(vendor_id )
+								elseif vendor_name then
+									addon:Print("Vendor: " .. vendor_name .. " not in database.")
 								end
 							end
-							if vendor_id then
-								if vendor_list[vendor_id].faction == "Alliance" then
-									pet:AddFilters(F.ALLIANCE)
-								elseif vendor_list[vendor_id].faction == "Horde" then
-									pet:AddFilters(F.HORDE)
-								elseif vendor_list[vendor_id].faction == "Neutral" then
-									pet:AddFilters(F.ALLIANCE, F.HORDE)
+						-- Format 2: Vendor: XCost: Z
+						elseif source_text:match("Vendor: (.+)Cost:") then
+							print(pet.name)
+							vendor_name_list = ""
+							local index = 1
+							for vendor_name,i in source_text:gmatch("Vendor: (.-)Cost") do
+								if index == 1 then
+									vendor_name_list = vendor_name
+								else
+									vendor_name_list = vendor_name_list .. ", " .. vendor_name
 								end
-								pet:AddVendor(vendor_id )
-							elseif vendor_name then
-								addon:Print("Vendor: " .. vendor_name .. " not in database.")
+								index = index + 1
+							end
+							for vendor_name in vendor_name_list:gmatch("([^,]+)[,%s]*") do
+								local vendor_id
+								for i,k in pairs(vendor_list) do
+									local vendor = vendor_list[i]
+									if vendor.name == vendor_name then
+										vendor_id = i
+										break
+									end
+								end
+								if vendor_id then
+									if vendor_list[vendor_id].faction == "Alliance" then
+										pet:AddFilters(F.ALLIANCE)
+									elseif vendor_list[vendor_id].faction == "Horde" then
+										pet:AddFilters(F.HORDE)
+									elseif vendor_list[vendor_id].faction == "Neutral" then
+										pet:AddFilters(F.ALLIANCE, F.HORDE)
+									end
+									pet:AddVendor(vendor_id )
+								elseif vendor_name then
+									addon:Print("Vendor: " .. vendor_name .. " not in database.")
+								end
 							end
 						end
 					end
