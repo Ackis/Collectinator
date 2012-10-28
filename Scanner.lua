@@ -365,6 +365,8 @@ do
 					end
 					pet:AddFilters(F.REPUTATION)
 				else
+					--print(source_text)
+					--/script COL:UpdatePet(7389)
 					local vendor_name_list = source_text:match("Vendor: (.+)Zone:") or source_text:match("Vendor: (.+)Cost:") or source_text:match("World Vendors")
 					-- World Vendors are special names for the guild vendors.
 					-- TODO: Deal with these special vendors.
