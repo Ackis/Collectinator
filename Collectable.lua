@@ -538,7 +538,7 @@ function collectable_prototype:Dump()
 	end
 
 	if self.time_of_day then
-		output:AddLine(("%s:SetTimeOfDay(%d)"):format(label, private.TIME_OF_DAY_STRINGS[self.time_of_day]))
+		output:AddLine(("%s:SetTimeOfDay(TOD.%s)"):format(label, private.TIME_OF_DAY_STRINGS[self.time_of_day]))
 	end
 
 	if self.season then
