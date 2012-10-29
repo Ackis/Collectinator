@@ -226,6 +226,10 @@ do
 			time_of_day = TableKeyFormat(time_of_day)
 			collectable:SetTimeOfDay(private.TIME_OF_DAY[time_of_day])
 		end
+		local weather = source_text:match("Weather: (.+)")
+		if weather then
+			print(collectable.name)
+		end
 	end
 
 	local function PetWorldDrops(collectable, source_text)
@@ -270,6 +274,10 @@ do
 			PetConditions(pet, source_text)
 			if source_text:match("Pet Battle:") then
 				pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+				if source_text:match("Faction:") then
+					local faction, rep_level = source_text:match("Faction: ([%a ]+)[( -]+(%a+)[ )]?")
+					source_text = source_text:gsub("Faction: ([%a ]+)[( -]+(%a+)[ )]?", "")
+				end
 				source_text = source_text:gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim() -- Blizzard uses different formats for Pet Battles, some are just listed others have Pet Battle before each zone
 				PetWorldDrops(pet, source_text)
 			elseif source_text:match("Achievement:") then
