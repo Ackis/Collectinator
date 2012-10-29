@@ -331,6 +331,20 @@ for index = 1, #private.REP_LEVEL_STRINGS do
 end
 
 -------------------------------------------------------------------------------
+-- Time of Day.
+-------------------------------------------------------------------------------
+private.TIME_OF_DAY_STRINGS = {
+	[1]	= "EARLY_MORNING",
+	[2]	= "DAY",
+	[3]	= "NIGHT",
+}
+
+private.TIME_OF_DAY = {}
+
+for index = 1, #private.TIME_OF_DAY_STRINGS do
+	private.TIME_OF_DAY[private.TIME_OF_DAY_STRINGS[index]] = index
+end
+-------------------------------------------------------------------------------
 -- Factions.
 -------------------------------------------------------------------------------
 private.FACTION_IDS = {
