@@ -346,7 +346,6 @@ do
 								end
 							end
 						elseif source_text:match("Vendor: (.+)Cost:") then
-							print(pet.name)
 							vendor_name_list = ""
 							local index = 1
 							for vendor_name,i in source_text:gmatch("Vendor: (.-)Cost") do
