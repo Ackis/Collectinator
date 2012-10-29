@@ -43,6 +43,7 @@ local V = private.GAME_VERSIONS
 local Z = private.ZONE_NAMES
 local PROF = private.LOCALIZED_PROFESSION_NAMES
 local TOD = private.TIME_OF_DAY
+local WEATHER = private.WEATHER
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -1681,11 +1682,13 @@ function addon:InitCritters()
 	--[[ Pet Battle: Icecrown ]]--
 	pet = AddPet(62854, V.MOP, Q.COMMON)
 	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+
 	-- Arctic Fox Kit -- 62864
-	--[[ Pet Battle: The Storm Peaks
-	Weather: Snow ]]--
 	pet = AddPet(62864, V.MOP, Q.COMMON)
-	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	pet:SetWeather(WEATHER.SNOW)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.THE_STORM_PEAKS)
+
 	-- Grotto Vole -- 62884
 	--[[ Pet Battle: Mount Hyjal ]]--
 	pet = AddPet(62884, V.MOP, Q.COMMON)
