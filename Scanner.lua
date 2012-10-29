@@ -220,6 +220,14 @@ do
 
 	local ZM = private.ZONE_NAME_MAP
 
+	local function PetConditions(collectable, source_text)
+		local time_of_day = source_text:match("Time: (.+)")
+		if time_of_day then
+			time_of_day = TableKeyFormat(time_of_day)
+			collectable:SetTimeOfDay(private.TIME_OF_DAY[time_of_day])
+		end
+	end
+
 	local function PetWorldDrops(collectable, source_text)
 		collectable:AddFilters(F.WORLD_DROP)
 		for token in source_text:gmatch("([^,]+)[,%s]*") do
@@ -259,6 +267,7 @@ do
 			-- Strip formatting
 			source_text = source_text:gsub("%|c%x%x%x%x%x%x%x%x", ""):gsub("%|[r|t|T]", ""):gsub("%|n", "")
 
+			PetConditions(pet, source_text)
 			if source_text:match("Pet Battle:") then
 				pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
 				source_text = source_text:gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim() -- Blizzard uses different formats for Pet Battles, some are just listed others have Pet Battle before each zone
