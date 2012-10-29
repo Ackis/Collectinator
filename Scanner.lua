@@ -229,12 +229,13 @@ do
 			end
 
 			-- TODO: Deal with weather/time of day/time of year
-			token = token:gsub("Season: (%a+)",""):gsub("Weather: (%a+)", ""):gsub("Time: (%a+)", ""):gsub("Morning(%a+)", ""):trim()
+			token = token:gsub("Season: (%a+)",""):gsub("Weather: (.+)", ""):gsub("Time: (.+)", ""):gsub("Morning(%a+)", ""):trim()
 			token = TableKeyFormat(token)
 			if (Z[token]) then
 				collectable:AddWorldDrop(Z[token])
 			else
 				addon:Print("Zone: " .. token .. " not found.")
+				print(source_text)
 			end
 		end
 	end
