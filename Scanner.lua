@@ -228,7 +228,6 @@ do
 		end
 		local weather = source_text:match("Weather:%s+(.+)")
 		if weather then
-			print(collectable.name)
 			weather = TableKeyFormat(weather)
 			collectable:SetWeather(private.WEATHER[weather])
 		end
