@@ -357,6 +357,17 @@ for index = 1, #private.WEATHER_STRINGS do
 	private.WEATHER[private.WEATHER_STRINGS[index]] = index
 end
 
+private.SEASON_STRINGS = {
+	[1]	= "WINTER",
+	[2]	= "SUMMER",
+}
+
+private.SEASON = {
+	for index = 1, #private.SEASON_STRINGS do
+		private.SEASON[private.SEASON_STRINGS[index]] = index
+	end
+}
+
 -------------------------------------------------------------------------------
 -- Factions.
 -------------------------------------------------------------------------------
