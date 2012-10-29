@@ -228,7 +228,7 @@ do
 		end
 		local weather = source_text:match("Weather: (.+)")
 		if weather then
-			print(collectable.name)
+			--print(collectable.name)
 		end
 	end
 
