@@ -523,9 +523,6 @@ do
 				elseif source_text:match("BlizzCon") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 					pet:AddCustom("BLIZZCON")
-				elseif source_text:match("World Event") then
-					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
-					----output:AddLine("pet:AddCustom()")
 				elseif source_text:match("Starcraft") then
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 					pet:AddCustom("STARCRAFTCE")
@@ -545,8 +542,7 @@ do
 					pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP, F.PVP)
 					----output:AddLine("pet:AddCustom()")
 				else
-					print(pet.name)
-					print(source_text)
+					addon:Print("Unknown Promotion: " .. source_text)
 					--pet:AddCustom(TableKeyFormat(source_text))
 				end
 			elseif source_text:match("Pet Store") then
