@@ -537,6 +537,18 @@ function collectable_prototype:Dump()
 		output:AddLine(("%s:SetRequiredFaction(\"%s\")"):format(label, self.required_faction))
 	end
 
+	if self.time_of_day then
+		output:AddLine(("%s:SetTime(%d)"):format(label, self.time_of_day))
+	end
+
+	if self.season then
+		output:AddLine(("%s:SetSeason(%d)"):format(label, self.season))
+	end
+
+	if self.weather then
+		output:AddLine(("%s:SetWeather(%d)"):format(label, self.weather))
+	end
+
 	local flag_string
 
 	for table_index, bits in ipairs(private.FLAG_WORDS) do
