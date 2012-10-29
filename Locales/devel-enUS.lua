@@ -296,3 +296,4 @@ L["Zachariah Post"] = true
 L["Zen'Vorka"] = true
 L["Zevrost"] = true
 L["Zjolnir"] = true
+L["Wanderer's Festival"] = true

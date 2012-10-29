@@ -48,6 +48,7 @@ function addon:InitSeasons()
 	AddSeason("LOVE_IS_IN_THE_AIR", _G.GetCategoryInfo(187))
 	AddSeason("PILGRIMS_BOUNTY", _G.GetCategoryInfo(14981))
 	AddSeason("DARKMOON_FAIRE", _G.GetCategoryInfo(15101))
+	AddSeason("WANDERERS_FESTIVAL", L["Wanderer's Festival"])
 
 	self.InitSeasons = nil
 end

@@ -116,7 +116,11 @@ function addon:InitCritters()
 	pet = AddPet(61259, V.MOP, Q.COMMON)
 	pet = AddPet(65321, V.MOP, Q.COMMON)
 	pet = AddPet(65324, V.MOP, Q.COMMON)
+
+	-- Wild Jade Hatchling -- 65323
 	pet = AddPet(65323, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+
 	pet = AddPet(63849, V.MOP, Q.COMMON)
 	pet = AddPet(66105, V.MOP, Q.COMMON)
 	pet = AddPet(62914, V.MOP, Q.COMMON)
