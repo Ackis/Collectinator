@@ -120,11 +120,11 @@ function collectable_prototype:SpellID()
 	return self.spell_id
 end
 
-function collectable_prototype:SetTime(time_of_day)
+function collectable_prototype:SetTimeOfDay(time_of_day)
 	self.time_of_day = time_of_day
 end
 
-function collectable_prototype:Time()
+function collectable_prototype:TimeOfDay()
 	return self.time_of_day
 end
 
@@ -538,7 +538,7 @@ function collectable_prototype:Dump()
 	end
 
 	if self.time_of_day then
-		output:AddLine(("%s:SetTime(%d)"):format(label, private.TIME_OF_DAY_STRINGS[self.time_of_day]))
+		output:AddLine(("%s:SetTimeOfDay(%d)"):format(label, private.TIME_OF_DAY_STRINGS[self.time_of_day]))
 	end
 
 	if self.season then
