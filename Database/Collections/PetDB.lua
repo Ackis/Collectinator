@@ -125,7 +125,13 @@ function addon:InitCritters()
 	pet = AddPet(66105, V.MOP, Q.COMMON)
 	pet = AddPet(62914, V.MOP, Q.COMMON)
 	pet = AddPet(62255, V.MOP, Q.COMMON)
+
+	-- Wanderer's Festival Hatchling -- 67022
 	pet = AddPet(67022, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddSeason("WANDERERS_FESTIVAL")
+	pet:AddWorldDrop(Z.KRASARANG_WILDS)
+
 	pet = AddPet(61323, V.MOP, Q.COMMON)
 	pet = AddPet(61889, V.MOP, Q.COMMON)
 	pet = AddPet(56083, V.MOP, Q.COMMON)
