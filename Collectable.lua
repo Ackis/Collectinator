@@ -120,6 +120,31 @@ function collectable_prototype:SpellID()
 	return self.spell_id
 end
 
+function collectable_prototype:SetTime(time_of_day)
+	self.time_of_day = time_of_day
+end
+
+function collectable_prototype:Time()
+	return self.time_of_day
+end
+
+-- Different from Seasonal events, some pets are "winter" only
+function collectable_prototype:SetSeason(season)
+	self.season = season
+end
+
+function collectable_prototype:Season()
+	return self.season
+end
+
+function collectable_prototype:SetWeather(weather)
+	self.weather = weather
+end
+
+function collectable_prototype:Weather()
+	return self.weather
+end
+
 -- Used to set the faction for collectables which only can be learned by one class, faction, or race. These collectables
 -- will never be able to be learned by players who do not meet the requirements, so we do not want to show or count them.
 function collectable_prototype:SetRequiredClass(class_name)
