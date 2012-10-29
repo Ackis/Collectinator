@@ -1256,11 +1256,13 @@ function addon:InitCritters()
 	--[[ Pet Battle: Swamp of Sorrows ]]--
 	pet = AddPet(61372, V.MOP, Q.COMMON)
 	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+
 	-- Restless Shadeling -- 61375
-	--[[ Pet Battle: Deadwind Pass
-	Time: Early Morning ]]--
 	pet = AddPet(61375, V.MOP, Q.COMMON)
-	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	pet:SetTimeOfDay(TOD.EARLY_MORNING)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.DEADWIND_PASS)
+
 	-- Lava Crab -- 61383
 	--[[ Pet Battle: Burning Steppes, Searing Gorge ]]--
 	pet = AddPet(61383, V.MOP, Q.COMMON)
