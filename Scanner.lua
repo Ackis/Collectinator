@@ -278,6 +278,12 @@ do
 					local faction, rep_level = source_text:match("Faction: ([%a ]+)[( -]+(%a+)[ )]?")
 					source_text = source_text:gsub("Faction: ([%a ]+)[( -]+(%a+)[ )]?", "")
 				end
+				if source_text:match("Event") then
+					pet:AddFilters(F.SEASONAL)
+					local event = TableKeyFormat(source_text:match("Event:%s+(.+)"))
+					pet:AddSeason(event)
+					source_text = source_text:gsub("Event:%s+(.+)","")
+				end
 				source_text = source_text:gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim() -- Blizzard uses different formats for Pet Battles, some are just listed others have Pet Battle before each zone
 				PetWorldDrops(pet, source_text)
 			elseif source_text:match("Achievement:") then
