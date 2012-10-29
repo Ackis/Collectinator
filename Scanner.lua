@@ -231,10 +231,10 @@ do
 			weather = TableKeyFormat(weather)
 			collectable:SetWeather(private.WEATHER[weather])
 		end
-		local seaspn = source_text:match("Season:%s+(.+)")
+		local season = source_text:match("Season:%s+(.+)")
 		if season then
 			season = TableKeyFormat(season)
-			print(collectable.name)
+			collectable:SetSeason(private.SEASON[season])
 		end
 	end
 

@@ -541,7 +541,7 @@ function collectable_prototype:Dump()
 	end
 
 	if self.season then
-		output:AddLine(("%s:SetSeason(%d)"):format(label, self.season))
+		output:AddLine(("%s:SetSeason(SEASON.%s)"):format(label, private.SEASON_STRINGS[self.season]))
 	end
 
 	if self.weather then

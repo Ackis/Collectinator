@@ -44,6 +44,7 @@ local Z = private.ZONE_NAMES
 local PROF = private.LOCALIZED_PROFESSION_NAMES
 local TOD = private.TIME_OF_DAY
 local WEATHER = private.WEATHER
+local SEASON = private.SEASON
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
