@@ -363,10 +363,12 @@ private.SEASON_STRINGS = {
 }
 
 private.SEASON = {
-	for index = 1, #private.SEASON_STRINGS do
-		private.SEASON[private.SEASON_STRINGS[index]] = index
-	end
 }
+
+for index = 1, #private.SEASON_STRINGS do
+	private.SEASON[private.SEASON_STRINGS[index]] = index
+end
+
 
 -------------------------------------------------------------------------------
 -- Factions.
