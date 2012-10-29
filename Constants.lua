@@ -331,7 +331,7 @@ for index = 1, #private.REP_LEVEL_STRINGS do
 end
 
 -------------------------------------------------------------------------------
--- Time of Day.
+-- Time of Day/Weather/Seasons
 -------------------------------------------------------------------------------
 private.TIME_OF_DAY_STRINGS = {
 	[1]	= "EARLY_MORNING",
@@ -344,6 +344,19 @@ private.TIME_OF_DAY = {}
 for index = 1, #private.TIME_OF_DAY_STRINGS do
 	private.TIME_OF_DAY[private.TIME_OF_DAY_STRINGS[index]] = index
 end
+
+private.WEATHER_STRINGS = {
+	[1]	= "RAIN",
+	[2]	= "SNOW",
+	[3]	= "SANDSTORM",
+}
+
+private.WEATHER = {}
+
+for index = 1, #private.WEATHER_STRINGS do
+	private.WEATHER[private.WEATHER_STRINGS[index]] = index
+end
+
 -------------------------------------------------------------------------------
 -- Factions.
 -------------------------------------------------------------------------------

@@ -545,7 +545,7 @@ function collectable_prototype:Dump()
 	end
 
 	if self.weather then
-		output:AddLine(("%s:SetWeather(%d)"):format(label, self.weather))
+		output:AddLine(("%s:SetWeather(WEATHER.%s)"):format(label, private.WEATHER_STRINGS[self.weather]))
 	end
 
 	local flag_string

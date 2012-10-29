@@ -221,14 +221,21 @@ do
 	local ZM = private.ZONE_NAME_MAP
 
 	local function PetConditions(collectable, source_text)
-		local time_of_day = source_text:match("Time: (.+)")
+		local time_of_day = source_text:match("Time:%s+(.+)")
 		if time_of_day then
 			time_of_day = TableKeyFormat(time_of_day)
 			collectable:SetTimeOfDay(private.TIME_OF_DAY[time_of_day])
 		end
-		local weather = source_text:match("Weather: (.+)")
+		local weather = source_text:match("Weather:%s+(.+)")
 		if weather then
-			--print(collectable.name)
+			print(collectable.name)
+			weather = TableKeyFormat(weather)
+			collectable:SetWeather(private.WEATHER[weather])
+		end
+		local seaspn = source_text:match("Season:%s+(.+)")
+		if season then
+			season = TableKeyFormat(season)
+			print(collectable.name)
 		end
 	end
 
