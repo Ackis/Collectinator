@@ -42,6 +42,7 @@ local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
 local Z = private.ZONE_NAMES
 local PROF = private.LOCALIZED_PROFESSION_NAMES
+local TOD = private.TIME_OF_DAY
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -1304,10 +1305,13 @@ function addon:InitCritters()
 	--[[ Pet Battle: Badlands ]]--
 	pet = AddPet(61443, V.MOP, Q.COMMON)
 	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+
 	-- Little Black Ram -- 61459
-	--[[ Pet Battle: Loch Modan ]]--
 	pet = AddPet(61459, V.MOP, Q.COMMON)
-	pet:AddFilters(F.HORDE, F.ALLIANCE, F.BATTLE_PET)
+	pet:SetTimeOfDay(TOD.DAY)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.LOCH_MODAN)
+
 	-- Mountain Skunk -- 61677
 	--[[ Pet Battle: Grizzly Hills, Stonetalon Mountains, The Storm Peaks, Wetlands, Winterspring ]]--
 	pet = AddPet(61677, V.MOP, Q.COMMON)
