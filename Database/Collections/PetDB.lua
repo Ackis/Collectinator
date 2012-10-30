@@ -509,8 +509,9 @@ function addon:InitCritters()
 	pet:AddWorldDrop(Z.KRASARANG_WILDS)
 	-- Jade Crane Chick -- 65314
 	pet = AddPet(65314, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.VENDOR)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
 	pet:AddVendor(63596)
+	--pet:SetRequiredRaces("Pandaran")
 	-- Maggot -- 61753
 	pet = AddPet(61753, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
