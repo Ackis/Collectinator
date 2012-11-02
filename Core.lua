@@ -214,7 +214,7 @@ function addon:OnInitialize()
 					quest = true,
 					raid = true,
 					reputation = true,
-					seasonal = true,
+					world_events = true,
 					trainer = true,
 					vendor = true,
 					worlddrop = true,
@@ -535,7 +535,7 @@ do
 		addon:InitQuest()
 		addon:InitReputation()
 		addon:InitTrainer()
-		addon:InitSeasons()
+		addon:InitWorldEvents()
 		addon:InitVendor()
 
 		InitializeLookups = nil

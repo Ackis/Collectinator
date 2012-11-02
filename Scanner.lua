@@ -285,9 +285,9 @@ do
 					source_text = source_text:gsub("Faction: ([%a ]+)[( -]+(%a+)[ )]?", "")
 				end
 				if source_text:match("Event") then
-					pet:AddFilters(F.SEASONAL)
+					pet:AddFilters(F.WORLD_EVENTS)
 					local event = TableKeyFormat(source_text:match("Event:%s+(.+)"))
-					pet:AddSeason(event)
+					pet:AddWorldEvent(event)
 					source_text = source_text:gsub("Event:%s+(.+)","")
 				end
 				source_text = source_text:gsub("Pet Battle:", "", 1):gsub("Pet Battle:", ","):trim() -- Blizzard uses different formats for Pet Battles, some are just listed others have Pet Battle before each zone
@@ -314,7 +314,7 @@ do
 			elseif source_text:match("Fishing:") then -- Fuck blizzard
 				pet:AddProfession(PROF.FISHING)
 			elseif source_text:match("World Event:") then
-				pet:AddFilters(F.SEASONAL)
+				pet:AddFilters(F.WORLD_EVENTS)
 				source_text = source_text:gsub("World Event: ", "")
 				if source_text:match("Vendor") then
 						local vendor_name_list
@@ -387,7 +387,7 @@ do
 						end
 				end
 				source_text = TableKeyFormat(source_text:gsub("Vendor: (.+)",""):trim())
-				pet:AddSeason(source_text)
+				pet:AddWorldEvent(source_text)
 			elseif source_text:match("Quest:") then
 				source_text = source_text:gsub("Quest: ", ""):trim()
 				pet:AddFilters(F.QUEST)

@@ -351,7 +351,7 @@ do
 		find_empties(private.mob_list, "Mob")
 		find_empties(private.quest_list, "Quest")
 		find_empties(private.custom_list, "Custom Entry")
-		find_empties(private.seasonal_list, "World Event")
+		find_empties(private.world_events_list, "World Event")
 	end
 end -- do
 --@end-debug@

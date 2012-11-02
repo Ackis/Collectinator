@@ -1439,37 +1439,37 @@ function addon:InitMounts()
 	-- Brewfest Ram - 43899
 	mount = AddMount(43899, V.TBC, Q.RARE) -- Item: 33976
 	mount:SetItemID(33976)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL, F.VENDOR)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.VENDOR)
 	mount:AddVendor(24468, 24510)
-	mount:AddSeason("BREWFEST")
+	mount:AddWorldEvent("BREWFEST")
 
 	-- Great Brewfest Kodo - 49379
 	mount = AddMount(49379, V.TBC, Q.EPIC) -- Item: 37828
 	mount:SetItemID(37828)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL, F.MOB_DROP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.MOB_DROP)
 	mount:AddMobDrop(23872)
-	mount:AddSeason("BREWFEST")
+	mount:AddWorldEvent("BREWFEST")
 
 	-- Swift Brewfest Ram - 43900
 	mount = AddMount(43900, V.TBC, Q.EPIC) -- Item: 33977
 	mount:SetItemID(33977)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL, F.MOB_DROP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.MOB_DROP)
 	mount:AddMobDrop(23872)
-	mount:AddSeason("BREWFEST")
+	mount:AddWorldEvent("BREWFEST")
 
 	-- The Horseman's Reins - 48025
 	mount = AddMount(48025, V.TBC, Q.EPIC) -- Item: 37012
 	mount:SetItemID(37012)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL, F.MOB_DROP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.MOB_DROP)
 	mount:AddMobDrop(23682)
-	mount:AddSeason("HALLOWS_END")
+	mount:AddWorldEvent("HALLOWS_END")
 
 	-- Big Love Rocket - 71342
 	mount = AddMount(71342, V.WOTLK, Q.EPIC) -- Item: 50250
 	mount:SetItemID(50250)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SEASONAL, F.MOB_DROP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.MOB_DROP)
 	mount:AddMobDrop(36296)
-	mount:AddSeason("LOVE_IS_IN_THE_AIR")
+	mount:AddWorldEvent("LOVE_IS_IN_THE_AIR")
 
 --DROP
 	 -- Reins of the Onyxian Drake - 69395
@@ -2128,16 +2128,16 @@ function addon:InitMounts()
 	-- Darkmoon Dancing Bear -- 103081
 	mount = AddMount(103081, V.CATA, Q.EPIC) -- Item: 73766
 	mount:SetItemID(73766)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS, F.IBOP)
 	mount:AddVendor(14846)
-	mount:AddSeason("DARKMOON_FAIRE")
+	mount:AddWorldEvent("DARKMOON_FAIRE")
 
 	-- Swift Forest Strider -- 102346
 	mount = AddMount(102346, V.CATA, Q.EPIC) -- Item: 72140
 	mount:SetItemID(72140)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.SEASONAL, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS, F.IBOP)
 	mount:AddVendor(14846)
-	mount:AddSeason("DARKMOON_FAIRE")
+	mount:AddWorldEvent("DARKMOON_FAIRE")
 
 	-- Amani Dragonhawk -- 96503
 	mount = AddMount(96503, V.CATA, Q.EPIC) -- Item: 68825
@@ -2178,16 +2178,16 @@ function addon:InitMounts()
 	-- Swift Lovebird -- 102350
 	mount = AddMount(102350, V.CATA, Q.EPIC) -- Item: 72146
 	mount:SetItemID(72146)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.IBOE)
-	mount:AddSeason("LOVE_IS_IN_THE_AIR")
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.IBOE)
+	mount:AddWorldEvent("LOVE_IS_IN_THE_AIR")
 	mount:AddCustom("CITY")
 
 	-- Swift Springstrider -- 102349
 	mount = AddMount(102349, V.CATA, Q.EPIC) -- Item: 72145
 	mount:SetItemID(72145)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.SEASONAL, F.VENDOR, F.IBOE)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.VENDOR, F.IBOE)
 	mount:AddVendor(32836, 32837)
-	mount:AddSeason("NOBLEGARDEN")
+	mount:AddWorldEvent("NOBLEGARDEN")
 	mount:AddCustom("NOBLE_VENDOR")
 
 	-- Imperial Quilen -- 124659
@@ -2562,7 +2562,7 @@ Apparentely not in game yet!
 -- mount:AddFilters(F.ALLIANCE, F.HORDE)
 
 -- Black Dragonhawk Mount -- 62048
--- mount = AddMount(62048, V.WRATH,) -- Item: 
+-- mount = AddMount(62048, V.WRATH,) -- Item:
 -- mount:SetItemID()
 -- mount:AddFilters(F.ALLIANCE, F.HORDE)
 

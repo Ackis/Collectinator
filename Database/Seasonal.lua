@@ -30,25 +30,25 @@ local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
-private.seasonal_list	= {}
+private.world_events_list = {}
 
-function addon:InitSeasons()
-	local function AddSeason(identifier, name)
-		private:AddListEntry(private.seasonal_list, identifier, name, _G.GetCategoryInfo(155))
+function addon:InitWorldEvents()
+	local function AddWorldEvent(identifier, name)
+		private:AddListEntry(private.world_events_list, identifier, name, _G.GetCategoryInfo(155))
 	end
 
-	AddSeason("DAY_OF_THE_DEAD", L["Day of the Dead"])
-	AddSeason("FEAST_OF_WINTER_VEIL", _G.GetCategoryInfo(156))
-	AddSeason("HALLOWS_END", _G.GetCategoryInfo(158))
-	AddSeason("LUNAR_FESTIVAL", _G.GetCategoryInfo(160))
-	AddSeason("MIDSUMMER_FIRE_FESTIVAL", _G.GetCategoryInfo(161))
-	AddSeason("BREWFEST", _G.GetCategoryInfo(162))
-	AddSeason("CHILDRENS_WEEK", _G.GetCategoryInfo(163))
-	AddSeason("NOBLEGARDEN",_G.GetCategoryInfo(181))
-	AddSeason("LOVE_IS_IN_THE_AIR", _G.GetCategoryInfo(187))
-	AddSeason("PILGRIMS_BOUNTY", _G.GetCategoryInfo(14981))
-	AddSeason("DARKMOON_FAIRE", _G.GetCategoryInfo(15101))
-	AddSeason("WANDERERS_FESTIVAL", L["Wanderer's Festival"])
+	AddWorldEvent("DAY_OF_THE_DEAD", L["Day of the Dead"])
+	AddWorldEvent("FEAST_OF_WINTER_VEIL", _G.GetCategoryInfo(156))
+	AddWorldEvent("HALLOWS_END", _G.GetCategoryInfo(158))
+	AddWorldEvent("LUNAR_FESTIVAL", _G.GetCategoryInfo(160))
+	AddWorldEvent("MIDSUMMER_FIRE_FESTIVAL", _G.GetCategoryInfo(161))
+	AddWorldEvent("BREWFEST", _G.GetCategoryInfo(162))
+	AddWorldEvent("CHILDRENS_WEEK", _G.GetCategoryInfo(163))
+	AddWorldEvent("NOBLEGARDEN",_G.GetCategoryInfo(181))
+	AddWorldEvent("LOVE_IS_IN_THE_AIR", _G.GetCategoryInfo(187))
+	AddWorldEvent("PILGRIMS_BOUNTY", _G.GetCategoryInfo(14981))
+	AddWorldEvent("DARKMOON_FAIRE", _G.GetCategoryInfo(15101))
+	AddWorldEvent("WANDERERS_FESTIVAL", L["Wanderer's Festival"])
 
-	self.InitSeasons = nil
+	self.InitWorldEvents = nil
 end

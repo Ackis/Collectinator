@@ -521,23 +521,23 @@ function private.InitializeListFrame()
 		}
 
 		local SOFT_FILTERS = {
-			["achievement"]	= { flag = COMMON1.ACHIEVEMENT,		field = "common1",	sv_root = obtain_filters },
-			["profession"]	= { flag = COMMON1.PROFESSION,		field = "common1",	sv_root = obtain_filters },
-			["instance"]	= { flag = COMMON1.INSTANCE,		field = "common1",	sv_root = obtain_filters },
-			["mobdrop"]	= { flag = COMMON1.MOB_DROP,		field = "common1",	sv_root = obtain_filters },
-			["pvp"]		= { flag = COMMON1.PVP,			field = "common1",	sv_root = obtain_filters },
-			["quest"]	= { flag = COMMON1.QUEST,		field = "common1",	sv_root = obtain_filters },
-			["raid"]	= { flag = COMMON1.RAID,		field = "common1",	sv_root = obtain_filters },
-			["retired"]	= { flag = COMMON1.RETIRED,		field = "common1",	sv_root = general_filters },
-			["reputation"]	= { flag = COMMON1.REPUTATION,		field = "common1",	sv_root = obtain_filters },
-			["seasonal"]	= { flag = COMMON1.SEASONAL,		field = "common1",	sv_root = obtain_filters },
-			["store"]	= { flag = COMMON1.STORE,		field = "common1",	sv_root = obtain_filters },
-			["trainer"]	= { flag = COMMON1.TRAINER,		field = "common1",	sv_root = obtain_filters },
-			["vendor"]	= { flag = COMMON1.VENDOR,		field = "common1",	sv_root = obtain_filters },
-			["worlddrop"]	= { flag = COMMON1.WORLD_DROP,		field = "common1",	sv_root = obtain_filters },
-			["tcg"]		= { flag = COMMON1.TCG	,		field = "common1",	sv_root = obtain_filters },
-			["coll_edition"]= { flag = COMMON1.COLLECTORS_EDITION,	field = "common1",	sv_root = obtain_filters },
-			["promo"]	= { flag = COMMON1.PROMO,		field = "common1",	sv_root = obtain_filters },
+			["achievement"]		= { flag = COMMON1.ACHIEVEMENT,		field = "common1",	sv_root = obtain_filters },
+			["profession"]		= { flag = COMMON1.PROFESSION,		field = "common1",	sv_root = obtain_filters },
+			["instance"]		= { flag = COMMON1.INSTANCE,		field = "common1",	sv_root = obtain_filters },
+			["mobdrop"]		= { flag = COMMON1.MOB_DROP,		field = "common1",	sv_root = obtain_filters },
+			["pvp"]			= { flag = COMMON1.PVP,			field = "common1",	sv_root = obtain_filters },
+			["quest"]		= { flag = COMMON1.QUEST,		field = "common1",	sv_root = obtain_filters },
+			["raid"]		= { flag = COMMON1.RAID,		field = "common1",	sv_root = obtain_filters },
+			["retired"]		= { flag = COMMON1.RETIRED,		field = "common1",	sv_root = general_filters },
+			["reputation"]		= { flag = COMMON1.REPUTATION,		field = "common1",	sv_root = obtain_filters },
+			["store"]		= { flag = COMMON1.STORE,		field = "common1",	sv_root = obtain_filters },
+			["trainer"]		= { flag = COMMON1.TRAINER,		field = "common1",	sv_root = obtain_filters },
+			["vendor"]		= { flag = COMMON1.VENDOR,		field = "common1",	sv_root = obtain_filters },
+			["world_events"]	= { flag = COMMON1.WORLD_EVENTS,	field = "common1",	sv_root = obtain_filters },
+			["worlddrop"]		= { flag = COMMON1.WORLD_DROP,		field = "common1",	sv_root = obtain_filters },
+			["tcg"]			= { flag = COMMON1.TCG	,		field = "common1",	sv_root = obtain_filters },
+			["coll_edition"]	= { flag = COMMON1.COLLECTORS_EDITION,	field = "common1",	sv_root = obtain_filters },
+			["promo"]		= { flag = COMMON1.PROMO,		field = "common1",	sv_root = obtain_filters },
 		}
 
 		local REP1 = private.REP_FLAGS_WORD1
@@ -1114,9 +1114,10 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
-	local function ExpandSeasonalData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
+	local function ExpandWorldEventsData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
+		local hex_color = CATEGORY_COLORS["world_events"]
 		local entry = AcquireTable()
-		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["seasonal"], private.ACQUIRE_NAMES[A.SEASONAL]) .. ":", SetTextColor(CATEGORY_COLORS["seasonal"], private.seasonal_list[id_num].name))
+		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(hex_color, private.ACQUIRE_NAMES[A.WORLD_EVENTS]) .. ":", SetTextColor(hex_color, private.world_events_list[id_num].name))
 		entry.collectable = collectable
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
@@ -1237,8 +1238,8 @@ function private.InitializeListFrame()
 				func = ExpandMobData
 			elseif acquire_type == A.QUEST and obtain_filters.quest then
 				func = ExpandQuestData
-			elseif acquire_type == A.SEASONAL and obtain_filters.seasonal then
-				func = ExpandSeasonalData
+			elseif acquire_type == A.WORLD_EVENTS and obtain_filters.world_events then
+				func = ExpandWorldEventsData
 			elseif acquire_type == A.REPUTATION then
 				for rep_level, level_info in pairs(info) do
 					for vendor_id in pairs(level_info) do
@@ -1388,10 +1389,10 @@ function private.InitializeListFrame()
 						elseif acquire_type == A.QUEST and private.quest_list[id_num].location == location_id then
 							entry_index = ExpandQuestData(entry_index, "subentry", current_entry,
 										      id_num, current_entry.collectable, true)
-						elseif acquire_type == A.SEASONAL and private.seasonal_list[id_num].location == location_id then
+						elseif acquire_type == A.WORLD_EVENTS and private.world_events_list[id_num].location == location_id then
 							-- Hide the acquire type for this - it will already show up in the location list as
 							-- "World Events".
-							entry_index = ExpandSeasonalData(entry_index, "subentry", current_entry,
+							entry_index = ExpandWorldEventsData(entry_index, "subentry", current_entry,
 											 id_num, current_entry.collectable, true, true)
 						elseif acquire_type == A.CUSTOM and private.custom_list[id_num].location == location_id then
 							entry_index = ExpandCustomData(entry_index, "subentry", current_entry,
@@ -1588,9 +1589,9 @@ do
 				addline_func(1, -2, true, quest.location, CATEGORY_COLORS["location"], "", CATEGORY_COLORS["coords"])
 			end
 		end,
-		[A.SEASONAL] = function(collectable, identifier, location, acquire_info, addline_func)
-			local hex_color = CATEGORY_COLORS["seasonal"]
-			addline_func(0, -1, 0, private.ACQUIRE_NAMES[A.SEASONAL], hex_color, private.seasonal_list[identifier].name, hex_color)
+		[A.WORLD_EVENTS] = function(collectable, identifier, location, acquire_info, addline_func)
+			local hex_color = CATEGORY_COLORS["world_events"]
+			addline_func(0, -1, 0, private.ACQUIRE_NAMES[A.WORLD_EVENTS], hex_color, private.world_events_list[identifier].name, hex_color)
 		end,
 		[A.REPUTATION] = function(collectable, identifier, location, acquire_info, addline_func)
 			for rep_level, level_info in pairs(acquire_info) do

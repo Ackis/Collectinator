@@ -128,7 +128,7 @@ function collectable_prototype:TimeOfDay()
 	return self.time_of_day
 end
 
--- Different from Seasonal events, some pets are "winter" only
+-- Some pets can be found only during certain seasons, such as Winter.
 function collectable_prototype:SetSeason(season)
 	self.season = season
 end
@@ -434,8 +434,8 @@ function collectable_prototype:AddCustom(...)
 	self:AddAcquireData(A.CUSTOM, "Custom", private.custom_list, ...)
 end
 
-function collectable_prototype:AddSeason(...)
-	self:AddAcquireData(A.SEASONAL, "Seasonal", private.seasonal_list, ...)
+function collectable_prototype:AddWorldEvent(...)
+	self:AddAcquireData(A.WORLD_EVENTS, "World Events", private.world_events_list, ...)
 end
 
 function collectable_prototype:AddRepVendor(faction_id, rep_level, ...)
@@ -502,7 +502,7 @@ end
 local DUMP_FUNCTION_FORMATS = {
 	[A.ACHIEVEMENT] = "%s:AddAchievement(%s)",
 	[A.CUSTOM] = "%s:AddCustom(%s)",
-	[A.SEASONAL] = "%s:AddSeason(%s)",
+	[A.WORLD_EVENTS] = "%s:AddWorldEvent(%s)",
 	[A.MOB_DROP] = "%s:AddMobDrop(%s)",
 	[A.WORLD_DROP] = "%s:AddWorldDrop(%s)",
 	[A.QUEST] = "%s:AddQuest(%s)",
