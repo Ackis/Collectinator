@@ -29,15 +29,34 @@ local A = private.ACQUIRE_TYPES
 private.collectable_list = {}
 private.num_category_collectables = {}
 
-private.acquire_list	= {}
-private.location_list	= {}
+private.acquire_list = {}
+private.location_list = {}
 
 -----------------------------------------------------------------------
--- Local constants.
+-- Metatables.
 -----------------------------------------------------------------------
 local collectable_prototype = {}
 local collectable_meta = {
 	__index = collectable_prototype
+}
+
+local pet_prototype = {}
+local pet_meta = {
+	__index = function(t, k)
+		return pet_prototype[k] or collectable_prototype[k]
+	end,
+}
+
+local mount_prototype = {}
+local mount_meta = {
+	__index = function(t, k)
+		return mount_prototype[k] or collectable_prototype[k]
+	end,
+}
+
+local CATEGORY_METATABLES = {
+	CRITTER = pet_meta,
+	MOUNT = mount_meta,
 }
 
 function addon:AddCollectable(collectable_id, collectable_type, genesis, quality)
@@ -45,6 +64,7 @@ function addon:AddCollectable(collectable_id, collectable_type, genesis, quality
 		private.collectable_list[collectable_type] = {}
 	end
 	local collectable_list = private.collectable_list[collectable_type]
+
 
 	if collectable_list[collectable_id] then
 		self:Debug("Duplicate Collectable: %d - %s (%s)", collectable_id, collectable_list[collectable_id].name or _G.UNKNOWN, collectable_list[collectable_id].type)
@@ -60,7 +80,7 @@ function addon:AddCollectable(collectable_id, collectable_type, genesis, quality
 		source_text_TEMPORARY = "",
 		flags = {},
 		acquire_data = {},
-	}, collectable_meta)
+	}, CATEGORY_METATABLES[collectable_type] or collectable_meta)
 
 	collectable_list[collectable_id] = collectable
 	private.num_category_collectables[collectable_type] = (private.num_category_collectables[collectable_type] or 0) + 1
@@ -69,7 +89,35 @@ function addon:AddCollectable(collectable_id, collectable_type, genesis, quality
 end
 
 -------------------------------------------------------------------------------
--- Collection methods.
+-- Pet methods.
+-------------------------------------------------------------------------------
+function pet_prototype:SetTimeOfDay(time_of_day)
+	self.time_of_day = time_of_day
+end
+
+function pet_prototype:TimeOfDay()
+	return self.time_of_day
+end
+
+-- Some pets can be found only during certain seasons, such as Winter.
+function pet_prototype:SetSeason(season)
+	self.season = season
+end
+
+function pet_prototype:Season()
+	return self.season
+end
+
+function pet_prototype:SetWeather(weather)
+	self.weather = weather
+end
+
+function pet_prototype:Weather()
+	return self.weather
+end
+
+-------------------------------------------------------------------------------
+-- Collectable methods.
 -------------------------------------------------------------------------------
 function collectable_prototype:SetDescription(description)
 	if not description or self.description then
@@ -118,31 +166,6 @@ end
 
 function collectable_prototype:SpellID()
 	return self.spell_id
-end
-
-function collectable_prototype:SetTimeOfDay(time_of_day)
-	self.time_of_day = time_of_day
-end
-
-function collectable_prototype:TimeOfDay()
-	return self.time_of_day
-end
-
--- Some pets can be found only during certain seasons, such as Winter.
-function collectable_prototype:SetSeason(season)
-	self.season = season
-end
-
-function collectable_prototype:Season()
-	return self.season
-end
-
-function collectable_prototype:SetWeather(weather)
-	self.weather = weather
-end
-
-function collectable_prototype:Weather()
-	return self.weather
 end
 
 -- Used to set the faction for collectables which only can be learned by one class, faction, or race. These collectables
@@ -197,9 +220,9 @@ end
 -- Collectable state flags.
 -------------------------------------------------------------------------------
 local COLLECTABLE_STATE_FLAGS = {
-	KNOWN		= 0x00000001,
-	RELEVANT	= 0x00000002,
-	VISIBLE		= 0x00000004,
+	KNOWN = 0x00000001,
+	RELEVANT = 0x00000002,
+	VISIBLE = 0x00000004,
 }
 
 function collectable_prototype:HasState(state_name)
