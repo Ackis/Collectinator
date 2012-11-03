@@ -923,7 +923,7 @@ function addon:InitCritters()
 	-- Horned Lizard -- 62894
 	pet = AddPet(62894, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.BADLANDS, Z.SILITHUS)
+	pet:AddWorldDrop(Z.ULDUM)
 	-- Red Moth -- 21009
 	pet = AddPet(21009, V.TBC, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
