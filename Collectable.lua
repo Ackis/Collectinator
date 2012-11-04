@@ -203,7 +203,12 @@ function collectable_prototype:SetRequiredRaces(...)
 
 	for index = 1, num_races do
 		local race_name = select(index, ...)
-		self.required_races[race_name] = true
+
+		if private.PLAYER_RACE_FILENAMES[race_name] then
+			self.required_races[race_name] = true
+		else
+			addon:Debug("Attempting to set unknown race '%s' for '%s' (%d)", race_name, self.name or _G.UNKNOWN, self.id)
+		end
 	end
 
 	if not self.required_races[private.Player:Race()] then

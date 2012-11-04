@@ -39,21 +39,39 @@ private.REALM_NAME = _G.GetRealmName()
 -------------------------------------------------------------------------------
 -- Collection data
 -------------------------------------------------------------------------------
-
-private.COLLECTION_TYPE_IDS = {
-	MOUNT	= 1,
-	CRITTER	= 2,
-}
-
 private.ORDERED_COLLECTIONS = {
 	"MOUNT", -- 1
 	"CRITTER", -- 2
 }
 
+private.COLLECTION_TYPE_IDS = {}
+
+for index = 1, #private.ORDERED_COLLECTIONS do
+	private.COLLECTION_TYPE_IDS[private.ORDERED_COLLECTIONS[index]] = index
+end
+
+-------------------------------------------------------------------------------
+-- Player races
+-------------------------------------------------------------------------------
+private.PLAYER_RACE_FILENAMES = {
+	Human = true,
+	Orc = true,
+	Dwarf = true,
+	NightElf = true,
+	Scourge = true,
+	Tauren = true,
+	Gnome = true,
+	Troll = true,
+	Goblin = true,
+	BloodElf = true,
+	Draenei = true,
+	Worgen = true,
+	Pandaren = true,
+}
+
 -------------------------------------------------------------------------------
 -- Profession data for profession made/axquired collectables.
 -------------------------------------------------------------------------------
-
 private.PROFESSION_SPELL_IDS = {
 	ALCHEMY		= 2259,
 	BLACKSMITHING	= 2018,
