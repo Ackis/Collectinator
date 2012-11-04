@@ -559,6 +559,10 @@ function collectable_prototype:Dump()
 		output:AddLine(("%s:SetRequiredFaction(\"%s\")"):format(label, self.required_faction))
 	end
 
+	if self.misc_filter_type then
+		output:AddLine(("%s:SetMiscFilterType(\"%s\")"):format(self.misc_filter_type:upper()))
+	end
+
 	if self.time_of_day then
 		output:AddLine(("%s:SetTimeOfDay(TOD.%s)"):format(label, private.TIME_OF_DAY_STRINGS[self.time_of_day]))
 	end

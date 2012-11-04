@@ -72,7 +72,6 @@ L["CLOSE_DESC"] = true
 L["CONTRACTALL_DESC"] = "Minimize all collectables listed below."
 L["CTRL_CLICK"] = "Ctrl-Click to add this collectable's link to your chat."
 L["CTRL_SHIFT_CLICK"] = "Ctrl-Shift-Click to add the item to the map and mini-map."
-L["Captured"] = true
 L["Carl Goodup"] = true
 L["Challenger Soong"] = true
 L["Challenger Wuli"] = true
