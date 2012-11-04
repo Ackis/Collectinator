@@ -91,6 +91,16 @@ end
 -------------------------------------------------------------------------------
 -- Pet methods.
 -------------------------------------------------------------------------------
+function pet_prototype:SetRequiredRaces(...)
+	collectable_prototype.SetRequiredRaces(self, ...)
+
+	-- Undo these since they don't apply to pets (they must be initially learned by one race, but are account-wide and therefore usable by all).
+	if not self.required_races[private.Player:Race()] then
+		self.is_ignored = nil
+		private.num_category_collectables[self.type] = private.num_category_collectables[self.type] + 1
+	end
+end
+
 function pet_prototype:SetTimeOfDay(time_of_day)
 	self.time_of_day = time_of_day
 end

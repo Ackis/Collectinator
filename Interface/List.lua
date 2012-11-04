@@ -1785,6 +1785,17 @@ do
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
 		ttAdd(1, -1, false, collectable.source_text_TEMPORARY, BASIC_COLORS["normal"])
 
+		local required_races = collectable:RequiredRaces()
+
+		if required_races and not collectable.is_ignored then
+			local output = private.TextDump
+			output:Clear()
+
+			for race_name in pairs(required_races) do
+				output:AddLine(race_name)
+			end
+			ttAdd(0, -1, false, _G.ITEM_RACES_ALLOWED:format(output:String(", ")), BASIC_COLORS["normal"])
+		end
 		addon:DisplayAcquireData(list_entry.collectable, list_entry.acquire_id, list_entry.location_id, ttAdd)
 
 		if not addon.db.profile.hide_tooltip_hint then
