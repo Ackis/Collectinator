@@ -70,6 +70,10 @@ function addon:InitTrainer()
 	private:AddTrainer(50160,	L["Rulen Lightsreap"], 		Z.DALARAN,	 	39.6,	62.6, "Alliance")
 	private:AddTrainer(50502,	L["Vitus Darkwalker"], 		Z.DARNASSUS,	 	49.8,	16.6, "Alliance")
 	private:AddTrainer(50729,	L["Darba the Crone"],		Z.IRONFORGE,		52.0,	 7.0, "Alliance")
+	private:AddTrainer(63014,	L["Marcus Jensen"],		Z.ELWYNN_FOREST,	40.2,	66.0, "Alliance")
+	private:AddTrainer(63070,	L["Valeena"],			Z.TELDRASSIL,		55.2,	51.2, "Alliance")
+	private:AddTrainer(63083,	L["Will Larsons"],		Z.DARKSHORE,		50.2,	20.0, "Alliance")
+	private:AddTrainer(63596,	L["Audrey Burnhep"],		Z.STORMWIND_CITY,	69.6,	25.8, "Alliance")
 
 	self.InitTrainer = nil
 end

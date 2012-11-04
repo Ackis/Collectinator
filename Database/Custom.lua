@@ -54,8 +54,12 @@ function addon:InitCustom()
 	AddCustom("AUTH")
 	AddCustom("WWI")
 	AddCustom("CHINA")
+	AddCustom("KOREA")
 	AddCustom("BATTLEMERGE")
 	AddCustom("TAKKSNEST",		Z.NORTHERN_BARRENS)
+	AddCustom("RAZORMAWNEST",	Z.WETLANDS,			69.9,	29.1)
+	AddCustom("EUPROMO")
+	AddCustom("SHOEXALTED")
 
 	self.InitCustom = nil
 end
