@@ -1064,7 +1064,7 @@ function addon:InitCritters()
 	-- Highlands Skunk -- 62907
 	pet = AddPet(62907, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.GRIZZLY_HILLS, Z.STONETALON_MOUNTAINS, Z.THE_STORM_PEAKS, Z.WETLANDS, Z.WINTERSPRING)
+	pet:AddWorldDrop(Z.TWILIGHT_HIGHLANDS)
 
 	-- Highlands Turkey -- 62906
 	pet = AddPet(62906, V.MOP, Q.COMMON)
