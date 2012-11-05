@@ -723,7 +723,7 @@ function addon:InitCritters()
 	pet:SetSpellID(127816)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
 	pet:AddTrainer(63596)
-	pet:SetRequiredRaces("Pandaran")
+	pet:SetRequiredRaces("Pandaren")
 
 	-- Maggot -- 61753
 	pet = AddPet(61753, V.MOP, Q.COMMON)
@@ -1219,8 +1219,8 @@ function addon:InitCritters()
 
 	-- Shore Crawler -- 63097
 	pet = AddPet(63097, V.MOP, Q.COMMON)
-	pet:AddFilters(F.HORDE, F.VENDOR, F.IBOP)
-	pet:AddVendor(63086, 63626)
+	pet:AddFilters(F.HORDE, F.TRAINER, F.IBOP)
+	pet:AddTrainer(63086, 63626)
 
 	-- Scourged Whelpling -- 62854
 	pet = AddPet(62854, V.MOP, Q.COMMON)
@@ -1251,7 +1251,8 @@ function addon:InitCritters()
 	pet:SetItemID(10394)
 	pet:SetSpellID(10709)
 	pet:AddFilters(F.HORDE, F.VENDOR, F.TRAINER, F.IBOE)
-	pet:AddVendor(8401, 63067, 63086, 63061, 63626)
+	pet:AddVendor(8401)
+	pet:AddTrainer(63067, 63086, 63061, 63626)
 
 	-- Frigid Frostling -- 40198
 	pet = AddPet(40198, V.WOTLK, Q.RARE)

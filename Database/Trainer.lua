@@ -71,9 +71,13 @@ function addon:InitTrainer()
 	private:AddTrainer(50502,	L["Vitus Darkwalker"], 		Z.DARNASSUS,	 	49.8,	16.6, "Alliance")
 	private:AddTrainer(50729,	L["Darba the Crone"],		Z.IRONFORGE,		52.0,	 7.0, "Alliance")
 	private:AddTrainer(63014,	L["Marcus Jensen"],		Z.ELWYNN_FOREST,	40.2,	66.0, "Alliance")
+	private:AddTrainer(63061,	L["Narzak"],			Z.DUROTAR,		52.6,	41.4, "Horde")
+	private:AddTrainer(63067,	L["Naleen"],			Z.MULGORE,		49.2,	56.0, "Horde")
 	private:AddTrainer(63070,	L["Valeena"],			Z.TELDRASSIL,		55.2,	51.2, "Alliance")
 	private:AddTrainer(63083,	L["Will Larsons"],		Z.DARKSHORE,		50.2,	20.0, "Alliance")
+	private:AddTrainer(63086,	L["Matty"],			Z.ORGRIMMAR,		37.6,	79.0, "Horde")
 	private:AddTrainer(63596,	L["Audrey Burnhep"],		Z.STORMWIND_CITY,	69.6,	25.8, "Alliance")
+	private:AddTrainer(63626,	L["Varzok"],			Z.ORGRIMMAR,		52.6,	58.8, "Horde")  -- Blizz thinks this is Varzog
 
 	self.InitTrainer = nil
 end
