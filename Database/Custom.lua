@@ -60,6 +60,7 @@ function addon:InitCustom()
 	AddCustom("RAZORMAWNEST",	Z.WETLANDS,			69.9,	29.1)
 	AddCustom("EUPROMO")
 	AddCustom("SHOEXALTED")
+	AddCustom("PETBATTLEDAILY")
 
 	self.InitCustom = nil
 end

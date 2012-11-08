@@ -1417,116 +1417,184 @@ function addon:InitCritters()
 
 	-- Lashtail Hatchling -- 52894
 	pet = AddPet(52894, V.CATA, Q.COMMON)
-	pet:AddFilters(F.QUEST)
+	pet:SetItemID(69251)
+	pet:SetSpellID(97779)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(29208)
+
 	-- Porcupette -- 61086
 	pet = AddPet(61086, V.MOP, Q.COMMON)
-	pet:AddFilters(F.MOB_DROP)
+	pet:SetItemID(89587)
+	pet:SetSpellID(118414)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddCustom("PETBATTLEDAILY")
+
 	-- Mongoose -- 65190
 	pet = AddPet(65190, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.TOWNLONG_STEPPES)
+
 	-- Fel Flame -- 62621
 	pet = AddPet(62621, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.SHADOWMOON_VALLEY)
+
 	-- Kirin Tor Familiar -- 32643
 	pet = AddPet(32643, V.WOTLK, Q.RARE)
+	pet:SetItemID(44738)
+	pet:SetSpellID(61472)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	pet:AddAchievement(1956)
+
 	-- Baneling -- 66984
 	pet = AddPet(66984, V.MOP, Q.RARE)
+	pet:SetItemID(90177)
+	pet:SetSpellID(131650)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
 	pet:AddCustom("STARCRAFTCE")
+
 	-- Mountain Skunk -- 61677
 	pet = AddPet(61677, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.GRIZZLY_HILLS, Z.STONETALON_MOUNTAINS, Z.THE_STORM_PEAKS, Z.WETLANDS, Z.WINTERSPRING)
+
 	-- Crimson Whelpling -- 7544
 	pet = AddPet(7544, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.WORLD_DROP)
 	pet:AddWorldDrop(Z.WETLANDS)
+
 	-- Shimmershell Snail -- 62246
 	pet = AddPet(62246, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.DARKSHORE)
+
 	-- Sporeling Sprout -- 62564
 	pet = AddPet(62564, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.ZANGARMARSH)
+
 	-- Dark Phoenix Hatchling -- 47944
 	pet = AddPet(47944, V.CATA, Q.RARE)
+	pet:SetItemID(63138)
+	pet:SetSpellID(89039)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(5812, 5892)
+	pet:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51512, 51503, 52268, 46602, 51495, 51504)
+
 	-- Tiny Shale Spider -- 48982
 	pet = AddPet(48982, V.CATA, Q.COMMON)
-	pet:AddFilters(F.MOB_DROP)
+	pet:SetItemID(64494)
+	pet:SetSpellID(91343)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(49822)
+
 	-- Snowy Owl -- 7554
 	pet = AddPet(7554, V.MOP, Q.COMMON)
 	pet:SetSeason(SEASON.WINTER)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.WINTERSPRING)
+
 	-- Spirit Crab -- 62034
 	pet = AddPet(62034, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.GHOSTLANDS)
+
 	-- Yellow-Bellied Bullfrog -- 63849
 	pet = AddPet(63849, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
+
 	-- Ammen Vale Lashling -- 33205
 	pet = AddPet(33205, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.VENDOR)
+	pet:SetItemID(44984)
+	pet:SetSpellID(62562)
+	pet:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33657)
+	pet:AddCustom("CHAMPION_SEALS")
+
 	-- Crimson Lasher -- 53661
 	pet = AddPet(53661, V.CATA, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
+	pet:SetItemID(70160)
+	pet:SetSpellID(99668)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
 	pet:AddVendor(53881)
+
 	-- Deathy -- 51122
 	pet = AddPet(51122, V.WOTLK, Q.RARE)
+	pet:SetItemID(67418)
+	pet:SetSpellID(94070)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
 	pet:AddCustom("BLIZZCON")
+
 	-- Moonkin Hatchling -- 51649
 	pet = AddPet(51649, V.MOP, Q.RARE)
+	pet:SetItemID(68619)
+	pet:SetSpellID(95909)
 	pet:AddFilters(F.HORDE, F.STORE, F.IBOP)
+
 	-- Blue Moth -- 21010
 	pet = AddPet(21010, V.TBC, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.VENDOR)
+	pet:SetItemID(29901)
+	pet:SetSpellID(35907)
+	pet:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE)
 	pet:AddVendor(21019)
+
 	-- White Moth -- 21018
 	pet = AddPet(21018, V.TBC, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.VENDOR)
+	pet:SetItemID(29904)
+	pet:SetSpellID(35911)
+	pet:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE)
 	pet:AddVendor(21019)
+
 	-- Scarab Hatchling -- 62524
 	pet = AddPet(62524, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.SILITHUS)
+
 	-- Tranquil Mechanical Yeti -- 15699
 	pet = AddPet(15699, V.ORIG, Q.COMMON)
+	pet:SetItemID(21277)
+	pet:SetSpellID(26010)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
+
 	-- Zipao Tiger -- 36910
 	pet = AddPet(36910, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:SetItemID(49664)
+	pet:SetSpellID(69539)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
 	pet:AddCustom("CHINA")
+
 	-- Nether Faerie Dragon -- 62395
 	pet = AddPet(62395, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.FERALAS)
+
 	-- Golden Pig -- 25146
 	pet = AddPet(25146, V.WOTLK, Q.RARE)
+	pet:SetItemID(34518)
+	pet:SetSpellID(45174)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
 	pet:AddCustom("CHINA")
+
 	-- Spotted Bell Frog -- 62370
 	pet = AddPet(62370, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.UNGORO_CRATER)
+
 	-- Jade Tiger -- 34930
 	pet = AddPet(34930, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.ACHIEVEMENT)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.RETIRED)
 	pet:AddAchievement(3636)
+	pet:AddCustom("CHINA")
+
 	-- Winterspring Cub -- 52831
 	pet = AddPet(52831, V.CATA, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
+	pet:SetItemID(69239)
+	pet:SetSpellID(97638)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(52830)
+
 	-- Ash Lizard -- 62364
 	pet = AddPet(62364, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
