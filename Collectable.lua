@@ -125,6 +125,10 @@ end
 function pet_prototype:Weather()
 	return self.weather
 end
+-- ... == coords x:y
+function pet_prototype:AddZoneDrop(zone_name, pet_level, ...)
+
+end
 
 -------------------------------------------------------------------------------
 -- Collectable methods.
