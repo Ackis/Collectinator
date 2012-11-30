@@ -618,7 +618,7 @@ function private.InitializeListFrame()
 			return false
 		end
 
-		---Scans a specific recipe to determine if it is to be displayed or not.
+		-- Scans a specific collectable to determine if it is to be displayed or not.
 		local function CanDisplayCollectable(collectable)
 			if addon.db.profile.exclusionlist[collectable.id] and not addon.db.profile.ignoreexclusionlist then
 				return false
@@ -670,7 +670,7 @@ function private.InitializeListFrame()
 			------------------------------------------------------------------------------------------------
 			-- Stage 2
 			-- loop through nonexclusive (soft filters) flags until one is true
-			-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display the recipe
+			-- If one of these is true (ie: we want to see trainers and there is a trainer flag) we display it
 			------------------------------------------------------------------------------------------------
 			for filter, data in pairs(SOFT_FILTERS) do
 				local bitfield = collectable.flags[data.field]
@@ -688,7 +688,7 @@ function private.InitializeListFrame()
 			table.wipe(self.entries)
 
 			-------------------------------------------------------------------------------
-			-- Update recipe filters.
+			-- Update collectable filters.
 			-------------------------------------------------------------------------------
 			local general_filters = addon.db.profile.filters.general
 			local collectables = private.collectable_list[private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]]
@@ -732,7 +732,7 @@ function private.InitializeListFrame()
 			player.collectables_known_filtered = collectables_known_filtered
 
 			-------------------------------------------------------------------------------
-			-- Mark all exclusions in the recipe database to not be displayed, and update
+			-- Mark all exclusions in the collectable database to not be displayed, and update
 			-- the player's known and unknown counts.
 			-------------------------------------------------------------------------------
 			local known_count = 0
