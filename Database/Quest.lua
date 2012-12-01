@@ -97,6 +97,8 @@ function addon:InitQuest()
 	AddQuest(31277,	Z.TOWNLONG_STEPPES,			41.0,	60.2,	"Neutral")
 	AddQuest(31810,	Z.THE_JADE_FOREST,			57.6,	44.8,	"Neutral")
 	AddQuest(31811,	Z.THE_JADE_FOREST,			57.6,	44.8,	"Neutral")
+	AddQuest(32399,	Z.KRASARANG_WILDS,			00.0,	00.0,	"Horde")
+	AddQuest(32455,	Z.KRASARANG_WILDS,			00.0,	00.0,	"Alliance")
 
 	self.InitQuest = nil
 end

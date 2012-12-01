@@ -2540,6 +2540,42 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_TILLERS)
 	mount:AddRepVendor(FAC.THE_TILLERS, REP.EXALTED, 58706)
 
+	-- Grand Gryphon -- 136163
+	mount = AddMount(136163, V.MOP, Q.EPIC)
+	mount:SetItemID(93385)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	mount:AddQuest(32455)
+
+	-- Grand Wyvern -- 136164
+	mount = AddMount(136164, V.MOP, Q.EPIC)
+	mount:SetItemID(93386)
+	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(32399)
+
+	-- Grand Armored Gryphon -- 135416
+	mount = AddMount(135416, V.MOP, Q.EPIC)
+	mount:SetItemID(93168)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddVendor(69059)
+
+	-- Grand Armored Wyvern -- 135418
+	mount = AddMount(135418, V.MOP, Q.EPIC)
+	mount:SetItemID(93169)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(69060)
+
+	-- Jade Pandaren Kite String -- 133023
+	mount = AddMount(133023, V.MOP, Q.EPIC)
+	mount:SetItemID(91802)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(7860, 7862)
+
+	-- Swift Windsteed -- 134573
+	mount = AddMount(134573, V.MOP, Q.EPIC)
+	mount:SetItemID(92724)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	mount:AddCustom("STORE")
+
 ----------------------------------------------------------------------------------------------------
 
 	self.InitMounts = nil
@@ -2677,5 +2713,7 @@ Apparentely not in game yet!
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
+
+
 
 -----------------------------]]
