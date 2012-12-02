@@ -63,7 +63,7 @@ do
 		table.wipe(known_pets)
 
 		for index, pet_id in LPJ:IteratePetIDs() do
-			local species_id, custom_name, level, exp, max_exp, display_id, name, icon, pet_type, creature_id = _G.C_PetJournal.GetPetInfoByPetID(pet_id)
+			local _, _, _, _, _, _, _, _, _, _, creature_id = _G.C_PetJournal.GetPetInfoByPetID(pet_id)
 			local pet = pet_list[creature_id]
 
 			if pet then
