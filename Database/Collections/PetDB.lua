@@ -329,9 +329,9 @@ function addon:InitCritters()
 	pet:AddWorldDrop(Z.DREAD_WASTES)
 
 	-- Green Balloon -- 56082
-	pet = AddPet(56082, V.CATA, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
-	pet:AddVendor(55305)
+	--pet = AddPet(56082, V.CATA, Q.COMMON)
+	--pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
+	--pet:AddVendor(55305)
 
 	-- Rapana Whelk -- 64352
 	pet = AddPet(64352, V.MOP, Q.COMMON)
@@ -518,11 +518,11 @@ function addon:InitCritters()
 	pet:AddWorldDrop(Z.THE_JADE_FOREST)
 
 	-- (Flimsy) Yellow Balloon -- 56083  -- This pet isn't learnable, but is in the journal. Bad Blizzard!
-	pet = AddPet(56083, V.MOP, Q.COMMON)
-	pet:SetItemID(75042)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
-	pet:AddVendor(55305)
-	pet:AddWorldEvent("DARKMOON_FAIRE")
+	--pet = AddPet(56083, V.MOP, Q.COMMON)
+	--pet:SetItemID(75042)
+	--pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
+	--pet:AddVendor(55305)
+	--pet:AddWorldEvent("DARKMOON_FAIRE")
 
 	-- Szechuan Chicken -- 63585
 	pet = AddPet(63585, V.MOP, Q.COMMON)
