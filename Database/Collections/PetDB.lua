@@ -101,9 +101,8 @@ function addon:InitCritters()
 	-- Emerald Shale Hatchling -- 62915
 	pet = AddPet(62915, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.DEEPHOLM, Z.THE_STONECORE)
-	pet:SetLocations(Z.DEEPHOLM, 22, "63:24", "49:53", "45:85", "30:47", "36:77")
-	pet:SetLocations(Z.THE_STONECORE, 22, "41:51")
+	pet:AddWorldDrop(Z.DEEPHOLM)
+	pet:SetLocations(Z.DEEPHOLM, "22-23", "63:24", "49:53", "45:85", "30:47", "36:77")
 
 	-- Dragon Kite -- 25110
 	pet = AddPet(25110, V.TBC, Q.EPIC)
@@ -123,17 +122,22 @@ function addon:InitCritters()
 	pet = AddPet(62117, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.AZSHARA, Z.DEEPHOLM, Z.TWILIGHT_HIGHLANDS)
+	pet:SetLocations(Z.AZSHARA, "3-5", "64.6:15.2", "71.6:16.0", "69.4:16.4", "67.6:17.4", "64.0:17.8")
+	pet:SetLocations(Z.DEEPHOLM, "22-23", "62.4:54.4", "35.6:67.4", "41.6:71.8", "43.2:76.4", "60.0:42.2", "63.2:34.4")
+	pet:SetLocations(Z.TWILIGHT_HIGHLANDS, "23", "58.0:32.0", "40.0:50.2", "55.6:47.0", "61.6:47.6", "62.8:54.8", "57.0:57.6", "33.2:67.8", "59.8:83.4", "70.6:74.8", "63.6:67.4")
 
 	-- Garden Moth -- 65215
 	pet = AddPet(65215, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.THE_JADE_FOREST)
+	pet:SetLocations(Z.THE_JADE_FOREST, "22-24", "56.1:54.6", "56:42", "51.4:46.2", "54.4:48.2")
 
 	-- Lil' XT -- 40703
 	pet = AddPet(40703, V.WOTLK, Q.RARE)
 	pet:SetItemID(54847)
 	pet:SetSpellID(75906)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
+	pet:AddCustom("STORE")
 
 	-- Winter's Little Helper -- 15705
 	pet = AddPet(15705, V.ORIG, Q.COMMON)
@@ -146,11 +150,13 @@ function addon:InitCritters()
 	pet = AddPet(61686, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.WETLANDS)
+	pet:SetLocations(Z.WETLANDS, "6", "55.6:34.6", "52.8:38.0", "50.4:30.6", "55.6:24.2")
 
 	-- Jade Oozeling -- 61718
 	pet = AddPet(61718, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.THE_HINTERLANDS)
+	pet:SetLocations(Z.THE_HINTERLANDS, "11", "55.6:43.6", "60.0:42.8", "57.4:38.4")
 
 	-- Bananas -- 23234
 	pet = AddPet(23234, V.TBC, Q.RARE)
@@ -170,6 +176,12 @@ function addon:InitCritters()
 	pet = AddPet(61255, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.AZSHARA, Z.AZUREMYST_ISLE, Z.BLOODMYST_ISLE, Z.DUSKWOOD, Z.GILNEAS, Z.HOWLING_FJORD, Z.TEROKKAR_FOREST)
+	pet:SetLocations(Z.AZUREMYST_ISLE, "1", "32.2:71.2", "35.0:73.0", "50.0:22.8", "38.8:32.0")
+	pet:SetLocations(Z.AZSHARA, "3-5", "42.2:67.6", "27.2:46.8", "26.6:63.8", "31.2:77.6", "39.6:77.0", "52.6:75.2")
+	pet:SetLocations(Z.BLOODMYST_ISLE, "3-5", "60.8:86.8")
+	pet:SetLocations(Z.DUSKWOOD, "5-6", "65.6:35.8", "64.6:45.8", "70.8:23.6", "32.6:34.0", "13.0:44.4")
+	pet:SetLocations(Z.TEROKKAR_FOREST, "18", "54.8:37.4", "68.4:38.6", "47.6:22.6", "40.4:31.8")
+	pet:SetLocations(Z.HOWLING_FJORD, "20-21", "50.6:41.6", "43.8:45.2", "41.2:28.4", "72.2:27.0", "72.8:45.6")
 
 	-- Egbert -- 23258
 	pet = AddPet(23258, V.TBC, Q.RARE)
@@ -183,6 +195,7 @@ function addon:InitCritters()
 	pet = AddPet(62820, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.ZULDRAK)
+	pet:SetLocations(Z.ZULDRAK, "22", "38.8:75.6", "40.8:71.4", "46.0:78.2", "42.6:83.6")
 
 	-- Stinker -- 23274
 	pet = AddPet(23274, V.TBC, Q.RARE)
@@ -203,16 +216,22 @@ function addon:InitCritters()
 	pet = AddPet(63555, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
+	pet:SetLocations(Z.ZULDRAK, "23-24", "71.6:90.2", "68.6:87.4", "61.2:69.8", "53.6:78.6", "73.2:65.6")
+
 
 	-- Silky Moth -- 62373
 	pet = AddPet(62373, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.MOONGLADE, Z.MOUNT_HYJAL, Z.UNGORO_CRATER)
+	pet:SetLocations(Z.MOONGLADE, "15", "63.2:44.4", "62.2:66.6")
+	pet:SetLocations(Z.UNGORO_CRATER, "15", "43.8:80.0")
+	pet:SetLocations(Z.MOUNT_HYJAL, "22-23", "49.2:23.6", "40.2:26.6", "64.0:22.8", "60.6:29.6")
 
 	-- Wildhammer Gryphon Hatchling -- 62900
 	pet = AddPet(62900, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.TWILIGHT_HIGHLANDS)
+	pet:SetLocations(Z.TWILIGHT_HIGHLANDS, "23", "56.6:15.8", "48.4:28.2")
 
 	-- Lava Crab -- 61383
 	pet = AddPet(61383, V.MOP, Q.COMMON)
