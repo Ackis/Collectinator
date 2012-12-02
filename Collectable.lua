@@ -579,7 +579,7 @@ function collectable_prototype:Dump()
 	end
 
 	if self.misc_filter_type then
-		output:AddLine(("%s:SetMiscFilterType(\"%s\")"):format(self.misc_filter_type:upper()))
+--		output:AddLine(("%s:SetMiscFilterType(\"%s\")"):format(self.misc_filter_type:upper()))
 	end
 
 	if self.time_of_day then
