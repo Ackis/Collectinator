@@ -30,6 +30,7 @@ function private:InitializeItemFilters_Pet(parent_panel)
 
 	local item_types = {
 		pet_capturable	= { tt = L["FILTER_DESC_FORMAT"]:format(_G.UNIT_CAPTURABLE),	text = _G.UNIT_CAPTURABLE,	row = 1, col = 1 },
+		zone_drop	= { tt = L["FILTER_DESC_FORMAT"]:format(L["Zone Drop"]),	text = L["Zone Drop"],		row = 2, col = 1 },
 	}
 
 	item_toggle:SetScript("OnClick", function(self, button)
