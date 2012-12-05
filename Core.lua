@@ -565,6 +565,14 @@ end
 do
 	local UNKNOWN_PET_FORMAT = "%s: %d"
 
+	local pet_filters_main = {}
+
+	local pet_filters_flags = {
+		LE_PET_JOURNAL_FLAG_COLLECTED,
+		LE_PET_JOURNAL_FLAG_FAVORITES,
+		LE_PET_JOURNAL_FLAG_NOT_COLLECTED,
+	}
+
 	local COLLECTABLE_SCAN_FUNCS = {
 		[private.COLLECTION_TYPE_IDS.MOUNT] = function(collectable_type, mounts)
 			local num_mounts = _G.GetNumCompanions(collectable_type)
@@ -605,6 +613,47 @@ do
 			end
 		end,
 		[private.COLLECTION_TYPE_IDS.CRITTER] = function(collectable_type, critters)
+			local pet_names = {}
+			local pet_ids = {}
+			local pet_sources = {}
+
+			
+			-- Filter state tracking/clearing
+			local pet_type_filters = {}
+			local pet_source_filters = {}
+
+			for i in pairs(pet_filters_flags) do
+				local flag = pet_filters_flags[i]
+				pet_filters_main[i] = not C_PetJournal.IsFlagFiltered(flag)
+			end
+
+			for i = 1,C_PetJournal.GetNumPetTypes(),1 do
+				pet_type_filters[i] = not C_PetJournal.IsPetTypeFiltered(i)
+			end
+
+			for i = 1,C_PetJournal.GetNumPetSources(),1 do
+				pet_source_filters[i] = not C_PetJournal.IsPetSourceFiltered(i)
+			end
+
+			C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, true)
+			C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, false)
+			C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
+			C_PetJournal.AddAllPetTypesFilter()
+			C_PetJournal.AddAllPetSourcesFilter()
+
+			-- Restore filter state to what it was previously
+			for i in pairs(pet_filters_main) do
+				C_PetJournal.SetFlagFilter(i, pet_filters_main[i])
+			end
+
+			for i = 1,C_PetJournal.GetNumPetTypes(),1 do
+				C_PetJournal.SetPetTypeFilter(i, pet_type_filters[i])
+			end
+
+			for i = 1,C_PetJournal.GetNumPetSources(),1 do
+				C_PetJournal.SetPetSourceFilter(i, pet_source_filters[i])
+			end
+
 		-- We're doing nothing here for the moment since all of this is handled when the PetJournal is updated.
 		--			for pet_id, pet in pairs(critters) do
 		--			end
