@@ -55,6 +55,13 @@ do
 	local known_pets = {}
 
 	function UpdatePetList()
+		-- Reset all flags so the scan will actually work
+		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, true)
+		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, false)
+		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
+		C_PetJournal.AddAllPetTypesFilter()
+		C_PetJournal.AddAllPetSourcesFilter()
+
 		local pet_list = private.collectable_list["CRITTER"]
 
 		if not pet_list then
