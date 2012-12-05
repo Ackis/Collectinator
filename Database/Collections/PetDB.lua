@@ -108,7 +108,6 @@ function addon:InitCritters()
 	-- Emerald Shale Hatchling -- 62915
 	pet = AddPet(62915, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	--pet:AddWorldDrop(Z.DEEPHOLM)
 	pet:AddZoneLocations(Z.DEEPHOLM, "22-23", "63:24", "49:53", "45:85", "30:47", "36:77")
 
 	-- Dragon Kite -- 25110
