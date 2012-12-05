@@ -125,10 +125,6 @@ end
 function pet_prototype:Weather()
 	return self.weather
 end
--- ... == coords x:y
-function pet_prototype:AddDropLocations(zone_name, pet_level, ...)
-
-end
 
 -------------------------------------------------------------------------------
 -- Collectable methods.
@@ -478,6 +474,11 @@ end
 
 function collectable_prototype:AddWorldEvent(...)
 	self:AddAcquireData(A.WORLD_EVENTS, "World Events", private.world_events_list, ...)
+end
+
+-- ... == coords x:y
+function pet_prototype:AddDropLocations(zone_name, pet_level, ...)
+	--self:AddAcquireData(A.WORLD_DROP, nil, nil, ...)
 end
 
 function collectable_prototype:AddRepVendor(faction_id, rep_level, ...)
