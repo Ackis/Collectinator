@@ -128,7 +128,22 @@ end
 
 -- ... == coords x:y
 function pet_prototype:AddZoneLocations(zone_name, pet_levels, ...)
-	--self:AddAcquireData(A.WORLD_DROP, nil, nil, ...)
+	self:AddAcquireData(A.WORLD_DROP, nil, nil, zone_name)
+	if not self.zone_list then
+		self.zone_list = {}
+	end
+
+	local zone_list = self.zone_list
+
+	if not zone_list[zone_name] then
+		zone_list[zone_name] = {}
+	end
+
+	if not zone_list[zone_name][pet_levels] then
+		zone_list[zone_name][pet_levels] = {}
+	end
+
+	zone_list[zone_name][pet_levels] = ...
 end
 
 -------------------------------------------------------------------------------
