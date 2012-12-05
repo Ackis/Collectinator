@@ -126,7 +126,7 @@ function pet_prototype:Weather()
 	return self.weather
 end
 -- ... == coords x:y
-function pet_prototype:SetLocations(zone_name, pet_level, ...)
+function pet_prototype:AddDropLocations(zone_name, pet_level, ...)
 
 end
 
