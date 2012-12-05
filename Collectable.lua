@@ -127,7 +127,7 @@ function pet_prototype:Weather()
 end
 
 -- ... == coords x:y
-function pet_prototype:AddDropLocations(zone_name, pet_level, ...)
+function pet_prototype:AddZoneLocations(zone_name, pet_levels, ...)
 	--self:AddAcquireData(A.WORLD_DROP, nil, nil, ...)
 end
 
