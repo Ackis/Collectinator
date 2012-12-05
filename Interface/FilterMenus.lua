@@ -382,7 +382,6 @@ function private.InitializeFilterPanel()
 	-- Create FilterPanel.obtain, and set its scripts.
 	-------------------------------------------------------------------------------
 	do
-		local A = private.ACQUIRE_TYPES
 		local obtain_frame = FilterPanel:CreateSubMenu("obtain")
 
 		-------------------------------------------------------------------------------
