@@ -419,6 +419,7 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 			quantity = select(cur_var, ...)
 			cur_var = cur_var + 1
 		end
+
 		acquire[identifier] = true
 
 		if unit_list then

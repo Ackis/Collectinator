@@ -313,6 +313,8 @@ do
 				pet:AddProfession(PROF.FISHING)
 			elseif source_text:match("Formula") then
 				pet:AddProfession(PROF.ENCHANTING)
+			elseif source_text:match("Imperial Silk") then
+			
 			else
 				pet:AddProfession(PROF[string.upper(source_text:gsub(" ", "_"))])
 			end
