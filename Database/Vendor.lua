@@ -163,6 +163,8 @@ function addon:InitVendor()
 	AddVendor(65068,	L["Old Whitenose"],		Z.STORMWIND_CITY,		67.8,	18.6,	"Alliance")
 	AddVendor(66022,	L["Turtlemaster Odai"],		Z.ORGRIMMAR,			69.8,	41.0,	"Horde")
 	AddVendor(66973,	L["Kay Featherfall"],		Z.VALE_OF_ETERNAL_BLOSSOMS,	82.2,	34.0,	"Neutral")
+	AddVendor(68363,	L["Quackenbush"],		Z.DEEPRUN_TRAM,			53.9,	26.3,	"Alliance")
+	AddVendor(68364,	L["Paul North"],		Z.BRAWLGAR_ARENA,		50.8,	31.8,	"Horde")
 	AddVendor(69059,	L["Agent Malley"],		Z.KRASARANG_WILDS,		89.6,	33.4,	"Alliance")
 	AddVendor(69060,	L["Tuskripper Grukna"],		Z.KRASARANG_WILDS,		10.8,	53.4,	"Horde")
 

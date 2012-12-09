@@ -224,7 +224,6 @@ function addon:InitCritters()
 	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
 	pet:AddZoneLocations(Z.ZULDRAK, "23-24", "71.6:90.2", "68.6:87.4", "61.2:69.8", "53.6:78.6", "73.2:65.6")
 
-
 	-- Silky Moth -- 62373
 	pet = AddPet(62373, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
@@ -345,8 +344,7 @@ function addon:InitCritters()
 	pet = AddPet(24480, V.TBC, Q.RARE)
 	pet:SetItemID(33993)
 	pet:SetSpellID(43918)
-	pet:AddFilters(F.ALLIANCE, F.HORDE)
-	pet:AddFilters(F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
 
 	-- Clouded Hedgehog -- 64242
 	pet = AddPet(64242, V.MOP, Q.COMMON)
@@ -2720,8 +2718,151 @@ function addon:InitCritters()
 	pet:AddVendor(8404, 20980)
 	-- Armadillo Pup -- 48242
 	pet = AddPet(48242, V.CATA, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.ACHIEVEMENT)
-
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.GUILD, F.IBOP, F.ACHIEVEMENT, F.REPUTATION)
+	pet:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51502, 51512, 51501, 51503, 52268, 46602, 51495, 51504)
+	-- Anodized Robo Cub -- 68839
+	pet = AddPet(68839, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.WINTERSPRING)
+	-- Anubisath Idol -- 68659
+	pet = AddPet(68659, V.MOP, Q.RARE)
+	pet:SetItemID(93040)
+	pet:SetSpellID(135267)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(15276)
+	-- Arcane Eye -- 68819
+	pet = AddPet(68819, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.DEADWIND_PASS)
+	-- Ashstone Core -- 68666
+	pet = AddPet(68666, V.MOP, Q.RARE)
+	pet:SetItemID(93035)
+	pet:SetSpellID(135261)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(11988)
+	-- Chrominius -- 68662
+	pet = AddPet(68662, V.MOP, Q.RARE)
+	pet:SetItemID(93038)
+	pet:SetSpellID(135264)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(14020)
+	-- Cinder Kitten -- 68267
+	pet = AddPet(68267, V.MOP, Q.RARE)
+	pet:SetItemID(92707)
+	pet:SetSpellID(134538)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
+	pet:AddCustom("STORE")
+	-- Clock'em -- 68601
+	pet = AddPet(68601, V.MOP, Q.RARE)
+	pet:SetItemID(93025)
+	pet:SetSpellID(135156)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
+	pet:AddVendor(68363, 68364)
+	-- Cogblade Raptor -- 68841
+	pet = AddPet(68841, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.BLADES_EDGE_MOUNTAINS)
+	-- Corefire Imp -- 68664
+	pet = AddPet(68664, V.MOP, Q.RARE)
+	pet:SetItemID(93034)
+	pet:SetSpellID(135259)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(11982)
+	-- Crow -- 67443
+	pet = AddPet(67443, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.BLADES_EDGE_MOUNTAINS)
+	-- Darkmoon Eye -- 67332
+	pet = AddPet(67332, V.MOP, Q.RARE)
+	pet:SetItemID(91040)
+	pet:SetSpellID(132789)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
+	pet:AddQuest(32175)
+	-- Darkmoon Glowfly -- 67329
+	pet = AddPet(67329, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.DARKMOON_ISLAND)
+	-- Death Talon Whelpguard -- 68663
+	pet = AddPet(68663, V.MOP, Q.RARE)
+	pet:SetItemID(93037)
+	pet:SetSpellID(135265)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(12017)
+	-- Darkmoon Hatchling -- 67319
+	pet = AddPet(67319, V.MOP, Q.RARE)
+	pet:SetItemID(91003)
+	pet:SetSpellID(132762)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
+	pet:AddVendor(14846)
+	-- Harbinger of Flame -- 68665
+	pet = AddPet(68665, V.MOP, Q.RARE)
+	pet:SetItemID(93033)
+	pet:SetSpellID(135258)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(12098)
+	-- Emerald Proto-Whelp -- 68850
+	pet = AddPet(68850, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.SHOLAZAR_BASIN)
+	-- Eternal Strider -- 61088
+	pet = AddPet(61088, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS, Z.KUN_LAI_SUMMIT)
+	-- Fluxfire Feline -- 68838
+	pet = AddPet(68838, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.DUN_MOROGH, Z.NEW_TINKERTOWN)
+	-- Fungal Abomination -- 68657
+	pet = AddPet(68657, V.MOP, Q.RARE)
+	pet:SetItemID(93032)
+	pet:SetSpellID(135255)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(16011)
+	-- Giant Bone Spider -- 68656
+	pet = AddPet(68656, V.MOP, Q.RARE)
+	pet:SetItemID(93030)
+	pet:SetSpellID(135254)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(15952)
+	-- Harpy Youngling -- 68804
+	pet = AddPet(68804, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.NORTHERN_BARRENS)
+	-- Imperial Moth -- 67230
+	pet = AddPet(67230, V.MOP, Q.RARE)
+	pet:SetItemID(90900)
+	pet:SetSpellID(132574)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+--	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+--	pet:AddProfession(PROF.TAILORING)
+	-- Imperial Moth -- 67223
+	pet = AddPet(67223, V.MOP, Q.UNCOMMON)
+	pet:SetItemID(90902)
+	pet:SetSpellID(132580)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+--	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+--	pet:AddProfession(PROF.TAILORING)
+	-- Infinite Whelpling -- 68820
+	pet = AddPet(68820, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.TANARIS)
+	-- Kun-Lai Runt -- 68846
+	pet = AddPet(68846, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
+	-- Lofty Libram -- 68806
+	pet = AddPet(68806, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.HILLSBRAD_FOOTHILLS)	
+	-- Mini Mindslayer -- 68658
+	pet = AddPet(68658, V.MOP, Q.RARE)
+	pet:SetItemID(93041)
+	pet:SetSpellID(135268)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(15263)	
+	
+	
+	
 	self.InitCritters = nil
 
 	LPJ:RegisterCallback("PetListUpdated", UpdatePetList)
