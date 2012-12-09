@@ -1,4 +1,4 @@
-package-as: Collectinator
+﻿package-as: Collectinator
 
 license-output: LICENSE.txt
 
@@ -6,10 +6,13 @@ license-output: LICENSE.txt
 # filename: Docs/CHANGES.txt
 # markup-type: creole
 
+enable-nolib-creation: yes
+
 tools-used:
  - data-tools
  - dlcount
  - querier
+ - findglobals
 
 externals:
  libs/LibStub:
@@ -34,12 +37,8 @@ externals:
   url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceGUI-3.0
  libs/AceAddon-3.0:
   url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceAddon-3.0
- libs/LibBabble-Faction-3.0:
-  url: svn://svn.wowace.com/wow/libbabble-faction-3-0/mainline/trunk
  libs/LibBabble-Boss-3.0:
   url: svn://svn.wowace.com/wow/libbabble-boss-3-0/mainline/trunk
- libs/LibBabble-Zone-3.0:
-  url: svn://svn.wowace.com/wow/libbabble-zone-3-0/mainline/trunk
  libs/LibAboutPanel:
   url: git://git.curseforge.net/wow/libaboutpanel/mainline.git
  libs/LibSharedMedia-3.0:
@@ -48,19 +47,30 @@ externals:
  libs/LibQTip-1.0:
   url: svn://svn.wowace.com/wow/libqtip-1-0/mainline/trunk
   tag: latest
+ libs/LibToast-1.0:
+  url: http://hg.curseforge.net/wow/libtoast-1-0/mainline
+  tag: latest
+ libs/LibDialog-1.0:
+  url: http://hg.wowace.com/wow/libdialog-1-0/mainline
+  tag: latest
+ libs/LibPetJournal-2.0:
+  url: http://hg.curseforge.net/wow/libpetjournal-2-0/mainline
+  tag: latest
 
 ignore:
- - .pkgmeta
- - .docmeta
  - Docs
- - Locales/testenUS.lua
+ - Tools
+ - Locales/devel-enUS.lua
  - libs/LibAboutPanel/LibAboutPanel.toc
  - libs/LibBabble-Boss-3.0/LibBabble-Boss-3.0.toc
  - libs/LibBabble-Faction-3.0/LibBabble-Faction-3.0.toc
  - libs/LibBabble-Zone-3.0/LibBabble-Zone-3.0.toc
+ - libs/LibToast-1.0/LibToast-1.0.toc
  - libs/LibSharedMedia-3.0/LibSharedMedia-3.0.toc
  - libs/LibQTip-1.0/LibQTip-1.0.toc
  - libs/LibQTip-1.0/LICENSE.txt
  - libs/LibStub/LibStub.toc
  - libs/LibStub/tests
+ - libs/LibToast-1.0/LibStub
  - libs/LibSharedMedia-3.0/LibStub
+ 

@@ -1,111 +1,110 @@
 --[[
-
 ************************************************************************
-
 Quest.lua
-
-Quest data for all of Collectinator
-
 ************************************************************************
-
 File date: @file-date-iso@
-File revision: @file-revision@
-Project revision: @project-revision@
+File hash: @file-abbreviated-hash@
+Project hash: @project-abbreviated-hash@
 Project version: @project-version@
-
 ************************************************************************
-
+Please see http://www.wowace.com/addons/arl/ for more information.
+************************************************************************
+This source code is released under All Rights Reserved.
+************************************************************************
 ]]--
 
-local MODNAME				= "Collectinator"
-local addon				= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+-----------------------------------------------------------------------
+-- Upvalued Lua API.
+-----------------------------------------------------------------------
+local _G = getfenv(0)
 
-local L					= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local BZ				= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
+-----------------------------------------------------------------------
+-- AddOn namespace.
+-----------------------------------------------------------------------
+local FOLDER_NAME, private	= ...
 
-local NEUTRAL	= 0
-local ALLIANCE	= 1
-local HORDE	= 2
+local LibStub = _G.LibStub
+local addon	= LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 
-function addon:InitQuest(DB)
+local Z = private.ZONE_NAMES
 
-	-------------------------------------------------------------------------------
-	-- Counter and wrapper function
-	-------------------------------------------------------------------------------
-	local function AddQuest(QuestID, Zone, X, Y, Faction)
-		addon:addLookupList(DB, QuestID, nil, Zone, X, Y, Faction)
+private.quest_list	= {}
+
+-----------------------------------------------------------------------
+-- Memoizing table for quest names.
+-----------------------------------------------------------------------
+private.quest_names = _G.setmetatable({}, {
+	__index = function(t, id_num)
+			  _G.GameTooltip:SetOwner(_G.UIParent, _G.ANCHOR_NONE)
+			  _G.GameTooltip:SetHyperlink(("quest:%s"):format(_G.tostring(id_num)))
+
+			  local quest_name = _G["GameTooltipTextLeft1"]:GetText()
+			  _G.GameTooltip:Hide()
+
+			  if not quest_name then
+				  return _G.UNKNOWN
+			  end
+			  t[id_num] = quest_name
+			  return quest_name
+		  end,
+})
+
+function addon:InitQuest()
+	local function AddQuest(quest_id, zone_name, coord_x, coord_y, faction)
+		private:AddListEntry(private.quest_list, quest_id, nil, zone_name, coord_x, coord_y, faction)
 	end
 
-	AddQuest(7946,	BZ["Darkmoon Island"],		55.8,	70.6,	NEUTRAL)
-	AddQuest(3861,	BZ["Westfall"],			55.5,	30.5,	NEUTRAL)	--several zones
-	AddQuest(171,	BZ["Stormwind City"],		56.3,	54.2,	ALLIANCE)
-	AddQuest(5502,	BZ["Orgrimmar"],		70.8,	25.5,	HORDE)
-	AddQuest(3721,	BZ["The Cape of Stranglethorn"],43.0,	72.0,	NEUTRAL)
-	AddQuest(11431,	BZ["Durotar"],			45.0,	17.3,	HORDE)
-	AddQuest(11111,	BZ["Shattrath City"],		67.5,	18.1,	NEUTRAL)
-	AddQuest(11117,	BZ["Dun Morogh"],		48.0,	39.5,	ALLIANCE)
-	AddQuest(10898,	BZ["Terokkar Forest"],		53.2,	72.2,	NEUTRAL)
-	AddQuest(10966,	BZ["Shattrath City"],		75.0,	48.0,	ALLIANCE)
-	AddQuest(10967,	BZ["Shattrath City"],		75.0,	48.0,	HORDE)
-	AddQuest(11665,	BZ["Terokkar Forest"],		38.7,	12.8,	NEUTRAL)
-	AddQuest(13959,	BZ["Dalaran"],			49.5,	62.3,	NEUTRAL)
-	AddQuest(13960,	BZ["Dalaran"],			49.5,	62.3,	NEUTRAL)
-	AddQuest(13736,	BZ["Icecrown"],			76.5,	24.5,	HORDE)
-	AddQuest(13737,	BZ["Icecrown"],			76.0,	24.5,	HORDE)
-	AddQuest(13738,	BZ["Icecrown"],			76.2,	24.6,	HORDE)
-	AddQuest(13739,	BZ["Icecrown"],			76.5,	24.2,	HORDE)
-	AddQuest(13740,	BZ["Icecrown"],			76.5,	23.9,	HORDE)
-	AddQuest(13702,	BZ["Icecrown"],			76.6,	19.2,	ALLIANCE)
-	AddQuest(13732,	BZ["Icecrown"],			76.6,	19.5,	ALLIANCE)
-	AddQuest(13733,	BZ["Icecrown"],			76.5,	19.8,	ALLIANCE)
-	AddQuest(13734,	BZ["Icecrown"],			76.1,	19.2,	ALLIANCE)
-	AddQuest(13735,	BZ["Icecrown"],			76.3,	19.1,	ALLIANCE)
-	AddQuest(13906,	BZ["Un'Goro Crater"],		71.5,	73.7,	HORDE)
-	AddQuest(24915, BZ["Icecrown Citadel"],		0.0,	0.0,	NEUTRAL)
-	AddQuest(28748, BZ["Hillsbrad Foothills"],	33.6,	49.3,	NEUTRAL)
-	AddQuest(13570, BZ["Darkshore"],		50.8,	18.0,	ALLIANCE)
-	AddQuest(28415, BZ["Burning Steppes"],		0.0,	0.0,	ALLIANCE)
-	AddQuest(28491, BZ["Burning Steppes"],		0.0,	0.0,	HORDE)
-	AddQuest(25560, BZ["Mount Hyjal"],		37.3,	56.2,	NEUTRAL)
-	AddQuest(25371, BZ["Kelp'thar Forest"],		46.0,	46.8,	NEUTRAL)
-	AddQuest(29208, BZ["Zul'Gurub"],		0.0,	0.0,	NEUTRAL)
-	AddQuest(29267, BZ["Northern Stranglethorn"],	76.0,	66.6,	ALLIANCE)
-	AddQuest(29268, BZ["Northern Stranglethorn"],	76.0,	66.6,	HORDE)
-	AddQuest(29412, BZ["Stormwind City"],		58.8,	52.8,	ALLIANCE)
-	AddQuest(29401, BZ["Orgrimmar"],		48.0,	47.6,	HORDE)
-	AddQuest(29413, BZ["Stormwind City"],		65.1,	33.3,	ALLIANCE)
-	AddQuest(29429, BZ["Orgrimmar"],		0.0,	0.0,	HORDE)
-	
-	--Class
-	AddQuest(12687,	BZ["The Scarlet Enclave"],	51.9,	35.5,	NEUTRAL)
+	AddQuest(171,	Z.STORMWIND_CITY,			56.0,	55.0,	"Alliance")
+	AddQuest(3721,	Z.THE_CAPE_OF_STRANGLETHORN,		43.0,	72.0,	"Neutral")
+	AddQuest(3861,	Z.WESTFALL,				56.0,	31.6,	"Neutral")
+	AddQuest(5502,	Z.ORGRIMMAR,				58.0,	57.6,	"Horde")
+	AddQuest(8743,	Z.AHNQIRAJ_THE_FALLEN_KINGDOM,		0,	0,	"Neutral")
+	AddQuest(10898,	Z.TEROKKAR_FOREST,			56.6,	72.8,	"Neutral")
+	AddQuest(10966,	Z.SHATTRATH_CITY,			74.8,	47.8,	"Alliance")
+	AddQuest(10967,	Z.SHATTRATH_CITY,			74.8,	47.8,	"Horde")
+	AddQuest(11109, Z.SHATTRATH_CITY,			67.4,	18.4,	"Neutral")
+	AddQuest(11110, Z.SHATTRATH_CITY,			67.4,	18.4,	"Neutral")
+	AddQuest(11111, Z.SHATTRATH_CITY,			67.4,	18.4,	"Neutral")
+	AddQuest(11112, Z.SHATTRATH_CITY,			67.4,	18.4,	"Neutral")
+	AddQuest(11113, Z.SHATTRATH_CITY,			67.4,	18.4,	"Neutral")
+	AddQuest(11114, Z.SHATTRATH_CITY,			67.4,	18.4,	"Neutral")
+	AddQuest(11117, Z.DUN_MOROGH,				55.2,	37.8,	"Alliance")
+	AddQuest(11431, Z.DUROTAR,				41.2,	18.4,	"Horde")
+	AddQuest(11665, Z.TEROKKAR_FOREST,			38.6,	12.8,	"Neutral")
+	AddQuest(12687, Z.PLAGUELANDS_THE_SCARLET_ENCLAVE,	53.2,	33.4,	"Neutral")
+	AddQuest(13422,	Z.THE_STORM_PEAKS,			49.4,	68.8,	"Neutral")
+	AddQuest(13423,	Z.THE_STORM_PEAKS,			49.4,	68.8,	"Neutral")
+	AddQuest(13424,	Z.THE_STORM_PEAKS,			49.4,	68.8,	"Neutral")
+	AddQuest(13425,	Z.THE_STORM_PEAKS,			49.4,	68.8,	"Neutral")
+	AddQuest(13570,	Z.DARKSHORE,				50.8,	18.0,	"Alliance")
+	AddQuest(13702,	Z.ICECROWN,				76.6,	19.2,	"Alliance") -- Quest IDs 13702, 13732-13735
+	AddQuest(13736,	Z.ICECROWN,				76.6,	24.4,	"Horde") -- Quest IDs 13736-13740
+	AddQuest(13906,	Z.UNGORO_CRATER,			71.4,	73.8,	"Horde")
+	AddQuest(24915,	Z.ICECROWN_CITADEL,			 0.0,	 0.0,	"Neutral")
+	AddQuest(25371,	Z.KELPTHAR_FOREST,			46.0,	46.8,	"Neutral")
+	AddQuest(25560,	Z.MOUNT_HYJAL,				39.1,	58.3,	"Neutral")
+	AddQuest(28415, Z.BURNING_STEPPES,			71.8,	68.0,	"Alliance")
+	AddQuest(28748,	Z.HILLSBRAD_FOOTHILLS,			33.6,	49.2,	"Neutral")
+	AddQuest(29034,	Z.WINTERSPRING,				46.6,	17.6,	"Alliance")
+	AddQuest(29208,	Z.NORTHERN_STRANGLETHORN,		0.0,	0.0,	"Neutral")
+	AddQuest(29267, Z.NORTHERN_STRANGLETHORN,		76.0,	66.6,	"Alliance")
+	AddQuest(29268, Z.NORTHERN_STRANGLETHORN,		76.0,	66.6,	"Horde")
+	AddQuest(29401, Z.ORGRIMMAR,				48.0,	47.0,	"Horde")
+	AddQuest(29412,	Z.STORMWIND_CITY,			58.8,	52.8,	"Alliance")
+	AddQuest(29905,	Z.THE_JADE_FOREST,			58.9,	81.7,	"Alliance")
+	AddQuest(30188,	Z.THE_JADE_FOREST,			57.6,	44.8,	"Neutral")
+	AddQuest(31239,	Z.THE_JADE_FOREST,			28.0,	47.0,	"Horde")
+	AddQuest(31277,	Z.TOWNLONG_STEPPES,			41.0,	60.2,	"Neutral")
+	AddQuest(31810,	Z.THE_JADE_FOREST,			57.6,	44.8,	"Neutral")
+	AddQuest(31811,	Z.THE_JADE_FOREST,			57.6,	44.8,	"Neutral")
+	AddQuest(32399,	Z.KRASARANG_WILDS,			00.0,	00.0,	"Horde")
+	AddQuest(32175,	Z.DARKMOON_ISLAND,			47.8,	62.6,	"Neutral")
+	AddQuest(32428,	Z.VALLEY_OF_THE_FOUR_WINDS,		00.0,	00.0,	"Neutral")
+	AddQuest(32434,	Z.TOWNLONG_STEPPES,			57.0,	42.2,	"Neutral")
+	AddQuest(32439,	Z.DREAD_WASTES,				61.2,	87.4,	"Neutral")
+	AddQuest(32440,	Z.THE_JADE_FOREST,			28.8,	36.0,	"Neutral")
+	AddQuest(32441,	Z.KUN_LAI_SUMMIT,			64.8,	93.6,	"Neutral")
+	AddQuest(32455,	Z.KRASARANG_WILDS,			00.0,	00.0,	"Alliance")
 
-	-- Bag of Fishing Treasures
-	AddQuest(13830,	BZ["Dalaran"],			52.8,	64.9,	NEUTRAL)
-	AddQuest(13832,	BZ["Dalaran"],			52.8,	64.9,	NEUTRAL)
-	AddQuest(13833,	BZ["Dalaran"],			52.8,	64.9,	NEUTRAL)
-	AddQuest(13834,	BZ["Dalaran"],			52.8,	64.9,	NEUTRAL)
-	AddQuest(13836,	BZ["Dalaran"],			52.8,	64.9,	NEUTRAL)
-
-	--Hyldnir Spoils
-	AddQuest(13422,	BZ["The Storm Peaks"],		50.9,	65.6,	NEUTRAL)
-	AddQuest(13423,	BZ["The Storm Peaks"],		50.9,	65.6,	NEUTRAL)
-	AddQuest(13424,	BZ["The Storm Peaks"],		50.9,	65.6,	NEUTRAL)
-	AddQuest(13425,	BZ["The Storm Peaks"],		50.9,	65.6,	NEUTRAL)
-
-	--Trade Old
-	AddQuest(7660,	BZ["Orgrimmar"],		69.3,	12.7,	HORDE)
-	AddQuest(7661,	BZ["Orgrimmar"],		69.3,	12.7,	HORDE)
-	AddQuest(7662,	BZ["Mulgore"],			47.5,	58.5,	HORDE)
-	AddQuest(7663,	BZ["Mulgore"],			47.5,	58.5,	HORDE)
-	AddQuest(7664,	BZ["Durotar"],			55.2,	75.6,	HORDE)
-	AddQuest(7665,	BZ["Durotar"],			55.2,	75.6,	HORDE)
-	AddQuest(7671,	BZ["Darnassus"],		38.3,	15.7,	ALLIANCE)
-	AddQuest(7672,	BZ["Darnassus"],		38.3,	15.7,	ALLIANCE)
-	AddQuest(7673,	BZ["Dun Morogh"],		63.5,	50.7,	ALLIANCE)
-	AddQuest(7674,	BZ["Dun Morogh"],		63.5,	50.7,	ALLIANCE)
-	AddQuest(7675,	BZ["Dun Morogh"],		49.2,	48.0,	ALLIANCE)
-	AddQuest(7676,	BZ["Dun Morogh"],		49.2,	48.0,	ALLIANCE)
-	AddQuest(7677,	BZ["Elwynn Forest"],		84.1,	65.5,	ALLIANCE)
-	AddQuest(7678,	BZ["Elwynn Forest"],		84.1,	65.5,	ALLIANCE)
-
+	self.InitQuest = nil
 end

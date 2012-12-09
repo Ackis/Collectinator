@@ -1,158 +1,172 @@
--------------------------------------------------------------------------------
--- Vendor.lua
--------------------------------------------------------------------------------
--- Vendor data for all of Collectinator
--------------------------------------------------------------------------------
--- File date: @file-date-iso@
--- File revision: @file-revision@
--- Project revision: @project-revision@
--- Project version: @project-version@
--- Format:	self:addLookupList(DB, NPC ID, NPC Name, NPC Location, X Coord, Y Coord, Faction)
--------------------------------------------------------------------------------
-local MODNAME	= "Collectinator"
-local addon	= LibStub("AceAddon-3.0"):GetAddon(MODNAME)
+--[[
+************************************************************************
+Vendor.lua
+************************************************************************
+File date: @file-date-iso@
+File hash: @file-abbreviated-hash@
+Project hash: @project-abbreviated-hash@
+Project version: @project-version@
+************************************************************************
+Please see http://www.wowace.com/addons/arl/ for more information.
+************************************************************************
+This source code is released under All Rights Reserved.
+************************************************************************
+]]--
 
-local L		= LibStub("AceLocale-3.0"):GetLocale(MODNAME)
-local BZ	= LibStub("LibBabble-Zone-3.0"):GetLookupTable()
-local BBOSS	= LibStub("LibBabble-Boss-3.0"):GetLookupTable()
+-----------------------------------------------------------------------
+-- Upvalued Lua API.
+-----------------------------------------------------------------------
+local _G = getfenv(0)
 
-function addon:InitVendor(DB)
-	local NEUTRAL	= 0
-	local ALLIANCE	= 1
-	local HORDE	= 2
+-----------------------------------------------------------------------
+-- AddOn namespace.
+-----------------------------------------------------------------------
+local FOLDER_NAME, private	= ...
 
-	-------------------------------------------------------------------------------
-	-- Companions only
-	-------------------------------------------------------------------------------
-	self:addLookupList(DB, 1263,	L["Yarlyn Amberstill"],			BZ["Dun Morogh"],		70.6, 49.0,	ALLIANCE)
-	self:addLookupList(DB, 2663,	L["Narkk"],				BZ["Stranglethorn Vale"],	28.2, 74.5,	NEUTRAL)
-	self:addLookupList(DB, 6367,	L["Donni Anthania"],			BZ["Elwynn Forest"],		44.2, 53.4,	ALLIANCE)
-	self:addLookupList(DB, 8401,	L["Halpa"],				BZ["Thunder Bluff"],		62.2, 58.5,	HORDE)
-	self:addLookupList(DB, 8403,	L["Jeremiah Payson"],			BZ["Undercity"],		67.5, 44.6,	HORDE)
-	self:addLookupList(DB, 8404,	L["Xan'tish"],				BZ["Orgrimmar"],		37.5, 74.6,	HORDE) -- Wanders
-	self:addLookupList(DB, 8665,	L["Shylenai"],				BZ["Darnassus"],		69.8, 45.4,	ALLIANCE)
-	self:addLookupList(DB, 8666,	L["Lil Timmy"],				BZ["Stormwind City"],		46.4, 55.5,	ALLIANCE) -- Wanders
-	self:addLookupList(DB, 15864,	L["Valadar Starsong"],			BZ["Moonglade"],		53.7, 35.3,	NEUTRAL)
-	self:addLookupList(DB, 16860,	L["Jilanne"],				BZ["Eversong Woods"],		44.8, 71.8,	HORDE)
-	self:addLookupList(DB, 17249,	L["Landro Longshot"],			BZ["Stranglethorn Vale"],	28.1, 75.8,	NEUTRAL)
-	self:addLookupList(DB, 18382,	L["Mycah"],				BZ["Zangarmarsh"],		17.9, 51.2,	NEUTRAL)
-	self:addLookupList(DB, 20980,	L["Dealer Rashaad"],			BZ["Netherstorm"],		43.5, 35.2,	NEUTRAL)
-	self:addLookupList(DB, 21019,	L["Sixx"],				BZ["The Exodar"],		30.3, 34.0,	ALLIANCE)
-	self:addLookupList(DB, 23367,	L["Grella"],				BZ["Terokkar Forest"],		64.3, 66.3,	NEUTRAL)
-	self:addLookupList(DB, 28951,	L["Breanni"],				BZ["Dalaran"],			58.7, 39.5,	NEUTRAL)
-	self:addLookupList(DB, 29478,	L["Jepetto Joybuzz"],			BZ["Dalaran"],			44.8, 46.5,	NEUTRAL)
-	self:addLookupList(DB, 29716,	L["Clockwork Assistant"],		BZ["Dalaran"],			44.2, 46.5,	NEUTRAL)
-	self:addLookupList(DB, 29537,	L["Darahir"],				BZ["Dalaran"],			63.7, 16.5,	NEUTRAL)
-	self:addLookupList(DB, 31910,	L["Geen"],				BZ["Sholazar Basin"],		54.5, 56.2,	NEUTRAL)
-	self:addLookupList(DB, 31916,	L["Tanaika"],				BZ["Howling Fjord"],		25.5, 58.7,	NEUTRAL)
-	self:addLookupList(DB, 32763,	L["Sairuk"],				BZ["Dragonblight"],		48.5, 75.7,	NEUTRAL)
-	self:addLookupList(DB, 33980,	L["Apothecary Furrows"],		BZ["Darkshore"],		57.0, 33.9,	NEUTRAL)
-	self:addLookupList(DB, 41135,	L["\"Plucky\" Johnson"],		BZ["Thousand Needles"],		85.6, 91.6,	NEUTRAL)
-	self:addLookupList(DB, 52822,	L["Zen'Vorka"],				BZ["Molten Front"],		47.0, 90.8,	NEUTRAL)
-	self:addLookupList(DB, 52830,	L["Michelle De Rum"],			BZ["Winterspring"],		59.8, 51.6,	NEUTRAL)
-	self:addLookupList(DB, 53881,	L["Ayla Shadowstorm"],			BZ["Molten Front"],		44.2, 86.4,	NEUTRAL)
-	self:addLookupList(DB, 53882,	L["Varlan Highbough"],			BZ["Molten Front"],		44.8, 88.2,	NEUTRAL)
+local LibStub = _G.LibStub
 
-	-------------------------------------------------------------------------------
-	-- World Events
-	-------------------------------------------------------------------------------
-	self:addLookupList(DB, 14860,	L["Flik"],				BZ["Darkmoon Island"],		0.0,  0.0,	NEUTRAL)
-	self:addLookupList(DB, 14846,	L["Lhara"],				BZ["Darkmoon Island"],		48.2, 69.6,	NEUTRAL)
-	self:addLookupList(DB, 23710,	L["Belbi Quikswitch"],			BZ["Dun Morogh"],		49.3, 39.5,	ALLIANCE)
-	self:addLookupList(DB, 24495,	L["Blix Fixwidget"],			BZ["Durotar"],			40.3, 17.9,	HORDE)
-	self:addLookupList(DB, 27478,	L["Larkin Thunderbrew"],		BZ["Ironforge"],		18.8, 53.1,	ALLIANCE)
-	self:addLookupList(DB, 27489,	L["Ray'ma"],				BZ["Orgrimmar"],		37.9, 85.6,	HORDE)
-	self:addLookupList(DB, 53757,	L["Chub"],				BZ["Undercity"], 		68.0, 7.6,	HORDE)
-	self:addLookupList(DB, 53728,	L["Dorothy"],				BZ["Elwynn Forest"],		31.8, 50.0,	ALLIANCE)
+local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+local BB = LibStub("LibBabble-Boss-3.0"):GetLookupTable()
 
-	self:addLookupList(DB, 33307,	L["Corporal Arthur Flew"],		BZ["Icecrown"],			76.5, 19.2,	ALLIANCE)
-	self:addLookupList(DB, 33310,	L["Derrick Brindlebeard"],		BZ["Icecrown"],			76.5, 19.5,	ALLIANCE)
-	self:addLookupList(DB, 33553,	L["Freka Bloodaxe"],			BZ["Icecrown"],			76.4, 24.4,	HORDE)
-	self:addLookupList(DB, 33554,	L["Samamba"],				BZ["Icecrown"],			76.1, 24.5,	HORDE)
-	self:addLookupList(DB, 33555,	L["Eliza Killian"],			BZ["Icecrown"],			76.5, 24.2,	HORDE)
-	self:addLookupList(DB, 33556,	L["Doru Thunderhorn"],			BZ["Icecrown"],			76.2, 24.5,	HORDE)
-	self:addLookupList(DB, 33557,	L["Trellis Morningsun"],		BZ["Icecrown"],			76.3, 23.9,	HORDE)
-	self:addLookupList(DB, 33650,	L["Rillie Spindlenut"],			BZ["Icecrown"],			76.5, 19.7,	ALLIANCE)
-	self:addLookupList(DB, 33653,	L["Rook Hawkfist"],			BZ["Icecrown"],			76.3, 49.2,	ALLIANCE)
-	self:addLookupList(DB, 33657,	L["Irisee"],				BZ["Icecrown"],			76.2, 19.3,	ALLIANCE)
-	self:addLookupList(DB, 34772,	L["Vasarin Redmorn"],			BZ["Icecrown"],			76.2, 24.0,	HORDE)
-	self:addLookupList(DB, 34881,	L["Hiren Loresong"],			BZ["Icecrown"],			76.2, 19.6,	ALLIANCE)
-	self:addLookupList(DB, 34885,	L["Dame Evniki Kapsalis"],		BZ["Icecrown"],			69.5, 23.2,	NEUTRAL)
+local BN = private.BOSS_NAMES
+local FN = private.LOCALIZED_FACTION_STRINGS
+local Z = private.ZONE_NAMES
 
-	-------------------------------------------------------------------------------
-	-- Mounts only
-	-------------------------------------------------------------------------------
-	self:addLookupList(DB, 384,	L["Katie Hunter"],			BZ["Elwynn Forest"],		84.1, 65.5,	ALLIANCE)
-	self:addLookupList(DB, 1261,	L["Veron Amberstill"],			BZ["Dun Morogh"],		63.5, 50.7,	ALLIANCE)
-	self:addLookupList(DB, 1460,	L["Unger Statforth"],			BZ["Wetlands"],			8.6, 54.5,	ALLIANCE)
-	self:addLookupList(DB, 2357,	L["Merideth Carlson"],			BZ["Hillsbrad Foothills"],	52.1, 55.6,	ALLIANCE)
-	self:addLookupList(DB, 3362,	L["Ogunaro Wolfrunner"],		BZ["Orgrimmar"],		69.3, 12.7,	HORDE)
-	self:addLookupList(DB, 3685,	L["Harb Clawhoof"],			BZ["Mulgore"],			47.5, 58.5,	HORDE)
-	self:addLookupList(DB, 4730,	L["Lelanai"],				BZ["Darnassus"],		38.3, 15.7,	ALLIANCE)
-	self:addLookupList(DB, 4731,	L["Zachariah Post"],			BZ["Tirisfal Glades"],		61.8, 51.8,	HORDE)
-	self:addLookupList(DB, 4885,	L["Gregor MacVince"],			BZ["Dustwallow Marsh"],		65.2, 51.5,	ALLIANCE)
-	self:addLookupList(DB, 7952,	L["Zjolnir"],				BZ["Durotar"],			55.2, 75.6,	HORDE)
-	self:addLookupList(DB, 7955,	L["Milli Featherwhistle"],		BZ["Dun Morogh"],		49.2, 48.0,	ALLIANCE)
-	self:addLookupList(DB, 10618,	L["Rivern Frostwind"],			BZ["Winterspring"],		49.9, 9.9,	ALLIANCE)
-	self:addLookupList(DB, 11701,	L["Mor'vek"],				BZ["Un'Goro Crater"],		71.5, 73.7,	HORDE)
-	self:addLookupList(DB, 12783,	L["Lieutenant Karter"],			BZ["Stormwind City"],		74.7, 67.3,	ALLIANCE)
-	self:addLookupList(DB, 12796,	L["Raider Bork"],			BZ["Orgrimmar"],		41.68, 68.33,	HORDE)
-	self:addLookupList(DB, 13216,	L["Gaelden Hammersmith"],		BZ["Alterac Valley"],		44.2, 18.2,	ALLIANCE)
-	self:addLookupList(DB, 13217,	L["Thanthaldis Snowgleam"],		BZ["Alterac Mountains"],	39.5, 81.7,	ALLIANCE)
-	self:addLookupList(DB, 13218,	L["Grunnda Wolfheart"],			BZ["Alterac Valley"],		49.0, 85.5,	HORDE)
-	self:addLookupList(DB, 13219,	L["Jekyll Flandring"],			BZ["Alterac Mountains"],	62.8, 59.4,	HORDE)
-	self:addLookupList(DB, 16264,	L["Winaestra"],				BZ["Eversong Woods"],		61.0, 54.7,	HORDE)
-	self:addLookupList(DB, 17584,	L["Torallius the Pack Handler"],	BZ["The Exodar"],		81.5, 52.0,	ALLIANCE)
-	self:addLookupList(DB, 17904,	L["Fedryen Swiftspear"],		BZ["Zangarmarsh"],		79.3, 63.8,	NEUTRAL)
-	self:addLookupList(DB, 20240,	L["Trader Narasu"],			BZ["Nagrand"],			54.6, 75.2,	ALLIANCE)
-	self:addLookupList(DB, 20241,	L["Provisioner Nasela"],		BZ["Nagrand"],			53.5, 36.9,	HORDE)
-	self:addLookupList(DB, 20494,	L["Dama Wildmane"],			BZ["Shadowmoon Valley"],	29.2, 29.5,	HORDE)
-	self:addLookupList(DB, 20510,	L["Brunn Flamebeard"],			BZ["Shadowmoon Valley"],	37.6, 56.0,	ALLIANCE)
-	self:addLookupList(DB, 21474,	L["Coreiel"],				BZ["Nagrand"],			42.8, 42.6,	HORDE)
-	self:addLookupList(DB, 21485,	L["Aldraan"],				BZ["Nagrand"],			42.9, 42.5,	ALLIANCE)
-	self:addLookupList(DB, 23489,	L["Drake Dealer Hurlunk"],		BZ["Shadowmoon Valley"],	65.6, 86.0,	NEUTRAL)
-	self:addLookupList(DB, 24468,	L["Pol Amberstill"],			BZ["Dun Morogh"],		46.5, 40.4,	ALLIANCE)
-	self:addLookupList(DB, 24510,	L["Driz Tumblequick"],			BZ["Durotar"],			46.3, 14.9,	HORDE)
-	self:addLookupList(DB, 29587,	L["Dread Commander Thalanor"],		BZ["Eastern Plaguelands"],	84.1, 49.9,	NEUTRAL)
-	self:addLookupList(DB, 32216,	L["Mei Francis"],			BZ["Dalaran"],			58.5, 42.6,	NEUTRAL)
-	self:addLookupList(DB, 32294,	L["Knight Dameron"],			BZ["Wintergrasp"],		51.7, 17.5,	ALLIANCE)
-	self:addLookupList(DB, 32296,	L["Stone Guard Mukar"],			BZ["Wintergrasp"],		51.7, 17.5,	HORDE)
-	self:addLookupList(DB, 32533,	L["Cielstrasza"],			BZ["Dragonblight"],		59.9, 53.1,	NEUTRAL)
-	self:addLookupList(DB, 32540,	L["Lillehoff"],				BZ["The Storm Peaks"],		66.2, 61.4,	NEUTRAL)
-	self:addLookupList(DB, 35099,	L["Bana Wildmane"],			BZ["Hellfire Peninsula"],	54.2, 41.6,	HORDE)
-	self:addLookupList(DB, 35101,	L["Grunda Bronzewing"],			BZ["Hellfire Peninsula"],	54.2, 62.6,	ALLIANCE)
-	self:addLookupList(DB, 35131,	L["Durgan Thunderbeak"],		BZ["Borean Tundra"],		58.9, 68.2,	ALLIANCE)
-	self:addLookupList(DB, 35132,	L["Tohfo Skyhoof"],			BZ["Borean Tundra"],		42.2, 55.3,	HORDE)
-	self:addLookupList(DB, 47328,	L["Quartermaster Brazie"],		BZ["Tol Barad Peninsula"],	72.6, 62.6,	ALLIANCE)
-	self:addLookupList(DB, 48510,	L["Kall Worthaton"],			BZ["Orgrimmar"],		36.5, 86.9,	HORDE)
-	self:addLookupList(DB, 48531,	L["Pogg"],				BZ["Tol Barad Peninsula"],	54.6, 81.0,	HORDE)
-	self:addLookupList(DB, 48617,	L["Blacksmith Abasi"],			BZ["Uldum"],			54.0, 33.2,	NEUTRAL)
-	self:addLookupList(DB, 55285,	L["Astrid Langstrump"],			BZ["Darnassus"],		48.6, 22.2,	ALLIANCE)
+private.vendor_list = {}
 
-	-------------------------------------------------------------------------------
-	-- Warlock trainers.
-	-------------------------------------------------------------------------------
-	self:addLookupList(DB, 16646,	L["Alamma"],				BZ["Silvermoon City"],	73.5, 46.6,	HORDE)
-	self:addLookupList(DB, 5173,	L["Alexander Calder"],			BZ["Ironforge"],	50.1, 6.9,	ALLIANCE)
-	self:addLookupList(DB, 23534,	L["Babagaya Shadowcleft"],		BZ["The Barrens"],	62.5, 35.5,	NEUTRAL)
-	self:addLookupList(DB, 5172,	L["Briarthorn"],			BZ["Ironforge"],	50.3, 6.1,	ALLIANCE)
-	self:addLookupList(DB, 16266,	L["Celoenus"],				BZ["Eversong Woods"],	48.2, 47.9,	HORDE)
-	self:addLookupList(DB, 461,	L["Demisette Cloyce"],			BZ["Stormwind City"],	39.7, 84.5,	ALLIANCE)
-	self:addLookupList(DB, 3172,	L["Dhugru Gorelust"],			BZ["Durotar"],		54.3, 41.2,	HORDE)
-	self:addLookupList(DB, 5612,	L["Gimrizz Shadowcog"],			BZ["Dun Morogh"],	47.3, 53.7,	ALLIANCE)
-	self:addLookupList(DB, 3324,	L["Grol'dar"],				BZ["Orgrimmar"],	48.1, 46.2,	HORDE)
-	self:addLookupList(DB, 4563,	L["Kaal Soulreaper"],			BZ["Undercity"],	86.0, 15.7,	HORDE)
-	self:addLookupList(DB, 988,	L["Kartosh"],				BZ["Swamp of Sorrows"],	48.5, 55.5,	HORDE)
-	self:addLookupList(DB, 4564,	L["Luther Pickman"],			BZ["Undercity"],	86.2, 15.3,	HORDE)
-	self:addLookupList(DB, 906,	L["Maximillian Crowe"],			BZ["Elwynn Forest"],	44.5, 66.1,	ALLIANCE)
-	self:addLookupList(DB, 3325,	L["Mirket"],				BZ["Orgrimmar"],	48.5, 47.0,	HORDE)
-	self:addLookupList(DB, 4565,	L["Richard Kerwin"],			BZ["Undercity"],	88.7, 16.0,	HORDE)
-	self:addLookupList(DB, 2127,	L["Rupert Boch"],			BZ["Tirisfal Glades"],	61.6, 52.5,	HORDE)
-	self:addLookupList(DB, 5496,	L["Sandahl"],				BZ["Stormwind City"],	39.8, 85.4,	ALLIANCE)
-	self:addLookupList(DB, 6251,	L["Strahad Farsan"],			BZ["The Barrens"],	62.6, 35.5,	NEUTRAL)
-	self:addLookupList(DB, 16647,	L["Talionia"],				BZ["Silvermoon City"],	74.5, 46.9,	HORDE)
-	self:addLookupList(DB, 5171,	L["Thistleheart"],			BZ["Ironforge"],	50.8, 6.7,	ALLIANCE)
-	self:addLookupList(DB, 5495,	L["Ursula Deline"],			BZ["Stormwind City"],	40.0, 84.3,	ALLIANCE)
-	self:addLookupList(DB, 16648,	L["Zanien"],				BZ["Silvermoon City"],	73.5, 44.5,	HORDE)
-	self:addLookupList(DB, 3326,	L["Zevrost"],				BZ["Orgrimmar"],	48.3, 45.6,	HORDE)
+function addon:InitVendor()
+	local function AddVendor(id_num, name, zone_name, x, y, faction)
+		private:AddListEntry(private.vendor_list, id_num, name, zone_name, x, y, faction)
+	end
+
+	AddVendor(384,		L["Katie Hunter"],		Z.ELWYNN_FOREST,		84.0,	65.4,	"Alliance")
+	AddVendor(1261,		L["Veron Amberstill"],		Z.DUN_MOROGH,			70.6,	48.8,	"Alliance")
+	AddVendor(1263,		L["Yarlyn Amberstill"],		Z.DUN_MOROGH,			70.6,	49.0,	"Alliance")
+	AddVendor(1460,		L["Unger Statforth"],		Z.WETLANDS,			9.2,	56.6,	"Alliance")
+	AddVendor(2663,		L["Narkk"],			Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	69.2,	"Neutral")
+	AddVendor(3362,		L["Ogunaro Wolfrunner"],	Z.ORGRIMMAR,			61.0,	35.2,	"Horde")
+	AddVendor(3685,		L["Harb Clawhoof"],		Z.MULGORE,			47.6,	58.0,	"Horde")
+	AddVendor(4730,		L["Lelanai"],			Z.DARNASSUS,			42.6,	32.8,	"Alliance")
+	AddVendor(4731,		L["Zachariah Post"],		Z.TIRISFAL_GLADES,		61.8,	51.8,	"Horde")
+	AddVendor(4885,		L["Gregor MacVince"],		Z.DUSTWALLOW_MARSH,		65.2,	51.4,	"Alliance")
+	AddVendor(6367,		L["Donni Anthania"],		Z.ELWYNN_FOREST,		44.2,	53.2,	"Alliance")
+	AddVendor(7952,		L["Zjolnir"],			Z.DUROTAR,			55.2,	75.6,	"Horde")
+	AddVendor(7955,		L["Milli Featherwhistle"],	Z.DUN_MOROGH,			56.2,	46.2,	"Alliance")
+	AddVendor(8401,		L["Halpa"],			Z.THUNDER_BLUFF,		62.2,	58.6,	"Horde")
+	AddVendor(8403,		L["Jeremiah Payson"],		Z.UNDERCITY,			68.0,	44.0,	"Horde")
+	AddVendor(8404,		L["Xan'tish"],			Z.ORGRIMMAR,			34.8,	65.2,	"Horde")
+	AddVendor(8665,		L["Shylenai"],			Z.DARNASSUS,			64.0,	53.6,	"Alliance")
+	AddVendor(8666,		L["Lil Timmy"],			Z.STORMWIND_CITY,		69.4,	62.6,	"Alliance")
+	AddVendor(12783,	L["Lieutenant Karter"],		Z.STORMWIND_CITY,		76.2,	65.6,	"Alliance")
+	AddVendor(12796,	L["Raider Bork"],		Z.ORGRIMMAR,			47.8,	73.6,	"Horde")
+	AddVendor(13216,	L["Gaelden Hammersmith"],	Z.ALTERAC_VALLEY,		44.2,	18.2,	"Alliance")
+	AddVendor(13217,	L["Thanthaldis Snowgleam"],	Z.HILLSBRAD_FOOTHILLS,		44.6,	46.6,	"Alliance")
+	AddVendor(13218,	L["Grunnda Wolfheart"],		Z.ALTERAC_VALLEY,		49.4,	82.4,	"Horde")
+	AddVendor(13219,	L["Jorek Ironside"],		Z.HILLSBRAD_FOOTHILLS,		58.0,	33.6,	"Horde")
+	AddVendor(14828,	L["Gelvas Grimegate"],		Z.DARKMOON_ISLAND,		48.0,	64.8,	"Neutral")
+	AddVendor(14846,	L["Lhara"],			Z.DARKMOON_ISLAND,		48.6,	69.8,	"Neutral")
+	AddVendor(14860,	L["Flik"],			Z.DARKMOON_ISLAND,		59.6,	68.0,	"Neutral")
+	AddVendor(15864,	L["Valadar Starsong"],		Z.MOONGLADE,			54.0,	35.0,	"Neutral")
+	AddVendor(16264,	L["Winaestra"],			Z.EVERSONG_WOODS,		61.0,	54.6,	"Horde")
+	AddVendor(16860,	L["Jilanne"],			Z.EVERSONG_WOODS,		44.8,	71.6,	"Horde")
+	AddVendor(17584,	L["Torallius the Pack Handler"],Z.THE_EXODAR,			81.6,	52.6,	"Alliance")
+	AddVendor(17904,	L["Fedryen Swiftspear"],	Z.ZANGARMARSH,			79.2,	63.8,	"Neutral")
+	AddVendor(18382,	L["Mycah"],			Z.ZANGARMARSH,			17.8,	51.2,	"Neutral")
+	AddVendor(20240,	L["Trader Narasu"],		Z.NAGRAND,			54.6,	75.0,	"Alliance")
+	AddVendor(20241,	L["Provisioner Nasela"],	Z.NAGRAND,			53.4,	36.8,	"Horde")
+	AddVendor(20494,	L["Dama Wildmane"],		Z.SHADOWMOON_VALLEY,		29.0,	29.4,	"Horde")
+	AddVendor(20510,	L["Brunn Flamebeard"],		Z.SHADOWMOON_VALLEY,		37.6,	56.0,	"Alliance")
+	AddVendor(20980,	L["Dealer Rashaad"],		Z.NETHERSTORM,			43.4,	35.2,	"Neutral")
+	AddVendor(21019,	L["Sixx"],			Z.THE_EXODAR,			30.8,	34.6,	"Alliance")
+	AddVendor(21474,	L["Coreiel"],			Z.NAGRAND,			42.8,	42.6,	"Horde")
+	AddVendor(21485,	L["Aldraan"],			Z.NAGRAND,			42.8,	42.6,	"Alliance")
+	AddVendor(23367,	L["Grella"],			Z.TEROKKAR_FOREST,		64.2,	66.2,	"Neutral")
+	AddVendor(23489,	L["Drake Dealer Hurlunk"],	Z.SHADOWMOON_VALLEY,		65.6,	86.0,	"Neutral")
+	AddVendor(23710,	L["Belbi Quikswitch"],		Z.DUN_MOROGH,			56.2,	37.8,	"Alliance")
+	AddVendor(24468,	L["Pol Amberstill"],		Z.DUN_MOROGH,			53.6,	38.6,	"Alliance")
+	AddVendor(24495,	L["Blix Fixwidget"],		Z.DUROTAR,			40.4,	17.8,	"Horde")  -- Blizz thinks this is "Bliz Fixwidget"
+	AddVendor(24510,	L["Driz Tumblequick"],		Z.DUROTAR,			42.6,	17.6,	"Horde")
+	AddVendor(26123,	L["Midsummer Supplier"],	Z.STORMWIND_CITY,		49.2,	71.8,	"Alliance")
+	AddVendor(26124,	L["Midsummer Merchant"],	Z.ORGRIMMAR,			47.6,	38.6,	"Horde")
+	AddVendor(27478,	L["Larkin Thunderbrew"],	Z.IRONFORGE,			19.8,	53.2,	"Alliance")
+	AddVendor(27489,	L["Ray'ma"],			Z.ORGRIMMAR,			50.6,	73.6,	"Horde")
+	AddVendor(28951,	L["Breanni"],			Z.DALARAN,			40.5,	35.2,	"Neutral")
+	AddVendor(29537,	L["Darahir"],			Z.DALARAN,			63.8,	16.6,	"Neutral")
+	AddVendor(29587,	L["Dread Commander Thalanor"],	Z.EASTERN_PLAGUELANDS,		84.0,	49.8,	"Neutral")
+	AddVendor(31916,	L["Tanaika"],			Z.HOWLING_FJORD,		25.4,	58.6,	"Neutral")
+	AddVendor(32216,	L["Mei Francis"],		Z.DALARAN,			58.6,	43.2,	"Neutral")
+	AddVendor(32294,	L["Knight Dameron"],		Z.WINTERGRASP,			51.6,	17.6,	"Alliance")
+	AddVendor(32533,	L["Cielstrasza"],		Z.DRAGONBLIGHT,			59.8,	53.0,	"Neutral")
+	AddVendor(32296,	L["Stone Guard Mukar"],		Z.WINTERGRASP,			51.6,	17.6,	"Horde")
+	AddVendor(32540,	L["Lillehoff"],			Z.THE_STORM_PEAKS,		66.0,	61.4,	"Neutral")
+	AddVendor(32763,	L["Sairuk"],			Z.DRAGONBLIGHT,			48.6,	75.6,	"Neutral")
+	AddVendor(32836,	L["Noblegarden Vendor"],	Z.ELWYNN_FOREST,		43.0,	65.3,	"Alliance")
+	AddVendor(32837,	L["Noblegarden Merchant"],	Z.DUROTAR,			51.0,	41.0,	"Horde")
+	AddVendor(33307,	L["Corporal Arthur Flew"],	Z.ICECROWN,			76.4,	19.2,	"Alliance")
+	AddVendor(33310,	L["Derrick Brindlebeard"],	Z.ICECROWN,			76.4,	19.4,	"Alliance")
+	AddVendor(33553,	L["Freka Bloodaxe"],		Z.ICECROWN,			76.4,	24.2,	"Horde")
+	AddVendor(33554,	L["Samamba"],			Z.ICECROWN,			76.0,	24.4,	"Horde")
+	AddVendor(33555,	L["Eliza Killian"],		Z.ICECROWN,			76.4,	24.0,	"Horde")
+	AddVendor(33556,	L["Doru Thunderhorn"],		Z.ICECROWN,			76.2,	24.4,	"Horde")
+	AddVendor(33557,	L["Trellis Morningsun"],	Z.ICECROWN,			76.2,	23.8,	"Horde")
+	AddVendor(33650,	L["Rillie Spindlenut"],		Z.ICECROWN,			76.4,	19.6,	"Alliance")
+	AddVendor(33653,	L["Rook Hawkfist"],		Z.ICECROWN,			76.2,	19.2,	"Alliance")
+	AddVendor(33657,	L["Irisee"],			Z.ICECROWN,			76.2,	19.2,	"Alliance")
+	AddVendor(34772,	L["Vasarin Redmorn"],		Z.ICECROWN,			76.2,	24.0,	"Horde")
+	AddVendor(34881,	L["Hiren Loresong"],		Z.ICECROWN,			76.2,	19.6,	"Alliance")
+	AddVendor(34882,	L["Vasarin Redmorn"],		Z.ICECROWN,			76.2,	24.0,	"Horde")
+	AddVendor(34885,	L["Dame Evniki Kapsalis"],	Z.ICECROWN,			69.4,	23.2,	"Neutral")
+	AddVendor(35099,	L["Bana Wildmane"],		Z.HELLFIRE_PENINSULA,		54.2,	41.6,	"Horde")
+	AddVendor(35101,	L["Grunda Bronzewing"],		Z.HELLFIRE_PENINSULA,		54.2,	62.6,	"Alliance")
+	AddVendor(35131,	L["Durgan Thunderbeak"],	Z.BOREAN_TUNDRA,		58.8,	68.2,	"Alliance")
+	AddVendor(35132,	L["Tohfo Skyhoof"],		Z.BOREAN_TUNDRA,		42.2,	55.4,	"Horde")
+	AddVendor(41135,	L["\"Plucky\" Johnson"],	Z.THOUSAND_NEEDLES,		85.6,	91.6,	"Neutral")
+	AddVendor(43694,	L["Katie Stokx"],		Z.STORMWIND_CITY,		77.0,	67.8,	"Alliance")
+	AddVendor(43768,	L["Tannec Stonebeak"],		Z.STORMWIND_CITY,		71.4,	72.2,	"Alliance")
+	AddVendor(44179,	L["Harry No-Hooks"],		Z.THE_CAPE_OF_STRANGLETHORN,	46.6,	93.6,	"Alliance")
+	AddVendor(46572,	L["Goram"],			Z.ORGRIMMAR,			48.2,	75.6,	"Horde")
+	AddVendor(46602,	L["Shay Pressler"],		Z.STORMWIND_CITY,		64.6,	76.8,	"Alliance")
+	AddVendor(47328,	L["Quartermaster Brazie"],	Z.TOL_BARAD_PENINSULA,		72.6,	62.6,	"Alliance")
+	AddVendor(48510,	L["Kall Worthaton"],		Z.ORGRIMMAR,			36.0,	86.4,	"Horde")
+	AddVendor(48531,	L["Pogg"],			Z.TOL_BARAD_PENINSULA,		54.6,	81.0,	"Horde")
+	AddVendor(48617,	L["Blacksmith Abasi"],		Z.ULDUM,			54.0,	33.2,	"Neutral")
+	AddVendor(51495,	L["Steeg Haskell"],		Z.IRONFORGE,			36.6,	84.6,	"Alliance")
+	AddVendor(51496,	L["Kim Horn"],			Z.UNDERCITY,			69.6,	43.8,	"Horde")
+	AddVendor(51501,	L["Nuri"],			Z.THE_EXODAR,			53.6,	70.6,	"Alliance")
+	AddVendor(51502,	L["Larissia"],			Z.SILVERMOON_CITY,		78.2,	84.8,	"Horde")
+	AddVendor(51503,	L["Randah Songhorn"],		Z.THUNDER_BLUFF,		37.6,	62.8,	"Horde")
+	AddVendor(51504,	L["Velia Moonbow"],		Z.DARNASSUS,			64.6,	37.6,	"Alliance")
+	AddVendor(51512,	L["Mirla Silverblaze"],		Z.DALARAN,			52.6,	56.6,	"Neutral")
+	AddVendor(52268,	L["Riha"],			Z.SHATTRATH_CITY,		58.6,	46.6,	"Neutral")
+	AddVendor(52822,	L["Zen'Vorka"],			Z.MOLTEN_FRONT,			47.0,	90.6,	"Neutral")
+	AddVendor(52830,	L["Michelle De Rum"],		Z.WINTERSPRING,			59.8,	51.6,	"Neutral")
+	AddVendor(53728,	L["Dorothy"],			Z.ELWYNN_FOREST,		31.8,	50.0,	"Alliance")
+	AddVendor(53757,	L["Chub"],			Z.TIRISFAL_GLADES,		67.8,	7.6,	"Horde")
+	AddVendor(53881,	L["Ayla Shadowstorm"],		Z.MOLTEN_FRONT,			44.8,	86.6,	"Neutral")
+	AddVendor(53882,	L["Varlan Highbough"],		Z.MOLTEN_FRONT,			44.6,	88.6,	"Neutral")
+	AddVendor(55285,	L["Astrid Langstrump"],		Z.DARNASSUS,			48.6,	22.2,	"Neutral")
+	AddVendor(55305,	L["Carl Goodup"],		Z.DARKMOON_ISLAND,		49.8,	85.6,	"Neutral")
+	AddVendor(58414,	L["San Redscale"],		Z.THE_JADE_FOREST,		56.6,	44.4,	"Neutral")
+	AddVendor(58706,	L["Gina Mudclaw"],		Z.VALLEY_OF_THE_FOUR_WINDS,	53.2,	51.6,	"Neutral")
+	AddVendor(59908,	L["Jaluu the Generous"],	Z.VALE_OF_ETERNAL_BLOSSOMS,	74.2,	42.6,	"Neutral")
+	AddVendor(63194,	L["Steven Lisbane"],		Z.NORTHERN_STRANGLETHORN,	46.0,	40.6,	"Alliance")
+	AddVendor(63721,	FN.NAT_PAGLE,			Z.KRASARANG_WILDS,		68.4,	43.4,	"Neutral")
+	AddVendor(63994,	L["Challenger Wuli"],		Z.SHRINE_OF_TWO_MOONS,		61.0,	21.0,	"Horde")
+	AddVendor(64001,	L["Sage Lotusbloom"],		Z.SHRINE_OF_TWO_MOONS,		62.6,	23.2,	"Horde")
+	AddVendor(64028,	L["Challenger Soong"],		Z.SHRINE_OF_SEVEN_STARS,	86.2,	61.6,	"Alliance")
+	AddVendor(64032,	L["Sage Whiteheart"],		Z.SHRINE_OF_SEVEN_STARS,	84.6,	63.6,	"Alliance")
+	AddVendor(64518,	L["Uncle Bigpocket"],		Z.KUN_LAI_SUMMIT,		65.4,	61.6,	"Neutral")
+	AddVendor(64595,	L["Rushi the Fox"],		Z.TOWNLONG_STEPPES,		48.8,	70.6,	"Neutral")
+	AddVendor(64599,	L["Ambersmith Zikk"],		Z.DREAD_WASTES,			55.0,	35.6,	"Neutral")
+	AddVendor(64605,	L["Tan Shin Tiao"],		Z.VALE_OF_ETERNAL_BLOSSOMS,	82.2,	29.4,	"Neutral")
+	AddVendor(65068,	L["Old Whitenose"],		Z.STORMWIND_CITY,		67.8,	18.6,	"Alliance")
+	AddVendor(66022,	L["Turtlemaster Odai"],		Z.ORGRIMMAR,			69.8,	41.0,	"Horde")
+	AddVendor(66973,	L["Kay Featherfall"],		Z.VALE_OF_ETERNAL_BLOSSOMS,	82.2,	34.0,	"Neutral")
+	AddVendor(68363,	L["Quackenbush"],		Z.DEEPRUN_TRAM,			53.9,	26.3,	"Alliance")
+	AddVendor(68364,	L["Paul North"],		Z.BRAWLGAR_ARENA,		50.8,	31.8,	"Horde")
+	AddVendor(69059,	L["Agent Malley"],		Z.KRASARANG_WILDS,		89.6,	33.4,	"Alliance")
+	AddVendor(69060,	L["Tuskripper Grukna"],		Z.KRASARANG_WILDS,		10.8,	53.4,	"Horde")
+
+	self.InitVendor = nil
 end
