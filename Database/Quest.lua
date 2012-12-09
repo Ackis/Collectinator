@@ -99,6 +99,11 @@ function addon:InitQuest()
 	AddQuest(31811,	Z.THE_JADE_FOREST,			57.6,	44.8,	"Neutral")
 	AddQuest(32399,	Z.KRASARANG_WILDS,			00.0,	00.0,	"Horde")
 	AddQuest(32175,	Z.DARKMOON_ISLAND,			47.8,	62.6,	"Neutral")
+	AddQuest(32428,	Z.VALLEY_OF_THE_FOUR_WINDS,		00.0,	00.0,	"Neutral")
+	AddQuest(32434,	Z.TOWNLONG_STEPPES,			57.0,	42.2,	"Neutral")
+	AddQuest(32439,	Z.DREAD_WASTES,				61.2,	87.4,	"Neutral")
+	AddQuest(32440,	Z.THE_JADE_FOREST,			28.8,	36.0,	"Neutral")
+	AddQuest(32441,	Z.KUN_LAI_SUMMIT,			64.8,	93.6,	"Neutral")
 	AddQuest(32455,	Z.KRASARANG_WILDS,			00.0,	00.0,	"Alliance")
 
 	self.InitQuest = nil

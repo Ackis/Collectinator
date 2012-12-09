@@ -61,6 +61,8 @@ function addon:InitCustom()
 	AddCustom("EUPROMO")
 	AddCustom("SHOEXALTED")
 	AddCustom("PETBATTLEDAILY")
+	AddCustom("COT",			Z.TANARIS)
+	AddCustom("PETTAMER")
 
 	self.InitCustom = nil
 end

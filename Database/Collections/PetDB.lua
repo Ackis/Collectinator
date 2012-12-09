@@ -2832,20 +2832,19 @@ function addon:InitCritters()
 	pet = AddPet(67230, V.MOP, Q.RARE)
 	pet:SetItemID(90900)
 	pet:SetSpellID(132574)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
---	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
---	pet:AddProfession(PROF.TAILORING)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.TAILORING)
 	-- Imperial Silkworm -- 67233
 	pet = AddPet(67233, V.MOP, Q.UNCOMMON)
 	pet:SetItemID(90902)
 	pet:SetSpellID(132580)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
---	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
---	pet:AddProfession(PROF.TAILORING)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.TAILORING)
 	-- Infinite Whelpling -- 68820
 	pet = AddPet(68820, V.MOP, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.TANARIS)
+	pet:AddCustom("COT")
 	-- Kun-Lai Runt -- 68846
 	pet = AddPet(68846, V.MOP, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
@@ -2860,9 +2859,81 @@ function addon:InitCritters()
 	pet:SetSpellID(135268)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
 	pet:AddMobDrop(15263)	
-	
-	
-	
+	-- Mr. Bigglesworth -- 68655
+	pet = AddPet(68655, V.MOP, Q.RARE)
+	pet:SetItemID(93031)
+	pet:SetSpellID(135256)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT, F.IBOP)
+	pet:AddAchievement(7934)
+	-- Murki -- 15361
+	pet = AddPet(15361, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+	pet:AddCustom("KOREA")
+	-- Nexus Whelpling -- 68845
+	pet = AddPet(68845, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.BOREAN_TUNDRA)
+	-- Pandaren Air Spirit -- 68467
+	pet = AddPet(68467, V.MOP, Q.RARE)
+	pet:SetItemID(92799)
+	pet:SetSpellID(134894)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
+	pet:AddQuest(32428, 32440)
+	pet:AddCustom("PETTAMER")
+	-- Pandaren Earth Spirit -- 68468
+	pet = AddPet(68468, V.MOP, Q.RARE)
+	pet:SetItemID(92800)
+	pet:SetSpellID(134895)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
+	pet:AddQuest(32428, 32441)
+	pet:AddCustom("PETTAMER")
+	-- Pandaren Fire Spirit -- 68466
+	pet = AddPet(68466, V.MOP, Q.RARE)
+	pet:SetItemID(92798)
+	pet:SetSpellID(134892)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
+	pet:AddQuest(32428, 32434)
+	pet:AddCustom("PETTAMER")
+	-- Pandaren Water Spirit -- 66950
+	pet = AddPet(66950, V.MOP, Q.RARE)
+	pet:SetItemID(90173)
+	pet:SetSpellID(131590)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
+	pet:AddQuest(32428, 32439)
+	pet:AddCustom("PETTAMER")
+	-- Spectral Cub -- 68502
+	pet = AddPet(68502, V.MOP, Q.RARE)
+	pet:SetItemID(90953)
+	pet:SetSpellID(132759)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+	pet:AddCustom("CHINA")
+	-- Stitched Pup -- 68654
+	pet = AddPet(68654, V.MOP, Q.RARE)
+	pet:SetItemID(93029)
+	pet:SetSpellID(135257)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(15932)
+	-- Stunted Yeti -- 68805
+	pet = AddPet(68805, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.FERALAS)
+	-- Sumprush Rodent -- 68506
+	pet = AddPet(68506, V.MOP, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.KRASARANG_WILDS)
+	-- Untamed Hatchling -- 68661
+	pet = AddPet(68661, V.MOP, Q.RARE)
+	pet:SetItemID(93036)
+	pet:SetSpellID(135263)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(12435)
+	-- Viscidus Globule -- 68660
+	pet = AddPet(68660, V.MOP, Q.RARE)
+	pet:SetItemID(93039)
+	pet:SetSpellID(135266)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(15299)
+
 	self.InitCritters = nil
 
 	LPJ:RegisterCallback("PetListUpdated", UpdatePetList)
