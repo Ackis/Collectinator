@@ -2835,8 +2835,8 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
 --	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 --	pet:AddProfession(PROF.TAILORING)
-	-- Imperial Moth -- 67223
-	pet = AddPet(67223, V.MOP, Q.UNCOMMON)
+	-- Imperial Silkworm -- 67233
+	pet = AddPet(67233, V.MOP, Q.UNCOMMON)
 	pet:SetItemID(90902)
 	pet:SetSpellID(132580)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
