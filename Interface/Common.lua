@@ -45,6 +45,14 @@ do
 	local sorted_collectables = addon.sorted_collectables
 
 	local function Sort_NameAsc(a, b)
+		--@alpha@
+		if not collectable_list[a].name then
+			addon:Debug("Collectable ID %d does not have a name.", a)
+		end
+		if not collectable_list[b].name then
+			addon:Debug("Collectable ID %d does not have a name.", b)
+		end
+		--@end-alpha@
 		return collectable_list[a].name < collectable_list[b].name
 	end
 
