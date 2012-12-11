@@ -188,6 +188,7 @@ L["Midsummer Supplier"] = true
 L["Milli Featherwhistle"] = true
 L["Mirket"] = true
 L["Mirla Silverblaze"] = true
+L["Miscellaneous"] = true
 L["Mei Francis"] = true
 L["Mob Drop"] = true
 L["Mycah"] = true

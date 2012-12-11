@@ -538,6 +538,7 @@ function private.InitializeListFrame()
 			["tcg"]			= { flag = COMMON1.TCG	,		field = "common1",	sv_root = obtain_filters },
 			["coll_edition"]	= { flag = COMMON1.COLLECTORS_EDITION,	field = "common1",	sv_root = obtain_filters },
 			["promo"]		= { flag = COMMON1.PROMO,		field = "common1",	sv_root = obtain_filters },
+			["misc"]		= { flag = COMMON1.MISC,		field = "common1",	sv_root = obtain_filters },
 		}
 
 		local REP1 = private.REP_FLAGS_WORD1
