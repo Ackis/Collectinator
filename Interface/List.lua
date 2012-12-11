@@ -1783,7 +1783,6 @@ do
 		acquire_tooltip:AddSeparator()
 
 		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
-		ttAdd(1, -1, false, collectable.source_text_TEMPORARY, BASIC_COLORS["normal"])
 
 		local required_races = collectable:RequiredRaces()
 

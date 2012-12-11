@@ -91,8 +91,6 @@ do
 				pet:SetName(name)
 				pet:SetIcon(icon)
 				pet:SetDescription(description)
-
-				pet.source_text_TEMPORARY = source_text
 			end
 		end
 	end
