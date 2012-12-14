@@ -103,10 +103,133 @@ function addon:InitCritters()
 	end
 	local pet
 
-	-- Emerald Shale Hatchling -- 62915
-	pet = AddPet(62915, V.MOP, Q.COMMON)
+	-- Amber Moth -- 65187
+	pet = AddPet(65187, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddZoneLocations(Z.DEEPHOLM, "22-23", "63:24", "49:53", "45:85", "30:47", "36:77")
+	pet:AddWorldDrop(Z.DREAD_WASTES, Z.TOWNLONG_STEPPES)
+	pet:AddZoneLocations(Z.DREAD_WASTES, "24", "30.6:78.6", "55.0:33.6", "45.0:18.6", "47.4:16.8", "49.6:13.6")
+	pet:AddZoneLocations(Z.TOWNLONG_STEPPES, "24", "47.2:77.2", "48.2:78.2", "50.0:80.2", "66.8:80.6", "64.6:83.0")
+
+	-- Aqua Strider -- 64633
+	pet = AddPet(64633, V.MOP, Q.COMMON)
+	pet:SetItemID(86563)
+	pet:SetSpellID(126249)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(50776)
+
+	-- Bananas -- 23234
+	pet = AddPet(23234, V.TBC, Q.RARE)
+	pet:SetItemID(32588)
+	pet:SetSpellID(40549)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	pet:AddCustom("TCG")
+
+	-- Baneling -- 66984
+	pet = AddPet(66984, V.MOP, Q.RARE)
+	pet:SetItemID(90177)
+	pet:SetSpellID(131650)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddCustom("STARCRAFTCE")
+
+	-- Blue Mini Jouster -- 42177
+	pet = AddPet(42177, V.CATA, Q.COMMON)
+	pet:SetItemID(65661)
+	pet:SetSpellID(78683)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(25560)
+
+	-- Brilliant Kaliri -- 54374
+	pet = AddPet(54374, V.CATA, Q.COMMON)
+	pet:SetItemID(71387)
+	pet:SetSpellID(101424)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(5877)
+
+	-- Brown Prairie Dog -- 14421
+	pet = AddPet(14421, V.ORIG, Q.COMMON)
+	pet:SetItemID(10394)
+	pet:SetSpellID(10709)
+	pet:AddFilters(F.HORDE, F.VENDOR, F.TRAINER, F.IBOE)
+	pet:AddVendor(8401)
+	pet:AddTrainer(63067, 63086, 63061, 63626)
+
+	-- Brown Rabbit -- 20472
+	pet = AddPet(20472, V.ORIG, Q.COMMON)
+	pet:SetItemID(29364)
+	pet:SetSpellID(35239)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
+	pet:AddVendor(20980)
+
+	-- Calico Cat -- 34364
+	pet = AddPet(34364, V.WOTLK, Q.COMMON)
+	pet:SetItemID(46398)
+	pet:SetSpellID(65358)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
+	pet:AddVendor(28951)
+
+	-- Celestial Dragon -- 40624
+	pet = AddPet(40624, V.CATA, Q.RARE)
+	pet:SetItemID(54810)
+	pet:SetSpellID(75613)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(5875)
+
+	-- Cenarion Hatchling -- 53623
+	pet = AddPet(53623, V.CATA, Q.EPIC)
+	pet:SetItemID(70099)
+	pet:SetSpellID(99578)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
+
+	-- Clockwork Gnome -- 48609
+	pet = AddPet(48609, V.CATA, Q.RARE)
+	pet:SetItemID(64372)
+	pet:SetSpellID(90521)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.ARCHAEOLOGY)
+
+	-- Clockwork Rocket Bot -- 24968
+	pet = AddPet(24968, V.TBC, Q.RARE)
+	pet:SetItemID(34424)
+	pet:SetSpellID(54187)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+
+	-- Core Hound Pup -- 36871
+	pet = AddPet(36871, V.WOTLK, Q.RARE)
+	pet:SetItemID(49646)
+	pet:SetSpellID(69452)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddCustom("AUTH")
+
+	-- Dark Phoenix Hatchling -- 47944
+	pet = AddPet(47944, V.CATA, Q.RARE)
+	pet:SetItemID(63138)
+	pet:SetSpellID(89039)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(5812, 5892)
+	pet:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51512, 51503, 52268, 46602, 51495, 51504)
+
+	-- Darkmoon Balloon -- 55187
+	pet = AddPet(55187, V.CATA, Q.RARE)
+	pet:SetItemID(73762)
+	pet:SetSpellID(103076)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
+	pet:AddWorldEvent("DARKMOON_FAIRE")
+	pet:AddVendor(14846, 14828, 55305)
+
+	-- Darkmoon Rabbit -- 59358
+	pet = AddPet(59358, V.MOP, Q.EPIC)
+	pet:SetItemID(80008)
+	pet:SetSpellID(114090)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MOB_DROP)
+	pet:AddMobDrop(58336)
+
+	-- Deathy -- 51122
+	pet = AddPet(51122, V.WOTLK, Q.RARE)
+	pet:SetItemID(67418)
+	pet:SetSpellID(94070)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddCustom("BLIZZCON")
 
 	-- Dragon Kite -- 25110
 	pet = AddPet(25110, V.TBC, Q.EPIC)
@@ -115,26 +238,260 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
 	pet:AddCustom("TCG")
 
-	-- Nightsaber Cub -- 52344
-	pet = AddPet(52344, V.CATA, Q.COMMON)
-	pet:SetItemID(68841)
-	pet:SetSpellID(96819)
+	-- Egbert -- 23258
+	pet = AddPet(23258, V.TBC, Q.RARE)
+	pet:SetItemID(32616)
+	pet:SetSpellID(40614)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.WORLD_EVENTS)
+	pet:AddQuest(10966, 10967)
+	pet:AddWorldEvent("CHILDRENS_WEEK")
+
+	-- Elementium Geode -- 50722
+	pet = AddPet(50722, V.CATA, Q.RARE)
+	pet:SetItemID(67282)
+	pet:SetSpellID(93838)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.MINING)
+
+	-- Elwynn Lamb -- 33200
+	pet = AddPet(33200, V.WOTLK, Q.RARE)
+	pet:SetItemID(44974)
+	pet:SetSpellID(62516)
+	pet:AddFilters(F.ALLIANCE, F.IBOE, F.VENDOR)
+	pet:AddVendor(33307)
+	pet:AddCustom("CHAMPION_SEALS")
+
+	-- Emerald Shale Hatchling -- 62915
+	pet = AddPet(62915, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.DEEPHOLM, "22-23", "63:24", "49:53", "45:85", "30:47", "36:77")
+
+	-- Enchanted Lantern -- 46898
+	pet = AddPet(46898, V.CATA, Q.RARE)
+	pet:SetItemID(67274)
+	pet:SetSpellID(93836)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.ENCHANTING)
+
+	-- Ethereal Soul-Trader -- 27914
+	pet = AddPet(27914, V.TBC, Q.RARE)
+	pet:SetItemID(38050)
+	pet:SetSpellID(49964)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
 	pet:AddCustom("TCG")
 
-	-- Twilight Spider -- 62117
-	pet = AddPet(62117, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.AZSHARA, Z.DEEPHOLM, Z.TWILIGHT_HIGHLANDS)
-	pet:AddZoneLocations(Z.AZSHARA, "3-5", "64.6:15.2", "71.6:16.0", "69.4:16.4", "67.6:17.4", "64.0:17.8")
-	pet:AddZoneLocations(Z.DEEPHOLM, "22-23", "62.4:54.4", "35.6:67.4", "41.6:71.8", "43.2:76.4", "60.0:42.2", "63.2:34.4")
-	pet:AddZoneLocations(Z.TWILIGHT_HIGHLANDS, "23", "58.0:32.0", "40.0:50.2", "55.6:47.0", "61.6:47.6", "62.8:54.8", "57.0:57.6", "33.2:67.8", "59.8:83.4", "70.6:74.8", "63.6:67.4")
+	-- Father Winter's Helper -- 15698
+	pet = AddPet(15698, V.ORIG, Q.COMMON)
+	pet:SetItemID(21301)
+	pet:SetSpellID(26533)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.IBOE)
+	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+
+	-- Feral Vermling -- 63621
+	pet = AddPet(63621, V.MOP, Q.COMMON)
+	pet:SetItemID(85578)
+	pet:SetSpellID(124152)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.ACHIEVEMENT)
+	pet:AddAchievement(7500)
+
+	-- Fetish Shaman -- 56266
+	pet = AddPet(56266, V.CATA, Q.RARE)
+	pet:SetItemID(76062)
+	pet:SetSpellID(105633)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddCustom("DIABLOCE")
+
+	-- Fishy -- 62829
+	pet = AddPet(62829, V.MOP, Q.COMMON)
+	pet:SetItemID(84105)
+	pet:SetSpellID(122748)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(29905, 31239)
+
+	-- Fox Kit -- 48641
+	pet = AddPet(48641, V.CATA, Q.RARE)
+	pet:SetItemID(64403)
+	pet:SetSpellID(90637)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.VENDOR)
+	pet:AddMobDrop(47676)
+	pet:AddVendor(47328, 48531)
+
+	-- Frigid Frostling -- 40198
+	pet = AddPet(40198, V.WOTLK, Q.RARE)
+	pet:SetItemID(53641)
+	pet:SetSpellID(74932)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("MIDSUMMER_FIRE_FESTIVAL")
+	pet:AddMobDrop(25740)
+
+	-- Frosty -- 28883
+	pet = AddPet(28883, V.WOTLK, Q.RARE)
+	pet:SetItemID(39286)
+	pet:SetSpellID(52615)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.COLLECTORS_EDITION)
+	pet:AddCustom("CE")
 
 	-- Garden Moth -- 65215
 	pet = AddPet(65215, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.THE_JADE_FOREST)
 	pet:AddZoneLocations(Z.THE_JADE_FOREST, "22-24", "56.1:54.6", "56:42", "51.4:46.2", "54.4:48.2")
+
+	-- Golden Dragonhawk Hatchling -- 21055
+	pet = AddPet(21055, V.TBC, Q.COMMON)
+	pet:SetItemID(29953)
+	pet:SetSpellID(36027)
+	pet:AddFilters(F.HORDE, F.VENDOR, F.IBOE)
+	pet:AddVendor(16860)
+
+	-- Guild Herald -- 49587
+	pet = AddPet(49587, V.CATA, Q.COMMON)
+	pet:SetItemID(65363)
+	pet:SetSpellID(92397)
+	pet:AddFilters(F.ALLIANCE, F.ACHIEVEMENT, F.VENDOR, F.GUILD)
+	pet:AddAchievement(5201)
+	pet:AddRepVendor(FAC.GUILD, REP.REVERED, 51512, 51501, 52268, 46602, 51495, 51504)
+	pet:SetRequiredFaction("Alliance")
+
+	-- Guild Herald -- 49590
+	pet = AddPet(49590, V.CATA, Q.COMMON)
+	pet:SetItemID(65364)
+	pet:SetSpellID(92398)
+	pet:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.GUILD, F.ACHIEVEMENT)
+	pet:AddAchievement(5201)
+	pet:AddRepVendor(FAC.GUILD, REP.REVERED, 46572, 51496, 51502, 51512, 51503, 52268)
+	pet:SetRequiredFaction("Horde")
+
+	-- Guild Page -- 49586
+	pet = AddPet(49586, V.CATA, Q.COMMON)
+	pet:SetItemID(65361)
+	pet:SetSpellID(92395)
+	pet:AddFilters(F.ALLIANCE, F.ACHIEVEMENT, F.VENDOR, F.GUILD, F.IBOP)
+	pet:AddAchievement(5031)
+	pet:AddRepVendor(FAC.GUILD, REP.HONORED, 51512, 51501, 52268, 46602, 51495, 51504)
+	pet:SetRequiredFaction("Alliance")
+
+	-- Guild Page -- 49588
+	pet = AddPet(49588, V.CATA, Q.COMMON)
+	pet:SetItemID(65362)
+	pet:SetSpellID(92396)
+	pet:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.ACHIEVEMENT)
+	pet:AddAchievement(5179)
+	pet:AddRepVendor(FAC.GUILD, REP.HONORED, 46572, 51496, 51502, 51512, 51503, 52268)
+	pet:SetRequiredFaction("Horde")
+
+	-- Gurky -- 16069
+	pet = AddPet(16069, V.ORIG, Q.RARE)
+	pet:SetItemID(22114)
+	pet:SetSpellID(27241)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.RETIRED)
+	pet:AddCustom("EUPROMO")
+
+	-- Hopling -- 64632
+	pet = AddPet(64632, V.MOP, Q.COMMON)
+	pet:SetItemID(86562)
+	pet:SetSpellID(126247)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(6402)
+
+	-- Horde Balloon -- 54541
+	pet = AddPet(54541, V.CATA, Q.COMMON)
+	pet:SetItemID(72045)
+	pet:SetSpellID(101989)
+	pet:AddFilters(F.HORDE, F.QUEST, F.IBOP)
+	pet:AddQuest(29401)
+	pet:SetRequiredFaction("Horde")
+
+	-- Hyjal Bear Cub -- 53658
+	pet = AddPet(53658, V.CATA, Q.RARE)
+	pet:SetItemID(70140)
+	pet:SetSpellID(99663)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
+	pet:AddVendor(53882)
+
+	-- Jade Crane Chick -- 65314
+	pet = AddPet(65314, V.MOP, Q.COMMON)
+	pet:SetItemID(88148)
+	pet:SetSpellID(127816)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
+	pet:AddTrainer(63596)
+	pet:SetRequiredRaces("Pandaren")
+
+	-- Jade Oozeling -- 61718
+	pet = AddPet(61718, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.THE_HINTERLANDS)
+	pet:AddZoneLocations(Z.THE_HINTERLANDS, "11", "55.6:43.6", "60.0:42.8", "57.4:38.4")
+
+	-- Jade Owl -- 61877
+	pet = AddPet(61877, V.MOP, Q.RARE)
+	pet:SetItemID(82774)
+	pet:SetSpellID(120501)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.JEWELCRAFTING)
+
+	-- Jade Tentacle -- 66450
+	pet = AddPet(66450, V.MOP, Q.COMMON)
+	pet:SetItemID(89686)
+	pet:SetSpellID(130726)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.BATTLE_PET)
+	pet:AddAchievement(7521)
+
+	-- Kirin Tor Familiar -- 32643
+	pet = AddPet(32643, V.WOTLK, Q.RARE)
+	pet:SetItemID(44738)
+	pet:SetSpellID(61472)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(1956)
+
+	-- Landro's Lil' XT -- 50468
+	pet = AddPet(50468, V.CATA, Q.RARE)
+	pet:SetItemID(67128)
+	pet:SetSpellID(93624)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	pet:AddCustom("TCG")
+
+	-- Lashtail Hatchling -- 52894
+	pet = AddPet(52894, V.CATA, Q.COMMON)
+	pet:SetItemID(69251)
+	pet:SetSpellID(97779)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(29208)
+
+	-- Lava Crab -- 61383
+	pet = AddPet(61383, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.BURNING_STEPPES, Z.SEARING_GORGE)
+	pet:AddZoneLocations(Z.SEARING_GORGE, "13", "38.8:73.6", "38.6:76.8", "35.6:77.6", "35.6:74.8", "45.8:47.7", "48.6:50.2", "53.6:55.0")
+	pet:AddZoneLocations(Z.BURNING_STEPPES, "15", "67.6:45.0", "54.8:26.6", "54.6:31.6", "51.6:31.8", "14.6:44.6", "20.6:60.6", "26.8:59.0")
+
+	-- Leaping Hatchling -- 35387
+	pet = AddPet(35387, V.WOTLK, Q.COMMON)
+	pet:SetItemID(48118)
+	pet:SetSpellID(67416)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, Z.NORTHERN_BARRENS)
+	pet:AddCustom("TAKKSNEST")
+
+	-- Legs -- 53048
+	pet = AddPet(53048, V.CATA, Q.COMMON)
+	pet:SetItemID(69648)
+	pet:SetSpellID(98079)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddQuest(10966, 10967)
+	pet:AddWorldEvent("CHILDRENS_WEEK")
+
+	-- Lil' Ragnaros -- 51600
+	pet = AddPet(51600, V.WOTLK, Q.RARE)
+	pet:SetItemID(68385)
+	pet:SetSpellID(95787)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
+
+	-- Lil' Smoky -- 9657
+	pet = AddPet(9657, V.ORIG, Q.COMMON)
+	pet:SetItemID(11826)
+	pet:SetSpellID(15049)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.ENGINEERING)
 
 	-- Lil' XT -- 40703
 	pet = AddPet(40703, V.WOTLK, Q.RARE)
@@ -143,31 +500,215 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
 	pet:AddCustom("STORE")
 
-	-- Winter's Little Helper -- 15705
-	pet = AddPet(15705, V.ORIG, Q.COMMON)
-	pet:SetItemID(21395)
-	pet:SetSpellID(26541)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.IBOP)
-	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+	-- Lucky -- 23198
+	pet = AddPet(23198, V.TBC, Q.RARE)
+	pet:SetItemID(32498)
+	pet:SetSpellID(40405)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
+	pet:AddCustom("WWI")
 
-	-- Tiny Bog Beast -- 61686
-	pet = AddPet(61686, V.MOP, Q.COMMON)
+	-- Lucky Quilen Cub -- 63832
+	pet = AddPet(63832, V.MOP, Q.RARE)
+	pet:SetItemID(85871)
+	pet:SetSpellID(124660)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	pet:AddCustom("CE")
+
+	-- Lurky -- 15358
+	pet = AddPet(15358, V.ORIG, Q.RARE)
+	pet:SetItemID(30360)
+	pet:SetSpellID(24988)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.COLLECTORS_EDITION)
+	pet:AddCustom("CE")
+
+	-- Magic Lamp -- 50545
+	pet = AddPet(50545, V.CATA, Q.RARE)
+	pet:SetItemID(67275)
+	pet:SetSpellID(93837)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.ENCHANTING)
+
+	-- Magical Crawdad -- 18839
+	pet = AddPet(18839, V.TBC, Q.RARE)
+	pet:SetItemID(27445)
+	pet:SetSpellID(33050)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.FISHING)
+	pet:AddWorldDrop(Z.TEROKKAR_FOREST)
+
+	-- Mana Wyrmling -- 20408
+	pet = AddPet(20408, V.TBC, Q.COMMON)
+	pet:SetItemID(29363)
+	pet:SetSpellID(35156)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
+	pet:AddVendor(20980)
+
+	-- Mechanical Chicken -- 8376
+	pet = AddPet(8376, V.ORIG, Q.COMMON)
+	pet:SetItemID(10398)
+	pet:SetSpellID(12243)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE)
+	pet:AddQuest(3721)
+
+	-- Mechanical Pandaren Dragonling -- 64899
+	pet = AddPet(64899, V.MOP, Q.RARE)
+	pet:SetItemID(87526)
+	pet:SetSpellID(126885)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.ENGINEERING)
+
+	-- Mini Thor -- 42078
+	pet = AddPet(42078, V.WOTLK, Q.RARE)
+	pet:SetItemID(56806)
+	pet:SetSpellID(78381)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.PROMO)
+	pet:AddCustom("STARCRAFTCE")
+
+	-- Moonkin Hatchling -- 51601
+	pet = AddPet(51601, V.MOP, Q.RARE)
+	pet:SetItemID(68618)
+	pet:SetSpellID(95786)
+	pet:AddFilters(F.ALLIANCE, F.STORE, F.IBOP)
+	pet:SetRequiredFaction("Alliance")
+
+	-- Moonkin Hatchling -- 51649
+	pet = AddPet(51649, V.MOP, Q.RARE)
+	pet:SetItemID(68619)
+	pet:SetSpellID(95909)
+	pet:AddFilters(F.HORDE, F.STORE, F.IBOP)
+	pet:SetRequiredFaction("Horde")
+
+	-- Mr. Chilly -- 29726
+	pet = AddPet(29726, V.WOTLK, Q.RARE)
+	pet:SetItemID(41133)
+	pet:SetSpellID(55068)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
+	pet:AddCustom("BATTLEMERGE")
+
+	-- Mulgore Hatchling -- 33219
+	pet = AddPet(33219, V.WOTLK, Q.RARE)
+	pet:SetItemID(44980)
+	pet:SetSpellID(62542)
+	pet:AddFilters(F.HORDE, F.IBOE, F.VENDOR)
+	pet:AddVendor(33556)
+	pet:AddCustom("CHAMPION_SEALS")
+
+	-- Murkablo -- 54438
+	pet = AddPet(54438, V.CATA, Q.RARE)
+	pet:SetItemID(71726)
+	pet:SetSpellID(101606)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddCustom("BLIZZCON")
+
+	-- Nether Roach -- 62625
+	pet = AddPet(62625, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.WETLANDS)
-	pet:AddZoneLocations(Z.WETLANDS, "6", "55.6:34.6", "52.8:38.0", "50.4:30.6", "55.6:24.2")
+	pet:AddWorldDrop(Z.NETHERSTORM)
+	pet:AddZoneLocations(Z.NETHERSTORM, "20", "29.0:78.4", "58.0:80.8", "57.0:48.2", "67.6:45.6", "40.6:29.4", "35.6:39.8", "28.6:44.0")
 
-	-- Jade Oozeling -- 61718
-	pet = AddPet(61718, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.THE_HINTERLANDS)
-	pet:AddZoneLocations(Z.THE_HINTERLANDS, "11", "55.6:43.6", "60.0:42.8", "57.4:38.4")
-
-	-- Bananas -- 23234
-	pet = AddPet(23234, V.TBC, Q.RARE)
-	pet:SetItemID(32588)
-	pet:SetSpellID(40549)
+	-- Nightsaber Cub -- 52344
+	pet = AddPet(52344, V.CATA, Q.COMMON)
+	pet:SetItemID(68841)
+	pet:SetSpellID(96819)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
 	pet:AddCustom("TCG")
+
+	-- Onyx Panther -- 35468
+	pet = AddPet(35468, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
+	pet:AddCustom("KOREA")
+
+	-- Pandaren Monk -- 36911
+	pet = AddPet(36911, V.WOTLK, Q.RARE)
+	pet:SetItemID(49665)
+	pet:SetSpellID(69541)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
+
+	-- Perky Pug -- 37865
+	pet = AddPet(37865, V.WOTLK, Q.RARE)
+	pet:SetItemID(49912)
+	pet:SetSpellID(70613)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(4478)
+
+	-- Pint-Sized Pink Pachyderm -- 24753
+	pet = AddPet(24753, V.TBC, Q.RARE)
+	pet:SetItemID(46707)
+	pet:SetSpellID(44369)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR, F.WORLD_EVENTS)
+	pet:AddVendor(23710, 24495, 27478, 27489)
+	pet:AddWorldEvent("BREWFEST")
+
+	-- Plump Turkey -- 32818
+	pet = AddPet(32818, V.WOTLK, Q.RARE)
+	pet:SetItemID(44810)
+	pet:SetSpellID(61773)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(3478)
+	pet:AddWorldEvent("PILGRIMS_BOUNTY")
+
+	-- Porcupette -- 61086
+	pet = AddPet(61086, V.MOP, Q.COMMON)
+	pet:SetItemID(89587)
+	pet:SetSpellID(118414)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddCustom("PETBATTLEDAILY")
+
+	-- Proto-Drake Whelp -- 32592
+	pet = AddPet(32592, V.WOTLK, Q.COMMON)
+	pet:SetItemID(44721)
+	pet:SetSpellID(61350)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddCustom("MYSTERIOUS_EGG")
+
+	-- Pterrordax Hatchling -- 53225
+	pet = AddPet(53225, V.CATA, Q.RARE)
+	pet:SetItemID(69821)
+	pet:SetSpellID(98571)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.ARCHAEOLOGY)
+
+	-- Razormaw Hatchling -- 35398
+	pet = AddPet(35398, V.WOTLK, Q.COMMON)
+	pet:SetItemID(48124)
+	pet:SetSpellID(67419)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddCustom("RAZORMAWNEST")
+
+	-- Red Cricket -- 63370
+	pet = AddPet(63370, V.MOP, Q.COMMON)
+	pet:SetItemID(85222)
+	pet:SetSpellID(123784)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddCustom("SHOEXALTED")
+
+	-- Scooter the Snail -- 51635
+	pet = AddPet(51635, V.CATA, Q.COMMON)
+	pet:SetItemID(66073)
+	pet:SetSpellID(93817)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("CHILDRENS_WEEK")
+	pet:AddQuest(171, 5502)
+
+	-- Shore Crawler -- 63097
+	pet = AddPet(63097, V.MOP, Q.COMMON)
+	pet:AddFilters(F.HORDE, F.TRAINER, F.IBOP)
+	pet:AddTrainer(63086, 63626)
+
+	-- Silky Moth -- 62373
+	pet = AddPet(62373, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.MOONGLADE, Z.MOUNT_HYJAL, Z.UNGORO_CRATER)
+	pet:AddZoneLocations(Z.MOONGLADE, "15", "63.2:44.4", "62.2:66.6")
+	pet:AddZoneLocations(Z.UNGORO_CRATER, "15", "43.8:80.0")
+	pet:AddZoneLocations(Z.MOUNT_HYJAL, "22-23", "49.2:23.6", "40.2:26.6", "64.0:22.8", "60.6:29.6")
+
+	-- Silver Dragonhawk Hatchling -- 21063
+	pet = AddPet(21063, V.TBC, Q.COMMON)
+	pet:SetItemID(29957)
+	pet:SetSpellID(36029)
+	pet:AddFilters(F.HORDE, F.VENDOR, F.IBOE)
+	pet:AddVendor(16860)
 
 	-- Singing Cricket -- 64232
 	pet = AddPet(64232, V.MOP, Q.COMMON)
@@ -187,19 +728,44 @@ function addon:InitCritters()
 	pet:AddZoneLocations(Z.TEROKKAR_FOREST, "18", "54.8:37.4", "68.4:38.6", "47.6:22.6", "40.4:31.8")
 	pet:AddZoneLocations(Z.HOWLING_FJORD, "20-21", "50.6:41.6", "43.8:45.2", "41.2:28.4", "72.2:27.0", "72.8:45.6")
 
-	-- Egbert -- 23258
-	pet = AddPet(23258, V.TBC, Q.RARE)
-	pet:SetItemID(32616)
-	pet:SetSpellID(40614)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.WORLD_EVENTS)
-	pet:AddQuest(10966, 10967)
-	pet:AddWorldEvent("CHILDRENS_WEEK")
+	-- Soul of the Aspects -- 58163
+	pet = AddPet(58163, V.CATA, Q.RARE)
+	pet:SetItemID(78916)
+	pet:SetSpellID(110029)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
 
-	-- Water Waveling -- 62820
-	pet = AddPet(62820, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.ZULDRAK)
-	pet:AddZoneLocations(Z.ZULDRAK, "22", "38.8:75.6", "40.8:71.4", "46.0:78.2", "42.6:83.6")
+	-- Spectral Tiger Cub -- 36511
+	pet = AddPet(36511, V.WOTLK, Q.RARE)
+	pet:SetItemID(49343)
+	pet:SetSpellID(68810)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	pet:AddCustom("TCG")
+
+	-- Speedy -- 16547
+	pet = AddPet(16547, V.ORIG, Q.COMMON)
+	pet:SetItemID(23002)
+	pet:SetSpellID(28738)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.QUEST)
+	pet:AddWorldEvent("CHILDRENS_WEEK")
+	pet:AddQuest(171, 5502)
+
+	-- Spirit of Summer -- 16701
+	pet = AddPet(16701, V.ORIG, Q.RARE)
+	pet:SetItemID(23083)
+	pet:SetSpellID(28871)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.WORLD_EVENTS)
+	pet:AddVendor(26123, 26124)
+	pet:AddWorldEvent("MIDSUMMER_FIRE_FESTIVAL")
+	pet:AddCustom("CITY")
+
+	-- Spring Rabbit -- 32791
+	pet = AddPet(32791, V.WOTLK, Q.RARE)
+	pet:SetItemID(44794)
+	pet:SetSpellID(61725)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR, F.WORLD_EVENTS)
+	pet:AddVendor(32836, 32837)
+	pet:AddWorldEvent("NOBLEGARDEN")
+	pet:AddCustom("NOBLE_VENDOR")
 
 	-- Stinker -- 23274
 	pet = AddPet(23274, V.TBC, Q.RARE)
@@ -208,27 +774,91 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	pet:AddAchievement(1250)
 
-	-- Darkmoon Balloon -- 55187
-	pet = AddPet(55187, V.CATA, Q.RARE)
-	pet:SetItemID(73762)
-	pet:SetSpellID(103076)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
-	pet:AddWorldEvent("DARKMOON_FAIRE")
-	pet:AddVendor(14846, 14828, 55305)
+	-- Teldrassil Sproutling -- 33188
+	pet = AddPet(33188, V.WOTLK, Q.RARE)
+	pet:SetItemID(44965)
+	pet:SetSpellID(62491)
+	pet:AddFilters(F.ALLIANCE, F.IBOE, F.VENDOR)
+	pet:AddVendor(33653)
+	pet:AddCustom("CHAMPION_SEALS")
 
-	-- Zooey Snake -- 63555
-	pet = AddPet(63555, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
-	pet:AddZoneLocations(Z.ZULDRAK, "23-24", "71.6:90.2", "68.6:87.4", "61.2:69.8", "53.6:78.6", "73.2:65.6")
+	-- Thundering Serpent Hatchling -- 65313
+	pet = AddPet(65313, V.MOP, Q.COMMON)
+	pet:SetItemID(85513)
+	pet:SetSpellID(127813)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(6634)
 
-	-- Silky Moth -- 62373
-	pet = AddPet(62373, V.MOP, Q.COMMON)
+	-- Tiny Bog Beast -- 61686
+	pet = AddPet(61686, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.MOONGLADE, Z.MOUNT_HYJAL, Z.UNGORO_CRATER)
-	pet:AddZoneLocations(Z.MOONGLADE, "15", "63.2:44.4", "62.2:66.6")
-	pet:AddZoneLocations(Z.UNGORO_CRATER, "15", "43.8:80.0")
-	pet:AddZoneLocations(Z.MOUNT_HYJAL, "22-23", "49.2:23.6", "40.2:26.6", "64.0:22.8", "60.6:29.6")
+	pet:AddWorldDrop(Z.WETLANDS)
+	pet:AddZoneLocations(Z.WETLANDS, "6", "55.6:34.6", "52.8:38.0", "50.4:30.6", "55.6:24.2")
+
+	-- Tiny Goldfish -- 63559
+	pet = AddPet(63559, V.MOP, Q.COMMON)
+	pet:SetItemID(85447)
+	pet:SetSpellID(124000)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.REPUTATION, F.THE_ANGLERS)
+	pet:AddRepVendor(FAC.THE_ANGLERS, REP.HONORED, 63721)
+
+	-- Tiny Red Dragon -- 14756
+	pet = AddPet(14756, V.WOTLK, Q.RARE)
+	pet:SetItemID(19054)
+	pet:SetSpellID(23530)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
+	pet:AddCustom("CHINA")
+
+	-- Tiny Snowman -- 15710
+	pet = AddPet(15710, V.ORIG, Q.COMMON)
+	pet:SetItemID(21309)
+	pet:SetSpellID(26045)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_EVENTS)
+	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+
+	-- Toothy -- 24388
+	pet = AddPet(24388, V.TBC, Q.RARE)
+	pet:SetItemID(33816)
+	pet:SetSpellID(43697)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.QUEST)
+	pet:AddProfession(PROF.FISHING)
+	pet:AddQuest(11665)
+
+	-- Toxic Wasteling -- 38374
+	pet = AddPet(38374, V.WOTLK, Q.RARE)
+	pet:SetItemID(50446)
+	pet:SetSpellID(71840)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.WORLD_EVENTS)
+	pet:AddMobDrop(36296)
+	pet:AddWorldEvent("LOVE_IS_IN_THE_AIR")
+
+	-- Tranquil Mechanical Yeti -- 15699
+	pet = AddPet(15699, V.ORIG, Q.COMMON)
+	pet:SetItemID(21277)
+	pet:SetSpellID(26010)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.ENGINEERING)
+
+	-- Twilight Spider -- 62117
+	pet = AddPet(62117, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.AZSHARA, Z.DEEPHOLM, Z.TWILIGHT_HIGHLANDS)
+	pet:AddZoneLocations(Z.AZSHARA, "3-5", "64.6:15.2", "71.6:16.0", "69.4:16.4", "67.6:17.4", "64.0:17.8")
+	pet:AddZoneLocations(Z.DEEPHOLM, "22-23", "62.4:54.4", "35.6:67.4", "41.6:71.8", "43.2:76.4", "60.0:42.2", "63.2:34.4")
+	pet:AddZoneLocations(Z.TWILIGHT_HIGHLANDS, "23", "58.0:32.0", "40.0:50.2", "55.6:47.0", "61.6:47.6", "62.8:54.8", "57.0:57.6", "33.2:67.8", "59.8:83.4", "70.6:74.8", "63.6:67.4")
+
+	-- Venus -- 66491
+	pet = AddPet(66491, V.MOP, Q.COMMON)
+	pet:SetItemID(89736)
+	pet:SetSpellID(130759)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(7501)
+
+	-- Water Waveling -- 62820
+	pet = AddPet(62820, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.ZULDRAK)
+	pet:AddZoneLocations(Z.ZULDRAK, "22", "38.8:75.6", "40.8:71.4", "46.0:78.2", "42.6:83.6")
 
 	-- Wildhammer Gryphon Hatchling -- 62900
 	pet = AddPet(62900, V.MOP, Q.COMMON)
@@ -236,53 +866,62 @@ function addon:InitCritters()
 	pet:AddWorldDrop(Z.TWILIGHT_HIGHLANDS)
 	pet:AddZoneLocations(Z.TWILIGHT_HIGHLANDS, "23", "56.6:15.8", "48.4:28.2")
 
-	-- Lava Crab -- 61383
-	pet = AddPet(61383, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.BURNING_STEPPES, Z.SEARING_GORGE)
+	-- Wind Rider Cub -- 36909
+	pet = AddPet(36909, V.WOTLK, Q.RARE)
+	pet:SetItemID(49663)
+	pet:SetSpellID(69536)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
 
-	-- Core Hound Pup -- 36871
-	pet = AddPet(36871, V.WOTLK, Q.RARE)
-	pet:SetItemID(49646)
-	pet:SetSpellID(69452)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
-	pet:AddCustom("AUTH")
+	-- Winter's Little Helper -- 15705
+	pet = AddPet(15705, V.ORIG, Q.COMMON)
+	pet:SetItemID(21395)
+	pet:SetSpellID(26541)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.IBOP)
+	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+
+	-- Winter Reindeer -- 15706
+	pet = AddPet(15706, V.ORIG, Q.RARE)
+	pet:SetItemID(21308)
+	pet:SetSpellID(26529)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_EVENTS)
+	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
 	-- Yakrat -- 63957
 	pet = AddPet(63957, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.DREAD_WASTES, Z.TOWNLONG_STEPPES)
+	pet:AddWorldDrop(Z.TOWNLONG_STEPPES)
+	pet:AddZoneLocations(Z.TOWNLONG_STEPPES, "24-25", "17.6:58.0", "75.8:82.6", "82.0:73.6", "83.6:79.0", "71.6:56.6", "67.2:49.2", "67.6:44.6")
 
-	-- Jade Tentacle -- 66450
-	pet = AddPet(66450, V.MOP, Q.COMMON)
-	pet:SetItemID(89686)
-	pet:SetSpellID(130726)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.BATTLE_PET)
-	pet:AddAchievement(7521)
+	-- Yellow Moth -- 21008
+	pet = AddPet(21008, V.TBC, Q.COMMON)
+	pet:SetItemID(29903)
+	pet:SetSpellID(35910)
+	pet:AddFilters(F.ALLIANCE, F.VENDOR)
+	pet:AddVendor(21019)
 
-	-- Calico Cat -- 34364
-	pet = AddPet(34364, V.WOTLK, Q.COMMON)
-	pet:SetItemID(46398)
-	pet:SetSpellID(65358)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
-	pet:AddVendor(28951)
+	-- Zergling -- 11327
+	pet = AddPet(11327, V.ORIG, Q.COMMON)
+	pet:SetItemID(13582)
+	pet:SetSpellID(17709)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.COLLECTORS_EDITION)
+	pet:AddCustom("CE")
 
-	-- Nether Roach -- 62625
-	pet = AddPet(62625, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.NETHERSTORM)
+	-- Zipao Tiger -- 36910
+	pet = AddPet(36910, V.WOTLK, Q.RARE)
+	pet:SetItemID(49664)
+	pet:SetSpellID(69539)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
+	pet:AddCustom("CHINA")
 
-	-- Amber Moth -- 65187
-	pet = AddPet(65187, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.DREAD_WASTES, Z.TOWNLONG_STEPPES)
+	-- Zooey Snake -- 63555
+	pet = AddPet(63555, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
+	pet:AddZoneLocations(Z.ZULDRAK, "23-24", "71.6:90.2", "68.6:87.4", "61.2:69.8", "53.6:78.6", "73.2:65.6")
 
-	-- Lil' Smoky -- 9657
-	pet = AddPet(9657, V.ORIG, Q.COMMON)
-	pet:SetItemID(11826)
-	pet:SetSpellID(15049)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(PROF.ENGINEERING)
+
+
+-- TO DO STILL
 
 	-- Larva -- 62022
 	pet = AddPet(62022, V.MOP, Q.COMMON)
@@ -294,24 +933,10 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.VALLEY_OF_THE_FOUR_WINDS)
 
-	-- Proto-Drake Whelp -- 32592
-	pet = AddPet(32592, V.WOTLK, Q.COMMON)
-	pet:SetItemID(44721)
-	pet:SetSpellID(61350)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
-	pet:AddCustom("MYSTERIOUS_EGG")
-
 	-- Mei Li Sparkler -- 65185
 	pet = AddPet(65185, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.KRASARANG_WILDS)
-
-	-- Celestial Dragon -- 40624
-	pet = AddPet(40624, V.CATA, Q.RARE)
-	pet:SetItemID(54810)
-	pet:SetSpellID(75613)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
-	pet:AddAchievement(5875)
 
 	-- Rabbit -- 61080
 	pet = AddPet(61080, V.MOP, Q.COMMON)
@@ -349,23 +974,10 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.DREAD_WASTES)
 
-	-- Green Balloon -- 56082
-	--pet = AddPet(56082, V.CATA, Q.COMMON)
-	--pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
-	--pet:AddVendor(55305)
-
 	-- Rapana Whelk -- 64352
 	pet = AddPet(64352, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.DREAD_WASTES)
-
-	-- Legs -- 53048
-	pet = AddPet(53048, V.CATA, Q.COMMON)
-	pet:SetItemID(69648)
-	pet:SetSpellID(98079)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
-	pet:AddQuest(10966, 10967)
-	pet:AddWorldEvent("CHILDRENS_WEEK")
 
 	-- Hare -- 61751
 	pet = AddPet(61751, V.MOP, Q.COMMON)
@@ -382,26 +994,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.VALLEY_OF_THE_FOUR_WINDS)
 
-	-- Cenarion Hatchling -- 53623
-	pet = AddPet(53623, V.CATA, Q.EPIC)
-	pet:SetItemID(70099)
-	pet:SetSpellID(99578)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
-
-	-- Lurky -- 15358
-	pet = AddPet(15358, V.ORIG, Q.RARE)
-	pet:SetItemID(30360)
-	pet:SetSpellID(24988)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.COLLECTORS_EDITION)
-	pet:AddCustom("CE")
-
-	-- Brown Rabbit -- 20472
-	pet = AddPet(20472, V.ORIG, Q.COMMON)
-	pet:SetItemID(29364)
-	pet:SetSpellID(35239)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
-	pet:AddVendor(20980)
-
 	-- Resilient Roach -- 64238
 	pet = AddPet(64238, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
@@ -417,79 +1009,15 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.HILLSBRAD_FOOTHILLS, Z.SWAMP_OF_SORROWS, Z.TWILIGHT_HIGHLANDS, Z.ZULDRAK)
 
-	-- Clockwork Gnome -- 48609
-	pet = AddPet(48609, V.CATA, Q.RARE)
-	pet:SetItemID(64372)
-	pet:SetSpellID(90521)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(PROF.ARCHAEOLOGY)
-
 	-- Mongoose Pup -- 63954
 	pet = AddPet(63954, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.TOWNLONG_STEPPES)
 
-	-- Fox Kit -- 48641
-	pet = AddPet(48641, V.CATA, Q.RARE)
-	pet:SetItemID(64403)
-	pet:SetSpellID(90637)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.VENDOR)
-	pet:AddMobDrop(47676)
-	pet:AddVendor(47328, 48531)
-
-	-- Mr. Chilly -- 29726
-	pet = AddPet(29726, V.WOTLK, Q.RARE)
-	pet:SetItemID(41133)
-	pet:SetSpellID(55068)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
-	pet:AddCustom("BATTLEMERGE")
-
-	-- Leaping Hatchling -- 35387
-	pet = AddPet(35387, V.WOTLK, Q.COMMON)
-	pet:SetItemID(48118)
-	pet:SetSpellID(67416)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, Z.NORTHERN_BARRENS)
-	pet:AddCustom("TAKKSNEST")
-
-	-- Golden Dragonhawk Hatchling -- 21055
-	pet = AddPet(21055, V.TBC, Q.COMMON)
-	pet:SetItemID(29953)
-	pet:SetSpellID(36027)
-	pet:AddFilters(F.HORDE, F.VENDOR, F.IBOE)
-	pet:AddVendor(16860)
-
-	-- Silver Dragonhawk Hatchling -- 21063
-	pet = AddPet(21063, V.TBC, Q.COMMON)
-	pet:SetItemID(29957)
-	pet:SetSpellID(36029)
-	pet:AddFilters(F.HORDE, F.VENDOR, F.IBOE)
-	pet:AddVendor(16860)
-
-	-- Mini Thor -- 42078
-	pet = AddPet(42078, V.WOTLK, Q.RARE)
-	pet:SetItemID(56806)
-	pet:SetSpellID(78381)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.PROMO)
-	pet:AddCustom("STARCRAFTCE")
-
 	-- Kuitan Mongoose -- 63953
 	pet = AddPet(63953, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.TOWNLONG_STEPPES)
-
-	-- Brilliant Kaliri -- 54374
-	pet = AddPet(54374, V.CATA, Q.COMMON)
-	pet:SetItemID(71387)
-	pet:SetSpellID(101424)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
-	pet:AddAchievement(5877)
-
-	-- Razormaw Hatchling -- 35398
-	pet = AddPet(35398, V.WOTLK, Q.COMMON)
-	pet:SetItemID(48124)
-	pet:SetSpellID(67419)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
-	pet:AddCustom("RAZORMAWNEST")
 
 	-- Effervescent Glowfly -- 63850
 	pet = AddPet(63850, V.MOP, Q.COMMON)
@@ -500,13 +1028,6 @@ function addon:InitCritters()
 	pet = AddPet(63847, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
-
-	-- Murkablo -- 54438
-	pet = AddPet(54438, V.CATA, Q.RARE)
-	pet:SetItemID(71726)
-	pet:SetSpellID(101606)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
-	pet:AddCustom("BLIZZCON")
 
 	-- Robo-Chick -- 62119
 	pet = AddPet(62119, V.MOP, Q.COMMON)
@@ -538,24 +1059,10 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.THE_JADE_FOREST)
 
-	-- (Flimsy) Yellow Balloon -- 56083  -- This pet isn't learnable, but is in the journal. Bad Blizzard!
-	--pet = AddPet(56083, V.MOP, Q.COMMON)
-	--pet:SetItemID(75042)
-	--pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
-	--pet:AddVendor(55305)
-	--pet:AddWorldEvent("DARKMOON_FAIRE")
-
 	-- Szechuan Chicken -- 63585
 	pet = AddPet(63585, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
-
-	-- Thundering Serpent Hatchling -- 65313
-	pet = AddPet(65313, V.MOP, Q.COMMON)
-	pet:SetItemID(85513)
-	pet:SetSpellID(127813)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
-	pet:AddAchievement(6634)
 
 	-- Brown Marmot -- 61752
 	pet = AddPet(61752, V.MOP, Q.COMMON)
@@ -577,14 +1084,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.VALLEY_OF_THE_FOUR_WINDS)
 
-	-- Elwynn Lamb -- 33200
-	pet = AddPet(33200, V.WOTLK, Q.RARE)
-	pet:SetItemID(44974)
-	pet:SetSpellID(62516)
-	pet:AddFilters(F.ALLIANCE, F.IBOE, F.VENDOR)
-	pet:AddVendor(33307)
-	pet:AddCustom("CHAMPION_SEALS")
-
 	-- Terrible Turnip -- 63365
 	pet = AddPet(63365, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_DROP)
@@ -599,28 +1098,6 @@ function addon:InitCritters()
 	pet = AddPet(62375, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.UNGORO_CRATER)
-
-	-- Toxic Wasteling -- 38374
-	pet = AddPet(38374, V.WOTLK, Q.RARE)
-	pet:SetItemID(50446)
-	pet:SetSpellID(71840)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.WORLD_EVENTS)
-	pet:AddMobDrop(36296)
-	pet:AddWorldEvent("LOVE_IS_IN_THE_AIR")
-
-	-- Ethereal Soul-Trader -- 27914
-	pet = AddPet(27914, V.TBC, Q.RARE)
-	pet:SetItemID(38050)
-	pet:SetSpellID(49964)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	pet:AddCustom("TCG")
-
-	-- Pterrordax Hatchling -- 53225
-	pet = AddPet(53225, V.CATA, Q.RARE)
-	pet:SetItemID(69821)
-	pet:SetSpellID(98571)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(PROF.ARCHAEOLOGY)
 
 	-- Alpine Foxling -- 63550
 	pet = AddPet(63550, V.MOP, Q.COMMON)
@@ -642,13 +1119,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.THE_JADE_FOREST)
 
-	-- Mechanical Chicken -- 8376
-	pet = AddPet(8376, V.ORIG, Q.COMMON)
-	pet:SetItemID(10398)
-	pet:SetSpellID(12243)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOE)
-	pet:AddQuest(3721)
-
 	-- Horny Toad -- 62185
 	pet = AddPet(62185, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
@@ -659,48 +1129,17 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
 
-	-- Onyx Panther -- 35468
-	pet = AddPet(35468, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED)
-	pet:AddCustom("KOREA")
-
-	-- Mana Wyrmling -- 20408
-	pet = AddPet(20408, V.TBC, Q.COMMON)
-	pet:SetItemID(29363)
-	pet:SetSpellID(35156)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
-	pet:AddVendor(20980)
-
 	-- Warpstalker Hatchling -- 62583
 	pet = AddPet(62583, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.TEROKKAR_FOREST)
-
-	-- Feral Vermling -- 63621
-	pet = AddPet(63621, V.MOP, Q.COMMON)
-	pet:SetItemID(85578)
-	pet:SetSpellID(124152)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.ACHIEVEMENT)
-	pet:AddAchievement(7500)
-
-	-- Gurky -- 16069
-	pet = AddPet(16069, V.ORIG, Q.RARE)
-	pet:SetItemID(22114)
-	pet:SetSpellID(27241)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.RETIRED)
-	pet:AddCustom("EUPROMO")
 
 	-- Rabid Nut Varmint 5000 -- 62120
 	pet = AddPet(62120, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.AZSHARA, Z.KEZAN, Z.STONETALON_MOUNTAINS, Z.WINTERSPRING)
 
-	-- Clockwork Rocket Bot -- 24968
-	pet = AddPet(24968, V.TBC, Q.RARE)
-	pet:SetItemID(34424)
-	pet:SetSpellID(54187)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.WORLD_EVENTS)
-	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+
 
 	-- Darkmoon Turtle -- 54487
 	pet = AddPet(54487, V.CATA, Q.RARE)
@@ -740,13 +1179,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.KRASARANG_WILDS)
 
-	-- Jade Crane Chick -- 65314
-	pet = AddPet(65314, V.MOP, Q.COMMON)
-	pet:SetItemID(88148)
-	pet:SetSpellID(127816)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.TRAINER)
-	pet:AddTrainer(63596)
-	pet:SetRequiredRaces("Pandaren")
+
 
 	-- Maggot -- 61753
 	pet = AddPet(61753, V.MOP, Q.COMMON)
@@ -775,13 +1208,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.STONETALON_MOUNTAINS)
 
-	-- Mechanical Pandaren Dragonling -- 64899
-	pet = AddPet(64899, V.MOP, Q.RARE)
-	pet:SetItemID(87526)
-	pet:SetSpellID(126885)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(PROF.ENGINEERING)
-
 	-- Stone Armadillo -- 62187
 	pet = AddPet(62187, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
@@ -793,37 +1219,17 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.MOUNT_HYJAL)
 
-	-- Yellow Moth -- 21008
-	pet = AddPet(21008, V.TBC, Q.COMMON)
-	pet:SetItemID(29903)
-	pet:SetSpellID(35910)
-	pet:AddFilters(F.ALLIANCE, F.VENDOR)
-	pet:AddVendor(21019)
-
 	-- Lava Beetle -- 61386
 	pet = AddPet(61386, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.BURNING_STEPPES)
-
-	-- Darkmoon Rabbit -- 59358
-	pet = AddPet(59358, V.MOP, Q.EPIC)
-	pet:SetItemID(80008)
-	pet:SetSpellID(114090)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MOB_DROP)
-	pet:AddMobDrop(58336)
 
 	-- Malayan Quillrat -- 63094
 	pet = AddPet(63094, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.VALLEY_OF_THE_FOUR_WINDS)
 
-	-- Plump Turkey -- 32818
-	pet = AddPet(32818, V.WOTLK, Q.RARE)
-	pet:SetItemID(44810)
-	pet:SetSpellID(61773)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.IBOP, F.ACHIEVEMENT)
-	pet:AddAchievement(3478)
-	pet:AddWorldEvent("PILGRIMS_BOUNTY")
+
 
 	-- Crimson Geode -- 62927
 	pet = AddPet(62927, V.MOP, Q.COMMON)
@@ -889,39 +1295,16 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.DREAD_WASTES)
 
-	-- Father Winter's Helper -- 15698
-	pet = AddPet(15698, V.ORIG, Q.COMMON)
-	pet:SetItemID(21301)
-	pet:SetSpellID(26533)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.IBOE)
-	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
-
 	-- Temple Snake -- 62999
 	pet = AddPet(62999, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.THE_JADE_FOREST)
 
-	-- Winter Reindeer -- 15706
-	pet = AddPet(15706, V.ORIG, Q.RARE)
-	pet:SetItemID(21308)
-	pet:SetSpellID(26529)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_EVENTS)
-	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
-	-- Tiny Snowman -- 15710
-	pet = AddPet(15710, V.ORIG, Q.COMMON)
-	pet:SetItemID(21309)
-	pet:SetSpellID(26045)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_EVENTS)
-	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
-	-- Pint-Sized Pink Pachyderm -- 24753
-	pet = AddPet(24753, V.TBC, Q.RARE)
-	pet:SetItemID(46707)
-	pet:SetSpellID(44369)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR, F.WORLD_EVENTS)
-	pet:AddVendor(23710, 24495, 27478, 27489)
-	pet:AddWorldEvent("BREWFEST")
+
+
+
 
 	-- Jungle Darter -- 62997
 	pet = AddPet(62997, V.MOP, Q.COMMON)
@@ -959,33 +1342,12 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.HOWLING_FJORD)
 
-	-- Hyjal Bear Cub -- 53658
-	pet = AddPet(53658, V.CATA, Q.RARE)
-	pet:SetItemID(70140)
-	pet:SetSpellID(99663)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
-	pet:AddVendor(53882)
-
-	-- Guild Page -- 49586
-	pet = AddPet(49586, V.CATA, Q.COMMON)
-	pet:SetItemID(65361)
-	pet:SetSpellID(92395)
-	pet:AddFilters(F.ALLIANCE, F.ACHIEVEMENT, F.VENDOR, F.GUILD, F.IBOP)
-	pet:AddAchievement(5031)
-	pet:AddRepVendor(FAC.GUILD, REP.HONORED, 51512, 51501, 52268, 46602, 51495, 51504)
-	pet:SetRequiredFaction("Alliance")
-
 	-- Nordrassil Wisp -- 62888
 	pet = AddPet(62888, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.MOUNT_HYJAL)
 
-	-- Perky Pug -- 37865
-	pet = AddPet(37865, V.WOTLK, Q.RARE)
-	pet:SetItemID(49912)
-	pet:SetSpellID(70613)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
-	pet:AddAchievement(4478)
+
 
 	-- Mechanical Squirrel -- 2671
 	pet = AddPet(2671, V.ORIG, Q.COMMON)
@@ -1015,12 +1377,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE)
 	pet:AddVendor(6367)
 
-	-- Tiny Red Dragon -- 14756
-	pet = AddPet(14756, V.WOTLK, Q.RARE)
-	pet:SetItemID(19054)
-	pet:SetSpellID(23530)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
-	pet:AddCustom("CHINA")
+
 
 	-- Sea Gull -- 62953
 	pet = AddPet(62953, V.MOP, Q.COMMON)
@@ -1067,12 +1424,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.DUROTAR, Z.NORTHERN_STRANGLETHORN, Z.ORGRIMMAR, Z.SWAMP_OF_SORROWS, Z.TWILIGHT_HIGHLANDS, Z.WETLANDS)
 
-	-- Blue Mini Jouster -- 42177
-	pet = AddPet(42177, V.CATA, Q.COMMON)
-	pet:SetItemID(65661)
-	pet:SetSpellID(78683)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
-	pet:AddQuest(25560)
+
 
 	-- Stowaway Rat -- 62921
 	pet = AddPet(62921, V.MOP, Q.COMMON)
@@ -1131,11 +1483,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.KRASARANG_WILDS)
 
-	-- Magic Lamp -- 50545
-	pet = AddPet(50545, V.CATA, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(PROF.ENCHANTING)
-
 	-- Tainted Cockroach -- 62314
 	pet = AddPet(62314, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
@@ -1146,22 +1493,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.DUN_MOROGH, Z.NORTHERN_STRANGLETHORN, Z.THE_CAPE_OF_STRANGLETHORN, Z.UNGORO_CRATER)
 
-	-- Mulgore Hatchling -- 33219
-	pet = AddPet(33219, V.WOTLK, Q.RARE)
-	pet:SetItemID(44980)
-	pet:SetSpellID(62542)
-	pet:AddFilters(F.HORDE, F.IBOE, F.VENDOR)
-	pet:AddVendor(33556)
-	pet:AddCustom("CHAMPION_SEALS")
 
-	-- Guild Herald -- 49587
-	pet = AddPet(49587, V.CATA, Q.COMMON)
-	pet:SetItemID(65363)
-	pet:SetSpellID(92397)
-	pet:AddFilters(F.ALLIANCE, F.ACHIEVEMENT, F.VENDOR, F.GUILD)
-	pet:AddAchievement(5201)
-	pet:AddRepVendor(FAC.GUILD, REP.REVERED, 51512, 51501, 52268, 46602, 51495, 51504)
-	pet:SetRequiredFaction("Alliance")
 
 	-- Horned Lizard -- 62894
 	pet = AddPet(62894, V.MOP, Q.COMMON)
@@ -1227,23 +1559,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.MOUNT_HYJAL)
 
-	-- Zergling -- 11327
-	pet = AddPet(11327, V.ORIG, Q.COMMON)
-	pet:SetItemID(13582)
-	pet:SetSpellID(17709)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.COLLECTORS_EDITION)
-	pet:AddCustom("CE")
-
 	-- Arctic Fox Kit -- 62864
 	pet = AddPet(62864, V.MOP, Q.COMMON)
 	pet:SetWeather(WEATHER.SNOW)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.THE_STORM_PEAKS)
 
-	-- Shore Crawler -- 63097
-	pet = AddPet(63097, V.MOP, Q.COMMON)
-	pet:AddFilters(F.HORDE, F.TRAINER, F.IBOP)
-	pet:AddTrainer(63086, 63626)
+
 
 	-- Scourged Whelpling -- 62854
 	pet = AddPet(62854, V.MOP, Q.COMMON)
@@ -1262,28 +1584,11 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	pet:AddMobDrop(24664)
 
-	-- Red Cricket -- 63370
-	pet = AddPet(63370, V.MOP, Q.COMMON)
-	pet:SetItemID(85222)
-	pet:SetSpellID(123784)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
-	pet:AddCustom("SHOEXALTED")
 
-	-- Brown Prairie Dog -- 14421
-	pet = AddPet(14421, V.ORIG, Q.COMMON)
-	pet:SetItemID(10394)
-	pet:SetSpellID(10709)
-	pet:AddFilters(F.HORDE, F.VENDOR, F.TRAINER, F.IBOE)
-	pet:AddVendor(8401)
-	pet:AddTrainer(63067, 63086, 63061, 63626)
 
-	-- Frigid Frostling -- 40198
-	pet = AddPet(40198, V.WOTLK, Q.RARE)
-	pet:SetItemID(53641)
-	pet:SetSpellID(74932)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.WORLD_EVENTS)
-	pet:AddWorldEvent("MIDSUMMER_FIRE_FESTIVAL")
-	pet:AddMobDrop(25740)
+
+
+
 
 	-- Fawn -- 61165
 	pet = AddPet(61165, V.MOP, Q.COMMON)
@@ -1310,12 +1615,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.NORTHERN_BARRENS, Z.SHOLAZAR_BASIN, Z.WAILING_CAVERNS)
 
-	-- Soul of the Aspects -- 58163
-	pet = AddPet(58163, V.CATA, Q.RARE)
-	pet:SetItemID(78916)
-	pet:SetSpellID(110029)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
-
 	-- Oily Slimeling -- 62697
 	pet = AddPet(62697, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
@@ -1326,40 +1625,12 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.BOREAN_TUNDRA)
 
-	-- Lucky Quilen Cub -- 63832
-	pet = AddPet(63832, V.MOP, Q.RARE)
-	pet:SetItemID(85871)
-	pet:SetSpellID(124660)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
-	pet:AddCustom("CE")
-
-	-- Teldrassil Sproutling -- 33188
-	pet = AddPet(33188, V.WOTLK, Q.RARE)
-	pet:SetItemID(44965)
-	pet:SetSpellID(62491)
-	pet:AddFilters(F.ALLIANCE, F.IBOE, F.VENDOR)
-	pet:AddVendor(33653)
-	pet:AddCustom("CHAMPION_SEALS")
-
-	-- Lil' Ragnaros -- 51600
-	pet = AddPet(51600, V.WOTLK, Q.RARE)
-	pet:SetItemID(68385)
-	pet:SetSpellID(95787)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
-
 	-- Adder -- 61325
 	pet = AddPet(61325, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.BLASTED_LANDS, Z.DUN_MOROGH, Z.DUROTAR, Z.HELLFIRE_PENINSULA, Z.NAGRAND, Z.NORTHERN_BARRENS, Z.NORTHERN_STRANGLETHORN)
 
-	-- Guild Page -- 49588
-	pet = AddPet(49588, V.CATA, Q.COMMON)
-	pet:SetItemID(65362)
-	pet:SetSpellID(92396)
-	pet:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.ACHIEVEMENT)
-	pet:AddAchievement(5179)
-	pet:AddRepVendor(FAC.GUILD, REP.HONORED, 46572, 51496, 51502, 51512, 51503, 52268)
-	pet:SetRequiredFaction("Horde")
+
 
 	-- Arctic Hare -- 62693
 	pet = AddPet(62693, V.MOP, Q.COMMON)
@@ -1388,16 +1659,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.ELWYNN_FOREST)
 
-	-- Wind Rider Cub -- 36909
-	pet = AddPet(36909, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
 
-	-- Elementium Geode -- 50722
-	pet = AddPet(50722, V.CATA, Q.RARE)
-	pet:SetItemID(67282)
-	pet:SetSpellID(93838)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(PROF.MINING)
 
 	-- Garden Frog -- 63002
 	pet = AddPet(63002, V.MOP, Q.COMMON)
@@ -1438,19 +1700,7 @@ function addon:InitCritters()
 	pet:AddTrainer(63083, 63596, 63014, 63070)
 	pet:SetRequiredFaction("Alliance")
 
-	-- Lashtail Hatchling -- 52894
-	pet = AddPet(52894, V.CATA, Q.COMMON)
-	pet:SetItemID(69251)
-	pet:SetSpellID(97779)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
-	pet:AddQuest(29208)
 
-	-- Porcupette -- 61086
-	pet = AddPet(61086, V.MOP, Q.COMMON)
-	pet:SetItemID(89587)
-	pet:SetSpellID(118414)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
-	pet:AddCustom("PETBATTLEDAILY")
 
 	-- Mongoose -- 65190
 	pet = AddPet(65190, V.MOP, Q.COMMON)
@@ -1461,20 +1711,6 @@ function addon:InitCritters()
 	pet = AddPet(62621, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.SHADOWMOON_VALLEY)
-
-	-- Kirin Tor Familiar -- 32643
-	pet = AddPet(32643, V.WOTLK, Q.RARE)
-	pet:SetItemID(44738)
-	pet:SetSpellID(61472)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
-	pet:AddAchievement(1956)
-
-	-- Baneling -- 66984
-	pet = AddPet(66984, V.MOP, Q.RARE)
-	pet:SetItemID(90177)
-	pet:SetSpellID(131650)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
-	pet:AddCustom("STARCRAFTCE")
 
 	-- Mountain Skunk -- 61677
 	pet = AddPet(61677, V.MOP, Q.COMMON)
@@ -1496,13 +1732,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.ZANGARMARSH)
 
-	-- Dark Phoenix Hatchling -- 47944
-	pet = AddPet(47944, V.CATA, Q.RARE)
-	pet:SetItemID(63138)
-	pet:SetSpellID(89039)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.ACHIEVEMENT)
-	pet:AddAchievement(5812, 5892)
-	pet:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51512, 51503, 52268, 46602, 51495, 51504)
+
 
 	-- Tiny Shale Spider -- 48982
 	pet = AddPet(48982, V.CATA, Q.COMMON)
@@ -1542,19 +1772,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
 	pet:AddVendor(53881)
 
-	-- Deathy -- 51122
-	pet = AddPet(51122, V.WOTLK, Q.RARE)
-	pet:SetItemID(67418)
-	pet:SetSpellID(94070)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
-	pet:AddCustom("BLIZZCON")
 
-	-- Moonkin Hatchling -- 51649
-	pet = AddPet(51649, V.MOP, Q.RARE)
-	pet:SetItemID(68619)
-	pet:SetSpellID(95909)
-	pet:AddFilters(F.HORDE, F.STORE, F.IBOP)
-	pet:SetRequiredFaction("Horde")
 
 	-- Blue Moth -- 21010
 	pet = AddPet(21010, V.TBC, Q.COMMON)
@@ -1574,20 +1792,6 @@ function addon:InitCritters()
 	pet = AddPet(62524, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.SILITHUS)
-
-	-- Tranquil Mechanical Yeti -- 15699
-	pet = AddPet(15699, V.ORIG, Q.COMMON)
-	pet:SetItemID(21277)
-	pet:SetSpellID(26010)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(PROF.ENGINEERING)
-
-	-- Zipao Tiger -- 36910
-	pet = AddPet(36910, V.WOTLK, Q.RARE)
-	pet:SetItemID(49664)
-	pet:SetSpellID(69539)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
-	pet:AddCustom("CHINA")
 
 	-- Nether Faerie Dragon -- 62395
 	pet = AddPet(62395, V.MOP, Q.COMMON)
@@ -1624,19 +1828,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.MOUNT_HYJAL, Z.UNGORO_CRATER)
 
-	-- Spectral Tiger Cub -- 36511
-	pet = AddPet(36511, V.WOTLK, Q.RARE)
-	pet:SetItemID(49343)
-	pet:SetSpellID(68810)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	pet:AddCustom("TCG")
 
-	-- Hopling -- 64632
-	pet = AddPet(64632, V.MOP, Q.COMMON)
-	pet:SetItemID(86562)
-	pet:SetSpellID(126247)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
-	pet:AddAchievement(6402)
 
 	-- Small Frog -- 61071
 	pet = AddPet(61071, V.MOP, Q.COMMON)
@@ -1658,21 +1850,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.FELWOOD)
 
-	-- Speedy -- 16547
-	pet = AddPet(16547, V.ORIG, Q.COMMON)
-	pet:SetItemID(23002)
-	pet:SetSpellID(28738)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.QUEST)
-	pet:AddWorldEvent("CHILDRENS_WEEK")
-	pet:AddQuest(171, 5502)
-
-	-- Lucky -- 23198
-	pet = AddPet(23198, V.TBC, Q.RARE)
-	pet:SetItemID(32498)
-	pet:SetSpellID(40405)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
-	pet:AddCustom("WWI")
-
 	-- Mountain Cottontail -- 61167
 	pet = AddPet(61167, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
@@ -1682,13 +1859,6 @@ function addon:InitCritters()
 	pet = AddPet(62312, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.ASHENVALE, Z.THE_LOST_ISLES)
-
-	-- Landro's Lil' XT -- 50468
-	pet = AddPet(50468, V.CATA, Q.RARE)
-	pet:SetItemID(67128)
-	pet:SetSpellID(93624)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	pet:AddCustom("TCG")
 
 	-- Silithid Hatchling -- 62258
 	pet = AddPet(62258, V.MOP, Q.COMMON)
@@ -1711,38 +1881,15 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.TANARIS)
 
-	-- Frosty -- 28883
-	pet = AddPet(28883, V.WOTLK, Q.RARE)
-	pet:SetItemID(39286)
-	pet:SetSpellID(52615)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.COLLECTORS_EDITION)
-	pet:AddCustom("CE")
-
 	-- Minfernal -- 62317
 	pet = AddPet(62317, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.FELWOOD)
 
-	-- Venus -- 66491
-	pet = AddPet(66491, V.MOP, Q.COMMON)
-	pet:SetItemID(89736)
-	pet:SetSpellID(130759)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
-	pet:AddAchievement(7501)
-
 	-- Spider -- 61327
 	pet = AddPet(61327, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.AHNKAHET_THE_OLD_KINGDOM, Z.AZJOL_NERUB, Z.AZSHARA, Z.BLACK_TEMPLE, Z.BLASTED_LANDS, Z.DRAKTHARON_KEEP, Z.DUN_MOROGH, Z.DUSTWALLOW_MARSH, Z.EASTERN_PLAGUELANDS, Z.ELWYNN_FOREST, Z.GHOSTLANDS, Z.GILNEAS, Z.GILNEAS_CITY, Z.HALLS_OF_REFLECTION, Z.HILLSBRAD_FOOTHILLS, Z.HOWLING_FJORD, Z.ICECROWN_CITADEL, Z.KARAZHAN, Z.NAXXRAMAS, Z.ORGRIMMAR, Z.PIT_OF_SARON, Z.RUINS_OF_GILNEAS, Z.STONETALON_MOUNTAINS, Z.SWAMP_OF_SORROWS, Z.TELDRASSIL, Z.THE_CULLING_OF_STRATHOLME, Z.THE_FORGE_OF_SOULS, Z.THE_HINTERLANDS, Z.THE_STORM_PEAKS, Z.THE_VIOLET_HOLD, Z.TIRISFAL_GLADES, Z.UTGARDE_KEEP, Z.UTGARDE_PINNACLE, Z.WINTERSPRING, Z.ZULAMAN, Z.ZULDRAK)
-
-	-- Guild Herald -- 49590
-	pet = AddPet(49590, V.CATA, Q.COMMON)
-	pet:SetItemID(65364)
-	pet:SetSpellID(92398)
-	pet:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.GUILD, F.ACHIEVEMENT)
-	pet:AddAchievement(5201)
-	pet:AddRepVendor(FAC.GUILD, REP.REVERED, 46572, 51496, 51502, 51512, 51503, 52268)
-	pet:SetRequiredFaction("Horde")
 
 	-- Mac Frog -- 62892
 	pet = AddPet(62892, V.MOP, Q.COMMON)
@@ -1760,25 +1907,10 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.DEEPHOLM)
 
-	-- Spring Rabbit -- 32791
-	pet = AddPet(32791, V.WOTLK, Q.RARE)
-	pet:SetItemID(44794)
-	pet:SetSpellID(61725)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR, F.WORLD_EVENTS)
-	pet:AddVendor(32836, 32837)
-	pet:AddWorldEvent("NOBLEGARDEN")
-	pet:AddCustom("NOBLE_VENDOR")
-
 	-- Alpine Chipmunk -- 62189
 	pet = AddPet(62189, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.MOUNT_HYJAL, Z.STONETALON_MOUNTAINS, Z.WINTERSPRING)
-
-	-- Pandaren Monk -- 36911
-	pet = AddPet(36911, V.WOTLK, Q.RARE)
-	pet:SetItemID(49665)
-	pet:SetSpellID(69541)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
 
 	-- Razzashi Hatchling -- 35394
 	pet = AddPet(35394, V.WOTLK, Q.COMMON)
@@ -1789,14 +1921,6 @@ function addon:InitCritters()
 	pet = AddPet(63004, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.THE_JADE_FOREST)
-
-	-- Toothy -- 24388
-	pet = AddPet(24388, V.TBC, Q.RARE)
-	pet:SetItemID(33816)
-	pet:SetSpellID(43697)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.QUEST)
-	pet:AddProfession(PROF.FISHING)
-	pet:AddQuest(11665)
 
 	-- Plains Monitor -- 63547
 	pet = AddPet(63547, V.MOP, Q.COMMON)
@@ -1821,19 +1945,9 @@ function addon:InitCritters()
 	pet:AddWorldEvent("HALLOWS_END")
 	pet:AddVendor(53728, 53757)
 
-	-- Aqua Strider -- 64633
-	pet = AddPet(64633, V.MOP, Q.COMMON)
-	pet:SetItemID(86563)
-	pet:SetSpellID(126249)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
-	pet:AddMobDrop(50776)
 
-	-- Tiny Goldfish -- 63559
-	pet = AddPet(63559, V.MOP, Q.COMMON)
-	pet:SetItemID(85447)
-	pet:SetSpellID(124000)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.REPUTATION, F.THE_ANGLERS)
-	pet:AddRepVendor(FAC.THE_ANGLERS, REP.HONORED, 63721)
+
+
 
 	-- Pebble -- 45247
 	pet = AddPet(45247, V.CATA, Q.COMMON)
@@ -1842,20 +1956,9 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	pet:AddAchievement(5449)
 
-	-- Moonkin Hatchling -- 51601
-	pet = AddPet(51601, V.MOP, Q.RARE)
-	pet:SetItemID(68618)
-	pet:SetSpellID(95786)
-	pet:AddFilters(F.ALLIANCE, F.STORE, F.IBOP)
-	pet:SetRequiredFaction("Alliance")
 
-	-- Magical Crawdad -- 18839
-	pet = AddPet(18839, V.TBC, Q.RARE)
-	pet:SetItemID(27445)
-	pet:SetSpellID(33050)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	pet:AddProfession(PROF.FISHING)
-	pet:AddWorldDrop(Z.TEROKKAR_FOREST)
+
+
 
 	-- Fjord Worg Pup -- 62669
 	pet = AddPet(62669, V.MOP, Q.COMMON)
@@ -1876,20 +1979,9 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.REDRIDGE_MOUNTAINS)
 
-	-- Horde Balloon -- 54541
-	pet = AddPet(54541, V.CATA, Q.COMMON)
-	pet:SetItemID(72045)
-	pet:SetSpellID(101989)
-	pet:AddFilters(F.HORDE, F.QUEST, F.IBOP)
-	pet:AddQuest(29401)
-	pet:SetRequiredFaction("Horde")
 
-	-- Enchanted Lantern -- 46898
-	pet = AddPet(46898, V.CATA, Q.RARE)
-	pet:SetItemID(67274)
-	pet:SetSpellID(93836)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(PROF.ENCHANTING)
+
+
 
 	-- Cheetah Cub -- 62129
 	pet = AddPet(62129, V.MOP, Q.COMMON)
@@ -1906,28 +1998,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.WORLD_DROP)
 	pet:AddWorldDrop(Z.NORTHERN_STRANGLETHORN, Z.THE_CAPE_OF_STRANGLETHORN)
 
-	-- Jade Owl -- 61877
-	pet = AddPet(61877, V.MOP, Q.RARE)
-	pet:SetItemID(82774)
-	pet:SetSpellID(120501)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	pet:AddProfession(PROF.JEWELCRAFTING)
 
-	-- Spirit of Summer -- 16701
-	pet = AddPet(16701, V.ORIG, Q.RARE)
-	pet:SetItemID(23083)
-	pet:SetSpellID(28871)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE, F.WORLD_EVENTS)
-	pet:AddVendor(26123, 26124)
-	pet:AddWorldEvent("MIDSUMMER_FIRE_FESTIVAL")
-	pet:AddCustom("CITY")
-
-	-- Fishy -- 62829
-	pet = AddPet(62829, V.MOP, Q.COMMON)
-	pet:SetItemID(84105)
-	pet:SetSpellID(122748)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
-	pet:AddQuest(29905, 31239)
 
 	-- Strand Crab -- 61312
 	pet = AddPet(61312, V.MOP, Q.COMMON)
@@ -1939,25 +2010,10 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.BLASTED_LANDS, Z.BURNING_STEPPES, Z.MOUNT_HYJAL, Z.SEARING_GORGE, Z.THE_SHATTERED_HALLS, Z.UNGORO_CRATER)
 
-	-- Scooter the Snail -- 51635
-	pet = AddPet(51635, V.CATA, Q.COMMON)
-	pet:SetItemID(66073)
-	pet:SetSpellID(93817)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
-	pet:AddWorldEvent("CHILDRENS_WEEK")
-	pet:AddQuest(171, 5502)
-
 	-- Locust -- 62893
 	pet = AddPet(62893, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.LOST_CITY_OF_THE_TOLVIR, Z.ULDUM)
-
-	-- Fetish Shaman -- 56266
-	pet = AddPet(56266, V.CATA, Q.RARE)
-	pet:SetItemID(76062)
-	pet:SetSpellID(105633)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
-	pet:AddCustom("DIABLOCE")
 
 	-- Crystal Beetle -- 62925
 	pet = AddPet(62925, V.MOP, Q.COMMON)
