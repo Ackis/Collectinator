@@ -5,4 +5,4 @@
 -
  type: creole
  input-file: Docs/CHANGES.txt
- output-page: "ARL Changelog"
+ output-page: "Collectinator Changelog"

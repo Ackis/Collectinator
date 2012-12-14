@@ -1,4 +1,4 @@
-==COllectintaor Change Log
+==Collectintaor Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
 == 2.0.0
