@@ -2962,7 +2962,7 @@ function addon:InitCritters()
 	-- Crow -- 67443
 	pet = AddPet(67443, V.MOP, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.BLADES_EDGE_MOUNTAINS)
+	pet:AddWorldDrop(Z.DARKMOON_ISLAND)
 
 	-- Darkmoon Glowfly -- 67329
 	pet = AddPet(67329, V.MOP, Q.RARE)
