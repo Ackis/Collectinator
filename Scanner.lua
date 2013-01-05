@@ -222,19 +222,19 @@ do
 
 	local function PetConditions(collectable, source_text)
 		local time_of_day = source_text:match("Time:%s+(.+)")
+
 		if time_of_day then
-			time_of_day = TableKeyFormat(time_of_day)
-			collectable:SetTimeOfDay(private.TIME_OF_DAY[time_of_day])
+			collectable:SetTimeOfDay(private.TIME_OF_DAY[TableKeyFormat(time_of_day)])
 		end
 		local weather = source_text:match("Weather:%s+(.+)")
+
 		if weather then
-			weather = TableKeyFormat(weather)
-			collectable:SetWeather(private.WEATHER[weather])
+			collectable:SetWeather(private.WEATHER[TableKeyFormat(weather)])
 		end
 		local season = source_text:match("Season:%s+(.+)")
+
 		if season then
-			season = TableKeyFormat(season)
-			collectable:SetSeason(private.SEASON[season])
+			collectable:SetSeason(private.SEASON[TableKeyFormat(season)])
 		end
 	end
 
@@ -314,7 +314,7 @@ do
 			elseif source_text:match("Formula") then
 				pet:AddProfession(PROF.ENCHANTING)
 			elseif source_text:match("Imperial Silk") then
-			
+
 			else
 				pet:AddProfession(PROF[string.upper(source_text:gsub(" ", "_"))])
 			end
