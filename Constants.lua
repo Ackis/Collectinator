@@ -37,6 +37,20 @@ private.PLAYER_NAME = _G.UnitName("player")
 private.REALM_NAME = _G.GetRealmName()
 
 -------------------------------------------------------------------------------
+-- Helper functions.
+-------------------------------------------------------------------------------
+-- Returns new dictionary keyed by name, valued as ID as a reversal of the source array.
+local function GenerateLookup_ID(source_array)
+	local lookup_table = {}
+
+	for index = 1, #source_array do
+		lookup_table[source_array[index]] = index
+	end
+	return lookup_table
+end
+
+
+-------------------------------------------------------------------------------
 -- Collection data
 -------------------------------------------------------------------------------
 private.ORDERED_COLLECTIONS = {
@@ -44,11 +58,7 @@ private.ORDERED_COLLECTIONS = {
 	"CRITTER", -- 2
 }
 
-private.COLLECTION_TYPE_IDS = {}
-
-for index = 1, #private.ORDERED_COLLECTIONS do
-	private.COLLECTION_TYPE_IDS[private.ORDERED_COLLECTIONS[index]] = index
-end
+private.COLLECTION_TYPE_IDS = GenerateLookup_ID(private.ORDERED_COLLECTIONS)
 
 -------------------------------------------------------------------------------
 -- Player races
@@ -105,36 +115,28 @@ end
 -- Item qualities.
 -------------------------------------------------------------------------------
 private.ITEM_QUALITY_NAMES = {
-	[1] = "COMMON",
-	[2] = "UNCOMMON",
-	[3] = "RARE",
-	[4] = "EPIC",
-	[5] = "LEGENDARY",
-	[6] = "ARTIFACT",
+	"COMMON",
+	"UNCOMMON",
+	"RARE",
+	"EPIC",
+	"LEGENDARY",
+	"ARTIFACT",
 }
 
-private.ITEM_QUALITIES = {}
-
-for index = 1, #private.ITEM_QUALITY_NAMES do
-	private.ITEM_QUALITIES[private.ITEM_QUALITY_NAMES[index]] = index
-end
+private.ITEM_QUALITIES = GenerateLookup_ID(private.ITEM_QUALITY_NAMES)
 
 -------------------------------------------------------------------------------
 -- Game/expansion versions.
 -------------------------------------------------------------------------------
 private.GAME_VERSION_NAMES = {
-	[1] = "ORIG",
-	[2] = "TBC",
-	[3] = "WOTLK",
-	[4] = "CATA",
-	[5] = "MOP",
+	"ORIG",
+	"TBC",
+	"WOTLK",
+	"CATA",
+	"MOP",
 }
 
-private.GAME_VERSIONS = {}
-
-for index = 1, #private.GAME_VERSION_NAMES do
-	private.GAME_VERSIONS[private.GAME_VERSION_NAMES[index]] = index
-end
+private.GAME_VERSIONS = GenerateLookup_ID(private.GAME_VERSION_NAMES)
 
 private.EXPANSION_FILTERS = {}
 
@@ -146,31 +148,31 @@ end
 -- Common filter bitfield word 1.
 -------------------------------------------------------------------------------
 private.COMMON_FLAGS_WORD1 = {
-	ALLIANCE	= 0x00000001,	-- 1
-	HORDE		= 0x00000002,	-- 2
-	TRAINER		= 0x00000004,	-- 3
-	VENDOR		= 0x00000008,	-- 4
-	INSTANCE	= 0x00000010,	-- 5
-	RAID		= 0x00000020,	-- 6
-	WORLD_EVENTS	= 0x00000040,	-- 7
-	QUEST		= 0x00000080,	-- 8
-	PVP		= 0x00000100,	-- 9
-	WORLD_DROP	= 0x00000200,	-- 10
-	MOB_DROP	= 0x00000400,	-- 11
-	STORE		= 0x00000800,	-- 12
-	RETIRED		= 0x00001000,	-- 13
-	IBOE		= 0x00002000,	-- 14
-	IBOP		= 0x00004000,	-- 15
-	IBOA		= 0x00008000,	-- 16
-	TCG		= 0x00010000,	-- 17
-	COLLECTORS_EDITION		= 0x00020000,	-- 18
-	PROMO		= 0x00040000,	-- 19
-	MISC		= 0x00080000,	-- 20
---	TANK		= 0x00100000,	-- 21
---	HEALER		= 0x00200000,	-- 22
-	PROFESSION	= 0x00400000,	-- 23
-	ACHIEVEMENT	= 0x00800000,	-- 24
-	REPUTATION	= 0x01000000,	-- 25
+	ALLIANCE		= 0x00000001,	-- 1
+	HORDE			= 0x00000002,	-- 2
+	TRAINER			= 0x00000004,	-- 3
+	VENDOR			= 0x00000008,	-- 4
+	INSTANCE		= 0x00000010,	-- 5
+	RAID			= 0x00000020,	-- 6
+	WORLD_EVENTS		= 0x00000040,	-- 7
+	QUEST			= 0x00000080,	-- 8
+	PVP			= 0x00000100,	-- 9
+	WORLD_DROP		= 0x00000200,	-- 10
+	MOB_DROP		= 0x00000400,	-- 11
+	STORE			= 0x00000800,	-- 12
+	RETIRED			= 0x00001000,	-- 13
+	IBOE			= 0x00002000,	-- 14
+	IBOP			= 0x00004000,	-- 15
+	IBOA			= 0x00008000,	-- 16
+	TCG			= 0x00010000,	-- 17
+	COLLECTORS_EDITION	= 0x00020000,	-- 18
+	PROMO			= 0x00040000,	-- 19
+	MISC			= 0x00080000,	-- 20
+	__UNUSED_21__		= 0x00100000,	-- 21
+	__UNUSED_22__		= 0x00200000,	-- 22
+	PROFESSION		= 0x00400000,	-- 23
+	ACHIEVEMENT		= 0x00800000,	-- 24
+	REPUTATION		= 0x01000000,	-- 25
 }
 
 -------------------------------------------------------------------------------
@@ -222,7 +224,7 @@ private.REP_FLAGS_WORD2 = {
 	RAMKAHEN			= 0x00000010,	-- 5
 	THE_EARTHEN_RING		= 0x00000020,	-- 6
 	THERAZANE			= 0x00000040,	-- 7
-	--	UNUSED				= 0X00000080,	-- 8
+	__UNUSED_8__			= 0X00000080,	-- 8
 	GOLDEN_LOTUS			= 0X00000100,	-- 9
 	ORDER_OF_THE_CLOUD_SERPENT	= 0X00000200,	-- 10
 	PANDACOMMON2			= 0X00000400,	-- 11 -- Forest Hozen / Pearlfin Jinu
@@ -271,18 +273,18 @@ for index = 1, #private.FLAG_WORDS do
 	end
 end
 
-private.FILTER_IDS = {}
+private.FILTER_IDS = GenerateLookup_ID(private.FILTER_STRINGS)
 
-for index = 1, #private.FILTER_STRINGS do
-	private.FILTER_IDS[private.FILTER_STRINGS[index]] = index
-end
+--private.FILTER_IDS = {}
+--for index = 1, #private.FILTER_STRINGS do
+--	private.FILTER_IDS[private.FILTER_STRINGS[index]] = index
+--end
 
 -------------------------------------------------------------------------------
 -- Specific collection filter types
 -------------------------------------------------------------------------------
 
 private.COLLECTION_FILTER_TYPES = {
-
 	-------------------------------------------------------------------------------
 	-- Pets
 	-------------------------------------------------------------------------------
@@ -310,83 +312,61 @@ private.ACQUIRE_NAMES = {
 }
 
 private.ACQUIRE_STRINGS = {
-	[1]	= "TRAINER",
-	[2]	= "VENDOR",
-	[3]	= "MOB_DROP",
-	[4]	= "QUEST",
-	[5]	= "WORLD_EVENTS",
-	[6]	= "REPUTATION",
-	[7]	= "WORLD_DROP",
-	[8]	= "ACHIEVEMENT",
-	[9]	= "CUSTOM",
-	[10]	= "PROFESSION",
-	[11]	= "STORE",
-	[12]	= "TCG",
-	[13]	= "COLLECTORS_EDITION",
-	[14]	= "PROMO",
+	"TRAINER",		-- 1
+	"VENDOR",		-- 2
+	"MOB_DROP",		-- 3
+	"QUEST",		-- 4
+	"WORLD_EVENTS",		-- 5
+	"REPUTATION",		-- 6
+	"WORLD_DROP",		-- 7
+	"ACHIEVEMENT",		-- 8
+	"CUSTOM",		-- 9
+	"PROFESSION",		-- 10
+	"STORE",		-- 11
+	"TCG",			-- 12
+	"COLLECTORS_EDITION",	-- 13
+	"PROMO",		-- 14
 }
 
-private.ACQUIRE_TYPES = {}
-
-for index = 1, #private.ACQUIRE_STRINGS do
-	private.ACQUIRE_TYPES[private.ACQUIRE_STRINGS[index]] = index
-end
+private.ACQUIRE_TYPES = GenerateLookup_ID(private.ACQUIRE_STRINGS)
 
 -------------------------------------------------------------------------------
 -- Reputation levels.
 -------------------------------------------------------------------------------
 private.REP_LEVEL_STRINGS = {
-	[1]	= "FRIENDLY",
-	[2]	= "HONORED",
-	[3]	= "REVERED",
-	[4]	= "EXALTED",
+	"FRIENDLY",
+	"HONORED",
+	"REVERED",
+	"EXALTED",
 }
 
-private.REP_LEVELS = {}
-
-for index = 1, #private.REP_LEVEL_STRINGS do
-	private.REP_LEVELS[private.REP_LEVEL_STRINGS[index]] = index
-end
+private.REP_LEVELS = GenerateLookup_ID(private.REP_LEVEL_STRINGS)
 
 -------------------------------------------------------------------------------
 -- Time of Day/Weather/Seasons
 -------------------------------------------------------------------------------
 private.TIME_OF_DAY_STRINGS = {
-	[1]	= "EARLY_MORNING",
-	[2]	= "DAY",
-	[3]	= "NIGHT",
+	"EARLY_MORNING",
+	"DAY",
+	"NIGHT",
 }
 
-private.TIME_OF_DAY = {}
-
-for index = 1, #private.TIME_OF_DAY_STRINGS do
-	private.TIME_OF_DAY[private.TIME_OF_DAY_STRINGS[index]] = index
-end
+private.TIME_OF_DAY = GenerateLookup_ID(private.TIME_OF_DAY_STRINGS)
 
 private.WEATHER_STRINGS = {
-	[1]	= "RAIN",
-	[2]	= "SNOW",
-	[3]	= "SANDSTORM",
+	"RAIN",
+	"SNOW",
+	"SANDSTORM",
 }
 
-private.WEATHER = {}
-
-for index = 1, #private.WEATHER_STRINGS do
-	private.WEATHER[private.WEATHER_STRINGS[index]] = index
-end
+private.WEATHER = GenerateLookup_ID(private.WEATHER_STRINGS)
 
 private.SEASON_STRINGS = {
-	[1]	= "WINTER",
-	[2]	= "SUMMER",
+	"WINTER",
+	"SUMMER",
 }
 
-private.SEASON = {
-}
-
-for index = 1, #private.SEASON_STRINGS do
-	private.SEASON[private.SEASON_STRINGS[index]] = index
-end
-
+private.SEASON = GenerateLookup_ID(private.SEASON_STRINGS)
 
 -------------------------------------------------------------------------------
 -- Factions.
@@ -692,14 +672,14 @@ for label, name in pairs(private.ZONE_NAMES) do
 	private.ZONE_LABELS_FROM_NAME[name] = label
 end
 
-	-- Mappings for issues within the pet journal.
-	private.ZONE_NAME_MAP = {
-		["Valley of Four Winds"] = _G.GetMapNameByID(807),
-		["Ahn'Qiraj"] = _G.GetMapNameByID(717),
-		["ScholomanceOLD"] = _G.GetMapNameByID(898),
-		["Sunken Temple"] = _G.GetMapNameByID(687),
-		["Jade Forest"] = _G.GetMapNameByID(880),
-	}
+-- Mappings for issues within the pet journal.
+private.ZONE_NAME_MAP = {
+	["Valley of Four Winds"] = _G.GetMapNameByID(807),
+	["Ahn'Qiraj"] = _G.GetMapNameByID(717),
+	["ScholomanceOLD"] = _G.GetMapNameByID(898),
+	["Sunken Temple"] = _G.GetMapNameByID(687),
+	["Jade Forest"] = _G.GetMapNameByID(880),
+}
 
 -------------------------------------------------------------------------------
 -- Boss names.
