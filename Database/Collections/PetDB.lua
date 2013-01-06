@@ -635,7 +635,7 @@ function addon:InitCritters()
 	pet:AddQuest(3721)
 
 	-- Mechanical Pandaren Dragonling -- 64899
-	pet = AddPet(64899, V.MOP, Q.RARE)
+	pet = AddPet(64899, V.MOP, Q.UNCOMMON)
 	pet:SetItemID(87526)
 	pet:SetSpellID(126885)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
