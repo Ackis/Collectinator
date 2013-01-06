@@ -289,7 +289,7 @@ function private.InitializeListFrame()
 						addon:Print(L["NoItemLink"])
 					end
 				else
-					addon:Print(L["NoItemLink"])
+					addon:Print(L["NoItemInDB"])
 				end
 			elseif _G.IsAltKeyDown() then
 				local exclusion_list = addon.db.profile.exclusionlist
