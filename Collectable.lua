@@ -63,6 +63,11 @@ function addon:AddCollectable(collectable_id, collectable_type, genesis, quality
 	if not private.collectable_list[collectable_type] then
 		private.collectable_list[collectable_type] = {}
 	end
+
+	if not addon.db.profile.exclusionlist[collectable_type] then
+		addon.db.profile.exclusionlist[collectable_type] = {}
+	end
+
 	local collectable_list = private.collectable_list[collectable_type]
 
 

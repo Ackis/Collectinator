@@ -141,7 +141,13 @@ local function fullOptions()
 							desc = L["VIEW_EXCLUSION_LIST_DESC"],
 							func = function(info)
 								local exclusion_list = addon.db.profile.exclusionlist
-
+								for type in pairs(exclusion_list) do
+									print(type)
+									for id in pairs(exclusion_list[type]) do
+										print(id)
+									end
+								end
+--[[
 								for spell_id in pairs(exclusion_list) do
 									local spell_name = _G.GetSpellInfo(spell_id)
 
@@ -152,6 +158,7 @@ local function fullOptions()
 										exclusion_list[spell_id] = nil
 									end
 								end
+--]]
 							end,
 							disabled = function(info)
 								for spell_id in pairs(addon.db.profile.exclusionlist) do

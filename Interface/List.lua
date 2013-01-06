@@ -295,7 +295,7 @@ function private.InitializeListFrame()
 				local exclusion_list = addon.db.profile.exclusionlist
 				local collectable = clicked_line.collectable
 
-				exclusion_list[collectable.id] = (not exclusion_list[collectable.id] and true or nil)
+				exclusion_list[collectable.type][collectable.id] = (not exclusion_list[collectable.type][collectable.id] and true or nil)
 				ListFrame:Update(nil, false)
 			end
 		elseif clicked_line.type == "header" or clicked_line.type == "subheader" then
@@ -620,7 +620,7 @@ function private.InitializeListFrame()
 
 		-- Scans a specific collectable to determine if it is to be displayed or not.
 		local function CanDisplayCollectable(collectable)
-			if addon.db.profile.exclusionlist[collectable.id] and not addon.db.profile.ignoreexclusionlist then
+			if addon.db.profile.exclusionlist[collectable.type][collectable.id] and not addon.db.profile.ignoreexclusionlist then
 				return false
 			end
 			local general_filters = filter_db.general
