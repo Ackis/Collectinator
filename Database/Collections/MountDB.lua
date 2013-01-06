@@ -2543,24 +2543,28 @@ function addon:InitMounts()
 	mount:SetItemID(93385)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
 	mount:AddQuest(32455)
+	mount:SetRequiredFaction("Alliance")
 
 	-- Grand Wyvern -- 136164
 	mount = AddMount(136164, V.MOP, Q.EPIC)
 	mount:SetItemID(93386)
 	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(32399)
+	mount:SetRequiredFaction("Horde")
 
 	-- Grand Armored Gryphon -- 135416
 	mount = AddMount(135416, V.MOP, Q.EPIC)
 	mount:SetItemID(93168)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
 	mount:AddVendor(69059)
+	mount:SetRequiredFaction("Alliance")
 
 	-- Grand Armored Wyvern -- 135418
 	mount = AddMount(135418, V.MOP, Q.EPIC)
 	mount:SetItemID(93169)
 	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	mount:AddVendor(69060)
+	mount:SetRequiredFaction("Horde")
 
 	-- Jade Pandaren Kite String -- 133023
 	mount = AddMount(133023, V.MOP, Q.EPIC)
