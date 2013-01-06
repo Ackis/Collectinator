@@ -276,14 +276,13 @@ function private.InitializeListFrame()
 					edit_box:Insert(_G.GetSpellLink(clicked_line.collectable.collection_spell_id))
 				end
 			elseif _G.IsShiftKeyDown() then
-				local profession_item_id = clicked_line.collectable:ItemID()
+				local collectable_item_id = clicked_line.collectable:ItemID()
 
-				if profession_item_id then
-					local _, item_link = _G.GetItemInfo(profession_item_id)
+				if collectable_item_id then
+					local _, item_link = _G.GetItemInfo(collectable_item_id)
 
 					if item_link then
 						local edit_box = _G.ChatEdit_ChooseBoxForSend()
-
 						_G.ChatEdit_ActivateChat(edit_box)
 						edit_box:Insert(item_link)
 					else
