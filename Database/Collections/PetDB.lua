@@ -447,7 +447,7 @@ function addon:InitCritters()
 	pet = AddPet(16069, V.ORIG, Q.RARE)
 	pet:SetItemID(22114)
 	pet:SetSpellID(27241)
-	pet:AddFilters(F.RETIRED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.BOP)
 	pet:AddCustom("EUPROMO")
 
 	-- Harbinger of Flame -- 68665
@@ -588,7 +588,7 @@ function addon:InitCritters()
 	pet = AddPet(23198, V.TBC, Q.RARE)
 	pet:SetItemID(32498)
 	pet:SetSpellID(40405)
-	pet:AddFilters(F.RETIRED)
+	pet:AddFilters(F.RETIRED, F.ALLIANCE, F.HORDE, F.BOP)
 	pet:AddCustom("WWI")
 
 	-- Lucky Quilen Cub -- 63832
@@ -713,7 +713,7 @@ function addon:InitCritters()
 
 	-- Onyx Panther -- 35468
 	pet = AddPet(35468, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.RETIRED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED)
 	pet:AddCustom("KOREA")
 
 	-- Pandaren Air Spirit -- 68467
@@ -950,7 +950,7 @@ function addon:InitCritters()
 	pet = AddPet(14756, V.WOTLK, Q.RARE)
 	pet:SetItemID(19054)
 	pet:SetSpellID(23530)
-	pet:AddFilters(F.RETIRED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED)
 	pet:AddCustom("CHINA")
 
 	-- Tiny Snowman -- 15710
@@ -1068,7 +1068,7 @@ function addon:InitCritters()
 	pet = AddPet(36910, V.WOTLK, Q.RARE)
 	pet:SetItemID(49664)
 	pet:SetSpellID(69539)
-	pet:AddFilters(F.RETIRED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.BOP)
 	pet:AddCustom("CHINA")
 
 	-- Zooey Snake -- 63555
@@ -1955,7 +1955,7 @@ function addon:InitCritters()
 	pet = AddPet(25146, V.WOTLK, Q.RARE)
 	pet:SetItemID(34518)
 	pet:SetSpellID(45174)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
 	pet:AddCustom("CHINA")
 
 	-- Spotted Bell Frog -- 62370
@@ -1965,7 +1965,7 @@ function addon:InitCritters()
 
 	-- Jade Tiger -- 34930
 	pet = AddPet(34930, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.RETIRED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED)
 	pet:AddCustom("CHINA")
 
 	-- Winterspring Cub -- 52831
@@ -2195,7 +2195,7 @@ function addon:InitCritters()
 
 	-- Silver Pig -- 25147
 	pet = AddPet(25147, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
 	pet:AddCustom("CHINA")
 	-- Darkmoon Tonk -- 55356
 	pet = AddPet(55356, V.CATA, Q.RARE)
@@ -2646,7 +2646,7 @@ function addon:InitCritters()
 	pet:AddCustom("BLIZZCON")
 	-- Poley -- 16456
 	pet = AddPet(16456, V.ORIG, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
 	pet:AddCustom("CHINA")
 	-- Mini Diablo -- 11326
 	pet = AddPet(11326, V.ORIG, Q.RARE)
@@ -2713,10 +2713,11 @@ function addon:InitCritters()
 	pet:AddWorldDrop(Z.BLOODMYST_ISLE)
 	-- Vampiric Batling -- 28513
 	pet = AddPet(28513, V.TBC, Q.RARE)
-	pet:AddFilters(F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.MOB_DROP)
 	-- Essence of Competition -- 27346
 	pet = AddPet(27346, V.TBC, Q.UNCOMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PVP, F.IBOP, F.PROMO)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PVP, F.IBOP, F.PROMO, F.RETIRED)
+	pet:AddCustom("CHINA")
 	-- Disgusting Oozeling -- 15429
 	pet = AddPet(15429, V.ORIG, Q.COMMON)
 	pet:AddFilters(F.MOB_DROP)
@@ -2766,7 +2767,7 @@ function addon:InitCritters()
 	pet:AddWorldDrop(Z.DUSKWOOD)
 	-- Tiny Green Dragon -- 14755
 	pet = AddPet(14755, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
 	pet:AddCustom("CHINA")
 	-- Grizzly Squirrel -- 62818
 	pet = AddPet(62818, V.MOP, Q.COMMON)
@@ -3007,7 +3008,7 @@ function addon:InitCritters()
 
 	-- Murki -- 15361
 	pet = AddPet(15361, V.MOP, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP, F.RETIRED)
 	pet:AddCustom("KOREA")
 	-- Nexus Whelpling -- 68845
 	pet = AddPet(68845, V.MOP, Q.RARE)
