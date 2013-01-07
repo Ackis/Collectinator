@@ -868,8 +868,8 @@ function addon:InitCritters()
 	pet = AddPet(68502, V.MOP, Q.RARE)
 	pet:SetItemID(90953)
 	pet:SetSpellID(132759)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
-	pet:AddCustom("CHINA")
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
+	--pet:AddCustom("CHINA")
 
 	-- Spectral Tiger Cub -- 36511
 	pet = AddPet(36511, V.WOTLK, Q.RARE)
