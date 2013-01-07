@@ -447,7 +447,7 @@ function addon:InitCritters()
 	pet = AddPet(16069, V.ORIG, Q.RARE)
 	pet:SetItemID(22114)
 	pet:SetSpellID(27241)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.BOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP)
 	pet:AddCustom("EUPROMO")
 
 	-- Harbinger of Flame -- 68665
@@ -588,7 +588,7 @@ function addon:InitCritters()
 	pet = AddPet(23198, V.TBC, Q.RARE)
 	pet:SetItemID(32498)
 	pet:SetSpellID(40405)
-	pet:AddFilters(F.RETIRED, F.ALLIANCE, F.HORDE, F.BOP)
+	pet:AddFilters(F.RETIRED, F.ALLIANCE, F.HORDE, F.IBOP)
 	pet:AddCustom("WWI")
 
 	-- Lucky Quilen Cub -- 63832
@@ -713,7 +713,7 @@ function addon:InitCritters()
 
 	-- Onyx Panther -- 35468
 	pet = AddPet(35468, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 	pet:AddCustom("KOREA")
 
 	-- Pandaren Air Spirit -- 68467
@@ -950,7 +950,7 @@ function addon:InitCritters()
 	pet = AddPet(14756, V.WOTLK, Q.RARE)
 	pet:SetItemID(19054)
 	pet:SetSpellID(23530)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 	pet:AddCustom("CHINA")
 
 	-- Tiny Snowman -- 15710
@@ -1068,7 +1068,7 @@ function addon:InitCritters()
 	pet = AddPet(36910, V.WOTLK, Q.RARE)
 	pet:SetItemID(49664)
 	pet:SetSpellID(69539)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.BOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP)
 	pet:AddCustom("CHINA")
 
 	-- Zooey Snake -- 63555
@@ -1965,7 +1965,7 @@ function addon:InitCritters()
 
 	-- Jade Tiger -- 34930
 	pet = AddPet(34930, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
 	pet:AddCustom("CHINA")
 
 	-- Winterspring Cub -- 52831
@@ -2713,7 +2713,7 @@ function addon:InitCritters()
 	pet:AddWorldDrop(Z.BLOODMYST_ISLE)
 	-- Vampiric Batling -- 28513
 	pet = AddPet(28513, V.TBC, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BOP, F.RETIRED, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED, F.MOB_DROP)
 	-- Essence of Competition -- 27346
 	pet = AddPet(27346, V.TBC, Q.UNCOMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PVP, F.IBOP, F.PROMO, F.RETIRED)
