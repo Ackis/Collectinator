@@ -4,7 +4,7 @@ Provides methods for determining which mini-pets and mounts you are missing.
 We are currently rewriting this addon.  The code is based off of really old Ackis Recipe List code.  We have made substantial improvements to ARL and want to extend them to Collectinator.  Please bear with us.  If you're looking to help, please contact any of the authors.
 
 ==Where to get it
-* [[http://www.wowace.com/addons/collectinator/files/|WowAce]] - Alpha Quality
+* [[http://www.wowace.com/addons/collectinator/files/|WowAce]] - Development stage
 * [[http://wow.curse.com/downloads/wow-addons/details/collectinator.aspx|Curse]] - Stable release
 * [[http://www.wowinterface.com/downloads/info15154-Collectinator.html|WoWInterface]] - Stable release
 
@@ -15,23 +15,19 @@ If you wish to donate, please donate via [[http://www.pledgie.com/campaigns/1380
 Open up your companion window (pets or mounts) and click the scan button.  This will open up another window which will allow you to see which companions you are missing, along with how to acquire them.
 
 ===Commands
-There are no slash commands at this point.
+There are currently no slash commands.
 
 ==Contacting the Authors
 Please use the bug reporting feature to submit bug reports.  Do not contact us via Curse PM.  Do not submit bug reports in comments.
 
 ===IRC
-Feel free to join us on irc at [[irc://irc.freenode.net:6667|Freenode]] in the channel #arl
-
-====Freenode Webchat
-Freenode has come up with their alternative to Mibbit.
-[[http://webchat.freenode.net/?randomnick=1&channels=arl | Webchat]]
+Feel free to [[http://webchat.freenode.net/?channels=arl|join us on irc]].
 
 ==Known Issues
-This AddOn is in alpha stage - there are known issues.
+There are no known issues at this time.
 
 ==Feature Requests/Bug Reporting
-Read the [[http://www.wowace.com/addons/collectinator/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requesting]] information //before// submitted a bug report or feature request.  Posting reports in the comments is //not// the place to do so.  I had to turn off the comments at [[http://wow.curse.com/downloads/wow-addons/details/arl.aspx|Curse.com]] because of constant bug reports and feature requests.  Comments are for questions on how to use the AddOn, or you can use the forums at [[http://forums.wowace.com/|WowAce]].
+Read the [[http://www.wowace.com/addons/collectinator/pages/feedback-and-bug-reporting/|Bug Reporting and Feature Requesting]] information //before// submitting a bug report or feature request.  Posting reports in the comments is //not// the place to do so.  Comments are for questions on how to use the AddOn, or you can use the forums at [[http://forums.wowace.com/|WowAce]].
 Please follow these small little instructions to make our lives easier.  The easier you make development for Collectinator, the more time we will have to develop other AddOns.
 
 ===Bug Reports
