@@ -568,6 +568,7 @@ function collectable_prototype:AddRepVendor(faction_id, rep_level, ...)
 			location_list[location_name].collectables[self.type][self.id] = affiliation or true
 		end
 	end
+	self:AddFilters(private.FILTER_IDS.REPUTATION)
 end
 
 local DUMP_FUNCTION_FORMATS = {
