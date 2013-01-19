@@ -809,7 +809,7 @@ function addon:InitCritters()
 	pet = AddPet(63370, V.MOP, Q.COMMON)
 	pet:SetItemID(85222)
 	pet:SetSpellID(123784)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.REPUTATION)
 	pet:AddCustom("SHOEXALTED")
 
 	-- Scooter the Snail -- 51635
