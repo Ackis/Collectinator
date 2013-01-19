@@ -502,6 +502,7 @@ end
 
 function collectable_prototype:AddCustom(...)
 	self:AddAcquireData(A.CUSTOM, "Custom", private.custom_list, ...)
+	self:AddFilters(private.FILTER_IDS.MISC)
 end
 
 function collectable_prototype:AddWorldEvent(...)
