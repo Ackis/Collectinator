@@ -553,7 +553,8 @@ function addon:InitCritters()
 	pet = AddPet(35387, V.WOTLK, Q.COMMON)
 	pet:SetItemID(48118)
 	pet:SetSpellID(67416)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, Z.NORTHERN_BARRENS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddWorldDrop(Z.NORTHERN_BARRENS)
 	pet:AddCustom("TAKKSNEST")
 
 	-- Legs -- 53048
@@ -781,14 +782,14 @@ function addon:InitCritters()
 	pet = AddPet(61086, V.MOP, Q.COMMON)
 	pet:SetItemID(89587)
 	pet:SetSpellID(118414)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)
 	pet:AddCustom("PETBATTLEDAILY")
 
 	-- Proto-Drake Whelp -- 32592
 	pet = AddPet(32592, V.WOTLK, Q.COMMON)
 	pet:SetItemID(44721)
 	pet:SetSpellID(61350)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.REPUTATION)
 	pet:AddCustom("MYSTERIOUS_EGG")
 
 	-- Pterrordax Hatchling -- 53225
@@ -803,6 +804,7 @@ function addon:InitCritters()
 	pet:SetItemID(48124)
 	pet:SetSpellID(67419)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddWorldDrop(Z.WETLANDS)
 	pet:AddCustom("RAZORMAWNEST")
 
 	-- Red Cricket -- 63370
