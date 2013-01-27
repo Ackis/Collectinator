@@ -1131,6 +1131,7 @@ function private.InitializeListFrame()
 	local function ExpandWorldEventsData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
 		local hex_color = CATEGORY_COLORS["world_events"]
 		local entry = AcquireTable()
+
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(hex_color, private.ACQUIRE_NAMES[A.WORLD_EVENTS]) .. ":", SetTextColor(hex_color, private.world_events_list[id_num].name))
 		entry.collectable = collectable
 

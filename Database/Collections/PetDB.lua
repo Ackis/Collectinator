@@ -902,7 +902,7 @@ function addon:InitCritters()
 	pet = AddPet(32791, V.WOTLK, Q.RARE)
 	pet:SetItemID(44794)
 	pet:SetSpellID(61725)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR, F.WORLD_EVENTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
 	pet:AddVendor(32836, 32837)
 	pet:AddWorldEvent("NOBLEGARDEN")
 	pet:AddCustom("NOBLE_VENDOR")
@@ -2511,11 +2511,13 @@ function addon:InitCritters()
 	-- Guardian Cub -- 53283
 	pet = AddPet(53283, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOE)
+
 	-- Feline Familiar -- 53884
 	pet = AddPet(53884, V.CATA, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS)
 	pet:AddVendor(53728, 53757)
 	pet:AddWorldEvent("HALLOWS_END")
+
 	-- Eye of the Legion -- 59020
 	pet = AddPet(59020, V.MOP, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
