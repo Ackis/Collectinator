@@ -63,6 +63,7 @@ function addon:InitCustom()
 	AddCustom("PETBATTLEDAILY")
 	AddCustom("COT",			Z.TANARIS)
 	AddCustom("PETTAMER")
+	AddCustom("MOUNTAIN_DEW")
 
 	self.InitCustom = nil
 end

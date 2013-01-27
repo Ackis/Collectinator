@@ -2600,6 +2600,8 @@ function addon:InitCritters()
 	pet:AddAchievement(2516)
 	-- Warbot -- 34587
 	pet = AddPet(34587, V.WOTLK, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
+	pet:AddCustom("MOUNTAIN_DEW")
 	-- Festival Lantern -- 55574
 	pet = AddPet(55574, V.CATA, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
