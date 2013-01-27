@@ -2930,7 +2930,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	pet:AddMobDrop(15276)
 	-- Arcane Eye -- 68819
-	pet = AddPet(68819, V.MOP, Q.RARE)
+	pet = AddPet(68819, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.DEADWIND_PASS)
 	-- Ashstone Core -- 68666
