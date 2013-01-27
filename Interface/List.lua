@@ -1083,6 +1083,13 @@ function private.InitializeListFrame()
 		entry.collectable = collectable
 		entry.npc_id = id_num
 
+		if collectable:HasFilter("common1", "RETIRED") then
+			entry = AcquireTable()
+			entry.text = (L["RETIRED_COLLECTABLE_SHORT"])
+			entry.collectable = collectable
+			entry.npc_id = id_num
+		end
+
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
@@ -1790,7 +1797,7 @@ do
 		addon:DisplayAcquireData(list_entry.collectable, list_entry.acquire_id, list_entry.location_id, ttAdd)
 
 		if collectable:HasFilter("common1", "RETIRED") then
-			ttAdd(0, -1, false, L["RETIRED_COLLECTABLE"], BASIC_COLORS["normal"])
+			ttAdd(0, -1, false, L["RETIRED_COLLECTABLE_LONG"], BASIC_COLORS["normal"])
 		end
 
 		if not addon.db.profile.hide_tooltip_hint then
