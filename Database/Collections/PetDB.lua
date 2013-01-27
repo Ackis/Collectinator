@@ -2952,13 +2952,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
 	pet:AddCustom("STORE")
 	-- Clock'em -- 68601
-	pet = AddPet(68601, V.MOP, Q.RARE)
+	pet = AddPet(68601, V.MOP, Q.COMMON)
 	pet:SetItemID(93025)
 	pet:SetSpellID(135156)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
 	pet:AddVendor(68363, 68364)
 	-- Cogblade Raptor -- 68841
-	pet = AddPet(68841, V.MOP, Q.RARE)
+	pet = AddPet(68841, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.BLADES_EDGE_MOUNTAINS)
 
