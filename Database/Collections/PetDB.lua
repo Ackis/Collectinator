@@ -2337,7 +2337,7 @@ function addon:InitCritters()
 	pet:AddWorldDrop(Z.TOWNLONG_STEPPES)
 	-- Tuskarr Kite -- 36482
 	pet = AddPet(36482, V.WOTLK, Q.EPIC)
-	pet:AddFilters(F.TCG)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
 	pet:AddCustom("TCG")
 	-- Tickbird Hatchling -- 32589
 	pet = AddPet(32589, V.WOTLK, Q.COMMON)
@@ -2513,7 +2513,7 @@ function addon:InitCritters()
 	pet:AddWorldEvent("HALLOWS_END")
 	-- Eye of the Legion -- 59020
 	pet = AddPet(59020, V.MOP, Q.RARE)
-	pet:AddFilters(F.TCG)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
 	pet:AddCustom("TCG")
 	-- Wild Jade Hatchling -- 65323
 	pet = AddPet(65323, V.MOP, Q.COMMON)
@@ -2521,11 +2521,11 @@ function addon:InitCritters()
 	pet:AddWorldDrop(Z.THE_JADE_FOREST)
 	-- Purple Puffer -- 54383
 	pet = AddPet(54383, V.CATA, Q.RARE)
-	pet:AddFilters(F.TCG)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
 	pet:AddCustom("TCG")
 	-- Landro's Lichling -- 52343
 	pet = AddPet(52343, V.CATA, Q.RARE)
-	pet:AddFilters(F.TCG)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
 	pet:AddCustom("TCG")
 	-- Stunted Shardhorn -- 62816
 	pet = AddPet(62816, V.MOP, Q.COMMON)
@@ -2682,7 +2682,7 @@ function addon:InitCritters()
 	pet:AddQuest(29412)
 	-- Rocket Chicken -- 25109
 	pet = AddPet(25109, V.TBC, Q.RARE)
-	pet:AddFilters(F.TCG)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
 	pet:AddCustom("TCG")
 
 	-- Jubling -- 14878
