@@ -2724,9 +2724,12 @@ function addon:InitCritters()
 	pet = AddPet(62051, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.BLOODMYST_ISLE)
+
 	-- Vampiric Batling -- 28513
 	pet = AddPet(28513, V.TBC, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
+	pet:AddMobDrop(28194)
+
 	-- Essence of Competition -- 27346
 	pet = AddPet(27346, V.TBC, Q.UNCOMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PVP, F.IBOP, F.PROMO, F.RETIRED)
@@ -2802,7 +2805,7 @@ function addon:InitCritters()
 	pet:AddVendor(14860)
 	-- Blue Clockwork Rocket Bot -- 40295
 	pet = AddPet(40295, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, WORLD_EVENTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS)
 	-- Twilight Fiendling -- 62914
 	pet = AddPet(62914, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)

@@ -342,3 +342,4 @@ L["MAIN_OPTIONS_DESC"] = true
 L["Main Options"] = true
 L["MOUNTAIN_DEW"] = "Availible in North America from a Mountain Dew promotion."
 L["Geen"] = true
+L["Prince Tenris Mirkblood"] = true
