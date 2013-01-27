@@ -2966,60 +2966,63 @@ function addon:InitCritters()
 	pet:SetSpellID(134538)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
 	pet:AddCustom("STORE")
+
 	-- Clock'em -- 68601
 	pet = AddPet(68601, V.MOP, Q.COMMON)
 	pet:SetItemID(93025)
 	pet:SetSpellID(135156)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
-	pet:AddVendor(68363, 68364)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.REPUTATION, F.BRAWLGAR_ARENA, F.BIZMOS_BRAWLPUB)
+	pet:AddRepVendor(FAC.BRAWLGAR_ARENA, REP.REVERED, 68364)
+	pet:AddRepVendor(FAC.BIZMOS_BRAWLPUB, REP.REVERED, 68363)
+
 	-- Cogblade Raptor -- 68841
 	pet = AddPet(68841, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.BLADES_EDGE_MOUNTAINS)
 
 	-- Crow -- 67443
-	pet = AddPet(67443, V.MOP, Q.RARE)
+	pet = AddPet(67443, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.DARKMOON_ISLAND)
 
 	-- Darkmoon Glowfly -- 67329
-	pet = AddPet(67329, V.MOP, Q.RARE)
+	pet = AddPet(67329, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.DARKMOON_ISLAND)
 
 
 
 	-- Emerald Proto-Whelp -- 68850
-	pet = AddPet(68850, V.MOP, Q.RARE)
+	pet = AddPet(68850, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.SHOLAZAR_BASIN)
 	-- Eternal Strider -- 61088
-	pet = AddPet(61088, V.MOP, Q.RARE)
+	pet = AddPet(61088, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS, Z.KUN_LAI_SUMMIT)
 	-- Fluxfire Feline -- 68838
-	pet = AddPet(68838, V.MOP, Q.RARE)
+	pet = AddPet(68838, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.DUN_MOROGH, Z.NEW_TINKERTOWN)
 
 
 	-- Harpy Youngling -- 68804
-	pet = AddPet(68804, V.MOP, Q.RARE)
+	pet = AddPet(68804, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.NORTHERN_BARRENS)
 
 
 	-- Infinite Whelpling -- 68820
-	pet = AddPet(68820, V.MOP, Q.RARE)
+	pet = AddPet(68820, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.TANARIS)
 	pet:AddCustom("COT")
 	-- Kun-Lai Runt -- 68846
-	pet = AddPet(68846, V.MOP, Q.RARE)
+	pet = AddPet(68846, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
 	-- Lofty Libram -- 68806
-	pet = AddPet(68806, V.MOP, Q.RARE)
+	pet = AddPet(68806, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.HILLSBRAD_FOOTHILLS)	
 
