@@ -343,3 +343,4 @@ L["Main Options"] = true
 L["MOUNTAIN_DEW"] = "Availible in North America from a Mountain Dew promotion."
 L["Geen"] = true
 L["Prince Tenris Mirkblood"] = true
+L["RETIRED_COLLECTABLE"] = "This collectable is retired from the game.  This means that it is no longer availible to acquire by normal means."
