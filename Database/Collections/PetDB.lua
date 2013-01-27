@@ -398,7 +398,7 @@ function addon:InitCritters()
 	pet:SetSpellID(123214)
 	pet:AddFilters(F.ALLIANCE, F.TRAINER)
 	pet:AddTrainer(63083, 63596, 63014, 63070)
-	pet:SetRequiredFaction("Alliance")
+	--pet:SetRequiredFaction("Alliance")
 
 	-- Golden Dragonhawk Hatchling -- 21055
 	pet = AddPet(21055, V.TBC, Q.COMMON)
@@ -661,7 +661,7 @@ function addon:InitCritters()
 	pet:SetItemID(68618)
 	pet:SetSpellID(95786)
 	pet:AddFilters(F.ALLIANCE, F.STORE, F.IBOP)
-	pet:SetRequiredFaction("Alliance")
+	--pet:SetRequiredFaction("Alliance")
 
 	-- Moonkin Hatchling -- 51649
 	pet = AddPet(51649, V.MOP, Q.RARE)
@@ -2675,7 +2675,7 @@ function addon:InitCritters()
 	pet:AddWorldDrop(Z.THE_JADE_FOREST)
 	-- Alliance Balloon -- 54539
 	pet = AddPet(54539, V.CATA, Q.COMMON)
-	pet:SetRequiredFaction("Alliance")
+	--pet:SetRequiredFaction("Alliance")
 	pet:AddFilters(F.ALLIANCE, F.QUEST, F.IBOP)
 	pet:AddQuest(29412)
 	-- Rocket Chicken -- 25109
