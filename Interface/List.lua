@@ -1633,8 +1633,8 @@ do
 			if location and drop_location ~= location then
 				return
 			end
-
-			addline_func(0, -1, false, L["World Drop"], quality_color, drop_location, CATEGORY_COLORS["location"])
+			local quality_color = select(4, _G.GetItemQualityColor(collectable.quality)):sub(3)
+			addline_func(0, -1, false, L["World Drop"], quality_color, location_text, CATEGORY_COLORS["location"])
 		end,
 
 		[A.PROFESSION] = function(collectable, identifier, location, acquire_info, addline_func)
