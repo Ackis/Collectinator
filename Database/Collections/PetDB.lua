@@ -2802,7 +2802,7 @@ function addon:InitCritters()
 	pet:AddVendor(14860)
 	-- Blue Clockwork Rocket Bot -- 40295
 	pet = AddPet(40295, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.VENDOR)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, WORLD_EVENTS)
 	-- Twilight Fiendling -- 62914
 	pet = AddPet(62914, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
