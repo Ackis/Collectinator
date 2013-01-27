@@ -40,6 +40,10 @@ local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 -- Methods.
 -----------------------------------------------------------------------
 function private.SetTextColor(color_code, text)
+	--@debug@
+	if not color_code then addon:Print(color_code) end
+	if not text then addon:Print(text) end
+	--@end-debug@
 	return ("|cff%s%s|r"):format(color_code or "ffffff", text)
 end
 
