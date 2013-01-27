@@ -1633,17 +1633,8 @@ do
 			if location and drop_location ~= location then
 				return
 			end
-			local collectable_item_id = collectable:ItemID()
-			local collectable_item_level = collectable_item_id and select(4, _G.GetItemInfo(collectable_item_id))
-			local quality_color = select(4, _G.GetItemQualityColor(collectable.quality)):sub(3)
-			local location_text
 
-			if collectable_item_level then
-				location_text = ("%s (%d - %d)"):format(drop_location, collectable_item_level - 5, collectable_item_level + 5)
-			else
-				location_text = drop_location
-			end
-			addline_func(0, -1, false, L["World Drop"], quality_color, location_text, CATEGORY_COLORS["location"])
+			addline_func(0, -1, false, L["World Drop"], quality_color, drop_location, CATEGORY_COLORS["location"])
 		end,
 
 		[A.PROFESSION] = function(collectable, identifier, location, acquire_info, addline_func)
