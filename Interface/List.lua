@@ -600,6 +600,7 @@ function private.InitializeListFrame()
 			[REP2.PANDACOMMON2]			= "pandacommon2",
 			[REP2.GUILD]				= "guild",
 			[REP2.NETHERWING]			= "netherwing",
+			[REP2.BRAWLERS]				= "brawler",
 		}
 
 		-- Returns true if any of the filter flags are turned on.

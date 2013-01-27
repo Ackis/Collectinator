@@ -746,6 +746,7 @@ function private.InitializeFilterPanel()
 	local Wildhammer_Dragonmaw = isAlliance and FN.WILDHAMMER_CLAN or FN.DRAGONMAW_CLAN
 	local Tushui_Huojin = isAlliance and FN.TUSHUI_PANDAREN or FN.HUOJIN_PANDAREN
 	local Jinyu_Hozen = isAlliance and FN.PEARLFIN_JINYU or FN.FOREST_HOZEN
+	local Brawlers_Guild = isAlliance and FN.BIZMOS_BRAWLPUB or FN.BRAWLGAR_ARENA
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -1011,6 +1012,7 @@ function private.InitializeFilterPanel()
 			shangxiacademy		= { tt = ReputationDesc(FN.SHANG_XIS_ACADEMY),		text = FN.SHANG_XIS_ACADEMY,		row = 12,	col = 1 },
 			pandacommon1		= { tt = ReputationDesc(Tushui_Huojin),			text = Tushui_Huojin,			row = 13,	col = 1 },
 			pandacommon2		= { tt = ReputationDesc(Jinyu_Hozen),			text = Jinyu_Hozen,			row = 14,	col = 1 },
+			brawlers		= { tt = ReputationDesc(Brawlers_Guild),		text = Brawlers_Guild,			row = 15,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
 
@@ -1170,6 +1172,7 @@ function private.InitializeFilterPanel()
 		["shangxiacademy"]	= { cb = expansion4.shangxiacademy,		svroot = filterdb.rep },
 		["pandacommon1"]	= { cb = expansion4.pandacommon1,		svroot = filterdb.rep },
 		["pandacommon2"]	= { cb = expansion4.pandacommon2,		svroot = filterdb.rep },
+		["brawlers"]		= { cb = expansion4.brawlers,			svroot = filterdb.rep },
 	}
 	private.InitializeFilterPanel = nil
 end

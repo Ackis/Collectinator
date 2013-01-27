@@ -295,6 +295,7 @@ function addon:OnInitialize()
 					pandacommon2 = true,
 					guild = true,
 					netherwing = true,
+					brawlers = true,
 				},
 				-- Populated later via CONSTANTS
 				item = {
