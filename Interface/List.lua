@@ -1119,6 +1119,12 @@ function private.InitializeListFrame()
 		entry.text = ("%s%s%s %s"):format(PADDING, PADDING, hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], quest.location), coord_text)
 		entry.collectable = collectable
 
+		if collectable:HasFilter("common1", "RETIRED") then
+			entry = AcquireTable()
+			entry.text = (L["RETIRED_COLLECTABLE_SHORT"])
+			entry.collectable = collectable
+		end
+
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
@@ -1127,6 +1133,13 @@ function private.InitializeListFrame()
 		local entry = AcquireTable()
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(hex_color, private.ACQUIRE_NAMES[A.WORLD_EVENTS]) .. ":", SetTextColor(hex_color, private.world_events_list[id_num].name))
 		entry.collectable = collectable
+
+		if collectable:HasFilter("common1", "RETIRED") then
+			entry = AcquireTable()
+			entry.text = (L["RETIRED_COLLECTABLE_SHORT"])
+			entry.collectable = collectable
+		end
+
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
@@ -1180,6 +1193,13 @@ function private.InitializeListFrame()
 		entry.collectable = collectable
 		entry.npc_id = vendor_id
 
+		if collectable:HasFilter("common1", "RETIRED") then
+			entry = AcquireTable()
+			entry.text = (L["RETIRED_COLLECTABLE_SHORT"])
+			entry.collectable = collectable
+			entry.npc_id = vendor_id
+		end
+
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
@@ -1202,6 +1222,12 @@ function private.InitializeListFrame()
 		entry.text = ("%s|c%s%s|r%s"):format(PADDING, select(4, _G.GetItemQualityColor(collectable.quality)), L["World Drop"], drop_location)
 		entry.collectable = collectable
 
+		if collectable:HasFilter("common1", "RETIRED") then
+			entry = AcquireTable()
+			entry.text = (L["RETIRED_COLLECTABLE_SHORT"])
+			entry.collectable = collectable
+		end
+
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
@@ -1209,6 +1235,12 @@ function private.InitializeListFrame()
 		local entry = AcquireTable()
 		entry.text = PADDING .. SetTextColor(CATEGORY_COLORS["custom"], private.custom_list[id_num].name)
 		entry.collectable = collectable
+
+		if collectable:HasFilter("common1", "RETIRED") then
+			entry = AcquireTable()
+			entry.text = (L["RETIRED_COLLECTABLE_SHORT"])
+			entry.collectable = collectable
+		end
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
@@ -1219,6 +1251,12 @@ function private.InitializeListFrame()
 			SetTextColor(BASIC_COLORS["normal"], id_num))
 		entry.collectable = collectable
 
+		if collectable:HasFilter("common1", "RETIRED") then
+			entry = AcquireTable()
+			entry.text = (L["RETIRED_COLLECTABLE_SHORT"])
+			entry.collectable = collectable
+		end
+
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
 
@@ -1227,6 +1265,12 @@ function private.InitializeListFrame()
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(CATEGORY_COLORS["achievement"], _G.ACHIEVEMENTS) .. ":",
 					    SetTextColor(BASIC_COLORS["normal"], select(2, _G.GetAchievementInfo(id_num))))
 		entry.collectable = collectable
+
+		if collectable:HasFilter("common1", "RETIRED") then
+			entry = AcquireTable()
+			entry.text = (L["RETIRED_COLLECTABLE_SHORT"])
+			entry.collectable = collectable
+		end
 
 		return ListFrame:InsertEntry(entry, parent_entry, entry_index, entry_type, true)
 	end
