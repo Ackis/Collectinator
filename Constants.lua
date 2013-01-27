@@ -238,8 +238,9 @@ private.REP_FLAGS_WORD2 = {
 	THE_BLACK_PRINCE		= 0X00040000,	-- 19
 	SHANG_XIS_ACADEMY		= 0X00080000,	-- 20
 	PANDACOMMON1			= 0X00100000,	-- 21 -- Huojin Pandaren / Tushui Pandaren
-	GUILD				= 0X00200000,	-- 22.
+	GUILD				= 0X00200000,	-- 22
 	NETHERWING			= 0x00400000,	-- 23
+	BRAWLERS			= 0x00800000,	-- 24 -- Bizmo's Brawlpub / Brawl'gar Arena
 }
 
 -------------------------------------------------------------------------------
