@@ -111,7 +111,7 @@ function addon:InitCritters()
 	pet:AddZoneLocations(Z.TOWNLONG_STEPPES, "24", "47.2:77.2", "48.2:78.2", "50.0:80.2", "66.8:80.6", "64.6:83.0")
 
 	-- Aqua Strider -- 64633
-	pet = AddPet(64633, V.MOP, Q.COMMON)
+	pet = AddPet(64633, V.MOP, Q.RARE)
 	pet:SetItemID(86563)
 	pet:SetSpellID(126249)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
