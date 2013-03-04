@@ -655,7 +655,10 @@ private.ZONE_NAMES = {
 	SHRINE_OF_TWO_MOONS = _G.GetMapNameByID(903),
 	SHRINE_OF_SEVEN_STARS = _G.GetMapNameByID(905),
 	DEEPRUN_TRAM = _G.GetMapNameByID(922),
-	BRAWLGAR_ARENA = _G.GetMapNameByID(925)
+	BRAWLGAR_ARENA = _G.GetMapNameByID(925),
+	ISLE_OF_GIANTS = _G.GetMapNameByID(929),
+	THRONE_OF_THUNDER = _G.GetMapNameByID(930),
+	ISLE_OF_THUNDER = _G.GetMapNameByID(933)
 }
 
 do
@@ -706,6 +709,9 @@ private.BOSS_NAMES = {
 	SKADI_THE_RUTHLESS = _G.EJ_GetEncounterInfo(643),
 	SHA_OF_ANGER = _G.EJ_GetEncounterInfo(691),
 	ELEGON = _G.EJ_GetEncounterInfo(726),
+	DARK_ANIMUS = _G.EJ_GetEncounterInfo(824),
+	JI_KUN = _G.EJ_GetEncounterInfo(828)
+	
 }
 
 -------------------------------------------------------------------------------

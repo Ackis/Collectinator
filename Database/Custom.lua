@@ -64,6 +64,8 @@ function addon:InitCustom()
 	AddCustom("COT",			Z.TANARIS)
 	AddCustom("PETTAMER")
 	AddCustom("MOUNTAIN_DEW")
+	AddCustom("FIONA'S_CHARM",	Z.EASTERN_PLAGUELANDS,		34.8,	69.2)
+	AddCustom("OOZING_BAG")
 
 	self.InitCustom = nil
 end

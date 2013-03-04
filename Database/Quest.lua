@@ -58,6 +58,7 @@ function addon:InitQuest()
 	AddQuest(3721,	Z.THE_CAPE_OF_STRANGLETHORN,		43.0,	72.0,	"Neutral")
 	AddQuest(3861,	Z.WESTFALL,				56.0,	31.6,	"Neutral")
 	AddQuest(5502,	Z.ORGRIMMAR,				58.0,	57.6,	"Horde")
+	AddQuest(7946,	Z.DARKMOON_ISLAND,			55.8,	70.6,	"Neutral")
 	AddQuest(8743,	Z.AHNQIRAJ_THE_FALLEN_KINGDOM,		0,	0,	"Neutral")
 	AddQuest(10898,	Z.TEROKKAR_FOREST,			56.6,	72.8,	"Neutral")
 	AddQuest(10966,	Z.SHATTRATH_CITY,			74.8,	47.8,	"Alliance")
@@ -106,6 +107,8 @@ function addon:InitQuest()
 	AddQuest(32440,	Z.THE_JADE_FOREST,			28.8,	36.0,	"Neutral")
 	AddQuest(32441,	Z.KUN_LAI_SUMMIT,			64.8,	93.6,	"Neutral")
 	AddQuest(32455,	Z.KRASARANG_WILDS,			00.0,	00.0,	"Alliance")
+	AddQuest(32603,	Z.PANDARIA,				00.0,	00.0,	"Neutral")
+	AddQuest(32604,	Z.PANDARIA,				00.0,	00.0,	"Neutral")
 
 	self.InitQuest = nil
 end
