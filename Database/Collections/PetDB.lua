@@ -1266,6 +1266,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
 	--pet:AddCustom("CHINA")
 
+	-- Spectral Porcupette -- 69848
+	pet = AddPet(69848, V.MOP, Q.RARE)
+	pet:SetItemID(94190)
+	pet:SetSpellID(138285)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
+	pet:AddQuest(32616)
+
 	-- Spectral Tiger Cub -- 36511
 	pet = AddPet(36511, V.WOTLK, Q.RARE)
 	pet:SetItemID(49343)
@@ -1319,6 +1326,20 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
 	pet:AddMobDrop(15932)
 
+	-- Sunfur Panda -- 69891
+	pet = AddPet(69891, V.MOP, Q.RARE)
+	pet:SetItemID(94208)
+	pet:SetSpellID(138380)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
+	pet:AddQuest(32603)
+
+	-- Sunreaver Micro-Sentry -- 69778
+	pet = AddPet(69778, V.MOP, Q.RARE)
+	pet:SetItemID(94124)
+	pet:SetSpellID(138082)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(50358,69288,69439,69441,69442,69808)
+
 	-- Teldrassil Sproutling -- 33188
 	pet = AddPet(33188, V.WOTLK, Q.RARE)
 	pet:SetItemID(44965)
@@ -1340,7 +1361,7 @@ function addon:InitCritters()
 	pet:SetSpellID(139362)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.WORLD_DROP)
 	pet:AddProfession(PROF.FISHING)
-	pet:AddWorldDrop("VALE_OF_ETERNAL_BLOSSOMS")
+	pet:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
 
 	-- Tiny Bog Beast -- 61686
 	pet = AddPet(61686, V.MOP, Q.COMMON)
@@ -1362,12 +1383,28 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.REPUTATION, F.THE_ANGLERS)
 	pet:AddRepVendor(FAC.THE_ANGLERS, REP.HONORED, 63721)
 
+	-- Tiny Green Carp -- 70259
+	pet = AddPet(70259, V.MOP, Q.COMMON)
+	pet:SetItemID(94934)
+	pet:SetSpellID(139363)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.WORLD_DROP)
+	pet:AddProfession(PROF.FISHING)
+	pet:AddWorldDrop(Z.VALLEY_OF_THE_FOUR_WINDS, Z.KRASARANG_WILDS, Z.THE_JADE_FOREST)
+
 	-- Tiny Green Dragon -- 14755
 	pet = AddPet(14755, V.WOTLK, Q.RARE)
 	pet:SetItemID(19055)
 	pet:SetSpellID(23531)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
 	pet:AddCustom("CHINA")
+
+	-- Tiny Red Carp -- 70257
+	pet = AddPet(70257, V.MOP, Q.COMMON)
+	pet:SetItemID(94932)
+	pet:SetSpellID(139361)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.WORLD_DROP)
+	pet:AddProfession(PROF.FISHING)
+	pet:AddWorldDrop(Z.TOWNLONG_STEPPES, Z.DREAD_WASTES)
 
 	-- Tiny Red Dragon -- 14756
 	pet = AddPet(14756, V.WOTLK, Q.RARE)
@@ -1382,6 +1419,14 @@ function addon:InitCritters()
 	pet:SetSpellID(26045)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_EVENTS)
 	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+
+	-- Tiny White Carp -- 70260
+	pet = AddPet(70260, V.MOP, Q.COMMON)
+	pet:SetItemID(94935)
+	pet:SetSpellID(139365)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.WORLD_DROP)
+	pet:AddProfession(PROF.FISHING)
+	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
 
 	-- Tirisfal Batling -- 33197
 	pet = AddPet(33197, V.WOTLK, Q.RARE)
@@ -1531,10 +1576,31 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.INSCRIPTION)
 
+	-- Zandalari Anklerender -- 70451
+	pet = AddPet(70451, V.MOP, Q.RARE)
+	pet:SetItemID(95422)
+	pet:SetSpellID(139932)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	pet:AddWorldDrop(Z.ISLE_OF_GIANTS)
+
 	-- Zandalari Footslasher -- 70452
 	pet = AddPet(70452, V.MOP, Q.RARE)
 	pet:SetItemID(95423)
 	pet:SetSpellID(139933)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	pet:AddWorldDrop(Z.ISLE_OF_GIANTS)
+
+	-- Zandalari Kneebiter -- 69796
+	pet = AddPet(69796, V.MOP, Q.RARE)
+	pet:SetItemID(94126)
+	pet:SetSpellID(138087)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	pet:AddWorldDrop(Z.ISLE_OF_GIANTS)
+
+	-- Zandalari Toenibbler -- 70453
+	pet = AddPet(70453, V.MOP, Q.RARE)
+	pet:SetItemID(95424)
+	pet:SetSpellID(139934)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
 	pet:AddWorldDrop(Z.ISLE_OF_GIANTS)
 

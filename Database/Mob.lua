@@ -94,6 +94,7 @@ function addon:InitMob()
 	AddMob(50005,	L["Poseidus"],				Z.VASHJIR,			 0.0,  0.0)
 	AddMob(50062,	L["Aeonaxx"],				Z.DEEPHOLM,			 0.0,  0.0)
 	AddMob(50245,	L["Dormus the Camel-Hoarder"],		Z.FERALAS,			69.6, 73.2)
+	AddMob(50358,	L["Haywire Sunreaver Construct"],	Z.ISLE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(50776,	L["Nalash Verdantis"],			Z.DREAD_WASTES,			64.2, 58.6)
 	AddMob(52059,	BN.HIGH_PRIESTESS_KILNARA,		Z.ZULGURUB,			47.8, 20.6)
 	AddMob(52151,	BN.BLOODLORD_MANDOKIR,			Z.ZULGURUB,			60.6, 80.6)
@@ -109,10 +110,15 @@ function addon:InitMob()
 	AddMob(66467,	L["G'nathus"], 				Z.TOWNLONG_STEPPES,		33.4,  6.4)
 	AddMob(68476,	BN.HORRIDON,				Z.THRONE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69161,	BN.OONDASTA,				Z.PANDARIA,			 0.0,  0.0) 
+	AddMob(69288,	L["Buried Sunreaver Construct"],	Z.ISLE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69427,	BN.DARK_ANIMUS,				Z.THRONE_OF_THUNDER,		 0.0,  0.0) 
+	AddMob(69439,	L["Disabled Sunreaver Construct"],	Z.ISLE_OF_THUNDER,		 0.0,  0.0)
+	AddMob(69441,	L["Malfunctioning Sunreaver Construct"],	Z.ISLE_OF_THUNDER,		 0.0,  0.0)
+	AddMob(69442,	L["Distressed Sunreaver Construct"],	Z.ISLE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69562,	BN.NALAK,				Z.ISLE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69712,	BN.JI_KUN,				Z.THRONE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69769,	L["Zandalari Warbringer"],		Z.PANDARIA,			 0.0,  0.0)  -- Slate
+	AddMob(69808,	L["Sunreaver Construct"],		Z.ISLE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69842,	L["Zandalari Warbringer"],		Z.PANDARIA,			 0.0,  0.0)  -- 
 	AddMob(69841,	L["Zandalari Warbringer"],		Z.PANDARIA,			 0.0,  0.0)  -- Amber
 	AddMob(69842,	L["Zandalari Warbringer"],		Z.KUN_LAI_SUMMIT,		75.0, 67.6)  -- Jade
