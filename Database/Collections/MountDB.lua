@@ -2578,6 +2578,112 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
 	mount:AddCustom("STORE")
 
+-- 5.2 added mounts
+
+	-- Armored Bloodwing -- 139595
+	mount = AddMount(139595, V.MOP, Q.EPIC)
+	mount:SetItemID(95341)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID)
+	
+	-- Clutch of Ji-Kun -- 139448
+	mount = AddMount(139448, V.MOP, Q.EPIC)
+	mount:SetItemID(95059)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(69712)
+
+	-- Ghastly Charger's Skull -- 136505
+	mount = AddMount(136505, V.MOP, Q.EPIC)
+	mount:SetItemID(93671)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG)
+	mount:AddCustom("TCG")
+
+	-- Reins of the Amber Primordial Direhorn -- 138424
+	mount = AddMount(138424, V.MOP, Q.EPIC)
+	mount:SetItemID(94230)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(69841)
+
+	-- Reins of the Armored Skyscreamer -- 136400
+	mount = AddMount(136400, V.MOP, Q.EPIC)
+	mount:SetItemID(93662)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(8124)
+
+	-- Reins of the Black Primal Raptor -- 138642
+	mount = AddMount(138642, V.MOP, Q.EPIC)
+	mount:SetItemID(94292)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddCustom("PRIMAL_EGG")
+
+	-- Reins of the Bone-White Primal Raptor -- 138640
+	mount = AddMount(138640, V.MOP, Q.EPIC)
+	mount:SetItemID(94290)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(32617)
+
+	-- Reins of the Cobalt Primordial Direhorn -- 138423
+	mount = AddMount(138423, V.MOP, Q.EPIC)
+	mount:SetItemID(94228)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(69161)
+
+	-- Reins of the Crimson Primal Direhorn -- 140250
+	mount = AddMount(140250, V.MOP, Q.EPIC)
+	mount:SetItemID(95565)
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.PANDACOMMON3)
+	mount:AddRepVendor(FAC.SUNREAVER_ONSLAUGHT, REP.EXALTED, 67672)
+
+	-- Reins of the Crimson Golden Direhorn -- 140249
+	mount = AddMount(140249, V.MOP, Q.EPIC)
+	mount:SetItemID(95564)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.PANDACOMMON3)
+	mount:AddRepVendor(FAC.KIRIN_TOR_OFFENSIVE, REP.EXALTED, 68000)
+
+	-- Reins of the Green Primal Raptor -- 138643
+	mount = AddMount(138643, V.MOP, Q.EPIC)
+	mount:SetItemID(94293)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddCustom("PRIMAL_EGG")
+
+	-- Reins of the Jade Primordial Direhorn -- 138426
+	mount = AddMount(138426, V.MOP, Q.EPIC)
+	mount:SetItemID(94231)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(69842)
+
+--[[ Even in-game??
+	-- Reins of the Red Primal Raptor -- 138641
+	mount = AddMount(138641, V.MOP, Q.EPIC)
+	mount:SetItemID(94291)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+--]]
+
+	-- Reins of the Slate Primordial Direhorn -- 138425
+	mount = AddMount(138425, V.MOP, Q.EPIC)
+	mount:SetItemID(94229)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(69769)
+
+	-- Reins of the Thundering Cobalt Cloud Serpent -- 139442
+	mount = AddMount(139442, V.MOP, Q.EPIC)
+	mount:SetItemID(95057)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(69562)
+
+	-- Sky Claw -- 134359
+	mount = AddMount(134359, V.MOP, Q.EPIC)
+	mount:SetItemID(95416)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	mount:AddProfession(PROF.ENGINEERING)
+
+	-- Spawn of Horridon -- 136471
+	mount = AddMount(136471, V.MOP, Q.EPIC)
+	mount:SetItemID(93666)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(68476)
+
+
+
 ----------------------------------------------------------------------------------------------------
 
 	self.InitMounts = nil

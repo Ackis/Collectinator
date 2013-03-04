@@ -241,6 +241,7 @@ private.REP_FLAGS_WORD2 = {
 	GUILD				= 0X00200000,	-- 22
 	NETHERWING			= 0x00400000,	-- 23
 	BRAWLERS			= 0x00800000,	-- 24 -- Bizmo's Brawlpub / Brawl'gar Arena
+	PANDACOMMON3			= 0x01000000,	-- 25 -- Kirin Tor Offensive / Sunreaver Onslaught
 }
 
 -------------------------------------------------------------------------------
@@ -455,7 +456,10 @@ private.FACTION_IDS = {
 	NAT_PAGLE = 1358,
 	THE_BLACK_PRINCE = 1359,
 	BRAWLGAR_ARENA = 1374,
+	KIRIN_TOR_OFFENSIVE = 1387,
+	SUNREAVER_ONSLAUGHT = 1388,
 	BIZMOS_BRAWLPUB = 1419,
+
 }
 
 private.FACTION_STRINGS = {}

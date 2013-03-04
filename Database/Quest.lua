@@ -109,6 +109,7 @@ function addon:InitQuest()
 	AddQuest(32455,	Z.KRASARANG_WILDS,			00.0,	00.0,	"Alliance")
 	AddQuest(32603,	Z.PANDARIA,				00.0,	00.0,	"Neutral")
 	AddQuest(32604,	Z.PANDARIA,				00.0,	00.0,	"Neutral")
+	AddQuest(32617,	Z.ISLE_OF_GIANTS,			00.0,	00.0,	"Neutral")
 
 	self.InitQuest = nil
 end

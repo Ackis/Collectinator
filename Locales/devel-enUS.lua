@@ -224,6 +224,7 @@ L["Old Whitenose"] = true
 L["Ordo"] = true
 L["PETBATTLEDAILY"] = "Available from the Sack of Pet Supplies, given when completing Pet Battle dailies."
 L["PETTAMER"] = "Availble from Gentle San in Shrine of Two Moons (60.8, 23.4) and Sara Finkleswitch in Shrine of Seven Stars (86.4, 60.0)"
+L["PRIMAL_EGG"] = "Available randomly from a Primal Egg, dropped by Pandaria birds and raptors."
 L["Paul North"] = true
 L["\"Plucky\" Johnson"] = true
 L["Pol Amberstill"] = true

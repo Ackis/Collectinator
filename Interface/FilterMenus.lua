@@ -747,6 +747,7 @@ function private.InitializeFilterPanel()
 	local Tushui_Huojin = isAlliance and FN.TUSHUI_PANDAREN or FN.HUOJIN_PANDAREN
 	local Jinyu_Hozen = isAlliance and FN.PEARLFIN_JINYU or FN.FOREST_HOZEN
 	local Brawlers_Guild = isAlliance and FN.BIZMOS_BRAWLPUB or FN.BRAWLGAR_ARENA
+	local Isle_of_Giants = isAlliance and FN.KIRIN_TOR_OFFENSIVE or FN.SUNREAVER_ONSLAUGHT
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -1013,6 +1014,7 @@ function private.InitializeFilterPanel()
 			pandacommon1		= { tt = ReputationDesc(Tushui_Huojin),			text = Tushui_Huojin,			row = 13,	col = 1 },
 			pandacommon2		= { tt = ReputationDesc(Jinyu_Hozen),			text = Jinyu_Hozen,			row = 14,	col = 1 },
 			brawlers		= { tt = ReputationDesc(Brawlers_Guild),		text = Brawlers_Guild,			row = 15,	col = 1 },
+			pandacommon3		= { tt = ReputationDesc(Isle_of_Giants),		text = Isle_of_Giants,			row = 16,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
 

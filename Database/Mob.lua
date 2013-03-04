@@ -107,8 +107,15 @@ function addon:InitMob()
 	AddMob(62346,	L["Galleon"], 				Z.VALLEY_OF_THE_FOUR_WINDS,	70.8, 63.4)
 	AddMob(64403,	L["Alani"], 				Z.VALE_OF_ETERNAL_BLOSSOMS,	39.4, 30.8)
 	AddMob(66467,	L["G'nathus"], 				Z.TOWNLONG_STEPPES,		33.4,  6.4)
+	AddMob(68476,	BN.HORRIDON,				Z.THRONE_OF_THUNDER,		 0.0,  0.0)
+	AddMob(69161,	BN.OONDASTA,				Z.PANDARIA,			 0.0,  0.0) 
 	AddMob(69427,	BN.DARK_ANIMUS,				Z.THRONE_OF_THUNDER,		 0.0,  0.0) 
+	AddMob(69562,	BN.NALAK,				Z.ISLE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69712,	BN.JI_KUN,				Z.THRONE_OF_THUNDER,		 0.0,  0.0)
+	AddMob(69769,	L["Zandalari Warbringer"],		Z.PANDARIA,			 0.0,  0.0)  -- Slate
+	AddMob(69842,	L["Zandalari Warbringer"],		Z.PANDARIA,			 0.0,  0.0)  -- 
+	AddMob(69841,	L["Zandalari Warbringer"],		Z.PANDARIA,			 0.0,  0.0)  -- Amber
+	AddMob(69842,	L["Zandalari Warbringer"],		Z.KUN_LAI_SUMMIT,		75.0, 67.6)  -- Jade
 
 	self.InitMob = nil
 end
