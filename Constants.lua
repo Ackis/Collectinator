@@ -206,11 +206,11 @@ private.REP_FLAGS_WORD1 = {
 	THE_KALUAK			= 0x01000000,	-- 25
 	THE_ORACLES			= 0x02000000,	-- 26
 	THE_WYRMREST_ACCORD		= 0x04000000,	-- 27
-	WRATHCOMMON1			= 0x08000000,	-- 28  -- Silver Covenant / Sunreavers
-	WRATHCOMMON2			= 0x10000000,	-- 29
-	WRATHCOMMON3			= 0x20000000,	-- 30
-	WRATHCOMMON4			= 0x40000000,	-- 31
-	WRATHCOMMON5			= 0x80000000,	-- 32
+	WRATHCOMMON1			= 0x08000000,	-- 28 -- Vanguard / Expedition
+	WRATHCOMMON2			= 0x10000000,	-- 29 -- Silver Covenant / Sunreavers
+	WRATHCOMMON3			= 0x20000000,	-- 30 -- Valiance / Warsong
+	WRATHCOMMON4			= 0x40000000,	-- 31 -- Frostbourne / Taunka
+	WRATHCOMMON5			= 0x80000000,	-- 32 -- Explorer's League / Hand of Vengeance
 }
 
 -------------------------------------------------------------------------------
@@ -705,6 +705,8 @@ private.BOSS_NAMES = {
 	RAGNAROS = _G.EJ_GetEncounterInfo(198),
 	ULTRAXION = _G.EJ_GetEncounterInfo(331),
 	MADNESS_OF_DEATHWING = _G.EJ_GetEncounterInfo(333),
+	MOTHER_SMOLDERWEB = _G.EJ_GetEncounterInfo(391),
+	QUARTERMASTER_ZIGRIS = _G.EJ_GetEncounterInfo(393),
 	LORD_AURIUS_RIVENDARE = _G.EJ_GetEncounterInfo(456),
 	KAELTHAS_SUNSTRIDER = _G.EJ_GetEncounterInfo(533),
 	ANZU = _G.EJ_GetEncounterInfo(542),
