@@ -1879,5 +1879,6 @@ do
 			end
 		end
 		acquire_tooltip:Show()
+		acquire_tooltip:UpdateScrolling(addon.Frame:GetHeight())
 	end
 end	-- do
