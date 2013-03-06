@@ -234,20 +234,35 @@ function private.InitializeListFrame()
 		ListFrame:Update(nil, true)
 	end)
 
-	local function Button_OnEnter(self)
-		ListItem_ShowTooltip(self, ListFrame.entries[self.string_index])
-	end
-
-	local function Button_OnLeave()
-		QTip:Release(acquire_tooltip)
-	end
-
 	local function Bar_OnEnter(self)
+		if ListFrame.selected_entry then
+			return
+		end
 		ListItem_ShowTooltip(self, ListFrame.entries[self.string_index])
 	end
 
-	local function Bar_OnLeave()
+	local function Bar_OnLeave(self)
+		if ListFrame.selected_entry then
+			return
+		end
 		QTip:Release(acquire_tooltip)
+	end
+
+	local function Bar_OnClick(self, mouse_button, is_down)
+		local old_selected = ListFrame.selected_entry
+		ListFrame.selected_entry = nil
+
+		if old_selected then
+			old_selected.button.selected_texture:Hide()
+			Bar_OnLeave(old_selected.button)
+		end
+		Bar_OnEnter(self)
+
+		local entry = ListFrame.entries[self.string_index]
+		if old_selected ~= entry then
+			self.selected_texture:Show()
+			ListFrame.selected_entry = entry
+		end
 	end
 
 	local function ListItem_OnClick(self, button, down)
@@ -358,8 +373,6 @@ function private.InitializeListFrame()
 				addon:Debug("Error: clicked_line (%s) has no parent.", clicked_line.type or _G.UNKNOWN)
 			end
 		end
-		QTip:Release(acquire_tooltip)
-
 		ListFrame:Update(nil, true)
 	end
 
@@ -388,6 +401,14 @@ function private.InitializeListFrame()
 		highlight_texture:SetPoint("TOPLEFT", 2, 0)
 		highlight_texture:SetPoint("BOTTOMRIGHT", -2, 1)
 		cur_entry:SetHighlightTexture(highlight_texture)
+
+		local selected_texture = cur_entry:CreateTexture(nil, "BORDER")
+		selected_texture:SetTexture([[Interface\ClassTrainerFrame\TrainerTextures]])
+		selected_texture:SetTexCoord(0.00195313, 0.57421875, 0.84960938, 0.94140625)
+		selected_texture:SetBlendMode("ADD")
+		selected_texture:SetPoint("TOPLEFT", 2, 0)
+		selected_texture:SetPoint("BOTTOMRIGHT", -2, 1)
+		cur_entry.selected_texture = selected_texture
 
 		local emphasis_texture = cur_entry:CreateTexture(nil, "BORDER")
 		emphasis_texture:SetTexture([[Interface\QUESTFRAME\Ui-QuestLogTitleHighlight]])
@@ -799,15 +820,16 @@ function private.InitializeListFrame()
 			entry:SetText("")
 			entry:SetScript("OnEnter", nil)
 			entry:SetScript("OnLeave", nil)
+			entry:SetScript("OnClick", nil)
 			entry:SetWidth(LIST_ENTRY_WIDTH)
 			entry.emphasis_texture:Hide()
+			entry.selected_texture:Hide()
 			entry:Disable()
+			entry.button = nil
 
 			state.string_index = 0
 
 			state:Hide()
-			state:SetScript("OnEnter", nil)
-			state:SetScript("OnLeave", nil)
 			state:Disable()
 
 			state:ClearAllPoints()
@@ -921,8 +943,6 @@ function private.InitializeListFrame()
 					cur_state:SetHighlightTexture([[Interface\MINIMAP\UI-Minimap-ZoomButton-Highlight]])
 				end
 				cur_state.string_index = string_index
-				cur_state:SetScript("OnEnter", Button_OnEnter)
-				cur_state:SetScript("OnLeave", Button_OnLeave)
 				cur_state:Enable()
 			else
 				cur_state:Hide()
@@ -930,6 +950,10 @@ function private.InitializeListFrame()
 			end
 			local cur_container = cur_state.container
 			local cur_button = self.entry_buttons[button_index]
+
+			if cur_entry == ListFrame.selected_entry then
+				cur_button.selected_texture:Show()
+			end
 
 			if cur_entry.emphasized then
 				cur_button.emphasis_texture:Show()
@@ -941,17 +965,17 @@ function private.InitializeListFrame()
 				cur_state:SetPoint("TOPLEFT", cur_container, "TOPLEFT", 15, 0)
 				cur_button:SetWidth(LIST_ENTRY_WIDTH - 15)
 			end
+			cur_entry.button = cur_button
 			cur_button.string_index = string_index
 			cur_button:SetText(cur_entry.text)
 			cur_button:SetScript("OnEnter", Bar_OnEnter)
 			cur_button:SetScript("OnLeave", Bar_OnLeave)
+			cur_button:SetScript("OnClick", Bar_OnClick)
 			cur_button:Enable()
 
 			-- This function could possibly have been called from a mouse click or by scrolling. Since, in those cases, the list entries have
 			-- changed, the mouse is likely over a different entry - a tooltip should be generated for it.
-			if cur_state:IsMouseOver() then
-				Button_OnEnter(cur_state)
-			elseif cur_button:IsMouseOver() then
+			if cur_button:IsMouseOver() then
 				Bar_OnEnter(cur_button)
 			end
 			button_index = button_index + 1
