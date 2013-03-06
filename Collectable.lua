@@ -133,21 +133,16 @@ end
 -- ... == coords x:y
 function pet_prototype:AddZoneLocations(zone_name, pet_levels, ...)
 	self:AddAcquireData(A.WORLD_DROP, nil, nil, zone_name)
-	if not self.zone_list then
-		self.zone_list = {}
-	end
 
-	local zone_list = self.zone_list
+	self.zone_list = self.zone_list or {}
+	self.zone_list[zone_name] = self.zone_list[zone_name] or {}
+	self.zone_list[zone_name][pet_levels] = self.zone_list[zone_name][pet_levels] or {}
 
-	if not zone_list[zone_name] then
-		zone_list[zone_name] = {}
-	end
-
-	if not zone_list[zone_name][pet_levels] then
-		zone_list[zone_name][pet_levels] = {}
-	end
-
-	zone_list[zone_name][pet_levels] = ...
+--	local num_coords = select('#', ...)
+--
+--	for index = 1, num_coords do
+--	end
+	self.zone_list[zone_name][pet_levels] = ...
 end
 
 -------------------------------------------------------------------------------
@@ -423,7 +418,6 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 			quantity = select(cur_var, ...)
 			cur_var = cur_var + 1
 		end
-
 		acquire[identifier] = true
 
 		if unit_list then
@@ -444,10 +438,9 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 			affiliation = "world_drop"
 		end
 		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
+		acquire_list[acquire_type].name = private.ACQUIRE_NAMES[acquire_type]
 		acquire_list[acquire_type].collectables = acquire_list[acquire_type].collectables or {}
 		acquire_list[acquire_type].collectables[self.type] = acquire_list[acquire_type].collectables[self.type] or {}
-
-		acquire_list[acquire_type].name = private.ACQUIRE_NAMES[acquire_type]
 		acquire_list[acquire_type].collectables[self.type][self.id] = affiliation or true
 
 		if location_name then
@@ -505,17 +498,17 @@ function collectable_prototype:AddRepVendor(faction_id, rep_level, ...)
 	local location_list = private.location_list
 	local acquire_list = private.acquire_list
 	local vendor_list = private.vendor_list
-	local acquire = self.acquire_data[A.REPUTATION]
+	local acquire_data = self.acquire_data[A.REPUTATION]
 
-	if not acquire then
+	if not acquire_data then
 		self.acquire_data[A.REPUTATION] = {}
-		acquire = self.acquire_data[A.REPUTATION]
+		acquire_data = self.acquire_data[A.REPUTATION]
 	end
-	local faction = acquire[faction_id]
+	local faction = acquire_data[faction_id]
 
 	if not faction then
-		acquire[faction_id] = {}
-		faction = acquire[faction_id]
+		acquire_data[faction_id] = {}
+		faction = acquire_data[faction_id]
 		faction[rep_level] = {}
 	end
 	local num_vars = select('#', ...)
