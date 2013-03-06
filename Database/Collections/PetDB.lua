@@ -1472,7 +1472,7 @@ function addon:InitCritters()
 
 	-- Spawn of G'nathus -- 70098
 	pet = AddPet(70098, V.MOP, Q.RARE)
-	pet:SetItemID(90953)
+	pet:SetItemID(94595)
 	pet:SetSpellID(138913)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
 	pet:AddMobDrop(66467)
