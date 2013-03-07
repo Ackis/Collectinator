@@ -1879,29 +1879,29 @@ function addon:InitCritters()
 	pet = AddPet(70451, V.MOP, Q.RARE)
 	pet:SetItemID(95422)
 	pet:SetSpellID(139932)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
-	pet:AddWorldDrop(Z.ISLE_OF_GIANTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(69925)
 
 	-- Zandalari Footslasher -- 70452
 	pet = AddPet(70452, V.MOP, Q.RARE)
 	pet:SetItemID(95423)
 	pet:SetSpellID(139933)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
-	pet:AddWorldDrop(Z.ISLE_OF_GIANTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(69925)
 
 	-- Zandalari Kneebiter -- 69796
 	pet = AddPet(69796, V.MOP, Q.RARE)
 	pet:SetItemID(94126)
 	pet:SetSpellID(138087)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
-	pet:AddWorldDrop(Z.ISLE_OF_GIANTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(69925)
 
 	-- Zandalari Toenibbler -- 70453
 	pet = AddPet(70453, V.MOP, Q.RARE)
 	pet:SetItemID(95424)
 	pet:SetSpellID(139934)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
-	pet:AddWorldDrop(Z.ISLE_OF_GIANTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(69925)
 
 	-- Zergling -- 11327
 	pet = AddPet(11327, V.ORIG, Q.COMMON)

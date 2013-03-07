@@ -126,6 +126,7 @@ function addon:InitMob()
 	AddMob(69808,	L["Sunreaver Construct"],		Z.ISLE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69841,	L["Zandalari Warbringer"],		Z.PANDARIA,			 0.0,  0.0)  -- Amber
 	AddMob(69842,	L["Zandalari Warbringer"],		Z.KUN_LAI_SUMMIT,		75.0, 67.6)  -- Jade
+	AddMob(69925,	L["Zandalari Dinomancer"],		Z.ISLE_OF_GIANTS,		69.0, 70.0)  -- Jade
 
 	self.InitMob = nil
 end

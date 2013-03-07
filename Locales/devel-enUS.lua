@@ -375,5 +375,4 @@ L["Zandalari Warbringer"] = true
 L["Zen'Vorka"] = true
 L["Zevrost"] = true
 L["Zjolnir"] = true
-
-
+L["Zandalari Dinomancer"] = true
