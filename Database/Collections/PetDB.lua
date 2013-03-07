@@ -506,12 +506,12 @@ function addon:InitCritters()
 	pet:AddWorldEvent("CHILDRENS_WEEK")
 
 	-- Elder Python -- 69818
-	pet = AddPet(69818, V.MOP, Q.RARE)
+	pet = AddPet(69818, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.ISLE_OF_THUNDER, "22-23", "57:71")
 
 	-- Electrified Razortooth -- 69794
-	pet = AddPet(69794, V.MOP, Q.RARE)
+	pet = AddPet(69794, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.ISLE_OF_THUNDER, "22-23", "40:58", "48:65")
 
