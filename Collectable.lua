@@ -132,17 +132,17 @@ end
 
 -- ... == coords x:y
 function pet_prototype:AddZoneLocations(zone_name, pet_levels, ...)
-	self:AddAcquireData(A.WORLD_DROP, nil, nil, zone_name)
+	self:AddAcquireData(A.WORLD_DROP, "pet_battle", nil, zone_name)
 
 	self.zone_list = self.zone_list or {}
 	self.zone_list[zone_name] = self.zone_list[zone_name] or {}
 	self.zone_list[zone_name][pet_levels] = self.zone_list[zone_name][pet_levels] or {}
 
---	local num_coords = select('#', ...)
---
---	for index = 1, num_coords do
---	end
-	self.zone_list[zone_name][pet_levels] = ...
+	local num_coords = select('#', ...)
+
+	for index = 1, num_coords do
+		table.insert(self.zone_list[zone_name][pet_levels], (select(index, ...)))
+	end
 end
 
 -------------------------------------------------------------------------------
@@ -435,7 +435,7 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 			end
 		elseif type(identifier) == "string" and private.ZONE_LABELS_FROM_NAME[identifier] then
 			location_name = identifier
-			affiliation = "world_drop"
+			affiliation = type_string
 		end
 		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
 		acquire_list[acquire_type].name = private.ACQUIRE_NAMES[acquire_type]
@@ -479,7 +479,7 @@ function collectable_prototype:AddLimitedVendor(...)
 end
 
 function collectable_prototype:AddWorldDrop(...)
-	self:AddAcquireData(A.WORLD_DROP, nil, nil, ...)
+	self:AddAcquireData(A.WORLD_DROP, "world_drop", nil, ...)
 	self:AddFilters(private.FILTER_IDS.WORLD_DROP)
 end
 

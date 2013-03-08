@@ -1425,9 +1425,10 @@ function private.InitializeListFrame()
 						local expand = false
 						local type = "subheader"
 						local entry = AcquireTable()
+						local location_type = location_collectables[collectable_id]
 
 						-- Add World Drop entries as normal entries.
-						if location_collectables[collectable_id] and location_collectables[collectable_id] == "world_drop" then
+						if location_type and (location_type == "world_drop" or location_type == "pet_battle") then
 							expand = true
 							type = "entry"
 						end
@@ -1704,8 +1705,24 @@ do
 			if location and drop_location ~= location then
 				return
 			end
+			local location_collectables = private.location_list[identifier].collectables[collectable.type]
+			local drop_type = location_collectables[collectable.id]
 			local quality_color = select(4, _G.GetItemQualityColor(collectable.quality)):sub(3)
-			addline_func(0, -1, false, L["World Drop"], quality_color, location_text, CATEGORY_COLORS["location"])
+
+			if drop_type == "world_drop" then
+				addline_func(0, -1, false, L["World Drop"], quality_color, location, CATEGORY_COLORS["location"])
+			elseif drop_type == "pet_battle" then
+				for level_range, coord_list in pairs(collectable.zone_list[identifier]) do
+					addline_func(0, -1, false, _G.BATTLE_PET_SOURCE_5, quality_color)
+
+					for coord_index = 1, #coord_list do
+						local x, y = (":"):split(coord_list[coord_index])
+						addline_func(1, -2, true, ("%s (%s)"):format(identifier, level_range), CATEGORY_COLORS["location"], COORD_FORMAT:format(x, y), CATEGORY_COLORS.coords)
+					end
+				end
+			else
+				addline_func(0, -1, false, _G.UNKNOWN, quality_color, location, CATEGORY_COLORS["location"])
+			end
 		end,
 
 		[A.PROFESSION] = function(collectable, identifier, location, acquire_info, addline_func)
