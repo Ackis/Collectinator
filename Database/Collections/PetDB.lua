@@ -109,7 +109,7 @@ function addon:InitCritters()
 	pet = AddPet(7561, V.WOTLK, Q.COMMON)
 	pet:SetItemID(44822)
 	pet:SetSpellID(10713)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F,IBOE, F.VENDOR)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
 	pet:AddVendor(28951)
 
 	-- Alliance Balloon -- 54539
