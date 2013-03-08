@@ -1048,7 +1048,7 @@ function addon:InitCritters()
 	pet:SetItemID(93041)
 	pet:SetSpellID(135268)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
-	pet:AddMobDrop(15263)	
+	pet:AddMobDrop(15263)
 
 	-- Mini Thor -- 42078
 	pet = AddPet(42078, V.WOTLK, Q.RARE)
@@ -3551,7 +3551,7 @@ function addon:InitCritters()
 	-- Lofty Libram -- 68806
 	pet = AddPet(68806, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.HILLSBRAD_FOOTHILLS)	
+	pet:AddWorldDrop(Z.HILLSBRAD_FOOTHILLS)
 
 	-- Nexus Whelpling -- 68845
 	pet = AddPet(68845, V.MOP, Q.COMMON)
