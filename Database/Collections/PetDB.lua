@@ -123,7 +123,6 @@ function addon:InitCritters()
 	-- Amber Moth -- 65187
 	pet = AddPet(65187, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.DREAD_WASTES, Z.TOWNLONG_STEPPES)
 	pet:AddZoneLocations(Z.DREAD_WASTES, "24", "30.6:78.6", "55.0:33.6", "45.0:18.6", "47.4:16.8", "49.6:13.6")
 	pet:AddZoneLocations(Z.TOWNLONG_STEPPES, "24", "47.2:77.2", "48.2:78.2", "50.0:80.2", "66.8:80.6", "64.6:83.0")
 
@@ -655,7 +654,6 @@ function addon:InitCritters()
 	-- Garden Moth -- 65215
 	pet = AddPet(65215, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.THE_JADE_FOREST)
 	pet:AddZoneLocations(Z.THE_JADE_FOREST, "22-24", "56.1:54.6", "56:42", "51.4:46.2", "54.4:48.2")
 
 	-- Ghostly Skull -- 29147
@@ -832,7 +830,6 @@ function addon:InitCritters()
 	-- Jade Oozeling -- 61718
 	pet = AddPet(61718, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.THE_HINTERLANDS)
 	pet:AddZoneLocations(Z.THE_HINTERLANDS, "11", "55.6:43.6", "60.0:42.8", "57.4:38.4")
 
 	-- Jade Owl -- 61877
@@ -888,7 +885,6 @@ function addon:InitCritters()
 	-- Lava Crab -- 61383
 	pet = AddPet(61383, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.BURNING_STEPPES, Z.SEARING_GORGE)
 	pet:AddZoneLocations(Z.SEARING_GORGE, "13", "38.8:73.6", "38.6:76.8", "35.6:77.6", "35.6:74.8", "45.8:47.7", "48.6:50.2", "53.6:55.0")
 	pet:AddZoneLocations(Z.BURNING_STEPPES, "15", "67.6:45.0", "54.8:26.6", "54.6:31.6", "51.6:31.8", "14.6:44.6", "20.6:60.6", "26.8:59.0")
 
@@ -1153,7 +1149,6 @@ function addon:InitCritters()
 	-- Nether Roach -- 62625
 	pet = AddPet(62625, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.NETHERSTORM)
 	pet:AddZoneLocations(Z.NETHERSTORM, "20", "29.0:78.4", "58.0:80.8", "57.0:48.2", "67.6:45.6", "40.6:29.4", "35.6:39.8", "28.6:44.0")
 
 	-- Netherwhelp -- 18381
@@ -1392,7 +1387,6 @@ function addon:InitCritters()
 	-- Silky Moth -- 62373
 	pet = AddPet(62373, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.MOONGLADE, Z.MOUNT_HYJAL, Z.UNGORO_CRATER)
 	pet:AddZoneLocations(Z.MOONGLADE, "15", "63.2:44.4", "62.2:66.6")
 	pet:AddZoneLocations(Z.UNGORO_CRATER, "15", "43.8:80.0")
 	pet:AddZoneLocations(Z.MOUNT_HYJAL, "22-23", "49.2:23.6", "40.2:26.6", "64.0:22.8", "60.6:29.6")
@@ -1429,7 +1423,6 @@ function addon:InitCritters()
 	-- Skunk -- 61255
 	pet = AddPet(61255, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.AZSHARA, Z.AZUREMYST_ISLE, Z.BLOODMYST_ISLE, Z.DUSKWOOD, Z.GILNEAS, Z.HOWLING_FJORD, Z.TEROKKAR_FOREST)
 	pet:AddZoneLocations(Z.AZUREMYST_ISLE, "1", "32.2:71.2", "35.0:73.0", "50.0:22.8", "38.8:32.0")
 	pet:AddZoneLocations(Z.AZSHARA, "3-5", "42.2:67.6", "27.2:46.8", "26.6:63.8", "31.2:77.6", "39.6:77.0", "52.6:75.2")
 	pet:AddZoneLocations(Z.BLOODMYST_ISLE, "3-5", "60.8:86.8")
@@ -1564,7 +1557,6 @@ function addon:InitCritters()
 	-- Swamp Croaker -- 69819
 	pet = AddPet(69819, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.ISLE_OF_THUNDER)
 	pet:AddZoneLocations(Z.ISLE_OF_THUNDER, "25", "50.8:48.2", "41.8:64.6", "38.4:56.2")
 
 	-- Teldrassil Sproutling -- 33188
@@ -1585,7 +1577,6 @@ function addon:InitCritters()
 	-- Thundertail Flapper -- 69648
 	pet = AddPet(69648, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.ISLE_OF_THUNDER)
 	pet:AddZoneLocations(Z.ISLE_OF_THUNDER, "25", "47.8:47.4", "54.4:49.6", "53.2:55.0", "55.6:40.6")
 
 	-- Tiny Blue Carp -- 70258
@@ -1599,7 +1590,6 @@ function addon:InitCritters()
 	-- Tiny Bog Beast -- 61686
 	pet = AddPet(61686, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.WETLANDS)
 	pet:AddZoneLocations(Z.WETLANDS, "6", "55.6:34.6", "52.8:38.0", "50.4:30.6", "55.6:24.2")
 
 	-- Tiny Flamefly -- 51632
@@ -1709,7 +1699,6 @@ function addon:InitCritters()
 	-- Twilight Spider -- 62117
 	pet = AddPet(62117, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.AZSHARA, Z.DEEPHOLM, Z.TWILIGHT_HIGHLANDS)
 	pet:AddZoneLocations(Z.AZSHARA, "3-5", "64.6:15.2", "71.6:16.0", "69.4:16.4", "67.6:17.4", "64.0:17.8")
 	pet:AddZoneLocations(Z.DEEPHOLM, "22-23", "62.4:54.4", "35.6:67.4", "41.6:71.8", "43.2:76.4", "60.0:42.2", "63.2:34.4")
 	pet:AddZoneLocations(Z.TWILIGHT_HIGHLANDS, "23", "58.0:32.0", "40.0:50.2", "55.6:47.0", "61.6:47.6", "62.8:54.8", "57.0:57.6", "33.2:67.8", "59.8:83.4", "70.6:74.8", "63.6:67.4")
@@ -1766,7 +1755,6 @@ function addon:InitCritters()
 	-- Water Waveling -- 62820
 	pet = AddPet(62820, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.ZULDRAK)
 	pet:AddZoneLocations(Z.ZULDRAK, "22", "38.8:75.6", "40.8:71.4", "46.0:78.2", "42.6:83.6")
 
 	-- Westfall Chicken -- 30379
@@ -1794,7 +1782,6 @@ function addon:InitCritters()
 	-- Wildhammer Gryphon Hatchling -- 62900
 	pet = AddPet(62900, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.TWILIGHT_HIGHLANDS)
 	pet:AddZoneLocations(Z.TWILIGHT_HIGHLANDS, "23", "56.6:15.8", "48.4:28.2")
 
 	-- Wind Rider Cub -- 36909
@@ -1860,7 +1847,6 @@ function addon:InitCritters()
 	-- Yakrat -- 63957
 	pet = AddPet(63957, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.TOWNLONG_STEPPES)
 	pet:AddZoneLocations(Z.TOWNLONG_STEPPES, "24-25", "17.6:58.0", "75.8:82.6", "82.0:73.6", "83.6:79.0", "71.6:56.6", "67.2:49.2", "67.6:44.6")
 
 	-- Yellow Moth -- 21008
@@ -1922,7 +1908,6 @@ function addon:InitCritters()
 	-- Zooey Snake -- 63555
 	pet = AddPet(63555, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
 	pet:AddZoneLocations(Z.KUN_LAI_SUMMIT, "23-24", "71.6:90.2", "68.6:87.4", "61.2:69.8", "53.6:78.6", "73.2:65.6")
 
 
