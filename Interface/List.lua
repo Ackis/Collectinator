@@ -775,6 +775,10 @@ function private.InitializeListFrame()
 			local current_tab = MainPanel.tabs[addon.db.profile.current_tab]
 			local expanded_button = current_tab["expand_button_" .. MainPanel.current_collectable_type]
 
+
+			QTip:Release(acquire_tooltip)
+			self.selected_entry = nil
+
 			if expanded_button then
 				MainPanel.expand_button:Expand(current_tab)
 			else
