@@ -715,6 +715,7 @@ private.BOSS_NAMES = {
 	SKADI_THE_RUTHLESS = _G.EJ_GetEncounterInfo(643),
 	SHA_OF_ANGER = _G.EJ_GetEncounterInfo(691),
 	ELEGON = _G.EJ_GetEncounterInfo(726),
+	PRIMORDIUS = _G.EJ_GetEncounterInfo(820),
 	DARK_ANIMUS = _G.EJ_GetEncounterInfo(824),
 	JI_KUN = _G.EJ_GetEncounterInfo(828)
 	

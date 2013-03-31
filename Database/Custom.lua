@@ -69,6 +69,7 @@ function addon:InitCustom()
 	AddCustom("FIONA'S_CHARM",	Z.EASTERN_PLAGUELANDS,		34.8,	69.2)
 	AddCustom("OOZING_BAG")
 	AddCustom("PRIMAL_EGG",		Z.PANDARIA)
+	AddCustom("HEROIC")
 
 	self.InitCustom = nil
 end
