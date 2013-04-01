@@ -145,6 +145,7 @@ L["FILTER_CLOSE_DESC"] = "Close filter option panel."
 L["FILTER_DESC_FORMAT"] = "Toggles display of %s collectables."
 L["FILTER_OPEN_DESC"] = "Open filter option panel."
 L["FIONA'S_CHARM"] = "Complete the quest Fiona's Lucky Charm, then with the buff kill anything and everything for Hidden Stashes, which have a chance of containing Mr. Grubbs."
+L["FISHING_DAILIES"] = "Chance at being in the reward bags for the fishing dailies from the classic Home Cities and Dalaran."
 L["FONT_SIZE_DESC"] = "Changes the size of the fonts for Collectinator."
 L["Faldoc Stonefaith"] = true
 L["Fedryen Swiftspear"] = true

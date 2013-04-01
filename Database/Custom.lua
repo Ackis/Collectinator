@@ -70,6 +70,7 @@ function addon:InitCustom()
 	AddCustom("OOZING_BAG")
 	AddCustom("PRIMAL_EGG",		Z.PANDARIA)
 	AddCustom("HEROIC")
+	AddCustom("FISHING_DAILIES")
 
 	self.InitCustom = nil
 end
