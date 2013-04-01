@@ -1175,6 +1175,7 @@ function private.InitializeFilterPanel()
 		["pandacommon1"]	= { cb = expansion4.pandacommon1,		svroot = filterdb.rep },
 		["pandacommon2"]	= { cb = expansion4.pandacommon2,		svroot = filterdb.rep },
 		["brawlers"]		= { cb = expansion4.brawlers,			svroot = filterdb.rep },
+		["pandacommon3"]	= { cb = expansion4.pandacommon3,		svroot = filterdb.rep },
 	}
 	private.InitializeFilterPanel = nil
 end
