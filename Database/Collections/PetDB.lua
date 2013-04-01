@@ -350,7 +350,7 @@ function addon:InitCritters()
 	pet = AddPet(68601, V.MOP, Q.COMMON)
 	pet:SetItemID(93025)
 	pet:SetSpellID(135156)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.REPUTATION, F.BRAWLERS)
 	pet:AddRepVendor(FAC.BRAWLGAR_ARENA, REP.REVERED, 68364)
 	pet:AddRepVendor(FAC.BIZMOS_BRAWLPUB, REP.REVERED, 68363)
 
