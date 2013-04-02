@@ -493,6 +493,20 @@ function addon:InitCritters()
 	pet:AddVendor(14846)
 	pet:AddWorldEvent("DARKMOON_FAIRE")
 
+	-- Darkmoon Eye -- 67332
+	pet = AddPet(67332, V.MOP, Q.RARE)
+	pet:SetItemID(91040)
+	pet:SetSpellID(132789)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.WORLD_EVENTS, F.IBOP)
+	pet:AddWorldEvent("DARKMOON_FAIRE")
+	pet:AddQuest(32175)
+
+	-- Darkmoon Glowfly -- 67329
+	pet = AddPet(67329, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET, F.WORLD_EVENTS)
+	pet:AddWorldEvent("DARKMOON_FAIRE")
+	pet:AddZoneLocations(Z.DARKMOON_ISLAND, "1-10", "53.0:23.6", "44.6:59.8", "59.2:65.6", "62.6:77.6")
+
 	-- Darkmoon Hatchling -- 67319
 	pet = AddPet(67319, V.MOP, Q.RARE)
 	pet:SetItemID(91003)
@@ -500,13 +514,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.WORLD_EVENTS)
 	pet:AddWorldEvent("DARKMOON_FAIRE")
 	pet:AddVendor(14846)
-
-	-- Darkmoon Eye -- 67332
-	pet = AddPet(67332, V.MOP, Q.RARE)
-	pet:SetItemID(91040)
-	pet:SetSpellID(132789)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
-	pet:AddQuest(32175)
 
 	-- Darkmoon Monkey -- 54491
 	pet = AddPet(54491, V.CATA, Q.RARE)
@@ -552,7 +559,7 @@ function addon:InitCritters()
 	pet = AddPet(35396, V.WOTLK, Q.COMMON)
 	pet:SetItemID(48112)
 	pet:SetSpellID(67413)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_DROP)
 	pet:AddWorldDrop(Z.DUSTWALLOW_MARSH)
 	pet:AddCustom("DARTSNEST")
 
@@ -642,7 +649,7 @@ function addon:InitCritters()
 	pet = AddPet(33200, V.WOTLK, Q.RARE)
 	pet:SetItemID(44974)
 	pet:SetSpellID(62516)
-	pet:AddFilters(F.ALLIANCE, F.IBOE, F.VENDOR)
+	pet:AddFilters(F.ALLIANCE, F.IBOE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33307)
 	pet:AddCustom("CHAMPION_SEALS")
 
@@ -901,7 +908,7 @@ function addon:InitCritters()
 	pet = AddPet(49587, V.CATA, Q.COMMON)
 	pet:SetItemID(65363)
 	pet:SetSpellID(92397)
-	pet:AddFilters(F.ALLIANCE, F.ACHIEVEMENT, F.VENDOR, F.GUILD)
+	pet:AddFilters(F.ALLIANCE, F.ACHIEVEMENT, F.VENDOR, F.GUILD, F.IBOP)
 	pet:AddAchievement(5201)
 	pet:AddRepVendor(FAC.GUILD, REP.REVERED, 51512, 51501, 52268, 46602, 51495, 51504)
 	--pet:SetRequiredFaction("Alliance")
@@ -928,7 +935,7 @@ function addon:InitCritters()
 	pet = AddPet(49588, V.CATA, Q.COMMON)
 	pet:SetItemID(65362)
 	pet:SetSpellID(92396)
-	pet:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.ACHIEVEMENT)
+	pet:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.ACHIEVEMENT, F.GUILD)
 	pet:AddAchievement(5179)
 	pet:AddRepVendor(FAC.GUILD, REP.HONORED, 46572, 51496, 51502, 51512, 51503, 52268)
 	--pet:SetRequiredFaction("Horde")
@@ -944,7 +951,7 @@ function addon:InitCritters()
 	pet = AddPet(16069, V.ORIG, Q.RARE)
 	pet:SetItemID(22114)
 	pet:SetSpellID(27241)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RETIRED, F.IBOP, F.PROMO)
 	pet:AddCustom("EUPROMO")
 
 	-- Gusting Grimoire -- 69208
@@ -1120,7 +1127,7 @@ function addon:InitCritters()
 	pet = AddPet(35387, V.WOTLK, Q.COMMON)
 	pet:SetItemID(48118)
 	pet:SetSpellID(67416)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MISC)
 	pet:AddWorldDrop(Z.NORTHERN_BARRENS)
 	pet:AddCustom("TAKKSNEST")
 
@@ -1561,7 +1568,7 @@ function addon:InitCritters()
 	pet = AddPet(16085, V.ORIG, Q.COMMON)
 	pet:SetItemID(22235)
 	pet:SetSpellID(27570)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS)
 	pet:AddWorldEvent("LOVE_IS_IN_THE_AIR")
 	pet:AddCustom("CITY")
 
@@ -1692,14 +1699,15 @@ function addon:InitCritters()
 	pet = AddPet(35397, V.WOTLK, Q.COMMON)
 	pet:SetItemID(48122)
 	pet:SetSpellID(67418)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_DROP)
+	pet:AddWorldDrop(Z.UNGORO_CRATER)
 	pet:AddCustom("MATRIARCHNEST")
 
 	-- Razormaw Hatchling -- 35398
 	pet = AddPet(35398, V.WOTLK, Q.COMMON)
 	pet:SetItemID(48124)
 	pet:SetSpellID(67419)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_DROP)
 	pet:AddWorldDrop(Z.WETLANDS)
 	pet:AddCustom("RAZORMAWNEST")
 
@@ -2158,7 +2166,7 @@ function addon:InitCritters()
 	pet = AddPet(14756, V.WOTLK, Q.RARE)
 	pet:SetItemID(19054)
 	pet:SetSpellID(23530)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
 	pet:AddCustom("CHINA")
 
 	-- Tiny Shale Spider -- 48982
@@ -2489,8 +2497,6 @@ function addon:InitCritters()
 	pet = AddPet(61368, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.HILLSBRAD_FOOTHILLS, Z.SWAMP_OF_SORROWS, Z.TWILIGHT_HIGHLANDS, Z.ZULDRAK)
-
-
 
 	-- Effervescent Glowfly -- 63850
 	pet = AddPet(63850, V.MOP, Q.COMMON)
@@ -3587,10 +3593,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.DARKMOON_ISLAND)
 
-	-- Darkmoon Glowfly -- 67329
-	pet = AddPet(67329, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.DARKMOON_ISLAND)
 
 	-- Emerald Proto-Whelp -- 68850
 	pet = AddPet(68850, V.MOP, Q.COMMON)
