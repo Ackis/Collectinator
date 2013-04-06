@@ -311,6 +311,7 @@ private.ACQUIRE_NAMES = {
 	[12]	= _G.BATTLE_PET_SOURCE_9, -- TCG
 	[13]	= L["Collectors Edition"],
 	[14]	= _G.BATTLE_PET_SOURCE_8, -- Promotion
+	[15]	= _G.MISCELLANEOUS,
 }
 
 private.ACQUIRE_STRINGS = {
@@ -328,6 +329,7 @@ private.ACQUIRE_STRINGS = {
 	"TCG",			-- 12
 	"COLLECTORS_EDITION",	-- 13
 	"PROMO",		-- 14
+	"MISC",			-- 15
 }
 
 private.ACQUIRE_TYPES = GenerateLookup_ID(private.ACQUIRE_STRINGS)

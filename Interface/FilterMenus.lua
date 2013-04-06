@@ -420,7 +420,7 @@ function private.InitializeFilterPanel()
 
 		local acquire_buttons = {
 			achievement	= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_6),	text = _G.BATTLE_PET_SOURCE_6,	row = 1, col = 1 },
-			instance	= { tt = AcquireDesc(_G.INSTANCE),		text = _G.INSTANCE,		row = 1, col = 2 },
+			coll_edition	= { tt = AcquireDesc(L["Collectors Edition"]),	text = L["Collectors Edition"],	row = 1, col = 2 },
 			mobdrop		= { tt = AcquireDesc(L["Mob Drop"]),		text = L["Mob Drop"],		row = 2, col = 1 },
 			profession	= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_4),	text = _G.BATTLE_PET_SOURCE_4,	row = 2, col = 2 },
 			pvp		= { tt = AcquireDesc(_G.PVP),			text = _G.PVP,			row = 3, col = 1 },
@@ -433,9 +433,8 @@ function private.InitializeFilterPanel()
 			trainer		= { tt = AcquireDesc(L["Trainer"]),		text = L["Trainer"],		row = 6, col = 2 },
 			store		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_10),	text = _G.BATTLE_PET_SOURCE_10,	row = 7, col = 1 },
 			tcg		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_9),	text = _G.BATTLE_PET_SOURCE_9,	row = 7, col = 2 },
-			coll_edition	= { tt = AcquireDesc(L["Collectors Edition"]),	text = L["Collectors Edition"],	row = 8, col = 1 },
-			promo		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_8),	text = _G.BATTLE_PET_SOURCE_8,	row = 8, col = 2 },
-			misc		= { tt = AcquireDesc(L["Miscellaneous"]),	text = L["Miscellaneous"],	row = 9, col = 1 },
+			promo		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_8),	text = _G.BATTLE_PET_SOURCE_8,	row = 8, col = 1 },
+			misc		= { tt = AcquireDesc(L["Miscellaneous"]),	text = L["Miscellaneous"],	row = 8, col = 2 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
@@ -1076,7 +1075,6 @@ function private.InitializeFilterPanel()
 		["expansion2"]		= { cb = FilterPanel.obtain.expansion2,		svroot = filterdb.obtain },
 		["expansion3"]		= { cb = FilterPanel.obtain.expansion3,		svroot = filterdb.obtain },
 		["expansion4"]		= { cb = FilterPanel.obtain.expansion4,		svroot = filterdb.obtain },
-		["instance"]		= { cb = FilterPanel.obtain.instance,		svroot = filterdb.obtain },
 		["mobdrop"]		= { cb = FilterPanel.obtain.mobdrop,		svroot = filterdb.obtain },
 		["pvp"]			= { cb = FilterPanel.obtain.pvp,		svroot = filterdb.obtain },
 		["quest"]		= { cb = FilterPanel.obtain.quest,		svroot = filterdb.obtain },

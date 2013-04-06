@@ -145,7 +145,7 @@ function addon:InitCritters()
 	pet = AddPet(68659, V.MOP, Q.RARE)
 	pet:SetItemID(93040)
 	pet:SetSpellID(135267)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(15276)
 
 	-- Argent Gruntling -- 33239
@@ -210,7 +210,7 @@ function addon:InitCritters()
 	pet = AddPet(66984, V.MOP, Q.RARE)
 	pet:SetItemID(90177)
 	pet:SetSpellID(131650)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
 	pet:AddCustom("STARCRAFTCE")
 
 	-- Black Kingsnake -- 7565
@@ -328,7 +328,7 @@ function addon:InitCritters()
 	pet = AddPet(68662, V.MOP, Q.RARE)
 	pet:SetItemID(93038)
 	pet:SetSpellID(135264)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
 	pet:AddMobDrop(14020)
 
 	-- Chuck -- 26056
@@ -527,7 +527,7 @@ function addon:InitCritters()
 	pet = AddPet(59358, V.MOP, Q.EPIC)
 	pet:SetItemID(80008)
 	pet:SetSpellID(114090)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MOB_DROP, F.WORLD_EVENTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MOB_DROP, F.WORLD_EVENTS, F.RAID)
 	pet:AddWorldEvent("DARKMOON_FAIRE")
 	pet:AddMobDrop(58336)
 
@@ -574,7 +574,7 @@ function addon:InitCritters()
 	pet = AddPet(68663, V.MOP, Q.RARE)
 	pet:SetItemID(93037)
 	pet:SetSpellID(135265)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
 	pet:AddMobDrop(12017)
 
 	-- Deathy -- 51122
@@ -692,7 +692,6 @@ function addon:InitCritters()
 	pet:SetSpellID(48408)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PVP, F.IBOP, F.PROMO, F.RETIRED)
 	pet:AddCustom("CHINA")
-	pet:AddCustom("ARENA")
 
 	-- Ethereal Soul-Trader -- 27914
 	pet = AddPet(27914, V.TBC, Q.RARE)
@@ -741,7 +740,7 @@ function addon:InitCritters()
 	pet = AddPet(56266, V.CATA, Q.RARE)
 	pet:SetItemID(76062)
 	pet:SetSpellID(105633)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
 	pet:AddCustom("DIABLOCE")
 
 	-- Firefly -- 21076
@@ -792,7 +791,7 @@ function addon:InitCritters()
 	pet = AddPet(68657, V.MOP, Q.RARE)
 	pet:SetItemID(93032)
 	pet:SetSpellID(135255)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
 	pet:AddMobDrop(16011)
 
 	-- Garden Moth -- 65215
@@ -811,7 +810,7 @@ function addon:InitCritters()
 	pet = AddPet(68656, V.MOP, Q.RARE)
 	pet:SetItemID(93030)
 	pet:SetSpellID(135254)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
 	pet:AddMobDrop(15952)
 
 	-- Giant Sewer Rat -- 31575
@@ -965,7 +964,7 @@ function addon:InitCritters()
 	pet = AddPet(68665, V.MOP, Q.RARE)
 	pet:SetItemID(93033)
 	pet:SetSpellID(135258)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
 	pet:AddMobDrop(12098)
 
 	-- Hare -- 61751
@@ -1068,7 +1067,7 @@ function addon:InitCritters()
 	pet = AddPet(70144, V.MOP, Q.RARE)
 	pet:SetItemID(94835)
 	pet:SetSpellID(139148)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(69712)
 
 	-- Jubling -- 14878
@@ -1200,7 +1199,7 @@ function addon:InitCritters()
 	pet = AddPet(69748, V.MOP, Q.RARE)
 	pet:SetItemID(94125)
 	pet:SetSpellID(137977)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.RAID)
 	pet:AddWorldDrop(Z.THRONE_OF_THUNDER)
 
 	-- Lucky -- 23198
@@ -1306,14 +1305,14 @@ function addon:InitCritters()
 	pet = AddPet(68658, V.MOP, Q.RARE)
 	pet:SetItemID(93041)
 	pet:SetSpellID(135268)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
 	pet:AddMobDrop(15263)
 
 	-- Mini Thor -- 42078
 	pet = AddPet(42078, V.WOTLK, Q.RARE)
 	pet:SetItemID(56806)
 	pet:SetSpellID(78381)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.PROMO)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.COLLECTORS_EDITION)
 	pet:AddCustom("STARCRAFTCE")
 
 	-- Mini Tyrael -- 29089
@@ -1913,7 +1912,7 @@ function addon:InitCritters()
 	pet = AddPet(10598, V.CATA, Q.RARE)
 	pet:SetItemID(68673)
 	pet:SetSpellID(16450)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(10596)
 
 	-- Snarly -- 26050
@@ -1947,7 +1946,7 @@ function addon:InitCritters()
 	pet = AddPet(69820, V.MOP, Q.RARE)
 	pet:SetItemID(94152)
 	pet:SetSpellID(138161)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
 	pet:AddMobDrop(69427)
 
 	-- Soul of the Aspects -- 58163
@@ -1998,7 +1997,8 @@ function addon:InitCritters()
 	pet = AddPet(27217, V.TBC, Q.RARE)
 	pet:SetItemID(37297)
 	pet:SetSpellID(48406)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RETIRED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
+	pet:AddCustom("OLYMPICS")
 
 	-- Spirit of Summer -- 16701
 	pet = AddPet(16701, V.ORIG, Q.RARE)
@@ -2036,7 +2036,7 @@ function addon:InitCritters()
 	pet = AddPet(68654, V.MOP, Q.RARE)
 	pet:SetItemID(93029)
 	pet:SetSpellID(135257)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
 	pet:AddMobDrop(15932)
 
 	-- Strand Crawler -- 33226
@@ -2268,14 +2268,14 @@ function addon:InitCritters()
 	pet = AddPet(68661, V.MOP, Q.RARE)
 	pet:SetItemID(93036)
 	pet:SetSpellID(135263)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
 	pet:AddMobDrop(12435)
 
 	-- Vampiric Batling -- 28513
 	pet = AddPet(28513, V.TBC, Q.RARE)
 	pet:SetItemID(38658)
 	pet:SetSpellID(51851)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RETIRED)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID, F.RETIRED)
 	pet:AddMobDrop(28194)
 
 	-- Venus -- 66491
@@ -2289,7 +2289,7 @@ function addon:InitCritters()
 	pet = AddPet(68660, V.MOP, Q.RARE)
 	pet:SetItemID(93039)
 	pet:SetSpellID(135266)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
 	pet:AddMobDrop(15299)
 
 	-- Voodoo Figurine -- 53232
@@ -2418,7 +2418,7 @@ function addon:InitCritters()
 	pet = AddPet(10259, V.ORIG, Q.RARE)
 	pet:SetItemID(12264)
 	pet:SetSpellID(15999)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
 	pet:AddMobDrop(9736)
 
 	-- Yakrat -- 63957
@@ -3656,12 +3656,12 @@ end
 
 	-- Coilfang Stalker -- 71019
 	pet = AddPet(71019, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(21212)
 
 	-- Fiendish Imp -- 71033
 	pet = AddPet(71033, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(15688)
 
 	-- Filthling -- 71201
@@ -3676,47 +3676,47 @@ end
 
 	-- Lesser Voidcaller -- 71021
 	pet = AddPet(71021, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(18805)
 
 	-- Lil' Bad Wolf -- 71014
 	pet = AddPet(71014, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(17521)
 
 	-- Living Fluid -- 71199
 	pet = AddPet(71199, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(69017)
 
 	-- Menagerie Custodian -- 71015
 	pet = AddPet(71015, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(15691)
 
 	-- Netherspace Abyssal -- 71016
 	pet = AddPet(71016, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(15690)
 
 	-- Phoenix Hawk Hatchling -- 71022
 	pet = AddPet(71022, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(19514)
 
 	-- Pocket Reaver -- 71020
 	pet = AddPet(71020, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(19516)
 
 	-- Tainted Waveling -- 71018
 	pet = AddPet(71018, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(21216)
 
 	-- Tideskipper -- 71017
 	pet = AddPet(71017, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(21213)
 
 	-- Tito -- 71023
@@ -3731,7 +3731,7 @@ end
 
 	-- Viscous Horror -- 71017
 	pet = AddPet(71017, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(69017)
 	pet:AddCustom("HEROIC")
 

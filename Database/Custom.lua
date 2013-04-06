@@ -71,6 +71,8 @@ function addon:InitCustom()
 	AddCustom("PRIMAL_EGG",		Z.PANDARIA)
 	AddCustom("HEROIC")
 	AddCustom("FISHING_DAILIES")
+	AddCustom("LFR")
+	AddCustom("OLYMPICS")
 
 	self.InitCustom = nil
 end
