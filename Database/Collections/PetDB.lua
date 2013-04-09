@@ -462,6 +462,11 @@ function addon:InitCritters()
 	pet:AddQuest(13960)
 	pet:AddWorldEvent("CHILDRENS_WEEK")
 
+	-- Dancing Water Skimmer -- 63847
+	pet = AddPet(63847, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VALE_OF_ETERNAL_BLOSSOMS, "24-25", "41.4:48.6", "36.2:60.6", "75.8:59.6", "72.2:44.0", "63.2:54.0")
+
 	-- Dark Phoenix Hatchling -- 47944
 	pet = AddPet(47944, V.CATA, Q.RARE)
 	pet:SetItemID(63138)
@@ -619,6 +624,12 @@ function addon:InitCritters()
 	pet:SetSpellID(62513)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33553)
+
+	-- Effervescent Glowfly -- 63850
+	pet = AddPet(63850, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.KUN_LAI_SUMMIT, "23-25", "54.0:88.2", "55.8:88.6")
+	pet:AddZoneLocations(Z.VALE_OF_ETERNAL_BLOSSOMS, "24-25", "85.0:48.4", "69.4:44.8", "27.2:28.4", "25.6:62.0")
 
 	-- Egbert -- 23258
 	pet = AddPet(23258, V.TBC, Q.RARE)
@@ -2497,16 +2508,6 @@ function addon:InitCritters()
 	pet = AddPet(61368, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.HILLSBRAD_FOOTHILLS, Z.SWAMP_OF_SORROWS, Z.TWILIGHT_HIGHLANDS, Z.ZULDRAK)
-
-	-- Effervescent Glowfly -- 63850
-	pet = AddPet(63850, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
-
-	-- Dancing Water Skimmer -- 63847
-	pet = AddPet(63847, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
 
 	-- Robo-Chick -- 62119
 	pet = AddPet(62119, V.MOP, Q.COMMON)
