@@ -201,13 +201,9 @@ function addon:OnInitialize()
 				-- Obtain Filters
 				-------------------------------------------------------------------------------
 				obtain = {
+					-- Acquisition
 					achievement = true,
-					expansion0 = true,
-					expansion1 = true,
-					expansion2 = true,
-					expansion3 = true,
-					expansion4 = true,
-					instance = true,
+					coll_edition = true,
 					mobdrop = true,
 					profession = true,
 					pvp = true,
@@ -218,6 +214,17 @@ function addon:OnInitialize()
 					trainer = true,
 					vendor = true,
 					worlddrop = true,
+					store = true,
+					tcg = true,
+					promo = true,
+					misc = true,
+
+					-- Version
+					expansion0 = true,
+					expansion1 = true,
+					expansion2 = true,
+					expansion3 = true,
+					expansion4 = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Quality Filters
