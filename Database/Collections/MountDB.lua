@@ -1438,7 +1438,7 @@ function addon:InitMounts()
 	-- Brewfest Ram - 43899
 	mount = AddMount(43899, V.TBC, Q.RARE) -- Item: 33976
 	mount:SetItemID(33976)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.VENDOR)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.VENDOR, F.RETIRED)
 	mount:AddVendor(24468, 24510)
 	mount:AddWorldEvent("BREWFEST")
 
