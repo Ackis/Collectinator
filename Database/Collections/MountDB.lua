@@ -2594,7 +2594,7 @@ function addon:InitMounts()
 	-- Ghastly Charger's Skull -- 136505
 	mount = AddMount(136505, V.MOP, Q.EPIC)
 	mount:SetItemID(93671)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
 	mount:AddCustom("TCG")
 
 	-- Reins of the Amber Primordial Direhorn -- 138424
