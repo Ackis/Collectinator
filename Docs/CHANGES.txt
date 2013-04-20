@@ -1,9 +1,31 @@
 ==Collectinator Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
-== 2.0.0
+=== 2.0.2
+* Fixed filters in the database so that it actually shows all pets now
+* Waypoint-related errors fixed, so we can implement that soon
+* Completed adding Zone, Level, and locations for all Battle Pets
 
-Complete rewrite of addon including new ARL code.
+=== 2.0.1
+* Changed how we display tooltips
+* Scrollbar added!
+* Can now open and 'pin' a window so that it stays open so you can scroll down the various vendors/mobs the collectible is available from.
+
+=== 2.0.0
+* Added 5.2 Pets
+* Adjusting filters for many pets so they can be filtered correctly
+
+=== 2.0.0 beta3
+* Squash bugs
+* Localization work
+* Fixing issues with the pet database
+
+=== 2.0.0 beta2
+* Work on pet/mount filters - add additional filters
+
+=== 2.0.0 beta1
+* Complete rewrite of addon including new ARL code.
+* All pets & mounts added up to 5.1
 
 ===Version 1.0.27
 *New Pet:
