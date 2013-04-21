@@ -1014,6 +1014,14 @@ function addon:InitCritters()
 	pet:AddQuest(29401)
 	--pet:SetRequiredFaction("Horde")
 
+	-- Huge Toad -- 61368
+	pet = AddPet(61368, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.HILLSBRAD_FOOTHILLS, "6-7", "61.2:51.4", "65.0:37.4", "61.2:55.6", "54.0:63.8")
+	pet:AddZoneLocations(Z.SWAMP_OF_SORROWS, "14-15", "49.0:42.6", "52.2:40.8", "57.6:55.8", "63.2:32.4")
+	pet:AddZoneLocations(Z.ZULDRAK, "22-23", "44.2:60.6", "21.6:62.4", "26.2:58.8", "25.2:74.0", "35.6:82.0")
+	pet:AddZoneLocations(Z.TWILIGHT_HIGHLANDS, "24", "57.6:13.0", "21.8:17.8")
+
 	-- Hyacinth Macaw -- 7391
 	pet = AddPet(7391, V.ORIG, Q.EPIC)
 	pet:SetItemID(8494)
@@ -1761,6 +1769,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
 	pet:AddQuest(32603)
 
+	-- Robo-Chick -- 62119
+	pet = AddPet(62119, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.ORGRIMMAR, "1", "38.0:85.8", "40.0:80.6", "39.6:83.0")
+	pet:AddZoneLocations(Z.AZSHARA, "3-6", "66.8:21.2", "26.0:50.4", "29.2:65.2", "41.4:76.8")
+	pet:AddZoneLocations(Z.WINTERSPRING, "17-18", "61.2:51.2", "59.4:48.0", "59.6:50.0")
+
 	-- Rocket Chicken -- 25109
 	pet = AddPet(25109, V.TBC, Q.RARE)
 	pet:SetItemID(34492)
@@ -2075,7 +2090,7 @@ function addon:InitCritters()
 	pet:SetItemID(94124)
 	pet:SetSpellID(138082)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
-	pet:AddMobDrop(50358,69288,69439,69441,69442,69808)
+	pet:AddMobDrop(50358)
 
 	-- Swamp Croaker -- 69819
 	pet = AddPet(69819, V.MOP, Q.COMMON)
@@ -2501,18 +2516,6 @@ function addon:InitCritters()
 
 
 -- TO DO STILL
-
-
-
-	-- Huge Toad -- 61368
-	pet = AddPet(61368, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.HILLSBRAD_FOOTHILLS, Z.SWAMP_OF_SORROWS, Z.TWILIGHT_HIGHLANDS, Z.ZULDRAK)
-
-	-- Robo-Chick -- 62119
-	pet = AddPet(62119, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.AZSHARA, Z.KEZAN, Z.ORGRIMMAR, Z.WINTERSPRING)
 
 	-- Golden Civet Kitten -- 63842
 	pet = AddPet(63842, V.MOP, Q.COMMON)
@@ -3657,71 +3660,100 @@ end
 
 	-- Coilfang Stalker -- 71019
 	pet = AddPet(71019, V.MOP, Q.COMMON)
+	pet:SetItemID(97554)
+	pet:SetSpellID(141446)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(21212)
 
 	-- Fiendish Imp -- 71033
 	pet = AddPet(71033, V.MOP, Q.COMMON)
+	pet:SetItemID(97551)
+	pet:SetSpellID(141451)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(15688)
 
 	-- Filthling -- 71201
 	pet = AddPet(71201, V.MOP, Q.COMMON)
+	pet:SetItemID(97961)
+	pet:SetSpellID(142030)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
 	pet:AddMobDrop(69251)
 
 	-- Gahz'rooki -- 71159
 	pet = AddPet(71159, V.MOP, Q.COMMON)
+	pet:SetItemID(97821)
+	pet:SetSpellID(141789)
 	pet:AddFilters(F.HORDE, F.VENDOR)
 	pet:AddVendor(71226, 71227)
 
 	-- Lesser Voidcaller -- 71021
 	pet = AddPet(71021, V.MOP, Q.COMMON)
+	pet:SetItemID(97556)
+	pet:SetSpellID(141448)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(18805)
 
 	-- Lil' Bad Wolf -- 71014
 	pet = AddPet(71014, V.MOP, Q.COMMON)
+	pet:SetItemID(141433)
+	pet:SetSpellID(97548)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(17521)
 
 	-- Living Fluid -- 71199
 	pet = AddPet(71199, V.MOP, Q.COMMON)
+	pet:SetItemID(97959)
+	pet:SetSpellID(142028)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(69017)
+	pet:AddCustom("NORMAL")
 
 	-- Menagerie Custodian -- 71015
 	pet = AddPet(71015, V.MOP, Q.COMMON)
+	pet:SetItemID(97549)
+	pet:SetSpellID(141434)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(15691)
 
 	-- Netherspace Abyssal -- 71016
 	pet = AddPet(71016, V.MOP, Q.COMMON)
+	pet:SetItemID(97550)
+	pet:SetSpellID(141435)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(15690)
 
 	-- Phoenix Hawk Hatchling -- 71022
 	pet = AddPet(71022, V.MOP, Q.COMMON)
+	pet:SetItemID(97557)
+	pet:SetSpellID(141449)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(19514)
 
 	-- Pocket Reaver -- 71020
 	pet = AddPet(71020, V.MOP, Q.COMMON)
+	pet:SetItemID(97555)
+	pet:SetSpellID(141447)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(19516)
 
 	-- Tainted Waveling -- 71018
 	pet = AddPet(71018, V.MOP, Q.COMMON)
+	pet:SetItemID(97553)
+	pet:SetSpellID(141437)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(21216)
 
 	-- Tideskipper -- 71017
 	pet = AddPet(71017, V.MOP, Q.COMMON)
+	pet:SetItemID(97552)
+	pet:SetSpellID(141436)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(21213)
 
 	-- Tito -- 71023
 	pet = AddPet(71023, V.MOP, Q.COMMON)
+	pet:SetItemID(97558)
+	pet:SetSpellID(141450)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT)
 	pet:AddAchievement(8293)
 
@@ -3732,6 +3764,8 @@ end
 
 	-- Viscous Horror -- 71017
 	pet = AddPet(71017, V.MOP, Q.COMMON)
+	pet:SetItemID(97960)
+	pet:SetSpellID(142029)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(69017)
 	pet:AddCustom("HEROIC")
