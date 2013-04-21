@@ -846,6 +846,16 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	pet:AddQuest(25560)
 
+	-- Golden Civet -- 63841
+	pet = AddPet(63841, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VALE_OF_ETERNAL_BLOSSOMS, "24-25", "80.2:49.4", "65.0:57.4", "68.6:30.4", "49.6:52.0", "54.0:39.6")
+
+	-- Golden Civet Kitten -- 63842
+	pet = AddPet(63842, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VALE_OF_ETERNAL_BLOSSOMS, "24-25", "52.6:41.0", "78.6:49.2", "65.6:37.0", "68.6:53.8")
+
 	-- Golden Dragonhawk Hatchling -- 21055
 	pet = AddPet(21055, V.TBC, Q.COMMON)
 	pet:SetItemID(29953)
@@ -2517,15 +2527,10 @@ function addon:InitCritters()
 
 -- TO DO STILL
 
-	-- Golden Civet Kitten -- 63842
-	pet = AddPet(63842, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
 
-	-- Golden Civet -- 63841
-	pet = AddPet(63841, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.VALE_OF_ETERNAL_BLOSSOMS)
+
+
+	
 
 	-- Gilded Moth -- 63838
 	pet = AddPet(63838, V.MOP, Q.COMMON)
