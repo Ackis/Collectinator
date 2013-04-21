@@ -2602,6 +2602,7 @@ function addon:InitMounts()
 	mount:SetItemID(94230)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(69841)
+	mount:AddCustom("DIREHORN")
 
 	-- Reins of the Armored Skyscreamer -- 136400
 	mount = AddMount(136400, V.MOP, Q.EPIC)
@@ -2650,19 +2651,20 @@ function addon:InitMounts()
 	mount:SetItemID(94231)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(69842)
+	mount:AddCustom("DIREHORN")
 
---[[ Even in-game??
 	-- Reins of the Red Primal Raptor -- 138641
 	mount = AddMount(138641, V.MOP, Q.EPIC)
 	mount:SetItemID(94291)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
---]]
+	mount:AddCustom("PRIMAL_EGG")
 
 	-- Reins of the Slate Primordial Direhorn -- 138425
 	mount = AddMount(138425, V.MOP, Q.EPIC)
 	mount:SetItemID(94229)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(69769)
+	mount:AddCustom("DIREHORN")
 
 	-- Reins of the Thundering Cobalt Cloud Serpent -- 139442
 	mount = AddMount(139442, V.MOP, Q.EPIC)
