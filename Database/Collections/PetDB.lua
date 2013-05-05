@@ -1476,7 +1476,7 @@ function addon:InitCritters()
 	pet = AddPet(33578, V.WOTLK, Q.RARE)
 	pet:SetItemID(46892)
 	pet:SetSpellID(63318)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PVP, F.IBOP, F.PROMO)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PVP, F.IBOP, F.PROMO, F.RETIRED)
 	pet:AddCustom("ARENA")
 
 	-- Murky -- 15186
@@ -3715,6 +3715,13 @@ end
 	pet:SetSpellID(141434)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(15691)
+
+	-- Murkimus Tyrannicus -- 71655
+	pet = AddPet(71655, V.MOP, Q.RARE)
+	pet:SetItemID(100870)
+	pet:SetSpellID(143637)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PVP, F.IBOP, F.PROMO)
+	pet:AddCustom("ARENA")
 
 	-- Netherspace Abyssal -- 71016
 	pet = AddPet(71016, V.MOP, Q.COMMON)
