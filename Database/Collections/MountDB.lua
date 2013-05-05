@@ -2692,7 +2692,38 @@ function addon:InitMounts()
 end
 
 
+--[[
+5.3 mounts
 
+	-- Hearthsteed -- 142073
+	mount = AddMount(142073, V.MOP, Q.EPIC)
+	mount:SetItemID(98618)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddAchievement(8345)
+
+	-- Armored Red Dragonhawk -- 142266
+	mount = AddMount(142266, V.MOP, Q.EPIC)
+	mount:SetItemID(98104)
+	mount:AddFilters(F.HORDE, F.IBOP)
+	mount:AddAchievement(8302)
+
+	-- Armored Blue Dragonhawk -- 142478
+	mount = AddMount(142478, V.MOP, Q.EPIC)
+	mount:SetItemID(98259)
+	mount:AddFilters(F.ALLIANCE, F.IBOP)
+	mount:AddAchievement(8304)
+
+	-- Brawler's Burly Mushan Beast -- 142641
+	mount = AddMount(142641, V.MOP, Q.EPIC)
+	mount:SetItemID(98405)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddVendor(68363, 68364)
+
+	-- Enchanted Fey Dragon -- 142878
+	mount = AddMount(142878, V.MOP, Q.EPIC)
+	mount:SetItemID(97989)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+--]]
 --[[
 Apparentely not in game yet!
 
