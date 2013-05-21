@@ -1554,6 +1554,7 @@ function addon:InitMounts()
 	mount:SetItemID(32768)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
 	mount:AddMobDrop(23035)
+	mount:AddCustom("HEROIC")
 
 	-- Fiery Warhorse's Reins - 36702
 	mount = AddMount(36702, V.TBC, Q.EPIC) -- Item: 30480
@@ -2670,7 +2671,7 @@ function addon:InitMounts()
 	mount = AddMount(139442, V.MOP, Q.EPIC)
 	mount:SetItemID(95057)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
-	mount:AddMobDrop(69562)
+	mount:AddMobDrop(69099)
 
 	-- Sky Claw -- 134359
 	mount = AddMount(134359, V.MOP, Q.EPIC)
@@ -2684,16 +2685,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(68476)
 
-
-
-----------------------------------------------------------------------------------------------------
-
-	self.InitMounts = nil
-end
-
-
---[[
-5.3 mounts
+-- 5.3 added mounts
 
 	-- Hearthsteed -- 142073
 	mount = AddMount(142073, V.MOP, Q.EPIC)
@@ -2723,7 +2715,12 @@ end
 	mount = AddMount(142878, V.MOP, Q.EPIC)
 	mount:SetItemID(97989)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
---]]
+
+----------------------------------------------------------------------------------------------------
+
+	self.InitMounts = nil
+end
+
 --[[
 Apparentely not in game yet!
 
@@ -2857,4 +2854,4 @@ Apparentely not in game yet!
 
 
 
------------------------------]]
+]]--

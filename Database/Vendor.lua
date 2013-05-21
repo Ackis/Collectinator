@@ -176,7 +176,7 @@ function addon:InitVendor()
 	AddVendor(68364,	L["Paul North"],		Z.BRAWLGAR_ARENA,		50.8,	31.8,	"Horde")
 	AddVendor(69059,	L["Agent Malley"],		Z.KRASARANG_WILDS,		89.6,	33.4,	"Alliance")
 	AddVendor(69060,	L["Tuskripper Grukna"],		Z.KRASARANG_WILDS,		10.8,	53.4,	"Horde")
---	AddVendor(71226,	L["Ravika"],			Z.DUROTAR,			49.4,	40.2,	"Horde")
+	AddVendor(71226,	L["Ravika"],			Z.DUROTAR,			49.4,	40.2,	"Neutral")
 
 	self.InitVendor = nil
 end

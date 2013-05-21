@@ -125,16 +125,18 @@ function addon:InitMob()
 	AddMob(66467,	L["G'nathus"], 				Z.TOWNLONG_STEPPES,		33.4,  6.4)
 	AddMob(68476,	BN.HORRIDON,				Z.THRONE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69017,	BN.PRIMORDIUS,				Z.THRONE_OF_THUNDER,		 0.0,  0.0)
+	AddMob(69099,	L["Nalak"],				Z.ISLE_OF_THUNDER,		59.8, 39.4)
 	AddMob(69161,	BN.OONDASTA,				Z.PANDARIA,			 0.0,  0.0) 
 	AddMob(69251,	L["Quivering Filth"],			Z.ISLE_OF_THUNDER,		52.0, 80.6)
 	AddMob(69427,	BN.DARK_ANIMUS,				Z.THRONE_OF_THUNDER,		 0.0,  0.0) 
-	AddMob(69562,	BN.NALAK,				Z.ISLE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69712,	BN.JI_KUN,				Z.THRONE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69769,	L["Zandalari Warbringer"],		Z.PANDARIA,			 0.0,  0.0)  -- Slate
 	AddMob(69808,	L["Sunreaver Construct"],		Z.ISLE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69841,	L["Zandalari Warbringer"],		Z.PANDARIA,			 0.0,  0.0)  -- Amber
 	AddMob(69842,	L["Zandalari Warbringer"],		Z.PANDARIA,			 0.0,  0.0)  -- Jade
 	AddMob(69925,	L["Zandalari Dinomancer"],		Z.PANDARIA,		         0.0,  0.0)
+	AddMob(69983,	L["Primal Direhorn"],			Z.ISLE_OF_GIANTS,		 0.0,  0.0)
+	AddMob(70013,	L["Primal Direhorn Hatchling"],		Z.ISLE_OF_GIANTS,		 0.0,  0.0)
 
 	self.InitMob = nil
 end

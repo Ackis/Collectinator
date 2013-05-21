@@ -666,6 +666,7 @@ private.ZONE_NAMES = {
 	ISLE_OF_GIANTS = _G.GetMapNameByID(929),
 	THRONE_OF_THUNDER = _G.GetMapNameByID(930),
 	ISLE_OF_THUNDER = _G.GetMapNameByID(933)
+
 }
 
 do
@@ -718,9 +719,12 @@ private.BOSS_NAMES = {
 	SKADI_THE_RUTHLESS = _G.EJ_GetEncounterInfo(643),
 	SHA_OF_ANGER = _G.EJ_GetEncounterInfo(691),
 	ELEGON = _G.EJ_GetEncounterInfo(726),
+	HORRIDON = _G.EJ_GetEncounterInfo(819),
 	PRIMORDIUS = _G.EJ_GetEncounterInfo(820),
 	DARK_ANIMUS = _G.EJ_GetEncounterInfo(824),
-	JI_KUN = _G.EJ_GetEncounterInfo(828)
+	OONDASTA = _G.EJ_GetEncounterInfo(826),
+	JI_KUN = _G.EJ_GetEncounterInfo(828),
+
 	
 }
 
