@@ -2673,12 +2673,6 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(69099)
 
-	-- Sky Claw -- 134359
-	mount = AddMount(134359, V.MOP, Q.EPIC)
-	mount:SetItemID(95416)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	mount:AddProfession(PROF.ENGINEERING)
-
 	-- Spawn of Horridon -- 136471
 	mount = AddMount(136471, V.MOP, Q.EPIC)
 	mount:SetItemID(93666)
@@ -2852,6 +2846,10 @@ Apparentely not in game yet!
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
-
+-- Sky Claw -- 134359
+-- mount = AddMount(134359, V.MOP, Q.EPIC)
+-- mount:SetItemID(95416)
+-- mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+-- mount:AddProfession(PROF.ENGINEERING)
 
 ]]--
