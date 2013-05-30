@@ -2581,11 +2581,6 @@ function addon:InitMounts()
 
 -- 5.2 added mounts
 
-	-- Armored Bloodwing -- 139595
-	mount = AddMount(139595, V.MOP, Q.EPIC)
-	mount:SetItemID(95341)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID)
-	
 	-- Clutch of Ji-Kun -- 139448
 	mount = AddMount(139448, V.MOP, Q.EPIC)
 	mount:SetItemID(95059)
@@ -2680,6 +2675,12 @@ function addon:InitMounts()
 	mount:AddMobDrop(68476)
 
 -- 5.3 added mounts
+
+	-- Armored Bloodwing -- 139595
+	mount = AddMount(139595, V.MOP, Q.EPIC)
+	mount:SetItemID(95341)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	mount:AddCustom("STORE")
 
 	-- Hearthsteed -- 142073
 	mount = AddMount(142073, V.MOP, Q.EPIC)
