@@ -2539,6 +2539,8 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.THE_TILLERS)
 	mount:AddRepVendor(FAC.THE_TILLERS, REP.EXALTED, 58706)
 
+-- 5.1 added mounts
+
 	-- Grand Gryphon -- 136163
 	mount = AddMount(136163, V.MOP, Q.EPIC)
 	mount:SetItemID(93385)
@@ -2847,10 +2849,20 @@ Apparentely not in game yet!
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Sky Claw -- 134359
--- mount = AddMount(134359, V.MOP, Q.EPIC)
+
+-- 5.4 mounts
+
+-- Sky Golem -- 139192
+-- mount = AddMount(139192, V.MOP, Q.EPIC)
 -- mount:SetItemID(95416)
 -- mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
 -- mount:AddProfession(PROF.ENGINEERING)
+
+-- Moonfang -- 145133
+-- mount = AddMount(145133, V.MOP, Q.RARE)
+-- mount:SetItemID(101675)
+-- mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+-- mount:AddMobDrop(71992)
+
 
 ]]--
