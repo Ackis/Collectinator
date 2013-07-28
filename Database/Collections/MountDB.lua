@@ -534,7 +534,7 @@ function addon:InitMounts()
 	mount:SetItemID(35906)
 	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddVendor(13216, 13217)
+	mount:AddVendor(12783)
 
 	-- Grand Black War Mammoth - 61465
 	mount = AddMount(61465, V.WOTLK, Q.EPIC) -- Item: 43959
