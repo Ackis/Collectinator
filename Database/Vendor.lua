@@ -177,6 +177,12 @@ function addon:InitVendor()
 	AddVendor(69059,	L["Agent Malley"],		Z.KRASARANG_WILDS,		89.6,	33.4,	"Alliance")
 	AddVendor(69060,	L["Tuskripper Grukna"],		Z.KRASARANG_WILDS,		10.8,	53.4,	"Horde")
 	AddVendor(71226,	L["Ravika"],			Z.DUROTAR,			49.4,	40.2,	"Neutral")
+	AddVendor(73082,	L["Master Li"],			Z.TIMELESS_ISLE,		34.7,	59.7,	"Neutral")
+	AddVendor(73151,	L["Deathguard Netharian"],	Z.ORGRIMMAR,			42.2,	72.8,	"Horde")
+	AddVendor(73190,	L["Necrolord Sipe"],		Z.STORMWIND_CITY,		77.6,	66.2,	"Alliance")
+	AddVendor(73306,	L["Mistweaver Ku"],		Z.TIMELESS_ISLE,		42.7,	54.7,	"Neutral")
+	AddVendor(73307,	L["Speaker Gulan"],		Z.TIMELESS_ISLE,		74.9,	44.9,	"Neutral")
+	AddVendor(73819,	L["Ku-Mo"],			Z.TIMELESS_ISLE,		41.4,	63.6,	"Neutral")
 
 	self.InitVendor = nil
 end

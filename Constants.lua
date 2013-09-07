@@ -242,6 +242,7 @@ private.REP_FLAGS_WORD2 = {
 	NETHERWING			= 0x00400000,	-- 23
 	BRAWLERS			= 0x00800000,	-- 24 -- Bizmo's Brawlpub / Brawl'gar Arena
 	PANDACOMMON3			= 0x01000000,	-- 25 -- Kirin Tor Offensive / Sunreaver Onslaught
+	EMPEROR_SHAOHAO			= 0x02000000,	-- 26
 }
 
 -------------------------------------------------------------------------------
@@ -461,6 +462,7 @@ private.FACTION_IDS = {
 	KIRIN_TOR_OFFENSIVE = 1387,
 	SUNREAVER_ONSLAUGHT = 1388,
 	BIZMOS_BRAWLPUB = 1419,
+	EMPEROR_SHAOHAO = 1492,
 
 }
 
@@ -665,7 +667,9 @@ private.ZONE_NAMES = {
 	BRAWLGAR_ARENA = _G.GetMapNameByID(925),
 	ISLE_OF_GIANTS = _G.GetMapNameByID(929),
 	THRONE_OF_THUNDER = _G.GetMapNameByID(930),
-	ISLE_OF_THUNDER = _G.GetMapNameByID(933)
+	ISLE_OF_THUNDER = _G.GetMapNameByID(933),
+	TIMELESS_ISLE = _G.GetMapNameByID(951),
+	SIEGE_OF_ORGRIMMAR = _G.GetMapNameByID(953),
 
 }
 
@@ -724,8 +728,11 @@ private.BOSS_NAMES = {
 	DARK_ANIMUS = _G.EJ_GetEncounterInfo(824),
 	OONDASTA = _G.EJ_GetEncounterInfo(826),
 	JI_KUN = _G.EJ_GetEncounterInfo(828),
+	PARAGONS_OF_THE_KLAXXI = _G.EJ_GetEncounterInfo(853),
+	SIEGECRAFTER_BLACKFUSE = _G.EJ_GetEncounterInfo(865),
+	SHA_OF_PRIDE = _G.EJ_GetEncounterInfo(867),
+	GARROSH_HELLSCREAM = _G.EJ_GetEncounterInfo(869),
 
-	
 }
 
 -------------------------------------------------------------------------------

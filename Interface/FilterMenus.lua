@@ -434,7 +434,7 @@ function private.InitializeFilterPanel()
 			store		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_10),	text = _G.BATTLE_PET_SOURCE_10,	row = 7, col = 1 },
 			tcg		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_9),	text = _G.BATTLE_PET_SOURCE_9,	row = 7, col = 2 },
 			promo		= { tt = AcquireDesc(_G.BATTLE_PET_SOURCE_8),	text = _G.BATTLE_PET_SOURCE_8,	row = 8, col = 1 },
-			misc		= { tt = AcquireDesc(L["Miscellaneous"]),	text = L["Miscellaneous"],	row = 8, col = 2 },
+			misc		= { tt = AcquireDesc(_G.MISCELLANEOUS),		text = L["Miscellaneous"],	row = 8, col = 2 },
 		}
 
 		local acquire_panel = _G.CreateFrame("Frame", nil, obtain_frame)
@@ -1014,6 +1014,7 @@ function private.InitializeFilterPanel()
 			pandacommon2		= { tt = ReputationDesc(Jinyu_Hozen),			text = Jinyu_Hozen,			row = 14,	col = 1 },
 			brawlers		= { tt = ReputationDesc(Brawlers_Guild),		text = Brawlers_Guild,			row = 15,	col = 1 },
 			pandacommon3		= { tt = ReputationDesc(Isle_of_Giants),		text = Isle_of_Giants,			row = 16,	col = 1 },
+			shaohao			= { tt = ReputationDesc(FN.EMPEROR_SHAOHAO),		text = FN.EMPEROR_SHAOHAO,		row = 17,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion4_frame, expansion4_buttons)
 
@@ -1174,6 +1175,7 @@ function private.InitializeFilterPanel()
 		["pandacommon2"]	= { cb = expansion4.pandacommon2,		svroot = filterdb.rep },
 		["brawlers"]		= { cb = expansion4.brawlers,			svroot = filterdb.rep },
 		["pandacommon3"]	= { cb = expansion4.pandacommon3,		svroot = filterdb.rep },
+		["shaohao"]		= { cb = expansion4.shaohao,			svroot = filterdb.rep },
 	}
 	private.InitializeFilterPanel = nil
 end

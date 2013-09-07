@@ -702,9 +702,10 @@ function addon:InitMounts()
 	-- Vicious War Steed -- 100332
 	mount = AddMount(100332, V.CATA, Q.EPIC) -- Item: 70909
 	mount:SetItemID(70909)
-	mount:AddFilters(F.ALLIANCE, F.IBOA, F.PVP, F.ACHIEVEMENT)
+	mount:AddFilters(F.ALLIANCE, F.IBOA, F.PVP, F.ACHIEVEMENT, F.VENDOR)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddAchievement(5328, 5329, 5823)
+	mount:AddVendor(73190)   -- New for 5.4
 
 	-- Mountain Horse -- 103195
 	mount = AddMount(103195, V.CATA, Q.RARE) -- Item: 73838
@@ -1306,9 +1307,10 @@ function addon:InitMounts()
 	-- Vicious War Wolf -- 100333
 	mount = AddMount(100333, V.CATA, Q.EPIC) -- Item: 70910
 	mount:SetItemID(70910)
-	mount:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT, F.VENDOR)
 	mount:SetRequiredFaction("Horde")
 	mount:AddAchievement(5325, 5326, 5824)
+	mount:AddVendor(73151)  -- New for 5.4
 
 	-- Mechano-Hog - 55531
 	mount = AddMount(55531, V.WOTLK, Q.EPIC) -- Item: 41508
@@ -1861,7 +1863,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.RETIRED)
 
 --TCG
-	-- Riding Tutle - 30174
+	-- Riding Turtle - 30174
 	mount = AddMount(30174, V.ORIG, Q.EPIC) -- Item: 23720
 	mount:SetItemID(23720)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOP)
@@ -2684,12 +2686,6 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
 	mount:AddCustom("STORE")
 
-	-- Hearthsteed -- 142073
-	mount = AddMount(142073, V.MOP, Q.EPIC)
-	mount:SetItemID(98618)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	mount:AddAchievement(8345)
-
 	-- Armored Red Dragonhawk -- 142266
 	mount = AddMount(142266, V.MOP, Q.EPIC)
 	mount:SetItemID(98104)
@@ -2708,10 +2704,81 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	mount:AddVendor(68363, 68364)
 
+-- 5.4 added mounts
+
+	-- Ashhide Mushan Beast -- 148428
+	mount = AddMount(148428, V.MOP, Q.EPIC)
+	mount:SetItemID(103638)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(73307)
+
 	-- Enchanted Fey Dragon -- 142878
 	mount = AddMount(142878, V.MOP, Q.EPIC)
 	mount:SetItemID(97989)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+
+	-- Hearthsteed -- 142073
+	mount = AddMount(142073, V.MOP, Q.EPIC)
+	mount:SetItemID(98618)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddAchievement(8345)
+
+	-- Heavenly Golden Cloud Serpent -- 127164
+	mount = AddMount(127164, V.MOP, Q.EPIC)
+	mount:SetItemID(87774)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.EMPEROR_SHAOHAO)
+	mount:AddRepVendor(FAC.EMPEROR_SHAOHAO, REP.EXALTED, 73306)
+
+	-- Kor'kron Juggernaut -- 148417
+	mount = AddMount(148417, V.MOP, Q.EPIC)
+	mount:SetItemID(104253)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID)
+	mount:AddMobDrop(71865)
+	mount:AddCustom("HEROIC")
+
+	-- Kor'kron War Wolf -- 148396
+	mount = AddMount(148396, V.MOP, Q.EPIC)
+	mount:SetItemID(104246)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.ACHIEVEMENT)
+	mount:AddAchievement(8398, 8399)
+
+	-- Sky Golem -- 134359
+	mount = AddMount(134359, V.MOP, Q.EPIC)
+	mount:SetItemID(95416)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	mount:AddProfession(PROF.ENGINEERING)
+
+	-- Spawn of Galakras -- 148392
+	mount = AddMount(148392, V.MOP, Q.EPIC)
+	mount:SetItemID(104208)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.ACHIEVEMENT)
+	mount:AddAchievement(8454)
+
+	-- Thundering Onyx Cloud Serpent -- 148476
+	mount = AddMount(148476, V.MOP, Q.EPIC)
+	mount:SetItemID(104269)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(73167)
+
+	-- Tyrannical Gladiator's Cloud Serpent -- 148618
+	mount = AddMount(148618, V.MOP, Q.EPIC)
+	mount:SetItemID(104208)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.RETIRED)
+	mount:AddCustom("ARENA")
+
+	-- Vicious Skeletal Warhorse -- 146622
+	mount = AddMount(146622, V.MOP, Q.EPIC)
+	mount:SetItemID(102533)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(73151)
+
+	-- Vicious Warsaber -- 146615
+	mount = AddMount(146615, V.MOP, Q.EPIC)
+	mount:SetItemID(102514)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddVendor(73190)
 
 ----------------------------------------------------------------------------------------------------
 
@@ -2721,6 +2788,17 @@ end
 --[[
 Apparentely not in game yet!
 
+	-- Grievous Gladiator's Cloud Serpent -- 148619  -- Season 14
+	mount = AddMount(148619, V.MOP, Q.EPIC)
+	mount:SetItemID(104326)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.RETIRED)
+	mount:AddCustom("ARENA")
+
+	-- Prideful Gladiator's Cloud Serpent -- 148620  -- Season 15
+	mount = AddMount(148620, V.MOP, Q.EPIC)
+	mount:SetItemID(104327)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.RETIRED)
+	mount:AddCustom("ARENA")
 
 -- Albino Riding Crane
 -- mount = AddMount(, V.MOP, )
@@ -2804,11 +2882,6 @@ Apparentely not in game yet!
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Heavenly Golden Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
 -- Heavenly Jade Cloud Serpent
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
@@ -2823,6 +2896,11 @@ Apparentely not in game yet!
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
+
+	-- Lucky Riding Turtle  -- 30174
+	-- mount = AddMount(30174, V.MOP, Q.EPIC)
+	-- mount:SetItemID(103630)
+	-- mount:AddFilters()
 
 -- Orange Water Strider
 -- mount = AddMount(, V.MOP, )
@@ -2844,25 +2922,14 @@ Apparentely not in game yet!
 -- mount:AddFilters(13323, F.ALLIANCE, )
 -- self:AddCompanionAcquire(DB,)
 
+	-- Stormcrow -- 147595
+	mount = AddMount(147595, V.MOP, Q.EPIC)
+	mount:SetItemID(104011)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+
 -- White Riding Yak
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
-
-
--- 5.4 mounts
-
--- Sky Golem -- 139192
--- mount = AddMount(139192, V.MOP, Q.EPIC)
--- mount:SetItemID(95416)
--- mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
--- mount:AddProfession(PROF.ENGINEERING)
-
--- Moonfang -- 145133
--- mount = AddMount(145133, V.MOP, Q.RARE)
--- mount:SetItemID(101675)
--- mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
--- mount:AddMobDrop(71992)
-
 
 ]]--

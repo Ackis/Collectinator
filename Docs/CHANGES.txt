@@ -1,10 +1,13 @@
 ==Collectinator Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.0.3
+* 5.4 pets & mounts added
+* Fixed WorldDrop issues
+
 === 2.0.2
 * Fixed filters in the database so that it actually shows all pets now
 * Waypoint-related errors fixed, so we can implement that soon
-* Completed adding Zone, Level, and locations for all Battle Pets
 * 5.3 pets & mounts added
 
 === 2.0.1
