@@ -1721,14 +1721,14 @@ do
 			local quality_color = select(4, _G.GetItemQualityColor(collectable.quality)):sub(3)
 
 			if drop_type == "world_drop" then
-				addline_func(0, -1, false, L["World Drop"], quality_color, location, CATEGORY_COLORS["location"])
+				addline_func(0, -1, false, L["World Drop"], quality_color, drop_location, CATEGORY_COLORS.location)
 			elseif drop_type == "pet_battle" then
 				for level_range, coord_list in pairs(collectable.zone_list[identifier]) do
 					addline_func(0, -1, false, _G.BATTLE_PET_SOURCE_5, quality_color)
 
 					for coord_index = 1, #coord_list do
 						local x, y = (":"):split(coord_list[coord_index])
-						addline_func(1, -2, true, ("%s (%s)"):format(identifier, level_range), CATEGORY_COLORS["location"], COORD_FORMAT:format(x, y), CATEGORY_COLORS.coords)
+						addline_func(1, -2, true, ("%s (%s)"):format(drop_location, level_range), CATEGORY_COLORS.location, COORD_FORMAT:format(x, y), CATEGORY_COLORS.coords)
 					end
 				end
 			else
