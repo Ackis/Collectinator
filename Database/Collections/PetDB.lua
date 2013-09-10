@@ -138,6 +138,12 @@ function addon:InitCritters()
 	pet:AddZoneLocations(Z.DREAD_WASTES, "24", "30.6:78.6", "55.0:33.6", "45.0:18.6", "47.4:16.8", "49.6:13.6")
 	pet:AddZoneLocations(Z.TOWNLONG_STEPPES, "24", "47.2:77.2", "48.2:78.2", "50.0:80.2", "66.8:80.6", "64.6:83.0")
 
+	-- Amethyst Spiderling -- 63288
+	pet = AddPet(63288, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.KRASARANG_WILDS, "23-25", "31.8:75.6", "37.0:58.2", "78.6:19.4", "26.6:54.4", "38.4:34.6")
+	pet:AddZoneLocations(Z.VALLEY_OF_THE_FOUR_WINDS, "23-25", "12.6:85.6", "16.2:33.0")
+
 	-- Ammen Vale Lashling -- 33205
 	pet = AddPet(33205, V.WOTLK, Q.RARE)
 	pet:SetItemID(44984)
@@ -420,6 +426,11 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(21212)
 
+	-- Coral Snake -- 62190
+	pet = AddPet(62190, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STONETALON_MOUNTAINS, "5-7", "73.0:55.2", "64.4:52.4", "62.8:64.8", "48.2:47.6", "39.8:42.6")
+
 	-- Core Hound Pup -- 36871
 	pet = AddPet(36871, V.WOTLK, Q.RARE)
 	pet:SetItemID(49646)
@@ -618,6 +629,11 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
 	pet:AddCustom("BLINGTRON")
+
+	-- Death's Head Cockroach -- 62887
+	pet = AddPet(62887, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MOUNT_HYJAL, "22-23", "43.8:20.8", "28.6:36.0", "59.0:80.6", "58.0:68.6")
 
 	-- Death Talon Whelpguard -- 68663
 	pet = AddPet(68663, V.MOP, Q.RARE)
@@ -974,6 +990,11 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
 	pet:AddCustom("CHINA")
 
+	-- Grasslands Cottontail -- 61704
+	pet = AddPet(61704, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.ARATHI_HIGHLANDS, "7-8", "50.6:53.6", "38.0:43.6", "66.6:48.2", "18.8:37.8", "47.6:43.6")
+
 	-- Great Horned Owl -- 7553
 	pet = AddPet(7553, V.ORIG, Q.COMMON)
 	pet:SetItemID(8500)
@@ -1133,6 +1154,11 @@ function addon:InitCritters()
 	pet:AddQuest(29401)
 	--pet:SetRequiredFaction("Horde")
 
+	-- Horny Toad -- 62185
+	pet = AddPet(62185, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.DESOLACE, "7-9", "71.4:47.0", "29.2:79.2", "68.6:26.6", "55.8:11.0", "73.6:35.0")
+
 	-- Huge Toad -- 61368
 	pet = AddPet(61368, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
@@ -1274,6 +1300,11 @@ function addon:InitCritters()
 	pet:SetSpellID(97779)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	pet:AddQuest(29208)
+
+	-- Lava Beetle -- 61386
+	pet = AddPet(61386, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.BURNING_STEPPES, "15-16", "68.8:36.4", "68.4:47.0", "34.6:43.6", "56.0:31.2", "26.8:56.6")
 
 	-- Lava Crab -- 61383
 	pet = AddPet(61383, V.MOP, Q.COMMON)
@@ -1535,6 +1566,11 @@ function addon:InitCritters()
 	pet:SetSpellID(39181)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
 	pet:AddQuest(10898)
+
+	-- Mirror Strider -- 62998
+	pet = AddPet(62998, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.THE_JADE_FOREST, "23-25", "31.8:46.4", "40.6:54.8", "56.0:78.8", "63.0:87.6", "57.0:85.6")
 
 	-- Mojo -- 24480
 	pet = AddPet(24480, V.TBC, Q.RARE)
@@ -1931,10 +1967,22 @@ function addon:InitCritters()
 	pet:AddZoneLocations(Z.CRYSTALSONG_FOREST, "22-23", "23.4:32.0")
 --	pet:AddZoneLocations(Z.MOUNT_HYJAL, "22-23")
 
+	-- Rabid Nut Varmint 5000 -- 62120
+	pet = AddPet(62120, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.AZSHARA, "3-6", "29.0:57.8", "29.0:66.4", "42.0:76.8")
+	pet:AddZoneLocations(Z.STONETALON_MOUNTAINS, "5-7", "70.4:59.2", "64.8:60.6", "66.0:59.0", "61.0:57.2", "63.6:53.6")
+	pet:AddZoneLocations(Z.WINTERSPRING, "17-18", "59.4:51.6", "60.6:51.0", "60.6:48.4", "59.2:48.2")
+
 	-- Rapana Whelk -- 64352
 	pet = AddPet(64352, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.DREAD_WASTES, "24-25", "54.6:73.8", "30.0:65.2", "40.2:71.6", "47.0:61.6", "29.6:54.6")
+
+	-- Rat Snake -- 61258
+	pet = AddPet(61258, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.DUSKWOOD, "5-7", "59.6:60.6", "63.0:80.2", "34.6:72.2", "72.8:68.0", "86.8:50.2")
 
 	-- Ravasaur Hatchling -- 35397
 	pet = AddPet(35397, V.WOTLK, Q.COMMON)
@@ -2027,6 +2075,12 @@ function addon:InitCritters()
 	pet:SetSpellID(120507)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.JEWELCRAFTING)
+
+	-- Savory Beetle -- 63291
+	pet = AddPet(63291, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.KRASARANG_WILDS, "23-25", "31.6:75.2", "42.2:89.6", "76.8:18.6", "58.6:38.6", "47.8:48.4")
+	pet:AddZoneLocations(Z.VALLEY_OF_THE_FOUR_WINDS, "23-25", "21.6:86.2", "20.0:85.6", "14.0:83.4", "12.6:85.6")
 
 	-- Scooter the Snail -- 51635
 	pet = AddPet(51635, V.CATA, Q.COMMON)
@@ -2298,6 +2352,12 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
 	pet:AddMobDrop(15932)
 
+	-- Stone Armadillo -- 62187
+	pet = AddPet(62187, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.DESOLACE, "7-9", "71.6:62.6", "59.6:78.8", "67.0:29.8", "43.6:39.2", "60.6:29.6")
+	pet:SetTimeOfDay(TOD.NIGHT)
+
 	-- Strand Crawler -- 33226
 	pet = AddPet(33226, V.WOTLK, Q.RARE)
 	pet:SetItemID(44983)
@@ -2507,6 +2567,12 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT)
 	pet:AddAchievement(8293)
 
+	-- Tolai Hare -- 63557
+	pet = AddPet(63557, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.KUN_LAI_SUMMIT, "23-25", "59.6:82.4", "54.8:66.8", "67.0:33.6", "39.6:77.6", "69.6:91.0")
+	pet:AddZoneLocations(Z.TOWNLONG_STEPPES, "23-25", "61.6:35.2", "64.6:37.4")
+
 	-- Toothy -- 24388
 	pet = AddPet(24388, V.TBC, Q.RARE)
 	pet:SetItemID(33816)
@@ -2625,6 +2691,12 @@ function addon:InitCritters()
 	pet:SetSpellID(65682)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO, F.RETIRED)
 	pet:AddCustom("MOUNTAIN_DEW")
+
+	-- Warpstalker Hatchling -- 62583
+	pet = AddPet(62583, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.TEROKKAR_FOREST, "18-19", "46.8:25.2", "36.6:37.6", "66.8:54.6", "68.4:43.2", "57.6:38.4")
+	pet:AddZoneLocations(Z.SHADOWMOON_VALLEY, "18-19", "18.0:22.4")
 
 	-- Water Waveling -- 62820
 	pet = AddPet(62820, V.MOP, Q.COMMON)
@@ -2816,94 +2888,29 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.AHNKAHET_THE_OLD_KINGDOM, Z.BADLANDS, Z.CRYPT_OF_FORGOTTEN_KINGS, Z.DRAKTHARON_KEEP, Z.DUN_MOROGH, Z.DUSKWOOD, Z.DUSTWALLOW_MARSH, Z.EASTERN_PLAGUELANDS, Z.HALLS_OF_STONE, Z.ICECROWN_CITADEL, Z.KEZAN, Z.PIT_OF_SARON, Z.RAZORFEN_DOWNS, Z.SCHOLOMANCE, Z.SHADOWFANG_KEEP, Z.SUNWELL_PLATEAU, Z.THE_FORGE_OF_SOULS, Z.THE_SHATTERED_HALLS, Z.THE_VIOLET_HOLD, Z.THOUSAND_NEEDLES, Z.TWILIGHT_HIGHLANDS, Z.UTGARDE_KEEP, Z.UTGARDE_PINNACLE, Z.WESTERN_PLAGUELANDS, Z.WETLANDS)
 
-
-
-
-
-
-
-
-	
-
-	-- Mirror Strider -- 62998
-	pet = AddPet(62998, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.THE_JADE_FOREST)
-
-	-- Horny Toad -- 62185
-	pet = AddPet(62185, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.DESOLACE)
-
-	-- Tolai Hare -- 63557
-	pet = AddPet(63557, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
-
-	-- Warpstalker Hatchling -- 62583
-	pet = AddPet(62583, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.TEROKKAR_FOREST)
-
-	-- Rabid Nut Varmint 5000 -- 62120
-	pet = AddPet(62120, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.AZSHARA, Z.KEZAN, Z.STONETALON_MOUNTAINS, Z.WINTERSPRING)
-
 	-- Rock Viper -- 62184
 	pet = AddPet(62184, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.BLADES_EDGE_MOUNTAINS, Z.DESOLACE, Z.MOUNT_HYJAL, Z.SILITHUS)
-
-	-- Grasslands Cottontail -- 61704
-	pet = AddPet(61704, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.ARATHI_HIGHLANDS)
-
-	-- Savory Beetle -- 63291
-	pet = AddPet(63291, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.KRASARANG_WILDS)
 
 	-- Maggot -- 61753
 	pet = AddPet(61753, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.ASHENVALE, Z.DUN_MOROGH, Z.GHOSTLANDS, Z.HILLSBRAD_FOOTHILLS, Z.HOWLING_FJORD, Z.THE_HINTERLANDS, Z.TIRISFAL_GLADES)
 
-	-- Rat Snake -- 61258
-	pet = AddPet(61258, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.DUSKWOOD)
 
-	-- Amethyst Spiderling -- 63288
-	pet = AddPet(63288, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.KRASARANG_WILDS)
 
-	-- Coral Snake -- 62190
-	pet = AddPet(62190, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.STONETALON_MOUNTAINS)
 
-	-- Stone Armadillo -- 62187
-	pet = AddPet(62187, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.DESOLACE)
-	pet:SetTimeOfDay(TOD.NIGHT)
 
-	-- Death's Head Cockroach -- 62887
-	pet = AddPet(62887, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.MOUNT_HYJAL)
 
-	-- Lava Beetle -- 61386
-	pet = AddPet(61386, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.BURNING_STEPPES)
+
+
+
 
 	-- Malayan Quillrat -- 63094
 	pet = AddPet(63094, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddWorldDrop(Z.THE_VEILED_STAIR)
 	pet:AddWorldDrop(Z.VALLEY_OF_THE_FOUR_WINDS)
 
 	-- Crimson Geode -- 62927
@@ -4000,7 +4007,7 @@ function addon:InitCritters()
 	-- Skywisp Moth -- 73368
 	pet = AddPet(73368, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddZoneLocations(Z.TIMELESS_ISLE, "25", "47.2:67.7")
+	pet:AddZoneLocations(Z.TIMELESS_ISLE, "25", "47.2:67.7", "28.4:34.9", "27.2:65.7", "25.4:43.1")
 
 	-- Spineclaw Crab -- 73366
 	pet = AddPet(73366, V.MOP, Q.RARE)

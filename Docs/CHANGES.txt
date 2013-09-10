@@ -3,7 +3,12 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 
 == 2.0.3
 * 5.4 pets & mounts added
-* Fixed WorldDrop issues
+* Zones & co-ords added for more battlepets
+* Fixed issue where when setting 'WorldDrop' (non-battlepet), it wouldn't show the zone it drops in.
+* Localization import - Missing Localizations for all languages except English & Italian.
+
+* Known Issues:
+** Error referencing 'cur_entry'. Working on tracking down cause, but doesn't seem to stop the addon from working.  Please install an error catcher, such as BugSack & Buggrabber so it doesn't constantly bug you.
 
 === 2.0.2
 * Fixed filters in the database so that it actually shows all pets now
