@@ -439,7 +439,7 @@ function addon:OnInitialize()
 		end
 		local name, tooltip_unit = self:GetUnit()
 
-		if not tooltip_unit then
+		if not tooltip_unit or not _G.UnitGUID(tooltip_unit) then
 			return
 		end
 		local id_num = private.MobGUIDToIDNum(_G.UnitGUID(tooltip_unit))
