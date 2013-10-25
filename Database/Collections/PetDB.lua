@@ -64,6 +64,11 @@ do
 		pet_journal.AddAllPetTypesFilter()
 		pet_journal.AddAllPetSourcesFilter()
 
+		local search_box = _G.PetJournalSearchBox
+		search_box:ClearFocus()
+		search_box:SetText(_G.SEARCH)
+		_G.PetJournal_OnSearchTextChanged(search_box)
+
 		local pet_list = private.collectable_list["CRITTER"]
 
 		if not pet_list then
