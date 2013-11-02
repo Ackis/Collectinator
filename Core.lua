@@ -47,7 +47,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local Toast = LibStub("LibToast-1.0")
 local LPJ = LibStub("LibPetJournal-2.0")
 
-local debugger = _G.tekDebug and _G.tekDebug:GetFrame(private.addon_name)
+local debugger -- Only defined if needed.
 
 private.build_num = select(2, _G.GetBuildInfo())
 private.TextDump = LibStub("LibTextDump-1.0"):New(private.addon_name)
@@ -58,19 +58,23 @@ addon.optionsFrame = {}
 -------------------------------------------------------------------------------
 -- Debugger.
 -------------------------------------------------------------------------------
-function addon:Debug(...)
+local function CreateDebugFrame()
 	if debugger then
-		local text = string.format(...)
-		debugger:AddMessage(text)
-
-		--@debug@
-		Toast:Spawn("Collectinator_DebugToast", text)
-		--@end-debug@
-	else
-		--@debug@
-		self:Printf(...)
-		--@end-debug@
+		return
 	end
+	debugger = LibStub("LibTextDump-1.0"):New(("%s Debug Output"):format(private.addon_name), 640, 480)
+end
+
+function addon:Debug(...)
+	if not debugger then
+		CreateDebugFrame()
+	end
+	local text = string.format(...)
+	debugger:AddLine(text)
+
+	--@debug@
+	Toast:Spawn("Collectinator_DebugToast", text)
+	--@end-debug@
 end
 
 Toast:Register("Collectinator_DebugToast", function(toast, ...)
@@ -530,6 +534,18 @@ do
 			end
 		elseif arg1 == L["Profile"]:lower() then
 			_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
+		elseif arg1 == "debug" then
+			if not debugger then
+				CreateDebugFrame()
+			end
+
+			if debugger:Lines() == 0 then
+				debugger:AddLine("Nothing to report.")
+				debugger:Display()
+				debugger:Clear()
+				return
+			end
+			debugger:Display()
 		else
 			-- What happens when we get here?
 			LibStub("AceConfigCmd-3.0"):HandleCommand("col", "Collectinator", arg1)
