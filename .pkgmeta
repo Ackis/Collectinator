@@ -56,6 +56,9 @@ externals:
  libs/LibPetJournal-2.0:
   url: http://hg.curseforge.net/wow/libpetjournal-2-0/mainline
   tag: latest
+ libs/LibTextDump-1.0:
+  url: git://git.wowace.com/wow/libtextdump-1-0/mainline.git
+  tag: latest
 
 ignore:
  - Docs
@@ -73,4 +76,3 @@ ignore:
  - libs/LibStub/tests
  - libs/LibToast-1.0/LibStub
  - libs/LibSharedMedia-3.0/LibStub
- 
