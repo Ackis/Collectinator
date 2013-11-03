@@ -499,59 +499,66 @@ end
 -------------------------------------------------------------------------------
 -- Logic Functions
 -------------------------------------------------------------------------------
-
-do
-	-- Code snippet stolen from GearGuage by Torhal and butchered by Ackis
-	local function StrSplit(input)
-		if not input then
-			return nil, nil
+local SUBCOMMAND_FUNCS = {
+	[L["About"]:lower()] = function()
+		if addon.optionsFrame["About"] then
+			_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame["About"])
+		else
+			_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame)
 		end
-		local arg1, arg2, var1
-
-		arg1, var1 = input:match("^([^%s]+)%s*(.*)$")
-		arg1 = (arg1 and arg1:lower() or input:lower())
-
-		if var1 then
-			local var2
-			arg2, var2 = var1:match("^([^%s]+)%s*(.*)$")
-			arg2 = (arg2 and arg2:lower() or var1:lower())
+	end,
+	[L["Profile"]:lower()] = function()
+		_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame["Profiles"])
+	end,
+	debug = function()
+		if not debugger then
+			CreateDebugFrame()
 		end
-		return arg1, arg2
+
+		if debugger:Lines() == 0 then
+			debugger:AddLine("Nothing to report.")
+			debugger:Display()
+			debugger:Clear()
+			return
+		end
+		debugger:Display()
+	end,
+	--@debug@
+	dump = function(arg1, arg2)
+		local func = private.DUMP_COMMANDS[arg1]
+
+		if func then
+			func(arg2)
+		else
+			addon:Print("Unknown dump command:")
+
+			for command in pairs(private.DUMP_COMMANDS) do
+				addon:Print(command)
+			end
+		end
+	end,
+	--@end-debug@
+}
+
+function addon:ChatCommand(input)
+	local arg1, arg2, arg3 = self:GetArgs(input, 3)
+
+	if arg1 then
+		arg1 = arg1:trim():lower()
 	end
 
-	-- Determines what to do when the slash command is called.
-	function addon:ChatCommand(input)
-		local arg1, arg2 = StrSplit(input)
-
-		-- Open About panel if there's no parameters or if we do /col about
-		if not arg1 or (arg1 and arg1:trim() == "") then
-			_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-		elseif arg1 == L["About"]:lower() then
-			if self.optionsFrame["About"] then
-				_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["About"])
-			else
-				_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-			end
-		elseif arg1 == L["Profile"]:lower() then
-			_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame["Profiles"])
-		elseif arg1 == "debug" then
-			if not debugger then
-				CreateDebugFrame()
-			end
-
-			if debugger:Lines() == 0 then
-				debugger:AddLine("Nothing to report.")
-				debugger:Display()
-				debugger:Clear()
-				return
-			end
-			debugger:Display()
+	-- Open About panel if there's no parameters or if we do /col about
+	if not arg1 or (arg1 and arg1:trim() == "") then
+		_G.InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+	else
+		local func = SUBCOMMAND_FUNCS[arg1]
+		if func then
+			func(arg2, arg3)
 		else
-			-- What happens when we get here?
+
 			LibStub("AceConfigCmd-3.0"):HandleCommand("col", "Collectinator", arg1)
 		end
 	end
-
 end
 
 do

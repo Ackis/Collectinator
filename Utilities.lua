@@ -108,6 +108,43 @@ do
 	local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 	local TextDump = private.TextDump
 
+	private.DUMP_COMMANDS = {
+		empties = function()
+			addon:ShowEmptySources()
+		end,
+		phrases = function()
+			addon:DumpPhrases()
+		end,
+		profession = function(input)
+			if not input then
+				PrintProfessions()
+				return
+			end
+			local found
+			input = input:lower():trim()
+
+			for index = 1, #private.ORDERED_PROFESSIONS do
+				if input == private.ORDERED_PROFESSIONS[index]:lower() then
+					found = true
+					break
+				end
+			end
+
+			if not found then
+				PrintProfessions()
+				return
+			end
+			addon:DumpProfession(input)
+		end,
+		zones = function(input)
+			if not input then
+				addon:Print("Type the name or partial name of a zone.")
+				return
+			end
+			addon:DumpZones(input)
+		end
+	}
+
 	function addon:DumpPhrases()
 		local sorted = {}
 
@@ -168,7 +205,7 @@ do
 	end
 
 	function addon:DumpReps()
-		output:Clear()
+		TextDump:Clear()
 
 		for index = 1, 1500 do
 			local rep_name = _G.GetFactionInfoByID(index)
@@ -177,7 +214,7 @@ do
 				output:AddLine(("[\"%s\"] = _G.GetFactionInfoByID(%d),"):format(TableKeyFormat(rep_name), index))
 			end
 		end
-		output:Display()
+		TextDump:Display()
 	end
 
 	--[=[
@@ -253,13 +290,15 @@ do
 	end
 
 	function addon:ShowEmptySources()
-		private.LoadAllRecipes()
+		private.LoadAllCollectables()
+		TextDump:Clear()
 
 		find_empties(private.vendor_list, "Vendor")
 		find_empties(private.mob_list, "Mob")
 		find_empties(private.quest_list, "Quest")
 		find_empties(private.custom_list, "Custom Entry")
 		find_empties(private.world_events_list, "World Event")
+		TextDump:Display()
 	end
 end -- do
 --@end-debug@
