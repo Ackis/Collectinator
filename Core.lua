@@ -500,16 +500,6 @@ end
 -- Logic Functions
 -------------------------------------------------------------------------------
 local SUBCOMMAND_FUNCS = {
-	[L["About"]:lower()] = function()
-		if addon.optionsFrame["About"] then
-			_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame["About"])
-		else
-			_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame)
-		end
-	end,
-	[L["Profile"]:lower()] = function()
-		_G.InterfaceOptionsFrame_OpenToCategory(addon.optionsFrame["Profiles"])
-	end,
 	debug = function()
 		if not debugger then
 			CreateDebugFrame()
