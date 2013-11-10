@@ -269,6 +269,7 @@ function addon:InitCritters()
 	pet:SetItemID(98550)
 	pet:SetSpellID(142880)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	pet:AddCustom("STORE")
 
 	-- Blue Mini Jouster -- 42177
 	pet = AddPet(42177, V.CATA, Q.COMMON)
@@ -4048,6 +4049,29 @@ function addon:InitCritters()
 	pet:SetSpellID(145699)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	pet:AddVendor(73082)
+
+-- 5.4.1
+
+	-- Alterac Brew-Pup -- 74402
+	pet = AddPet(74402, V.MOP, Q.RARE)
+	pet:SetItemID(106240)
+	pet:SetSpellID(149787)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	pet:AddCustom("STORE")
+
+	-- Macabre Marionette -- 34770
+	pet = AddPet(34770, V.MOP, Q.RARE)
+	pet:SetItemID(46831)
+	pet:SetSpellID(66175)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddWorldEvent("DAY_OF_THE_DEAD")
+
+	-- Murkalot -- 74405
+	pet = AddPet(74405, V.MOP, Q.RARE)
+	pet:SetItemID(106244)
+	pet:SetSpellID(149792)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddCustom("BLIZZCON")
 
 	self.InitCritters = nil
 
