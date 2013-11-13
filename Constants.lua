@@ -298,21 +298,22 @@ private.COLLECTION_FILTER_TYPES = {
 -- Acquire types.
 -------------------------------------------------------------------------------
 private.ACQUIRE_NAMES = {
-	[1]	= L["Trainer"],
-	[2]	= _G.BATTLE_PET_SOURCE_3, -- Vendor
-	[3]	= L["Mob Drop"],
-	[4]	= _G.BATTLE_PET_SOURCE_2, -- Quest
-	[5]	= _G.GetCategoryInfo(155), -- World Events
-	[6]	= _G.REPUTATION,
-	[7]	= L["World Drop"],
-	[8]	= _G.ACHIEVEMENTS,
-	[9]	= _G.MISCELLANEOUS,
-	[10]	= _G.BATTLE_PET_SOURCE_4, -- Profession
-	[11]	= _G.BATTLE_PET_SOURCE_10, -- Store
-	[12]	= _G.BATTLE_PET_SOURCE_9, -- TCG
-	[13]	= L["Collectors Edition"],
-	[14]	= _G.BATTLE_PET_SOURCE_8, -- Promotion
-	[15]	= _G.MISCELLANEOUS,
+	L["Trainer"],
+	_G.BATTLE_PET_SOURCE_3, -- Vendor
+	L["Mob Drop"],
+	_G.BATTLE_PET_SOURCE_2, -- Quest
+	_G.GetCategoryInfo(155), -- World Events
+	_G.REPUTATION,
+	L["World Drop"],
+	_G.ACHIEVEMENTS,
+	_G.MISCELLANEOUS,
+	_G.BATTLE_PET_SOURCE_4, -- Profession
+	_G.BATTLE_PET_SOURCE_10, -- Store
+	_G.BATTLE_PET_SOURCE_9, -- TCG
+	L["Collectors Edition"],
+	_G.BATTLE_PET_SOURCE_8, -- Promotion
+	_G.MISCELLANEOUS,
+	L["Retired"],
 }
 
 private.ACQUIRE_STRINGS = {
@@ -331,6 +332,7 @@ private.ACQUIRE_STRINGS = {
 	"COLLECTORS_EDITION",	-- 13
 	"PROMO",		-- 14
 	"MISC",			-- 15
+	"RETIRED",		-- 16
 }
 
 private.ACQUIRE_TYPES = GenerateLookup_ID(private.ACQUIRE_STRINGS)

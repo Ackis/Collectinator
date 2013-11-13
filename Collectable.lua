@@ -260,6 +260,11 @@ function collectable_prototype:RequiredRaces()
 	return self.required_races
 end
 
+function collectable_prototype:Retire()
+	self:AddAcquireData(private.ACQUIRE_TYPES.RETIRED)
+	self:AddFilters(private.FILTER_IDS.RETIRED)
+end
+
 -------------------------------------------------------------------------------
 -- Collectable state flags.
 -------------------------------------------------------------------------------
