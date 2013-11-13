@@ -211,7 +211,7 @@ do
 			local rep_name = _G.GetFactionInfoByID(index)
 
 			if rep_name and private.FACTION_STRINGS[index] then
-				output:AddLine(("[\"%s\"] = _G.GetFactionInfoByID(%d),"):format(TableKeyFormat(rep_name), index))
+				TextDump:AddLine(("[\"%s\"] = _G.GetFactionInfoByID(%d),"):format(TableKeyFormat(rep_name), index))
 			end
 		end
 		TextDump:Display()
@@ -284,7 +284,7 @@ do
 			end
 
 			if count == 0 then
-				addon:Debug("%s %s (%s) has no collections.", description, unit.name or _G.UNKNOWN, unit_id)
+				TextDump:AddLine(("%s %s (%s) has no collections."):format(description, unit.name or _G.UNKNOWN, unit_id))
 			end
 		end
 	end
@@ -298,6 +298,11 @@ do
 		find_empties(private.quest_list, "Quest")
 		find_empties(private.custom_list, "Custom Entry")
 		find_empties(private.world_events_list, "World Event")
+
+		if TextDump:Lines() == 0 then
+			TextDump:AddLine("Nothing to display.")
+		end
+
 		TextDump:Display()
 	end
 end -- do
