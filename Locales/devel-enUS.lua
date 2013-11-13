@@ -280,7 +280,6 @@ L["Pogg"] = true
 L["Poseidus"] = true
 L["Primal Direhorn"] = true
 L["Primal Direhorn Hatchling"] = true
-L["Prince Tenris Mirkblood"] = true
 L["Profile Options"] = true
 L["Provisioner Nasela"] = true
 L["QUALITY_GENERAL_DESC"] = "Include %s quality recipe items in the scan."
