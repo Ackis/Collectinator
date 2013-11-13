@@ -176,49 +176,49 @@ function addon:InitMounts()
 	-- White Mechanostrider Mod B - 15779
 	mount = AddMount(15779, V.ORIG, Q.EPIC) -- Item: 13326
 	mount:SetItemID(13326)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Alliance")
 
 	-- Icy Blue Mechanostrider Mod A - 17459
 	mount = AddMount(17459, V.ORIG, Q.EPIC) -- Item: 13327
 	mount:SetItemID(13327)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Alliance")
 
 	-- Palomino Bridle - 16082
 	mount = AddMount(16082, V.ORIG, Q.EPIC) -- Item: 12354
 	mount:SetItemID(12354)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Alliance")
 
 	-- White Stallion Bridle - 16083
 	mount = AddMount(16083, V.ORIG, Q.EPIC) -- Item: 12353
 	mount:SetItemID(12353)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Alliance")
 
 	-- Frost Ram - 17460
 	mount = AddMount(17460, V.ORIG, Q.EPIC) -- Item: 13329
 	mount:SetItemID(13329)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Alliance")
 
 	-- Black Ram - 17461
 	mount = AddMount(17461, V.ORIG, Q.EPIC) -- Item: 13328
 	mount:SetItemID(13328)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Alliance")
 
 	-- Reins of the Nightsaber - 16055
 	mount = AddMount(16055, V.ORIG, Q.EPIC) -- Item: 12303
 	mount:SetItemID(12303)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Alliance")
 
 	-- Reins of the Ancient Frostsaber - 16056
 	mount = AddMount(16056, V.ORIG, Q.EPIC) -- Item: 12302
 	mount:SetItemID(12302)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Alliance")
 
 	-- Reins of the Wooly Mammoth - 59793
@@ -675,13 +675,13 @@ function addon:InitMounts()
 	-- Crusader's White Warhorse
 	mount = AddMount(68187, V.WOTLK, Q.EPIC)
 	mount:SetItemID(49096)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Alliance")
 
 	-- Swift Alliance Steed
 	mount = AddMount(68057, V.WOTLK, Q.EPIC) -- Item: 49044
 	mount:SetItemID(49044)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Alliance")
 
 	-- Golden King -- 90621
@@ -885,13 +885,13 @@ function addon:InitMounts()
 	-- Horn of the Red Wolf - 16080
 	mount = AddMount(16080, V.ORIG, Q.EPIC) -- Item: 12330
 	mount:SetItemID(12330)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Horde")
 
 	-- Horn of the Arctic Wolf - 16081
 	mount = AddMount(16081, V.ORIG, Q.EPIC) -- Item: 12351
 	mount:SetItemID(12351)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Horde")
 
 	-- Swift Blue Raptor - 23241
@@ -938,13 +938,13 @@ function addon:InitMounts()
 	-- Whistle of the Mottled Red Raptor - 16084
 	mount = AddMount(16084, V.ORIG, Q.EPIC) -- Item: 8586
 	mount:SetItemID(8586)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Horde")
 
 	-- Whistle of the Ivory Raptor - 17450
 	mount = AddMount(17450, V.ORIG, Q.EPIC) -- Item: 13317
 	mount:SetItemID(13317)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Horde")
 
 	-- Great White Kodo - 23247
@@ -992,13 +992,13 @@ function addon:InitMounts()
 	-- Green Kodo - 18991
 	mount = AddMount(18991, V.ORIG, Q.EPIC) -- Item: 15292
 	mount:SetItemID(15292)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Horde")
 
 	-- Teal Kodo - 18992
 	mount = AddMount(18992, V.ORIG, Q.EPIC) -- Item: 15293
 	mount:SetItemID(15293)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Horde")
 
 	-- Swift Pink Hawkstrider - 33660
@@ -1280,13 +1280,13 @@ function addon:InitMounts()
 	-- Crusader's Black Warhorse
 	mount = AddMount(68188, V.WOTLK, Q.EPIC) -- Item: 49098
 	mount:SetItemID(49098)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Horde")
 
 	-- Swift Horde Wolf
 	mount = AddMount(68056, V.WOTLK, Q.EPIC) -- Item: 49046
 	mount:SetItemID(49046)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:SetRequiredFaction("Horde")
 
 	-- Spectral Wolf -- 92232
@@ -1441,7 +1441,7 @@ function addon:InitMounts()
 	-- Brewfest Ram - 43899
 	mount = AddMount(43899, V.TBC, Q.RARE) -- Item: 33976
 	mount:SetItemID(33976)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 
 	-- Great Brewfest Kodo - 49379
 	mount = AddMount(49379, V.TBC, Q.EPIC) -- Item: 37828
@@ -1762,74 +1762,74 @@ function addon:InitMounts()
 	-- Swift Zulian Tiger - 24252
 	mount = AddMount(24252, V.ORIG, Q.EPIC) -- Item: 19902
 	mount:SetItemID(19902)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 
 	-- Swift Razzashi Raptor - 24242
 	mount = AddMount(24242, V.ORIG, Q.EPIC) -- Item: 19872
 	mount:SetItemID(19872)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 
 	 -- Black Proto-Drake - 59976
 	mount = AddMount(59976, V.WOTLK, Q.EPIC) -- Item: 44164
 	mount:SetItemID(44164)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 
 	 -- Plagued Proto-Drake - 60021
 	mount = AddMount(60021, V.WOTLK, Q.EPIC) -- Item: 44175
 	mount:SetItemID(44175)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 
 	-- Amani War Bear - 43688
 	mount = AddMount(43688, V.TBC, Q.EPIC) -- Item: 33809
 	mount:SetItemID(33809)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 
 	-- Swift Nether Drake - 37015
 	mount = AddMount(37015, V.TBC, Q.EPIC) -- Item: 30609
 	mount:SetItemID(30609)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Merciless Nether Drake - 44744
 	mount = AddMount(44744, V.TBC, Q.EPIC) -- Item: 34092
 	mount:SetItemID(34092)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Vengeful Nether Drake - 49193
 	mount = AddMount(49193, V.TBC, Q.EPIC) -- Item: 37676
 	mount:SetItemID(37676)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Brutal Nether Drake - 58615
 	mount = AddMount(58615, V.WOTLK, Q.EPIC) -- Item: 43516
 	mount:SetItemID(43516)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Deadly Gladiator's Frostwyrm - 64927
 	mount = AddMount(64927, V.WOTLK, Q.EPIC) -- Item: 46708
 	mount:SetItemID(46708)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Furious Gladiator's Frostwyrm - 65439
 	mount = AddMount(65439, V.WOTLK, Q.EPIC) -- Item: 46171
 	mount:SetItemID(19902)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Relentless Gladiator's Frostwyrm - 67336
 	mount = AddMount(67336, V.WOTLK, Q.EPIC)
 	mount:SetItemID(19902)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Wrathful Gladiator's Frostwyrm - 71810
 	mount = AddMount(71810, V.WOTLK, Q.EPIC)
 	mount:SetItemID(19902)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Blue Qiraji Battle Tank -- 25953
@@ -1859,7 +1859,7 @@ function addon:InitMounts()
 	-- Black Qiraji Resonating Crystal - 26656
 	mount = AddMount(26656, V.ORIG, Q.LEGENDARY) -- Item: 21176
 	mount:SetItemID(21176)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 
 --TCG
 	-- Riding Turtle - 30174
@@ -2110,7 +2110,7 @@ function addon:InitMounts()
 	-- Vicious Gladiator's Twilight Drake -- 101282
 	mount = AddMount(101282, V.CATA, Q.EPIC) -- Item: 71339
 	mount:SetItemID(71339)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Tyrael's Charger -- 107203
@@ -2166,7 +2166,7 @@ function addon:InitMounts()
 	-- Ruthless Gladiator's Twilight Drake -- 101821
 	mount = AddMount(101821, V.CATA, Q.EPIC) -- Item: 71954
 	mount:SetItemID(71954)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Twilight Harbinger -- 107844
@@ -2290,7 +2290,7 @@ function addon:InitMounts()
 	-- Cataclysmic Gladiator's Twilight Drake -- 124550
 	mount = AddMount(124550, V.MOP, Q.EPIC)
 	mount:SetItemID(85785)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Crimson Cloud Serpent -- 127156
@@ -2763,7 +2763,7 @@ function addon:InitMounts()
 	-- Tyrannical Gladiator's Cloud Serpent -- 148618
 	mount = AddMount(148618, V.MOP, Q.EPIC)
 	mount:SetItemID(104208)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Vicious Skeletal Warhorse -- 146622
@@ -2797,13 +2797,13 @@ Apparentely not in game yet!
 	-- Grievous Gladiator's Cloud Serpent -- 148619  -- Season 14
 	mount = AddMount(148619, V.MOP, Q.EPIC)
 	mount:SetItemID(104326)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 	-- Prideful Gladiator's Cloud Serpent -- 148620  -- Season 15
 	mount = AddMount(148620, V.MOP, Q.EPIC)
 	mount:SetItemID(104327)
-	mount:AddFilters(F.RETIRED)
+	mount:Retire()
 	mount:AddCustom("ARENA")
 
 -- Albino Riding Crane

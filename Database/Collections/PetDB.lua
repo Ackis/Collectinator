@@ -219,7 +219,7 @@ function addon:InitCritters()
 	pet = AddPet(32841, V.WOTLK, Q.COMMON)
 	pet:SetItemID(44819)
 	pet:SetSpellID(61855)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Bananas -- 23234
 	pet = AddPet(23234, V.TBC, Q.RARE)
@@ -400,7 +400,7 @@ function addon:InitCritters()
 	pet = AddPet(24968, V.TBC, Q.RARE)
 	pet:SetItemID(34424)
 	pet:SetSpellID(54187)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Clouded Hedgehog -- 64242
 	pet = AddPet(64242, V.MOP, Q.COMMON)
@@ -782,7 +782,7 @@ function addon:InitCritters()
 	pet = AddPet(27346, V.WOTLK, Q.UNCOMMON)
 	pet:SetItemID(37298)
 	pet:SetSpellID(48408)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Ethereal Soul-Trader -- 27914
 	pet = AddPet(27914, V.TBC, Q.RARE)
@@ -1100,7 +1100,7 @@ function addon:InitCritters()
 	pet = AddPet(16069, V.ORIG, Q.RARE)
 	pet:SetItemID(22114)
 	pet:SetSpellID(27241)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Gusting Grimoire -- 69208
 	pet = AddPet(69208, V.ORIG, Q.RARE)
@@ -1434,7 +1434,7 @@ function addon:InitCritters()
 	pet = AddPet(23198, V.TBC, Q.RARE)
 	pet:SetItemID(32498)
 	pet:SetSpellID(40405)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Lucky Quilen Cub -- 63832
 	pet = AddPet(63832, V.MOP, Q.RARE)
@@ -1665,19 +1665,19 @@ function addon:InitCritters()
 
 	-- Murki -- 15361
 	pet = AddPet(15361, V.ORIG, Q.RARE)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Murkimus the Gladiator -- 33578
 	pet = AddPet(33578, V.WOTLK, Q.RARE)
 	pet:SetItemID(46892)
 	pet:SetSpellID(63318)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Murky -- 15186
 	pet = AddPet(15186, V.ORIG, Q.RARE)
 	pet:SetItemID(20371)
 	pet:SetSpellID(24696)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Nether Ray Fry -- 28470
 	pet = AddPet(28470, V.TBC, Q.RARE)
@@ -1733,13 +1733,13 @@ function addon:InitCritters()
 
 	-- Onyx Panther -- 35468
 	pet = AddPet(35468, V.WOTLK, Q.RARE)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Onyxian Whelpling -- 36607
 	pet = AddPet(36607, V.WOTLK, Q.COMMON)
 	pet:SetItemID(49362)
 	pet:SetSpellID(49362)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Orange Tabby Cat -- 7382
 	pet = AddPet(7382, V.ORIG, Q.COMMON)
@@ -1895,7 +1895,7 @@ function addon:InitCritters()
 	pet = AddPet(16456, V.ORIG, Q.COMMON)
 	pet:SetItemID(22781)
 	pet:SetSpellID(28505)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Porcupette -- 61086
 	pet = AddPet(61086, V.MOP, Q.COMMON)
@@ -2308,7 +2308,7 @@ function addon:InitCritters()
 	pet = AddPet(27217, V.TBC, Q.RARE)
 	pet:SetItemID(37297)
 	pet:SetSpellID(48406)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Spirit of Summer -- 16701
 	pet = AddPet(16701, V.ORIG, Q.RARE)
@@ -2427,7 +2427,7 @@ function addon:InitCritters()
 	-- Terky -- 16445
 	pet = AddPet(16445, V.MOP, Q.COMMON)
 	pet:SetItemID(22780)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Terrible Turnip -- 63365
 	pet = AddPet(63365, V.MOP, Q.COMMON)
@@ -2502,7 +2502,7 @@ function addon:InitCritters()
 	pet = AddPet(14755, V.WOTLK, Q.RARE)
 	pet:SetItemID(19055)
 	pet:SetSpellID(23531)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Tiny Red Carp -- 70257
 	pet = AddPet(70257, V.MOP, Q.COMMON)
@@ -2516,7 +2516,7 @@ function addon:InitCritters()
 	pet = AddPet(14756, V.WOTLK, Q.RARE)
 	pet:SetItemID(19054)
 	pet:SetSpellID(23530)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Tiny Shale Spider -- 48982
 	pet = AddPet(48982, V.CATA, Q.COMMON)
@@ -2646,7 +2646,7 @@ function addon:InitCritters()
 	pet = AddPet(28513, V.TBC, Q.RARE)
 	pet:SetItemID(38658)
 	pet:SetSpellID(51851)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Venus -- 66491
 	pet = AddPet(66491, V.MOP, Q.COMMON)
@@ -2682,7 +2682,7 @@ function addon:InitCritters()
 	pet = AddPet(34587, V.WOTLK, Q.RARE)
 	pet:SetItemID(46767)
 	pet:SetSpellID(65682)
-	pet:AddFilters(F.RETIRED)
+	pet:Retire()
 
 	-- Warpstalker Hatchling -- 62583
 	pet = AddPet(62583, V.MOP, Q.COMMON)
