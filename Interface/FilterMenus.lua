@@ -58,33 +58,29 @@ local FN = private.LOCALIZED_FACTION_STRINGS
 -------------------------------------------------------------------------------
 do
 	local function CheckButton_OnClick(self, button, down)
-		local script_val = self.script_val
-		local MainPanel = addon.Frame
+		local value = addon.Frame.filter_menu.value_map[self.script_val]
+		value.svroot[self.script_val] = value.cb:GetChecked() and true or false
 
-		MainPanel.filter_menu.value_map[script_val].svroot[script_val] = MainPanel.filter_menu.value_map[script_val].cb:GetChecked() and true or false
-		MainPanel:UpdateTitle()
-		MainPanel.list_frame:Update(nil, false)
+		addon.Frame:UpdateTitle()
+		addon.Frame.list_frame:Update(nil, false)
 	end
 
-	local function CreateCheckButton(parent, anchor_frame, ttText, scriptVal, row, col)
+	local function CreateCheckButton(parent, anchor_frame, tooltip_text, section, row, col)
 		-- set the position of the new checkbox
-		local xPos = 10 + ((col - 1) * 150)
-		local yPos = -10 - ((row - 1) * 17)
+		local x_pos = 10 + ((col - 1) * 150)
+		local y_pos = -10 - ((row - 1) * 17)
 
 		local check = _G.CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate")
-		check:SetPoint("TOPLEFT", anchor_frame or parent, "TOPLEFT", xPos, yPos)
+		check:SetPoint("TOPLEFT", anchor_frame or parent, "TOPLEFT", x_pos, y_pos)
 		check:SetHeight(20)
 		check:SetWidth(20)
+		check:SetScript("OnClick", CheckButton_OnClick)
 
+		check.script_val = section
 		check.text = check:CreateFontString(nil, "OVERLAY", "QuestFontNormalSmall")
 		check.text:SetPoint("LEFT", check, "RIGHT", 0, 0)
 
-		check.script_val = scriptVal
-
-		check:SetScript("OnClick", CheckButton_OnClick)
-
-		SetTooltipScripts(check, ttText, 1)
-
+		SetTooltipScripts(check, tooltip_text, 1)
 		return check
 	end
 
