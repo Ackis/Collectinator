@@ -731,7 +731,7 @@ function addon:InitMounts()
 	-- Spectral Gryphon -- 107516
 	mount = AddMount(107516, V.CATA, Q.EPIC) -- Item: 76889
 	mount:SetItemID(76889)
-	mount:AddFilters(F.ALLIANCE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.MISC)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddCustom("SOR")
 
@@ -1322,7 +1322,7 @@ function addon:InitMounts()
 	-- Spectral Wind Rider -- 107517
 	mount = AddMount(107517, V.CATA, Q.EPIC) -- Item: 76902
 	mount:SetItemID(76902)
-	mount:AddFilters(F.HORDE, F.IBOP)
+	mount:AddFilters(F.HORDE, F.IBOP, F.MISC)
 	mount:AddCustom("SOR")
 
 	-------------------------------------------------------------------------------
@@ -1399,25 +1399,26 @@ function addon:InitMounts()
 	-- Swift Zhevra - 49322
 	mount = AddMount(49322, V.TBC, Q.EPIC) -- Item: 37719
 	mount:SetItemID(37719)
-	mount:AddFilters(F.RETIRED)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
 	mount:AddCustom("RECRUIT")
 
 	-- X-53 Touring Rocket - 75973
 	mount = AddMount(75973, V.WOTLK, Q.EPIC) -- Item: 54860
 	mount:SetItemID(54860)
-	mount:AddFilters(F.RETIRED)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
 	mount:AddCustom("RECRUIT")
 
 	-- Obsidian Nightwing (Heart of the Nightwing) - 121820
 	mount = AddMount(121820, V.CATA, Q.EPIC) -- Item: 83086
 	mount:SetItemID(83086)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
 	mount:AddCustom("RECRUIT")
 
 	-- Big Blizzard Bear - 58983
 	mount = AddMount(58983, V.WOTLK, Q.RARE) -- Item: 43599
 	mount:SetItemID(43599)
-	mount:AddFilters(F.RETIRED)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.PROMO)
+	mount:AddCustom("BLIZZCON")
 
 	 -- Argent Hippogryph - 63844
 	mount = AddMount(63844, V.WOTLK, Q.EPIC) -- Item: 45725
@@ -1440,9 +1441,7 @@ function addon:InitMounts()
 	-- Brewfest Ram - 43899
 	mount = AddMount(43899, V.TBC, Q.RARE) -- Item: 33976
 	mount:SetItemID(33976)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.VENDOR, F.RETIRED)
-	mount:AddVendor(24468, 24510)
-	mount:AddWorldEvent("BREWFEST")
+	mount:AddFilters(F.RETIRED)
 
 	-- Great Brewfest Kodo - 49379
 	mount = AddMount(49379, V.TBC, Q.EPIC) -- Item: 37828
@@ -1530,7 +1529,7 @@ function addon:InitMounts()
 	 -- Green Proto-Drake - 61294
 	mount = AddMount(61294, V.WOTLK, Q.EPIC) -- Item: 44707
 	mount:SetItemID(44707)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddCustom("MYSTERIOUS_EGG")
 
 	-- Ashes of Al'ar - 40192
@@ -2613,7 +2612,7 @@ function addon:InitMounts()
 	-- Reins of the Black Primal Raptor -- 138642
 	mount = AddMount(138642, V.MOP, Q.EPIC)
 	mount:SetItemID(94292)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddCustom("PRIMAL_EGG")
 
 	-- Reins of the Bone-White Primal Raptor -- 138640
@@ -2643,7 +2642,7 @@ function addon:InitMounts()
 	-- Reins of the Green Primal Raptor -- 138643
 	mount = AddMount(138643, V.MOP, Q.EPIC)
 	mount:SetItemID(94293)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddCustom("PRIMAL_EGG")
 
 	-- Reins of the Jade Primordial Direhorn -- 138426
@@ -2656,7 +2655,7 @@ function addon:InitMounts()
 	-- Reins of the Red Primal Raptor -- 138641
 	mount = AddMount(138641, V.MOP, Q.EPIC)
 	mount:SetItemID(94291)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddCustom("PRIMAL_EGG")
 
 	-- Reins of the Slate Primordial Direhorn -- 138425
@@ -2716,6 +2715,7 @@ function addon:InitMounts()
 	mount = AddMount(142878, V.MOP, Q.EPIC)
 	mount:SetItemID(97989)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	mount:AddCustom("STORE")
 
 	-- Hearthsteed -- 142073
 	mount = AddMount(142073, V.MOP, Q.EPIC)
@@ -2763,7 +2763,7 @@ function addon:InitMounts()
 	-- Tyrannical Gladiator's Cloud Serpent -- 148618
 	mount = AddMount(148618, V.MOP, Q.EPIC)
 	mount:SetItemID(104208)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.RETIRED)
+	mount:AddFilters(F.RETIRED)
 	mount:AddCustom("ARENA")
 
 	-- Vicious Skeletal Warhorse -- 146622
@@ -2780,7 +2780,13 @@ function addon:InitMounts()
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(73190)
 
-----------------------------------------------------------------------------------------------------
+
+-- 5.4.1 mounts
+	-- Emerald Hippogryph -- 149801
+	mount = AddMount(149801, V.MOP, Q.EPIC)
+	mount:SetItemID(106246)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	mount:AddCustom("RECRUIT")
 
 	self.InitMounts = nil
 end
@@ -2791,13 +2797,13 @@ Apparentely not in game yet!
 	-- Grievous Gladiator's Cloud Serpent -- 148619  -- Season 14
 	mount = AddMount(148619, V.MOP, Q.EPIC)
 	mount:SetItemID(104326)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.RETIRED)
+	mount:AddFilters(F.RETIRED)
 	mount:AddCustom("ARENA")
 
 	-- Prideful Gladiator's Cloud Serpent -- 148620  -- Season 15
 	mount = AddMount(148620, V.MOP, Q.EPIC)
 	mount:SetItemID(104327)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.RETIRED)
+	mount:AddFilters(F.RETIRED)
 	mount:AddCustom("ARENA")
 
 -- Albino Riding Crane
