@@ -1,6 +1,20 @@
 ==Collectinator Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.0.6
+* Recruit-a-Friend mounts & pets
+* Fix issues with RETIRED flag
+
+== 2.0.5
+* 5.4.1 pets
+* Add Waypoints
+* Dev-version additions
+
+== 2.0.4
+* Fix previous 'Known Issue' with 'cur_entry'
+* Fix issues with scrolling
+* Fix typos causing 'nil' errors
+
 == 2.0.3
 * 5.4 pets & mounts added
 * Zones & co-ords added for more battlepets
