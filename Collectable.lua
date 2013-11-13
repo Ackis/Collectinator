@@ -29,7 +29,16 @@ local A = private.ACQUIRE_TYPES
 private.collectable_list = {}
 private.num_category_collectables = {}
 
-private.acquire_list = {}
+do
+	local acquire_list = {}
+
+	for acquire_type = 1, #private.ACQUIRE_STRINGS do
+		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
+		acquire_list[acquire_type].name = private.ACQUIRE_NAMES[acquire_type]
+		acquire_list[acquire_type].collectables = acquire_list[acquire_type].collectables or {}
+	end
+	private.acquire_list = acquire_list
+end
 private.location_list = {}
 
 -----------------------------------------------------------------------
@@ -403,6 +412,9 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 		self.acquire_data[acquire_type] = {}
 		acquire = self.acquire_data[acquire_type]
 	end
+	acquire_list[acquire_type].collectables[self.type] = acquire_list[acquire_type].collectables[self.type] or {}
+	acquire_list[acquire_type].collectables[self.type][self.id] = true
+
 	local limited_vendor = type_string == "Limited Vendor"
 	local num_vars = select('#', ...)
 	local cur_var = 1
@@ -436,12 +448,11 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 		elseif type(identifier) == "string" and private.ZONE_LABELS_FROM_NAME[identifier] then
 			location_name = identifier
 			affiliation = type_string
+
+			if affiliation then
+				acquire_list[acquire_type].collectables[self.type][self.id] = affiliation
+			end
 		end
-		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
-		acquire_list[acquire_type].name = private.ACQUIRE_NAMES[acquire_type]
-		acquire_list[acquire_type].collectables = acquire_list[acquire_type].collectables or {}
-		acquire_list[acquire_type].collectables[self.type] = acquire_list[acquire_type].collectables[self.type] or {}
-		acquire_list[acquire_type].collectables[self.type][self.id] = affiliation or true
 
 		if location_name then
 			location_list[location_name] = location_list[location_name] or {}
