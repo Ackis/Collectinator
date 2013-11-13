@@ -589,6 +589,11 @@ local DUMP_FUNCTION_FORMATS = {
 	[A.WORLD_DROP] = "%s:AddWorldDrop(%s)",
 	[A.QUEST] = "%s:AddQuest(%s)",
 	[A.PROFESSION] = "%s:AddProfession(%s)",
+	[A.RETIRED] = "%s:Retire()",
+}
+
+local IGNORED_FLAGS = {
+	RETIRED = true,
 }
 
 local sorted_data = {}
@@ -654,10 +659,14 @@ function collectable_prototype:Dump()
 			local bitfield = self.flags[private.FLAG_MEMBERS[table_index]]
 
 			if bitfield and bit.band(bitfield, flag) == flag then
-				if flag_string then
-					flag_string = ("%s, F.%s"):format(flag_string, private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag]]])
-				else
-					flag_string = ("F.%s"):format(private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag]]])
+				local flag_name = private.FILTER_STRINGS[private.FILTER_IDS[reverse_map[flag]]]
+
+				if not IGNORED_FLAGS[flag_name] then
+					if flag_string then
+						flag_string = ("%s, F.%s"):format(flag_string, flag_name)
+					else
+						flag_string = ("F.%s"):format(flag_name)
+					end
 				end
 			end
 		end
