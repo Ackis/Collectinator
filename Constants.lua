@@ -768,9 +768,10 @@ private.CATEGORY_COLORS = {
 	profession	= "9c6b98",
 	quest		= "dbdb2c",
 	reputation	= "855a99",
+	retired		= "bfb863",
 	trainer		= "c98e26",
 	vendor		= "aad372",
-	world_events	= "80590e",
+	worldevents	= "80590e",
 
 	-- Miscellaneous
 	coords		= "d1ce6f",
