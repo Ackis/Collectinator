@@ -33,9 +33,10 @@ do
 	local acquire_list = {}
 
 	for acquire_type = 1, #private.ACQUIRE_STRINGS do
-		acquire_list[acquire_type] = acquire_list[acquire_type] or {}
-		acquire_list[acquire_type].name = private.ACQUIRE_NAMES[acquire_type]
-		acquire_list[acquire_type].collectables = acquire_list[acquire_type].collectables or {}
+		local entry = {}
+		entry.name = private.ACQUIRE_NAMES[acquire_type]
+		entry.collectables = {}
+		acquire_list[acquire_type] = entry
 	end
 	private.acquire_list = acquire_list
 end
