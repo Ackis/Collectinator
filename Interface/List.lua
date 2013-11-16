@@ -1159,7 +1159,7 @@ function private.InitializeListFrame()
 	end
 
 	local function ExpandWorldEventsData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
-		local hex_color = CATEGORY_COLORS["world_events"]
+		local hex_color = CATEGORY_COLORS["worldevents"]
 		local entry = AcquireTable()
 
 		entry.text = ("%s%s %s"):format(PADDING, hide_type and "" or SetTextColor(hex_color, private.ACQUIRE_NAMES[A.WORLD_EVENTS]) .. ":", SetTextColor(hex_color, private.world_events_list[id_num].name))
@@ -1674,7 +1674,7 @@ do
 			end
 		end,
 		[A.WORLD_EVENTS] = function(collectable, identifier, location, acquire_info, addline_func)
-			local hex_color = CATEGORY_COLORS["world_events"]
+			local hex_color = CATEGORY_COLORS["worldevents"]
 			addline_func(0, -1, 0, private.ACQUIRE_NAMES[A.WORLD_EVENTS], hex_color, private.world_events_list[identifier].name, hex_color)
 		end,
 		[A.REPUTATION] = function(collectable, identifier, location, acquire_info, addline_func)
