@@ -816,7 +816,7 @@ function collectable_prototype:Dump()
 	if flag_string then
 		output:AddLine(("%s:AddAcquireData(%s)"):format(label, flag_string))
 	end
-	output:AddLine("")
+	output:AddLine(" ")
 end
 
 function collectable_prototype:DumpTrainers(registry)
