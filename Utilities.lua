@@ -117,27 +117,6 @@ do
 			TextDump:Clear()
 			addon:DumpPhrases()
 		end,
-		profession = function(input)
-			if not input then
-				PrintProfessions()
-				return
-			end
-			local found
-			input = input:lower():trim()
-
-			for index = 1, #private.ORDERED_PROFESSIONS do
-				if input == private.ORDERED_PROFESSIONS[index]:lower() then
-					found = true
-					break
-				end
-			end
-
-			if not found then
-				PrintProfessions()
-				return
-			end
-			addon:DumpProfession(input)
-		end,
 		zones = function(input)
 			if not input then
 				addon:Print("Type the name or partial name of a zone.")
