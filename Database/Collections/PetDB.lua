@@ -1868,6 +1868,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(19514)
 
+	-- Pierre -- 70082
+	pet = AddPet(70082, V.MOP, Q.RARE)
+	pet:SetItemID(94903)
+	pet:SetSpellID(138824)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.ENGINEERING)
+
 	-- Pint-Sized Pink Pachyderm -- 24753
 	pet = AddPet(24753, V.TBC, Q.RARE)
 	pet:SetItemID(46707)
@@ -2241,6 +2248,12 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
 	pet:AddVendor(1263)
 
+	-- Snowy Owl -- 7554
+	pet = AddPet(7554, V.MOP, Q.COMMON)
+	pet:SetSeason(SEASON.WINTER)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.WINTERSPRING, "17-18", "63.6:49.4", "57.6:45.8", "51.6:32.6", "57.6:58.8")
+
 	-- Snowy Panda -- 69893
 	pet = AddPet(69893, V.MOP, Q.RARE)
 	pet:SetItemID(94209)
@@ -2367,7 +2380,7 @@ function addon:InitCritters()
 	pet = AddPet(69849, V.MOP, Q.COMMON)
 	pet:SetItemID(94191)
 	pet:SetSpellID(138287)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.ACHIEVEMENT)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.ACHIEVEMENT)
 	pet:AddAchievement(8300)
 
 	-- Summit Kid -- 64248
@@ -3230,11 +3243,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.ZANGARMARSH)
 
-	-- Snowy Owl -- 7554
-	pet = AddPet(7554, V.MOP, Q.COMMON)
-	pet:SetSeason(SEASON.WINTER)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.WINTERSPRING)
+
 
 	-- Spirit Crab -- 62034
 	pet = AddPet(62034, V.MOP, Q.COMMON)
@@ -4075,5 +4084,12 @@ end
 	pet:SetSpellID(143637)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PVP, F.IBOP, F.PROMO)
 	pet:AddCustom("ARENA")
+
+	-- Treasure Goblin -- 74413
+	pet = AddPet(74413, V.MOP, Q.RARE)
+	pet:SetItemID(106256)
+	pet:SetSpellID(149810)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	pet:AddCustom("CE")
 
 ]] --
