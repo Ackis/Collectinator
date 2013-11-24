@@ -110,11 +110,9 @@ do
 
 	private.DUMP_COMMANDS = {
 		empties = function()
-			TextDump:Clear()
 			addon:ShowEmptySources()
 		end,
 		phrases = function()
-			TextDump:Clear()
 			addon:DumpPhrases()
 		end,
 		zones = function(input)
@@ -133,6 +131,7 @@ do
 			sorted[#sorted + 1] = phrase
 		end
 		table.sort(sorted)
+		TextDump:Clear()
 
 		for index = 1, #sorted do
 			local phrase = sorted[index]
