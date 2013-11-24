@@ -110,9 +110,11 @@ do
 
 	private.DUMP_COMMANDS = {
 		empties = function()
+			TextDump:Clear()
 			addon:ShowEmptySources()
 		end,
 		phrases = function()
+			TextDump:Clear()
 			addon:DumpPhrases()
 		end,
 		profession = function(input)
