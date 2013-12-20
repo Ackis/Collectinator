@@ -1,6 +1,18 @@
 ==Collectinator Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+== 2.0.9
+* Rotten Little Helper update
+* Fixed Dev tools
+
+== 2.0.8
+* Add companions, update levels & locations
+* Removed extraneous dev tools
+* Fixed Dev tools
+
+== 2.0.7
+* Fixing errors with dev tools
+
 == 2.0.6
 * Recruit-a-Friend mounts & pets
 * Fix issues with RETIRED flag
