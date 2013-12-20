@@ -228,6 +228,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
 	pet:AddCustom("TCG")
 
+	-- Bandicoon -- 63062
+	pet = AddPet(63062, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VALLEY_OF_THE_FOUR_WINDS, "23-25", "74.8:38.2", "39.8:43.8", "47.6:35.2", "23.6:45.4", "36.0:34.4")
+	pet:AddZoneLocations(Z.THE_VEILED_STAIR, "23-24", "63.6:82.6", "68.4:81.0", "68.4:66.8", "57.6:63.6")
+	pet:AddZoneLocations(Z.THE_JADE_FOREST, "23-25", "29.4:61.2", "28.0:59.2")
+
 	-- Baneling -- 66984
 	pet = AddPet(66984, V.MOP, Q.RARE)
 	pet:SetItemID(90177)
@@ -470,6 +477,11 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.WORLD_EVENTS, F.IBOE)
 	pet:AddQuest(29413, 29429)
 	pet:AddWorldEvent("HALLOWS_END")
+
+	-- Crimson Geode -- 62927
+	pet = AddPet(62927, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.DEEPHOLM, "22-23", "64.4:42.6", "76.4:52.2", "72.0:26.6", "62.4:16.2", "72.6:41.2")
 
 	-- Crimson Lasher -- 53661
 	pet = AddPet(53661, V.CATA, Q.RARE)
@@ -1480,6 +1492,14 @@ function addon:InitCritters()
 	pet:AddProfession(PROF.FISHING)
 	pet:AddWorldDrop(Z.TEROKKAR_FOREST)
 
+	-- Malayan Quillrat -- 63094
+	pet = AddPet(63094, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.THE_VEILED_STAIR, "23-24", "67.0:75.6", "61.8:88.2", "57.8:73.8", "54.0:47.0")
+	pet:AddZoneLocations(Z.VALLEY_OF_THE_FOUR_WINDS, "23-25", "26.2:59.4", "25.2:4.6", "55.8:44.0", "61.6:45.4")
+	pet:AddZoneLocations(Z.THE_JADE_FOREST, "23-25", "29.6:61.2", "23.0:54.2")
+	pet:AddZoneLocations(Z.KRASARANG_WILDS, "23-25", "74.6:12.2", "84.6:23.6", "79.2:7.2", "74.6:5.6")
+
 	-- Mana Wyrmling -- 20408
 	pet = AddPet(20408, V.TBC, Q.COMMON)
 	pet:SetItemID(29363)
@@ -2317,6 +2337,11 @@ function addon:InitCritters()
 	pet:AddWorldEvent("CHILDRENS_WEEK")
 	pet:AddQuest(171, 5502)
 
+	-- Spirebound Crab -- 63005
+	pet = AddPet(63005, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.THE_JADE_FOREST, "23-25", "66.6:27.0", "68.6:25.0", "68.4:31.2", "68.8:28.8")
+
 	-- Spirit of Competition -- 27217
 	pet = AddPet(27217, V.TBC, Q.RARE)
 	pet:SetItemID(37297)
@@ -2579,6 +2604,11 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.KUN_LAI_SUMMIT, "23-25", "59.6:82.4", "54.8:66.8", "67.0:33.6", "39.6:77.6", "69.6:91.0")
 	pet:AddZoneLocations(Z.TOWNLONG_STEPPES, "23-25", "61.6:35.2", "64.6:37.4")
+
+	-- Tolai Hare Pup -- 63558
+	pet = AddPet(63558, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.KUN_LAI_SUMMIT, "23-25", "59.4:82.8", "66.6:79.2", "73.8:64.4", "44.0:70.2", "55.8:63.8")
 
 	-- Toothy -- 24388
 	pet = AddPet(24388, V.TBC, Q.RARE)
@@ -2913,36 +2943,18 @@ function addon:InitCritters()
 
 
 
-	-- Malayan Quillrat -- 63094
-	pet = AddPet(63094, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.THE_VEILED_STAIR)
-	pet:AddWorldDrop(Z.VALLEY_OF_THE_FOUR_WINDS)
 
-	-- Crimson Geode -- 62927
-	pet = AddPet(62927, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.DEEPHOLM)
 
-	-- Bandicoon -- 63062
-	pet = AddPet(63062, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.VALLEY_OF_THE_FOUR_WINDS)
 
-	-- Tolai Hare Pup -- 63558
-	pet = AddPet(63558, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
+
+
+
+
 
 	-- Rattlesnake -- 61439
 	pet = AddPet(61439, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.BADLANDS, Z.TANARIS, Z.TWILIGHT_HIGHLANDS)
-
-	-- Spirebound Crab -- 63005
-	pet = AddPet(63005, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.THE_JADE_FOREST)
 
 	-- Malayan Quillrat Pup -- 63095
 	pet = AddPet(63095, V.MOP, Q.COMMON)
@@ -3982,8 +3994,9 @@ function addon:InitCritters()
 	pet = AddPet(73741, V.MOP, Q.RARE)
 	pet:SetItemID(104317)
 	pet:SetSpellID(148567)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.WORLD_EVENTS)
 	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+	pet:AddQuest(6983, 7043)
 
 	-- Ruby Droplet -- 73356
 	pet = AddPet(73356, V.MOP, Q.RARE)
@@ -4085,6 +4098,7 @@ end
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PVP, F.IBOP, F.PROMO)
 	pet:AddCustom("ARENA")
 
+RoS CE
 	-- Treasure Goblin -- 74413
 	pet = AddPet(74413, V.MOP, Q.RARE)
 	pet:SetItemID(106256)
