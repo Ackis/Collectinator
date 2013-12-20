@@ -2893,6 +2893,12 @@ Apparentely not in game yet!
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
+	-- Iron Skyreaver -- 153489
+	mount = AddMount(153489, V.MOP, Q.EPIC)
+	mount:SetItemID(107951)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	mount:AddCustom("STORE")
+
 -- Jade Water Strider
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
@@ -2902,6 +2908,8 @@ Apparentely not in game yet!
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
+
+
 
 	-- Lucky Riding Turtle  -- 30174
 	-- mount = AddMount(30174, V.MOP, Q.EPIC)
