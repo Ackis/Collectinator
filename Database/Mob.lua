@@ -133,7 +133,7 @@ function addon:InitMob()
 	AddMob(69808,	L["Sunreaver Construct"],		Z.ISLE_OF_THUNDER,		 0.0,  0.0)
 	AddMob(69841,	L["Zandalari Warbringer"],		Z.PANDARIA,			 0.0,  0.0)  -- Amber
 	AddMob(69842,	L["Zandalari Warbringer"],		Z.PANDARIA,			 0.0,  0.0)  -- Jade
-	AddMob(69925,	L["Zandalari Dinomancer"],		Z.PANDARIA,		         0.0,  0.0)
+	AddMob(69925,	L["Zandalari Dinomancer"],		Z.ISLE_OF_GIANTS,		 0.0,  0.0)
 	AddMob(69983,	L["Primal Direhorn"],			Z.ISLE_OF_GIANTS,		 0.0,  0.0)
 	AddMob(70013,	L["Primal Direhorn Hatchling"],		Z.ISLE_OF_GIANTS,		 0.0,  0.0)
 	AddMob(71152,	BN.PARAGONS_OF_THE_KLAXXI,		Z.SIEGE_OF_ORGRIMMAR,		 0.0,  0.0)
