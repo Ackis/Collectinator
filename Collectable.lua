@@ -141,27 +141,27 @@ function pet_prototype:Weather()
 end
 
 -- ... == coords x:y
-function pet_prototype:AddZoneLocations(zone_name, pet_levels, secondary, ...)
+function pet_prototype:AddZoneLocations(zone_name, pet_levels, is_secondary, ...)
+    self.zone_list = self.zone_list or {}
+    self.zone_list[zone_name] = self.zone_list[zone_name] or {}
+    self.zone_list[zone_name][pet_levels] = self.zone_list[zone_name][pet_levels] or {}
 
-	if secondary == true then
+	if is_secondary then
 		self:AddAcquireData(A.WORLD_DROP, "secondary_pet_battle", nil, zone_name)
-
-		self.zone_list = self.zone_list or {}
-		self.zone_list[zone_name] = self.zone_list[zone_name] or {}
-		self.zone_list[zone_name][pet_levels] = self.zone_list[zone_name][pet_levels] or {}
-
 		table.insert(self.zone_list[zone_name][pet_levels], nil)
 	else
 		self:AddAcquireData(A.WORLD_DROP, "pet_battle", nil, zone_name)
 
-		self.zone_list = self.zone_list or {}
-		self.zone_list[zone_name] = self.zone_list[zone_name] or {}
-		self.zone_list[zone_name][pet_levels] = self.zone_list[zone_name][pet_levels] or {}
-
 		local num_coords = select('#', ...)
+        local zone_level_coords = self.zone_list[zone_name][pet_levels]
+
+        if num_coords == 0 then
+            zone_level_coords[#zone_level_coords + 1] = "unknown"
+            return
+        end
 
 		for index = 1, num_coords do
-			table.insert(self.zone_list[zone_name][pet_levels], (select(index, ...)))
+            zone_level_coords[#zone_level_coords + 1] = (select(index, ...))
 		end
 	end
 end
