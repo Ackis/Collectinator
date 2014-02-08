@@ -1784,7 +1784,7 @@ do
 					if populate_func then
 						populate_func(collectable, identifier, location, info, addline_func)
 					else
-						addline_func(0, -1, 0, L["Unhandled Recipe"], BASIC_COLORS["normal"])
+						addline_func(0, -1, 0, _G.UNKNOWN, BASIC_COLORS["normal"])
 					end
 				end
 			end
