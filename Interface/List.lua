@@ -1729,14 +1729,14 @@ do
 					for coord_index = 1, #coord_list do
                         if coord_list[coord_index] == "unknown" then
                             addline_func(1, -2, true, ("%s (%s)"):format(drop_location, level_range), CATEGORY_COLORS.location, _G.UNKNOWN, CATEGORY_COLORS.coords)
+                        elseif coord_list[coord_index] == "secondary" then
+                            addline_func(1, -1, true, ("%s (%s)"):format(drop_location, level_range), CATEGORY_COLORS.location, _G.SECONDARY, CATEGORY_COLORS.coords)
                         else
                             local x, y = (":"):split(coord_list[coord_index])
                             addline_func(1, -2, true, ("%s (%s)"):format(drop_location, level_range), CATEGORY_COLORS.location, COORD_FORMAT:format(x, y), CATEGORY_COLORS.coords)
                         end
                     end
 				end
-			elseif drop_type == "secondary_pet_battle" then
-				addline_func(1, -1, true, ("%s (%s)"):format(drop_location, level_range), CATEGORY_COLORS.location, ("Secondary pet in battles in zone"))
 			else
 				addline_func(0, -1, false, _G.UNKNOWN, quality_color, location, CATEGORY_COLORS["location"])
 			end

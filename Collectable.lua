@@ -142,18 +142,18 @@ end
 
 -- ... == coords x:y
 function pet_prototype:AddZoneLocations(zone_name, pet_levels, is_secondary, ...)
+    self:AddAcquireData(A.WORLD_DROP, "pet_battle", nil, zone_name)
+
     self.zone_list = self.zone_list or {}
     self.zone_list[zone_name] = self.zone_list[zone_name] or {}
     self.zone_list[zone_name][pet_levels] = self.zone_list[zone_name][pet_levels] or {}
 
-	if is_secondary then
-		self:AddAcquireData(A.WORLD_DROP, "secondary_pet_battle", nil, zone_name)
-		table.insert(self.zone_list[zone_name][pet_levels], nil)
-	else
-		self:AddAcquireData(A.WORLD_DROP, "pet_battle", nil, zone_name)
+    local zone_level_coords = self.zone_list[zone_name][pet_levels]
 
+	if is_secondary then
+        zone_level_coords[#zone_level_coords + 1] = "secondary"
+	else
 		local num_coords = select('#', ...)
-        local zone_level_coords = self.zone_list[zone_name][pet_levels]
 
         if num_coords == 0 then
             zone_level_coords[#zone_level_coords + 1] = "unknown"
