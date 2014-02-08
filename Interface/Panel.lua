@@ -165,7 +165,7 @@ function private.InitializeFrame()
 		if self.current_collectable_type ~= prev_collectable_type then
 			self.prev_collectable_type = self.current_collectable_type
 		end
-		self.collectable_type_button:SetTexture()
+		self.collectable_type_button:SetTexture(self.current_collectable_type)
 
 		local editbox = self.search_editbox
 
@@ -439,12 +439,11 @@ function private.InitializeFrame()
 		end
 	end)
 
-	local function CurrentCollectableTypeTexture()
-        return private.COLLECTABLE_TEXTURES[private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]] or [[Interface\ICONS\INV_Mushroom_11]]
-	end
-
-	function collection_cycler:SetTexture()
-		_G.SetPortraitToTexture("Collectinator_CollectionButtonPortrait", CurrentCollectableTypeTexture())
+	function collection_cycler:SetTexture(collectable_type)
+		_G.SetPortraitToTexture(
+            "Collectinator_CollectionButtonPortrait",
+            private.COLLECTABLE_TEXTURES[private.ORDERED_COLLECTIONS[collectable_type]] or [[Interface\ICONS\INV_Mushroom_11]]
+        )
 	end
 
 	-------------------------------------------------------------------------------
