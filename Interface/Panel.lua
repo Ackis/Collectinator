@@ -440,15 +440,7 @@ function private.InitializeFrame()
 	end)
 
 	local function CurrentCollectableTypeTexture()
-		local collectable_type = private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
-		local texture_name
-
-		if collectable_type == "CRITTER" then
-			texture_name = "minipets_up"
-		elseif collectable_type == "MOUNT" then
-			texture_name = "mounts_up"
-		end
-		return [[Interface\AddOns\Collectinator\Images\]] ..texture_name
+        return private.COLLECTABLE_TEXTURES[private.ORDERED_COLLECTIONS[MainPanel.current_collectable_type]] or [[Interface\ICONS\INV_Mushroom_11]]
 	end
 
 	function collection_cycler:SetTexture()

@@ -36,6 +36,11 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 private.PLAYER_NAME = _G.UnitName("player")
 private.REALM_NAME = _G.GetRealmName()
 
+private.COLLECTABLE_TEXTURES = {
+    CRITTER = [[Interface\AddOns\Collectinator\Images\CritterPortrait]],
+    MOUNT = [[Interface\AddOns\Collectinator\Images\MountPortrait]],
+}
+
 -------------------------------------------------------------------------------
 -- Helper functions.
 -------------------------------------------------------------------------------
