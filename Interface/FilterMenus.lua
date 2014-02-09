@@ -401,7 +401,12 @@ function private.InitializeFilterPanel()
 			for filter in pairs(filters) do
 				if not filter:match("expansion") then
 					filters[filter] = toggle
-					obtain_frame[filter]:SetChecked(toggle)
+
+					if obtain_frame[filter] then
+						obtain_frame[filter]:SetChecked(toggle)
+					else
+						addon:Debug("Non-existent filter: %s", _G.tostring(filter))
+					end
 				end
 			end
 			MainPanel:UpdateTitle()
