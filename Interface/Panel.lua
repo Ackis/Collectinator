@@ -773,7 +773,7 @@ function private.InitializeFrame()
 	expand_button:SetPoint("LEFT", expand_button_frame.left, "RIGHT", -3, -3)
 
 	expand_button:SetScript("OnClick", function(self, mouse_button, down)
-		local current_tab = MainPanel.tabs[MainPanel.current_tab]
+		local current_tab = MainPanel.current_tab
 		local is_expanded = current_tab["expand_button_" .. MainPanel.current_collectable_type]
 		local expand_mode
 
