@@ -1292,6 +1292,13 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
 
+	local function ExpandRetiredData(entry_index, entry_type, parent_entry, id_num, recipe, _, _)
+		local entry = CreateListEntry(entry_type, parent_entry, recipe)
+		entry:SetText(PADDING .. SetTextColor(CATEGORY_COLORS.retired, L.RETIRED_COLLECTABLE_LONG))
+
+		return ListFrame:InsertEntry(entry, entry_index, true)
+	end
+
 	local function ExpandAcquireData(entry_index, entry_type, parent_entry, acquire_type, acquire_data, collectable, hide_location, hide_type)
 		local obtain_filters = addon.db.profile.filters.obtain
 		local num_acquire_types = #private.ACQUIRE_STRINGS
@@ -1325,6 +1332,10 @@ function private.InitializeListFrame()
 				end
 			elseif acquire_type == A.PROFESSION and obtain_filters.profession then
 				func = ExpandProfessionData
+			elseif acquire_type == A.RETIRED then
+				if not hide_type then
+					func = ExpandRetiredData
+				end
 				--@alpha@
 			elseif acquire_type == A.ACHIEVEMENT and obtain_filters.achievement then
 				func = ExpandAchievementData
@@ -1738,6 +1749,9 @@ do
 		end,
 		[A.CUSTOM] = function(collectable, identifier, location, acquire_info, addline_func)
 			addline_func(0, -1, false, private.custom_list[identifier].name, CATEGORY_COLORS["custom"])
+		end,
+		[A.RETIRED] = function(_, identifier, _, _, addline_func)
+			addline_func(0, -1, false, L.RETIRED_COLLECTABLE_LONG, CATEGORY_COLORS.retired)
 		end,
 	}
 
