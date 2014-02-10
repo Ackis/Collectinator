@@ -29,10 +29,11 @@ local tab_prototype = _G.setmetatable({}, frame_meta)
 local tab_meta = { __index = tab_prototype }
 
 -------------------------------------------------------------------------------
--- Upvalues
+-- Imports.
 -------------------------------------------------------------------------------
-local AcquireTable = private.AcquireTable
 local SetTextColor = private.SetTextColor
+local CreateListEntry = private.CreateListEntry
+
 
 -------------------------------------------------------------------------------
 -- Helpers
@@ -238,16 +239,18 @@ function private.InitializeTabs()
 			end
 
 			if count > 0 then
-				local entry = AcquireTable()
-
 				local acquire_str = private.ACQUIRE_STRINGS[acquire_type]:lower():gsub("_", "")
 				local color_code = private.CATEGORY_COLORS[acquire_str] or "ffffff"
 				local is_expanded = self[collectable_type .. " expanded"][private.ACQUIRE_NAMES[acquire_type]]
 
-				entry.text = ("%s (%d)"):format(SetTextColor(color_code, private.ACQUIRE_NAMES[acquire_type]), count)
-				entry.acquire_id = acquire_type
+				local entry = CreateListEntry("header")
+				entry:SetAcquireID(acquire_type)
+				entry:SetText("%s (%d)",
+					SetTextColor(color_code, private.ACQUIRE_NAMES[acquire_type]),
+					count
+				)
 
-				insert_index = MainPanel.list_frame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
 				self[collectable_type .. " expanded"][private.ACQUIRE_NAMES[acquire_type]] = nil
 			end
@@ -347,19 +350,25 @@ function private.InitializeTabs()
 			end
 
 			if count > 0 then
-				local is_expanded = self[collectable_type .. " expanded"][loc_name]
-				local entry = AcquireTable()
+				local entry = CreateListEntry("header")
 
 				if loc_name == _G.GetRealZoneText() then
-					entry.text = ("%s (%d)"):format(SetTextColor(private.BASIC_COLORS["green"], loc_name), count)
-					entry.emphasized = true
+					entry:Emphasize(true)
+					entry:SetText("%s (%d)",
+						SetTextColor(private.BASIC_COLORS["green"], loc_name),
+						count
+					)
 				else
-					entry.text = ("%s (%d)"):format(SetTextColor(private.CATEGORY_COLORS["location"], loc_name), count)
-					entry.emphasized = nil
+					entry:Emphasize(false)
+					entry:SetText("%s (%d)",
+						SetTextColor(private.CATEGORY_COLORS["location"], loc_name),
+						count
+					)
 				end
-				entry.location_id = loc_name
+				entry:SetLocationID(loc_name)
 
-				insert_index = MainPanel.list_frame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+				local is_expanded = self[collectable_type .. " expanded"][loc_name]
+				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
 				self[collectable_type .. " expanded"][loc_name] = nil
 			end
@@ -383,14 +392,13 @@ function private.InitializeTabs()
 			local collectable = collectables[sorted_collectables[i]]
 
 			if collectable and collectable:HasState("VISIBLE") and MainPanel.search_editbox:MatchesCollectable(collectable) then
-				local is_expanded = self[collectable_type .. " expanded"][collectable]
-				local entry = AcquireTable()
-				entry.text = collectable:GetDisplayName()
-				entry.collectable = collectable
+				local entry = CreateListEntry("header", nil, collectable)
+				entry:SetText(collectable:GetDisplayName())
 
 				collectable_count = collectable_count + 1
 
-				insert_index = MainPanel.list_frame:InsertEntry(entry, nil, insert_index, "header", is_expanded or expand_mode, is_expanded or expand_mode)
+				local is_expanded = self[collectable_type .. " expanded"][collectable]
+				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
 			else
 				self[collectable_type .. " expanded"][collectable] = nil
 			end
