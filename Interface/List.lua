@@ -1082,12 +1082,6 @@ function private.InitializeListFrame()
 			coord_text
 		)
 
-		if collectable:HasFilter("common1", "RETIRED") then
-			entry = CreateListEntry(entry_type, parent_entry, collectable)
-			entry:SetNPCID(id_num)
-			entry:SetText(L["RETIRED_COLLECTABLE_SHORT"])
-		end
-
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
 
@@ -1125,11 +1119,6 @@ function private.InitializeListFrame()
 			coord_text
 		)
 
-		if collectable:HasFilter("common1", "RETIRED") then
-			entry = CreateListEntry(entry_type, parent_entry, collectable)
-			entry:SetText(L["RETIRED_COLLECTABLE_SHORT"])
-		end
-
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
 
@@ -1141,11 +1130,6 @@ function private.InitializeListFrame()
 			hide_type and "" or SetTextColor(hex_color, private.ACQUIRE_NAMES[A.WORLD_EVENTS]) .. ":",
 			SetTextColor(hex_color, private.world_events_list[id_num].name)
 		)
-
-		if collectable:HasFilter("common1", "RETIRED") then
-			entry = CreateListEntry(entry_type, parent_entry, collectable)
-			entry:SetText(L["RETIRED_COLLECTABLE_SHORT"])
-		end
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
@@ -1207,12 +1191,6 @@ function private.InitializeListFrame()
 			coord_text
 		)
 
-		if collectable:HasFilter("common1", "RETIRED") then
-			entry = CreateListEntry(entry_type, parent_entry, collectable)
-			entry:SetNPCID(vendor_id)
-			entry:SetText(L["RETIRED_COLLECTABLE_SHORT"])
-		end
-
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
 
@@ -1240,22 +1218,12 @@ function private.InitializeListFrame()
 			drop_location
 		)
 
-		if collectable:HasFilter("common1", "RETIRED") then
-			entry = CreateListEntry(entry_type, parent_entry, collectable)
-			entry:SetText(L["RETIRED_COLLECTABLE_SHORT"])
-		end
-
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
 
 	local function ExpandCustomData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
 		local entry = CreateListEntry(entry_type, parent_entry, collectable)
 		entry:SetText(PADDING .. SetTextColor(CATEGORY_COLORS["custom"], private.custom_list[id_num].name))
-
-		if collectable:HasFilter("common1", "RETIRED") then
-			entry = CreateListEntry(entry_type, parent_entry, collectable)
-			entry:SetText(L["RETIRED_COLLECTABLE_SHORT"])
-		end
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
@@ -1268,11 +1236,6 @@ function private.InitializeListFrame()
 			SetTextColor(BASIC_COLORS["normal"], id_num)
 		)
 
-		if collectable:HasFilter("common1", "RETIRED") then
-			entry = CreateListEntry(entry_type, parent_entry, collectable)
-			entry:SetText(L["RETIRED_COLLECTABLE_SHORT"])
-		end
-
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
 
@@ -1283,11 +1246,6 @@ function private.InitializeListFrame()
 			hide_type and "" or SetTextColor(CATEGORY_COLORS["achievement"], _G.ACHIEVEMENTS) .. ":",
 			SetTextColor(BASIC_COLORS["normal"], select(2, _G.GetAchievementInfo(id_num)))
 		)
-
-		if collectable:HasFilter("common1", "RETIRED") then
-			entry = CreateListEntry(entry_type, parent_entry, collectable)
-			entry:SetText(L["RETIRED_COLLECTABLE_SHORT"])
-		end
 
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
