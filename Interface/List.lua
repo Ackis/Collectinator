@@ -1832,8 +1832,6 @@ do
 		end
 		acquire_tooltip:AddSeparator()
 
-		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
-
 		local required_races = collectable:RequiredRaces()
 
 		if required_races and not collectable.is_ignored then
@@ -1845,8 +1843,9 @@ do
 			end
 			ttAdd(0, -1, false, _G.ITEM_RACES_ALLOWED:format(output:String(", ")), BASIC_COLORS["normal"])
 		end
-		addon:DisplayAcquireData(list_entry.collectable, list_entry:AcquireID(), list_entry:LocationID(), ttAdd)
+		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
 
+		addon:DisplayAcquireData(list_entry.collectable, list_entry:AcquireID(), list_entry:LocationID(), ttAdd)
 
 		if not addon.db.profile.hide_tooltip_hint then
 			local HINT_COLOR = "c9c781"
