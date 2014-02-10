@@ -1848,18 +1848,17 @@ do
 		addon:DisplayAcquireData(list_entry.collectable, list_entry:AcquireID(), list_entry:LocationID(), ttAdd)
 
 		if not addon.db.profile.hide_tooltip_hint then
-			local HINT_COLOR = "c9c781"
-			local acquire_id = list_entry:AcquireID()
+			local hint_color = private.CATEGORY_COLORS.hint
 
 			acquire_tooltip:AddSeparator()
 			acquire_tooltip:AddSeparator()
 
-			ttAdd(0, -1, 0, L["ALT_CLICK"], HINT_COLOR)
-			ttAdd(0, -1, 0, L["CTRL_CLICK"], HINT_COLOR)
-			ttAdd(0, -1, 0, L["SHIFT_CLICK"], HINT_COLOR)
+			ttAdd(0, -1, 0, L["ALT_CLICK"], hint_color)
+			ttAdd(0, -1, 0, L["CTRL_CLICK"], hint_color)
+			ttAdd(0, -1, 0, L["SHIFT_CLICK"], hint_color)
 
-			if not NON_COORD_ACQUIRES[acquire_id] and _G.TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
-				ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], HINT_COLOR)
+			if not NON_COORD_ACQUIRES[list_entry:AcquireID()] and _G.TomTom and (addon.db.profile.worldmap or addon.db.profile.minimap) then
+				ttAdd(0, -1, 0, L["CTRL_SHIFT_CLICK"], hint_color)
 			end
 		end
 		acquire_tooltip:Show()

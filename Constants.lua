@@ -769,6 +769,7 @@ private.CATEGORY_COLORS = {
 	-- Acquire type colors
 	achievement	= "faeb98",
 	custom		= "73b7ff",
+	hint            = "c9c781",
 	mobdrop		= "962626",
 	profession	= "9c6b98",
 	quest		= "dbdb2c",
