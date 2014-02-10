@@ -1847,9 +1847,6 @@ do
 		end
 		addon:DisplayAcquireData(list_entry.collectable, list_entry:AcquireID(), list_entry:LocationID(), ttAdd)
 
-		if collectable:HasFilter("common1", "RETIRED") then
-			ttAdd(0, -1, false, L["RETIRED_COLLECTABLE_LONG"], BASIC_COLORS["normal"])
-		end
 
 		if not addon.db.profile.hide_tooltip_hint then
 			local HINT_COLOR = "c9c781"
