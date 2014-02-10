@@ -1347,7 +1347,6 @@ function private.InitializeListFrame()
 	local CHILDLESS_ACQUIRE_TYPES = {
 		[A.ACHIEVEMENT] = true,
 		[A.CUSTOM] = true,
-		[A.DISCOVERY] = true,
 		[A.RETIRED] = true,
 		[A.WORLD_DROP] = true,
 	}
