@@ -1512,7 +1512,7 @@ function addon:InitMounts()
 	mount = AddMount(59568, V.WOTLK, Q.EPIC) -- Item: 43953
 	mount:SetItemID(43953)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.RAID, F.MOB_DROP)
-	mount:AddMobDrop(27656, 28859)
+	mount:AddMobDrop(28859)
 
 	-- Reins of the Blue Proto-Drake - 59996
 	mount = AddMount(59996, V.WOTLK, Q.EPIC) -- Item: 44151
