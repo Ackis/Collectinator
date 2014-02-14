@@ -1513,12 +1513,14 @@ function addon:InitMounts()
 	mount:SetItemID(43953)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(28859)
+	mount:AddCustom("UNCLAIMED_BM")
 
 	-- Reins of the Blue Proto-Drake - 59996
 	mount = AddMount(59996, V.WOTLK, Q.EPIC) -- Item: 44151
 	mount:SetItemID(44151)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
 	mount:AddMobDrop(26693)
+	mount:AddCustom("UNCLAIMED_BM")
 
 	-- Reins of the Time-Lost Proto-Drake - 60002
 	mount = AddMount(60002, V.WOTLK, Q.EPIC) -- Item: 44168
@@ -1530,19 +1532,21 @@ function addon:InitMounts()
 	mount = AddMount(61294, V.WOTLK, Q.EPIC) -- Item: 44707
 	mount:SetItemID(44707)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	mount:AddCustom("MYSTERIOUS_EGG")
+	mount:AddCustom("MYSTERIOUS_EGG", "UNCLAIMED_BM")
 
 	-- Ashes of Al'ar - 40192
 	mount = AddMount(40192, V.TBC, Q.EPIC) -- Item: 32458
 	mount:SetItemID(32458)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(19622)
+	mount:AddCustom("UNCLAIMED_BM")
 
 	-- Reins of the White Polar Bear - 54753
 	mount = AddMount(54753, V.WOTLK, Q.EPIC) -- Item: 43962
 	mount:SetItemID(43962)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(13422, 13423, 13424, 13425)
+	mount:AddCustom("UNCLAIMED_BM")
 
 	-- Swift White Hawkstrider - 46628
 	mount = AddMount(46628, V.TBC, Q.EPIC) -- Item: 35513
@@ -1574,6 +1578,7 @@ function addon:InitMounts()
 	mount:SetItemID(50818)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(36597)
+	mount:AddCustom("UNCLAIMED_BM")
 
 	-- Felsteed - 5784
 	mount = AddMount(5784, V.ORIG, Q.COMMON)
@@ -1755,6 +1760,13 @@ function addon:InitMounts()
 	mount:AddRepVendor(FAC.KURENAI, REP.EXALTED, 20240)
 	mount:AddRepVendor(FAC.THE_MAGHAR, REP.EXALTED, 20241)
 
+	 -- Plagued Proto-Drake - 60021
+	mount = AddMount(60021, V.WOTLK, Q.EPIC) -- Item: 44175
+	mount:SetItemID(44175)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddCustom("UNCLAIMED_BM")
+
+
 --REP VENDOR ALLIANCE
 
 --RETIRED
@@ -1774,10 +1786,6 @@ function addon:InitMounts()
 	mount:SetItemID(44164)
 	mount:Retire()
 
-	 -- Plagued Proto-Drake - 60021
-	mount = AddMount(60021, V.WOTLK, Q.EPIC) -- Item: 44175
-	mount:SetItemID(44175)
-	mount:Retire()
 
 	-- Amani War Bear - 43688
 	mount = AddMount(43688, V.TBC, Q.EPIC) -- Item: 33809
@@ -1788,49 +1796,41 @@ function addon:InitMounts()
 	mount = AddMount(37015, V.TBC, Q.EPIC) -- Item: 30609
 	mount:SetItemID(30609)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Merciless Nether Drake - 44744
 	mount = AddMount(44744, V.TBC, Q.EPIC) -- Item: 34092
 	mount:SetItemID(34092)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Vengeful Nether Drake - 49193
 	mount = AddMount(49193, V.TBC, Q.EPIC) -- Item: 37676
 	mount:SetItemID(37676)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Brutal Nether Drake - 58615
 	mount = AddMount(58615, V.WOTLK, Q.EPIC) -- Item: 43516
 	mount:SetItemID(43516)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Deadly Gladiator's Frostwyrm - 64927
 	mount = AddMount(64927, V.WOTLK, Q.EPIC) -- Item: 46708
 	mount:SetItemID(46708)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Furious Gladiator's Frostwyrm - 65439
 	mount = AddMount(65439, V.WOTLK, Q.EPIC) -- Item: 46171
 	mount:SetItemID(19902)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Relentless Gladiator's Frostwyrm - 67336
 	mount = AddMount(67336, V.WOTLK, Q.EPIC)
 	mount:SetItemID(19902)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Wrathful Gladiator's Frostwyrm - 71810
 	mount = AddMount(71810, V.WOTLK, Q.EPIC)
 	mount:SetItemID(19902)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Blue Qiraji Battle Tank -- 25953
 	mount = AddMount(25953, V.ORIG, Q.RARE) -- Item: 21218
@@ -1866,7 +1866,7 @@ function addon:InitMounts()
 	mount = AddMount(30174, V.ORIG, Q.EPIC) -- Item: 23720
 	mount:SetItemID(23720)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOP)
-	mount:AddCustom("TCG")
+	mount:AddCustom("TCG", "UNCLAIMED_BM")
 
 	-- Reins of the Spectral Tiger - 42776
 	mount = AddMount(42776, V.TBC, Q.RARE) -- Item: 49283
@@ -1891,6 +1891,7 @@ function addon:InitMounts()
 	mount:SetItemID(49286)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
 	mount:AddCustom("TCG")
+	mount:AddCustom("UNCLAIMED_BM")
 
 	-- Big Battle Bear - 51412
 	mount = AddMount(51412, V.WOTLK, Q.EPIC) -- Item: 49282
@@ -2021,6 +2022,7 @@ function addon:InitMounts()
 	mount:SetItemID(63043)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.IBOP)
 	mount:AddMobDrop(43214)
+	mount:AddCustom("UNCLAIMED_BM")
 
 	-- Phosphorescent Stone Drake -- 88718
 	mount = AddMount(88718, V.CATA, Q.EPIC) -- Item: 63042
@@ -2111,7 +2113,6 @@ function addon:InitMounts()
 	mount = AddMount(101282, V.CATA, Q.EPIC) -- Item: 71339
 	mount:SetItemID(71339)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Tyrael's Charger -- 107203
 	mount = AddMount(107203, V.CATA, Q.EPIC) -- Item: 76755
@@ -2167,7 +2168,6 @@ function addon:InitMounts()
 	mount = AddMount(101821, V.CATA, Q.EPIC) -- Item: 71954
 	mount:SetItemID(71954)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Twilight Harbinger -- 107844
 	mount = AddMount(107844, V.CATA, Q.EPIC) -- Item: 77068
@@ -2291,7 +2291,6 @@ function addon:InitMounts()
 	mount = AddMount(124550, V.MOP, Q.EPIC)
 	mount:SetItemID(85785)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Crimson Cloud Serpent -- 127156
 	mount = AddMount(127156, V.MOP, Q.EPIC)
@@ -2764,7 +2763,6 @@ function addon:InitMounts()
 	mount = AddMount(148618, V.MOP, Q.EPIC)
 	mount:SetItemID(104208)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Vicious Skeletal Warhorse -- 146622
 	mount = AddMount(146622, V.MOP, Q.EPIC)
@@ -2788,6 +2786,13 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
 	mount:AddCustom("RECRUIT")
 
+-- 5.4.2 mounts
+	-- Iron Skyreaver -- 153489
+	mount = AddMount(153489, V.MOP, Q.EPIC)
+	mount:SetItemID(107951)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	mount:AddCustom("STORE")
+
 	self.InitMounts = nil
 end
 
@@ -2798,13 +2803,18 @@ Apparentely not in game yet!
 	mount = AddMount(148619, V.MOP, Q.EPIC)
 	mount:SetItemID(104326)
 	mount:Retire()
-	mount:AddCustom("ARENA")
 
 	-- Prideful Gladiator's Cloud Serpent -- 148620  -- Season 15
 	mount = AddMount(148620, V.MOP, Q.EPIC)
 	mount:SetItemID(104327)
 	mount:Retire()
-	mount:AddCustom("ARENA")
+
+	-- Reins of the Dread Raven -- 155741
+	mount = AddMount(155741, V.WOD, Q.EPIC)
+	mount:SetItemID(109013)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	mount:AddCustom("CE")
+
 
 -- Albino Riding Crane
 -- mount = AddMount(, V.MOP, )
@@ -2892,12 +2902,6 @@ Apparentely not in game yet!
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
-
-	-- Iron Skyreaver -- 153489
-	mount = AddMount(153489, V.MOP, Q.EPIC)
-	mount:SetItemID(107951)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
-	mount:AddCustom("STORE")
 
 -- Jade Water Strider
 -- mount = AddMount(, V.MOP, )

@@ -63,7 +63,7 @@ function addon:InitCustom()
 	AddCustom("EUPROMO")
 	AddCustom("SHOEXALTED")
 	AddCustom("PETBATTLEDAILY")
-	AddCustom("COT",			Z.TANARIS)
+	AddCustom("COT",		Z.TANARIS)
 	AddCustom("PETTAMER")
 	AddCustom("MOUNTAIN_DEW")
 	AddCustom("FIONA'S_CHARM",	Z.EASTERN_PLAGUELANDS,		34.8,	69.2)
@@ -79,6 +79,7 @@ function addon:InitCustom()
 	AddCustom("BLINGTRON")
 	AddCustom("CRANENEST",		Z.TIMELESS_ISLE)
 	AddCustom("TIMELESS_CHEST",	Z.TIMELESS_ISLE,		59.4,	40.6)
+	AddCustom("UNCLAIMED_BM",	Z.THE_VEILED_STAIR,		63.8,	75.8)
 
 	self.InitCustom = nil
 end
