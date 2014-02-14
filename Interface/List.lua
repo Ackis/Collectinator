@@ -1404,7 +1404,7 @@ function private.InitializeListFrame()
 						new_entry:SetText(collectable:GetDisplayName())
 						new_entry:SetLocationID(location_id)
 
-						new_entry_index = self:InsertEntry(new_entry, entry, new_entry_index, entry_type, expand or is_expanded, expand_all or is_expanded)
+						new_entry_index = self:InsertEntry(new_entry, new_entry_index, entry_type, expand or is_expanded, expand_all or is_expanded)
 					end
 				end
 			elseif entry:IsSubHeader() then
