@@ -797,6 +797,7 @@ function addon:InitCritters()
 	pet:SetSpellID(62513)
 	pet:AddFilters(F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33553)
+	pet:AddCustom("CHAMPION_SEALS")
 
 	-- Effervescent Glowfly -- 63850
 	pet = AddPet(63850, V.MOP, Q.COMMON)
@@ -872,7 +873,7 @@ function addon:InitCritters()
 	pet:SetSpellID(62564)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33557)
-	pet:AddCustom("UNCLAIMED_BM")
+	pet:AddCustom("CHAMPION_SEALS", "UNCLAIMED_BM")
 
 	-- Enchanted Lantern -- 46898
 	pet = AddPet(46898, V.CATA, Q.RARE)
@@ -2396,7 +2397,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.VENDOR, F.WRATHCOMMON2)
 	pet:AddRepVendor(FAC.THE_SILVER_COVENANT, REP.EXALTED, 34881)
 	pet:AddRepVendor(FAC.THE_SUNREAVERS, REP.EXALTED, 34772)
-	pet:AddCustom("UNCLAIMED_BM")
+	pet:AddCustom("CHAMPION_SEALS", "UNCLAIMED_BM")
 
 	-- Shore Crawler -- 63097
 	pet = AddPet(63097, V.MOP, Q.COMMON)
@@ -2879,6 +2880,7 @@ function addon:InitCritters()
 	pet:SetSpellID(62510)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
 	pet:AddVendor(33555)
+	pet:AddCustom("CHAMPION_SEALS")
 
 	-- Tito -- 71023
 	pet = AddPet(71023, V.MOP, Q.COMMON)
