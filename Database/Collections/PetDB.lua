@@ -121,7 +121,7 @@ function addon:InitCritters()
 	pet = AddPet(54539, V.CATA, Q.COMMON)
 	pet:SetItemID(72042)
 	pet:SetSpellID(101986)
-	--pet:SetRequiredFaction("Alliance")
+	pet:SetRequiredFaction("Alliance")
 	pet:AddFilters(F.ALLIANCE, F.QUEST, F.IBOP)
 	pet:AddQuest(29412)
 
@@ -182,7 +182,7 @@ function addon:InitCritters()
 	pet = AddPet(33239, V.WOTLK, Q.RARE)
 	pet:SetItemID(45022)
 	pet:SetSpellID(62746)
-	--pet:SetRequiredFaction("Horde")
+	pet:SetRequiredFaction("Horde")
 	pet:AddFilters(F.HORDE, F.QUEST, F.IBOP)
 	pet:AddQuest(13736)
 
@@ -190,7 +190,7 @@ function addon:InitCritters()
 	pet = AddPet(33238, V.WOTLK, Q.RARE)
 	pet:SetItemID(44998)
 	pet:SetSpellID(62609)
-	--pet:SetRequiredFaction("Alliance")
+	pet:SetRequiredFaction("Alliance")
 	pet:AddFilters(F.ALLIANCE, F.QUEST, F.IBOP)
 	pet:AddQuest(13702)
 
@@ -350,7 +350,7 @@ function addon:InitCritters()
 	-- Brown Marmot -- 61752
 	pet = AddPet(61752, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
---	pet:AddZoneLocations(Z.BLADES_EDGE_MOUNTAINS,  "18-20")
+	pet:AddZoneLocations(Z.BLADES_EDGE_MOUNTAINS,  "18-20", true)
 	pet:AddZoneLocations(Z.THE_HINTERLANDS, "11-12" , false, "51.2:53.6", "63.0:43.2", "52.2:20.4", "36.6:48.8")
 
 	-- Brown Prairie Dog -- 14421
@@ -358,7 +358,6 @@ function addon:InitCritters()
 	pet:SetItemID(10394)
 	pet:SetSpellID(10709)
 	pet:AddFilters(F.HORDE, F.VENDOR, F.TRAINER, F.IBOE)
-	pet:AddVendor(8401)
 	pet:AddTrainer(63067, 63086, 63061, 63626)
 
 	-- Brown Rabbit -- 20472
@@ -1189,7 +1188,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.ACHIEVEMENT, F.VENDOR, F.GUILD, F.IBOP)
 	pet:AddAchievement(5201)
 	pet:AddRepVendor(FAC.GUILD, REP.REVERED, 51512, 51501, 52268, 46602, 51495, 51504)
-	--pet:SetRequiredFaction("Alliance")
+	pet:SetRequiredFaction("Alliance")
 
 	-- Guild Herald -- 49590
 	pet = AddPet(49590, V.CATA, Q.COMMON)
@@ -1198,7 +1197,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.GUILD, F.ACHIEVEMENT)
 	pet:AddAchievement(5201)
 	pet:AddRepVendor(FAC.GUILD, REP.REVERED, 46572, 51496, 51502, 51512, 51503, 52268)
-	--pet:SetRequiredFaction("Horde")
+	pet:SetRequiredFaction("Horde")
 
 	-- Guild Page -- 49586
 	pet = AddPet(49586, V.CATA, Q.COMMON)
@@ -1207,7 +1206,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.ACHIEVEMENT, F.VENDOR, F.GUILD, F.IBOP)
 	pet:AddAchievement(5031)
 	pet:AddRepVendor(FAC.GUILD, REP.HONORED, 51512, 51501, 52268, 46602, 51495, 51504)
-	--pet:SetRequiredFaction("Alliance")
+	pet:SetRequiredFaction("Alliance")
 
 	-- Guild Page -- 49588
 	pet = AddPet(49588, V.CATA, Q.COMMON)
@@ -1216,7 +1215,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.ACHIEVEMENT, F.GUILD)
 	pet:AddAchievement(5179)
 	pet:AddRepVendor(FAC.GUILD, REP.HONORED, 46572, 51496, 51502, 51512, 51503, 52268)
-	--pet:SetRequiredFaction("Horde")
+	pet:SetRequiredFaction("Horde")
 
 	-- Gulp Froglet -- 73359
 	pet = AddPet(73359, V.MOP, Q.RARE)
@@ -1298,7 +1297,7 @@ function addon:InitCritters()
 	pet:SetSpellID(101989)
 	pet:AddFilters(F.HORDE, F.QUEST, F.IBOP)
 	pet:AddQuest(29401)
-	--pet:SetRequiredFaction("Horde")
+	pet:SetRequiredFaction("Horde")
 
 	-- Horny Toad -- 62185
 	pet = AddPet(62185, V.MOP, Q.COMMON)
@@ -1797,7 +1796,7 @@ function addon:InitCritters()
 	pet:SetSpellID(95786)
 	pet:AddFilters(F.ALLIANCE, F.STORE, F.IBOP)
 	pet:AddCustom("STORE")
-	--pet:SetRequiredFaction("Alliance")
+	pet:SetRequiredFaction("Alliance")
 
 	-- Moonkin Hatchling -- 51649
 	pet = AddPet(51649, V.MOP, Q.RARE)
@@ -1805,7 +1804,7 @@ function addon:InitCritters()
 	pet:SetSpellID(95909)
 	pet:AddFilters(F.HORDE, F.STORE, F.IBOP)
 	pet:AddCustom("STORE")
-	--pet:SetRequiredFaction("Horde")
+	pet:SetRequiredFaction("Horde")
 
 	-- Mountain Panda -- 69892
 	pet = AddPet(69892, V.MOP, Q.RARE)
@@ -2587,9 +2586,8 @@ function addon:InitCritters()
 	pet = AddPet(68502, V.MOP, Q.RARE)
 	pet:SetItemID(90953)
 	pet:SetSpellID(132759)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
-	--pet:AddCustom("CHINA")
-	pet:AddCustom("STORE")
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+	pet:AddCustom("CHINA")
 
 	-- Spectral Porcupette -- 69848
 	pet = AddPet(69848, V.MOP, Q.RARE)
