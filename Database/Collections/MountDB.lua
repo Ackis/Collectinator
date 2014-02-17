@@ -2125,8 +2125,7 @@ function addon:InitMounts()
 	-- Tyrael's Charger -- 107203
 	mount = AddMount(107203, V.CATA, Q.EPIC) -- Item: 76755
 	mount:SetItemID(76755)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
-	mount:AddCustom("ANNUAL_PASS")
+	mount:Retire()
 
 	-- Spectral Gryphon -- 107516
 	mount = AddMount(107516, V.CATA, Q.EPIC) -- Item: 76889
