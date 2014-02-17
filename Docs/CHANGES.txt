@@ -1,6 +1,17 @@
 ==Collectinator Change Log
 NOTE: Always remove the folder for old versions and install a fresh copy when upgrading.
 
+
+== 2.0.11
+* Overhaul of the Mount database
+* Finally turned Faction-specific requirements on. No more seeing Horde-only pets if Alliance & vice versa.
+
+== 2.0.10
+* Added 'Secondary' flag for battle pets who don't have spawns in a zone, but are a 2nd pet in a battle
+* Added flags for pets & mounts that are available from Unclaimed Black Market Containers
+* Updated various acquire methods for several mounts
+* Fixed Dev tools
+
 == 2.0.9
 * Rotten Little Helper update
 * Fixed Dev tools
