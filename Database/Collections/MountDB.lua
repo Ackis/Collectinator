@@ -2754,6 +2754,11 @@ function addon:InitMounts()
 	mount:SetItemID(104208)
 	mount:Retire()
 
+	-- Grievous Gladiator's Cloud Serpent -- 148619  -- Season 14
+	mount = AddMount(148619, V.MOP, Q.EPIC)
+	mount:SetItemID(104326)
+	mount:Retire()
+
 	-- Emerald Hippogryph -- 149801
 	mount = AddMount(149801, V.MOP, Q.EPIC)
 	mount:SetItemID(106246)
@@ -2766,27 +2771,23 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
 	mount:AddCustom("STORE")
 
+	-- Reins of the Dread Raven -- 155741
+	mount = AddMount(155741, V.WOD, Q.EPIC)
+	mount:SetItemID(109013)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	mount:AddCustom("CE")
+
+
 	self.InitMounts = nil
 end
 
 --[[
 Apparentely not in game yet!
 
-	-- Grievous Gladiator's Cloud Serpent -- 148619  -- Season 14
-	mount = AddMount(148619, V.MOP, Q.EPIC)
-	mount:SetItemID(104326)
-	mount:Retire()
-
 	-- Prideful Gladiator's Cloud Serpent -- 148620  -- Season 15
 	mount = AddMount(148620, V.MOP, Q.EPIC)
 	mount:SetItemID(104327)
 	mount:Retire()
-
-	-- Reins of the Dread Raven -- 155741
-	mount = AddMount(155741, V.WOD, Q.EPIC)
-	mount:SetItemID(109013)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
-	mount:AddCustom("CE")
 
 -- Albino Riding Crane
 -- mount = AddMount(, V.MOP, )
