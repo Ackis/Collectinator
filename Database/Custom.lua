@@ -43,6 +43,8 @@ function addon:InitCustom()
 	AddCustom("MYSTERIOUS_EGG",	Z.SHOLAZAR_BASIN,		54.6,	56.2)
 	AddCustom("TCG",		Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	71.6)
 	AddCustom("STORE")
+	AddCustom("PLUSHIE")
+	AddCustom("WEBSTORE")
 	AddCustom("ARENA")
 	AddCustom("ANNUAL_PASS")
 	AddCustom("CITY")
@@ -80,6 +82,7 @@ function addon:InitCustom()
 	AddCustom("CRANENEST",		Z.TIMELESS_ISLE)
 	AddCustom("TIMELESS_CHEST",	Z.TIMELESS_ISLE,		59.4,	40.6)
 	AddCustom("UNCLAIMED_BM",	Z.THE_VEILED_STAIR,		63.8,	75.8)
+
 
 	self.InitCustom = nil
 end

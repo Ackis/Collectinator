@@ -171,6 +171,11 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
 	pet:AddVendor(41135)
 
+	-- Anodized Robo Cub -- 68839
+	pet = AddPet(68839, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.WINTERSPRING, "17-18", false, "61.6:51.8", "59.0:52.8", "58.2:47.4", "60.6:45.6", "60.2:50.6")
+
 	-- Anubisath Idol -- 68659
 	pet = AddPet(68659, V.MOP, Q.RARE)
 	pet:SetItemID(93040)
@@ -509,6 +514,11 @@ function addon:InitCritters()
 	pet:SetSpellID(10680)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(2663, 44179)
+
+	-- Cogblade Raptor -- 68841
+	pet = AddPet(68841, V.MOP, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.BLADES_EDGE_MOUNTAINS, "18-20", false, "69.0:71.4", "68.8:66.2", "68.0:58.6", "60.0:65.0", "59.0:68.0", "59.6:73.2")
 
 	-- Coilfang Stalker -- 71019
 	pet = AddPet(71019, V.MOP, Q.COMMON)
@@ -1215,7 +1225,7 @@ function addon:InitCritters()
 	pet:SetItemID(49662)
 	pet:SetSpellID(69535)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
-	pet:AddCustom("STORE")
+	pet:AddCustom("PLUSHIE")
 
 	-- Gu'chi Swarmling -- 73730
 	pet = AddPet(73730, V.MOP, Q.RARE)
@@ -1229,7 +1239,7 @@ function addon:InitCritters()
 	pet:SetItemID(69847)
 	pet:SetSpellID(98736)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOE)
-	pet:AddCustom("STORE")
+	pet:AddCustom("WEBSTORE")
 
 	-- Guild Herald -- 49587
 	pet = AddPet(49587, V.CATA, Q.COMMON)
@@ -1881,7 +1891,7 @@ function addon:InitCritters()
 	pet:SetItemID(68618)
 	pet:SetSpellID(95786)
 	pet:AddFilters(F.ALLIANCE, F.STORE, F.IBOP)
-	pet:AddCustom("STORE")
+	pet:AddCustom("WEBSTORE")
 	pet:SetRequiredFaction("Alliance")
 
 	-- Moonkin Hatchling -- 51649
@@ -1889,7 +1899,7 @@ function addon:InitCritters()
 	pet:SetItemID(68619)
 	pet:SetSpellID(95909)
 	pet:AddFilters(F.HORDE, F.STORE, F.IBOP)
-	pet:AddCustom("STORE")
+	pet:AddCustom("WEBSTORE")
 	pet:SetRequiredFaction("Horde")
 
 	-- Mountain Panda -- 69892
@@ -3213,7 +3223,7 @@ function addon:InitCritters()
 	pet:SetItemID(49663)
 	pet:SetSpellID(69536)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
-	pet:AddCustom("STORE")
+	pet:AddCustom("PLUSHIE")
 
 	-- Winter's Little Helper -- 15705
 	pet = AddPet(15705, V.ORIG, Q.COMMON)
@@ -4088,16 +4098,6 @@ function addon:InitCritters()
 	pet = AddPet(62819, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.GRIZZLY_HILLS)
-
-	-- Anodized Robo Cub -- 68839
-	pet = AddPet(68839, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.WINTERSPRING)
-
-	-- Cogblade Raptor -- 68841
-	pet = AddPet(68841, V.MOP, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.BLADES_EDGE_MOUNTAINS)
 
 	self.InitCritters = nil
 
