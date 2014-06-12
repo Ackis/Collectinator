@@ -5,6 +5,10 @@ NOTE: Always remove the folder for old versions and install a fresh copy when up
 == 2.0.11
 * Overhaul of the Mount database
 * Finally turned Faction-specific requirements on. No more seeing Horde-only pets if Alliance & vice versa.
+* New Store mounts
+* Retired Tyrael's Charger
+* Update for CE Pre-orders
+* Update for 3 different Blizzard shops - make it clear where to purchase for pet
 
 == 2.0.10
 * Added 'Secondary' flag for battle pets who don't have spawns in a zone, but are a 2nd pet in a battle
