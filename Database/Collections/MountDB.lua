@@ -2772,11 +2772,16 @@ function addon:InitMounts()
 	mount:AddCustom("STORE")
 
 	-- Reins of the Dread Raven -- 155741
-	mount = AddMount(155741, V.WOD, Q.EPIC)
+	mount = AddMount(155741, V.MOP, Q.EPIC)
 	mount:SetItemID(109013)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
 	mount:AddCustom("CE")
 
+	-- Warforged Nightmare -- 163024
+	mount = AddMount(163024, V.MOP, Q.EPIC)
+	mount:SetItemID(112326)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	mount:AddCustom("STORE")
 
 	self.InitMounts = nil
 end
@@ -2788,6 +2793,11 @@ Apparentely not in game yet!
 	mount = AddMount(148620, V.MOP, Q.EPIC)
 	mount:SetItemID(104327)
 	mount:Retire()
+
+	-- Grinning Reaver -- 163025
+	mount = AddMount(163025, V.WOD, Q.EPIC)
+	mount:SetItemID(112327)
+	mount:AddFilters(F.ALLIANCE, F.HORDE)
 
 -- Albino Riding Crane
 -- mount = AddMount(, V.MOP, )
