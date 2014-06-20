@@ -1239,7 +1239,7 @@ function addon:InitCritters()
 	pet:SetItemID(69847)
 	pet:SetSpellID(98736)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOE)
-	pet:AddCustom("WEBSTORE")
+	pet:Retire()
 
 	-- Guild Herald -- 49587
 	pet = AddPet(49587, V.CATA, Q.COMMON)
