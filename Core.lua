@@ -591,26 +591,22 @@ do
 
 	local COLLECTABLE_SCAN_FUNCS = {
 		[private.COLLECTION_TYPE_IDS.MOUNT] = function(collectable_type, mounts)
-			local num_mounts = _G.GetNumCompanions(collectable_type)
+			local num_mounts = _G.C_MountJournal.GetNumMounts()
 
 			local mount_names = {}
 			local mount_ids = {}
 			local mount_sources = {}
 
-			for spell_id, mount in pairs(mounts) do
-				local mount_name, _, icon = _G.GetSpellInfo(spell_id)
-				mount:SetName(mount_name)
-				mount:SetIcon(icon)
-			end
-
 			for index = 1, num_mounts do
-				local mount_id = select(3, _G.GetCompanionInfo("MOUNT", index))
+                local mount_name, mount_id, icon, is_active, is_usable, source_type, is_favorite, is_faction_specific, faction, hide_on_char, is_collected = _G.C_MountJournal.GetMountInfo(index)
 				local mount = mounts[mount_id]
 
 				if mount then
+                    mount:SetIcon(icon)
+                    mount:SetName(mount_name)
 					mount:AddState("KNOWN")
 				elseif not mount_names[mount_id] then
-					mount_names[mount_id] = _G.GetSpellInfo(mount_id) or _G.UNKNOWN
+					mount_names[mount_id] = mount_name or _G.UNKNOWN
 					mount_ids[#mount_ids + 1] = mount_id
 				end
 			end
