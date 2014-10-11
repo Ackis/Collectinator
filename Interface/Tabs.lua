@@ -399,7 +399,7 @@ function private.InitializeTabs()
 
 				local is_expanded = self[collectable_type .. " expanded"][collectable]
 				insert_index = MainPanel.list_frame:InsertEntry(entry, insert_index, is_expanded or expand_mode, is_expanded or expand_mode)
-			else
+			elseif collectable then
 				self[collectable_type .. " expanded"][collectable] = nil
 			end
 		end
