@@ -615,7 +615,7 @@ do
 			for index = 1, #mount_ids do
 				local mount_id = mount_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(mount_names[mount_id], mount_id))
-				private.TextDump:AddLine(("mount = AddMount(%d, V.MOP, Q.COMMON)\n"):format(mount_id))
+				private.TextDump:AddLine(("mount = AddMount(%d, V.WOD, Q.COMMON)\n"):format(mount_id))
 			end
 			local dump_lines = private.TextDump:Lines()
 
