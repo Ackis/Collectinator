@@ -193,7 +193,7 @@ function collectable_prototype:Icon()
 end
 
 function collectable_prototype:SetName(name)
-	if not name or self.name then
+	if not name then
 		return
 	end
 	self.name = name
