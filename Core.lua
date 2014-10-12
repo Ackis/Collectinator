@@ -612,6 +612,7 @@ do
 			end
 			table.sort(mount_ids)
 
+            private.TextDump:Clear()
 			for index = 1, #mount_ids do
 				local mount_id = mount_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(mount_names[mount_id], mount_id))
