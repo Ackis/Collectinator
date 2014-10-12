@@ -35,11 +35,10 @@ local SEASON = private.SEASON
 -- Initialize!
 --------------------------------------------------------------------------------------------------------------------
 
-local UpdatePetList
 do
 	local known_pets = {}
 
-	function UpdatePetList()
+	function private.UpdatePetList()
 		local pet_journal = _G.C_PetJournal
         local TextDump = private.TextDump
 
@@ -4100,6 +4099,6 @@ function addon:InitCritters()
 
 	self.InitCritters = nil
 
-	LPJ:RegisterCallback("PetListUpdated", UpdatePetList)
-	UpdatePetList()
+	LPJ:RegisterCallback("PetListUpdated", private.UpdatePetList)
+	private.UpdatePetList()
 end

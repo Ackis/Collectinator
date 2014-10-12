@@ -626,9 +626,7 @@ do
 			end
 		end,
 		[private.COLLECTION_TYPE_IDS.CRITTER] = function(collectable_type, critters)
-		-- We're doing nothing here for the moment since all of this is handled when the PetJournal is updated.
-		--			for pet_id, pet in pairs(critters) do
-		--			end
+            private.UpdatePetList()
 		end,
 	}
 
