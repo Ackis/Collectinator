@@ -172,7 +172,10 @@ function private.InitializeFrame()
 		if self.current_collectable_type ~= self.prev_collectable_type then
 			editbox.prev_search = nil
 		end
-		editbox:SetText(editbox.prev_search or _G.SEARCH)
+
+        if editbox.prev_search then
+            editbox:SetText(editbox.prev_search)
+        end
 
 		-- The first time this function is called, everything in the expanded section of the MainPanel must be created.
 		if private.InitializeFilterPanel then
@@ -528,11 +531,15 @@ function private.InitializeFrame()
 			for acquire_type, acquire_data in pairs(collectable.acquire_data) do
 				if acquire_type == A.REPUTATION then
 					for id_num, info in pairs(acquire_data) do
-						local str = reputation_list[id_num].name:lower()
+                        local name = reputation_list[id_num].name
 
-						if str and str:find(search_pattern) then
-							return true
-						end
+                        if name then
+                            local str = name:lower()
+
+                            if str and str:find(search_pattern) then
+                                return true
+                            end
+                        end
 					end
 				end
 			end
@@ -572,7 +579,7 @@ function private.InitializeFrame()
 	-------------------------------------------------------------------------------
 	-- Search EditBox
 	-------------------------------------------------------------------------------
-	local SearchBox = _G.CreateFrame("EditBox", nil, MainPanel, "SearchBoxTemplate")
+	local SearchBox = _G.CreateFrame("EditBox", "Collectinator_SearchBox", MainPanel, "SearchBoxTemplate")
 
 	SearchBox:EnableMouse(true)
 	SearchBox:SetAutoFocus(false)
@@ -584,7 +591,6 @@ function private.InitializeFrame()
 
 	MainPanel.search_editbox = SearchBox
 
-	SearchBox:SetText(_G.SEARCH)
 	SearchBox:SetHistoryLines(10)
 
 	-- Allow removal of focus from the SearchBox by clicking on the WorldFrame.
@@ -625,9 +631,7 @@ function private.InitializeFrame()
 		end
 		self.prev_search = nil
 
-		self:SetText(_G.SEARCH)
-
-		if self:HasFocus() then
+        if self:HasFocus() then
 			self:HighlightText()
 		end
 		MainPanel.list_frame:Update(nil, false)
@@ -643,7 +647,7 @@ function private.InitializeFrame()
 		return true
 	end
 
-	SearchBox:SetScript("OnEnterPressed", function(self)
+	SearchBox:HookScript("OnEnterPressed", function(self)
 		local searchtext = self:GetText()
 		searchtext = searchtext:trim()
 
@@ -663,9 +667,7 @@ function private.InitializeFrame()
 		MainPanel.list_frame:Update(nil, false)
 	end)
 
-
-
-	SearchBox:SetScript("OnEditFocusLost", function(self)
+	SearchBox:HookScript("OnEditFocusLost", function(self)
 		_G.SearchBoxTemplate_OnEditFocusLost(self)
 
 		local text = self:GetText()
@@ -677,7 +679,7 @@ function private.InitializeFrame()
 		self:AddHistoryLine(text)
 	end)
 
-	SearchBox:SetScript("OnTextSet", function(self)
+	SearchBox:HookScript("OnTextSet", function(self)
 		local text = self:GetText()
 
 		if text ~= "" and text ~= _G.SEARCH and text ~= self.prev_search then
@@ -711,7 +713,7 @@ function private.InitializeFrame()
 			self:Hide()
 		end)
 
-		SearchBox:SetScript("OnTextChanged", function(self, is_typed)
+		SearchBox:HookScript("OnTextChanged", function(self, is_typed)
 			if not is_typed then
 				return
 			end
