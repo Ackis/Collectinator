@@ -41,14 +41,23 @@ end -- do block
 do
 	addon.sorted_collectables = {}
 
+	local collectable_list
 	local sorted_collectables = addon.sorted_collectables
 
 	local function Sort_NameAsc(a, b)
-		return a.name < b.name
+		--@alpha@
+		if not collectable_list[a].name then
+			addon:Debug("Collectable ID %d does not have a name.", a)
+		end
+		if not collectable_list[b].name then
+			addon:Debug("Collectable ID %d does not have a name.", b)
+		end
+		--@end-alpha@
+		return collectable_list[a].name < collectable_list[b].name
 	end
 
 	local function Sort_NameDesc(a, b)
-		return a.name > b.name
+		return collectable_list[a].name > collectable_list[b].name
 	end
 
 	local COLLECTABLE_SORT_FUNCS = {
@@ -58,13 +67,19 @@ do
 
 	-- Sorts the collectable_list according to configuration settings.
 	function private.SortCollectables(collectables, collectable_type)
-        table.wipe(sorted_collectables)
-
-        local collectable_list = private.collectable_list[collectable_type]
-        for collectable_id in pairs(collectables) do
-			sorted_collectables[#sorted_collectables + 1] = collectable_list[collectable_id]
+		if not collectables then
+			return
 		end
-		table.sort(sorted_collectables, COLLECTABLE_SORT_FUNCS["Name" .. addon.db.profile.sorting] or Sort_NameAsc)
+		local sort_type = addon.db.profile.sorting
+		local sort_func = COLLECTABLE_SORT_FUNCS["Name" .. sort_type] or Sort_NameAsc
+
+		table.wipe(sorted_collectables)
+		collectable_list = private.collectable_list[collectable_type]
+
+		for collectable_id in pairs(collectables) do
+			sorted_collectables[#sorted_collectables + 1] = collectable_id
+		end
+		table.sort(sorted_collectables, sort_func)
 	end
 end -- do
 
