@@ -1,18 +1,3 @@
---[[
-************************************************************************
-PetDB.lua
-************************************************************************
-File date: @file-date-iso@
-File hash: @file-abbreviated-hash@
-Project hash: @project-abbreviated-hash@
-Project version: @project-version@
-************************************************************************
-Please see http://www.wowace.com/addons/collectinator/ for more information.
-************************************************************************
-This source code is released under All Rights Reserved.
-************************************************************************
-]] --
-
 -------------------------------------------------------------------------------
 -- Localized Lua globals.
 -------------------------------------------------------------------------------
@@ -56,6 +41,7 @@ do
 
 	function UpdatePetList()
 		local pet_journal = _G.C_PetJournal
+        local TextDump = private.TextDump
 
 		-- Reset all flags so the scan will actually work
 		pet_journal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_COLLECTED, true)
@@ -77,7 +63,9 @@ do
 				known_pets[creature_id] = true
 			end
 		end
-		local num_pets = _G.C_PetJournal.GetNumPets()
+		local num_pets = pet_journal.GetNumPets()
+        local pet_names = {}
+        local pet_ids = {}
 
 		for pet_index = 1, num_pets do
 			local pet_id, _, _, _, _, _, _, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByIndex(pet_index, false)
@@ -87,12 +75,31 @@ do
 				if not known_pets[creature_id] then
 					pet:RemoveState("KNOWN")
 				end
-				pet:SetName(name)
-				pet:SetIcon(icon)
-				pet:SetDescription(description)
+                pet:SetIcon(icon)
+                pet:SetDescription(description)
+                pet:SetName(name)
+            elseif not pet_names[creature_id] then
+                pet_names[creature_id] = name or _G.UNKNOWN
+                pet_ids[#pet_ids + 1] = creature_id
 			end
-		end
-	end
+        end
+        table.sort(pet_ids)
+
+        TextDump:Clear()
+        for index = 1, #pet_ids do
+            local pet_id = pet_ids[index]
+            TextDump:AddLine(("-- %s -- %d"):format(pet_names[pet_id], pet_id))
+            TextDump:AddLine(("pet = AddPet(%d, V.WOD, Q.COMMON)\n"):format(pet_id))
+        end
+
+        local dump_lines = TextDump:Lines()
+
+        if dump_lines > 0 then
+            TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
+            TextDump:Display()
+        end
+
+    end
 end
 
 
