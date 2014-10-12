@@ -63,20 +63,12 @@ do
 		pet_journal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
 		pet_journal.AddAllPetTypesFilter()
 		pet_journal.AddAllPetSourcesFilter()
+        pet_journal.ClearSearchFilter()
 
-		local search_box = _G.PetJournalSearchBox
-		search_box:ClearFocus()
-		search_box:SetText(_G.SEARCH)
-		_G.PetJournal_OnSearchTextChanged(search_box)
+        table.wipe(known_pets)
 
-		local pet_list = private.collectable_list["CRITTER"]
-
-		if not pet_list then
-			return
-		end
-		table.wipe(known_pets)
-
-		for index, pet_id in LPJ:IteratePetIDs() do
+        local pet_list = private.collectable_list["CRITTER"]
+        for index, pet_id in LPJ:IteratePetIDs() do
 			local _, _, _, _, _, _, _, _, _, _, creature_id = _G.C_PetJournal.GetPetInfoByPetID(pet_id)
 			local pet = pet_list[creature_id]
 
