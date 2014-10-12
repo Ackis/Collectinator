@@ -4103,17 +4103,3 @@ function addon:InitCritters()
 	LPJ:RegisterCallback("PetListUpdated", UpdatePetList)
 	UpdatePetList()
 end
-
-
---[[ unknown when these pets will be added
-
-	-- Murkimus Tyrannicus -- 71655
-	pet = AddPet(71655, V.MOP, Q.RARE)
-	pet:SetItemID(100870)
-	pet:SetSpellID(143637)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.PVP, F.IBOP, F.PROMO)
-	pet:AddCustom("ARENA")
-
-
-
-]] --
