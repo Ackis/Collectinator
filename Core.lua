@@ -595,7 +595,6 @@ do
 
 			local mount_names = {}
 			local mount_ids = {}
-			local mount_sources = {}
 
 			for index = 1, num_mounts do
                 local mount_name, mount_id, icon, is_active, is_usable, source_type, is_favorite, is_faction_specific, faction, hide_on_char, is_collected = _G.C_MountJournal.GetMountInfo(index)
