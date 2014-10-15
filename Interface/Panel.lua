@@ -531,15 +531,11 @@ function private.InitializeFrame()
 			for acquire_type, acquire_data in pairs(collectable.acquire_data) do
 				if acquire_type == A.REPUTATION then
 					for id_num, info in pairs(acquire_data) do
-                        local name = reputation_list[id_num].name
+						local name = reputation_list[id_num].name
 
-                        if name then
-                            local str = name:lower()
-
-                            if str and str:find(search_pattern) then
-                                return true
-                            end
-                        end
+						if name and name:lower():find(search_pattern) then
+							return true
+						end
 					end
 				end
 			end
