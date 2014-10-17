@@ -1999,6 +1999,12 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
 	mount:AddMobDrop(52409)
 
+	-- Felfire Hawk -- 97501
+	mount = AddMount(97501, V.WOD, Q.COMMON) -- Item: 69226
+	mount:SetItemID(69226)
+	mount:AddFilters(F.ALLIANCE,F.HORDE,F.ACHIEVEMENT,F.IBOP)
+	mount:AddAchievement(9598, 9599)
+
 	-- Corrupted Fire Hawk -- 97560
 	mount = AddMount(97560, V.CATA, Q.EPIC) -- Item: 69230
 	mount:SetItemID(69230)
@@ -2367,6 +2373,10 @@ function addon:InitMounts()
 	mount:SetItemID(87789)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP)
 	mount:AddVendor(64518)
+
+	-- Crimson Water Strider -- 127271
+	mount = AddMount(127271, V.WOD, Q.COMMON)
+	mount:AddFilters(F.HORDE)
 
 	-- Black Dragon Turtle -- 127286
 	mount = AddMount(127286, V.MOP, Q.EPIC) -- Item: 91008
@@ -2759,6 +2769,10 @@ function addon:InitMounts()
 	mount:SetItemID(104326)
 	mount:Retire()
 
+--[[ Temp mount, real mount is 148428 - BAD BLIZZARD
+	-- Furious Ashhide Mushan -- 148626
+	mount = AddMount(148626, V.WOD, Q.COMMON)
+]]--
 	-- Emerald Hippogryph -- 149801
 	mount = AddMount(149801, V.MOP, Q.EPIC)
 	mount:SetItemID(106246)
@@ -2783,6 +2797,143 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
 	mount:AddCustom("STORE")
 
+	-- Grinning Reaver -- 163025
+	mount = AddMount(163025, V.WOD, Q.COMMON)
+	mount:SetItemID(112327)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	mount:AddCustom("STORE")
+
+	-- Creeping Carpet -- 169952
+	mount = AddMount(169952, V.WOD, Q.COMMON)
+	mount:SetItemID(115363)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	mount:AddProfession(PROF.TAILORING)
+
+	-- Core Hound -- 170347
+	mount = AddMount(170347, V.WOD, Q.COMMON)
+	mount:SetItemID(115484)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(9550)
+
+	-- Gorestrider Gronnling -- 171436
+	mount = AddMount(171436, V.WOD, Q.COMMON)
+	mount:SetItemID(116383)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(8985)
+
+	-- Trained Icehoof -- 171617
+	mount = AddMount(171617, V.WOD, Q.COMMON)
+	mount:SetItemID(116656)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(36994, 37059)
+
+	-- Bloodhoof Bull -- 171620
+	mount = AddMount(171620, V.WOD, Q.COMMON)
+
+	-- Ironhoof Destroyer -- 171621
+	mount = AddMount(171621, V.WOD, Q.COMMON)
+
+	-- Mottled Meadowstomper -- 171622
+	mount = AddMount(171622, V.WOD, Q.COMMON)
+
+	-- Trained Meadowstomper -- 171623
+	mount = AddMount(171623, V.WOD, Q.COMMON)
+
+	-- Shadowhide Pearltusk -- 171624
+	mount = AddMount(171624, V.WOD, Q.COMMON)
+
+	-- Dusty Rockhide -- 171625
+	mount = AddMount(171625, V.WOD, Q.COMMON)
+
+	-- Armored Irontusk -- 171626
+	mount = AddMount(171626, V.WOD, Q.COMMON)
+
+	-- Blacksteel Battleboar -- 171627
+	mount = AddMount(171627, V.WOD, Q.COMMON)
+
+	-- Armored Frostboar -- 171629
+	mount = AddMount(171629, V.WOD, Q.COMMON)
+
+	-- Frostplains Battleboar -- 171632
+	mount = AddMount(171632, V.WOD, Q.COMMON)
+
+	-- Domesticated Razorback -- 171634
+	mount = AddMount(171634, V.WOD, Q.COMMON)
+
+	-- Giant Coldsnout -- 171635
+	mount = AddMount(171635, V.WOD, Q.COMMON)
+
+	-- Great Greytusk -- 171636
+	mount = AddMount(171636, V.WOD, Q.COMMON)
+
+	-- Trained Rocktusk -- 171637
+	mount = AddMount(171637, V.WOD, Q.COMMON)
+
+	-- Trained Riverwallow -- 171638
+	mount = AddMount(171638, V.WOD, Q.COMMON)
+
+	-- Sapphire Riverbeast -- 171824
+	mount = AddMount(171824, V.WOD, Q.COMMON)
+
+	-- Mosshide Riverwallow -- 171825
+	mount = AddMount(171825, V.WOD, Q.COMMON)
+
+	-- Solar Spirehawk -- 171828
+	mount = AddMount(171828, V.WOD, Q.COMMON)
+
+	-- Shadowmane Charger -- 171829
+	mount = AddMount(171829, V.WOD, Q.COMMON)
+
+	-- Swift Breezestrider -- 171830
+	mount = AddMount(171830, V.WOD, Q.COMMON)
+
+	-- Trained Silverpelt -- 171831
+	mount = AddMount(171831, V.WOD, Q.COMMON)
+
+	-- Breezestrider Stallion -- 171832
+	mount = AddMount(171832, V.WOD, Q.COMMON)
+
+	-- Pale Thorngrazer -- 171833
+	mount = AddMount(171833, V.WOD, Q.COMMON)
+
+	-- Vicious War Ram -- 171834
+	mount = AddMount(171834, V.WOD, Q.COMMON)
+
+	-- Garn Steelmaw -- 171836
+	mount = AddMount(171836, V.WOD, Q.COMMON)
+
+	-- Armored Frostwolf -- 171838
+	mount = AddMount(171838, V.WOD, Q.COMMON)
+
+	-- Ironside Warwolf -- 171839
+	mount = AddMount(171839, V.WOD, Q.COMMON)
+
+	-- Trained Snarler -- 171841
+	mount = AddMount(171841, V.WOD, Q.COMMON)
+
+	-- Swift Frostwolf -- 171842
+	mount = AddMount(171842, V.WOD, Q.COMMON)
+
+	-- Smoky Direwolf -- 171843
+	mount = AddMount(171843, V.WOD, Q.COMMON)
+
+	-- Dustmane Direwolf -- 171844
+	mount = AddMount(171844, V.WOD, Q.COMMON)
+
+	-- Warlord's Deathwheel -- 171845
+	mount = AddMount(171845, V.WOD, Q.COMMON)
+
+	-- Challenger's War Yeti -- 171848
+	mount = AddMount(171848, V.WOD, Q.COMMON)
+
+	-- Sunhide Gronnling -- 171849
+	mount = AddMount(171849, V.WOD, Q.COMMON)
+
+	-- Garn Nighthowl -- 171851
+	mount = AddMount(171851, V.WOD, Q.COMMON)
+
+	-- Emerald Drake -- 175700
+	mount = AddMount(175700, V.WOD, Q.COMMON)
 	self.InitMounts = nil
 end
 
