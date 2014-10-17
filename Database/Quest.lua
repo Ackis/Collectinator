@@ -117,6 +117,8 @@ function addon:InitQuest()
 	AddQuest(32604,	Z.VALE_OF_ETERNAL_BLOSSOMS,		00.0,	00.0,	"Neutral")
 	AddQuest(32616,	Z.ISLE_OF_GIANTS,			00.0,	00.0,	"Neutral")
 	AddQuest(32617,	Z.ISLE_OF_GIANTS,			00.0,	00.0,	"Neutral")
+	AddQuest(36994,	Z.LUNARFALL,				00.0,	00.0,	"Alliance")
+	AddQuest(37059, Z.FROSTWALL,				00.0,	00.0,	"Horde")
 
 	self.InitQuest = nil
 end
