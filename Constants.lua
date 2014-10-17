@@ -689,12 +689,13 @@ private.ZONE_NAMES = {
 do
 	local continent_names = { _G.GetMapContinents() }
 
-	private.ZONE_NAMES["KALIMDOR"] = continent_names[1]
-	private.ZONE_NAMES["EASTERN_KINGDOMS"] = continent_names[2]
-	private.ZONE_NAMES["OUTLAND"] = continent_names[3]
-	private.ZONE_NAMES["NORTHREND"] = continent_names[4]
-	private.ZONE_NAMES["THE_MAELSTROM"] = continent_names[5]
-	private.ZONE_NAMES["PANDARIA"] = continent_names[6]
+	private.ZONE_NAMES["KALIMDOR"] = continent_names[2]
+	private.ZONE_NAMES["EASTERN_KINGDOMS"] = continent_names[4]
+	private.ZONE_NAMES["OUTLAND"] = continent_names[6]
+	private.ZONE_NAMES["NORTHREND"] = continent_names[8]
+	private.ZONE_NAMES["THE_MAELSTROM"] = continent_names[10]
+	private.ZONE_NAMES["PANDARIA"] = continent_names[12]
+	private.ZONE_NAMES["DRAENOR"] = continent_names[14]
 end
 
 private.ZONE_LABELS_FROM_NAME = {}
@@ -745,6 +746,8 @@ private.BOSS_NAMES = {
 	SIEGECRAFTER_BLACKFUSE = _G.EJ_GetEncounterInfo(865),
 	SHA_OF_PRIDE = _G.EJ_GetEncounterInfo(867),
 	GARROSH_HELLSCREAM = _G.EJ_GetEncounterInfo(869),
+	BLACKHAND = _G.EJ_GetEncounterInfo(959),
+	RUKHMAR = _G.EJ_GetEncounterInfo(1262),
 
 }
 
