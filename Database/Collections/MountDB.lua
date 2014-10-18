@@ -2843,12 +2843,23 @@ function addon:InitMounts()
 
 	-- Mottled Meadowstomper -- 171622
 	mount = AddMount(171622, V.WOD, Q.COMMON)
+	mount:SetItemID(116661)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddMobDrop(50981)
 
 	-- Trained Meadowstomper -- 171623
 	mount = AddMount(171623, V.WOD, Q.COMMON)
+	mount:SetItemID(116662)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddQuest(37021, 37069)
+	mount:AddCustom("STABLES")
 
 	-- Shadowhide Pearltusk -- 171624
 	mount = AddMount(171624, V.WOD, Q.COMMON)
+	mount:SetItemID(116663)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddQuest(35788, 37307)
+	mount:AddCustom("INVADERS_TREASURE")
 
 	-- Dusty Rockhide -- 171625
 	mount = AddMount(171625, V.WOD, Q.COMMON)

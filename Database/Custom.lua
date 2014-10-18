@@ -83,6 +83,7 @@ function addon:InitCustom()
 	AddCustom("UNCLAIMED_BM",	Z.NAGRAND_DRAENOR,		53.8,	15.0)
 	AddCustom("STABLES")
 	AddCustom("MYTHIC")
+	AddCustom("INVADERS_TREASURE")
 
 	self.InitCustom = nil
 end

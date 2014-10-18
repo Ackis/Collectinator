@@ -109,6 +109,7 @@ function addon:InitMob()
 	AddMob(50347,	L["Karr the Darkener"],			Z.DREAD_WASTES,			71.8, 37.6)
 	AddMob(50358,	L["Haywire Sunreaver Construct"],	Z.ISLE_OF_THUNDER,		49.6, 89.2)
 	AddMob(50776,	L["Nalash Verdantis"],			Z.DREAD_WASTES,			64.2, 58.6)
+--	AddMob(50981,	L["Luk'hok"],				Z.NAGRAND_DRAENOR,			0.0, 0.0)
 	AddMob(50990,	L["Nakk the Thunderer"],		Z.NAGRAND_DRAENOR,	0.0, 0.0)
 	AddMob(52059,	BN.HIGH_PRIESTESS_KILNARA,		Z.ZULGURUB,			47.8, 20.6)
 	AddMob(52151,	BN.BLOODLORD_MANDOKIR,			Z.ZULGURUB,			60.6, 80.6)
@@ -152,6 +153,7 @@ function addon:InitMob()
 	AddMob(73167,	L["Huolon"],				Z.TIMELESS_ISLE,		72.6, 48.8)
 	AddMob(73277,	L["Leafmender"],			Z.TIMELESS_ISLE,		67.3, 44.1)
 	AddMob(73282,	L["Garnia"],				Z.TIMELESS_ISLE,		 0.0,  0.0)
+	AddMob(87420,	BN.BLACKHAND,				Z.BLACKROCK_FOUNDRY,	0.0, 0.0)
 
 	self.InitMob = nil
 end
