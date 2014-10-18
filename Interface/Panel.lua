@@ -173,9 +173,9 @@ function private.InitializeFrame()
 			editbox.prev_search = nil
 		end
 
-        if editbox.prev_search then
-            editbox:SetText(editbox.prev_search)
-        end
+		if editbox.prev_search then
+			editbox:SetText(editbox.prev_search)
+		end
 
 		-- The first time this function is called, everything in the expanded section of the MainPanel must be created.
 		if private.InitializeFilterPanel then

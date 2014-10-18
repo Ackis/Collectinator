@@ -40,7 +40,7 @@ do
 
 	function private.UpdatePetList()
 		local pet_journal = _G.C_PetJournal
-        local TextDump = private.TextDump
+		local TextDump = private.TextDump
 
 		-- Reset all flags so the scan will actually work
 		pet_journal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_COLLECTED, true)
@@ -48,12 +48,12 @@ do
 		pet_journal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
 		pet_journal.AddAllPetTypesFilter()
 		pet_journal.AddAllPetSourcesFilter()
-        pet_journal.ClearSearchFilter()
+		pet_journal.ClearSearchFilter()
 
-        table.wipe(known_pets)
+		table.wipe(known_pets)
 
-        local pet_list = private.collectable_list["CRITTER"]
-        for index, pet_id in LPJ:IteratePetIDs() do
+		local pet_list = private.collectable_list["CRITTER"]
+		for index, pet_id in LPJ:IteratePetIDs() do
 			local _, _, _, _, _, _, _, _, _, _, creature_id = _G.C_PetJournal.GetPetInfoByPetID(pet_id)
 			local pet = pet_list[creature_id]
 
@@ -63,8 +63,8 @@ do
 			end
 		end
 		local num_pets = pet_journal.GetNumPets()
-        local pet_names = {}
-        local pet_ids = {}
+		local pet_names = {}
+		local pet_ids = {}
 
 		for pet_index = 1, num_pets do
 			local pet_id, _, _, _, _, _, _, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByIndex(pet_index, false)
@@ -74,31 +74,30 @@ do
 				if not known_pets[creature_id] then
 					pet:RemoveState("KNOWN")
 				end
-                pet:SetIcon(icon)
-                pet:SetDescription(description)
-                pet:SetName(name)
-            elseif not pet_names[creature_id] then
-                pet_names[creature_id] = name or _G.UNKNOWN
-                pet_ids[#pet_ids + 1] = creature_id
+				pet:SetIcon(icon)
+				pet:SetDescription(description)
+				pet:SetName(name)
+			elseif not pet_names[creature_id] then
+				pet_names[creature_id] = name or _G.UNKNOWN
+				pet_ids[#pet_ids + 1] = creature_id
 			end
-        end
-        table.sort(pet_ids)
+		end
+		table.sort(pet_ids)
 
-        TextDump:Clear()
-        for index = 1, #pet_ids do
-            local pet_id = pet_ids[index]
-            TextDump:AddLine(("-- %s -- %d"):format(pet_names[pet_id], pet_id))
-            TextDump:AddLine(("pet = AddPet(%d, V.WOD, Q.COMMON)\n"):format(pet_id))
-        end
+		TextDump:Clear()
+		for index = 1, #pet_ids do
+			local pet_id = pet_ids[index]
+			TextDump:AddLine(("-- %s -- %d"):format(pet_names[pet_id], pet_id))
+			TextDump:AddLine(("pet = AddPet(%d, V.WOD, Q.COMMON)\n"):format(pet_id))
+		end
 
-        local dump_lines = TextDump:Lines()
+		local dump_lines = TextDump:Lines()
 
-        if dump_lines > 0 then
-            TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
-            TextDump:Display()
-        end
-
-    end
+		if dump_lines > 0 then
+			TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
+			TextDump:Display()
+		end
+	end
 end
 
 
