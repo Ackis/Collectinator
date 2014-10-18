@@ -46,7 +46,6 @@ function addon:InitCustom()
 	AddCustom("PLUSHIE")
 	AddCustom("WEBSTORE")
 	AddCustom("ARENA")
-	AddCustom("ANNUAL_PASS")
 	AddCustom("CITY")
 	AddCustom("NOBLE_VENDOR")
 	AddCustom("CE")
@@ -81,7 +80,7 @@ function addon:InitCustom()
 	AddCustom("BLINGTRON")
 	AddCustom("CRANENEST",		Z.TIMELESS_ISLE)
 	AddCustom("TIMELESS_CHEST",	Z.TIMELESS_ISLE,		59.4,	40.6)
-	AddCustom("UNCLAIMED_BM",	Z.THE_VEILED_STAIR,		63.8,	75.8)
+	AddCustom("UNCLAIMED_BM",	Z.NAGRAND_DRAENOR,		53.8,	15.0)
 
 
 	self.InitCustom = nil
