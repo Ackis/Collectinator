@@ -224,6 +224,7 @@ L["MAIN_OPTIONS_DESC"] = "Main configuration options"
 L["MATRIARCHNEST"] = "Found in the Ravasaur Matriarch's Nest."
 L["MOUNTAIN_DEW"] = "Availible in North America from a Mountain Dew promotion."
 L["MYSTERIOUS_EGG"] = "Chance at this collectable from Mysterious Egg every 3 days."
+L["MYTHIC"] = "Available only in the Mythic raid setting."
 L["Main Filter Options"] = true
 L["Main Options"] = true
 L["Malfunctioning Sunreaver Construct"] = true
