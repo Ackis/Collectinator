@@ -1129,6 +1129,7 @@ function private.InitializeFilterPanel()
 		expansion2		= { cb = FilterPanel.obtain.expansion2,		svroot = filters.obtain },
 		expansion3		= { cb = FilterPanel.obtain.expansion3,		svroot = filters.obtain },
 		expansion4		= { cb = FilterPanel.obtain.expansion4,		svroot = filters.obtain },
+		expansion5		= { cb = FilterPanel.obtain.expansion5,		svroot = filters.obtain },
 		mobdrop			= { cb = FilterPanel.obtain.mobdrop,		svroot = filters.obtain },
 		pvp			= { cb = FilterPanel.obtain.pvp,		svroot = filters.obtain },
 		quest			= { cb = FilterPanel.obtain.quest,		svroot = filters.obtain },
