@@ -318,6 +318,7 @@ L["SOR"] = "Available via Scroll of Resurrection"
 L["SORTING_DESC"] = "Change the way in which displayed collectables are sorted."
 L["SPECIFIC_REP_DESC"] = "Include %s faction."
 L["SPELLTOOLTIPPOSITION_DESC"] = "Changes the location of the tooltip containing the collectable information."
+L["STABLES"] = "Requires the Stables in your Garrison."
 L["STARCRAFTCE"] = "Available from Starcraft's CE"
 L["STORE"] = "Purchased via the in-game Blizzard Shop."
 L["Sage Lotusbloom"] = true
