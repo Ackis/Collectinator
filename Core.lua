@@ -597,13 +597,16 @@ do
 			local mount_ids = {}
 
 			for index = 1, num_mounts do
-                local mount_name, mount_id, icon, is_active, is_usable, source_type, is_favorite, is_faction_specific, faction, hide_on_char, is_collected = _G.C_MountJournal.GetMountInfo(index)
+				local mount_name, mount_id, icon, is_active, is_usable, source_type, is_favorite, is_faction_specific, faction, hide_on_char, is_collected = _G.C_MountJournal.GetMountInfo(index)
 				local mount = mounts[mount_id]
 
 				if mount then
-                    mount:SetIcon(icon)
-                    mount:SetName(mount_name)
-					mount:AddState("KNOWN")
+					mount:SetIcon(icon)
+					mount:SetName(mount_name)
+
+					if is_collected then
+						mount:AddState("KNOWN")
+					end
 				elseif not hide_on_char and not mount_names[mount_id] then
 					mount_names[mount_id] = mount_name or _G.UNKNOWN
 					mount_ids[#mount_ids + 1] = mount_id
@@ -611,7 +614,7 @@ do
 			end
 			table.sort(mount_ids)
 
-            private.TextDump:Clear()
+			private.TextDump:Clear()
 			for index = 1, #mount_ids do
 				local mount_id = mount_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(mount_names[mount_id], mount_id))
