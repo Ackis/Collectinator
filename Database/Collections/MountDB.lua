@@ -2451,8 +2451,8 @@ function addon:InitMounts()
 	-- Crimson Pandaren Phoenix -- 129552
 	mount = AddMount(129552, V.MOP, Q.EPIC)
 	mount:SetItemID(89154)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
-	mount:AddVendor(63994, 64028, 66973)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:Retire()
 
 	-- Thundering August Cloud Serpent -- 129918
 	mount = AddMount(129918, V.MOP, Q.EPIC)
@@ -2524,20 +2524,20 @@ function addon:InitMounts()
 	-- Ashen Pandaren Phoenix -- 132117
 	mount = AddMount(132117, V.MOP, Q.EPIC) -- Item: 90710
 	mount:SetItemID(90710)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
-	mount:AddVendor(63994, 64028, 66973)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:Retire()
 
 	-- Emerald Pandaren Phoenix -- 132118
 	mount = AddMount(132118, V.MOP, Q.EPIC)
 	mount:SetItemID(90711)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
-	mount:AddVendor(63994, 64028, 66973)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:Retire()
 
 	-- Violet Pandaren Phoenix -- 132119
 	mount = AddMount(132119, V.MOP, Q.EPIC)
 	mount:SetItemID(90712)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
-	mount:AddVendor(63994, 64028, 66973)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:Retire()
 
 	-- Jade Pandaren Kite String -- 133023
 	mount = AddMount(133023, V.MOP, Q.EPIC)
@@ -2738,7 +2738,7 @@ function addon:InitMounts()
 	mount = AddMount(148396, V.MOP, Q.EPIC)
 	mount:SetItemID(104246)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.ACHIEVEMENT)
-	mount:AddAchievement(8398, 8399)
+	mount:Retire()
 
 	-- Kor'kron Juggernaut -- 148417
 	mount = AddMount(148417, V.MOP, Q.EPIC)
@@ -2826,9 +2826,13 @@ function addon:InitMounts()
 	mount:SetItemID(116656)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(36994, 37059)
+	mount:AddCustom("STABLES")
 
 	-- Bloodhoof Bull -- 171620
 	mount = AddMount(171620, V.WOD, Q.COMMON)
+	mount:SetItemID(116659)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	AddMobDrop(50990)
 
 	-- Ironhoof Destroyer -- 171621
 	mount = AddMount(171621, V.WOD, Q.COMMON)
