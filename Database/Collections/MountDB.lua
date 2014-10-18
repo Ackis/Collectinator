@@ -2745,7 +2745,7 @@ function addon:InitMounts()
 	mount:SetItemID(104253)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID)
 	mount:AddMobDrop(71865)
-	mount:AddCustom("HEROIC")
+	mount:AddCustom("MYTHIC")
 
 	-- Ashhide Mushan Beast -- 148428
 	mount = AddMount(148428, V.MOP, Q.EPIC)
@@ -2832,10 +2832,14 @@ function addon:InitMounts()
 	mount = AddMount(171620, V.WOD, Q.COMMON)
 	mount:SetItemID(116659)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	AddMobDrop(50990)
+	mount:AddMobDrop(50990)
 
 	-- Ironhoof Destroyer -- 171621
 	mount = AddMount(171621, V.WOD, Q.COMMON)
+	mount:SetItemID(116660)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID)
+	mount:AddMobDrop(87420)
+	mount:AddCustom("MYTHIC")
 
 	-- Mottled Meadowstomper -- 171622
 	mount = AddMount(171622, V.WOD, Q.COMMON)
