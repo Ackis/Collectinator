@@ -685,6 +685,7 @@ do
 		SIEGE_OF_ORGRIMMAR = _G.GetMapNameByID(953),
 		LUNARFALL = _G.GetMapNameByID(971),
 		FROSTWALL = _G.GetMapNameByID(976),
+		BLACKROCK_FOUNDRY = _G.GetMapNameByID(988),
 		STORMSHIELD = _G.GetMapNameByID(1009),
 		WARSPEAR = _G.GetMapNameByID(1011),
 		-------------------------------------------------------------------------------
