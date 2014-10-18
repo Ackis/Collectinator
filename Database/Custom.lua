@@ -81,7 +81,8 @@ function addon:InitCustom()
 	AddCustom("CRANENEST",		Z.TIMELESS_ISLE)
 	AddCustom("TIMELESS_CHEST",	Z.TIMELESS_ISLE,		59.4,	40.6)
 	AddCustom("UNCLAIMED_BM",	Z.NAGRAND_DRAENOR,		53.8,	15.0)
-
+	AddCustom("STABLES")
+	AddCustom("MYTHIC")
 
 	self.InitCustom = nil
 end
