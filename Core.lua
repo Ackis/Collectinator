@@ -652,7 +652,7 @@ do
 		end
 		local search_box = _G.PetJournalSearchBox
 		search_box:ClearFocus()
-		search_box:SetText(_G.SEARCH)
+		search_box:SetText("")
 		_G.PetJournal_OnSearchTextChanged(search_box)
 
 		COLLECTABLE_SCAN_FUNCS[current_panel](collectable_type, collectables)
