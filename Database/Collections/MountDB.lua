@@ -2797,6 +2797,8 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
 	mount:AddCustom("STORE")
 
+-- Warlords of Draenor
+
 	-- Grinning Reaver -- 163025
 	mount = AddMount(163025, V.WOD, Q.COMMON)
 	mount:SetItemID(112327)
@@ -2850,64 +2852,118 @@ function addon:InitMounts()
 	-- Trained Meadowstomper -- 171623
 	mount = AddMount(171623, V.WOD, Q.COMMON)
 	mount:SetItemID(116662)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(37021, 37069)
 	mount:AddCustom("STABLES")
 
 	-- Shadowhide Pearltusk -- 171624
 	mount = AddMount(171624, V.WOD, Q.COMMON)
 	mount:SetItemID(116663)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(35788, 37307)
 	mount:AddCustom("INVADERS_TREASURE")
 
 	-- Dusty Rockhide -- 171625
 	mount = AddMount(171625, V.WOD, Q.COMMON)
+	mount:SetItemID(116664)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddRepVendor(FAC.COUNCIL_OF_EXARCHS, REP.EXALTED, 85932)
 
 	-- Armored Irontusk -- 171626
 	mount = AddMount(171626, V.WOD, Q.COMMON)
+	mount:SetItemID(116665)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddRepVendor(FAC.SHATARI_DEFENSE, REP.EXALTED, 85427)
 
 	-- Blacksteel Battleboar -- 171627
 	mount = AddMount(171627, V.WOD, Q.COMMON)
+	mount:SetItemID(116666)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(9669)
 
 	-- Armored Frostboar -- 171629
 	mount = AddMount(171629, V.WOD, Q.COMMON)
+	mount:SetItemID(116668)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(9539, 9705)
+	mount:AddCustom("STABLES")
 
 	-- Frostplains Battleboar -- 171632
 	mount = AddMount(171632, V.WOD, Q.COMMON)
+	mount:SetItemID(116670)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(9396)
 
 	-- Domesticated Razorback -- 171634
 	mount = AddMount(171634, V.WOD, Q.COMMON)
+	mount:SetItemID(116672)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddRepVendor(FAC.STEAMWHEEDLE_PRESERVATION_SOCIETY, REP.EXALTED, 88482, 88493)
 
 	-- Giant Coldsnout -- 171635
 	mount = AddMount(171635, V.WOD, Q.COMMON)
+	mount:SetItemID(116673)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(35788, 37307)
+	mount:AddCustom("INVADERS_TREASURE")
 
 	-- Great Greytusk -- 171636
 	mount = AddMount(171636, V.WOD, Q.COMMON)
+	mount:SetItemID(116674)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddMobDrop(87308)
 
 	-- Trained Rocktusk -- 171637
 	mount = AddMount(171637, V.WOD, Q.COMMON)
+	mount:SetItemID(116675)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(37004, 37041)
+	mount:AddCustom("STABLES")
 
 	-- Trained Riverwallow -- 171638
 	mount = AddMount(171638, V.WOD, Q.COMMON)
+	mount:SetItemID(116676)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(37013, 37079)
+	mount:AddCustom("STABLES")
 
 	-- Sapphire Riverbeast -- 171824
 	mount = AddMount(171824, V.WOD, Q.COMMON)
+	mount:SetItemID(116767)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddMobDrop(51015)
 
 	-- Mosshide Riverwallow -- 171825
 	mount = AddMount(171825, V.WOD, Q.COMMON)
+	mount:SetItemID(116768)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(86382, 86391)
 
 	-- Solar Spirehawk -- 171828
 	mount = AddMount(171828, V.WOD, Q.COMMON)
+	mount:SetItemID(116771)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddMobDrop(87493)
 
 	-- Shadowmane Charger -- 171829
 	mount = AddMount(171829, V.WOD, Q.COMMON)
+	mount:SetItemID(116772)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddRepVendor(FAC.ARAKKOA_OUTCASTS, REP.EXALTED, 85946, 86037)
 
 	-- Swift Breezestrider -- 171830
 	mount = AddMount(171830, V.WOD, Q.COMMON)
+	mount:SetItemID(116773)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddMobDrop(50883)
 
 	-- Trained Silverpelt -- 171831
 	mount = AddMount(171831, V.WOD, Q.COMMON)
+	mount:SetItemID(116774)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(36982, 37104)
 
 	-- Breezestrider Stallion -- 171832
 	mount = AddMount(171832, V.WOD, Q.COMMON)
