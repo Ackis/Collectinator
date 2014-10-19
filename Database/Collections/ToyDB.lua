@@ -167,6 +167,9 @@ function addon:InitToys()
 
 -- to check/update:
 
+	-- Murloc Costume -- 33079
+	toy = AddToy(33079, V.WOD, Q.COMMON)
+
 	-- D.I.S.C.O. -- 38301
 	toy = AddToy(38301, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)

@@ -2950,7 +2950,7 @@ function addon:InitMounts()
 	-- Shadowmane Charger -- 171829
 	mount = AddMount(171829, V.WOD, Q.COMMON)
 	mount:SetItemID(116772)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.ARAKKOA_OUTCASTS)
 	mount:AddRepVendor(FAC.ARAKKOA_OUTCASTS, REP.EXALTED, 85946, 86037)
 
 	-- Swift Breezestrider -- 171830
@@ -2967,6 +2967,10 @@ function addon:InitMounts()
 
 	-- Breezestrider Stallion -- 171832
 	mount = AddMount(171832, V.WOD, Q.COMMON)
+	mount:SetItemID(116775)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.DRAENORCOMMON1)
+	mount:AddRepVendor(FAC.VOLJINS_SPEAR, REP.EXALTED, 85115)
 
 	-- Pale Thorngrazer -- 171833
 	mount = AddMount(171833, V.WOD, Q.COMMON)
@@ -3009,6 +3013,16 @@ function addon:InitMounts()
 
 	-- Emerald Drake -- 175700
 	mount = AddMount(175700, V.WOD, Q.COMMON)
+
+	-- Swift Brown Steed -- 58819
+	mount = AddMount(58819, V.WOD, Q.COMMON)
+
+	-- Argent Warhorse -- 66907
+	mount = AddMount(66907, V.WOD, Q.COMMON)
+
+	-- Furious Ashhide Mushan -- 148626
+	mount = AddMount(148626, V.WOD, Q.COMMON)
+
 	self.InitMounts = nil
 end
 
