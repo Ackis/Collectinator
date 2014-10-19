@@ -191,6 +191,8 @@ function addon:InitVendor()
 	AddVendor(86391,	L["Dawn-Seeker Krek"],		Z.STORMSHIELD,			50.4,	61.6,	"Alliance")
 	AddVendor(85427,	L["Maaria"],			Z.LUNARFALL,			0.00,	0.00,	"Alliance")
 	AddVendor(85932,	L["Vindicator Nuurem"],		Z.STORMSHIELD,			46.6,	76.2,	"Alliance")
+	AddVendor(86036,	L["Beska Redtusk"],		Z.WARSPEAR,			53.6,	62.6,	"Horde")
+	AddVendor(86698,	L["Kil'rip"],			Z.FROSTWALL,			00.0,	00.0,	"Horde")
 	AddVendor(88482,	L["Gazrix Gearlock"],		Z.STORMSHIELD,			43.2,	77.4,	"Alliance")
 	AddVendor(88493,	L["Mimi Wizzlebub"],		Z.WARSPEAR,			53.8,	60.8,	"Horde")
 

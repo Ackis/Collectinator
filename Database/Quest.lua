@@ -123,11 +123,13 @@ function addon:InitQuest()
 	AddQuest(37004,	Z.LUNARFALL,				00.0,	00.0,	"Alliance")
 	AddQuest(37013,	Z.LUNARFALL,				00.0,	00.0,	"Alliance")
 	AddQuest(37021, Z.LUNARFALL,				00.0,	00.0,	"Alliance")
+	AddQuest(37028,	Z.LUNARFALL,				00.0,	00.0,	"Alliance")
 	AddQuest(37041,	Z.FROSTWALL,				00.0,	00.0,	"Horde")
 	AddQuest(37059, Z.FROSTWALL,				00.0,	00.0,	"Horde")
 	AddQuest(37069,	Z.FROSTWALL,				00.0,	00.0,	"Horde")
 	AddQuest(37079,	Z.FROSTWALL,				00.0,	00.0,	"Horde")
 	AddQuest(37104,	Z.FROSTWALL,				00.0,	00.0,	"Horde")
+	AddQuest(37111,	Z.FROSTWALL,				00.0,	00.0,	"Horde")
 	AddQuest(37307,	Z.LUNARFALL,				37.2,	36.4,	"Alliance")
 
 	self.InitQuest = nil
