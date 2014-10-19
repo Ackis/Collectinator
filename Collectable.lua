@@ -64,9 +64,17 @@ local mount_meta = {
 	end,
 }
 
+local toy_prototype = {}
+local toy_meta = {
+	__index = function(t, k)
+		return toy_prototype[k] or collectable_prototype[k]
+	end,
+}
+
 local CATEGORY_METATABLES = {
 	CRITTER = pet_meta,
 	MOUNT = mount_meta,
+	TOY = toy_meta,
 }
 
 function addon:AddCollectable(collectable_id, collectable_type, genesis, quality)

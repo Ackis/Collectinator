@@ -432,6 +432,7 @@ function addon:OnInitialize()
 	COLLECTION_INIT_FUNCS = {
 		CRITTER = addon.InitCritters,
 		MOUNT = addon.InitMounts,
+		TOY = addon.InitToys,
 	}
 
 	-------------------------------------------------------------------------------
@@ -604,7 +605,6 @@ do
 				if mount then
 					mount:SetIcon(icon)
 					mount:SetName(mount_name)
-
 					if is_collected then
 						mount:AddState("KNOWN")
 					end
@@ -629,9 +629,47 @@ do
 			end
 		end,
 		[private.COLLECTION_TYPE_IDS.CRITTER] = function(collectable_type, critters)
-            private.UpdatePetList()
+		private.UpdatePetList()
 		end,
-	}
+		[private.COLLECTION_TYPE_IDS.TOY] = function(collectable_type, toys)
+			local num_toys = _G.C_ToyBox.GetNumTotalDisplayedToys()
+			local toy_names = {}
+			local toy_ids = {}
+
+			for index = 1, num_toys  do
+				local toy_id = _G.C_ToyBox.GetToyFromIndex(index)
+				if toy_id > -1 then
+					local itemID, toyName, icon = _G.C_ToyBox.GetToyInfo(toy_id)
+					local toy = toys[toy_id]
+					if toy then
+						toy:SetIcon(icon)
+						toy:SetName(toyName)
+						if _G.PlayerHasToy(toy_id) then
+							toy:AddState("KNOWN")
+						end
+					else
+						toy_names[toy_id] = toyName or _G.UNKNOWN
+						toy_ids[#toy_ids + 1] = toy_id
+					end
+				end
+			end
+			table.sort(toy_ids)
+			private.TextDump:Clear()
+
+			for index = 1, #toy_ids do
+				local toy_id = toy_ids[index]
+				private.TextDump:AddLine(("-- %s -- %d"):format(toy_names[toy_id], toy_id))
+				private.TextDump:AddLine(("toy = AddToy(%d, V.WOD, Q.COMMON)\n"):format(toy_id))
+			end
+			local dump_lines = private.TextDump:Lines()
+
+			if dump_lines > 0 then
+				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
+				private.TextDump:Display()
+			end
+		end,
+
+		}
 
 	-- Causes a scan of the relevant collectable type to be conducted. Function called when the scan button is clicked.
 	-- Parses Collections and displays output

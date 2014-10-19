@@ -39,6 +39,7 @@ private.REALM_NAME = _G.GetRealmName()
 private.COLLECTABLE_TEXTURES = {
     CRITTER = [[Interface\AddOns\Collectinator\Images\CritterPortrait]],
     MOUNT = [[Interface\AddOns\Collectinator\Images\MountPortrait]],
+    TOY  = [[Interface\ICONS\TRADE_ARCHAEOLOGY_CHESTOFTINYGLASSANIMALS]],
 }
 
 -------------------------------------------------------------------------------
@@ -61,6 +62,7 @@ end
 private.ORDERED_COLLECTIONS = {
 	"MOUNT", -- 1
 	"CRITTER", -- 2
+	"TOY", -- 3
 }
 
 private.COLLECTION_TYPE_IDS = GenerateLookup_ID(private.ORDERED_COLLECTIONS)
