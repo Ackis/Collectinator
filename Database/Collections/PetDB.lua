@@ -84,6 +84,7 @@ do
 		end
 		table.sort(pet_ids)
 
+		--@debug@
 		TextDump:Clear()
 		for index = 1, #pet_ids do
 			local pet_id = pet_ids[index]
@@ -97,6 +98,7 @@ do
 			TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
 			TextDump:Display()
 		end
+		--@end-debug@
 	end
 end
 

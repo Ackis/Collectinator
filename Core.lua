@@ -620,6 +620,7 @@ do
 			end
 			table.sort(mount_ids)
 
+			--@debug@
 			private.TextDump:Clear()
 			for index = 1, #mount_ids do
 				local mount_id = mount_ids[index]
@@ -632,6 +633,7 @@ do
 				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
 				private.TextDump:Display()
 			end
+		--@end-debug@
 		end,
 		[private.COLLECTION_TYPE_IDS.CRITTER] = function(collectable_type, critters)
 		private.UpdatePetList()
@@ -665,8 +667,9 @@ do
 				end
 			end
 			table.sort(toy_ids)
-			private.TextDump:Clear()
 
+			--@debug@
+			private.TextDump:Clear()
 			for index = 1, #toy_ids do
 				local toy_id = toy_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(toy_names[toy_id], toy_id))
@@ -682,6 +685,7 @@ do
 				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
 				private.TextDump:Display()
 			end
+		--@end-debug@
 		end,
 
 		}
