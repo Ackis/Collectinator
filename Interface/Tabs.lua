@@ -376,11 +376,20 @@ function private.InitializeTabs()
 		return collectable_count
 	end
 
+	local COLLECTABLE_TYPE_LABELS = {
+		CRITTER = _G.PET_JOURNAL,
+		MOUNT = _G.MOUNTS,
+		TOY = _G.TOY_BOX,
+	}
+
 	function CollectablesTab:Initialize(expand_mode)
 		local collectable_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
 		local collectables = private.collectable_list[collectable_type]
 
 		self[collectable_type .. " expanded"] = self[collectable_type .. " expanded"] or {}
+
+		self:SetText(COLLECTABLE_TYPE_LABELS[collectable_type])
+		self:SetWidth(40 + self:GetFontString():GetStringWidth())
 
 		private.SortCollectables(collectables, collectable_type)
 
