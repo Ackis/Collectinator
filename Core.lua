@@ -638,23 +638,29 @@ do
 		end,
 		[private.COLLECTION_TYPE_IDS.TOY] = function(collectable_type, toys)
 			local num_toys = _G.C_ToyBox.GetNumTotalDisplayedToys()
-			local toy_names = {}
 			local toy_ids = {}
+			local toy_item_ids = {}
+			local toy_names = {}
 
 			for index = 1, num_toys  do
 				local toy_id = _G.C_ToyBox.GetToyFromIndex(index)
+
 				if toy_id > -1 then
 					local itemID, toyName, icon = _G.C_ToyBox.GetToyInfo(toy_id)
 					local toy = toys[toy_id]
+
 					if toy then
 						toy:SetIcon(icon)
+						toy:SetItemID(itemID)
 						toy:SetName(toyName)
+
 						if _G.PlayerHasToy(toy_id) then
 							toy:AddState("KNOWN")
 						end
 					else
-						toy_names[toy_id] = toyName or _G.UNKNOWN
 						toy_ids[#toy_ids + 1] = toy_id
+						toy_item_ids[toy_id] = itemID
+						toy_names[toy_id] = toyName or _G.UNKNOWN
 					end
 				end
 			end
@@ -665,6 +671,10 @@ do
 				local toy_id = toy_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(toy_names[toy_id], toy_id))
 				private.TextDump:AddLine(("toy = AddToy(%d, V.WOD, Q.COMMON)\n"):format(toy_id))
+
+				if toy_item_ids[toy_id] then
+					private.TextDump:AddLine(("toy:SetItemID(%d)"):format(toy_item_ids[toy_id]))
+				end
 			end
 			local dump_lines = private.TextDump:Lines()
 
