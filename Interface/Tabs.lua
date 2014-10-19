@@ -203,6 +203,8 @@ function private.InitializeTabs()
 		local collectable_count = 0
 		local insert_index = 1
 
+		CollectablesTab:UpdateLabel(collectable_type)
+
 		table.wipe(collectable_registry)
 		table.wipe(sorted_acquires)
 
@@ -273,6 +275,8 @@ function private.InitializeTabs()
 		local collectable_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
 		local collectable_count = 0
 		local insert_index = 1
+
+		CollectablesTab:UpdateLabel(collectable_type)
 
 		table.wipe(collectable_registry)
 		table.wipe(sorted_locations)
@@ -386,10 +390,8 @@ function private.InitializeTabs()
 		local collectable_type = ORDERED_COLLECTIONS[MainPanel.current_collectable_type]
 		local collectables = private.collectable_list[collectable_type]
 
+		self:UpdateLabel(collectable_type)
 		self[collectable_type .. " expanded"] = self[collectable_type .. " expanded"] or {}
-
-		self:SetText(COLLECTABLE_TYPE_LABELS[collectable_type])
-		self:SetWidth(40 + self:GetFontString():GetStringWidth())
 
 		private.SortCollectables(collectables, collectable_type)
 
@@ -413,6 +415,11 @@ function private.InitializeTabs()
 			end
 		end
 		return collectable_count
+	end
+
+	function CollectablesTab:UpdateLabel(collectable_type)
+		self:SetText(COLLECTABLE_TYPE_LABELS[collectable_type])
+		self:SetWidth(40 + self:GetFontString():GetStringWidth())
 	end
 
 	MainPanel.tabs = {
