@@ -636,7 +636,7 @@ function private.InitializeFilterPanel()
 			expansion2	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME2),
 			expansion3	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME3),
 			expansion4	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME4),
-			expansion5  = L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME5),
+			expansion5  	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME5),
 		}
 		-------------------------------------------------------------------------------
 		-- This manages the WoW expansion reputation filter menu panel
@@ -755,6 +755,10 @@ function private.InitializeFilterPanel()
 	local Jinyu_Hozen = isAlliance and FN.PEARLFIN_JINYU or FN.FOREST_HOZEN
 	local Brawlers_Guild = isAlliance and FN.BIZMOS_BRAWLPUB or FN.BRAWLGAR_ARENA
 	local Isle_of_Giants = isAlliance and FN.KIRIN_TOR_OFFENSIVE or FN.SUNREAVER_ONSLAUGHT
+	local Wryann_Voljin_Text = isAlliance and FN.WRYNNS_VANGUARD or FN.VOLJINS_SPEAR
+	local Exarchs_Frostwolf_Text = isAlliance and FN.COUNCIL_OF_EXARCHS or FN.FROSTWOLF_ORCS
+	local Shatari_Laughing_Text = isAlliance and FN.SHATARI_DEFENSE or FN.LAUGHING_SKULL_ORCS
+
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -1066,8 +1070,11 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion5_buttons = {
-			goldenlotus		= { tt = ReputationDesc(FN.GOLDEN_LOTUS),		text = FN.GOLDEN_LOTUS,			row = 2,	col = 1 },
-
+			arakkoa			= { tt = ReputationDesc(FN.ARAKKOA_OUTCASTS),		text = FN.ARAKKOA_OUTCASTS,		row = 2,	col = 1 },
+			steamwheedle		= { tt = ReputationDesc(FN.STEAMWHEEDLE_PRESERVATION_SOCIETY),		text = FN.STEAMWHEEDLE_PRESERVATION_SOCIETY,	row = 3,	col = 1 },
+			draenorcommon1		= { tt = ReputationDesc(Wryann_Voljin_Text),		text = Wryann_Voljin_Text,		row = 4,	col = 1 },
+			draenorcommon2		= { tt = ReputationDesc(Exarchs_Frostwolf_Text),	text = Exarchs_Frostwolf_Text,		row = 5,	col = 1 },
+			draenorcommon3		= { tt = ReputationDesc(Shatari_Laughing_Text),		text = Shatari_Laughing_Text,		row = 6,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion5_frame, expansion5_buttons)
 
@@ -1110,6 +1117,7 @@ function private.InitializeFilterPanel()
 	local expansion2 = FilterPanel.rep.expansion2
 	local expansion3 = FilterPanel.rep.expansion3
 	local expansion4 = FilterPanel.rep.expansion4
+	local expansion5 = FilterPanel.rep.expansion5
 
 	FilterPanel.value_map = {
 		------------------------------------------------------------------------------------------------
@@ -1213,7 +1221,7 @@ function private.InitializeFilterPanel()
 		guild			= { cb = expansion3.guild,			svroot = filters.rep },
 		------------------------------------------------------------------------------------------------
 		-- Mists of Pandaria Rep Options
-		-----------------------------------------------------------------------------------------------
+		------------------------------------------------------------------------------------------------
 		goldenlotus		= { cb = expansion4.goldenlotus,		svroot = filters.rep },
 		cloudserpent		= { cb = expansion4.cloudserpent,		svroot = filters.rep },
 		shadopan		= { cb = expansion4.shadopan,			svroot = filters.rep },
@@ -1230,6 +1238,14 @@ function private.InitializeFilterPanel()
 		brawlers		= { cb = expansion4.brawlers,			svroot = filters.rep },
 		pandacommon3		= { cb = expansion4.pandacommon3,		svroot = filters.rep },
 		shaohao			= { cb = expansion4.shaohao,			svroot = filters.rep },
-	}
+		------------------------------------------------------------------------------------------------
+		-- Warlords of Draenor Rep Options
+		------------------------------------------------------------------------------------------------
+		draenorcommon1		= { cb = expansion5.draenorcommon1,		svroot = filters.rep },
+		draenorcommon2		= { cb = expansion5.draenorcommon2,		svroot = filters.rep },
+		draenorcommon3		= { cb = expansion5.draenorcommon3,		svroot = filters.rep },
+		steamwheedle		= { cb = expansion5.steamwheedle,		svroot = filters.rep },
+		arakkoa			= { cb = expansion5.arakkoa,			svroot = filters.rep },
+	}	
 	private.InitializeFilterPanel = nil
 end

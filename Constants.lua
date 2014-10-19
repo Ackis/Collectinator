@@ -250,11 +250,12 @@ private.REP_FLAGS_WORD2 = {
 	BRAWLERS			= 0x00400000,	-- 23
 	PANDACOMMON3			= 0x00800000,	-- 24 -- Bizmo's Brawlpub / Brawl'gar Arena
 	EMPEROR_SHAOHAO			= 0x01000000,	-- 25 -- Kirin Tor Offensive / Sunreaver Onslaught
-	SHATARI_DEFENSE			= 0x02000000,	-- 26
-	STEAMWHEEDLE_PRESERVATION_SOCIETY	= 0x04000000,	-- 27
-	DRAENORCOMMON1			= 0x08000000,	-- 28 -- Wrynn's Vanguard /  Vol'jin's Spear
-	DRAENORCOMMON2			= 0x10000000,	-- 29 -- Council of Exarchs / Frostwolf Orcs
-	ARAKKOA_OUTCASTS		= 0x20000000,	-- 30
+	STEAMWHEEDLE_PRESERVATION_SOCIETY	= 0x02000000,	-- 27
+	DRAENORCOMMON1			= 0x04000000,	-- 28 -- Wrynn's Vanguard /  Vol'jin's Spear
+	DRAENORCOMMON2			= 0x08000000,	-- 29 -- Council of Exarchs / Frostwolf Orcs
+	DRAENORCOMMON3			= 0x10000000,	-- 30 -- Shatari Defense / Laughing Skull Orcs
+	ARAKKOA_OUTCASTS		= 0x20000000,	-- 31
+
 }
 
 -------------------------------------------------------------------------------
@@ -481,6 +482,7 @@ private.FACTION_IDS = {
 	ARAKKOA_OUTCASTS = 1515,
 	VOLJINS_SPEAR = 1681,
 	WRYNNS_VANGUARD = 1682,
+	LAUGHING_SKULL_ORCS = 1708,
 	SHATARI_DEFENSE = 1710,
 	STEAMWHEEDLE_PRESERVATION_SOCIETY = 1711,
 	COUNCIL_OF_EXARCHS = 1731,
@@ -696,6 +698,7 @@ do
 		TALADOR = _G.GetMapNameByID(946),
 		SHADOWMOON_VALLEY_DRAENOR = (("%s %s"):format(_G.GetMapNameByID(947), _G.PARENS_TEMPLATE:format(CONTINENT_NAMES[14]))),
 		SPIRES_OF_ARAK = _G.GetMapNameByID(948),
+		GORGROND = _G.GetMapNameByID(949),
 		TIMELESS_ISLE = _G.GetMapNameByID(951),
 		NAGRAND_DRAENOR = (("%s %s"):format(_G.GetMapNameByID(950), _G.PARENS_TEMPLATE:format(CONTINENT_NAMES[14]))),
 		SIEGE_OF_ORGRIMMAR = _G.GetMapNameByID(953),

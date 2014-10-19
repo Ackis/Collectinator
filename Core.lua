@@ -311,6 +311,11 @@ function addon:OnInitialize()
 					brawlers = true,
 					pandacommon3 = true,
 					shaohao = true,
+					draenorcommon1 = true,
+					draenorcommon2 = true,
+					draenorcommon3 = true,
+					steamwheedle = true,
+					arakkoa = true,
 				},
 				-- Populated later via CONSTANTS
 				item = {

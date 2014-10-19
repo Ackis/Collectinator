@@ -574,6 +574,11 @@ function private.InitializeListFrame()
 			[REP2.BRAWLERS]				= "brawlers",
 			[REP2.PANDACOMMON3]			= "pandacommon3",
 			[REP2.EMPEROR_SHAOHAO]			= "shaohao",
+			[REP2.DRAENORCOMMON1]			= "draenorcommon1",
+			[REP2.DRAENORCOMMON2]			= "draenorcommon2",
+			[REP2.DRAENORCOMMON3]			= "draenorcommon3",
+			[REP2.STEAMWHEEDLE_PRESERVATION_SOCIETY]	= "steamwheedle",
+			[REP2.ARAKKOA_OUTCASTS]			= "arakkoa",
 		}
 
 		-- Returns true if any of the filter flags are turned on.
