@@ -2835,7 +2835,7 @@ function addon:InitCritters()
 	pet = AddPet(62314, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.FELWOOD, "14-15", false, "61.8:9.8", "54.2:18.8", "42.8:50.6", "48.8:90.2", "45.2:66.4", "39.0:68.6")
-	pet:AddZoneLocations(Z.SHADOWMOON_VALLEY, "20-21", false, "51.8:31.6", "42.4:53.4", "37.4:41.8", "37.4:32.2", "64.2:35.2")
+	pet:AddZoneLocations(Z.SHADOWMOON_VALLEY_OUTLAND, "20-21", false, "51.8:31.6", "42.4:53.4", "37.4:41.8", "37.4:32.2", "64.2:35.2")
 
 	-- Tainted Waveling -- 71018
 	pet = AddPet(71018, V.MOP, Q.COMMON)
@@ -3152,7 +3152,7 @@ function addon:InitCritters()
 	pet = AddPet(62583, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.TEROKKAR_FOREST, "18-19", false, "46.8:25.2", "36.6:37.6", "66.8:54.6", "68.4:43.2", "57.6:38.4")
-	pet:AddZoneLocations(Z.SHADOWMOON_VALLEY, "18-19", false, "18.0:22.4")
+	pet:AddZoneLocations(Z.SHADOWMOON_VALLEY_OUTLAND, "18-19", false, "18.0:22.4")
 
 	-- Water Waveling -- 62820
 	pet = AddPet(62820, V.MOP, Q.COMMON)
@@ -3510,7 +3510,7 @@ function addon:InitCritters()
 	-- Fel Flame -- 62621
 	pet = AddPet(62621, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.SHADOWMOON_VALLEY)
+	pet:AddWorldDrop(Z.SHADOWMOON_VALLEY_OUTLAND)
 
 	-- Mountain Skunk -- 61677
 	pet = AddPet(61677, V.MOP, Q.COMMON)
@@ -3822,7 +3822,7 @@ function addon:InitCritters()
 	-- Ash Viper -- 61385
 	pet = AddPet(61385, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.BURNING_STEPPES, Z.SHADOWMOON_VALLEY)
+	pet:AddWorldDrop(Z.BURNING_STEPPES, Z.SHADOWMOON_VALLEY_OUTLAND)
 
 	-- Cockroach -- 61384
 	pet = AddPet(61384, V.MOP, Q.COMMON)
@@ -3858,7 +3858,7 @@ function addon:InitCritters()
 	-- Scorpid -- 61326
 	pet = AddPet(61326, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.BLADES_EDGE_MOUNTAINS, Z.BLASTED_LANDS, Z.BURNING_STEPPES, Z.EASTERN_PLAGUELANDS, Z.HELLFIRE_PENINSULA, Z.ORGRIMMAR, Z.SHADOWMOON_VALLEY, Z.SILITHUS, Z.THOUSAND_NEEDLES, Z.TWILIGHT_HIGHLANDS)
+	pet:AddWorldDrop(Z.BLADES_EDGE_MOUNTAINS, Z.BLASTED_LANDS, Z.BURNING_STEPPES, Z.EASTERN_PLAGUELANDS, Z.HELLFIRE_PENINSULA, Z.ORGRIMMAR, Z.SHADOWMOON_VALLEY_OUTLAND, Z.SILITHUS, Z.THOUSAND_NEEDLES, Z.TWILIGHT_HIGHLANDS)
 
 	-- Baby Ape -- 61324
 	pet = AddPet(61324, V.MOP, Q.COMMON)
@@ -4095,6 +4095,284 @@ function addon:InitCritters()
 	pet = AddPet(62819, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.GRIZZLY_HILLS)
+
+-- To stop debug window from popping up
+
+	-- Bronze Whelpling -- 7546
+	pet = AddPet(7546, V.WOD, Q.COMMON)
+
+	-- Albino Chimaeraling -- 77021
+	pet = AddPet(77021, V.WOD, Q.COMMON)
+
+	-- Iron Starlette -- 77221
+	pet = AddPet(77221, V.WOD, Q.COMMON)
+
+	-- Weebomination -- 78421
+	pet = AddPet(78421, V.WOD, Q.COMMON)
+
+	-- Lil' Leftovers -- 78895
+	pet = AddPet(78895, V.WOD, Q.COMMON)
+
+	-- Crazy Carrot -- 79039
+	pet = AddPet(79039, V.WOD, Q.COMMON)
+
+	-- Mechanical Axebeak -- 79410
+	pet = AddPet(79410, V.WOD, Q.COMMON)
+
+	-- Royal Peacock -- 80101
+	pet = AddPet(80101, V.WOD, Q.COMMON)
+
+	-- Lifelike Mechanical Frostboar -- 80329
+	pet = AddPet(80329, V.WOD, Q.COMMON)
+
+	-- Teroclaw Hatchling -- 81431
+	pet = AddPet(81431, V.WOD, Q.COMMON)
+
+	-- Moonshell Crab -- 82045
+	pet = AddPet(82045, V.WOD, Q.COMMON)
+
+	-- Elekk Plushie -- 82464
+	pet = AddPet(82464, V.WOD, Q.COMMON)
+
+	-- Frostfur Rat -- 82715
+	pet = AddPet(82715, V.WOD, Q.COMMON)
+
+	-- Zomstrok -- 83562
+	pet = AddPet(83562, V.WOD, Q.COMMON)
+
+	-- Forest Sproutling -- 83583
+	pet = AddPet(83583, V.WOD, Q.COMMON)
+
+	-- Sun Sproutling -- 83588
+	pet = AddPet(83588, V.WOD, Q.COMMON)
+
+	-- Nightshade Sproutling -- 83594
+	pet = AddPet(83594, V.WOD, Q.COMMON)
+
+	-- Mud Jumper -- 83642
+	pet = AddPet(83642, V.WOD, Q.COMMON)
+
+	-- Ghastly Kid -- 83817
+	pet = AddPet(83817, V.WOD, Q.COMMON)
+
+	-- Meadowstomper Calf -- 84330
+	pet = AddPet(84330, V.WOD, Q.COMMON)
+
+	-- Sea Calf -- 84441
+	pet = AddPet(84441, V.WOD, Q.COMMON)
+
+	-- Deathwatch Hatchling -- 84521
+	pet = AddPet(84521, V.WOD, Q.COMMON)
+
+	-- Soul of the Forge -- 84853
+	pet = AddPet(84853, V.WOD, Q.COMMON)
+
+	-- Draenei Micro Defender -- 84885
+	pet = AddPet(84885, V.WOD, Q.COMMON)
+
+	-- Molten Corgi -- 84915
+	pet = AddPet(84915, V.WOD, Q.COMMON)
+
+	-- Icespine Hatchling -- 85003
+	pet = AddPet(85003, V.WOD, Q.COMMON)
+
+	-- Mossbite Skitterer -- 85005
+	pet = AddPet(85005, V.WOD, Q.COMMON)
+
+	-- Thicket Skitterer -- 85007
+	pet = AddPet(85007, V.WOD, Q.COMMON)
+
+	-- Bone Wasp -- 85014
+	pet = AddPet(85014, V.WOD, Q.COMMON)
+
+	-- Junglebeak -- 85192
+	pet = AddPet(85192, V.WOD, Q.COMMON)
+
+	-- Stonegrinder -- 85231
+	pet = AddPet(85231, V.WOD, Q.COMMON)
+
+	-- Twilight Wasp -- 85253
+	pet = AddPet(85253, V.WOD, Q.COMMON)
+
+	-- Wood Wasp -- 85254
+	pet = AddPet(85254, V.WOD, Q.COMMON)
+
+	-- Bloodsting Wasp -- 85255
+	pet = AddPet(85255, V.WOD, Q.COMMON)
+
+	-- Amberbarb Wasp -- 85257
+	pet = AddPet(85257, V.WOD, Q.COMMON)
+
+	-- Albino River Calf -- 85281
+	pet = AddPet(85281, V.WOD, Q.COMMON)
+
+	-- Sky-Bo -- 85284
+	pet = AddPet(85284, V.WOD, Q.COMMON)
+
+	-- Fruit Hunter -- 85387
+	pet = AddPet(85387, V.WOD, Q.COMMON)
+
+	-- Axebeak Hatchling -- 85389
+	pet = AddPet(85389, V.WOD, Q.COMMON)
+
+	-- Syd the Squid -- 85527
+	pet = AddPet(85527, V.WOD, Q.COMMON)
+
+	-- Ore Eater -- 85667
+	pet = AddPet(85667, V.WOD, Q.COMMON)
+
+	-- Lovebird Hatchling -- 85710
+	pet = AddPet(85710, V.WOD, Q.COMMON)
+
+	-- Mystical Spring Bouquet -- 85773
+	pet = AddPet(85773, V.WOD, Q.COMMON)
+
+	-- Golden Dawnfeather -- 85798
+	pet = AddPet(85798, V.WOD, Q.COMMON)
+
+	-- Bush Chicken -- 85846
+	pet = AddPet(85846, V.WOD, Q.COMMON)
+
+	-- Blazing Cindercrawler -- 85872
+	pet = AddPet(85872, V.WOD, Q.COMMON)
+
+	-- Stout Alemental -- 85994
+	pet = AddPet(85994, V.WOD, Q.COMMON)
+
+	-- Cursed Birman -- 86061
+	pet = AddPet(86061, V.WOD, Q.COMMON)
+
+	-- Widget the Departed -- 86067
+	pet = AddPet(86067, V.WOD, Q.COMMON)
+
+	-- Netherspawn, Spawn of Netherspawn -- 86081
+	pet = AddPet(86081, V.WOD, Q.COMMON)
+
+	-- Ancient Nest Guardian -- 86420
+	pet = AddPet(86420, V.WOD, Q.COMMON)
+
+	-- Frostwolf Ghostpup -- 86422
+	pet = AddPet(86422, V.WOD, Q.COMMON)
+
+	-- Land Shark -- 86445
+	pet = AddPet(86445, V.WOD, Q.COMMON)
+
+	-- Ikky -- 86447
+	pet = AddPet(86447, V.WOD, Q.COMMON)
+
+	-- Lanticore Spawnling -- 86532
+	pet = AddPet(86532, V.WOD, Q.COMMON)
+
+	-- Crimson Spore -- 86716
+	pet = AddPet(86716, V.WOD, Q.COMMON)
+
+	-- Umbrafen Spore -- 86717
+	pet = AddPet(86717, V.WOD, Q.COMMON)
+
+	-- Brilliant Spore -- 86719
+	pet = AddPet(86719, V.WOD, Q.COMMON)
+
+	-- Hydraling -- 86879
+	pet = AddPet(86879, V.WOD, Q.COMMON)
+
+	-- Frostwolf Pup -- 87111
+	pet = AddPet(87111, V.WOD, Q.COMMON)
+
+	-- Pygmy Cow -- 87257
+	pet = AddPet(87257, V.WOD, Q.COMMON)
+
+	-- Hatespark the Tiny -- 87669
+	pet = AddPet(87669, V.WOD, Q.COMMON)
+
+	-- Firewing -- 87704
+	pet = AddPet(87704, V.WOD, Q.COMMON)
+
+	-- Stormwing -- 87705
+	pet = AddPet(87705, V.WOD, Q.COMMON)
+
+	-- Doom Bloom -- 88103
+	pet = AddPet(88103, V.WOD, Q.COMMON)
+
+	-- Mechanical Scorpid -- 88134
+	pet = AddPet(88134, V.WOD, Q.COMMON)
+
+	-- Everbloom Peachick -- 88222
+	pet = AddPet(88222, V.WOD, Q.COMMON)
+
+	-- Sentinel's Companion -- 88225
+	pet = AddPet(88225, V.WOD, Q.COMMON)
+
+	-- Puddle Terror -- 88300
+	pet = AddPet(88300, V.WOD, Q.COMMON)
+
+	-- Waterfly -- 88355
+	pet = AddPet(88355, V.WOD, Q.COMMON)
+
+	-- Swamplighter Firefly -- 88359
+	pet = AddPet(88359, V.WOD, Q.COMMON)
+
+	-- Sunfire Kaliri -- 88367
+	pet = AddPet(88367, V.WOD, Q.COMMON)
+
+	-- Brilliant Bloodfeather -- 88385
+	pet = AddPet(88385, V.WOD, Q.COMMON)
+
+	-- Son of Sethe -- 88401
+	pet = AddPet(88401, V.WOD, Q.COMMON)
+
+	-- Royal Moth -- 88417
+	pet = AddPet(88417, V.WOD, Q.COMMON)
+
+	-- Sky Fry -- 88452
+	pet = AddPet(88452, V.WOD, Q.COMMON)
+
+	-- Kelp Scuttler -- 88465
+	pet = AddPet(88465, V.WOD, Q.COMMON)
+
+	-- Zangar Crawler -- 88466
+	pet = AddPet(88466, V.WOD, Q.COMMON)
+
+	-- Ironclaw Scuttler -- 88474
+	pet = AddPet(88474, V.WOD, Q.COMMON)
+
+	-- Frostshell Pincher -- 88480
+	pet = AddPet(88480, V.WOD, Q.COMMON)
+
+	-- Eye of Observation -- 88490
+	pet = AddPet(88490, V.WOD, Q.COMMON)
+
+	-- Mudback Calf -- 88571
+	pet = AddPet(88571, V.WOD, Q.COMMON)
+
+	-- Flat-Tooth Calf -- 88572
+	pet = AddPet(88572, V.WOD, Q.COMMON)
+
+	-- Veilwatcher Hatchling -- 88573
+	pet = AddPet(88573, V.WOD, Q.COMMON)
+
+	-- Kaliri Hatchling -- 88574
+	pet = AddPet(88574, V.WOD, Q.COMMON)
+
+	-- Shadow Sporebat -- 88576
+	pet = AddPet(88576, V.WOD, Q.COMMON)
+
+	-- Servant of Demidos -- 88692
+	pet = AddPet(88692, V.WOD, Q.COMMON)
+
+	-- Grommloc -- 88805
+	pet = AddPet(88805, V.WOD, Q.COMMON)
+
+	-- Argi -- 88807
+	pet = AddPet(88807, V.WOD, Q.COMMON)
+
+	-- Trunks -- 88830
+	pet = AddPet(88830, V.WOD, Q.COMMON)
+
+	-- Parched Lizard -- 89194
+	pet = AddPet(89194, V.WOD, Q.COMMON)
+
+	-- Leatherhide Runt -- 89198
+	pet = AddPet(89198, V.WOD, Q.COMMON)
 
 	self.InitCritters = nil
 
