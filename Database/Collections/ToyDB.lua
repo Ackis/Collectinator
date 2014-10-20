@@ -30,14 +30,17 @@ local LibStub	= _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
-local A = private.ACQUIRE_TYPES
+-------------------------------------------------------------------------------
+-- Filter flags. Acquire types, and Reputation levels.
+-------------------------------------------------------------------------------
 local F = private.FILTER_IDS
-local PROF = private.LOCALIZED_PROFESSION_NAMES
+local A = private.ACQUIRE_TYPES
 local Q = private.ITEM_QUALITIES
 local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
 local Z = private.ZONE_NAMES
+local PROF = private.LOCALIZED_PROFESSION_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -51,267 +54,319 @@ function addon:InitToys()
 
 	local toy
 
-	-- Ai-Li's Skymirror - 86589
-	toy = AddToy(86589, V.MOP, Q.RARE)
-	toy:SetItemID(86589)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
-
-	-- Crashin' Thrashin' Robot -- 23767
-	toy = AddToy(23767, V.TBC, Q.UNCOMMON)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
-
-	-- Ancient's Bloom -- 113570
-	toy = AddToy(113570, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
-	toy:SetItemID(113570)
-	-- toy:AddMobDrop(75435)
-
+-- World of Warcraft Classic
 	-- Orb of Deception -- 1973
 	toy = AddToy(1973, V.ORIG, Q.RARE)
-	toy:SetItemID(1973)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	toy:AddWorldDrop(Z.KALIMDOR, Z.EASTERN_KINGDOMS)
 
 	-- Winter Veil Disguise Kit -- 17712
 	toy = AddToy(17712, V.ORIG, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
 	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+	toy:AddQuest(6983, 7043)
 
 	-- Snowmaster 9000 -- 17716
 	toy = AddToy(17716, V.ORIG, Q.UNCOMMON)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.PROFESSION)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	toy:AddProfession(PROF.ENGINEERING)
-	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
 	-- World Enlarger -- 18660
 	toy = AddToy(18660, V.ORIG, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.PROFESSION)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	toy:AddProfession(PROF.ENGINEERING)
 
 	-- Elune's Lantern -- 21540
 	toy = AddToy(21540, V.ORIG, Q.UNCOMMON)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST)
---	toy:AddQuest(8868)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
 	toy:AddWorldEvent("LUNAR_FESTIVAL")
+	toy:AddQuest(8868)
+
+-- The Burning Crusade
+	-- Crashin' Thrashin' Robot -- 23767
+	toy = AddToy(23767, V.TBC, Q.UNCOMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
 
 	-- Power Converter -- 30690
 	toy = AddToy(30690, V.TBC, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.QUEST)
---	toy:AddQuest(10675)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	toy:AddQuest(10675)
 
 	-- Imp in a Ball -- 32542
 	toy = AddToy(32542, V.TBC, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
 
 	-- Picnic Basket -- 32566
 	toy = AddToy(32566, V.TBC, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
 
 	-- Time-Lost Figurine -- 32782
 	toy = AddToy(32782, V.TBC, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
-	-- toy:AddMobDrop(21838)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(21838)
 
 	-- Goblin Gumbo Kettle -- 33219
 	toy = AddToy(33219, V.TBC, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
 
 	-- Fishing Chair -- 33223
 	toy = AddToy(33223, V.TBC, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
 
 	-- Brewfest Pony Keg -- 33927
 	toy = AddToy(33927, V.TBC, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
+	toy:AddVendor(23710, 24495, 27478, 27489)
 	toy:AddWorldEvent("BREWFEST")
 
 	-- Romantic Picnic Basket -- 34480
 	toy = AddToy(34480, V.TBC, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
 	toy:AddWorldEvent("LOVE_IS_IN_THE_AIR")
+	toy:AddCustom("CITY")
 
 	-- Paper Flying Machine Kit -- 34499
 	toy = AddToy(34499, V.TBC, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
 
 	-- Brazier of Dancing Flames -- 34686
 	toy = AddToy(34686, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
 	toy:AddWorldEvent("MIDSUMMER_FIRE_FESTIVAL")
+	toy:AddCustom("CITY")
 
 	-- Goblin Weather Machine - Prototype 01-B -- 35227
 	toy = AddToy(35227, V.TBC, Q.EPIC)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
 
 	-- Orb of the Sin'dorei -- 35275
 	toy = AddToy(35275, V.TBC, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.MOB_DROP)
-
-	-- Worn Troll Dice -- 36862
-	toy = AddToy(36862, V.WOTLK, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.MISC)
-
-	-- Decahedral Dwarven Dice -- 36863
-	toy = AddToy(36863, V.WOTLK, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.MISC)
-
-	-- Super Simian Sphere -- 37254
-	toy = AddToy(37254, V.WOTLK, Q.EPIC)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
+	toy:AddWorldDrop(Z.MAGISTERS_TERRACE)
+	toy:AddCustom("HEROIC")
 
 	-- Crashin' Thrashin' Racer Controller -- 37710
 	toy = AddToy(37710, V.TBC, Q.UNCOMMON)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.WORLD_EVENTS)
 	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
-
-
--- to check/update:
-
-	-- Murloc Costume -- 33079
-	toy = AddToy(33079, V.WOD, Q.COMMON)
+	toy:AddQuest(6983, 7043)
 
 	-- D.I.S.C.O. -- 38301
-	toy = AddToy(38301, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(38301, V.TBC, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
+
+-- Wrath of the Lich King
+	-- Worn Troll Dice -- 36862
+	toy = AddToy(36862, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MISC)
+	toy:AddCustom("PICKPOCKET")
+
+	-- Decahedral Dwarven Dice -- 36863
+	toy = AddToy(36863, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MISC)
+	toy:AddCustom("PICKPOCKET")
+
+	-- Super Simian Sphere -- 37254
+	toy = AddToy(37254, V.WOTLK, Q.EPIC)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	toy:AddWorldDrop(Z.NORTHREND)
 
 	-- The Flag of Ownership -- 38578
-	toy = AddToy(38578, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(38578, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
 
 	-- Gnomish X-Ray Specs -- 40895
-	toy = AddToy(40895, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(40895, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
 
 	-- Iron Boot Flask -- 43499
-	toy = AddToy(43499, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(43499, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(29744, 30472)
 
 	-- Titanium Seal of Dalaran -- 44430
 	toy = AddToy(44430, V.WOTLK, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(2096)
 
 	-- Toy Train Set -- 44606
-	toy = AddToy(44606, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR)
+	toy = AddToy(44606, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(29478, 29716, 52358, 52809)
 
 	-- Frenzyheart Brew -- 44719
-	toy = AddToy(44719, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(44719, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(31911)
+	toy:AddCustom("DISGUSTING_JAR")
 
 	-- Stormwind Banner -- 45011
-	toy = AddToy(45011, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45011, V.WOTLK, Q.RARE)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	toy:AddVendor(33307)
 
 	-- Thunder Bluff Banner -- 45013
-	toy = AddToy(45013, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45013, V.WOTLK, Q.RARE)
+	toy:SetRequiredFaction("Horde")
+	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(33556)
 
 	-- Orgrimmar Banner -- 45014
-	toy = AddToy(45014, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45014, V.WOTLK, Q.RARE)
+	toy:SetRequiredFaction("Horde")
+	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(33553)
 
 	-- Sen'jin Banner -- 45015
-	toy = AddToy(45015, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45015, V.WOTLK, Q.RARE)
+	toy:SetRequiredFaction("Horde")
+	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(33554)
 
 	-- Undercity Banner -- 45016
-	toy = AddToy(45016, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45016, V.WOTLK, Q.RARE)
+	toy:SetRequiredFaction("Horde")
+	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(33555)
 
 	-- Silvermoon City Banner -- 45017
-	toy = AddToy(45017, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45017, V.WOTLK, Q.RARE)
+	toy:SetRequiredFaction("Horde")
+	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(33557)
 
 	-- Ironforge Banner -- 45018
-	toy = AddToy(45018, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45018, V.WOTLK, Q.RARE)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	toy:AddVendor(33310)
 
 	-- Gnomeregan Banner -- 45019
-	toy = AddToy(45019, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45019, V.WOTLK, Q.RARE)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	toy:AddVendor(33650)
 
 	-- Exodar Banner -- 45020
-	toy = AddToy(45020, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45020, V.WOTLK, Q.RARE)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	toy:AddVendor(33657)
 
 	-- Darnassus Banner -- 45021
-	toy = AddToy(45021, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45021, V.WOTLK, Q.RARE)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	toy:AddVendor(33653)
 
 	-- Wind-Up Train Wrecker -- 45057
-	toy = AddToy(45057, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45057, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(29478, 29716, 52358, 52809)
 
 	-- Foam Sword Rack -- 45063
-	toy = AddToy(45063, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45063, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")	
 
 	-- Unusual Compass -- 45984
-	toy = AddToy(45984, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(45984, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddCustom("FISHING_DAILIES")
 
 	-- MiniZep Controller -- 46709
-	toy = AddToy(46709, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(46709, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+	toy:AddQuest(6983, 7043)
 
 	-- Ogre Pinata -- 46780
-	toy = AddToy(46780, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(46780, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
 
 	-- Argent Crusader's Banner -- 46843
-	toy = AddToy(46843, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(46843, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(34885)
 
 	-- Perpetual Purple Firework -- 49703
-	toy = AddToy(49703, V.WOD, Q.EPIC)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(49703, V.WOTLK, Q.EPIC)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
 
 	-- The Heartbreaker -- 50471
-	toy = AddToy(50471, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(50471, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.WORLD_EVENTS)
+	toy:AddMobDrop(36296)
+	toy:AddWorldEvent("LOVE_IS_IN_THE_AIR")
 
 	-- Muradin's Favor -- 52201
-	toy = AddToy(52201, V.WOD, Q.EPIC)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(52201, V.WOTLK, Q.EPIC)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)
+	toy:AddQuest(24917)
 
 	-- Sylvanas' Music Box -- 52253
-	toy = AddToy(52253, V.WOD, Q.EPIC)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
-
-	-- Faded Wizard Hat -- 53057
-	toy = AddToy(53057, V.WOD, Q.COMMON)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST)
+	toy = AddToy(52253, V.WOTLK, Q.EPIC)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)
+	toy:AddQuest(24918)
 
 	-- Instant Statue Pedestal -- 54212
-	toy = AddToy(54212, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(54212, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
 
 	-- Blue Crashin' Thrashin' Racer Controller -- 54343
-	toy = AddToy(54343, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(54343, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(29478, 29716, 52358, 52809)
 
 	-- Tiny Green Ragdoll -- 54437
-	toy = AddToy(54437, V.WOD, Q.UNCOMMON)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(54437, V.WOTLK, Q.UNCOMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(29478, 29716, 52358, 52809)
 
 	-- Tiny Blue Ragdoll -- 54438
-	toy = AddToy(54438, V.WOD,Q.UNCOMMON)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(54438, V.WOTLK,Q.UNCOMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(29478, 29716, 52358, 52809)
 
 	-- Gnomeregan Pride -- 54651
-	toy = AddToy(54651, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(54651, V.CATA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE)
+	toy:Retire()
 
 	-- Darkspear Pride -- 54653
-	toy = AddToy(54653, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(54653, V.CATA, Q.RARE)
+	toy:AddFilters(F.HORDE)
+	toy:Retire()
+
+	-- Faded Wizard Hat -- 53057
+	toy = AddToy(53057, V.CATA, Q.COMMON)
+	toy:SetRequiredFaction("Horde")
+	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(14392)
 
 	-- Tol Barad Searchlight -- 63141
-	toy = AddToy(63141, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy = AddToy(63141, V.CATA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.VENDOR, F.REPUTATION, F.IBOP, F.CATACOMMON2)
+	toy:AddRepVendor(FAC.BARADINS_WARDENS, REP.HONORED, 47328)
 
 	-- Loaded Gnomish Dice -- 63269
-	toy = AddToy(63269, V.WOD, Q.RARE)
+	toy = AddToy(63269, V.CATA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
 
 	-- Highborne Soul Mirror -- 64358
@@ -384,7 +439,6 @@ function addon:InitToys()
 
 	-- Ancient Amber -- 69776
 	toy = AddToy(69776, V.MOP, Q.RARE)
-	toy:SetItemID(69776)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
 
 	-- Haunted War Drum -- 69777
@@ -462,6 +516,10 @@ function addon:InitToys()
 	-- Pandaren Firework Launcher -- 86588
 	toy = AddToy(86588, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+
+	-- Ai-Li's Skymirror - 86589
+	toy = AddToy(86589, V.MOP, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 
 	-- Hozen Beach Ball -- 86593
 	toy = AddToy(86593, V.WOD, Q.RARE)
@@ -671,6 +729,11 @@ function addon:InitToys()
 	toy = AddToy(113375, V.WOD, Q.UNCOMMON)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
 
+	-- Ancient's Bloom -- 113570
+	toy = AddToy(113570, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	-- toy:AddMobDrop(75435)
+
 	-- Hypnosis Goggles -- 113631
 	toy = AddToy(113631, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
@@ -865,6 +928,10 @@ function addon:InitToys()
 
 	-- Archmage Vargoth's Spare Staff -- 118191
 	toy = AddToy(118191, V.WOD, Q.MISC)
+
+--Not actually in the toy box added
+	-- Murloc Costume -- 33079
+	toy = AddToy(33079, V.WOD, Q.COMMON)
 
 	self.InitToys = nil
 

@@ -41,6 +41,7 @@ function addon:InitCustom()
 	AddCustom("SOR")
 	AddCustom("RECRUIT")
 	AddCustom("MYSTERIOUS_EGG",	Z.SHOLAZAR_BASIN,		54.6,	56.2)
+	AddCustom("DISGUSTING_JAR",	Z.SHOLAZAR,BASIN,		55.0,	69.0)
 	AddCustom("TCG",		Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	71.6)
 	AddCustom("STORE")
 	AddCustom("PLUSHIE")
@@ -84,6 +85,7 @@ function addon:InitCustom()
 	AddCustom("STABLES")
 	AddCustom("MYTHIC")
 	AddCustom("INVADERS_TREASURE")
+	AddCustom("PICKPOCKET")
 
 	self.InitCustom = nil
 end
