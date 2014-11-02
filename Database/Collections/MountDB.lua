@@ -2000,7 +2000,7 @@ function addon:InitMounts()
 	mount:AddMobDrop(52409)
 
 	-- Felfire Hawk -- 97501
-	mount = AddMount(97501, V.WOD, Q.COMMON) -- Item: 69226
+	mount = AddMount(97501, V.WOD, Q.EPIC) -- Item: 69226
 	mount:SetItemID(69226)
 	mount:AddFilters(F.ALLIANCE,F.HORDE,F.ACHIEVEMENT,F.IBOP)
 	mount:AddAchievement(9598, 9599)
@@ -2796,241 +2796,241 @@ function addon:InitMounts()
 -- Warlords of Draenor
 
 	-- Grinning Reaver -- 163025
-	mount = AddMount(163025, V.WOD, Q.COMMON)
+	mount = AddMount(163025, V.WOD, Q.EPIC)
 	mount:SetItemID(112327)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
 	mount:AddCustom("STORE")
 
 	-- Creeping Carpet -- 169952
-	mount = AddMount(169952, V.WOD, Q.COMMON)
+	mount = AddMount(169952, V.WOD, Q.EPIC)
 	mount:SetItemID(115363)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
 	mount:AddProfession(PROF.TAILORING)
 
 	-- Core Hound -- 170347
-	mount = AddMount(170347, V.WOD, Q.COMMON)
+	mount = AddMount(170347, V.WOD, Q.EPIC)
 	mount:SetItemID(115484)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(9550)
 
 	-- Gorestrider Gronnling -- 171436
-	mount = AddMount(171436, V.WOD, Q.COMMON)
+	mount = AddMount(171436, V.WOD, Q.EPIC)
 	mount:SetItemID(116383)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(8985)
 
 	-- Trained Icehoof -- 171617
-	mount = AddMount(171617, V.WOD, Q.COMMON)
+	mount = AddMount(171617, V.WOD, Q.RARE)
 	mount:SetItemID(116656)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(36994, 37059)
 	mount:AddCustom("STABLES")
 
 	-- Bloodhoof Bull -- 171620
-	mount = AddMount(171620, V.WOD, Q.COMMON)
+	mount = AddMount(171620, V.WOD, Q.EPIC)
 	mount:SetItemID(116659)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(50990)
 
 	-- Ironhoof Destroyer -- 171621
-	mount = AddMount(171621, V.WOD, Q.COMMON)
+	mount = AddMount(171621, V.WOD, Q.EPIC)
 	mount:SetItemID(116660)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(87420)
 	mount:AddCustom("MYTHIC")
 
 	-- Mottled Meadowstomper -- 171622
-	mount = AddMount(171622, V.WOD, Q.COMMON)
+	mount = AddMount(171622, V.WOD, Q.EPIC)
 	mount:SetItemID(116661)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(50981)
 
 	-- Trained Meadowstomper -- 171623
-	mount = AddMount(171623, V.WOD, Q.COMMON)
+	mount = AddMount(171623, V.WOD, Q.RARE)
 	mount:SetItemID(116662)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(37021, 37069)
 	mount:AddCustom("STABLES")
 
 	-- Shadowhide Pearltusk -- 171624
-	mount = AddMount(171624, V.WOD, Q.COMMON)
+	mount = AddMount(171624, V.WOD, Q.RARE)
 	mount:SetItemID(116663)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(35788, 37307)
 	mount:AddCustom("INVADERS_TREASURE")
 
 	-- Dusty Rockhide -- 171625
-	mount = AddMount(171625, V.WOD, Q.COMMON)
+	mount = AddMount(171625, V.WOD, Q.RARE)
 	mount:SetItemID(116664)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.DRAENORCOMMON2)
 	mount:AddRepVendor(FAC.COUNCIL_OF_EXARCHS, REP.EXALTED, 85932)
 
 	-- Armored Irontusk -- 171626
-	mount = AddMount(171626, V.WOD, Q.COMMON)
+	mount = AddMount(171626, V.WOD, Q.RARE)
 	mount:SetItemID(116665)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.DRAENORCOMMON3)
 	mount:AddRepVendor(FAC.SHATARI_DEFENSE, REP.EXALTED, 85427)
 
 	-- Blacksteel Battleboar -- 171627
-	mount = AddMount(171627, V.WOD, Q.COMMON)
+	mount = AddMount(171627, V.WOD, Q.RARE)
 	mount:SetItemID(116666)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(9669)
 
 	-- Armored Frostboar -- 171629
-	mount = AddMount(171629, V.WOD, Q.COMMON)
+	mount = AddMount(171629, V.WOD, Q.RARE)
 	mount:SetItemID(116668)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(9539, 9705)
 	mount:AddCustom("STABLES")
 
 	-- Frostplains Battleboar -- 171632
-	mount = AddMount(171632, V.WOD, Q.COMMON)
+	mount = AddMount(171632, V.WOD, Q.RARE)
 	mount:SetItemID(116670)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(9396)
 
 	-- Domesticated Razorback -- 171634
-	mount = AddMount(171634, V.WOD, Q.COMMON)
+	mount = AddMount(171634, V.WOD, Q.RARE)
 	mount:SetItemID(116672)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.STEAMWHEEDLE_PRESERVATION_SOCIETY)
 	mount:AddRepVendor(FAC.STEAMWHEEDLE_PRESERVATION_SOCIETY, REP.EXALTED, 88482, 88493)
 
 	-- Giant Coldsnout -- 171635
-	mount = AddMount(171635, V.WOD, Q.COMMON)
+	mount = AddMount(171635, V.WOD, Q.RARE)
 	mount:SetItemID(116673)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(35788, 37307)
 	mount:AddCustom("INVADERS_TREASURE")
 
 	-- Great Greytusk -- 171636
-	mount = AddMount(171636, V.WOD, Q.COMMON)
+	mount = AddMount(171636, V.WOD, Q.EPIC)
 	mount:SetItemID(116674)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(87308)
 
 	-- Trained Rocktusk -- 171637
-	mount = AddMount(171637, V.WOD, Q.COMMON)
+	mount = AddMount(171637, V.WOD, Q.RARE)
 	mount:SetItemID(116675)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(37004, 37041)
 	mount:AddCustom("STABLES")
 
 	-- Trained Riverwallow -- 171638
-	mount = AddMount(171638, V.WOD, Q.COMMON)
+	mount = AddMount(171638, V.WOD, Q.RARE)
 	mount:SetItemID(116676)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(37013, 37079)
 	mount:AddCustom("STABLES")
 
 	-- Sapphire Riverbeast -- 171824
-	mount = AddMount(171824, V.WOD, Q.COMMON)
+	mount = AddMount(171824, V.WOD, Q.EPIC)
 	mount:SetItemID(116767)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(51015)
 
 	-- Mosshide Riverwallow -- 171825
-	mount = AddMount(171825, V.WOD, Q.COMMON)
+	mount = AddMount(171825, V.WOD, Q.RARE)
 	mount:SetItemID(116768)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	mount:AddVendor(86382, 86391)
 
 	-- Solar Spirehawk -- 171828
-	mount = AddMount(171828, V.WOD, Q.COMMON)
+	mount = AddMount(171828, V.WOD, Q.EPIC)
 	mount:SetItemID(116771)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(87493)
 
 	-- Shadowmane Charger -- 171829
-	mount = AddMount(171829, V.WOD, Q.COMMON)
+	mount = AddMount(171829, V.WOD, Q.RARE)
 	mount:SetItemID(116772)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.ARAKKOA_OUTCASTS)
 	mount:AddRepVendor(FAC.ARAKKOA_OUTCASTS, REP.EXALTED, 85946, 86037)
 
 	-- Swift Breezestrider -- 171830
-	mount = AddMount(171830, V.WOD, Q.COMMON)
+	mount = AddMount(171830, V.WOD, Q.EPIC)
 	mount:SetItemID(116773)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(50883)
 
 	-- Trained Silverpelt -- 171831
-	mount = AddMount(171831, V.WOD, Q.COMMON)
+	mount = AddMount(171831, V.WOD, Q.RARE)
 	mount:SetItemID(116774)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(36982, 37104)
 
 	-- Breezestrider Stallion -- 171832
-	mount = AddMount(171832, V.WOD, Q.COMMON)
+	mount = AddMount(171832, V.WOD, Q.RARE)
 	mount:SetItemID(116775)
 	mount:SetRequiredFaction("Horde")
 	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.DRAENORCOMMON1)
 	mount:AddRepVendor(FAC.VOLJINS_SPEAR, REP.EXALTED, 85115)
 
 	-- Pale Thorngrazer -- 171833
-	mount = AddMount(171833, V.WOD, Q.COMMON)
+	mount = AddMount(171833, V.WOD, Q.RARE)
 	mount:SetItemID(116776)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.DRAENORCOMMON1)
 	mount:AddRepVendor(FAC.WRYNNS_VANGUARD, REP.EXALTED, 80882)
 
 	-- Vicious War Ram -- 171834
-	mount = AddMount(171834, V.WOD, Q.COMMON)
+	mount = AddMount(171834, V.WOD, Q.EPIC)
 	mount:SetItemID(116777)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
 	mount:AddVendor(73190)
 
 	-- Garn Steelmaw -- 171836
-	mount = AddMount(171836, V.WOD, Q.COMMON)
+	mount = AddMount(171836, V.WOD, Q.RARE)
 	mount:SetItemID(116779)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(35788, 37307)
 	mount:AddCustom("INVADERS_TREASURE")
 
 	-- Armored Frostwolf -- 171838
-	mount = AddMount(171838, V.WOD, Q.COMMON)
+	mount = AddMount(171838, V.WOD, Q.RARE)
 	mount:SetItemID(116781)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(9706)
 
 	-- Ironside Warwolf -- 171839
-	mount = AddMount(171839, V.WOD, Q.COMMON)
+	mount = AddMount(171839, V.WOD, Q.RARE)
 	mount:SetItemID(116782)
 	mount:SetRequiredFaction("Horde")
 	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.DRAENORCOMMON3)
 	mount:AddRepVendor(FAC.LAUGHING_SKULL_ORCS, REP.EXALTED, 86698)
 
 	-- Trained Snarler -- 171841
-	mount = AddMount(171841, V.WOD, Q.COMMON)
+	mount = AddMount(171841, V.WOD, Q.RARE)
 	mount:SetItemID(116784)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(37028, 37111)
 	mount:AddCustom("STABLES")
 
 	-- Swift Frostwolf -- 171842
-	mount = AddMount(171842, V.WOD, Q.COMMON)
+	mount = AddMount(171842, V.WOD, Q.EPIC)
 	mount:SetItemID(116785)
 	mount:SetRequiredFaction("Horde")
 	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.DRAENORCOMMON2)
 	mount:AddRepVendor(FAC.FROSTWOLF_ORCS, REP.EXALTED, 86036)
 
 	-- Smoky Direwolf -- 171843
-	mount = AddMount(171843, V.WOD, Q.COMMON)
+	mount = AddMount(171843, V.WOD, Q.RARE)
 	mount:SetItemID(116786)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(35788, 37307)
 	mount:AddCustom("INVADERS_TREASURE")
 
 	-- Dustmane Direwolf -- 171844
-	mount = AddMount(171844, V.WOD, Q.COMMON)
+	mount = AddMount(171844, V.WOD, Q.EPIC)
 	mount:SetItemID(108883)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
 	mount:AddProfession(PROF.LEATHERWORKING)
 
 	-- Warlord's Deathwheel -- 171845
-	mount = AddMount(171845, V.WOD, Q.COMMON)
+	mount = AddMount(171845, V.WOD, Q.EPIC)
 	mount:SetItemID(116788)
 	mount:SetRequiredFaction("Horde")
 	mount:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
@@ -3038,25 +3038,25 @@ function addon:InitMounts()
 	mount:Retire()
 
 	-- Challenger's War Yeti -- 171848
-	mount = AddMount(171848, V.WOD, Q.COMMON)
+	mount = AddMount(171848, V.WOD, Q.RARE)
 	mount:SetItemID(116791)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(8898)
 
 	-- Sunhide Gronnling -- 171849
-	mount = AddMount(171849, V.WOD, Q.COMMON)
+	mount = AddMount(171849, V.WOD, Q.EPIC)
 	mount:SetItemID(116792)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(50985)
 
 	-- Garn Nighthowl -- 171851
-	mount = AddMount(171851, V.WOD, Q.COMMON)
+	mount = AddMount(171851, V.WOD, Q.EPIC)
 	mount:SetItemID(116794)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(81001)
 
 	-- Emerald Drake -- 175700
-	mount = AddMount(175700, V.WOD, Q.COMMON)
+	mount = AddMount(175700, V.WOD, Q.EPIC)
 	mount:SetItemID(118676)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(9713)
