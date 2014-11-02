@@ -855,8 +855,9 @@ function addon:InitToys()
 
 	-- Ring of Broken Promises -- 116067
 	toy = AddToy(116067, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
-	toy:AddQuest(36477)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.WORLD_EVENTS)
+	toy:AddMobDrop(85531)
+	toy:AddWorldEvent("DARKMOON_FAIRE")
 
 	-- Blazing Wings -- 116115
 	toy = AddToy(116115, V.WOD, Q.RARE)
@@ -950,63 +951,77 @@ function addon:InitToys()
 
 	-- Giant Deathweb Egg -- 117569
 	toy = AddToy(117569, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("CURIOUS_DEATHWEB_EGG")
 
 	-- Wayfarer's Bonfire -- 117573
 	toy = AddToy(117573, V.WOD, Q.UNCOMMON)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("INN")
 
 	-- Petrification Stone -- 118221
 	toy = AddToy(118221, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(85250)
 
 	-- Spirit of Bashiok -- 118222
 	toy = AddToy(118222, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(82085)
 
 	-- Iron Buccaneer's Hat -- 118244
 	toy = AddToy(118244, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(79725)
 
 	-- Autographed Hearthstone Card -- 118427
 	toy = AddToy(118427, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("INN")
 
 	-- Goren Garb -- 118716
 	toy = AddToy(118716, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP) -- Needs update
 
 	-- Gamon's Braid -- 118937
 	toy = AddToy(118937, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("INN")
 
 	-- Manastorm's Duplicator -- 118938
 	toy = AddToy(118938, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("INN")
 
 	-- Void Totem -- 119003
 	toy = AddToy(119003, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("INN")
 
 	-- Lilian's Warning Sign -- 119039
 	toy = AddToy(119039, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("INN")
 
 	-- Fruit Basket -- 119083
 	toy = AddToy(119083, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("INN")
 
 	-- Touch of the Naaru -- 119144
 	toy = AddToy(119144, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	toy:AddQuest(36169)
 
 	-- Firefury Totem -- 119145
 	toy = AddToy(119145, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(32985)
 
 	-- Tickle Totem -- 119160
 	toy = AddToy(119160, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.DRAENORCOMMON3)
+	toy:AddRepVendor(FAC.LAUGHING_SKULL_ORCS, REP.HONORED, 86698)
 
 	-- Black Whirlwind -- 119178
 	toy = AddToy(119178, V.WOD, Q.RARE)
@@ -1014,46 +1029,55 @@ function addon:InitToys()
 
 	-- Soul Evacuation Crystal -- 119182
 	toy = AddToy(119182, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(85026)
 
 	-- Hearthstone Board -- 119210
 	toy = AddToy(119210, V.WOD, Q.COMMON)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(88779)
 
 	-- Winning Hand -- 119212
 	toy = AddToy(119212, V.WOD, Q.COMMON)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(88779)
 
 	-- Robo-Gnomebulator -- 119215
 	toy = AddToy(119215, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(9673)
 
 	-- Alliance Flag of Victory -- 119217
 	toy = AddToy(119217, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.WORLD_DROP) -- Needs updating
 
 	-- Horde Flag of Victory -- 119218
 	toy = AddToy(119218, V.WOD, Q.RARE)
-	toy:AddFilters(F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.HORDE, F.IBOP, F.WORLD_DROP) -- Needs updating
 
 	-- Warlord's Flag of Victory -- 119219
 	toy = AddToy(119219, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP) -- Needs updating
 
 	-- Sha'tari Defender's Medallion -- 119421
 	toy = AddToy(119421, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.DRAENORCOMMON3)
+	toy:AddRepVendor(FAC.SHATARI_DEFENSE, REP.REVERED, 85427)
 
 	-- Botani Camouflage -- 119432
 	toy = AddToy(119432, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(86257)
 
 	-- Outrider's Bridle Chain -- 120276
 	toy = AddToy(120276, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(81330)
 
 	-- Archmage Vargoth's Spare Staff -- 118191
 	toy = AddToy(118191, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("INN")
 
 --Not actually in the toy box added
 	-- Murloc Costume -- 33079

@@ -205,6 +205,7 @@ function addon:InitVendor()
 	AddVendor(86698,	L["Kil'rip"],			Z.FROSTWALL,			00.0,	00.0,	"Horde")
 	AddVendor(88482,	L["Gazrix Gearlock"],		Z.STORMSHIELD,			43.2,	77.4,	"Alliance")
 	AddVendor(88493,	L["Mimi Wizzlebub"],		Z.WARSPEAR,			53.8,	60.8,	"Horde")
+	AddVendor(88779,	L["Benjamin Brode"],		Z.DRAENOR,			00.0,	00.0,	"Neutral")
 
 	self.InitVendor = nil
 end
