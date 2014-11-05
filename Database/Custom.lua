@@ -95,6 +95,7 @@ function addon:InitCustom()
 	AddCustom("SWAMPLIGHTER_HIVE",	Z.SHADOWMOON_VALLEY_DRAENOR,	55.3,	74.8)
 	AddCustom("CURIOUS_DEATHWEB_EGG",	Z.SHADOWMOON_VALLEY_DRAENOR, 66.6,	86.9)
 	AddCustom("INN")
+	AddCustom("MENAGERIE_DAILY")
 
 	self.InitCustom = nil
 end

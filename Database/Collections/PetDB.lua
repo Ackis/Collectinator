@@ -109,6 +109,13 @@ function addon:InitCritters()
 	end
 	local pet
 
+	-- Albino Chimaeraling -- 77021
+	pet = AddPet(77021, V.WOD, Q.COMMON)
+	pet:SetItemID(119434)
+	pet:SetSpellID(177212)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("MENAGERIE_DAILY")
+
 	-- Albino Snake -- 7561
 	pet = AddPet(7561, V.WOTLK, Q.COMMON)
 	pet:SetItemID(44822)
@@ -375,6 +382,13 @@ function addon:InitCritters()
 	pet:SetSpellID(101424)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	pet:AddAchievement(5877)
+
+	-- Bronze Whelpling -- 7546
+	pet = AddPet(7546, V.WOD, Q.RARE)
+	pet:SetItemID(118675)
+	pet:SetSpellID(10699)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_DROP)
+	pet:AddWorldDrop(Z.BLASTED_LANDS)
 
 	-- Brown Marmot -- 61752
 	pet = AddPet(61752, V.MOP, Q.COMMON)
@@ -1426,6 +1440,13 @@ function addon:InitCritters()
 	pet:AddZoneLocations(Z.TANARIS, "13-14", false, "67.2:49.0", "64.2:51.4", "63.6:57.0", "61.0:50.2")
 	pet:AddCustom("COT")
 
+	-- Iron Starlette -- 77221
+	pet = AddPet(77221, V.WOD, Q.COMMON)
+	pet:SetItemID(111660)
+	pet:SetSpellID(155838)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(36940, 36941)
+
 	-- Jade Crane Chick -- 65314
 	pet = AddPet(65314, V.MOP, Q.COMMON)
 	pet:SetItemID(88148)
@@ -1621,6 +1642,13 @@ function addon:InitCritters()
 	pet:SetSpellID(69677)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
 	pet:AddCustom("STORE")
+
+	-- Lil' Leftovers -- 78895
+	pet = AddPet(78895, V.WOD, Q.COMMON)
+	pet:SetItemID(110684)
+	pet:SetSpellID(159296)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.COOKING)
 
 	-- Lil' Ragnaros -- 51600
 	pet = AddPet(51600, V.WOTLK, Q.RARE)
@@ -3161,6 +3189,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.ZULDRAK, "22-23", false, "38.8:75.6", "40.8:71.4", "46.0:78.2", "42.6:83.6")
 
+	-- Weebomination -- 78421
+	pet = AddPet(78421, V.WOD, Q.COMMON)
+	pet:SetItemID(113558)
+	pet:SetSpellID(158261)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	pet:AddCustom("MENAGERIE_DAILY")
+
 	-- Westfall Chicken -- 30379
 	pet = AddPet(30379, V.ORIG, Q.COMMON)
 	pet:SetItemID(11110)
@@ -3366,22 +3401,7 @@ function addon:InitCritters()
 
 -- To stop debug window from popping up
 
-	-- Bronze Whelpling -- 7546
-	pet = AddPet(7546, V.WOD, Q.RARE)
-	pet:Add
 
-
-	-- Albino Chimaeraling -- 77021
-	pet = AddPet(77021, V.WOD, Q.COMMON)
-
-	-- Iron Starlette -- 77221
-	pet = AddPet(77221, V.WOD, Q.COMMON)
-
-	-- Weebomination -- 78421
-	pet = AddPet(78421, V.WOD, Q.COMMON)
-
-	-- Lil' Leftovers -- 78895
-	pet = AddPet(78895, V.WOD, Q.COMMON)
 
 	-- Crazy Carrot -- 79039
 	pet = AddPet(79039, V.WOD, Q.COMMON)

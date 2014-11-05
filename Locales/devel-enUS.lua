@@ -267,6 +267,7 @@ L["Luk'hok"] = true
 L["MAINFILTER_OPTIONS_DESC"] = "Allows you to specify how Collectinator handles different filters."
 L["MAIN_OPTIONS_DESC"] = "Main configuration options"
 L["MATRIARCHNEST"] = "Found in the Ravasaur Matriarch's Nest."
+L["MENAGERIE_DAILY"] = "Available randomly as a reward from the Menagerie Daily."
 L["MOUNTAIN_DEW"] = "Availible in North America from a Mountain Dew promotion."
 L["MYSTERIOUS_EGG"] = "Chance at this collectable from Mysterious Egg every 3 days."
 L["MYTHIC"] = "Available only in the Mythic raid setting."
