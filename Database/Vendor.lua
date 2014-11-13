@@ -191,9 +191,11 @@ function addon:InitVendor()
 	AddVendor(73307,	L["Speaker Gulan"],		Z.TIMELESS_ISLE,		74.9,	44.9,	"Neutral")
 	AddVendor(73819,	L["Ku-Mo"],			Z.TIMELESS_ISLE,		41.4,	63.6,	"Neutral")
 	AddVendor(80882,	L["Crafticus Mindbender"],	Z.ASHRAN,			44.2,	74.0,	"Alliance")
+	AddVendor(81981,	L["Tarnon"],			Z.FROSTWALL,			 0.0,	 0.0,	"Horde")
 	AddVendor(82459,	L["Honest Jim"],		Z.SPIRES_OF_ARAK,		 0.0,	 0.0,	"Alliance")	-- Needs updating
 	AddVendor(84243,	L["Linny \"The Skinny\" Leadpockets"],	Z.SPIRES_OF_ARAK,	 0.0,	 0.0,	"Horde")	-- Needs updating
 	AddVendor(85115,	L["Dazzerian"],			Z.ASHRAN,			47.0,	21.4,	"Horde")
+	AddVendor(85344,	L["Naron Bloomthistle"],	Z.LUNARFALL,			0.00,	0.00,	"Alliance")
 	AddVendor(85427,	L["Maaria"],			Z.LUNARFALL,			0.00,	0.00,	"Alliance")
 	AddVendor(85484,	L["Chester"],			Z.DARKMOON_ISLAND,		51.4,	75.2,	"Neutral")
 	AddVendor(85932,	L["Vindicator Nuurem"],		Z.STORMSHIELD,			46.6,	76.2,	"Alliance")
