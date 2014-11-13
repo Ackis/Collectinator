@@ -105,6 +105,7 @@ private.PROFESSION_SPELL_IDS = {
 	SMELTING	= 2656,
 	TAILORING	= 3908,
 	ARCHAEOLOGY	= 78670,
+	HERBALISM	= 13617, -- Using the enchanting spell for Herbalism to gloves
 }
 
 private.LOCALIZED_PROFESSION_NAMES = {}
