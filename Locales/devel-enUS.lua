@@ -357,6 +357,7 @@ L["RESET_WINDOW_DESC"] = "Resets the Collectinator GUI to default position."
 L["RETIRED_COLLECTABLE_LONG"] = "This collectable is retired from the game.  This means that it is no longer available to acquire by normal means."
 L["RETIRED_COLLECTABLE_SHORT"] = "This collectable is retired from the game."
 L["RETIRED_DESC"] = "Include collectables which can no longer be acquired."
+L["RYLAK_NEST"] = "Available randomly from a Mysterious Egg, found in a Rylak Nest on the roof of a Grom'gar building in Frostfire Ridge."
 L["Raging Whelp"] = true
 L["Raider Bork"] = true
 L["Randah Songhorn"] = true

@@ -99,6 +99,7 @@ function addon:InitCustom()
 	AddCustom("TEROCLAW_NEST",	Z.TALADOR)
 	AddCustom("NAT_PAGLE")
 	AddCustom("KETYAS_STASH",	Z.TALADOR,			54.0,	27.6)
+	AddCustom("RYLAK_NEST",		Z.FROSTFIRE_RIDGE)
 
 	self.InitCustom = nil
 end

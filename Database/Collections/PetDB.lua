@@ -116,6 +116,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	pet:AddCustom("MENAGERIE_DAILY")
 
+	-- Albino River Calf -- 85281
+	pet = AddPet(85281, V.WOD, Q.COMMON)
+	pet:SetItemID(119148)
+	pet:SetSpellID(170287)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STEAMWHEEDLE_PRESERVATION_SOCIETY)
+	pet:AddRepVendor(FAC.STEAMWHEEDLE_PRESERVATION_SOCIETY, REP.REVERED, 88482, 88493)
+
 	-- Albino Snake -- 7561
 	pet = AddPet(7561, V.WOTLK, Q.COMMON)
 	pet:SetItemID(44822)
@@ -155,6 +162,11 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.DREAD_WASTES, "24", false, "30.6:78.6", "55.0:33.6", "45.0:18.6", "47.4:16.8", "49.6:13.6")
 	pet:AddZoneLocations(Z.TOWNLONG_STEPPES, "24", false, "47.2:77.2", "48.2:78.2", "50.0:80.2", "66.8:80.6", "64.6:83.0")
+
+	-- Amberbarb Wasp -- 85257
+	pet = AddPet(85257, V.WOD, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.GORGROND, "23-24", false, "70.5:33.1", "73.0:36.8", "72.4:41.7", "69.8:43.5")
 
 	-- Amethyst Spiderling -- 63288
 	pet = AddPet(63288, V.MOP, Q.COMMON)
@@ -324,6 +336,11 @@ function addon:InitCritters()
 	pet:SetSpellID(148049)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID)
 	pet:AddMobDrop(71504)
+
+	-- Bloodsting Wasp -- 85255
+	pet = AddPet(85255, V.WOD, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.SPIRES_OF_ARAK, "25", false, "54.0:63.2", "45.5:7.8", "44.2:49.6", "43.3:45.9")
 
 	-- Blossoming Ancient -- 71488
 	pet = AddPet(71488, V.MOP, Q.COMMON)
@@ -1131,6 +1148,13 @@ function addon:InitCritters()
 	pet:SetSpellID(52615)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.COLLECTORS_EDITION)
 	pet:AddCustom("CE")
+
+	-- Fruit Hunter -- 85387
+	pet = AddPet(85387, V.WOD, Q.UNCOMMON)
+	pet:SetItemID(117564)
+	pet:SetSpellID(170285)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("RYLAK_NEST")
 
 	-- Fungal Abomination -- 68657
 	pet = AddPet(68657, V.MOP, Q.RARE)
@@ -2764,6 +2788,14 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	pet:AddMobDrop(71919)
 
+	-- Sky-Bo -- 85284
+	pet = AddPet(85284, V.WOD, Q.COMMON)
+	pet:SetItemID(115483)
+	pet:SetSpellID(170292)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	pet:AddProfession(PROF.ENGINEERING)
+	pet:AddCustom("BLINGTRON")
+
 	-- Sky Lantern -- 73809
 	pet = AddPet(73809, V.MOP, Q.RARE)
 	pet:SetItemID(104332)
@@ -3583,27 +3615,6 @@ function addon:InitCritters()
 	pet:AddZoneLocations(Z.KUN_LAI_SUMMIT, "23-24", false, "71.6:90.2", "68.6:87.4", "61.2:69.8", "53.6:78.6", "73.2:65.6")
 
 -- To stop debug window from popping up
-
-
-	-- Bloodsting Wasp -- 85255
-	pet = AddPet(85255, V.WOD, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE)
-
-	-- Amberbarb Wasp -- 85257
-	pet = AddPet(85257, V.WOD, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE)
-
-	-- Albino River Calf -- 85281
-	pet = AddPet(85281, V.WOD, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE)
-
-	-- Sky-Bo -- 85284
-	pet = AddPet(85284, V.WOD, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE)
-
-	-- Fruit Hunter -- 85387
-	pet = AddPet(85387, V.WOD, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE)
 
 	-- Axebeak Hatchling -- 85389
 	pet = AddPet(85389, V.WOD, Q.COMMON)
