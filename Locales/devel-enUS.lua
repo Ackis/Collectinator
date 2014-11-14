@@ -315,6 +315,7 @@ L["Naron Bloomthistle"] = true
 L["Narzak"] = true
 L["Necrolord Sipe"] = true
 L["Nelur Lightsown"] = true
+L["Netherspawn"] = true
 L["Noblegarden Merchant"] = true
 L["Noblegarden Vendor"] = true
 L["NoItemLink"] = "There is no item in the item cache to link.  Please try again to query the server.  If unsuccessful, please submit a bug report."
