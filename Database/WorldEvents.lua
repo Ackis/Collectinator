@@ -50,5 +50,8 @@ function addon:InitWorldEvents()
 	AddWorldEvent("DARKMOON_FAIRE", _G.GetCategoryInfo(15101))
 	AddWorldEvent("WANDERERS_FESTIVAL", L["Wanderer's Festival"])
 
+	local achievement_id, achievement_name = _G.GetAchievementInfo(8820)
+	AddWorldEvent("WOW_10TH_ANNIVERSARY", achievement_name)
+
 	self.InitWorldEvents = nil
 end
