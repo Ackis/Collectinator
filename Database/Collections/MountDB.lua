@@ -3090,11 +3090,6 @@ Apparentely not in game yet!
 	mount:SetItemID(104327)
 	mount:Retire()
 
-	-- Grinning Reaver -- 163025
-	mount = AddMount(163025, V.WOD, Q.EPIC)
-	mount:SetItemID(112327)
-	mount:AddFilters(F.ALLIANCE, F.HORDE)
-
 -- Albino Riding Crane
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
