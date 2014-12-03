@@ -229,6 +229,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.QUEST, F.IBOP)
 	pet:AddQuest(13702)
 
+	-- Argi -- 88807
+	pet = AddPet(88807, V.WOD, Q.COMMON)
+	pet:SetItemID(118516)
+	pet:SetSpellID(177232)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	pet:AddCustom("STORE")
+
 	-- Armadillo Pup -- 48242
 	pet = AddPet(48242, V.CATA, Q.RARE)
 	pet:SetItemID(63398)
@@ -3832,8 +3839,7 @@ function addon:InitCritters()
 	-- Grommloc -- 88805
 	pet = AddPet(88805, V.WOD, Q.COMMON)
 
-	-- Argi -- 88807
-	pet = AddPet(88807, V.WOD, Q.COMMON)
+
 
 	-- Trunks -- 88830
 	pet = AddPet(88830, V.WOD, Q.COMMON)
