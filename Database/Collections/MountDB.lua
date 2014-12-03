@@ -3037,6 +3037,13 @@ function addon:InitMounts()
 	mount:AddAchievement(9496)
 	mount:Retire()
 
+	-- Champion's Treadblade -- 171846
+	mount = AddMount(171846, V.WOD, Q.EPIC)
+	mount:SetItemID(116789)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddVendor(87501)
+
 	-- Challenger's War Yeti -- 171848
 	mount = AddMount(171848, V.WOD, Q.RARE)
 	mount:SetItemID(116791)

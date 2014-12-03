@@ -337,6 +337,7 @@ L["PICKPOCKET"] = "Pick pocketted from various mobs."
 L["PLUSHIE"] = "Available via purchasing the Plushie from the Blizzard Gear Store."
 L["PRIMAL_EGG"] = "Available randomly from a Primal Egg, dropped by Devilsaurs, Direhorns, and Skyscreamers on Isle of Giants."
 L["Pathrunner"] = true
+L["Paulie"] = true
 L["Paul North"] = true
 L["\"Plucky\" Johnson"] = true
 L["Pol Amberstill"] = true
