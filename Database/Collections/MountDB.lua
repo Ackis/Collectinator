@@ -2872,6 +2872,7 @@ function addon:InitMounts()
 	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.DRAENORCOMMON3)
 	mount:AddRepVendor(FAC.SHATARI_DEFENSE, REP.EXALTED, 85427)
+	mount:AddCustom("TRADING_POST")
 
 	-- Blacksteel Battleboar -- 171627
 	mount = AddMount(171627, V.WOD, Q.RARE)

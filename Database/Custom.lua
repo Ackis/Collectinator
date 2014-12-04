@@ -100,6 +100,12 @@ function addon:InitCustom()
 	AddCustom("NAT_PAGLE")
 	AddCustom("KETYAS_STASH",	Z.TALADOR,			54.0,	27.6)
 	AddCustom("RYLAK_NEST",		Z.FROSTFIRE_RIDGE)
+	AddCustom("MENAGERIE")
+	AddCustom("CRIMSON_SPORE",	Z.GORGROND,			57.1,	65.3)
+	AddCustom("UMBRAFEN_SPORE",	Z.SHADOWMOON_VALLEY_DRAENOR,	55.8,	19.9)
+	AddCustom("VARASHAS_EGG",	Z.SPIRES_OF_ARAK,		29.5,	41.7)
+	AddCustom("BARN")
+	AddCustom("TRADING_POST")
 
 	self.InitCustom = nil
 end

@@ -707,6 +707,7 @@ do
 		FROSTWALL = _G.GetMapNameByID(976),
 		ASHRAN = _G.GetMapNameByID(978),
 		BLACKROCK_FOUNDRY = _G.GetMapNameByID(988),
+		UPPER_BLACKROCK_SPIRE = _G.GetMapNameByID(995),
 		STORMSHIELD = _G.GetMapNameByID(1009),
 		WARSPEAR = _G.GetMapNameByID(1011),
 		-------------------------------------------------------------------------------
