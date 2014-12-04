@@ -3038,6 +3038,13 @@ function addon:InitMounts()
 	mount:AddAchievement(9496)
 	mount:Retire()
 
+	-- Champion's Treadblade -- 171846
+	mount = AddMount(171846, V.WOD, Q.EPIC)
+	mount:SetItemID(116789)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddVendor(87501)
+
 	-- Challenger's War Yeti -- 171848
 	mount = AddMount(171848, V.WOD, Q.RARE)
 	mount:SetItemID(116791)
@@ -3083,11 +3090,6 @@ Apparentely not in game yet!
 	mount = AddMount(148620, V.MOP, Q.EPIC)
 	mount:SetItemID(104327)
 	mount:Retire()
-
-	-- Grinning Reaver -- 163025
-	mount = AddMount(163025, V.WOD, Q.EPIC)
-	mount:SetItemID(112327)
-	mount:AddFilters(F.ALLIANCE, F.HORDE)
 
 -- Albino Riding Crane
 -- mount = AddMount(, V.MOP, )
