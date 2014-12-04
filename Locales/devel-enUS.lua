@@ -256,6 +256,7 @@ L["Klikixx"] = true
 L["Knight Dameron"] = true
 L["Known"] = true
 L["Ku-Mo"] = true
+L["Kwilax Fuseshiv"] = true
 L["LFR"] = "Only available from the LFR version of this boss."
 L["Larissia"] = true
 L["Larkin Thunderbrew"] = true
