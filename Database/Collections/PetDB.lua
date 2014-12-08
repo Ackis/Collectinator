@@ -1525,7 +1525,7 @@ function addon:InitCritters()
 	pet:SetSpellID(118574)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.WORLD_EVENTS)
 	pet:AddMobDrop(11502)
-	pet:AddWorldEvent("WOW_10th_ANNIVERSARY")
+	pet:AddWorldEvent("WOW_10TH_ANNIVERSARY")
 
 	-- Hawk Owl -- 7555
 	pet = AddPet(7555, V.ORIG, Q.COMMON)
