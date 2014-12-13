@@ -1091,6 +1091,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MISC)
 	pet:AddCustom("INN")
 
+	-- Eye of Observation -- 88490
+	pet = AddPet(88490, V.WOD, Q.RARE)
+	pet:SetItemID(119170)
+	pet:SetSpellID(170275)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddMobDrop(87668)
+
 	-- Eye of the Legion -- 59020
 	pet = AddPet(59020, V.MOP, Q.RARE)
 	pet:SetItemID(79744)
@@ -3054,6 +3061,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
 	pet:AddMobDrop(69427)
 
+	-- Son of Sethe -- 88401
+	pet = AddPet(88401, V.WOD, Q.COMMON)
+	pet:SetItemID(119143)
+	pet:SetSpellID(170277)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.REPUTATION, F.ARAKKOA_OUTCASTS)
+	pet:AddRepVendor(FAC.ARAKKOA_OUTCASTS, REP.REVERED, 85946, 86037)
+
 	-- Soul of the Aspects -- 58163
 	pet = AddPet(58163, V.CATA, Q.RARE)
 	pet:SetItemID(78916)
@@ -3223,6 +3237,13 @@ function addon:InitCritters()
 	pet = AddPet(83588, V.WOD, Q.COMMON)
 	pet:SetItemID(118598)
 	pet:SetSpellID(167397)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("MENAGERIE_DAILY")
+
+	-- Sunfire Kaliri -- 88367
+	pet = AddPet(88367, V.WOD, Q.COMMON)
+	pet:SetItemID(119468)
+	pet:SetSpellID(177227)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	pet:AddCustom("MENAGERIE_DAILY")
 
@@ -3860,22 +3881,17 @@ function addon:InitCritters()
 
 
 
-
-
-	-- Sunfire Kaliri -- 88367
-	pet = AddPet(88367, V.WOD, Q.COMMON)
-
 	-- Brilliant Bloodfeather -- 88385
 	pet = AddPet(88385, V.WOD, Q.COMMON)
-
-	-- Son of Sethe -- 88401
-	pet = AddPet(88401, V.WOD, Q.COMMON)
 
 	-- Royal Moth -- 88417
 	pet = AddPet(88417, V.WOD, Q.COMMON)
 
 	-- Sky Fry -- 88452
 	pet = AddPet(88452, V.WOD, Q.COMMON)
+	pet:SetItemID(119150)
+	pet:SetSpellID(170271)
+	pet:AddFilters(F.ALLIANCE, F.HORDE)
 
 	-- Kelp Scuttler -- 88465
 	pet = AddPet(88465, V.WOD, Q.COMMON)
@@ -3888,9 +3904,6 @@ function addon:InitCritters()
 
 	-- Frostshell Pincher -- 88480
 	pet = AddPet(88480, V.WOD, Q.COMMON)
-
-	-- Eye of Observation -- 88490
-	pet = AddPet(88490, V.WOD, Q.COMMON)
 
 	-- Mudback Calf -- 88571
 	pet = AddPet(88571, V.WOD, Q.COMMON)
@@ -3912,8 +3925,6 @@ function addon:InitCritters()
 
 	-- Grommloc -- 88805
 	pet = AddPet(88805, V.WOD, Q.COMMON)
-
-
 
 	-- Trunks -- 88830
 	pet = AddPet(88830, V.WOD, Q.COMMON)
