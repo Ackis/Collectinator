@@ -2737,7 +2737,7 @@ function addon:InitMounts()
 	-- Kor'kron War Wolf -- 148396
 	mount = AddMount(148396, V.MOP, Q.EPIC)
 	mount:SetItemID(104246)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.ACHIEVEMENT)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	mount:Retire()
 
 	-- Kor'kron Juggernaut -- 148417
