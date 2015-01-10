@@ -166,6 +166,19 @@ do
 		["Jade Tiger"] = 3636,
 		["Pro Pet Mob"] = 6582,
 		["That's a Lot of Pet Food"] = 7501,
+		["WoW's 10th Anniversary"] = 8820,
+		["So. Many. Pets."] = 9643,
+		["Raiding with Leashes"] = 7934,
+		["Raiding with Leashes II: Attunement Edition"] = 8293,
+		["Draenor Safari"] = 9685,
+		["Brutal Pet Brawler"] = 8300,
+		["An Awfully Big Adventure"] = 9069,
+
+		--[[ 6.1 achievements
+		["Raiding with Leashes III: Drink'in From the Sunwell"] = 9824,
+		["What a Strange, Interdimensional Trip It's Been"] = 9838,
+		]]--
+
 	}
 
 	-- Copy/pasta from Utilities.lua
@@ -530,13 +543,13 @@ do
 			end
 		elseif source_text:match("Promotion:") then
 			source_text = source_text:gsub("Promotion:", ""):trim()
-			if source_text:match("World of Warcraft Collectors Edition") or source_text:match("World of Warcraft Collector's Edition") or source_text:match("Wrath of the Lich King Collector's Edition") or source_text:match("Cataclysm Collector's Edition") or source_text:match("Mists of Pandaria Collector's Edition") or source_text:match("Burning Crusade Collector's Edition") then -- Seriously fuck blizzard
+			if source_text:match("World of Warcraft Collectors Edition") or source_text:match("World of Warcraft Collector's Edition") or source_text:match("Wrath of the Lich King Collector's Edition") or source_text:match("Cataclysm Collector's Edition") or source_text:match("Mists of Pandaria Collector's Edition") or source_text:match("Burning Crusade Collector's Edition") or source_text:match("Warlords of Draenor Collector's Edition")then -- Seriously fuck blizzard
 				pet:AddFilters(F.ALLIANCE, F.HORDE, F.COLLECTORS_EDITION, F.IBOP)
 				pet:AddCustom("CE")
 			elseif source_text:match("BlizzCon") then
 				pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 				pet:AddCustom("BLIZZCON")
-			elseif source_text:match("Starcraft") then
+			elseif source_text:match("Starcraft") or source_text:match("StarCraft II: Heart of the Swarm Collector's Edition") or source_text:match("StarCraft II: Wings of Liberty Collector's Edition") then
 				pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 				pet:AddCustom("STARCRAFTCE")
 			elseif source_text:match("Diablo") then
@@ -548,19 +561,22 @@ do
 			elseif source_text:match("World Wide Invitational") then
 				pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 				pet:AddCustom("WWI")
-			elseif source_text:match("China New Year's Celebration") or source_text:match("Chinese New Years") or source_text:match("China Billing Promotion") or source_text:match("iCoke") then
+			elseif source_text:match("China New Year's Celebration") or source_text:match("Chinese New Years") or source_text:match("China Billing Promotion") or source_text:match("iCoke") or source_text:match("Battle.net World Championship Shanghai 2012") or source_text:match("Korea") then
 				pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
 				pet:AddCustom("CHINA")
-			elseif source_text:match("PVP") or source_text:match("Arena") then
+			elseif source_text:match("PVP") or source_text:match("Arena Tournament") then
 				pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP, F.PVP)
 				--- -output:AddLine("pet:AddCustom()")
+			elseif source_text:match("Recruit") then
+				pet:AddFilters(F.ALLIANCE, F.HORDE, F.PROMO, F.IBOP)
+				pet:AddCustom("RECRUIT")
 			else
 				addon:Print("Unknown Promotion: " .. source_text)
 				--pet:AddCustom(TableKeyFormat(source_text))
 			end
-		elseif source_text:match("Pet Store") then
-			source_text = source_text:gsub("Pet Store", ""):trim()
+		elseif source_text:match("Shop") then
 			pet:AddFilters(F.STORE)
+			pet:AddCustom("STORE")
 			--print(source_text)
 		elseif source_text:match("Trading Card Game:") then
 			pet:AddFilters(F.TCG)
