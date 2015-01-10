@@ -586,36 +586,44 @@ do
 		end
 	end
 
-	function addon:ScanCompanions()
+	local petIDList = {}
 
-		-- Clear all the filters showing all pets known/unknown
-		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, true)
-		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, false)
-		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
-		C_PetJournal.AddAllPetTypesFilter()
-		C_PetJournal.AddAllPetSourcesFilter()
+	function addon:ScanCompanions()
+		_G.C_PetJournal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_COLLECTED, true)
+		_G.C_PetJournal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_FAVORITES, false)
+		_G.C_PetJournal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
+		_G.C_PetJournal.AddAllPetTypesFilter()
+		_G.C_PetJournal.AddAllPetSourcesFilter()
 
 		addon:InitializeCollection("CRITTER")
 
-		output:Clear()
+		local num_pets = _G.C_PetJournal.GetNumPets()
+		local creatureIDRegistry = {}
+		table.wipe(petIDList)
 
-		local num_pets = _G.C_PetJournal.GetNumPets(_G.PetJournal.isWild)
+		for petIndex = 1, num_pets do
+			local _, _, _, _, _, _, _, _, _, _, creatureID = _G.C_PetJournal.GetPetInfoByIndex(petIndex, false)
 
-		for pet_index = 1, num_pets do
-			addon:ScanSpecificCompanion(pet_index, true)
+			if not creatureIDRegistry[creatureID] then
+				creatureIDRegistry[creatureID] = true
+				petIDList[#petIDList + 1] = creatureID
+				addon:ScanSpecificCompanion(petIndex, true)
+			end
 		end
+		table.sort(petIDList)
 
 		local output = private.TextDump
-
 		local pet_list = private.collectable_list["CRITTER"]
 
 		output:Clear()
 
-		for pet in pairs(pet_list) do
-			if pet_list[pet] then
-				pet_list[pet]:Dump()
+		for index = 1, #petIDList do
+			local petID = petIDList[index]
+			if pet_list[petID] then
+				pet_list[petID]:Dump()
 			end
 		end
+
 		output:Display()
 	end
 end
