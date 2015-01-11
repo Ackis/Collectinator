@@ -100,7 +100,7 @@ function addon:AddCollectable(collectable_id, collectable_type, genesis, quality
 		genesis = private.GAME_VERSION_NAMES[genesis],
 		quality = quality,
 		description = "",
-        name = _G.UNKNOWN,
+		name = _G.UNKNOWN,
 		flags = {},
 		acquire_data = {},
 	}, CATEGORY_METATABLES[collectable_type] or collectable_meta)
