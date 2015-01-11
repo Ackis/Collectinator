@@ -26,6 +26,8 @@ local type = _G.type
 
 -- Libraries
 local bit = _G.bit
+local coroutine = _G.coroutine
+local math = _G.math
 local string = _G.string
 local table = _G.table
 
@@ -198,7 +200,6 @@ do
 	end
 
 	function addon:ScanCompanionCreature(c_id)
-
 		-- Clear all the filters showing all pets known/unknown
 		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, true)
 		C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_FAVORITES, false)
@@ -587,9 +588,158 @@ do
 		end
 	end
 
+	local progress_bar
+
+	local PROGRESSBAR_TEXTURES = {
+		[[Interface\BlackMarket\BlackMarketBackground-BottomShadow]],
+		[[Interface\BUTTONS\GreyScaleRamp64]],
+		[[Interface\OPTIONSFRAME\21STEPGRAYSCALE]],
+		[[Interface\RAIDFRAME\Raid-Bar-Hp-Fill]],
+		[[Interface\Scenarios\Objective-Sheen]],
+		[[Interface\TARGETINGFRAME\BarFill2]],
+		[[Interface\UnitPowerBarAlt\Generic1_Horizontal_Fill]],
+		[[Interface\UnitPowerBarAlt\Generic1_Pill_Fill]],
+	}
+
+	local function ProgressBar()
+		if not progress_bar then
+			progress_bar = _G.CreateFrame("Frame", "Collectinator_DatamineProgressBar", _G.UIParent)
+			progress_bar:SetSize(450, 30)
+			progress_bar:SetPoint("CENTER", 0, -250)
+			progress_bar:SetFrameStrata("DIALOG")
+			progress_bar:SetClampedToScreen(true)
+			progress_bar:EnableMouse()
+			progress_bar:SetMovable(true)
+
+			progress_bar:SetBackdrop({
+				bgFile = [[Interface\Tooltips\UI-Tooltip-Background]],
+				edgeFile = [[Interface\Tooltips\UI-Tooltip-Border]],
+				tile = true,
+				tileSize = 16,
+				edgeSize = 16,
+				insets = {
+					left = 4,
+					right = 4,
+					top = 4,
+					bottom = 4
+				}
+			})
+
+			progress_bar:SetBackdropColor(0, 0, 0, 1)
+
+			progress_bar.fg = progress_bar:CreateTexture()
+			progress_bar.fg:SetPoint("LEFT", progress_bar, "LEFT", 5, 0)
+			progress_bar.fg:SetSize(300, 20)
+
+			progress_bar.left_text = progress_bar:CreateFontString(nil, "ARTWORK", "GameFontWhiteSmall")
+			progress_bar.left_text:SetPoint("LEFT", 10, 0)
+
+			progress_bar.right_text = progress_bar:CreateFontString(nil, "ARTWORK", "GameFontWhiteSmall")
+			progress_bar.right_text:SetPoint("RIGHT", -10, 0)
+
+			progress_bar:SetScript("OnMouseDown", progress_bar.StartMoving)
+			progress_bar:SetScript("OnMouseUp", progress_bar.StopMovingOrSizing)
+
+			local function PercentColorGradient(min, max)
+				local red_low, green_low, blue_low = 1, 0.10, 0.10
+				local red_mid, green_mid, blue_mid = 1, 1, 0
+				local red_high, green_high, blue_high = 0.25, 0.75, 0.25
+				local percentage = min / max
+
+				if percentage >= 1 then
+					return red_high, green_high, blue_high
+				elseif percentage <= 0 then
+					return red_low, green_low, blue_low
+				end
+				local integral, fractional = math.modf(percentage * 2)
+
+				if integral == 1 then
+					red_low, green_low, blue_low, red_mid, green_mid, blue_mid = red_mid, green_mid, blue_mid, red_high, green_high, blue_high
+				end
+				return red_low + (red_mid - red_low) * fractional, green_low + (green_mid - green_low) * fractional, blue_low + (blue_mid - blue_low) * fractional
+			end
+
+			function progress_bar:Update(current, max, npcID)
+				local percentage = math.floor(current / max * 100)
+
+				progress_bar.fg:SetVertexColor(PercentColorGradient(current, max), 0.5)
+				progress_bar.fg:SetWidth(4.4 * percentage)
+				progress_bar.left_text:SetFormattedText("%s (%d)", private.collectable_list.CRITTER[npcID].name, npcID)
+				progress_bar.right_text:SetFormattedText("%d/%d (%d%%)", current, max, percentage)
+			end
+		end
+		progress_bar.fg:SetTexture(PROGRESSBAR_TEXTURES[math.random(1, #PROGRESSBAR_TEXTURES)])
+		progress_bar.fg:SetWidth(0)
+		return progress_bar
+	end
+
+	local ScannerUpdateFrame = _G.CreateFrame("Frame")
+	ScannerUpdateFrame:Hide()
+
+	function ScannerUpdateFrame:Cleanup()
+		self:Hide()
+		self.is_running = nil
+		self.scanner = nil
+	end
+
+	ScannerUpdateFrame:SetScript("OnUpdate", function(self, elapsed)
+		local is_finished = coroutine.resume(self.scanner)
+
+		if is_finished then
+			if coroutine.status(self.scanner) == "dead" then
+				self:Cleanup()
+			end
+		else
+			self:Cleanup()
+		end
+	end)
+
 	local petIDList = {}
 
+	local function CoroutinePetScan()
+		local numPets = _G.C_PetJournal.GetNumPets()
+		local creatureIDRegistry = {}
+		table.wipe(petIDList)
+
+		for petIndex = 1, numPets do
+			local _, _, _, _, _, _, _, _, _, _, creatureID = _G.C_PetJournal.GetPetInfoByIndex(petIndex, false)
+
+			if not creatureIDRegistry[creatureID] then
+				creatureIDRegistry[creatureID] = true
+				petIDList[#petIDList + 1] = creatureID
+			end
+		end
+		table.sort(petIDList)
+
+		local petList = private.collectable_list.CRITTER
+		local output = private.TextDump
+		output:Clear()
+
+		local progressBar = ProgressBar()
+		progressBar:Show()
+
+		for index = 1, #petIDList do
+			local creatureID = petIDList[index]
+			addon:ScanSpecificCompanion(index, true)
+
+			if petList[creatureID] then
+				progressBar:Update(index, #petIDList, creatureID)
+				petList[creatureID]:Dump()
+			end
+			coroutine.yield()
+		end
+
+		if output:Lines() == 0 then
+			addon:Debug("ScanCompanions(): output is empty.")
+		end
+		progressBar:Hide()
+		output:Display()
+	end
+
 	function addon:ScanCompanions()
+		if ScannerUpdateFrame.is_running then
+			return
+		end
 		_G.C_PetJournal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_COLLECTED, true)
 		_G.C_PetJournal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_FAVORITES, false)
 		_G.C_PetJournal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
@@ -598,33 +748,13 @@ do
 
 		addon:InitializeCollection("CRITTER")
 
-		local num_pets = _G.C_PetJournal.GetNumPets()
-		local creatureIDRegistry = {}
-		table.wipe(petIDList)
+		ScannerUpdateFrame.scanner = coroutine.create(CoroutinePetScan)
+		ScannerUpdateFrame.is_running = true
+		ScannerUpdateFrame:Show()
 
-		for petIndex = 1, num_pets do
-			local _, _, _, _, _, _, _, _, _, _, creatureID = _G.C_PetJournal.GetPetInfoByIndex(petIndex, false)
-
-			if not creatureIDRegistry[creatureID] then
-				creatureIDRegistry[creatureID] = true
-				petIDList[#petIDList + 1] = creatureID
-				addon:ScanSpecificCompanion(petIndex, true)
-			end
+		local status = coroutine.resume(ScannerUpdateFrame.scanner)
+		if not status then
+			ScannerUpdateFrame:Cleanup()
 		end
-		table.sort(petIDList)
-
-		local output = private.TextDump
-		local pet_list = private.collectable_list["CRITTER"]
-
-		output:Clear()
-
-		for index = 1, #petIDList do
-			local petID = petIDList[index]
-			if pet_list[petID] then
-				pet_list[petID]:Dump()
-			end
-		end
-
-		output:Display()
 	end
 end
