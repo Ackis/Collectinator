@@ -150,16 +150,16 @@ function pet_prototype:Weather()
 end
 
 -- ... == coords x:y
-function pet_prototype:AddZoneLocations(zone_name, pet_levels, is_secondary, ...)
-	self:AddAcquireData(A.WORLD_DROP, "pet_battle", nil, zone_name)
+function pet_prototype:AddZoneLocations(zoneName, levelRange, isSecondary, ...)
+	self:AddAcquireData(A.WORLD_DROP, "pet_battle", nil, zoneName)
 
 	self.zone_list = self.zone_list or {}
-	self.zone_list[zone_name] = self.zone_list[zone_name] or {}
-	self.zone_list[zone_name][pet_levels] = self.zone_list[zone_name][pet_levels] or {}
+	self.zone_list[zoneName] = self.zone_list[zoneName] or {}
+	self.zone_list[zoneName][levelRange] = self.zone_list[zoneName][levelRange] or {}
 
-	local zone_level_coords = self.zone_list[zone_name][pet_levels]
+	local zone_level_coords = self.zone_list[zoneName][levelRange]
 
-	if is_secondary then
+	if isSecondary then
 		zone_level_coords[#zone_level_coords + 1] = "secondary"
 	else
 		local num_coords = select('#', ...)
@@ -612,6 +612,8 @@ local DUMP_FUNCTION_FORMATS = {
 	[A.RETIRED] = "%s:Retire()",
 }
 
+local ZONE_LOCATION_FORMAT = "%s:AddZoneLocations(%s)"
+
 local IGNORED_FLAGS = {
 	RETIRED = true,
 }
@@ -792,28 +794,65 @@ function collectable_prototype:Dump()
 			end
 			table.sort(sorted_data)
 
-			for index, identifier in ipairs(sorted_data) do
-				local saved_id
+			if acquire_type == A.WORLD_DROP and self.zone_list and _G.next(self.zone_list) then
+				for zoneIndex = 1, #sorted_data do
+					local zoneName = sorted_data[zoneIndex]
 
-				if type(identifier) == "string" then
-					if acquire_type == A.WORLD_DROP then
-						saved_id = ("Z.%s"):format(ZL[identifier])
-					elseif acquire_type == A.PROFESSION then
-						saved_id = ("PROF.%s"):format(string.upper(identifier:gsub(" ", "_")))
-					else
-						saved_id = ("\"%s\""):format(identifier)
+					if self.zone_list[zoneName] then
+						local zoneString = ("Z.%s"):format(ZL[zoneName])
+
+						for levelRange, coordinateList in pairs(self.zone_list[zoneName]) do
+							values = ("%s, \"%s\""):format(zoneString, levelRange)
+
+							for coordinateIndex = 1, #coordinateList do
+								local coordinates = coordinateList[coordinateIndex]
+
+								if coordinateIndex == 1 then
+									if coordinates == "secondary" then
+										values = ("%s, %s"):format(values, "true")
+									elseif coordinates == "unknown" then
+										values = nil
+										break
+									else
+										values = ("%s, false, \"%s\""):format(values, coordinates)
+									end
+								else
+									values = ("%s, \"%s\""):format(values, coordinates)
+								end
+							end
+
+							if values then
+								output:AddLine(ZONE_LOCATION_FORMAT:format(label, values))
+							end
+						end
 					end
-				else
-					saved_id = identifier
+				end
+			else
+				for index, identifier in ipairs(sorted_data) do
+					local saved_id
+
+					if type(identifier) == "string" then
+						if acquire_type == A.WORLD_DROP then
+							saved_id = ("Z.%s"):format(ZL[identifier])
+						elseif acquire_type == A.PROFESSION then
+							saved_id = ("PROF.%s"):format(string.upper(identifier:gsub(" ", "_")))
+						else
+							saved_id = ("\"%s\""):format(identifier)
+						end
+					else
+						saved_id = identifier
+					end
+
+					if values then
+						values = ("%s, %s"):format(values, saved_id)
+					else
+						values = saved_id
+					end
 				end
 
-				if values then
-					values = ("%s, %s"):format(values, saved_id)
-				else
-					values = saved_id
-				end
+				output:AddLine(DUMP_FUNCTION_FORMATS[acquire_type]:format(label, values))
 			end
-			output:AddLine((DUMP_FUNCTION_FORMATS[acquire_type]):format(label, values))
+
 		else
 			for identifier in pairs(acquire_info) do
 				local saved_id
