@@ -151,26 +151,26 @@ end
 
 -- ... == coords x:y
 function pet_prototype:AddZoneLocations(zone_name, pet_levels, is_secondary, ...)
-    self:AddAcquireData(A.WORLD_DROP, "pet_battle", nil, zone_name)
+	self:AddAcquireData(A.WORLD_DROP, "pet_battle", nil, zone_name)
 
-    self.zone_list = self.zone_list or {}
-    self.zone_list[zone_name] = self.zone_list[zone_name] or {}
-    self.zone_list[zone_name][pet_levels] = self.zone_list[zone_name][pet_levels] or {}
+	self.zone_list = self.zone_list or {}
+	self.zone_list[zone_name] = self.zone_list[zone_name] or {}
+	self.zone_list[zone_name][pet_levels] = self.zone_list[zone_name][pet_levels] or {}
 
-    local zone_level_coords = self.zone_list[zone_name][pet_levels]
+	local zone_level_coords = self.zone_list[zone_name][pet_levels]
 
 	if is_secondary then
-        zone_level_coords[#zone_level_coords + 1] = "secondary"
+		zone_level_coords[#zone_level_coords + 1] = "secondary"
 	else
 		local num_coords = select('#', ...)
 
-        if num_coords == 0 then
-            zone_level_coords[#zone_level_coords + 1] = "unknown"
-            return
-        end
+		if num_coords == 0 then
+			zone_level_coords[#zone_level_coords + 1] = "unknown"
+			return
+		end
 
 		for index = 1, num_coords do
-            zone_level_coords[#zone_level_coords + 1] = (select(index, ...))
+			zone_level_coords[#zone_level_coords + 1] = (select(index, ...))
 		end
 	end
 end
