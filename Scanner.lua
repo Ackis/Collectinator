@@ -175,6 +175,7 @@ do
 		["An Awfully Big Adventure"] = 9069,
 
 		--[[ 6.1 achievements
+		["Theramore's Fall"] = 7468,
 		["Raiding with Leashes III: Drink'in From the Sunwell"] = 9824,
 		["What a Strange, Interdimensional Trip It's Been"] = 9838,
 		]]--
