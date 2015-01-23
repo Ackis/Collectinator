@@ -566,9 +566,11 @@ do
 		ZANGARMARSH = _G.GetMapNameByID(467),
 		THE_EXODAR = _G.GetMapNameByID(471),
 		SHADOWMOON_VALLEY_OUTLAND = (("%s %s"):format(_G.GetMapNameByID(473), _G.PARENS_TEMPLATE:format(CONTINENT_NAMES[6]))),
+		SHADOWMOON_VALLEY = _G.GetMapNameByID(473), -- to get rid of warnings
 		BLADES_EDGE_MOUNTAINS = _G.GetMapNameByID(475),
 		BLOODMYST_ISLE = _G.GetMapNameByID(476),
 		NAGRAND_OUTLAND = (("%s %s"):format(_G.GetMapNameByID(477), _G.PARENS_TEMPLATE:format(CONTINENT_NAMES[6]))),
+		NAGRAND = _G.GetMapNameByID(477), -- to get rid of warnings
 		TEROKKAR_FOREST = _G.GetMapNameByID(478),
 		NETHERSTORM = _G.GetMapNameByID(479),
 		SILVERMOON_CITY = _G.GetMapNameByID(480),
@@ -706,6 +708,7 @@ do
 		LUNARFALL = _G.GetMapNameByID(971),
 		FROSTWALL = _G.GetMapNameByID(976),
 		ASHRAN = _G.GetMapNameByID(978),
+		IRON_DOCKS = _G.GetMapNameByID(987),
 		BLACKROCK_FOUNDRY = _G.GetMapNameByID(988),
 		UPPER_BLACKROCK_SPIRE = _G.GetMapNameByID(995),
 		STORMSHIELD = _G.GetMapNameByID(1009),
