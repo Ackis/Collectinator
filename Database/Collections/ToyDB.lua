@@ -268,7 +268,7 @@ function addon:InitToys()
 	-- Foam Sword Rack -- 45063
 	toy = AddToy(45063, V.WOTLK, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")	
+	toy:AddCustom("TCG")
 
 	-- Unusual Compass -- 45984
 	toy = AddToy(45984, V.WOTLK, Q.RARE)
@@ -959,6 +959,11 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("INN")
 
+	-- Archmage Vargoth's Spare Staff -- 118191
+	toy = AddToy(118191, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("INN")
+
 	-- Petrification Stone -- 118221
 	toy = AddToy(118221, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
@@ -1074,10 +1079,54 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(81330)
 
-	-- Archmage Vargoth's Spare Staff -- 118191
-	toy = AddToy(118191, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+
+--[[ 6.1 toys
+
+	-- Mini Mana Bomb -- 89205
+	toy = AddToy(89205, V.WOD, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(7468)
+
+	-- Personal Hologram -- 108745
+	toy = AddToy(108745, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession("ENGINEERING")
+
+	-- Scroll of Storytelling -- 116456
+	toy = AddToy(116456, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.WORLD_EVENTS)
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+	toy:AddQuest(6983, 7043)
+
+	-- Moroes' Famous Polish -- 119092
+	toy = AddToy(119092, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	toy:AddCustom("INN")
+
+	-- Sargerei Disguise -- 119134
+	toy = AddToy(119134, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(35195)
+
+	-- Barrel of Bandanas -- 120857
+	toy = AddToy(120857, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ROGUE)
+
+	-- Rukmar's Sacred Memory -- 122283
+	toy = AddToy(122283, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Trans-Dimensional Bird Whistle -- 122293
+	toy = AddToy(122293, V.WOD, Q.EPIC)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddAchievement(9838)
+
+	-- Fandral's Seed Pouch -- 122304
+	toy = AddToy(122304, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.DRUID)
+
+]]--
+
 
 --Not actually in the toy box added
 	-- Murloc Costume -- 33079
