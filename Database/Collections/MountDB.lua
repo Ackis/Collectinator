@@ -2737,7 +2737,6 @@ function addon:InitMounts()
 	-- Kor'kron War Wolf -- 148396
 	mount = AddMount(148396, V.MOP, Q.EPIC)
 	mount:SetItemID(104246)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	mount:Retire()
 
 	-- Kor'kron Juggernaut -- 148417
@@ -3222,5 +3221,14 @@ Apparentely not in game yet!
 -- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
+
+
+
+-- 6.1 mounts
+
+	-- Voidtalon of the Dark Star --179478
+	mount = AddMount(179478, V.WOD, Q.EPIC)
+	mount:SetItemID(121815)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 
 ]]--
