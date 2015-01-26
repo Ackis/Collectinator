@@ -354,7 +354,7 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Create the scan button.
 	-------------------------------------------------------------------------------
-	local scan_button_parent = _G.PetJournalParent
+	local scan_button_parent = _G.CollectionsJournal
 	local scan_button = _G.CreateFrame("Button", nil, scan_button_parent, "UIPanelButtonTemplate")
 	scan_button:SetHeight(20)
 	scan_button:SetText(L["Scan"])
@@ -363,7 +363,7 @@ function addon:OnInitialize()
 	scan_button:SetFrameLevel(scan_button_parent:GetFrameLevel() + 1)
 	scan_button:SetFrameStrata(scan_button_parent:GetFrameStrata())
 	scan_button:Enable()
-	scan_button:SetPoint("RIGHT", _G.PetJournalParentCloseButton, "LEFT", 4, 0)
+	scan_button:SetPoint("RIGHT", _G.CollectionsJournalCloseButton, "LEFT", 4, 0)
 
 	scan_button:SetScript("OnClick", function()
 		local shift_pressed = _G.IsShiftKeyDown()
@@ -401,7 +401,7 @@ function addon:OnInitialize()
 	-------------------------------------------------------------------------------
 	-- Add mini-pet/mount totals to the tab
 	-------------------------------------------------------------------------------
-	_G.PetJournalParentTab1:SetScript("OnEnter", function(this)
+	_G.CollectionsJournalTab1:SetScript("OnEnter", function(this)
 		local tooltip = _G.GameTooltip
 
 		_G.GameTooltip_SetDefaultAnchor(tooltip, this)
@@ -409,11 +409,11 @@ function addon:OnInitialize()
 		tooltip:Show()
 	end)
 
-	_G.PetJournalParentTab1:SetScript("OnLeave", function()
+	_G.CollectionsJournalTab1:SetScript("OnLeave", function()
 		_G.GameTooltip:Hide()
 	end)
 
-	_G.PetJournalParentTab2:SetScript("OnEnter", function(this)
+	_G.CollectionsJournalTab2:SetScript("OnEnter", function(this)
 		local tooltip = _G.GameTooltip
 
 		_G.GameTooltip_SetDefaultAnchor(tooltip, this)
@@ -421,7 +421,7 @@ function addon:OnInitialize()
 		tooltip:Show()
 	end)
 
-	_G.PetJournalParentTab2:SetScript("OnLeave", function()
+	_G.CollectionsJournalTab2:SetScript("OnLeave", function()
 		_G.GameTooltip:Hide()
 	end)
 
@@ -693,7 +693,7 @@ do
 	-- Causes a scan of the relevant collectable type to be conducted. Function called when the scan button is clicked.
 	-- Parses Collections and displays output
 	function addon:Scan(textdump, is_refresh)
-		local current_panel = _G.PanelTemplates_GetSelectedTab(_G.PetJournalParent)
+		local current_panel = _G.PanelTemplates_GetSelectedTab(_G.CollectionsJournal)
 		local collectable_type = private.ORDERED_COLLECTIONS[current_panel]
 		addon:InitializeCollection(collectable_type)
 
