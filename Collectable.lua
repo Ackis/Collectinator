@@ -71,10 +71,19 @@ local toy_meta = {
 	end,
 }
 
+
+local heirloom_prototype = {}
+local heirloom_meta = {
+	__index = function(t, k)
+		return heirloom_prototype[k] or collectable_prototype[k]
+	end,
+}
+
 local CATEGORY_METATABLES = {
 	CRITTER = pet_meta,
 	MOUNT = mount_meta,
 	TOY = toy_meta,
+	HEIRLOOM = heirloom_meta,
 }
 
 function addon:AddCollectable(collectable_id, collectable_type, genesis, quality)

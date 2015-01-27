@@ -439,6 +439,7 @@ function addon:OnInitialize()
 		CRITTER = addon.InitCritters,
 		MOUNT = addon.InitMounts,
 		TOY = addon.InitToys,
+		HEIRLOOM = addon.InitHeirlooms,
 	}
 
 	-------------------------------------------------------------------------------

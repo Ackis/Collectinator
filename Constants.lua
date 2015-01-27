@@ -63,6 +63,7 @@ private.ORDERED_COLLECTIONS = {
 	"MOUNT", -- 1
 	"CRITTER", -- 2
 	"TOY", -- 3
+	"HEIRLOOM", -- 4
 }
 
 private.COLLECTION_TYPE_IDS = GenerateLookup_ID(private.ORDERED_COLLECTIONS)

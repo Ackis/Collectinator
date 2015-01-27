@@ -384,6 +384,7 @@ function private.InitializeTabs()
 		CRITTER = _G.PET_JOURNAL,
 		MOUNT = _G.MOUNTS,
 		TOY = _G.TOY_BOX,
+		HEIRLOOM = _G.HEIRLOOMS,
 	}
 
 	function CollectablesTab:Initialize(expand_mode)

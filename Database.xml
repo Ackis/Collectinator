@@ -7,6 +7,7 @@
 	<Include file="Database\Collections\PetDB.lua"/>
 	<Include file="Database\Collections\MountDB.lua"/>
 	<Include file="Database\Collections\ToyDB.lua"/>
+	<Include file="Database\Collections\HeirloomDB.lua"/>
 
 	<Include file="Database\Custom.lua"/>
 	<Include file="Database\Mob.lua"/>
