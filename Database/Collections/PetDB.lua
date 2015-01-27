@@ -4710,17 +4710,23 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddWorldDrop(Z.GRIZZLY_HILLS)
 
---[[ 6.1 pets for Raiding with Leashes III
+	-- Bone Serpent -- 88577
+	pet = AddPet(88577, V.WOD, Q.COMMON)
+	pet:SetItemID(122532)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(38299, 38300)
 
 	-- Grotesque -- 90200
 	pet = AddPet(90200, V.MOP, Q.RARE)
 	pet:SetItemID(122105)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(17842)
 
 	-- Leviathan Hatchling -- 90201
 	pet = AddPet(90201, V.MOP, Q.RARE)
 	pet:SetItemID(122104)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(22887)
 
 	-- Abyssius -- 90202
 	pet = AddPet(90202, V.MOP, Q.RARE)
@@ -4772,13 +4778,20 @@ function addon:InitCritters()
 	pet:SetItemID(122115)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
 
-	-- K'ute --
-	pet = AddPet(, V.MOP, Q.RARE)
+	-- K'ute -- 90215
+	pet = AddPet(90215, V.MOP, Q.RARE)
 	pet:SetItemID(122116)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	pet:AddAchievement(9824)
 
-]]--
+	-- Race MiniZep -- 90345
+	pet = AddPet(90345, V.WOD, Q.COMMON)
+
+	-- Slithershock Elver -- 91407
+	pet = AddPet(91407, V.WOD, Q.COMMON)
+
+	-- Young Talbuk -- 91408
+	pet = AddPet(91408, V.WOD, Q.COMMON)
 
 	self.InitCritters = nil
 
