@@ -212,6 +212,7 @@ L["Grunnda Wolfheart"] = true
 L["Gundrak Raptor"] = true
 L["Gu'chi the Swarmling"] = true
 L["Gusini"] = true
+L["HEIRLOOM_MOUNT"] = "Received in the mail following collecting all Heirlooms."
 L["HEROIC"] = "Only available from the Heroic version of this boss."
 L["HIDEPOPUP_DESC"] = "Prevents pop-ups notifying you why the scan window is empty from showing.  Pop-ups will always show for the first time after a new version has been added."
 L["Halpa"] = true

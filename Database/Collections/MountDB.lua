@@ -3068,6 +3068,23 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(9713)
 
+	-- Chauffeured Mechano-Hog -- 179244
+	mount = AddMount(179244, V.WOD, Q.ARTIFACT)
+	mount:SetItemID(120968)
+	mount:AddFilters(F.HORDE, F.IBOA, F.MISC)
+	mount:AddCustom("HEIRLOOM_MOUNT")
+
+	-- Chauffeured Mekgineer's Chopper -- 179245
+	mount = AddMount(179245, V.WOD, Q.ARTIFACT)
+	mount:SetItemID(120968)
+	mount:AddFilters(F.ALLIANCE, F.IBOA, F.MISC)
+	mount:AddCustom("HEIRLOOM_MOUNT")
+
+	-- Voidtalon of the Dark Star --179478
+	mount = AddMount(179478, V.WOD, Q.EPIC)
+	mount:SetItemID(121815)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
 -- Mounts which are duplicates, or are really temporary mounts
 -- Added to stop the debug popups. BAD BLIZZARD
 	-- Swift Brown Steed -- 58819
@@ -3226,9 +3243,6 @@ Apparentely not in game yet!
 
 -- 6.1 mounts
 
-	-- Voidtalon of the Dark Star --179478
-	mount = AddMount(179478, V.WOD, Q.EPIC)
-	mount:SetItemID(121815)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
 
 ]]--

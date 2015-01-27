@@ -241,6 +241,7 @@ function addon:OnInitialize()
 					rare = true,
 					epic = true,
 					legendary = true,
+					artifact = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Binding Filters

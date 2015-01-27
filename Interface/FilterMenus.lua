@@ -613,6 +613,7 @@ function private.InitializeFilterPanel()
 			rare		= { tt = QualityDesc(_G.ITEM_QUALITY3_DESC),	text = _G.ITEM_QUALITY3_DESC,	row = 2, col = 1 },
 			epic		= { tt = QualityDesc(_G.ITEM_QUALITY4_DESC),	text = _G.ITEM_QUALITY4_DESC,	row = 2, col = 2 },
 			legendary	= { tt = QualityDesc(_G.ITEM_QUALITY5_DESC),	text = _G.ITEM_QUALITY5_DESC,	row = 3, col = 1 },
+			artifact	= { tt = QualityDesc(_G.ITEM_QUALITY5_DESC),	text = _G.ITEM_QUALITY6_DESC,	row = 3, col = 2 },
 		}
 
 		local quality_panel = _G.CreateFrame("Frame", nil, quality_frame)
@@ -1166,6 +1167,7 @@ function private.InitializeFilterPanel()
 		rare			= { cb = FilterPanel.quality.rare,		svroot = filters.quality },
 		epic			= { cb = FilterPanel.quality.epic,		svroot = filters.quality },
 		legendary		= { cb = FilterPanel.quality.legendary,		svroot = filters.quality },
+		artifact		= { cb = FilterPanel.quality.artifact,		svroot = filters.quality },
 		------------------------------------------------------------------------------------------------
 		-- Old World Rep Options
 		------------------------------------------------------------------------------------------------
