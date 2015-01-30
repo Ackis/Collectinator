@@ -439,7 +439,7 @@ function addon:OnInitialize()
 		CRITTER = addon.InitCritters,
 		MOUNT = addon.InitMounts,
 		TOY = addon.InitToys,
-		HEIRLOOM = addon.InitHeirlooms,
+		HEIRLOOM = addon.InitHeirloom,
 	}
 
 	-------------------------------------------------------------------------------
@@ -675,11 +675,55 @@ do
 			for index = 1, #toy_ids do
 				local toy_id = toy_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(toy_names[toy_id], toy_id))
-				private.TextDump:AddLine(("toy = AddToy(%d, V.WOD, Q.COMMON)\n"):format(toy_id))
+				private.TextDump:AddLine(("toy = AddToy(%d, V.WOD, Q.COMMON)"):format(toy_id))
+				private.TextDump:AddLine(("toy:SetFilters(F.ALLIANCE, F.HORDE, F.IBOP)\n"))
+			end
+			local dump_lines = private.TextDump:Lines()
 
-				if toy_item_ids[toy_id] then
-					private.TextDump:AddLine(("toy:SetItemID(%d)"):format(toy_item_ids[toy_id]))
+			if dump_lines > 0 then
+				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
+				private.TextDump:Display()
+			end
+		--@end-debug@
+		end,
+
+		[private.COLLECTION_TYPE_IDS.HEIRLOOM] = function(collectable_type, heirlooms)
+			local num_heirlooms = _G.C_Heirloom.GetNumHeirlooms()
+			local heirloom_ids = {}
+			local heirloom_item_ids = {}
+			local heirloom_names = {}
+
+			for index = 1, num_heirlooms  do
+				local heirloom_id = _G.C_Heirloom.GetHeirloomItemIDFromIndex(index)
+
+				if heirloom_id > -1 then
+					local heirloomName, icon = _G.C_Heirloom.GetHeirloomInfo(heirloom_id)
+					local heirloom = heirlooms[heirloom_id]
+
+					if heirloom then
+						heirloom:SetIcon(icon)
+						heirloom:SetItemID(itemID)
+						heirloom:SetName(heirloomName)
+
+						if _G.C_Heirloom.PlayerHasHeirloom(heirloom_id) then
+							heirloom:AddState("KNOWN")
+						end
+					else
+						heirloom_ids[#heirloom_ids + 1] = heirloom_id
+						heirloom_item_ids[heirloom_id] = itemID
+						heirloom_names[heirloom_id] = heirloomName or _G.UNKNOWN
+					end
 				end
+			end
+			table.sort(heirloom_ids)
+
+			--@debug@
+			private.TextDump:Clear()
+			for index = 1, #heirloom_ids do
+				local heirloom_id = heirloom_ids[index]
+				private.TextDump:AddLine(("-- %s -- %d"):format(heirloom_names[heirloom_id], heirloom_id))
+				private.TextDump:AddLine(("heirloom = AddHeirloom(%d, V.WOD, Q.ARTIFACT)"):format(heirloom_id))
+				private.TextDump:AddLine(("heirloom:SetFilters(F.ALLIANCE, F.HORDE, F.IBOA)\n"))
 			end
 			local dump_lines = private.TextDump:Lines()
 

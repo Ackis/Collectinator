@@ -40,6 +40,7 @@ private.COLLECTABLE_TEXTURES = {
     CRITTER = [[Interface\AddOns\Collectinator\Images\CritterPortrait]],
     MOUNT = [[Interface\AddOns\Collectinator\Images\MountPortrait]],
     TOY  = [[Interface\ICONS\TRADE_ARCHAEOLOGY_CHESTOFTINYGLASSANIMALS]],
+    HEIRLOOM = [[Interface\ICONS\INV_MISC_ENGGIZMOS_19]],
 }
 
 -------------------------------------------------------------------------------
