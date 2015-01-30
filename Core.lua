@@ -638,7 +638,7 @@ do
 		--@end-debug@
 		end,
 		[private.COLLECTION_TYPE_IDS.CRITTER] = function(collectable_type, critters)
-		private.UpdatePetList()
+			private.UpdatePetList()
 		end,
 		[private.COLLECTION_TYPE_IDS.TOY] = function(collectable_type, toys)
 			local num_toys = _G.C_ToyBox.GetNumTotalDisplayedToys()
