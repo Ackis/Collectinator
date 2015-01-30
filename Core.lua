@@ -694,24 +694,24 @@ do
 			local heirloom_names = {}
 
 			for index = 1, num_heirlooms  do
-				local heirloom_id = _G.C_Heirloom.GetHeirloomItemIDFromIndex(index)
+				local itemID = _G.C_Heirloom.GetHeirloomItemIDFromIndex(index)
 
-				if heirloom_id > -1 then
-					local heirloomName, icon = _G.C_Heirloom.GetHeirloomInfo(heirloom_id)
-					local heirloom = heirlooms[heirloom_id]
+				if itemID > -1 then
+					local heirloomName, _, _, icon = _G.C_Heirloom.GetHeirloomInfo(itemID)
+					local heirloom = heirlooms[itemID]
 
 					if heirloom then
 						heirloom:SetIcon(icon)
 						heirloom:SetItemID(itemID)
 						heirloom:SetName(heirloomName)
 
-						if _G.C_Heirloom.PlayerHasHeirloom(heirloom_id) then
+						if _G.C_Heirloom.PlayerHasHeirloom(itemID) then
 							heirloom:AddState("KNOWN")
 						end
 					else
-						heirloom_ids[#heirloom_ids + 1] = heirloom_id
-						heirloom_item_ids[heirloom_id] = itemID
-						heirloom_names[heirloom_id] = heirloomName or _G.UNKNOWN
+						heirloom_ids[#heirloom_ids + 1] = itemID
+						heirloom_item_ids[itemID] = itemID
+						heirloom_names[itemID] = heirloomName or _G.UNKNOWN
 					end
 				end
 			end
