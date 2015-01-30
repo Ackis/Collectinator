@@ -753,7 +753,7 @@ function addon:InitCritters()
 	pet:SetSpellID(89039)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.REPUTATION, F.ACHIEVEMENT)
 	pet:AddAchievement(5812, 5892)
-	pet:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 51496, 51512, 51503, 52268, 46602, 51495, 51504)
+	pet:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 46602, 51495, 51496, 51501, 51502, 51503, 51504, 51512, 52268)
 
 	-- Dark Whelpling -- 7543
 	pet = AddPet(7543, V.ORIG, Q.COMMON)
@@ -886,7 +886,7 @@ function addon:InitCritters()
 	pet:SetItemID(114968)
 	pet:SetSpellID(169220)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.GUILD)
-	pet:AddVendor(46572, 46602, 51501, 51502, 51503, 51504, 51495, 51496, 51512, 52268)
+	pet:AddVendor(46572, 46602, 51495, 51496, 51501, 51502, 51503, 51504, 51512, 52268)
 	pet:AddAchievement(9651)
 
 	-- Deathy -- 51122
@@ -1955,7 +1955,7 @@ function addon:InitCritters()
 	pet:SetSpellID(100576)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOP, F.ACHIEVEMENT)
 	pet:AddAchievement(5840)
-	pet:AddVendor(46572, 51496, 51512, 51503, 52268, 46602, 51495)
+	pet:AddVendor(46572, 46602, 51495, 51496, 51501, 51502, 51503, 51504, 51512, 52268)
 
 	-- Lil' XT -- 40703
 	pet = AddPet(40703, V.WOTLK, Q.RARE)
@@ -4731,42 +4731,50 @@ function addon:InitCritters()
 	-- Abyssius -- 90202
 	pet = AddPet(90202, V.MOP, Q.RARE)
 	pet:SetItemID(122106)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(22898)
 
 	-- Fragment of Anger -- 90203
 	pet = AddPet(90203, V.MOP, Q.RARE)
 	pet:SetItemID(122107)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(22856)
 
 	-- Fragment of Suffering -- 90204
 	pet = AddPet(90204, V.MOP, Q.RARE)
 	pet:SetItemID(122108)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(22856)
 
 	-- Fragment of Desire -- 90205
 	pet = AddPet(90205, V.MOP, Q.RARE)
 	pet:SetItemID(122109)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(22856)
 
 	-- Sister of Temptation -- 90206
 	pet = AddPet(90206, V.MOP, Q.RARE)
 	pet:SetItemID(122110)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(22947)
 
 	-- Stinkrot -- 90207
 	pet = AddPet(90207, V.MOP, Q.RARE)
 	pet:SetItemID(122111)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(17808)
 
 	-- Hyjal Wisp -- 90208
 	pet = AddPet(90208, V.MOP, Q.RARE)
 	pet:SetItemID(122112)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(17968)
 
 	-- Sunblade Micro-Defender -- 90212
 	pet = AddPet(90212, V.MOP, Q.RARE)
 	pet:SetItemID(122113)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop()
 
 	-- Chaos Pup -- 90213
 	pet = AddPet(90213, V.MOP, Q.RARE)

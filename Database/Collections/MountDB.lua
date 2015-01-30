@@ -1919,7 +1919,7 @@ function addon:InitMounts()
 	mount:SetItemID(63125)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.ACHIEVEMENT, F.IBOP)
 	mount:AddAchievement(4988)
-	mount:AddVendor(46572, 46602, 51495, 51496, 51503, 51504, 51512, 52268)
+	mount:AddVendor(46572, 46602, 51495, 51496, 51501, 51502, 51503, 51504, 51512, 52268)
 
 	-- Golden King -- 90621
 	mount = AddMount(90621, V.CATA, Q.EPIC) -- Item: 62298
@@ -1927,7 +1927,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.ACHIEVEMENT, F.GUILD)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddAchievement(4912)
-	mount:AddRepVendor(FAC.GUILD, REP.EXALTED, 51512, 52268, 46602, 51495, 51504)
+	mount:AddRepVendor(FAC.GUILD, REP.EXALTED, 46572, 46602, 51495, 51496, 51501, 51502, 51503, 51504, 51512, 52268)
 
 	-- Ultramarine Qiraji Battle Tank -- 92155
 	mount = AddMount(92155, V.CATA, Q.EPIC) -- Item: 64883
@@ -3071,14 +3071,14 @@ function addon:InitMounts()
 	-- Chauffeured Mechano-Hog -- 179244
 	mount = AddMount(179244, V.WOD, Q.ARTIFACT)
 	mount:SetItemID(120968)
-	mount:AddFilters(F.HORDE, F.IBOA, F.MISC)
-	mount:AddCustom("HEIRLOOM_MOUNT")
+	mount:AddFilters(F.ALLIANCE, F.IBOA, F.ACHIEVEMENT)
+	mount:AddAchievement(9909)
 
 	-- Chauffeured Mekgineer's Chopper -- 179245
 	mount = AddMount(179245, V.WOD, Q.ARTIFACT)
 	mount:SetItemID(120968)
-	mount:AddFilters(F.ALLIANCE, F.IBOA, F.MISC)
-	mount:AddCustom("HEIRLOOM_MOUNT")
+	mount:AddFilters(F.ALLIANCE, F.IBOA, F.ACHIEVEMENT)
+	mount:AddAchievement(9909)
 
 	-- Voidtalon of the Dark Star --179478
 	mount = AddMount(179478, V.WOD, Q.EPIC)
