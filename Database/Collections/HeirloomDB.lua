@@ -276,6 +276,7 @@ function addon:InitHeirloom()
 	-- Prized Beastmaster's Mantle -- 122374
 	heirloom = AddHeirloom(122374, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
+	heirloom:AddVendor(6294, 6566)
 
 	-- Aged Pauldrons of The Five Thunders -- 122375
 	heirloom = AddHeirloom(122375, V.WOD, Q.ARTIFACT)
