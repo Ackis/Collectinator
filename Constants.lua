@@ -250,14 +250,14 @@ private.REP_FLAGS_WORD2 = {
 	PANDACOMMON1			= 0x00080000,	-- 20 -- Huojin Pandaren / Tushui Pandaren
 	GUILD				= 0x00100000,	-- 21
 	NETHERWING			= 0x00200000,	-- 22
-	BRAWLERS			= 0x00400000,	-- 23
-	PANDACOMMON3			= 0x00800000,	-- 24 -- Bizmo's Brawlpub / Brawl'gar Arena
-	EMPEROR_SHAOHAO			= 0x01000000,	-- 25 -- Kirin Tor Offensive / Sunreaver Onslaught
-	STEAMWHEEDLE_PRESERVATION_SOCIETY	= 0x02000000,	-- 27
-	DRAENORCOMMON1			= 0x04000000,	-- 28 -- Wrynn's Vanguard /  Vol'jin's Spear
-	DRAENORCOMMON2			= 0x08000000,	-- 29 -- Council of Exarchs / Frostwolf Orcs
-	DRAENORCOMMON3			= 0x10000000,	-- 30 -- Shatari Defense / Laughing Skull Orcs
-	ARAKKOA_OUTCASTS		= 0x20000000,	-- 31
+	BRAWLERS			= 0x00400000,	-- 23 -- Bizmo's Brawlpub / Brawl'gar Arena
+	PANDACOMMON3			= 0x00800000,	-- 24 -- Kirin Tor Offensive / Sunreaver Onslaught
+	EMPEROR_SHAOHAO			= 0x01000000,	-- 25
+	STEAMWHEEDLE_PRESERVATION_SOCIETY	= 0x02000000,	-- 26
+	DRAENORCOMMON1			= 0x04000000,	-- 27 -- Wrynn's Vanguard /  Vol'jin's Spear
+	DRAENORCOMMON2			= 0x08000000,	-- 28 -- Council of Exarchs / Frostwolf Orcs
+	DRAENORCOMMON3			= 0x10000000,	-- 29 -- Shatari Defense / Laughing Skull Orcs
+	ARAKKOA_OUTCASTS		= 0x20000000,	-- 30
 
 }
 
@@ -754,6 +754,7 @@ private.BOSS_NAMES = {
 	HIGH_PRIESTESS_KILNARA = _G.EJ_GetEncounterInfo(181),
 	HALAZZI = _G.EJ_GetEncounterInfo(189),
 	ALYSRAZOR = _G.EJ_GetEncounterInfo(194),
+	MAJORDOMO_STAGHELM = _G.EJ_GetEncounterInfo(197),
 	RAGNAROS = _G.EJ_GetEncounterInfo(198),
 	ULTRAXION = _G.EJ_GetEncounterInfo(331),
 	MADNESS_OF_DEATHWING = _G.EJ_GetEncounterInfo(333),
