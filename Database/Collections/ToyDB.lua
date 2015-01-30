@@ -60,6 +60,11 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
 	toy:AddWorldDrop(Z.KALIMDOR, Z.EASTERN_KINGDOMS)
 
+	-- Piccolo of the Flaming Fire -- 13379
+	toy = AddToy(13379, V.ORIG, Q.COMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(10558)
+
 	-- Winter Veil Disguise Kit -- 17712
 	toy = AddToy(17712, V.ORIG, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
@@ -519,6 +524,11 @@ function addon:InitToys()
 	toy = AddToy(80822, V.MOP, Q.UNCOMMON)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(30675)
+
+	-- Ruthers' Harness -- 82467
+	toy = AddToy(82467, V.MOP, Q.COMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(30930)
 
 	-- Mr. Smite's Brass Compass -- 86568
 	toy = AddToy(86568, V.MOP, Q.RARE)
@@ -1028,9 +1038,15 @@ function addon:InitToys()
 	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.DRAENORCOMMON3)
 	toy:AddRepVendor(FAC.LAUGHING_SKULL_ORCS, REP.HONORED, 86698)
 
+	-- Soul Inhaler -- 119163
+	toy = AddToy(119163, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(82618)
+
 	-- Black Whirlwind -- 119178
 	toy = AddToy(119178, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(85026)
 
 	-- Soul Evacuation Crystal -- 119182
 	toy = AddToy(119182, V.WOD, Q.RARE)
@@ -1079,9 +1095,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(81330)
 
-
---[[ 6.1 toys
-
 	-- Mini Mana Bomb -- 89205
 	toy = AddToy(89205, V.WOD, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
@@ -1108,9 +1121,35 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(35195)
 
-	-- Barrel of Bandanas -- 120857
-	toy = AddToy(120857, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ROGUE)
+	-- Gaze of the Darkmoon -- 122120
+	toy = AddToy(122120, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.WORLD_EVENTS)
+	toy:AddAchievement(9785)
+	toy:AddWorldEvent("DARKMOON_FAIRE")
+
+	-- Darkmoon Tonk Controller -- 122122
+	toy = AddToy(122122, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.WORLD_EVENTS)
+	toy:AddAchievement(9885)
+	toy:AddWorldEvent("DARKMOON_FAIRE")
+
+	-- Darkmoon Ring-Flinger -- 122123
+	toy = AddToy(122123, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.WORLD_EVENTS)
+	toy:AddAchievement(9894)
+	toy:AddWorldEvent("DARKMOON_FAIRE")
+
+	-- Attraction Sign -- 122126
+	toy = AddToy(122126, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.WORLD_EVENTS)
+	toy:AddAchievement(9792)
+	toy:AddWorldEvent("DARKMOON_FAIRE")
+
+	-- Fire-Eater's Vial -- 122129
+	toy = AddToy(122129, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.WORLD_EVENTS)
+	toy:AddAchievement(9761)
+	toy:AddWorldEvent("DARKMOON_FAIRE")
 
 	-- Rukmar's Sacred Memory -- 122283
 	toy = AddToy(122283, V.WOD, Q.RARE)
@@ -1118,15 +1157,23 @@ function addon:InitToys()
 
 	-- Trans-Dimensional Bird Whistle -- 122293
 	toy = AddToy(122293, V.WOD, Q.EPIC)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBO, F.ACHIEVEMENTP)
 	toy:AddAchievement(9838)
 
 	-- Fandral's Seed Pouch -- 122304
 	toy = AddToy(122304, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.DRUID)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(52571)
 
-]]--
+	-- S.E.L.F.I.E. Camera MkII -- 122674
+	toy = AddToy(122674, V.WOD, Q.EPIC)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("MISSION")
 
+	-- Portable Audiophone -- 122700
+	toy = AddToy(122700, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(9912, 9914)
 
 --Not actually in the toy box added
 	-- Murloc Costume -- 33079

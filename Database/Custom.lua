@@ -106,7 +106,8 @@ function addon:InitCustom()
 	AddCustom("VARASHAS_EGG",	Z.SPIRES_OF_ARAK,		29.5,	41.7)
 	AddCustom("BARN")
 	AddCustom("TRADING_POST")
-	AddCustom("HEIRLOOM_MOUNT")
+	AddCustom("MISSION")
+	AddCustom("FISHING_TOURNAMENT")
 
 	self.InitCustom = nil
 end
