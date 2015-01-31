@@ -1157,7 +1157,7 @@ function addon:InitToys()
 
 	-- Trans-Dimensional Bird Whistle -- 122293
 	toy = AddToy(122293, V.WOD, Q.EPIC)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBO, F.ACHIEVEMENTP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(9838)
 
 	-- Fandral's Seed Pouch -- 122304
