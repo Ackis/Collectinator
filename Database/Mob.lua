@@ -212,7 +212,7 @@ function addon:InitMob()
 	AddMob(86257,	L["Basten"],				Z.GORGROND,			69.2, 44.6)
 	AddMob(87308,	L["Gorok"],				Z.FROSTFIRE_RIDGE,		58.5, 18.5)
 	AddMob(87420,	BN.BLACKHAND,				Z.BLACKROCK_FOUNDRY,		 0.0,  0.0)
-	AddMob(87493,	BN.RUKHMAR,				Z.SPIRES_OF_ARAK,		47.1, 78.4)
+	AddMob(87493,	BN.RUKHMAR,				Z.SPIRES_OF_ARAK,		35.0, 32.0)
 	AddMob(87668,	L["Orumo the Observer"],		Z.TALADOR,			31.4, 47.6)
 
 	self.InitMob = nil
