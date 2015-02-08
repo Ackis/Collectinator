@@ -3085,6 +3085,18 @@ function addon:InitMounts()
 	mount:SetItemID(121815)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 
+	-- Mystic Runesaber -- 180545
+	mount = AddMount(180545, V.WOD, Q.EPIC)
+	mount:SetItemID(122469)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOA)
+	mount:AddCustom("STORE")
+
+	-- Cindermane Charger -- 171847
+	mount = AddMount(171847, V.WOD, Q.EPIC)
+	mount:SetItemID(118515)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	mount:AddCustom("RECRUIT")
+
 -- Mounts which are duplicates, or are really temporary mounts
 -- Added to stop the debug popups. BAD BLIZZARD
 	-- Swift Brown Steed -- 58819
@@ -3100,6 +3112,7 @@ function addon:InitMounts()
 end
 
 --[[
+
 Apparentely not in game yet!
 
 	-- Prideful Gladiator's Cloud Serpent -- 148620  -- Season 15
