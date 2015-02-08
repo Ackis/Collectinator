@@ -53,11 +53,6 @@ function addon:InitHeirloom()
 
 	local heirloom
 
-	-- Hellscream's Warmace -- 105675
-	heirloom = AddHeirloom(105675, V.MOP, Q.ARTIFACT)
-	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:Retire()
-
 	-- Polished Helm of Valor -- 122245
 	heirloom = AddHeirloom(122245, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
