@@ -151,77 +151,77 @@ function addon:InitHeirloom()
 	-- Bloodied Arcanite Reaper -- 122349
 	heirloom = AddHeirloom(122349, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Balanced Heartseeker -- 122350
 	heirloom = AddHeirloom(122350, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Venerable Dal'Rend's Sacred Charge -- 122351
 	heirloom = AddHeirloom(122351, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Charmed Ancient Bone Bow -- 122352
 	heirloom = AddHeirloom(122352, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Dignified Headmaster's Charge -- 122353
 	heirloom = AddHeirloom(122353, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Devout Aurastone Hammer -- 122354
 	heirloom = AddHeirloom(122354, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Polished Spaulders of Valor -- 122355
 	heirloom = AddHeirloom(122355, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Champion Herod's Shoulder -- 122356
 	heirloom = AddHeirloom(122356, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Mystical Pauldrons of Elements -- 122357
 	heirloom = AddHeirloom(122357, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Stained Shadowcraft Spaulders -- 122358
 	heirloom = AddHeirloom(122358, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Preened Ironfeather Shoulders -- 122359
 	heirloom = AddHeirloom(122359, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Tattered Dreadmist Mantle -- 122360
 	heirloom = AddHeirloom(122360, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Swift Hand of Justice -- 122361
 	heirloom = AddHeirloom(122361, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Discerning Eye of the Beast -- 122362
 	heirloom = AddHeirloom(122362, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Burnished Warden Staff -- 122363
 	heirloom = AddHeirloom(122363, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Sharpened Scarlet Kris -- 122364
 	heirloom = AddHeirloom(122364, V.WOD, Q.ARTIFACT)
@@ -301,72 +301,72 @@ function addon:InitHeirloom()
 	-- Champion's Deathdealer Breastplate -- 122379
 	heirloom = AddHeirloom(122379, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Mystical Vest of Elements -- 122380
 	heirloom = AddHeirloom(122380, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Polished Breastplate of Valor -- 122381
 	heirloom = AddHeirloom(122381, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Preened Ironfeather Breastplate -- 122382
 	heirloom = AddHeirloom(122382, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Stained Shadowcraft Tunic -- 122383
 	heirloom = AddHeirloom(122383, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Tattered Dreadmist Robe -- 122384
 	heirloom = AddHeirloom(122384, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Venerable Mass of McGowan -- 122385
 	heirloom = AddHeirloom(122385, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Repurposed Lava Dredger -- 122386
 	heirloom = AddHeirloom(122386, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Burnished Breastplate of Might -- 122387
 	heirloom = AddHeirloom(122387, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Burnished Pauldrons of Might -- 122388
 	heirloom = AddHeirloom(122388, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Bloodsoaked Skullforge Reaver -- 122389
 	heirloom = AddHeirloom(122389, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Musty Tome of the Lost -- 122390
 	heirloom = AddHeirloom(122390, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Flamescarred Draconian Deflector -- 122391
 	heirloom = AddHeirloom(122391, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Weathered Observer's Shield -- 122392
 	heirloom = AddHeirloom(122392, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
-	heirloom:AddVendor(6294, 6566, 34885)
+	heirloom:AddVendor(6294, 6566, 34885, 56335)
 
 	-- Brawler's Razor Claws -- 122396
 	heirloom = AddHeirloom(122396, V.WOD, Q.ARTIFACT)

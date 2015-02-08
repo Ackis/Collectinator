@@ -121,6 +121,7 @@ L["DIREHORN"] = "The mob this mount drops from can spawn in 1 of 4 spots randoml
 L["DISGUSTING_JAR"] = "Chance at this collectable from Disgusting Jar every 3 days."
 L["DISPLAY_EXCLUSION_DESC"] = "Display collectables that are in the exclusion list."
 L["DISPLAY_OPTIONS_DESC"] = "Allows you to customize how the GUI behaves."
+L["Daenrand Dawncrest"] = true
 L["Dama Wildmane"] = true
 L["Dame Evniki Kapsalis"] = true
 L["Darahir"] = true
