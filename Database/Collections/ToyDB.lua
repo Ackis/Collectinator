@@ -61,7 +61,7 @@ function addon:InitToys()
 	toy:AddWorldDrop(Z.KALIMDOR, Z.EASTERN_KINGDOMS)
 
 	-- Piccolo of the Flaming Fire -- 13379
-	toy = AddToy(13379, V.ORIG, Q.COMMON)
+	toy = AddToy(13379, V.ORIG, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(10558)
 
@@ -1151,9 +1151,10 @@ function addon:InitToys()
 	toy:AddAchievement(9761)
 	toy:AddWorldEvent("DARKMOON_FAIRE")
 
-	-- Rukmar's Sacred Memory -- 122283
+	-- Rukhmar's Sacred Memory -- 122283
 	toy = AddToy(122283, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddMobDrop(87493)
 
 	-- Trans-Dimensional Bird Whistle -- 122293
 	toy = AddToy(122293, V.WOD, Q.EPIC)
@@ -1174,6 +1175,11 @@ function addon:InitToys()
 	toy = AddToy(122700, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(9912, 9914)
+
+	-- Photo B.O.M.B. -- 123851
+	toy = AddToy(123851, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("BLINGTRON")
 
 --Not actually in the toy box added
 	-- Murloc Costume -- 33079
