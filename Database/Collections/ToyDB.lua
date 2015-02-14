@@ -1121,6 +1121,12 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(35195)
 
+	-- Everlasting Darkmoon Firework -- 122119
+	toy = AddToy(122119, V.WOD, Q.COMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.WORLD_EVENTS)
+	toy:AddAchievement(9764)
+	toy:AddWorldEvent("DARKMOON_FAIRE")
+
 	-- Gaze of the Darkmoon -- 122120
 	toy = AddToy(122120, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.WORLD_EVENTS)
