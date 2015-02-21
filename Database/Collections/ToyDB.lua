@@ -339,15 +339,6 @@ function addon:InitToys()
 	toy:AddVendor(29478, 29716, 52358, 52809)
 
 -- Cataclysm
-	-- Gnomeregan Pride -- 54651
-	toy = AddToy(54651, V.CATA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE)
-	toy:Retire()
-
-	-- Darkspear Pride -- 54653
-	toy = AddToy(54653, V.CATA, Q.RARE)
-	toy:AddFilters(F.HORDE)
-	toy:Retire()
 
 	-- Faded Wizard Hat -- 53057
 	toy = AddToy(53057, V.CATA, Q.COMMON)
