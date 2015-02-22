@@ -1041,8 +1041,8 @@ function addon:InitToys()
 
 	-- Soul Evacuation Crystal -- 119182
 	toy = AddToy(119182, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
-	toy:AddMobDrop(85026)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddVendor(85427)
 
 	-- Hearthstone Board -- 119210
 	toy = AddToy(119210, V.WOD, Q.COMMON)
