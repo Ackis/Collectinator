@@ -193,6 +193,7 @@ L["Foreboding Flame"] = true
 L["Fossilwood the Petrified"] = true
 L["Freka Bloodaxe"] = true
 L["GEYSER_GUN"] = "Get 250 stacks of the geyser debuff in the Geyser game following Council of Elders in Throne of Thunder."
+L["GLADIATORS_SANCTUM"] = "Requires the Gladiators Sanctum Building in the Garrison."
 L["GROUP_TOGGLE_FORMAT"] = "Left-click to select or Right-click to deselect all %s filters."
 L["G'nathus"] = true
 L["Gaelden Hammersmith"] = true

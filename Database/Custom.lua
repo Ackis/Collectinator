@@ -108,6 +108,7 @@ function addon:InitCustom()
 	AddCustom("TRADING_POST")
 	AddCustom("MISSION")
 	AddCustom("FISHING_TOURNAMENT")
+	AddCustom("GLADIATORS_SANCTUM")
 
 	self.InitCustom = nil
 end

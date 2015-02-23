@@ -1061,15 +1061,20 @@ function addon:InitToys()
 
 	-- Alliance Flag of Victory -- 119217
 	toy = AddToy(119217, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.IBOP, F.WORLD_DROP) -- Needs updating
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(9639)
+	toy:AddCustom("GLADIATORS_SANCTUM")
 
 	-- Horde Flag of Victory -- 119218
 	toy = AddToy(119218, V.WOD, Q.RARE)
-	toy:AddFilters(F.HORDE, F.IBOP, F.WORLD_DROP) -- Needs updating
+	toy:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(9639)
+	toy:AddCustom("GLADIATORS_SANCTUM")
 
 	-- Warlord's Flag of Victory -- 119219
 	toy = AddToy(119219, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP) -- Needs updating
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddCustom("GLADIATORS_SANCTUM")
 
 	-- Sha'tari Defender's Medallion -- 119421
 	toy = AddToy(119421, V.WOD, Q.RARE)
