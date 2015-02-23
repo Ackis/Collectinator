@@ -1042,7 +1042,7 @@ function addon:InitToys()
 	-- Soul Evacuation Crystal -- 119182
 	toy = AddToy(119182, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddRepVendor(FAC.SHATARI_DEFENSE. REP.HONORED, 85427)
+	toy:AddRepVendor(FAC.SHATARI_DEFENSE, REP.HONORED, 85427)
 
 	-- Hearthstone Board -- 119210
 	toy = AddToy(119210, V.WOD, Q.COMMON)
