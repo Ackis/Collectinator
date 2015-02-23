@@ -1153,11 +1153,6 @@ function addon:InitToys()
 	toy:AddAchievement(9761)
 	toy:AddWorldEvent("DARKMOON_FAIRE")
 
-	-- Rukhmar's Sacred Memory -- 122283
-	toy = AddToy(122283, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddMobDrop(87493)
-
 	-- Trans-Dimensional Bird Whistle -- 122293
 	toy = AddToy(122293, V.WOD, Q.EPIC)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
@@ -1185,7 +1180,13 @@ function addon:InitToys()
 
 --Not actually in the toy box added
 	-- Murloc Costume -- 33079
-	toy = AddToy(33079, V.WOD, Q.COMMON)
+--	toy = AddToy(33079, V.WOD, Q.COMMON)
+
+--[[  Didn't actually make it into the ToyBox panel
+	-- Rukhmar's Sacred Memory -- 122283
+	toy = AddToy(122283, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+]]--
 
 	self.InitToys = nil
 
