@@ -960,11 +960,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("INN")
 
-	-- Archmage Vargoth's Spare Staff -- 118191
-	toy = AddToy(118191, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	toy:AddCustom("INN")
-
 	-- Petrification Stone -- 118221
 	toy = AddToy(118221, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
