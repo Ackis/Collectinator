@@ -33,8 +33,8 @@ local L		= LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 private.reputation_list	= {}
 
 function addon:InitReputation()
-	local function AddReputation(rep_id, name)
-		private:AddListEntry(private.reputation_list, rep_id, _G.GetFactionInfoByID(rep_id))
+	local function AddReputation(reputationID, name)
+		private:AddListEntry(private.reputation_list, reputationID, _G.GetFactionInfoByID(reputationID) or ("%s %s"):format(_G.UNAVAILABLE, _G.PARENS_TEMPLATE:format(reputationID)))
 	end
 
 	for name, id in pairs(private.FACTION_IDS) do
