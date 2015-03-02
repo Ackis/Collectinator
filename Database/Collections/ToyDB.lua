@@ -1094,7 +1094,7 @@ function addon:InitToys()
 	-- Personal Hologram -- 108745
 	toy = AddToy(108745, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	toy:AddProfession("ENGINEERING")
+	toy:AddProfession(PROF.ENGINEERING)
 
 	-- Scroll of Storytelling -- 116456
 	toy = AddToy(116456, V.WOD, Q.RARE)
