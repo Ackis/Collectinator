@@ -676,7 +676,7 @@ do
 				local toy_id = toy_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(toy_names[toy_id], toy_id))
 				private.TextDump:AddLine(("toy = AddToy(%d, V.WOD, Q.COMMON)"):format(toy_id))
-				private.TextDump:AddLine(("toy:SetFilters(F.ALLIANCE, F.HORDE, F.IBOP)\n"))
+				private.TextDump:AddLine(("toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)\n"))
 			end
 			local dump_lines = private.TextDump:Lines()
 
@@ -723,7 +723,7 @@ do
 				local heirloom_id = heirloom_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(heirloom_names[heirloom_id], heirloom_id))
 				private.TextDump:AddLine(("heirloom = AddHeirloom(%d, V.WOD, Q.ARTIFACT)"):format(heirloom_id))
-				private.TextDump:AddLine(("heirloom:SetFilters(F.ALLIANCE, F.HORDE, F.IBOA)\n"))
+				private.TextDump:AddLine(("heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)\n"))
 			end
 			local dump_lines = private.TextDump:Lines()
 
