@@ -2717,14 +2717,14 @@ function addon:InitMounts()
 	-- Vicious Warsaber -- 146615
 	mount = AddMount(146615, V.MOP, Q.EPIC)
 	mount:SetItemID(102514)
-	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(73190)
 
 	-- Vicious Skeletal Warhorse -- 146622
 	mount = AddMount(146622, V.MOP, Q.EPIC)
 	mount:SetItemID(102533)
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(73151)
 

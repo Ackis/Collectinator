@@ -941,7 +941,7 @@ function addon:InitToys()
 
 	-- Crashin' Thrashin' Shredder Controller -- 116763
 	toy = AddToy(116763, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_EVENTS)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_EVENTS, F.MISC)
 	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 	toy:AddCustom("WINTERVEIL_GIFT")
 
@@ -982,7 +982,8 @@ function addon:InitToys()
 
 	-- Goren Garb -- 118716
 	toy = AddToy(118716, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP) -- Needs update
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.MISC)
+	toy:AddCustom("WARM_GOREN_EGG")
 
 	-- Gamon's Braid -- 118937
 	toy = AddToy(118937, V.WOD, Q.RARE)

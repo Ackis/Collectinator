@@ -109,6 +109,9 @@ function addon:InitCustom()
 	AddCustom("MISSION")
 	AddCustom("FISHING_TOURNAMENT")
 	AddCustom("GLADIATORS_SANCTUM")
+	AddCustom("WARM_GOREN_EGG",	Z.GORGROND,			48.9, 47.2)
+	AddCustom("GURUBASHI_ARENA",	Z.STRANGLETHORN_VALE)
+	AddCustom("VOIDTALON")
 
 	self.InitCustom = nil
 end
