@@ -3071,13 +3071,15 @@ function addon:InitMounts()
 	-- Chauffeured Mechano-Hog -- 179244
 	mount = AddMount(179244, V.WOD, Q.ARTIFACT)
 	mount:SetItemID(120968)
-	mount:AddFilters(F.ALLIANCE, F.IBOA, F.ACHIEVEMENT)
+	mount:AddFilters(F.HORDE, F.IBOA, F.ACHIEVEMENT)
+	mount:SetRequiredFaction("Horde")
 	mount:AddAchievement(9909)
 
 	-- Chauffeured Mekgineer's Chopper -- 179245
 	mount = AddMount(179245, V.WOD, Q.ARTIFACT)
 	mount:SetItemID(120968)
 	mount:AddFilters(F.ALLIANCE, F.IBOA, F.ACHIEVEMENT)
+	mount:SetRequiredFaction("Alliance")
 	mount:AddAchievement(9909)
 
 	-- Voidtalon of the Dark Star --179478
