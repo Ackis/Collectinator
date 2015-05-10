@@ -2694,12 +2694,14 @@ function addon:InitMounts()
 	mount = AddMount(142266, V.MOP, Q.EPIC)
 	mount:SetItemID(98104)
 	mount:AddFilters(F.HORDE, F.IBOP)
+	mount:SetRequiredFaction("Horde")
 	mount:AddAchievement(8302)
 
 	-- Armored Blue Dragonhawk -- 142478
 	mount = AddMount(142478, V.MOP, Q.EPIC)
 	mount:SetItemID(98259)
 	mount:AddFilters(F.ALLIANCE, F.IBOP)
+	mount:SetRequiredFaction("Alliance")
 	mount:AddAchievement(8304)
 
 	-- Brawler's Burly Mushan Beast -- 142641
