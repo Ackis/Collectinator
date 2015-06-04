@@ -45,26 +45,38 @@ private.location_list = {}
 -----------------------------------------------------------------------
 -- Metatables.
 -----------------------------------------------------------------------
-local collectable_prototype = {}
-local collectable_meta = {
-	__index = collectable_prototype
+local collectable_prototype = {
+	ZoneLocationLabel = "zoneLocation"
 }
 
-local pet_prototype = {}
+local collectable_meta = {
+	__index = collectable_prototype,
+}
+
+local pet_prototype = {
+	ZoneLocationLabel = "pet_battle"
+}
+
 local pet_meta = {
 	__index = function(t, k)
 		return pet_prototype[k] or collectable_prototype[k]
 	end,
 }
 
-local mount_prototype = {}
+local mount_prototype = {
+	ZoneLocationLabel = "zoneLocation"
+}
+
 local mount_meta = {
 	__index = function(t, k)
 		return mount_prototype[k] or collectable_prototype[k]
 	end,
 }
 
-local toy_prototype = {}
+local toy_prototype = {
+	ZoneLocationLabel = "zoneLocation"
+}
+
 local toy_meta = {
 	__index = function(t, k)
 		return toy_prototype[k] or collectable_prototype[k]
@@ -72,7 +84,10 @@ local toy_meta = {
 }
 
 
-local heirloom_prototype = {}
+local heirloom_prototype = {
+	ZoneLocationLabel = "zoneLocation"
+}
+
 local heirloom_meta = {
 	__index = function(t, k)
 		return heirloom_prototype[k] or collectable_prototype[k]
@@ -158,35 +173,37 @@ function pet_prototype:Weather()
 	return self.weather
 end
 
+-------------------------------------------------------------------------------
+-- Collectable methods.
+-------------------------------------------------------------------------------
 -- ... == coords x:y
-function pet_prototype:AddZoneLocations(zoneName, levelRange, isSecondary, ...)
-	self:AddAcquireData(A.WORLD_DROP, "pet_battle", nil, zoneName)
+function collectable_prototype:AddZoneLocations(zoneName, levelRange, isSecondary, ...)
+	self:AddAcquireData(A.WORLD_DROP, self.ZoneLocationLabel or "world_drop", nil, zoneName)
+	self:AddFilters(private.FILTER_IDS.WORLD_DROP)
 
 	self.zone_list = self.zone_list or {}
 	self.zone_list[zoneName] = self.zone_list[zoneName] or {}
-	self.zone_list[zoneName][levelRange] = self.zone_list[zoneName][levelRange] or {}
 
-	local zone_level_coords = self.zone_list[zoneName][levelRange]
+	local zoneField = levelRange or "coords"
+	self.zone_list[zoneName][zoneField] = self.zone_list[zoneName][zoneField] or {}
 
+	local zoneCoords = self.zone_list[zoneName][zoneField]
 	if isSecondary then
-		zone_level_coords[#zone_level_coords + 1] = "secondary"
+		zoneCoords[#zoneCoords + 1] = "secondary"
 	else
-		local num_coords = select('#', ...)
+		local coordsCount = select('#', ...)
 
-		if num_coords == 0 then
-			zone_level_coords[#zone_level_coords + 1] = "unknown"
+		if coordsCount == 0 then
+			zoneCoords[#zoneCoords + 1] = "unknown"
 			return
 		end
 
-		for index = 1, num_coords do
-			zone_level_coords[#zone_level_coords + 1] = (select(index, ...))
+		for index = 1, coordsCount do
+			zoneCoords[#zoneCoords + 1] = (select(index, ...))
 		end
 	end
 end
 
--------------------------------------------------------------------------------
--- Collectable methods.
--------------------------------------------------------------------------------
 function collectable_prototype:SetDescription(description)
 	if not description or self.description then
 		return
