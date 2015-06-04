@@ -1401,7 +1401,7 @@ function private.InitializeListFrame()
 						local location_type = location_collectables[collectable_id]
 
 						-- Add World Drop entries as normal entries.
-						if location_type and (location_type == "world_drop" or location_type == "pet_battle") then
+						if location_type and (location_type == "world_drop" or location_type == "pet_battle" or location_type == "zoneLocation") then
 							expand = true
 							entry_type = "entry"
 						end
@@ -1678,15 +1678,25 @@ do
 					addline_func(0, -1, false, _G.BATTLE_PET_SOURCE_5, quality_color)
 
 					for coord_index = 1, #coord_list do
-                        if coord_list[coord_index] == "unknown" then
-                            addline_func(1, -2, true, ("%s (%s)"):format(drop_location, level_range), CATEGORY_COLORS.location, _G.UNKNOWN, CATEGORY_COLORS.coords)
-                        elseif coord_list[coord_index] == "secondary" then
-                            addline_func(1, -1, true, ("%s (%s)"):format(drop_location, level_range), CATEGORY_COLORS.location, _G.SECONDARY, CATEGORY_COLORS.coords)
-                        else
-                            local x, y = (":"):split(coord_list[coord_index])
-                            addline_func(1, -2, true, ("%s (%s)"):format(drop_location, level_range), CATEGORY_COLORS.location, COORD_FORMAT:format(x, y), CATEGORY_COLORS.coords)
-                        end
-                    end
+						if coord_list[coord_index] == "unknown" then
+							addline_func(1, -2, true, ("%s (%s)"):format(drop_location, level_range), CATEGORY_COLORS.location, _G.UNKNOWN, CATEGORY_COLORS.coords)
+						elseif coord_list[coord_index] == "secondary" then
+							addline_func(1, -1, true, ("%s (%s)"):format(drop_location, level_range), CATEGORY_COLORS.location, _G.SECONDARY, CATEGORY_COLORS.coords)
+						else
+							local x, y = (":"):split(coord_list[coord_index])
+							addline_func(1, -2, true, ("%s (%s)"):format(drop_location, level_range), CATEGORY_COLORS.location, COORD_FORMAT:format(x, y), CATEGORY_COLORS.coords)
+						end
+					end
+				end
+			elseif drop_type == "zoneLocation" then
+				local coord_list = collectable.zone_list[identifier].coords
+				for coord_index = 1, #coord_list do
+					if coord_list[coord_index] == "unknown" then
+						addline_func(1, -2, true, ("%s"):format(drop_location), CATEGORY_COLORS.location, _G.UNKNOWN, CATEGORY_COLORS.coords)
+					else
+						local x, y = (":"):split(coord_list[coord_index])
+						addline_func(1, -2, true, ("%s"):format(drop_location), CATEGORY_COLORS.location, COORD_FORMAT:format(x, y), CATEGORY_COLORS.coords)
+					end
 				end
 			else
 				addline_func(0, -1, false, _G.UNKNOWN, quality_color, location, CATEGORY_COLORS["location"])
