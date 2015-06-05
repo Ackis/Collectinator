@@ -223,6 +223,7 @@ function addon:OnInitialize()
 					tcg = true,
 					promo = true,
 					misc = true,
+					garrisonMission = true,
 
 					-- Version
 					expansion0 = true,

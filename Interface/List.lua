@@ -1257,6 +1257,17 @@ function private.InitializeListFrame()
 		return ListFrame:InsertEntry(entry, entry_index, true)
 	end
 
+	local function ExpandGarrisonMissionData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
+		local entry = CreateListEntry(entry_type, parent_entry, collectable)
+		entry:SetText("%s%s %s",
+			PADDING,
+			hide_type and "" or SetTextColor(CATEGORY_COLORS["garrisonmission"], _G.GARRISON_MISSIONS_TITLE) .. ":",
+			SetTextColor(BASIC_COLORS["normal"], _G.C_Garrison.GetMissionName(id_num))
+		)
+
+		return ListFrame:InsertEntry(entry, entry_index, true)
+	end
+
 	local function ExpandRetiredData(entry_index, entry_type, parent_entry, id_num, recipe, _, _)
 		local entry = CreateListEntry(entry_type, parent_entry, recipe)
 		entry:SetText(PADDING .. SetTextColor(CATEGORY_COLORS.retired, L.RETIRED_COLLECTABLE_LONG))
@@ -1304,6 +1315,8 @@ function private.InitializeListFrame()
 				--@alpha@
 			elseif acquire_type == A.ACHIEVEMENT and obtain_filters.achievement then
 				func = ExpandAchievementData
+			elseif acquire_type == A.GARRISON_MISSION and obtain_filters.garrisonMission then
+				func = ExpandGarrisonMissionData
 			elseif acquire_type > num_acquire_types then
 				local entry = CreateListEntry(entry_type, parent_entry, collectable)
 				entry:SetText("Unhandled Acquire Case - Type: " .. acquire_type)
@@ -1722,6 +1735,11 @@ do
 			end
 			addline_func(0, -1, false, achievement_desc, CATEGORY_COLORS["achievement"])
 		end,
+		[A.GARRISON_MISSION] = function(collectable, identifier, location, acquire_info, addline_func)
+			if collectable:HasFilter("common1", "GARRISON_MISSION") then
+				addline_func(0, -1, false, _G.GARRISON_MISSIONS_TITLE, CATEGORY_COLORS["garrisonmission"], _G.C_Garrison.GetMissionName(identifier), BASIC_COLORS["normal"])
+			end
+		end,
 		[A.CUSTOM] = function(collectable, identifier, location, acquire_info, addline_func)
 			addline_func(0, -1, false, private.custom_list[identifier].name, CATEGORY_COLORS["custom"])
 		end,
@@ -1737,6 +1755,7 @@ do
 	-------------------------------------------------------------------------------
 	function addon:DisplayAcquireData(collectable, acquire_id, location, addline_func)
 		if not collectable then
+			addon:Debug("BAAAAH")
 			return
 		end
 
@@ -1861,7 +1880,7 @@ do
 			end
 			ttAdd(0, -1, false, _G.ITEM_RACES_ALLOWED:format(output:String(", ")), BASIC_COLORS["normal"])
 		end
-		ttAdd(0, -1, false, L["Obtained From"] .. " : ", BASIC_COLORS["normal"])
+		ttAdd(0, -1, false, L["Obtained From"] .. ": ", BASIC_COLORS["normal"])
 
 		addon:DisplayAcquireData(list_entry.collectable, list_entry:AcquireID(), list_entry:LocationID(), ttAdd)
 

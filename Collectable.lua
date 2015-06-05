@@ -33,10 +33,10 @@ do
 	local acquire_list = {}
 
 	for acquire_type = 1, #private.ACQUIRE_STRINGS do
-		local entry = {}
-		entry.name = private.ACQUIRE_NAMES[acquire_type]
-		entry.collectables = {}
-		acquire_list[acquire_type] = entry
+		acquire_list[acquire_type] = {
+			name = private.ACQUIRE_NAMES[acquire_type],
+			collectables = {},
+		}
 	end
 	private.acquire_list = acquire_list
 end
@@ -517,6 +517,11 @@ function collectable_prototype:AddAcquireData(acquire_type, type_string, unit_li
 	end
 end
 
+function collectable_prototype:AddGarrisonMission(...)
+	self:AddAcquireData(A.GARRISON_MISSION, "Garrison Mission", nil, ...)
+	self:AddFilters(private.FILTER_IDS.GARRISON_MISSION)
+end
+
 function collectable_prototype:AddProfession(...)
 	self:AddAcquireData(A.PROFESSION, nil, nil, ...)
 end
@@ -630,12 +635,13 @@ end
 local DUMP_FUNCTION_FORMATS = {
 	[A.ACHIEVEMENT] = "%s:AddAchievement(%s)",
 	[A.CUSTOM] = "%s:AddCustom(%s)",
-	[A.WORLD_EVENTS] = "%s:AddWorldEvent(%s)",
+	[A.GARRISON_MISSION] = "%s:AddGarrisonMission(%s)",
 	[A.MOB_DROP] = "%s:AddMobDrop(%s)",
-	[A.WORLD_DROP] = "%s:AddWorldDrop(%s)",
-	[A.QUEST] = "%s:AddQuest(%s)",
 	[A.PROFESSION] = "%s:AddProfession(%s)",
+	[A.QUEST] = "%s:AddQuest(%s)",
 	[A.RETIRED] = "%s:Retire()",
+	[A.WORLD_DROP] = "%s:AddWorldDrop(%s)",
+	[A.WORLD_EVENTS] = "%s:AddWorldEvent(%s)",
 }
 
 local ZONE_LOCATION_FORMAT = "%s:AddZoneLocations(%s)"

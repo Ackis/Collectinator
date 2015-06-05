@@ -179,7 +179,7 @@ private.COMMON_FLAGS_WORD1 = {
 	COLLECTORS_EDITION	= 0x00020000,	-- 18
 	PROMO			= 0x00040000,	-- 19
 	MISC			= 0x00080000,	-- 20
-	__UNUSED_21__		= 0x00100000,	-- 21
+	GARRISON_MISSION	= 0x00100000,	-- 21
 	__UNUSED_22__		= 0x00200000,	-- 22
 	PROFESSION		= 0x00400000,	-- 23
 	ACHIEVEMENT		= 0x00800000,	-- 24
@@ -330,6 +330,7 @@ private.ACQUIRE_NAMES = {
 	_G.BATTLE_PET_SOURCE_8, -- Promotion
 	_G.MISCELLANEOUS,
 	L["Retired"],
+	_G.GARRISON_MISSIONS_TITLE,
 }
 
 private.ACQUIRE_STRINGS = {
@@ -349,6 +350,7 @@ private.ACQUIRE_STRINGS = {
 	"PROMO",		-- 14
 	"MISC",			-- 15
 	"RETIRED",		-- 16
+	"GARRISON_MISSION",     -- 17
 }
 
 private.ACQUIRE_TYPES = GenerateLookup_ID(private.ACQUIRE_STRINGS)
@@ -794,14 +796,14 @@ local function GetColorsFromTable(dict)
 end
 
 private.REPUTATION_COLORS = {
-	["exalted"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[8])),
-	["revered"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[7])),
-	["honored"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[6])),
-	["friendly"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[5])),
-	["neutral"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[4])),
-	["unfriendly"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[3])),
-	["hostile"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[2])),
-	["hated"]	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[1])),
+	exalted		= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[8])),
+	revered		= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[7])),
+	honored		= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[6])),
+	friendly	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[5])),
+	neutral		= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[4])),
+	unfriendly	= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[3])),
+	hostile		= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[2])),
+	hated		= RGBtoHEX(GetColorsFromTable(_G.FACTION_BAR_COLORS[1])),
 }
 
 -- Colors used in tooltips and the collectable list.
@@ -809,7 +811,8 @@ private.CATEGORY_COLORS = {
 	-- Acquire type colors
 	achievement	= "faeb98",
 	custom		= "73b7ff",
-	hint            = "c9c781",
+	garrisonmission	= "89dba0",
+	hint		= "c9c781",
 	mobdrop		= "962626",
 	profession	= "9c6b98",
 	quest		= "dbdb2c",
@@ -823,7 +826,6 @@ private.CATEGORY_COLORS = {
 	coords		= "d1ce6f",
 	location	= "ffecc1",
 	repname		= "6a9ad9",
-
 }
 
 private.BASIC_COLORS = {

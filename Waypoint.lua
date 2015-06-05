@@ -561,7 +561,7 @@ function addon:AddWaypoint(collectable, acquire_id, location_id, npc_id)
 		local location_name = waypoint.location or "nil"
 		local continent, zone
 		local _, _, _, quality_color = _G.GetItemQualityColor(collectable.quality)
-		local acquire_str = private.ACQUIRE_STRINGS[waypoint.acquire_type]:lower():gsub("_","")
+		local acquire_str = private.ACQUIRE_STRINGS[waypoint.acquire_type]:lower():gsub("_", "")
 		local color_code = private.CATEGORY_COLORS[acquire_str] or "ffffff"
 
 		if waypoint.acquire_type == A.QUEST then
