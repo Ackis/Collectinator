@@ -117,7 +117,7 @@ function addon:InitCritters()
 	pet:SetSpellID(4055)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
-	pet:AddCustom("BLINGTRON")
+	pet:AddCustom("BLINGTRON_4000")
 
 	-- Siamese Cat -- 7380
 	pet = AddPet(7380, V.ORIG, Q.COMMON)
@@ -333,7 +333,7 @@ function addon:InitCritters()
 	pet:SetSpellID(15048)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
-	pet:AddCustom("BLINGTRON")
+	pet:AddCustom("BLINGTRON_4000")
 
 	-- Lil' Smoky -- 9657
 	pet = AddPet(9657, V.ORIG, Q.COMMON)
@@ -341,7 +341,7 @@ function addon:InitCritters()
 	pet:SetSpellID(15049)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
-	pet:AddCustom("BLINGTRON")
+	pet:AddCustom("BLINGTRON_4000")
 
 	-- Sprite Darter Hatchling -- 9662
 	pet = AddPet(9662, V.ORIG, Q.COMMON)
@@ -391,7 +391,7 @@ function addon:InitCritters()
 	pet:SetSpellID(19772)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
-	pet:AddCustom("BLINGTRON")
+	pet:AddCustom("BLINGTRON_4000")
 
 	-- Brown Prairie Dog -- 14421
 	pet = AddPet(14421, V.ORIG, Q.COMMON)
@@ -457,7 +457,7 @@ function addon:InitCritters()
 	pet:SetSpellID(26010)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
-	pet:AddCustom("BLINGTRON")
+	pet:AddCustom("BLINGTRON_4000")
 
 	-- Winter's Little Helper -- 15705
 	pet = AddPet(15705, V.ORIG, Q.COMMON)
@@ -1342,7 +1342,7 @@ function addon:InitCritters()
 	pet:SetSpellID(84412)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
-	pet:AddCustom("BLINGTRON")
+	pet:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- De-Weaponized Mechanical Companion -- 43916
 	pet = AddPet(43916, V.CATA, Q.RARE)
@@ -1350,7 +1350,7 @@ function addon:InitCritters()
 	pet:SetSpellID(82173)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
-	pet:AddCustom("BLINGTRON")
+	pet:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- Crawling Claw -- 45128
 	pet = AddPet(45128, V.CATA, Q.EPIC)
@@ -3198,7 +3198,7 @@ function addon:InitCritters()
 	pet:SetSpellID(126885)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
-	pet:AddCustom("BLINGTRON")
+	pet:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- Feverbite Hatchling -- 65054
 	pet = AddPet(65054, V.MOP, Q.COMMON)
@@ -3917,7 +3917,7 @@ function addon:InitCritters()
 	pet:SetItemID(103670)
 	pet:SetSpellID(147124)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.MISC)
-	pet:AddCustom("BLINGTRON")
+	pet:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- Droplet of Y'Shaarj -- 73350
 	pet = AddPet(73350, V.MOP, Q.RARE)
@@ -4154,6 +4154,7 @@ function addon:InitCritters()
 	pet:SetSpellID(160403)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
+	pet:AddCustom("BLINGTRON_5000")
 
 	-- Royal Peacock -- 80101
 	pet = AddPet(80101, V.WOD, Q.COMMON)
@@ -4168,6 +4169,7 @@ function addon:InitCritters()
 	pet:SetSpellID(162135)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
+	pet:AddCustom("BLINGTRON_5000")
 
 	-- Teroclaw Hatchling -- 81431
 	pet = AddPet(81431, V.WOD, Q.COMMON)
@@ -4347,7 +4349,7 @@ function addon:InitCritters()
 	pet:SetSpellID(170292)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
-	pet:AddCustom("BLINGTRON")
+	pet:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- Fruit Hunter -- 85387
 	pet = AddPet(85387, V.WOD, Q.UNCOMMON)
@@ -4556,6 +4558,7 @@ function addon:InitCritters()
 	pet:SetSpellID(170288)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
+	pet:AddCustom("BLINGTRON_5000")
 
 	-- Everbloom Peachick -- 88222
 	pet = AddPet(88222, V.WOD, Q.RARE)

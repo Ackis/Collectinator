@@ -1172,7 +1172,7 @@ function addon:InitToys()
 	-- Photo B.O.M.B. -- 123851
 	toy = AddToy(123851, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	toy:AddCustom("BLINGTRON")
+	toy:AddCustom("BLINGTRON_5000")
 
 --Not actually in the toy box added
 	-- Murloc Costume -- 33079

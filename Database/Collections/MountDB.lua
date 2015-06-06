@@ -2301,12 +2301,14 @@ function addon:InitMounts()
 	mount:SetItemID(87250)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	mount:AddProfession(PROF.ENGINEERING)
+	mount:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- Geosynchronous World Spinner -- 126508
 	mount = AddMount(126508, V.MOP, Q.RARE)
 	mount:SetItemID(87251)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	mount:AddProfession(PROF.ENGINEERING)
+	mount:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- Onyx Cloud Serpent -- 127154
 	mount = AddMount(127154, V.MOP, Q.EPIC)
@@ -3076,6 +3078,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.HORDE, F.IBOA, F.ACHIEVEMENT)
 	mount:SetRequiredFaction("Horde")
 	mount:AddAchievement(9909)
+	mount:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- Chauffeured Mekgineer's Chopper -- 179245
 	mount = AddMount(179245, V.WOD, Q.ARTIFACT)
@@ -3083,6 +3086,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.IBOA, F.ACHIEVEMENT)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddAchievement(9909)
+	mount:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- Voidtalon of the Dark Star --179478
 	mount = AddMount(179478, V.WOD, Q.EPIC)
