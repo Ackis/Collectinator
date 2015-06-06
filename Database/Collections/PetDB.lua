@@ -4405,6 +4405,7 @@ function addon:InitCritters()
 	pet:SetSpellID(171500)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.IBOE, F.MISC)
 	pet:AddWorldEvent("PILGRIMS_BOUNTY")
+	pet:AddCustom("PILGRIMS_BOUNTY")
 
 	-- Blazing Cindercrawler -- 85872
 	pet = AddPet(85872, V.WOD, Q.COMMON)

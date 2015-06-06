@@ -883,7 +883,8 @@ function addon:InitToys()
 	-- Silver-Plated Turkey Shooter -- 116400
 	toy = AddToy(116400, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
-	toy:AddWorldEvent("PILGRIMS_BOUNTY")	-- Needs updating
+	toy:AddWorldEvent("PILGRIMS_BOUNTY")
+	toy:AddCustom("PILGRIMS_BOUNTY")
 
 	-- Cozy Bonfire -- 116435
 	toy = AddToy(116435, V.WOD, Q.RARE)
