@@ -1162,7 +1162,7 @@ function addon:InitToys()
 	-- S.E.L.F.I.E. Camera MkII -- 122674
 	toy = AddToy(122674, V.WOD, Q.EPIC)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	toy:AddCustom("MISSION")
+	toy:AddGarrisonMission(502)
 
 	-- Portable Audiophone -- 122700
 	toy = AddToy(122700, V.WOD, Q.RARE)
