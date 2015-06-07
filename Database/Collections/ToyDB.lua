@@ -781,7 +781,7 @@ function addon:InitToys()
 	-- Arena Master's War Horn -- 108735
 	toy = AddToy(108735, V.WOD, Q.UNCOMMON)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.FROSTFIRE_RIDGE, nil, nil, "23.1:25.0")
+	toy:AddZoneLocations(Z.FROSTFIRE_RIDGE, nil, "23.1:25.0")
 
 	-- Pretty Draenor Pearl -- 108739
 	toy = AddToy(108739, V.WOD, Q.UNCOMMON)
@@ -792,7 +792,7 @@ function addon:InitToys()
 	-- Deceptia's Smoldering Boots -- 108743
 	toy = AddToy(108743, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.TALADOR, nil, nil, "58.9:12.0")
+	toy:AddZoneLocations(Z.TALADOR, nil, "58.9:12.0")
 
 	-- World Shrinker -- 109183
 	toy = AddToy(109183, V.WOD, Q.RARE)
@@ -802,7 +802,7 @@ function addon:InitToys()
 	-- Star Chart -- 109739
 	toy = AddToy(109739, V.MOP, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SHADOWMOON_VALLEY_DRAENOR, nil, nil, "49.5:37.5")
+	toy:AddZoneLocations(Z.SHADOWMOON_VALLEY_DRAENOR, nil, "49.5:37.5")
 
 	-- Stolen Breath -- 111476
 	toy = AddToy(111476, V.WOD, Q.RARE)
@@ -822,7 +822,7 @@ function addon:InitToys()
 	-- Vindicator's Armor Polish Kit -- 113375
 	toy = AddToy(113375, V.WOD, Q.UNCOMMON)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SHADOWMOON_VALLEY_DRAENOR, nil, nil, "51.1:79.1")
+	toy:AddZoneLocations(Z.SHADOWMOON_VALLEY_DRAENOR, nil, "51.1:79.1")
 
 	-- Ancient's Bloom -- 113570
 	toy = AddToy(113570, V.WOD, Q.RARE)
@@ -949,12 +949,12 @@ function addon:InitToys()
 	-- Angry Beehive -- 117550
 	toy = AddToy(117550, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SHADOWMOON_VALLEY_DRAENOR, nil, nil, "55.3:74.8")
+	toy:AddZoneLocations(Z.SHADOWMOON_VALLEY_DRAENOR, nil, "55.3:74.8")
 
 	-- Giant Deathweb Egg -- 117569
 	toy = AddToy(117569, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.TALADOR, nil, nil, "66.5:89.9")
+	toy:AddZoneLocations(Z.TALADOR, nil, "66.5:89.9")
 
 	-- Wayfarer's Bonfire -- 117573
 	toy = AddToy(117573, V.WOD, Q.UNCOMMON)
@@ -984,7 +984,7 @@ function addon:InitToys()
 	-- Goren Garb -- 118716
 	toy = AddToy(118716, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.GORGROND, nil, nil, "48.9:47.3")
+	toy:AddZoneLocations(Z.GORGROND, nil, "48.9:47.3")
 
 	-- Gamon's Braid -- 118937
 	toy = AddToy(118937, V.WOD, Q.RARE)

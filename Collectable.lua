@@ -45,49 +45,33 @@ private.location_list = {}
 -----------------------------------------------------------------------
 -- Metatables.
 -----------------------------------------------------------------------
-local collectable_prototype = {
-	ZoneLocationLabel = "zoneLocation"
-}
-
+local collectable_prototype = {}
 local collectable_meta = {
 	__index = collectable_prototype,
 }
 
-local pet_prototype = {
-	ZoneLocationLabel = "pet_battle"
-}
-
+local pet_prototype = {}
 local pet_meta = {
 	__index = function(t, k)
 		return pet_prototype[k] or collectable_prototype[k]
 	end,
 }
 
-local mount_prototype = {
-	ZoneLocationLabel = "zoneLocation"
-}
-
+local mount_prototype = {}
 local mount_meta = {
 	__index = function(t, k)
 		return mount_prototype[k] or collectable_prototype[k]
 	end,
 }
 
-local toy_prototype = {
-	ZoneLocationLabel = "zoneLocation"
-}
-
+local toy_prototype = {}
 local toy_meta = {
 	__index = function(t, k)
 		return toy_prototype[k] or collectable_prototype[k]
 	end,
 }
 
-
-local heirloom_prototype = {
-	ZoneLocationLabel = "zoneLocation"
-}
-
+local heirloom_prototype = {}
 local heirloom_meta = {
 	__index = function(t, k)
 		return heirloom_prototype[k] or collectable_prototype[k]
@@ -177,8 +161,8 @@ end
 -- Collectable methods.
 -------------------------------------------------------------------------------
 -- ... == coords x:y
-function collectable_prototype:AddZoneLocations(zoneName, levelRange, isSecondary, ...)
-	self:AddAcquireData(A.WORLD_DROP, self.ZoneLocationLabel or "world_drop", nil, zoneName)
+function collectable_prototype:AddZoneLocations(zoneName, levelRange, ...)
+	self:AddAcquireData(A.WORLD_DROP, levelRange and "pet_battle" or "zoneLocation", nil, zoneName)
 	self:AddFilters(private.FILTER_IDS.WORLD_DROP)
 
 	self.zone_list = self.zone_list or {}
@@ -188,19 +172,14 @@ function collectable_prototype:AddZoneLocations(zoneName, levelRange, isSecondar
 	self.zone_list[zoneName][zoneField] = self.zone_list[zoneName][zoneField] or {}
 
 	local zoneCoords = self.zone_list[zoneName][zoneField]
-	if isSecondary then
-		zoneCoords[#zoneCoords + 1] = "secondary"
-	else
-		local coordsCount = select('#', ...)
+	local coordsCount = select('#', ...)
+	if coordsCount == 0 then
+		zoneCoords[#zoneCoords + 1] = levelRange and "secondary" or "unknown"
+		return
+	end
 
-		if coordsCount == 0 then
-			zoneCoords[#zoneCoords + 1] = "unknown"
-			return
-		end
-
-		for index = 1, coordsCount do
-			zoneCoords[#zoneCoords + 1] = (select(index, ...))
-		end
+	for index = 1, coordsCount do
+		zoneCoords[#zoneCoords + 1] = (select(index, ...))
 	end
 end
 
