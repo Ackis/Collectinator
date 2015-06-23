@@ -410,6 +410,51 @@ function addon:InitHeirloom()
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
 	heirloom:AddVendor(6294, 6566)
 
+	-- Defending Champion -- 126948
+	heirloom = AddHeirloom(126948, V.WOD, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MISC)
+	heirloom:AddCustom("GURUBASHI_ARENA")
+
+	-- Returning Champion -- 126949
+	heirloom = AddHeirloom(126949, V.WOD, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MISC)
+	heirloom:AddCustom("GURUBASHI_ARENA")
+
+	-- Pristine Lightforge Breastplate -- 127010
+	heirloom = AddHeirloom(127010, V.WOD, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
+	heirloom:AddVendor(6294, 6566)
+
+	-- Pristine Lightforge Legplates -- 127011
+	heirloom = AddHeirloom(127011, V.WOD, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
+	heirloom:AddVendor(6294, 6566)
+
+	-- Pristine Lightforge Helm -- 127012
+	heirloom = AddHeirloom(127012, V.WOD, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
+	heirloom:AddVendor(6294, 6566)
+
+	-- Signet of the Third Fleet -- 128169
+	heirloom = AddHeirloom(128169, V.WOD, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MISC)
+	heirloom:AddGarrisonMission(616)
+
+	-- Captain Sander's Returned Band -- 128172
+	heirloom = AddHeirloom(128172, V.WOD, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MISC)
+	heirloom:AddGarrisonMission(649)
+
+	-- Admiral Taylor's Loyalty Ring -- 128173
+	heirloom = AddHeirloom(128173, V.WOD, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MISC)
+	heirloom:AddGarrisonMission(650)
+
+	-- Touch of the Void -- 128318
+	heirloom = AddHeirloom(128318, V.WOD, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MISC)
+	heirloom:AddGarrisonMission(686)
+
 	self.InitHeirloom = nil
 
 end

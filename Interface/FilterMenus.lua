@@ -759,7 +759,7 @@ function private.InitializeFilterPanel()
 	local Wryann_Voljin_Text = isAlliance and FN.WRYNNS_VANGUARD or FN.VOLJINS_SPEAR
 	local Exarchs_Frostwolf_Text = isAlliance and FN.COUNCIL_OF_EXARCHS or FN.FROSTWOLF_ORCS
 	local Shatari_Laughing_Text = isAlliance and FN.SHATARI_DEFENSE or FN.LAUGHING_SKULL_ORCS
-
+	local Prophet_Voljin_Text = isAlliance and FN.HAND_OF_THE_PROPHET or FN.VOLJINS_HEADHUNTERS
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -1076,6 +1076,9 @@ function private.InitializeFilterPanel()
 			draenorcommon1		= { tt = ReputationDesc(Wryann_Voljin_Text),		text = Wryann_Voljin_Text,		row = 4,	col = 1 },
 			draenorcommon2		= { tt = ReputationDesc(Exarchs_Frostwolf_Text),	text = Exarchs_Frostwolf_Text,		row = 5,	col = 1 },
 			draenorcommon3		= { tt = ReputationDesc(Shatari_Laughing_Text),		text = Shatari_Laughing_Text,		row = 6,	col = 1 },
+			draenorcommon4		= { tt = ReputationDesc(Prophet_Voljin_Text),		text = Prophet_Voljin_Text,		row = 7,	col = 1 },
+			awakened		= { tt = ReputationDesc(FN.ORDER_OF_THE_AWAKENED),	text = FN.ORDER_OF_THE_AWAKENED,	row = 8,	col = 1 },
+			saberstalkers		= { tt = ReputationDesc(FN.THE_SABERSTALKERS),		text = FN.THE_SABERSTALKERS,		row = 9,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion5_frame, expansion5_buttons)
 
@@ -1246,8 +1249,11 @@ function private.InitializeFilterPanel()
 		draenorcommon1		= { cb = expansion5.draenorcommon1,		svroot = filters.rep },
 		draenorcommon2		= { cb = expansion5.draenorcommon2,		svroot = filters.rep },
 		draenorcommon3		= { cb = expansion5.draenorcommon3,		svroot = filters.rep },
+		draenorcommon4		= { cb = expansion5.draenorcommon4,		svroot = filters.rep },
 		steamwheedle		= { cb = expansion5.steamwheedle,		svroot = filters.rep },
 		arakkoa			= { cb = expansion5.arakkoa,			svroot = filters.rep },
-	}	
+		awakened		= { cb = expansion5.awakened,			svroot = filters.rep },
+		saberstalkers		= { cb = expansion5.saberstalkers,		svroot = filters.rep },
+	}
 	private.InitializeFilterPanel = nil
 end

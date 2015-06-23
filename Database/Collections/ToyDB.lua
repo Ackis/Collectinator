@@ -457,6 +457,12 @@ function addon:InitToys()
 	toy:AddVendor(52358, 52809)
 	toy:AddWorldEvent("CHILDRENS_WEEK")
 
+	-- Yellow Balloon -- 69896
+	toy = AddToy(69896, V.CATA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
+	toy:AddVendor(52358, 52809)
+	toy:AddWorldEvent("CHILDRENS_WEEK")
+
 	-- Mylune's Call -- 70159
 	toy = AddToy(70159, V.CATA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
@@ -794,6 +800,11 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	toy:AddZoneLocations(Z.TALADOR, nil, "58.9:12.0")
 
+	-- Personal Hologram -- 108745
+	toy = AddToy(108745, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
 	-- World Shrinker -- 109183
 	toy = AddToy(109183, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
@@ -946,6 +957,36 @@ function addon:InitToys()
 	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 	toy:AddCustom("WINTERVEIL_GIFT")
 
+	-- "Blooming Rose" Contender's Costume -- 116856
+	toy = AddToy(116856, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("DAY_OF_THE_DEAD")
+	toy:AddCustom("CHAPMAN")
+
+	-- "Night Demon" Contender's Costume -- 116888
+	toy = AddToy(116888, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("DAY_OF_THE_DEAD")
+	toy:AddCustom("CHAPMAN")
+
+	-- "Purple Phantom" Contender's Costume -- 116889
+	toy = AddToy(116889, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("DAY_OF_THE_DEAD")
+	toy:AddCustom("CHAPMAN")
+
+	-- "Santo's Sun" Contender's Costume -- 116890
+	toy = AddToy(116890, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("DAY_OF_THE_DEAD")
+	toy:AddCustom("CHAPMAN")
+
+	-- "Snowy Owl" Contender's Costume -- 116891
+	toy = AddToy(116891, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("DAY_OF_THE_DEAD")
+	toy:AddCustom("CHAPMAN")
+
 	-- Angry Beehive -- 117550
 	toy = AddToy(117550, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
@@ -995,6 +1036,11 @@ function addon:InitToys()
 	toy = AddToy(118938, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("INN")
+
+	-- Mystery Keg -- 119001
+	toy = AddToy(119001, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddQuest(37287, 37292)
 
 	-- Void Totem -- 119003
 	toy = AddToy(119003, V.WOD, Q.RARE)
@@ -1070,7 +1116,8 @@ function addon:InitToys()
 
 	-- Warlord's Flag of Victory -- 119219
 	toy = AddToy(119219, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(9725)
 	toy:AddCustom("GLADIATORS_SANCTUM")
 
 	-- Sha'tari Defender's Medallion -- 119421
@@ -1088,21 +1135,22 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(81330)
 
-	-- Mini Mana Bomb -- 89205
+--[[	-- Mini Mana Bomb -- 89205
 	toy = AddToy(89205, V.WOD, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(7468)
-
-	-- Personal Hologram -- 108745
-	toy = AddToy(108745, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
+]]--
 
 	-- Scroll of Storytelling -- 116456
 	toy = AddToy(116456, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.WORLD_EVENTS)
 	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 	toy:AddQuest(6983, 7043)
+
+	-- Archmage Vargoth's Spare Staff -- 118191
+	toy = AddToy(118191, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddGarrisonMission(330)
 
 	-- Moroes' Famous Polish -- 119092
 	toy = AddToy(119092, V.WOD, Q.RARE)
@@ -1115,7 +1163,7 @@ function addon:InitToys()
 	toy:AddQuest(35195)
 
 	-- Everlasting Darkmoon Firework -- 122119
-	toy = AddToy(122119, V.WOD, Q.COMMON)
+	toy = AddToy(122119, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.WORLD_EVENTS)
 	toy:AddAchievement(9764)
 	toy:AddWorldEvent("DARKMOON_FAIRE")
@@ -1124,6 +1172,12 @@ function addon:InitToys()
 	toy = AddToy(122120, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.WORLD_EVENTS)
 	toy:AddAchievement(9785)
+	toy:AddWorldEvent("DARKMOON_FAIRE")
+
+	-- Darkmoon Gazer -- 122121
+	toy = AddToy(122121, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.WORLD_EVENTS)
+	toy:AddAchievement(9811)
 	toy:AddWorldEvent("DARKMOON_FAIRE")
 
 	-- Darkmoon Tonk Controller -- 122122
@@ -1150,6 +1204,12 @@ function addon:InitToys()
 	toy:AddAchievement(9761)
 	toy:AddWorldEvent("DARKMOON_FAIRE")
 
+	-- Tune-o-tron Micro -- 122187
+	toy = AddToy(122187, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.ACHIEVEMENT)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddAchievement(9912)
+
 	-- Trans-Dimensional Bird Whistle -- 122293
 	toy = AddToy(122293, V.WOD, Q.EPIC)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
@@ -1174,6 +1234,93 @@ function addon:InitToys()
 	toy = AddToy(123851, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("BLINGTRON_5000")
+
+	-- Seafarer's Slidewhistle -- 126931
+	toy = AddToy(126931, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("DARKMOON_FAIRE")
+	toy:AddVendor(55103)
+
+	-- Podling Camouflage -- 127394
+	toy = AddToy(127394, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.TANAAN_JUNGLE, nil, "64.0:42.0")
+
+	-- Felflame Campfire -- 127652
+	toy = AddToy(127652, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddMobDrop(91093)
+
+	-- Ghostly Iron Buccaneer's Hat -- 127659
+	toy = AddToy(127659, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddMobDrop(93076)
+
+	-- Vial of Red Goo -- 127666
+	toy = AddToy(127666, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddMobDrop(91227)
+
+	-- Jewel of Hellfire -- 127668
+	toy = AddToy(127668, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.TANAAN_JUNGLE, nil, "28.73:23.3")
+
+	-- Accursed Tome of the Sargerei -- 127670
+	toy = AddToy(127670, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.TANAAN_JUNGLE, nil, "32.4:70.4")
+
+	-- Spirit Wand -- 127695
+	toy = AddToy(127695, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(94512, 94516)
+
+	-- Magic Pet Mirror -- 127696
+	toy = AddToy(127696, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(94512, 94516)
+
+	-- Indestructible Bone -- 127707
+	toy = AddToy(127707, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(94512, 94516)
+
+	-- The Perfect Blossom -- 127766
+	toy = AddToy(127766, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.TANAAN_JUNGLE, nil, "40.8:75.5")
+
+	-- Dazzling Rod -- 127859
+	toy = AddToy(127859, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.TANAAN_JUNGLE, nil, "42.84:35.38")
+
+	-- Personal Spotlight -- 127864
+	toy = AddToy(127864, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddVendor(95470, 95471)
+
+	-- Burning Blade -- 128310
+	toy = AddToy(128310, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddGarrisonMission(680)
+
+	-- Skoller's Bag of Squirrel Treats -- 128328
+	toy = AddToy(128328, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.TANAAN_JUNGLE, nil, "55.1:75.0")
+
+	-- Karabor Councilor's Attire -- 128462
+	toy = AddToy(128462, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.DRAENORCOMMON4)
+	toy:AddRepVendor(FAC.HAND_OF_THE_PROPHET, REP.REVERED, 90974)
+
+	-- Frostwolf Grunt's Battlegear -- 128471
+	toy = AddToy(128471, V.WOD, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.DRAENORCOMMON4)
+	toy:AddRepVendor(FAC.VOLJINS_HEADHUNTERS, REP.REVERED, 96014)
+
 
 --Not actually in the toy box added
 	-- Murloc Costume -- 33079

@@ -499,6 +499,7 @@ end
 function collectable_prototype:AddGarrisonMission(...)
 	self:AddAcquireData(A.GARRISON_MISSION, "Garrison Mission", nil, ...)
 	self:AddFilters(private.FILTER_IDS.GARRISON_MISSION)
+	self:AddFilters(private.FILTER_IDS.MISC)
 end
 
 function collectable_prototype:AddProfession(...)

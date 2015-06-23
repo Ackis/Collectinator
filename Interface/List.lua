@@ -579,8 +579,15 @@ function private.InitializeListFrame()
 			[REP2.DRAENORCOMMON1]			= "draenorcommon1",
 			[REP2.DRAENORCOMMON2]			= "draenorcommon2",
 			[REP2.DRAENORCOMMON3]			= "draenorcommon3",
+			[REP2.DRAENORCOMMON4]			= "draenorcommon4",
 			[REP2.STEAMWHEEDLE_PRESERVATION_SOCIETY]	= "steamwheedle",
 			[REP2.ARAKKOA_OUTCASTS]			= "arakkoa",
+			[REP2.ORDER_OF_THE_AWAKENED]		= "awakened",
+		}
+
+		local REP3 = private.REP_FLAGS_WORD3
+		local REP_FILTERS_3 = {
+			[REP3.THE_SABERSTALKERS] 		= "saberstalkers"
 		}
 
 		-- Returns true if any of the filter flags are turned on.

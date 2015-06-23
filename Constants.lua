@@ -257,9 +257,20 @@ private.REP_FLAGS_WORD2 = {
 	DRAENORCOMMON1			= 0x04000000,	-- 27 -- Wrynn's Vanguard /  Vol'jin's Spear
 	DRAENORCOMMON2			= 0x08000000,	-- 28 -- Council of Exarchs / Frostwolf Orcs
 	DRAENORCOMMON3			= 0x10000000,	-- 29 -- Shatari Defense / Laughing Skull Orcs
-	ARAKKOA_OUTCASTS		= 0x20000000,	-- 30
+	DRAENORCOMMON4			= 0x20000000,	-- 30 -- Hand of the Prophet / Voljins Headhunters
+	ORDER_OF_THE_AWAKENED		= 0x40000000,	-- 31
+	ARAKKOA_OUTCASTS		= 0x80000000,	-- 32
 
 }
+
+-------------------------------------------------------------------------------
+-- Reputation filter bitfield word 3.
+-------------------------------------------------------------------------------
+private.REP_FLAGS_WORD3 = {
+	THE_SABERSTALKERS		= 0x00000001,	-- 1
+
+}
+
 
 -------------------------------------------------------------------------------
 -- Item filter bitfield word 1.
@@ -272,6 +283,7 @@ private.FLAG_WORDS = {
 	private.COMMON_FLAGS_WORD1,
 	private.REP_FLAGS_WORD1,
 	private.REP_FLAGS_WORD2,
+	private.REP_FLAGS_WORD3,
 	private.ITEM_FLAGS_WORD1,
 }
 
@@ -491,6 +503,10 @@ private.FACTION_IDS = {
 	SHATARI_DEFENSE = 1710,
 	STEAMWHEEDLE_PRESERVATION_SOCIETY = 1711,
 	COUNCIL_OF_EXARCHS = 1731,
+	HAND_OF_THE_PROPHET = 1847,
+	VOLJINS_HEADHUNTERS = 1848,
+	ORDER_OF_THE_AWAKENED = 1849,
+	THE_SABERSTALKERS = 1850,
 
 }
 
@@ -702,6 +718,7 @@ do
 		THRONE_OF_THUNDER = _G.GetMapNameByID(930),
 		ISLE_OF_THUNDER = _G.GetMapNameByID(933),
 		FROSTFIRE_RIDGE = _G.GetMapNameByID(941),
+		TANAAN_JUNGLE = _G.GetMapNameByID(945),
 		TALADOR = _G.GetMapNameByID(946),
 		SHADOWMOON_VALLEY_DRAENOR = (("%s %s"):format(_G.GetMapNameByID(947), _G.PARENS_TEMPLATE:format(CONTINENT_NAMES[14]))),
 		SPIRES_OF_ARAK = _G.GetMapNameByID(948),
@@ -717,6 +734,7 @@ do
 		UPPER_BLACKROCK_SPIRE = _G.GetMapNameByID(995),
 		STORMSHIELD = _G.GetMapNameByID(1009),
 		WARSPEAR = _G.GetMapNameByID(1011),
+		HELLFIRE_CITADEL = _G.GetMapNameByID(1026),
 		-------------------------------------------------------------------------------
 		-- Continents
 		-------------------------------------------------------------------------------
@@ -781,6 +799,8 @@ private.BOSS_NAMES = {
 	GARROSH_HELLSCREAM = _G.EJ_GetEncounterInfo(869),
 	BLACKHAND = _G.EJ_GetEncounterInfo(959),
 	RUKHMAR = _G.EJ_GetEncounterInfo(1262),
+	SHADOW_LORD_ISKAR = _G.EJ_GetEncounterInfo(1433),
+	ARCHIMONDE = _G.EJ_GetEncounterInfo(1438),
 
 }
 

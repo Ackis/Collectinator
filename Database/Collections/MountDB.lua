@@ -883,7 +883,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(15550)
 
-	-- Swift Nether Drake - 37015
+	-- Swift Nether Drake - 37015  -- Season 1
 	mount = AddMount(37015, V.TBC, Q.EPIC) -- Item: 30609
 	mount:SetItemID(30609)
 	mount:Retire()
@@ -1055,7 +1055,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	mount:AddProfession(PROF.ENGINEERING)
 
-	-- Merciless Nether Drake - 44744
+	-- Merciless Nether Drake - 44744  -- Season 2
 	mount = AddMount(44744, V.TBC, Q.EPIC) -- Item: 34092
 	mount:SetItemID(34092)
 	mount:Retire()
@@ -1093,7 +1093,7 @@ function addon:InitMounts()
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(12783)
 
-	-- Vengeful Nether Drake - 49193
+	-- Vengeful Nether Drake - 49193  -- Season 3
 	mount = AddMount(49193, V.TBC, Q.EPIC) -- Item: 37676
 	mount:SetItemID(37676)
 	mount:Retire()
@@ -1146,7 +1146,7 @@ function addon:InitMounts()
 	mount:SetRequiredFaction("Horde")
 	mount:AddProfession(PROF.ENGINEERING)
 
-	-- Brutal Nether Drake - 58615
+	-- Brutal Nether Drake - 58615  -- Season 4
 	mount = AddMount(58615, V.WOTLK, Q.EPIC) -- Item: 43516
 	mount:SetItemID(43516)
 	mount:Retire()
@@ -1532,7 +1532,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
 	mount:AddWorldDrop(Z.ULDUM, Z.TWILIGHT_HIGHLANDS, Z.TOL_BARAD_PENINSULA, Z.NORTHREND, Z.MOUNT_HYJAL, Z.DEEPHOLM, Z.THE_JADE_FOREST, Z.DARKMOON_ISLAND)
 
-	-- Deadly Gladiator's Frostwyrm - 64927
+	-- Deadly Gladiator's Frostwyrm - 64927  -- Season 5
 	mount = AddMount(64927, V.WOTLK, Q.EPIC) -- Item: 46708
 	mount:SetItemID(46708)
 	mount:Retire()
@@ -1544,7 +1544,7 @@ function addon:InitMounts()
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(4731)
 
-	-- Furious Gladiator's Frostwyrm - 65439
+	-- Furious Gladiator's Frostwyrm - 65439  -- Season 6
 	mount = AddMount(65439, V.WOTLK, Q.EPIC) -- Item: 46171
 	mount:SetItemID(19902)
 	mount:Retire()
@@ -1684,7 +1684,7 @@ function addon:InitMounts()
 	mount:SetRequiredClass("PALADIN")
 	mount:AddVendor(34885)
 
-	-- Relentless Gladiator's Frostwyrm - 67336
+	-- Relentless Gladiator's Frostwyrm - 67336  -- Season 7
 	mount = AddMount(67336, V.WOTLK, Q.EPIC)
 	mount:SetItemID(19902)
 	mount:Retire()
@@ -1748,7 +1748,7 @@ function addon:InitMounts()
 	mount:AddMobDrop(36296)
 	mount:AddWorldEvent("LOVE_IS_IN_THE_AIR")
 
-	-- Wrathful Gladiator's Frostwyrm - 71810
+	-- Wrathful Gladiator's Frostwyrm - 71810  -- Season 8
 	mount = AddMount(71810, V.WOTLK, Q.EPIC)
 	mount:SetItemID(19902)
 	mount:Retire()
@@ -2051,12 +2051,12 @@ function addon:InitMounts()
 	mount:AddAchievement(5325, 5326, 5824)
 	mount:AddVendor(73151)
 
-	-- Ruthless Gladiator's Twilight Drake -- 101821
+	-- Ruthless Gladiator's Twilight Drake -- 101821  -- Season 10
 	mount = AddMount(101821, V.CATA, Q.EPIC) -- Item: 71954
 	mount:SetItemID(71954)
 	mount:Retire()
 
-	-- Vicious Gladiator's Twilight Drake -- 101282
+	-- Vicious Gladiator's Twilight Drake -- 101282  -- Season 9
 	mount = AddMount(101282, V.CATA, Q.EPIC) -- Item: 71339
 	mount:SetItemID(71339)
 	mount:Retire()
@@ -2291,7 +2291,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(6682)
 
-	-- Cataclysmic Gladiator's Twilight Drake -- 124550
+	-- Cataclysmic Gladiator's Twilight Drake -- 124550   -- Season 11
 	mount = AddMount(124550, V.MOP, Q.EPIC)
 	mount:SetItemID(85785)
 	mount:Retire()
@@ -2662,6 +2662,11 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddCustom("PRIMAL_EGG")
 
+	-- Malevolent Gladiator's Cloud Serpent -- 139407  -- Season 12
+	mount = AddMount(139407, V.MOP, Q.EPIC)
+	mount:SetItemID(95041)
+	mount:Retire()
+
 	-- Thundering Cobalt Cloud Serpent -- 139442
 	mount = AddMount(139442, V.MOP, Q.EPIC)
 	mount:SetItemID(95057)
@@ -2768,7 +2773,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(73167)
 
-	-- Tyrannical Gladiator's Cloud Serpent -- 148618
+	-- Tyrannical Gladiator's Cloud Serpent -- 148618   -- Season 13
 	mount = AddMount(148618, V.MOP, Q.EPIC)
 	mount:SetItemID(104208)
 	mount:Retire()
@@ -2776,6 +2781,11 @@ function addon:InitMounts()
 	-- Grievous Gladiator's Cloud Serpent -- 148619  -- Season 14
 	mount = AddMount(148619, V.MOP, Q.EPIC)
 	mount:SetItemID(104326)
+	mount:Retire()
+
+	-- Prideful Gladiator's Cloud Serpent -- 148620  -- Season 15
+	mount = AddMount(148620, V.MOP, Q.EPIC)
+	mount:SetItemID(104327)
 	mount:Retire()
 
 	-- Emerald Hippogryph -- 149801
@@ -2796,13 +2806,13 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
 	mount:AddCustom("CE")
 
+-- Warlords of Draenor
+
 	-- Warforged Nightmare -- 163024
 	mount = AddMount(163024, V.MOP, Q.EPIC)
 	mount:SetItemID(112326)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
 	mount:AddCustom("STORE")
-
--- Warlords of Draenor
 
 	-- Grinning Reaver -- 163025
 	mount = AddMount(163025, V.WOD, Q.EPIC)
@@ -2819,8 +2829,8 @@ function addon:InitMounts()
 	-- Core Hound -- 170347
 	mount = AddMount(170347, V.WOD, Q.EPIC)
 	mount:SetItemID(115484)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
-	mount:AddAchievement(9550)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:Retire()
 
 	-- Gorestrider Gronnling -- 171436
 	mount = AddMount(171436, V.WOD, Q.EPIC)
@@ -3043,8 +3053,7 @@ function addon:InitMounts()
 	mount = AddMount(171845, V.WOD, Q.EPIC)
 	mount:SetItemID(116788)
 	mount:SetRequiredFaction("Horde")
-	mount:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
-	mount:AddAchievement(9496)
+	mount:AddFilters(F.HORDE, F.IBOP)
 	mount:Retire()
 
 	-- Champion's Treadblade -- 171846
@@ -3117,6 +3126,118 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
 	mount:AddCustom("RECRUIT")
 
+	-- Witherhide Cliffstomper -- 171616
+	mount = AddMount(171616, V.WOD, Q.RARE)
+	mount:SetItemID(116655)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddVendor(95470, 95471)
+
+	-- Tundra Icehoof -- 171619
+	mount = AddMount(171619, V.WOD, Q.RARE)
+	mount:SetItemID(116658)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddMobDrop(95044, 95053, 95054, 95056)
+
+	-- Rocktusk Battleboar -- 171628
+	mount = AddMount(171628, V.WOD, Q.RARE)
+	mount:SetItemID(116667)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddVendor(95470, 95471)
+
+	-- Armored Razorback -- 171630
+	mount = AddMount(171630, V.WOD, Q.RARE)
+	mount:SetItemID(116669)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddMobDrop(95044, 95053, 95054, 95056)
+
+	-- Wild Goretusk -- 171633
+	mount = AddMount(171633, V.WOD, Q.RARE)
+	mount:SetItemID(116671)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.THE_SABERSTALKERS)
+	mount:AddRepVendor(FAC.THE_SABERSTALKERS, REP.HONORED, 92805)
+
+	-- Mudback Riverbeast -- 171826
+	mount = AddMount(171826, V.WOD, Q.RARE)
+	mount:SetItemID(116769)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddGarrisonMission(615)
+
+	-- Vicious War Raptor -- 171835
+	mount = AddMount(171835, V.WOD, Q.EPIC)
+	mount:SetItemID(116778)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(73151)
+
+	-- Warsong Direfang -- 171837
+	mount = AddMount(171837, V.WOD, Q.RARE)
+	mount:SetItemID(116780)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddMobDrop(95044, 95053, 95054, 95056)
+
+	-- Felsteel Annihilator -- 182912
+	mount = AddMount(182912, V.WOD, Q.EPIC)
+	mount:SetItemID(123890)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddMobDrop(91331)
+
+	-- Corrupted Dreadwing -- 183117
+	mount = AddMount(183117, V.WOD, Q.EPIC)
+	mount:SetItemID(123890)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.ORDER_OF_THE_AWAKENED)
+	mount:AddRepVendor(FAC.ORDER_OF_THE_AWAKENED, REP.FRIENDLY, 95424, 95425)
+
+	-- Vicious War Mechanostrider -- 183889
+	mount = AddMount(183889, V.WOD, Q.EPIC)
+	mount:SetItemID(124089)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddVendor(73190)
+
+	-- Vicious War Kodo -- 185052
+	mount = AddMount(185052, V.WOD, Q.EPIC)
+	mount:SetItemID(124540)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(73151)
+
+	-- Infernal Direwolf -- 186305
+	mount = AddMount(186305, V.WOD, Q.EPIC)
+	mount:SetItemID(127140)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(10149)
+
+	-- Primal Gladiator's Felblood Gronnling -- 186828  -- Season 16 (Warlords 1)
+	mount = AddMount(186828, V.WOD, Q.EPIC)
+	mount:SetItemID(128277)
+	mount:Retire()
+
+	-- Coalfist Gronnling -- 189364
+	mount = AddMount(189364, V.WOD, Q.EPIC)
+	mount:SetItemID(128311)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddGarrisonMission(679)
+
+	-- Bristling Hellboar -- 190690
+	mount = AddMount(190690, V.WOD, Q.RARE)
+	mount:SetItemID(128480)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.THE_SABERSTALKERS)
+	mount:AddRepVendor(FAC.THE_SABERSTALKERS, REP.EXALTED, 92805)
+
+	-- Deathtusk Felboar -- 190977
+	mount = AddMount(190977, V.WOD, Q.EPIC)
+	mount:SetItemID(128526)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.DRAENORCOMMON4)
+	mount:AddRepVendor(FAC.VOLJINS_HEADHUNTERS, REP.EXALTED, 96014)
+	mount:AddRepVendor(FAC.HAND_OF_THE_PROPHET, REP.EXALTED, 92805)
+
+	-- Soaring Skyterror -- 191633
+	mount = AddMount(191633, V.WOD, Q.EPIC)
+	mount:SetItemID(128706)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(10018)
+
 -- Mounts which are duplicates, or are really temporary mounts
 -- Added to stop the debug popups. BAD BLIZZARD
 	-- Swift Brown Steed -- 58819
@@ -3133,12 +3254,16 @@ end
 
 --[[
 
-Apparentely not in game yet!
-
-	-- Prideful Gladiator's Cloud Serpent -- 148620  -- Season 15
-	mount = AddMount(148620, V.MOP, Q.EPIC)
-	mount:SetItemID(104327)
+	-- Wild Gladiator's Felblood Gronnling -- 189043  -- Season 17 (Warlords 2)
+	mount = AddMount(189043, V.WOD, Q.EPIC)
+	mount:SetItemID(128281)
 	mount:Retire()
+
+	-- Warmongering Gladiator's Felblood Gronnling -- 189044  -- Season 18 (Warlords 3)
+	mount = AddMount(189044, V.WOD, Q.EPIC)
+	mount:SetItemID(128282)
+	mount:Retire()
+
 
 -- Albino Riding Crane
 -- mount = AddMount(, V.MOP, )
@@ -3237,10 +3362,7 @@ Apparentely not in game yet!
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
-	-- Lucky Riding Turtle  -- 30174
-	-- mount = AddMount(30174, V.MOP, Q.EPIC)
-	-- mount:SetItemID(103630)
-	-- mount:AddFilters()
+
 
 -- Orange Water Strider
 -- mount = AddMount(, V.MOP, )

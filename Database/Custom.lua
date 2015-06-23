@@ -93,6 +93,9 @@ function addon:InitCustom()
 	AddCustom("GLADIATORS_SANCTUM")
 	AddCustom("GURUBASHI_ARENA",	Z.STRANGLETHORN_VALE)
 	AddCustom("PILGRIMS_BOUNTY")
+	AddCustom("CHAPMAN")
+	AddCustom("TANAAN_PET_DAILY")
+	AddCustom("NETHAERA_LIGHT",	Z.DALARAN)
 
 	self.InitCustom = nil
 end

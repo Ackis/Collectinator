@@ -214,6 +214,16 @@ function addon:InitMob()
 	AddMob(87420,	BN.BLACKHAND,				Z.BLACKROCK_FOUNDRY,		 0.0,  0.0)
 	AddMob(87493,	BN.RUKHMAR,				Z.SPIRES_OF_ARAK,		35.0, 32.0)
 	AddMob(87668,	L["Orumo the Observer"],		Z.TALADOR,			31.4, 47.6)
+	AddMob(90434,	L["Ceraxas"],				Z.TANAAN_JUNGLE,		31.4, 68.0)
+	AddMob(91093,	L["Bramblefell"],			Z.TANAAN_JUNGLE,		40.0, 69.8)
+	AddMob(91227,	L["Remnant of the Blood Moon"],		Z.TANAAN_JUNGLE,		22.2, 50.8)
+	AddMob(91331,	BN.ARCHIMONDE,				Z.HELLFIRE_CITADEL,		 0.0,  0.0)
+	AddMob(93076,	L["Captain Ironbeard"],			Z.TANAAN_JUNGLE,		36.0, 80.0)
+	AddMob(95044,	L["Terrorfist"],			Z.TANAAN_JUNGLE,		15.4, 63.4)
+	AddMob(95053,	L["Deathtalon"],			Z.TANAAN_JUNGLE,		23.2, 40.4)
+	AddMob(95054,	L["Vengeance"],				Z.TANAAN_JUNGLE,		32.4, 74.0)
+	AddMob(95056,	L["Doomroller"],			Z.TANAAN_JUNGLE,		47.0, 52.6)
+	AddMob(95067,	BN.SHADOW_LORD_ISKAR,			Z.HELLFIRE_CITADEL,		 0.0,  0.0)
 
 	self.InitMob = nil
 end

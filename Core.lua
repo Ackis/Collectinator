@@ -316,8 +316,11 @@ function addon:OnInitialize()
 					draenorcommon1 = true,
 					draenorcommon2 = true,
 					draenorcommon3 = true,
+					draenorcommon4 = true,
 					steamwheedle = true,
 					arakkoa = true,
+					awakened = true,
+					saberstalkers = true
 				},
 				-- Populated later via CONSTANTS
 				item = {
