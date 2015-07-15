@@ -101,12 +101,12 @@ function addon:InitToys()
 	-- Imp in a Ball -- 32542
 	toy = AddToy(32542, V.TBC, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")
+	toy:AddCustom("TCG", "BMAH")
 
 	-- Picnic Basket -- 32566
 	toy = AddToy(32566, V.TBC, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")
+	toy:AddCustom("TCG", "BMAH")
 
 	-- Time-Lost Figurine -- 32782
 	toy = AddToy(32782, V.TBC, Q.RARE)
@@ -116,12 +116,12 @@ function addon:InitToys()
 	-- Goblin Gumbo Kettle -- 33219
 	toy = AddToy(33219, V.TBC, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")
+	toy:AddCustom("TCG", "BMAH")
 
 	-- Fishing Chair -- 33223
 	toy = AddToy(33223, V.TBC, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")
+	toy:AddCustom("TCG", "BMAH")
 
 	-- Brewfest Pony Keg -- 33927
 	toy = AddToy(33927, V.TBC, Q.RARE)
@@ -138,7 +138,7 @@ function addon:InitToys()
 	-- Paper Flying Machine Kit -- 34499
 	toy = AddToy(34499, V.TBC, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")
+	toy:AddCustom("TCG", "BMAH")
 
 	-- Brazier of Dancing Flames -- 34686
 	toy = AddToy(34686, V.WOD, Q.RARE)
@@ -149,7 +149,7 @@ function addon:InitToys()
 	-- Goblin Weather Machine - Prototype 01-B -- 35227
 	toy = AddToy(35227, V.TBC, Q.EPIC)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")
+	toy:AddCustom("TCG", "BMAH")
 
 	-- Orb of the Sin'dorei -- 35275
 	toy = AddToy(35275, V.TBC, Q.RARE)
@@ -187,7 +187,7 @@ function addon:InitToys()
 	-- The Flag of Ownership -- 38578
 	toy = AddToy(38578, V.WOTLK, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")
+	toy:AddCustom("TCG", "BMAH")
 
 	-- Gnomish X-Ray Specs -- 40895
 	toy = AddToy(40895, V.WOTLK, Q.RARE)
@@ -273,7 +273,7 @@ function addon:InitToys()
 	-- Foam Sword Rack -- 45063
 	toy = AddToy(45063, V.WOTLK, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")
+	toy:AddCustom("TCG", "BMAH")
 
 	-- Unusual Compass -- 45984
 	toy = AddToy(45984, V.WOTLK, Q.RARE)
@@ -290,7 +290,7 @@ function addon:InitToys()
 	-- Ogre Pinata -- 46780
 	toy = AddToy(46780, V.WOTLK, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")
+	toy:AddCustom("TCG", "BMAH")
 
 	-- Argent Crusader's Banner -- 46843
 	toy = AddToy(46843, V.WOTLK, Q.RARE)

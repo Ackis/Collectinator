@@ -125,7 +125,7 @@ function addon:InitCritters()
 	pet:SetSpellID(10677)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(20980)
-	pet:AddCustom("UNCLAIMED_BM")
+	pet:AddCustom("BMAH")
 
 	-- Silver Tabby Cat -- 7381
 	pet = AddPet(7381, V.ORIG, Q.COMMON)
@@ -175,7 +175,7 @@ function addon:InitCritters()
 	pet:SetSpellID(10683)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE)
 	pet:AddMobDrop(48522)
-	pet:AddCustom("UNCLAIMED_BM")
+	pet:AddCustom("BMAH")
 
 	-- Senegal -- 7389
 	pet = AddPet(7389, V.ORIG, Q.COMMON)
@@ -218,7 +218,7 @@ function addon:InitCritters()
 	pet:SetSpellID(10695)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE)
 	pet:AddMobDrop(2725, 4323, 4324, 7049, 42042, 46914, 46916)
-	pet:AddCustom("UNCLAIMED_BM")
+	pet:AddCustom("BMAH")
 
 	-- Crimson Whelpling -- 7544
 	pet = AddPet(7544, V.ORIG, Q.COMMON)
@@ -226,7 +226,7 @@ function addon:InitCritters()
 	pet:SetSpellID(10697)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE)
 	pet:AddWorldDrop(Z.WETLANDS)
-	pet:AddCustom("UNCLAIMED_BM")
+	pet:AddCustom("BMAH")
 
 	-- Emerald Whelpling -- 7545
 	pet = AddPet(7545, V.ORIG, Q.COMMON)
@@ -543,7 +543,7 @@ function addon:InitCritters()
 	pet:SetItemID(23713)
 	pet:SetSpellID(30156)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	pet:AddCustom("TCG", "UNCLAIMED_BM")
+	pet:AddCustom("TCG", "BMAH")
 
 	-- Netherwhelp -- 18381
 	pet = AddPet(18381, V.TBC, Q.RARE)
@@ -674,7 +674,7 @@ function addon:InitCritters()
 	pet:SetItemID(32588)
 	pet:SetSpellID(40549)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	pet:AddCustom("TCG")
+	pet:AddCustom("TCG", "BMAH")
 
 	-- Egbert -- 23258
 	pet = AddPet(23258, V.TBC, Q.RARE)
@@ -752,21 +752,21 @@ function addon:InitCritters()
 	pet:SetSpellID(45082)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.SPOREGGAR)
 	pet:AddRepVendor(FAC.SPOREGGAR, REP.EXALTED, 18382)
-	pet:AddCustom("UNCLAIMED_BM")
+	pet:AddCustom("BMAH")
 
 	-- Rocket Chicken -- 25109
 	pet = AddPet(25109, V.TBC, Q.RARE)
 	pet:SetItemID(34492)
 	pet:SetSpellID(45125)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	pet:AddCustom("TCG", "UNCLAIMED_BM")
+	pet:AddCustom("TCG", "BMAH")
 
 	-- Dragon Kite -- 25110
 	pet = AddPet(25110, V.TBC, Q.EPIC)
 	pet:SetItemID(34493)
 	pet:SetSpellID(45127)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	pet:AddCustom("TCG")
+	pet:AddCustom("TCG", "BMAH")
 
 	-- Golden Pig -- 25146
 	pet = AddPet(25146, V.TBC, Q.RARE)
@@ -811,7 +811,7 @@ function addon:InitCritters()
 	pet:SetSpellID(46599)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
 	pet:AddMobDrop(24664)
-	pet:AddCustom("UNCLAIMED_BM")
+	pet:AddCustom("BMAH")
 
 	-- Spirit of Competition -- 27217
 	pet = AddPet(27217, V.TBC, Q.RARE)
@@ -830,7 +830,7 @@ function addon:InitCritters()
 	pet:SetItemID(38050)
 	pet:SetSpellID(49964)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	pet:AddCustom("TCG")
+	pet:AddCustom("TCG", "BMAH")
 
 	-- Nether Ray Fry -- 28470
 	pet = AddPet(28470, V.TBC, Q.RARE)
@@ -973,7 +973,7 @@ function addon:InitCritters()
 	pet:SetSpellID(62491)
 	pet:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33653)
-	pet:AddCustom("CHAMPION_SEALS")
+	pet:AddCustom("CHAMPION_SEALS", "BMAH")
 
 	-- Dun Morogh Cub -- 33194
 	pet = AddPet(33194, V.WOTLK, Q.RARE)
@@ -981,7 +981,7 @@ function addon:InitCritters()
 	pet:SetSpellID(62508)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33310)
-	pet:AddCustom("CHAMPION_SEALS", "UNCLAIMED_BM")
+	pet:AddCustom("CHAMPION_SEALS", "BMAH")
 
 	-- Tirisfal Batling -- 33197
 	pet = AddPet(33197, V.WOTLK, Q.RARE)
@@ -989,7 +989,7 @@ function addon:InitCritters()
 	pet:SetSpellID(62510)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33555)
-	pet:AddCustom("CHAMPION_SEALS")
+	pet:AddCustom("CHAMPION_SEALS", "BMAH")
 
 	-- Durotar Scorpion -- 33198
 	pet = AddPet(33198, V.WOTLK, Q.RARE)
@@ -997,7 +997,7 @@ function addon:InitCritters()
 	pet:SetSpellID(62513)
 	pet:AddFilters(F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33553)
-	pet:AddCustom("CHAMPION_SEALS")
+	pet:AddCustom("CHAMPION_SEALS", "BMAH")
 
 	-- Elwynn Lamb -- 33200
 	pet = AddPet(33200, V.WOTLK, Q.RARE)
@@ -1005,7 +1005,7 @@ function addon:InitCritters()
 	pet:SetSpellID(62516)
 	pet:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33307)
-	pet:AddCustom("CHAMPION_SEALS", "UNCLAIMED_BM")
+	pet:AddCustom("CHAMPION_SEALS", "BMAH")
 
 	-- Ammen Vale Lashling -- 33205
 	pet = AddPet(33205, V.WOTLK, Q.RARE)
@@ -1013,7 +1013,7 @@ function addon:InitCritters()
 	pet:SetSpellID(62562)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33657)
-	pet:AddCustom("CHAMPION_SEALS")
+	pet:AddCustom("CHAMPION_SEALS", "BMAH")
 
 	-- Mulgore Hatchling -- 33219
 	pet = AddPet(33219, V.WOTLK, Q.RARE)
@@ -1021,7 +1021,7 @@ function addon:InitCritters()
 	pet:SetSpellID(62542)
 	pet:AddFilters(F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33556)
-	pet:AddCustom("CHAMPION_SEALS")
+	pet:AddCustom("CHAMPION_SEALS", "BMAH")
 
 	-- Strand Crawler -- 33226
 	pet = AddPet(33226, V.WOTLK, Q.RARE)
@@ -1037,7 +1037,7 @@ function addon:InitCritters()
 	pet:SetSpellID(62564)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33557)
-	pet:AddCustom("CHAMPION_SEALS", "UNCLAIMED_BM")
+	pet:AddCustom("CHAMPION_SEALS", "BMAH")
 
 	-- Argent Squire -- 33238
 	pet = AddPet(33238, V.WOTLK, Q.RARE)
@@ -1061,7 +1061,7 @@ function addon:InitCritters()
 	pet:SetSpellID(62674)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33650)
-	pet:AddCustom("CHAMPION_SEALS")
+	pet:AddCustom("CHAMPION_SEALS", "BMAH")
 
 	-- Curious Wolvar Pup -- 33529
 	pet = AddPet(33529, V.WOTLK, Q.RARE)
@@ -1091,7 +1091,7 @@ function addon:InitCritters()
 	pet:SetSpellID(63712)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(33554)
-	pet:AddCustom("CHAMPION_SEALS", "UNCLAIMED_BM")
+	pet:AddCustom("CHAMPION_SEALS", "BMAH")
 
 	-- Withers -- 34278
 	pet = AddPet(34278, V.CATA, Q.COMMON)
@@ -1128,7 +1128,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.WRATHCOMMON2)
 	pet:AddRepVendor(FAC.THE_SILVER_COVENANT, REP.EXALTED, 34881)
 	pet:AddRepVendor(FAC.THE_SUNREAVERS, REP.EXALTED, 34772)
-	pet:AddCustom("CHAMPION_SEALS", "UNCLAIMED_BM")
+	pet:AddCustom("CHAMPION_SEALS", "BMAH")
 
 	-- Macabre Marionette -- 34770
 	pet = AddPet(34770, V.MOP, Q.RARE)
@@ -1208,14 +1208,14 @@ function addon:InitCritters()
 	pet:SetItemID(49287)
 	pet:SetSpellID(68767)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	pet:AddCustom("TCG")
+	pet:AddCustom("TCG", "BMAH")
 
 	-- Spectral Tiger Cub -- 36511
 	pet = AddPet(36511, V.WOTLK, Q.RARE)
 	pet:SetItemID(49343)
 	pet:SetSpellID(68810)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	pet:AddCustom("TCG")
+	pet:AddCustom("TCG", "BMAH")
 
 	-- Onyxian Whelpling -- 36607
 	pet = AddPet(36607, V.WOTLK, Q.COMMON)
@@ -3583,6 +3583,7 @@ function addon:InitCritters()
 	pet:SetSpellID(137977)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOP)
 	pet:AddMobDrop(69944)
+	pet:AddCustom("BMAH")
 
 	-- Sunreaver Micro-Sentry -- 69778
 	pet = AddPet(69778, V.MOP, Q.RARE)
@@ -3619,6 +3620,7 @@ function addon:InitCritters()
 	pet:SetSpellID(138161)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOP)
 	pet:AddMobDrop(69427)
+	pet:AddCustom("BMAH")
 
 	-- Spectral Porcupette -- 69848
 	pet = AddPet(69848, V.MOP, Q.RARE)
@@ -3668,6 +3670,7 @@ function addon:InitCritters()
 	pet:SetSpellID(138825)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP)
 	pet:AddMobDrop(68476)
+	pet:AddCustom("BMAH")
 
 	-- Spawn of G'nathus -- 70098
 	pet = AddPet(70098, V.MOP, Q.RARE)
@@ -3682,6 +3685,7 @@ function addon:InitCritters()
 	pet:SetSpellID(139148)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOP)
 	pet:AddMobDrop(69712)
+	pet:AddCustom("BMAH")
 
 	-- Direhorn Runt -- 70154
 	pet = AddPet(70154, V.MOP, Q.COMMON)
@@ -3842,7 +3846,7 @@ function addon:InitCritters()
 	pet:SetSpellID(142028)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP)
 	pet:AddMobDrop(69017)
-	pet:AddCustom("LFR")
+	pet:AddCustom("LFR", "BMAH")
 
 	-- Viscous Horror -- 71200
 	pet = AddPet(71200, V.MOP, Q.RARE)
@@ -3850,7 +3854,7 @@ function addon:InitCritters()
 	pet:SetSpellID(142029)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP)
 	pet:AddMobDrop(69017)
-	pet:AddCustom("HEROIC", "NORMAL")
+	pet:AddCustom("HEROIC", "NORMAL", "BMAH")
 
 	-- Filthling -- 71201
 	pet = AddPet(71201, V.MOP, Q.COMMON)
@@ -3922,7 +3926,7 @@ function addon:InitCritters()
 	pet:SetSpellID(148058)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOP)
 	pet:AddMobDrop(71734)
-	pet:AddCustom("HEROIC", "NORMAL")
+	pet:AddCustom("HEROIC", "NORMAL", "BMAH")
 
 	-- Gooey Sha-ling -- 73351
 	pet = AddPet(73351, V.MOP, Q.RARE)
@@ -3930,7 +3934,7 @@ function addon:InitCritters()
 	pet:SetSpellID(148059)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOP)
 	pet:AddMobDrop(71734)
-	pet:AddCustom("FLEX", "LFR")
+	pet:AddCustom("FLEX", "LFR", "BMAH")
 
 	-- Blackfuse Bombling -- 73352
 	pet = AddPet(73352, V.MOP, Q.RARE)
@@ -3938,6 +3942,7 @@ function addon:InitCritters()
 	pet:SetSpellID(148049)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOP)
 	pet:AddMobDrop(71504)
+	pet:AddCustom("BMAH")
 
 	-- Kovok -- 73354
 	pet = AddPet(73354, V.MOP, Q.RARE)
@@ -3945,6 +3950,7 @@ function addon:InitCritters()
 	pet:SetSpellID(148061)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOP)
 	pet:AddMobDrop(71152)
+	pet:AddCustom("BMAH")
 
 	-- Jademist Dancer -- 73355
 	pet = AddPet(73355, V.MOP, Q.RARE)
