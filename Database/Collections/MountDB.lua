@@ -3230,7 +3230,7 @@ function addon:InitMounts()
 	mount:SetItemID(128526)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.DRAENORCOMMON4)
 	mount:AddRepVendor(FAC.VOLJINS_HEADHUNTERS, REP.EXALTED, 96014)
-	mount:AddRepVendor(FAC.HAND_OF_THE_PROPHET, REP.EXALTED, 92805)
+	mount:AddRepVendor(FAC.HAND_OF_THE_PROPHET, REP.EXALTED, 90974)
 
 	-- Soaring Skyterror -- 191633
 	mount = AddMount(191633, V.WOD, Q.EPIC)
