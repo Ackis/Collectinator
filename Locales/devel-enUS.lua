@@ -405,6 +405,7 @@ L["STARCRAFTCE"] = "Available from Starcraft's CE."
 L["STORE"] = "Purchased via the in-game Blizzard Shop."
 L["Sage Lotusbloom"] = true
 L["Sage Whiteheart"] = true
+L["Sand Elemental"] = true
 L["Sairuk"] = true
 L["Sally Fizzlefury"] = true
 L["Samamba"] = true

@@ -3581,8 +3581,8 @@ function addon:InitCritters()
 	pet = AddPet(69748, V.MOP, Q.RARE)
 	pet:SetItemID(94125)
 	pet:SetSpellID(137977)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.WORLD_DROP, F.IBOP)
-	pet:AddWorldDrop(Z.THRONE_OF_THUNDER)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.RAID, F.MOB_DROP, F.IBOP)
+	pet:AddMobDrop(69944)
 
 	-- Sunreaver Micro-Sentry -- 69778
 	pet = AddPet(69778, V.MOP, Q.RARE)
