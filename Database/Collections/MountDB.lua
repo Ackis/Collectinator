@@ -2828,7 +2828,7 @@ function addon:InitMounts()
 -- Warlords of Draenor
 
 	-- Warforged Nightmare -- 163024
-	mount = AddMount(163024, V.MOP, Q.EPIC)
+	mount = AddMount(163024, V.WOD, Q.EPIC)
 	mount:SetItemID(112326)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
 	mount:AddCustom("STORE")
