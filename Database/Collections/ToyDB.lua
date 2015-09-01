@@ -537,6 +537,11 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(50349)
 
+	-- Shard of Archstone -- 86573
+	toy = AddToy(86573, V.MOP, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(50354)
+
 	-- Chalice of Secrets -- 86575
 	toy = AddToy(86575, V.MOP, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
@@ -716,6 +721,11 @@ function addon:InitToys()
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(32589)
 
+	-- Darkmoon Seesaw -- 97994
+	toy = AddToy(97994, V.MOP, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(14828)
+
 	-- Shado-Pan Geyser Gun -- 98132
 	toy = AddToy(98132, V.MOP, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MISC)
@@ -725,6 +735,11 @@ function addon:InitToys()
 	toy = AddToy(98136, V.MOP, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MOB_DROP)
 	toy:AddMobDrop(68220)
+
+	-- Safari Hat -- 92738
+	toy = AddToy(92738, V.MOP, Q.COMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(7499)
 
 	-- Moonfang Shroud -- 101571
 	toy = AddToy(101571, V.MOP, Q.RARE)
