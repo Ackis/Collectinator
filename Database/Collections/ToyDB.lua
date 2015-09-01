@@ -799,6 +799,34 @@ function addon:InitToys()
 	toy:AddWorldEvent("DARKMOON_FAIRE")
 
 -- Warlords of Draenor
+
+	-- Crashin' Thrashin' Roller Controller -- 108631
+	toy = AddToy(108631, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(98283)
+
+	-- Crashin' Thrashin' Flamer Controller -- 108632
+	toy = AddToy(108632, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_EVENTS)
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+	toy:AddCustom("WINTERVEIL_GIFT")
+
+	-- Crashin' Thrashin' Cannon Controller -- 108633
+	toy = AddToy(108633, V.WOD, Q.COMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(98284)
+
+	-- Crashin' Thrashin' Mortar Controller -- 108634
+	toy = AddToy(108634, V.WOD, Q.COMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(98285)
+
+	-- Crashin' Thrashin' Killdozer Controller -- 108635
+	toy = AddToy(108635, V.WOD, Q.COMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_EVENTS)
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+	toy:AddCustom("WINTERVEIL_GIFT")
+
 	-- Arena Master's War Horn -- 108735
 	toy = AddToy(108735, V.WOD, Q.UNCOMMON)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
@@ -905,6 +933,12 @@ function addon:InitToys()
 	toy = AddToy(116139, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddVendor(85484)
+
+	-- Scroll of Storytelling -- 116456
+	toy = AddToy(116456, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.WORLD_EVENTS)
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+	toy:AddQuest(6983, 7043)
 
 	-- Silver-Plated Turkey Shooter -- 116400
 	toy = AddToy(116400, V.WOD, Q.RARE)
@@ -1017,6 +1051,11 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("INN")
 
+	-- Archmage Vargoth's Spare Staff -- 118191
+	toy = AddToy(118191, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddGarrisonMission(330)
+
 	-- Petrification Stone -- 118221
 	toy = AddToy(118221, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
@@ -1071,6 +1110,16 @@ function addon:InitToys()
 	toy = AddToy(119083, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("INN")
+
+	-- Moroes' Famous Polish -- 119092
+	toy = AddToy(119092, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddCustom("INN")
+
+	-- Sargerei Disguise -- 119134
+	toy = AddToy(119134, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(35195)
 
 	-- Touch of the Naaru -- 119144
 	toy = AddToy(119144, V.WOD, Q.RARE)
@@ -1150,32 +1199,10 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(81330)
 
---[[	-- Mini Mana Bomb -- 89205
-	toy = AddToy(89205, V.WOD, Q.RARE)
-	toy:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
-	toy:AddAchievement(7468)
-]]--
-
-	-- Scroll of Storytelling -- 116456
-	toy = AddToy(116456, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.WORLD_EVENTS)
-	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
-	toy:AddQuest(6983, 7043)
-
-	-- Archmage Vargoth's Spare Staff -- 118191
-	toy = AddToy(118191, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddGarrisonMission(330)
-
-	-- Moroes' Famous Polish -- 119092
-	toy = AddToy(119092, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
-	toy:AddCustom("INN")
-
-	-- Sargerei Disguise -- 119134
-	toy = AddToy(119134, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
-	toy:AddQuest(35195)
+	-- Cursed Feather of Ikzan -- 122117
+	toy = AddToy(122117, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(90777)
 
 	-- Everlasting Darkmoon Firework -- 122119
 	toy = AddToy(122119, V.WOD, Q.RARE)
@@ -1301,6 +1328,11 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddVendor(94512, 94516)
 
+	-- Throbbing Blood Orb -- 127709
+	toy = AddToy(127709, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.TANAAN_JUNGLE, nil, "26.7:44.3")
+
 	-- The Perfect Blossom -- 127766
 	toy = AddToy(127766, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
@@ -1336,12 +1368,49 @@ function addon:InitToys()
 	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.DRAENORCOMMON4)
 	toy:AddRepVendor(FAC.VOLJINS_HEADHUNTERS, REP.REVERED, 96014)
 
+	-- Red Wooden Sled -- 128776  -- Needs updating
+	toy = AddToy(128776, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
---Not actually in the toy box added
-	-- Murloc Costume -- 33079
---	toy = AddToy(33079, V.WOD, Q.COMMON)
+	-- Sack of Spectral Spiders -- 128794   -- Needs updating
+	toy = AddToy(128794, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("HALLOWS_END")
+
+	-- Coin of Many Faces -- 128807
+	toy = AddToy(128807, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("HALLOWS_END")
+
+	-- Mark of the Ashtongue -- 129926
+	toy = AddToy(129926, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
+	toy:AddVendor(98685)
+
+	-- Will of Northrend -- 129938
+	toy = AddToy(129938, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
+	toy:AddVendor(98690)
+
+	-- Hourglass of Eternity -- 129952
+	toy = AddToy(129952, V.WOD, Q.COMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
+	toy:AddVendor(98690)
+
 
 --[[  Didn't actually make it into the ToyBox panel
+	-- Murloc Costume -- 33079
+	--	toy = AddToy(33079, V.WOD, Q.COMMON)
+
+	-- Mini Mana Bomb -- 89205
+	toy = AddToy(89205, V.WOD, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(7468)
+
 	-- Rukhmar's Sacred Memory -- 122283
 	toy = AddToy(122283, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)

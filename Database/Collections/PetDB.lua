@@ -4110,6 +4110,12 @@ function addon:InitCritters()
 
 -- Warlords of Draenor
 
+	-- Zeradar -- 71655
+	pet = AddPet(71655, V.WOD, Q.RARE)
+	pet:SetItemID(128423)
+	pet:SetSpellID(143637)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	pet:AddCustom("STARCRAFTCE")
 
 	-- Hogs -- 76873
 	pet = AddPet(76873, V.WOD, Q.RARE)
@@ -4308,6 +4314,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.SPIRES_OF_ARAK, "25", "47.6:45.9", "45.5:47.8")
 
+	-- Murkidan -- 85009
+	pet = AddPet(85009, V.WOD, Q.RARE)
+	pet:SetItemID(128427)
+	pet:SetSpellID(190036)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddCustom("BLIZZCON")
+
 	-- Bone Wasp -- 85014
 	pet = AddPet(85014, V.WOD, Q.RARE)
 	pet:SetItemID(119146)
@@ -4354,6 +4367,13 @@ function addon:InitCritters()
 	pet:SetSpellID(170287)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.STEAMWHEEDLE_PRESERVATION_SOCIETY)
 	pet:AddRepVendor(FAC.STEAMWHEEDLE_PRESERVATION_SOCIETY, REP.REVERED, 87394, 88482, 88493)
+
+	-- Brightpaw -- 85283
+	pet = AddPet(85283, V.WOD, Q.RARE)
+	pet:SetItemID(128424)
+	pet:SetSpellID(190035)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	pet:AddCustom("STORE")
 
 	-- Sky-Bo -- 85284
 	pet = AddPet(85284, V.WOD, Q.RARE)
@@ -4988,6 +5008,13 @@ function addon:InitCritters()
 	pet:AddAchievement(10067, 10074)
 	pet:AddZoneLocations(Z.TANAAN_JUNGLE, nil, "63.4:27.7")
 
+	-- Nibbles -- 95841
+	pet = AddPet(95841, V.WOD, Q.RARE)
+	pet:SetItemID(128426)
+	pet:SetSpellID(128426)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	pet:AddCustom("CE")
+
 	-- Blazing Firehawk -- 96123
 	pet = AddPet(96123, V.WOD, Q.RARE)
 	pet:SetItemID(128478)
@@ -5001,6 +5028,50 @@ function addon:InitCritters()
 	pet:SetSpellID(190682)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.THE_SABERSTALKERS)
 	pet:AddRepVendor(FAC.THE_SABERSTALKERS, REP.REVERED, 92805)
+
+	-- Grumpling -- 97229   -- Needs updating
+	pet = AddPet(97229, V.WOD, Q.UNCOMMON)
+	pet:SetItemID(128770)
+	pet:SetSpellID(191967)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+
+	-- Spectral Spinner -- 97324 -- Needs updating
+	pet = AddPet(97324, V.WOD, Q.RARE)
+	pet:SetSpellID(192162)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("HALLOWS_END")
+
+	-- Ghastly Rat -- 97568  -- Needs updating
+	pet = AddPet(97568, V.WOD, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("HALLOWS_END")
+
+	-- Ghost Maggot -- 97569  -- Needs updating
+	pet = AddPet(97569, V.WOD, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("HALLOWS_END")
+
+	-- Energized Manafiend -- 98236
+	pet = AddPet(98236, V.WOD, Q.RARE)
+	pet:SetItemID(129216)
+	pet:SetSpellID(193572)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(98198)
+
+	-- Empowered Manafiend -- 98237
+	pet = AddPet(98237, V.WOD, Q.RARE)
+	pet:SetItemID(129217)
+	pet:SetSpellID(193588)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(98199)
+
+	-- Empyreal Manafiend -- 98238
+	pet = AddPet(98238, V.WOD, Q.RARE)
+	pet:SetItemID(129218)
+	pet:SetSpellID(193589)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(98200)
 
 	self.InitCritters = nil
 

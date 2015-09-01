@@ -2827,6 +2827,18 @@ function addon:InitMounts()
 
 -- Warlords of Draenor
 
+	-- Heavenly Azure Cloud Serpent -- 127169
+	mount = AddMount(127169, V.WOD, Q.EPIC)
+	mount:SetItemID(87776)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(10355, 10356)
+
+	-- Ironbound Wraithcharger -- 142910
+	mount = AddMount(142910, V.WOD, Q.EPIC)
+	mount:SetItemID(129922)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(98690)
+
 	-- Warforged Nightmare -- 163024
 	mount = AddMount(163024, V.WOD, Q.EPIC)
 	mount:SetItemID(112326)
@@ -3238,6 +3250,18 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddGarrisonMission(679)
 
+	-- Illidari Felstalker -- 189998
+	mount = AddMount(189998, V.WOD, Q.EPIC)
+	mount:SetItemID(128425)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.COLLECTORS_EDITION, F.IBOP)
+	mount:AddCustom("CE")
+
+	-- Grove Warden -- 189999
+	mount = AddMount(189999, V.WOD, Q.EPIC)
+	mount:SetItemID(128422)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	mount:AddCustom("STORE")
+
 	-- Bristling Hellboar -- 190690
 	mount = AddMount(190690, V.WOD, Q.RARE)
 	mount:SetItemID(128480)
@@ -3251,11 +3275,24 @@ function addon:InitMounts()
 	mount:AddRepVendor(FAC.VOLJINS_HEADHUNTERS, REP.EXALTED, 96014)
 	mount:AddRepVendor(FAC.HAND_OF_THE_PROPHET, REP.EXALTED, 90974)
 
+	-- Minion of Grumpus -- 191314  -- Needs updating
+	mount = AddMount(191314, V.WOD, Q.EPIC)
+	mount:SetItemID(128671)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	mount:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+
 	-- Soaring Skyterror -- 191633
 	mount = AddMount(191633, V.WOD, Q.EPIC)
 	mount:SetItemID(128706)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(10018)
+
+	-- Eclipse Dragonhawk -- 194464
+	mount = AddMount(194464, V.WOD, Q.EPIC)
+	mount:SetItemID(129923)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
+	mount:AddVendor(98685)
+	mount:AddWorldEvent("TIMEWALKING")
 
 -- Mounts which are duplicates, or are really temporary mounts
 -- Added to stop the debug popups. BAD BLIZZARD
@@ -3284,11 +3321,6 @@ end
 	mount:Retire()
 
 
--- Albino Riding Crane
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
 -- Black Polar Bear -- 59572
 -- mount = AddMount(62048, V.TBC,) -- Item: 43964
 -- mount:SetItemID(43964)
@@ -3298,46 +3330,6 @@ end
 -- mount = AddMount(62048, V.WRATH,) -- Item:
 -- mount:SetItemID()
 -- mount:AddFilters(F.ALLIANCE, F.HORDE)
-
--- Black Riding Yak
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Black Warp Stalker
--- mount = AddMount(, V.TBC, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Blue Ram
--- mount = AddMount(, V.CATA, )
--- mount:AddFilters(, F.ALLIANCE, )
--- self:AddCompanionAcquire(DB,)
-
--- Brewfest Kodo  -- Only learn this mount if you don't have 100% riding, it is in-game however.
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Brown Riding Yak
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Brown Polar Bear
--- mount = AddMount(, V.WRATH, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Crimson Riding Crane
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Crimson Water Strider
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
 
 -- Fluorescent Green Mechanostrider -- Only 1, on EU servers accidentally given to a player.
 -- mount = AddMount(, V.TBC, )
@@ -3350,41 +3342,9 @@ end
 -- mount:AddFilters(, F.ALLIANCE, )
 -- self:AddCompanionAcquire(DB,)
 
--- Golden Water Strider
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
 -- Green Fire Hawk
 -- mount = AddMount(97501, V.CATA, Q.EPIC)
 -- mount:SetItemID(69226)
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Heavenly Azure Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Heavenly Jade Cloud Serpent
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Jade Water Strider
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
--- Jungle Riding Crane
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
-
-
-
--- Orange Water Strider
--- mount = AddMount(, V.MOP, )
 -- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
 -- self:AddCompanionAcquire(DB,)
 
@@ -3393,25 +3353,7 @@ end
 -- mount:SetItemID(25596)
 -- mount:AddFilters(F.ALLIANCE, F.HORDE)
 
--- Primal Leopard
--- mount = AddMount(16058, V.ORIG, )
--- mount:AddFilters(12325, F.ALLIANCE, )
--- self:AddCompanionAcquire(DB,)
 
--- Purple Mechanostrider
--- mount = AddMount(17455, V.ORIG, )
--- mount:AddFilters(13323, F.ALLIANCE, )
--- self:AddCompanionAcquire(DB,)
-
-	-- Stormcrow -- 147595
-	mount = AddMount(147595, V.MOP, Q.EPIC)
-	mount:SetItemID(104011)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-
--- White Riding Yak
--- mount = AddMount(, V.MOP, )
--- mount:AddFilters(, F.ALLIANCE, F.HORDE, )
--- self:AddCompanionAcquire(DB,)
 
 
 
