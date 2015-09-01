@@ -1252,6 +1252,11 @@ function addon:InitToys()
 	toy:SetRequiredFaction("Alliance")
 	toy:AddAchievement(9912)
 
+	-- Rukhmar's Sacred Memory -- 122283
+	toy = AddToy(122283, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddRepVendor(FAC.ORDER_OF_THE_AWAKENED, REP.REVERED, 95424, 95425)
+
 	-- Trans-Dimensional Bird Whistle -- 122293
 	toy = AddToy(122293, V.WOD, Q.EPIC)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
@@ -1411,9 +1416,6 @@ function addon:InitToys()
 	toy:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(7468)
 
-	-- Rukhmar's Sacred Memory -- 122283
-	toy = AddToy(122283, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 ]]--
 
 	self.InitToys = nil
