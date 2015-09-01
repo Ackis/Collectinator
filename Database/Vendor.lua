@@ -196,8 +196,8 @@ function addon:InitVendor()
 	AddVendor(73819,	L["Ku-Mo"],			Z.TIMELESS_ISLE,		41.4,	63.6,	"Neutral")
 	AddVendor(80882,	L["Crafticus Mindbender"],	Z.ASHRAN,			44.2,	74.0,	"Alliance")
 	AddVendor(81981,	L["Tarnon"],			Z.FROSTWALL,			 0.0,	 0.0,	"Horde")
-	AddVendor(82459,	L["Honest Jim"],		Z.SPIRES_OF_ARAK,		 0.0,	 0.0,	"Alliance")	-- Needs updating
-	AddVendor(84243,	L["Linny \"The Skinny\" Leadpockets"],	Z.SPIRES_OF_ARAK,	 0.0,	 0.0,	"Horde")	-- Needs updating
+	AddVendor(82459,	L["Honest Jim"],		Z.SPIRES_OF_ARAK,		 0.0,	 0.0,	"Alliance")
+	AddVendor(84243,	L["Linny \"The Skinny\" Leadpockets"],	Z.SPIRES_OF_ARAK,	 0.0,	 0.0,	"Horde")
 	AddVendor(85115,	L["Dazzerian"],			Z.ASHRAN,			47.0,	21.4,	"Horde")
 	AddVendor(85344,	L["Naron Bloomthistle"],	Z.LUNARFALL,			0.00,	0.00,	"Alliance")
 	AddVendor(85427,	L["Maaria"],			Z.LUNARFALL,			0.00,	0.00,	"Alliance")
@@ -225,6 +225,8 @@ function addon:InitVendor()
 	AddVendor(95471,	L["Trader Darakk"],		Z.FROSTWALL,			00.0,	00.0,	"Horde")
 	AddVendor(95650,	L["Skoller"],			Z.TANAAN_JUNGLE,		55.1,	75.0,	"Neutral")
 	AddVendor(96014,	L["Shadow Hunter Denjai"],	Z.TANAAN_JUNGLE,		61.6,	45.6,	"Horde")
+	AddVendor(98685,	L["Cupri"],			Z.SHATTRATH_CITY,		54.4,	39.0,	"Neutral")
+	AddVendor(98690,	L["Auzin"],			Z.DALARAN,			0.0,	0.0,	"Neutral") -- Needs updating
 
 	self.InitVendor = nil
 end

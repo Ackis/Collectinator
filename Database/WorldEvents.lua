@@ -38,6 +38,7 @@ function addon:InitWorldEvents()
 	end
 
 	AddWorldEvent("DAY_OF_THE_DEAD", L["Day of the Dead"])
+	AddWorldEvent("TIMEWALKING", L["Timewalking"])
 	AddWorldEvent("FEAST_OF_WINTER_VEIL", _G.GetCategoryInfo(156))
 	AddWorldEvent("HALLOWS_END", _G.GetCategoryInfo(158))
 	AddWorldEvent("LUNAR_FESTIVAL", _G.GetCategoryInfo(160))
