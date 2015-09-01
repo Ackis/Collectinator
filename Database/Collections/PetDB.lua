@@ -4656,7 +4656,7 @@ function addon:InitCritters()
 	-- Crimsonwing Moth -- 88413
 	pet = AddPet(88413, V.WOD, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddZoneLocations(Z.TALADOR, "25", "0.0:0.0")  -- Needs updating
+	pet:AddZoneLocations(Z.TALADOR, "25", "53.6:59.2", "67.6:27.4", "53.6:87.2", "39.2:91.4")
 
 	-- Dusty Sporewing -- 88415
 	pet = AddPet(88415, V.WOD, Q.RARE)
