@@ -2537,7 +2537,7 @@ function addon:InitMounts()
 	-- Thundering Ruby Cloud Serpent -- 132036
 	mount = AddMount(132036, V.MOP, Q.EPIC)
 	mount:SetItemID(90655)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.THE_AUGUST_CELESTIALS, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
 	mount:AddMobDrop(64403)
 
 	-- Ashen Pandaren Phoenix -- 132117
