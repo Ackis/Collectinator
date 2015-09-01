@@ -4622,7 +4622,7 @@ function addon:InitCritters()
 	-- Sapphire Firefly -- 88356
 	pet = AddPet(88356, V.WOD, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddZoneLocations(Z.SPIRES_OF_ARAK, "25", "0.0:0.0")  -- Needs updating
+	pet:AddZoneLocations(Z.SPIRES_OF_ARAK, "25", "56.6:41.8", "55.6:32.2", "49.6:50.8", "45.6:62.0")
 
 	-- Violet Firefly -- 88357
 	pet = AddPet(88357, V.WOD, Q.COMMON)
