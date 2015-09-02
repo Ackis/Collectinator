@@ -226,7 +226,7 @@ function addon:InitVendor()
 	AddVendor(95650,	L["Skoller"],			Z.TANAAN_JUNGLE,		55.1,	75.0,	"Neutral")
 	AddVendor(96014,	L["Shadow Hunter Denjai"],	Z.TANAAN_JUNGLE,		61.6,	45.6,	"Horde")
 	AddVendor(98685,	L["Cupri"],			Z.SHATTRATH_CITY,		54.4,	39.0,	"Neutral")
-	AddVendor(98690,	L["Auzin"],			Z.DALARAN,			0.0,	0.0,	"Neutral") -- Needs updating
+	AddVendor(98690,	L["Auzin"],			Z.DALARAN,			50.4,	46.1,	"Neutral")
 
 	self.InitVendor = nil
 end
