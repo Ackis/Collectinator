@@ -2837,7 +2837,7 @@ function addon:InitMounts()
 	mount = AddMount(142910, V.WOD, Q.EPIC)
 	mount:SetItemID(129922)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
-	toy:AddWorldEvent("TIMEWALKING")
+	mount:AddWorldEvent("TIMEWALKING")
 	mount:AddVendor(98690)
 
 	-- Warforged Nightmare -- 163024
