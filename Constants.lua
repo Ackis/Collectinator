@@ -731,6 +731,7 @@ do
 		ASHRAN = _G.GetMapNameByID(978),
 		IRON_DOCKS = _G.GetMapNameByID(987),
 		BLACKROCK_FOUNDRY = _G.GetMapNameByID(988),
+		SKYREACH = _G.GetMapNameByID(989),
 		UPPER_BLACKROCK_SPIRE = _G.GetMapNameByID(995),
 		STORMSHIELD = _G.GetMapNameByID(1009),
 		WARSPEAR = _G.GetMapNameByID(1011),
