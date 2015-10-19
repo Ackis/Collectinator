@@ -495,9 +495,11 @@ function addon:InitCritters()
 	pet:AddCustom("CITY")
 
 	-- Terky -- 16445
-	pet = AddPet(16445, V.MOP, Q.COMMON)
+	pet = AddPet(16445, V.MOP, Q.RARE)
 	pet:SetItemID(22780)
-	pet:Retire()
+	pet:SetSpellID(28487)
+	pet:AddFilters(F.ALLIANCE, F.HORDE)
+	pet:AddZoneLocations(Z.BOREAN_TUNDRA, nil, "55.0:88.0")
 
 	-- Poley -- 16456
 	pet = AddPet(16456, V.ORIG, Q.COMMON)
