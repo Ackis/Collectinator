@@ -5038,21 +5038,30 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
 	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
-	-- Spectral Spinner -- 97324 -- Needs updating
+	-- Spectral Spinner -- 97324
 	pet = AddPet(97324, V.WOD, Q.RARE)
 	pet:SetSpellID(192162)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET, F.WORLD_EVENTS)
 	pet:AddWorldEvent("HALLOWS_END")
+	pet:AddZoneLocations(Z.LUNARFALL, "25", "0.0:0.0")
+	pet:AddZoneLocations(Z.FROSTWALL, "25", "0.0:0.0")
+	pet:AddCustom("CREEPY_PETS")
 
-	-- Ghastly Rat -- 97568  -- Needs updating
+	-- Ghastly Rat -- 97568
 	pet = AddPet(97568, V.WOD, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET, F.WORLD_EVENTS)
 	pet:AddWorldEvent("HALLOWS_END")
+	pet:AddZoneLocations(Z.LUNARFALL, "25", "0.0:0.0")
+	pet:AddZoneLocations(Z.FROSTWALL, "25", "0.0:0.0")
+	pet:AddCustom("CREEPY_PETS")
 
-	-- Ghost Maggot -- 97569  -- Needs updating
+	-- Ghost Maggot -- 97569
 	pet = AddPet(97569, V.WOD, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET, F.WORLD_EVENTS)
 	pet:AddWorldEvent("HALLOWS_END")
+	pet:AddZoneLocations(Z.LUNARFALL, "25", "0.0:0.0")
+	pet:AddZoneLocations(Z.FROSTWALL, "25", "0.0:0.0")
+	pet:AddCustom("CREEPY_PETS")
 
 	-- Energized Manafiend -- 98236
 	pet = AddPet(98236, V.WOD, Q.RARE)

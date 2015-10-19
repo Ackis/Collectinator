@@ -96,6 +96,8 @@ function addon:InitCustom()
 	AddCustom("CHAPMAN")
 	AddCustom("TANAAN_PET_DAILY")
 	AddCustom("NETHAERA_LIGHT",	Z.DALARAN)
+	AddCustom("SPECTRAL_SPIDERS")
+	AddCustom("CREEPY_PETS")
 
 	self.InitCustom = nil
 end

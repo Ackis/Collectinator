@@ -1378,14 +1378,16 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
 	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
-	-- Sack of Spectral Spiders -- 128794   -- Needs updating
+	-- Sack of Spectral Spiders -- 128794
 	toy = AddToy(128794, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
 	toy:AddWorldEvent("HALLOWS_END")
+	toy:AddCustom("SPECTRAL_SPIDERS")
 
 	-- Coin of Many Faces -- 128807
 	toy = AddToy(128807, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.WORLD_EVENTS)
+	toy:AddMobDrop(96536, 96637)
 	toy:AddWorldEvent("HALLOWS_END")
 
 	-- Mark of the Ashtongue -- 129926
