@@ -5084,6 +5084,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	pet:AddMobDrop(98200)
 
+	-- Baby Winston -- 103159
+	pet = AddPet(103159, V.WOD, Q.RARE)
+	pet:SetItemID(134047)
+	pet:SetSpellID(204148)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	pet:AddCustom("OVERWATCHCE")
+
 	self.InitCritters = nil
 
 	LPJ:RegisterCallback("PetListUpdated", private.UpdatePetList)

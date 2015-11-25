@@ -3260,8 +3260,9 @@ function addon:InitMounts()
 	-- Grove Warden -- 189999
 	mount = AddMount(189999, V.WOD, Q.EPIC)
 	mount:SetItemID(128422)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
-	mount:AddCustom("STORE")
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(91331)
+	mount:AddCustom("HEROIC", "MYTHIC")
 
 	-- Bristling Hellboar -- 190690
 	mount = AddMount(190690, V.WOD, Q.RARE)
@@ -3294,6 +3295,13 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
 	mount:AddVendor(98685)
 	mount:AddWorldEvent("TIMEWALKING")
+
+	-- Infinite Timereaver -- 201098
+	mount = AddMount(201098, V.WOD, Q.COMMON)
+	mount:SetItemID(133543)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC, F.WORLD_EVENTS)
+	mount:AddWorldEvent("TIMEWALKING")
+	mount:AddCustom("TIMEREAVER")
 
 -- Mounts which are duplicates, or are really temporary mounts
 -- Added to stop the debug popups. BAD BLIZZARD

@@ -167,6 +167,7 @@ function addon:InitQuest()
 	AddQuest(38299,	Z.LUNARFALL,				00.0,	00.0,	"Alliance")
 	AddQuest(38300,	Z.FROSTWALL,				00.0,	00.0,	"Horde")
 	AddQuest(38428, Z.TANAAN_JUNGLE,			31.1,	67.1,	"Neutral")
+	AddQuest(40904,	Z.HELLFIRE_CITADEL,			00.0,	00.0,	"Neutral")
 
 	self.InitQuest = nil
 end

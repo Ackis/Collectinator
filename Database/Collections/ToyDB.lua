@@ -1408,6 +1408,15 @@ function addon:InitToys()
 	toy:AddWorldEvent("TIMEWALKING")
 	toy:AddVendor(98690)
 
+	-- Gurboggle's Gleaming Bauble -- 133511
+	toy = AddToy(133511, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(101759, 101760)
+
+	-- Tosselwrench's Mega-Accurate Simulation Viewfinder -- 133542
+	toy = AddToy(133542, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(101759, 101760)
 
 --[[  Didn't actually make it into the ToyBox panel
 	-- Murloc Costume -- 33079

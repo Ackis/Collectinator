@@ -227,6 +227,8 @@ function addon:InitVendor()
 	AddVendor(96014,	L["Shadow Hunter Denjai"],	Z.TANAAN_JUNGLE,		61.6,	45.6,	"Horde")
 	AddVendor(98685,	L["Cupri"],			Z.SHATTRATH_CITY,		54.4,	39.0,	"Neutral")
 	AddVendor(98690,	L["Auzin"],			Z.DALARAN,			50.4,	46.1,	"Neutral")
+	AddVendor(101759,	L["Kiatke"],			Z.STORMWIND_CITY,		0.0,	0.0,	"Alliance")  -- Needs updating
+	AddVendor(101760,	L["Kiatke"],			Z.ORGRIMMAR,			0.0,	0.0,	"Horde")  -- Blizzard needs to stop having the same NPC id in multiple places
 
 	self.InitVendor = nil
 end
