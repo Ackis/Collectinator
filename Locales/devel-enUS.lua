@@ -329,7 +329,6 @@ L["NOT_YET_SCANNED"] = "Not yet scanned!"
 L["NO_DISPLAY"] = "No collectables to display.  If you get this message please submit a ticket at http://www.wowace.com/addons/collectinator/tickets listing what filters you have, what is in your exclusion list, which collectable type, and the number of known/unknown collectables."
 L["NOBLE_VENDOR"] = "Alliance visit Azure Watch, Goldshire, Kharanos or Teldrassil. Horde visit Bloodhoof Village, Brill, Fairbreeze Village or Razor Hill."
 L["Nakk the Thunderer"] = true
-L["Nalak"] = true
 L["Nalash Verdantis"] = true
 L["Naleen"] = true
 L["Nam Ironpaw"] = true

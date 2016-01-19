@@ -1177,7 +1177,6 @@ function addon:InitCritters()
 	pet:SetItemID(48122)
 	pet:SetSpellID(67418)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE)
-	pet:AddWorldDrop(Z.UNGORO_CRATER)
 	pet:AddZoneLocations(Z.UNGORO_CRATER, nil, "68.9:61.2", "63.0:63.2", "62.2:65.3", "62.0:73.6", "68.9:66.9")
 
 	-- Razormaw Hatchling -- 35398
@@ -1203,6 +1202,8 @@ function addon:InitCritters()
 
 	-- Onyx Panther -- 35468
 	pet = AddPet(35468, V.WOTLK, Q.RARE)
+	pet:SetItemID(48527)
+	pet:SetSpellID(67527)
 	pet:Retire()
 
 	-- Tuskarr Kite -- 36482
@@ -1831,12 +1832,12 @@ function addon:InitCritters()
 	-- Prairie Mouse -- 59702
 	pet = AddPet(59702, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.KUN_LAI_SUMMIT)
+	pet:AddZoneLocations(Z.KUN_LAI_SUMMIT, "23-25", "37.0:73.0", "64.8:82.6", "49.8:85.0", "46.8:63.0")
 
 	-- Black Lamb -- 60649
 	pet = AddPet(60649, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.ELWYNN_FOREST)
+	pet:AddZoneLocations(Z.ELWYNN_FOREST, "1-2", "39.0:89.6", "87.2:78.8", "44.6:51.4", "38.6:62.0")
 
 	-- Small Frog -- 61071
 	pet = AddPet(61071, V.MOP, Q.COMMON)
