@@ -2174,7 +2174,7 @@ function addon:InitMounts()
 	mount:SetItemID(77069)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
 	mount:AddMobDrop(56173)
-	mount:AddCustom("BMAH")
+	mount:AddCustom("BMAH", "HEROIC")
 
 	-- Experiment 12-B -- 110039
 	mount = AddMount(110039, V.CATA, Q.EPIC) -- Item: 78919
