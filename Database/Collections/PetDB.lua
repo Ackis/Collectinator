@@ -576,7 +576,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(20980)
 
-
 -- The Burning Crusade
 	-- Yellow Moth -- 21008
 	pet = AddPet(21008, V.TBC, Q.COMMON)
@@ -1812,7 +1811,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
 	pet:AddCustom("STORE")
 
-
 -- Mists of Pandaria
 	-- Eye of the Legion -- 59020
 	pet = AddPet(59020, V.MOP, Q.RARE)
@@ -1842,7 +1840,17 @@ function addon:InitCritters()
 	-- Small Frog -- 61071
 	pet = AddPet(61071, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.ARATHI_HIGHLANDS, Z.DARNASSUS, Z.DESOLACE, Z.DUN_MOROGH, Z.ELWYNN_FOREST, Z.EVERSONG_WOODS, Z.GHOSTLANDS, Z.GILNEAS, Z.LOCH_MODAN, Z.NORTHERN_BARRENS, Z.SOUTHERN_BARRENS, Z.SWAMP_OF_SORROWS, Z.TELDRASSIL, Z.THE_LOST_ISLES, Z.ZANGARMARSH)
+	pet:AddZoneLocations(Z.ARATHI_HIGHLANDS, "7-8", "39.6:79.0", "40.6:72.2")
+	pet:AddZoneLocations(Z.DARNASSUS, "1-3", "53.2:54.8", "52.8:39.0")
+	pet:AddZoneLocations(Z.DESOLACE, "7-9", "62.4:46.0", "66.0:39.6")
+	pet:AddZoneLocations(Z.ELWYNN_FOREST, "1-2", "57.0:68.2", "50.2:66.8")
+	pet:AddZoneLocations(Z.EVERSONG_WOODS, "1-2", "43.6:37.0", "37.6:62.0")
+	pet:AddZoneLocations(Z.GHOSTLANDS, "3-6", "47.8:48.0", "27.6:35.2")
+	pet:AddZoneLocations(Z.LOCH_MODAN, "3-6")
+	pet:AddZoneLocations(Z.NORTHERN_BARRENS, "3-4", "43.2:77.0")
+	pet:AddZoneLocations(Z.SOUTHERN_BARRENS, "9-10", "50.4:38.0", "44.8:29.8")
+	pet:AddZoneLocations(Z.TELDRASSIL, "1-2", "41.4:57.4")
+	pet:AddZoneLocations(Z.ZANGARMARSH, "18-19", "66.2:69.4", "20.8:53.4")
 
 	-- Rabbit -- 61080
 	pet = AddPet(61080, V.MOP, Q.COMMON)
@@ -1935,22 +1943,37 @@ function addon:InitCritters()
 	-- Snake -- 61142
 	pet = AddPet(61142, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.DUN_MOROGH, Z.DUSTWALLOW_MARSH, Z.EVERSONG_WOODS, Z.FERALAS, Z.GHOSTLANDS, Z.GILNEAS, Z.HOWLING_FJORD, Z.LOCH_MODAN, Z.NAGRAND_OUTLAND, Z.NORTHERN_STRANGLETHORN, Z.SHOLAZAR_BASIN, Z.SILVERPINE_FOREST, Z.TEROKKAR_FOREST, Z.TOL_BARAD, Z.WAILING_CAVERNS, Z.WESTFALL, Z.ZANGARMARSH, Z.ZULDRAK)
+	pet:AddZoneLocations(Z.DUN_MOROGH, "1-2")
+	pet:AddZoneLocations(Z.DUSTWALLOW_MARSH, "12-13")
+	pet:AddWorldDrop(Z.EVERSONG_WOODS, Z.FERALAS, Z.GHOSTLANDS, Z.GILNEAS, Z.HOWLING_FJORD, Z.LOCH_MODAN, Z.NAGRAND_OUTLAND, Z.NORTHERN_STRANGLETHORN, Z.SHOLAZAR_BASIN, Z.SILVERPINE_FOREST, Z.TEROKKAR_FOREST, Z.TOL_BARAD, Z.WAILING_CAVERNS, Z.WESTFALL, Z.ZANGARMARSH, Z.ZULDRAK)
 
 	-- Mouse -- 61143
 	pet = AddPet(61143, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.DUSKWOOD, Z.DUSTWALLOW_MARSH, Z.GRIZZLY_HILLS, Z.MULGORE, Z.NETHERSTORM, Z.WESTFALL, Z.WETLANDS)
+	pet:AddZoneLocations(Z.CRYSTALSONG_FOREST, "22-23", "36.6:56.4")
+	pet:AddZoneLocations(Z.DUSKWOOD, "5-7", "21.4:47.8")
+	pet:AddZoneLocations(Z.DUSTWALLOW_MARSH, "12-13", "51.0:76.0")
+	pet:AddZoneLocations(Z.MULGORE, "1-2")
+	pet:AddZoneLocations(Z.NETHERSTORM, "20-21")
+	pet:AddZoneLocations(Z.SILVERMOON_CITY, "1-3")
+	pet:AddZoneLocations(Z.THE_EXODAR, "1-3", "47.8:60.6")
+	pet:AddZoneLocations(Z.WESTFALL, "3-4")
+	pet:AddZoneLocations(Z.WETLANDS, "6-7")
 
 	-- Shore Crab -- 61158
 	pet = AddPet(61158, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.AZSHARA, Z.BOREAN_TUNDRA, Z.HOWLING_FJORD, Z.KRASARANG_WILDS, Z.TWILIGHT_HIGHLANDS, Z.WESTFALL)
+	pet:AddZoneLocations(Z.AZSHARA, "3-6", "43.2:45.8", "44.4:61.6")
+	pet:AddZoneLocations(Z.BOREAN_TUNDRA, "20-22", "37.8:24.6", "43.0:13.6")
+	pet:AddZoneLocations(Z.HOWLING_FJORD, "20-22", "31.6:71.2", "79.0:27.4")
+	pet:AddZoneLocations(Z.TWILIGHT_HIGHLANDS, "23-24", "71.4:37.6", "76.0:71.4")
+	pet:AddZoneLocations(Z.WESTFALL, "3-4", "35.4:19.4", "29.2:76.0")
+	pet:AddZoneLocations(Z.NAGRAND_DRAENOR, "25")
 
 	-- Tiny Harvester -- 61160
 	pet = AddPet(61160, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.WESTFALL)
+	pet:AddZoneLocations(Z.WESTFALL, "3-4", "54.6:33.6", "52.2:22.4", "44.8:34.6", "39.2:52.6", "62.8:60.2")
 
 	-- Fawn -- 61165
 	pet = AddPet(61165, V.MOP, Q.COMMON)
