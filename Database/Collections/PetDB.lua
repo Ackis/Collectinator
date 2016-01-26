@@ -1945,7 +1945,21 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.DUN_MOROGH, "1-2")
 	pet:AddZoneLocations(Z.DUSTWALLOW_MARSH, "12-13")
-	pet:AddWorldDrop(Z.EVERSONG_WOODS, Z.FERALAS, Z.GHOSTLANDS, Z.GILNEAS, Z.HOWLING_FJORD, Z.LOCH_MODAN, Z.NAGRAND_OUTLAND, Z.NORTHERN_STRANGLETHORN, Z.SHOLAZAR_BASIN, Z.SILVERPINE_FOREST, Z.TEROKKAR_FOREST, Z.TOL_BARAD, Z.WAILING_CAVERNS, Z.WESTFALL, Z.ZANGARMARSH, Z.ZULDRAK)
+	pet:AddZoneLocations(Z.EVERSONG_WOODS, "1-2")
+	pet:AddZoneLocations(Z.FERALAS, "11-12", "59.6:48.6", "81.2:42.4", "47.2:9.6")
+	pet:AddZoneLocations(Z.GHOSTLANDS, "3-6", "67.2:54.4", "76.2:43.6")
+	pet:AddZoneLocations(Z.GILNEAS, "1")
+	pet:AddZoneLocations(Z.HOWLING_FJORD, "20-22", "51.4:54.8")
+	pet:AddZoneLocations(Z.LOCH_MODAN, "3-6")
+	pet:AddZoneLocations(Z.NAGRAND_OUTLAND, "18-19")
+	pet:AddZoneLocations(Z.NORTHERN_STRANGLETHORN, "7-9")
+	pet:AddZoneLocations(Z.SHOLAZAR_BASIN, "21-22", "24.0:50.2", "41.6:34.4")
+	pet:AddZoneLocations(Z.SILVERPINE_FORESTm "3-6")
+	pet:AddZoneLocations(Z.TEROKKAR_FOREST, "18-19", "39.6:68.0", "41.0:52.4", "47.6:70.6")
+	pet:AddZoneLocations(Z.TOL_BARAD, "23-24")
+	pet:AddZoneLocations(Z.WESTFALL, "3-4", "45.4:18.0", "56.4:28.6")
+	pet:AddZoneLocations(Z.ZANGARMARSH, "18-19", "82.4:49.8", "22.4:55.8")
+	pet:AddZoneLocations(Z.ZULDRAK, "22-23", "14.2:67.6", "13.8:73.0")
 
 	-- Mouse -- 61143
 	pet = AddPet(61143, V.MOP, Q.COMMON)
@@ -1978,27 +1992,30 @@ function addon:InitCritters()
 	-- Fawn -- 61165
 	pet = AddPet(61165, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.ELWYNN_FOREST, Z.GRIZZLY_HILLS, Z.TELDRASSIL)
+	pet:AddZoneLocations(Z.ELWYNN_FOREST, "1-2", "44.8:49.8", "36.8:55.4", "46.6:80.4")
+	pet:AddZoneLocations(Z.GRIZZLY_HILLS, "21-22")
+	pet:AddZoneLocations(Z.TELDRASSIL, "41.8:48.2")
 
 	-- Mountain Cottontail -- 61167
 	pet = AddPet(61167, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.MULGORE, Z.REDRIDGE_MOUNTAINS)
+	pet:AddZoneLocations(Z.REDRIDGE_MOUNTAINS, "4-6", "61.2:66.0", "50.6:65.4", "25.2:35.4")
 
 	-- Redridge Rat -- 61168
 	pet = AddPet(61168, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.REDRIDGE_MOUNTAINS)
+	pet:AddZoneLocations(Z.REDRIDGE_MOUNTAINS, "4-6", "68.0:43.0", "49.6:38.2", "30.6:62.6")
 
 	-- Roach -- 61169
 	pet = AddPet(61169, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.ASHENVALE, "4-6", "31.0:23.0", "46.6:59.8")
 	pet:AddWorldDrop(Z.ASHENVALE, Z.AZSHARA, Z.DESOLACE, Z.DUN_MOROGH, Z.DUSKWOOD, Z.GILNEAS, Z.GILNEAS_CITY, Z.HOWLING_FJORD, Z.KEZAN, Z.LOCH_MODAN, Z.NORTHERN_STRANGLETHORN, Z.REDRIDGE_MOUNTAINS, Z.STONETALON_MOUNTAINS, Z.THE_CAPE_OF_STRANGLETHORN, Z.THOUSAND_NEEDLES, Z.TIRISFAL_GLADES)
 
 	-- Fledgling Buzzard -- 61171
 	pet = AddPet(61171, V.MOP, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddWorldDrop(Z.REDRIDGE_MOUNTAINS)
+	pet:AddZoneLocations(Z.REDRIDGE_MOUNTAINS, "4-6", "27.0:35.4", "36.6:28.8", "23.8:29.6")
 
 	-- Dusk Spiderling -- 61253
 	pet = AddPet(61253, V.MOP, Q.COMMON)
