@@ -3297,7 +3297,7 @@ function addon:InitMounts()
 	mount:AddWorldEvent("TIMEWALKING")
 
 	-- Infinite Timereaver -- 201098
-	mount = AddMount(201098, V.WOD, Q.COMMON)
+	mount = AddMount(201098, V.WOD, Q.EPIC)
 	mount:SetItemID(133543)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC, F.WORLD_EVENTS)
 	mount:AddWorldEvent("TIMEWALKING")
