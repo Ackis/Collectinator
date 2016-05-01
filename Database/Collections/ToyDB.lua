@@ -1272,12 +1272,11 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddGarrisonMission(502)
 
---[[ Shows as "Unknown" - in Toybox, but things acting weird
 	-- Portable Audiophone -- 122700
 	toy = AddToy(122700, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(9912, 9914)
-]]--
+
 	-- Photo B.O.M.B. -- 123851
 	toy = AddToy(123851, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
