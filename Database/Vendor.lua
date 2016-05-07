@@ -194,9 +194,12 @@ function addon:InitVendor()
 	AddVendor(73306,	L["Mistweaver Ku"],		Z.TIMELESS_ISLE,		42.7,	54.7,	"Neutral")
 	AddVendor(73307,	L["Speaker Gulan"],		Z.TIMELESS_ISLE,		74.9,	44.9,	"Neutral")
 	AddVendor(73819,	L["Ku-Mo"],			Z.TIMELESS_ISLE,		41.4,	63.6,	"Neutral")
+	AddVendor(77379,	L["Jonathan Stephens"],		Z.LUNARFALL,			 0.0,	 0.0,	"Alliance")
+	AddVendor(79812,	L["Moz'def"],			Z.FROSTWALL,			 0.0,	 0.0,	"Horde")
 	AddVendor(80882,	L["Crafticus Mindbender"],	Z.ASHRAN,			44.2,	74.0,	"Alliance")
 	AddVendor(81981,	L["Tarnon"],			Z.FROSTWALL,			 0.0,	 0.0,	"Horde")
 	AddVendor(82459,	L["Honest Jim"],		Z.SPIRES_OF_ARAK,		 0.0,	 0.0,	"Alliance")
+	AddVendor(83006,	L["Griftah"],			Z.PANDARIA,			 0.0,	 0.0,	"Neutral")
 	AddVendor(84243,	L["Linny \"The Skinny\" Leadpockets"],	Z.SPIRES_OF_ARAK,	 0.0,	 0.0,	"Horde")
 	AddVendor(85115,	L["Dazzerian"],			Z.ASHRAN,			47.0,	21.4,	"Horde")
 	AddVendor(85344,	L["Naron Bloomthistle"],	Z.LUNARFALL,			 0.0,	 0.0,	"Alliance")
@@ -220,15 +223,15 @@ function addon:InitVendor()
 	AddVendor(94512,	L["Tiffy Trapspring"],		Z.LUNARFALL,			 0.0,	 0.0,	"Alliance")
 	AddVendor(94516,	L["Giada Goldleash"],		Z.FROSTWALL,			 0.0,	 0.0,	"Horde")
 	AddVendor(95424,	L["Dawn-Seeker Krisek"],	Z.TANAAN_JUNGLE,		57.8,	59.4,	"Alliance")
-	AddVendor(95425,	L["Dawn-Seeker Krisek"],	Z.TANAAN_JUNGLE,		60.4,	46.6,	"Horde")   -- Blizzard needs to stop having the same NPC id in multiple places
+	AddVendor(95425,	L["Dawn-Seeker Krisek"],	Z.TANAAN_JUNGLE,		60.4,	46.6,	"Horde")  -- Blizzard needs to stop having the same NPC id in multiple places, not actual ID
 	AddVendor(95470,	L["Trader Araanda"],		Z.LUNARFALL,			 0.0,	 0.0,	"Alliance")
 	AddVendor(95471,	L["Trader Darakk"],		Z.FROSTWALL,			 0.0,	 0.0,	"Horde")
 	AddVendor(95650,	L["Skoller"],			Z.TANAAN_JUNGLE,		55.1,	75.0,	"Neutral")
 	AddVendor(96014,	L["Shadow Hunter Denjai"],	Z.TANAAN_JUNGLE,		61.6,	45.6,	"Horde")
 	AddVendor(98685,	L["Cupri"],			Z.SHATTRATH_CITY,		54.4,	39.0,	"Neutral")
 	AddVendor(98690,	L["Auzin"],			Z.DALARAN,			50.4,	46.1,	"Neutral")
-	AddVendor(101759,	L["Kiatke"],			Z.STORMWIND_CITY,		0.0,	0.0,	"Alliance")  -- Needs updating
-	AddVendor(101760,	L["Kiatke"],			Z.ORGRIMMAR,			0.0,	0.0,	"Horde")  -- Blizzard needs to stop having the same NPC id in multiple places
+	AddVendor(101759,	L["Kiatke"],			Z.STORMWIND_CITY,		76.0,	17.6,	"Alliance")
+	AddVendor(101760,	L["Kiatke"],			Z.ORGRIMMAR,			52.0,	41.6,	"Horde") -- Blizzard needs to stop having the same NPC id in multiple places, not actual ID
 
 	self.InitVendor = nil
 end
