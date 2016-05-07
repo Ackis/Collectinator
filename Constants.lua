@@ -508,6 +508,9 @@ private.FACTION_IDS = {
 	VOLJINS_HEADHUNTERS = 1848,
 	ORDER_OF_THE_AWAKENED = 1849,
 	THE_SABERSTALKERS = 1850,
+	THE_WARDENS = 1894,
+	COURT_OF_FARONDIS = 1900,
+	VALAJAR = 1948,
 
 }
 
@@ -737,6 +740,13 @@ do
 		STORMSHIELD = _G.GetMapNameByID(1009),
 		WARSPEAR = _G.GetMapNameByID(1011),
 		HELLFIRE_CITADEL = _G.GetMapNameByID(1026),
+
+		STORMHEIM = _G.GetMapNameByID(1017),
+		VALSHARAH = _G.GetMapNameByID(1018),
+		BROKEN_SHORE = _G.GetMapNameByID(1021),
+		HIGHMOUNTAIN = _G.GetMapNameByID(1024),
+		SURAMAR = _G.GetMapNameByID(1033),
+		AZSUNA = _G.GetMapNameByID(1053),
 		-------------------------------------------------------------------------------
 		-- Continents
 		-------------------------------------------------------------------------------
@@ -747,6 +757,7 @@ do
 		THE_MAELSTROM = CONTINENT_NAMES[10],
 		PANDARIA = CONTINENT_NAMES[12],
 		DRAENOR = CONTINENT_NAMES[14],
+		BROKEN_ISLES = CONTINENT_NAMES[16],
 	}
 end
 
@@ -805,6 +816,15 @@ private.BOSS_NAMES = {
 	RUKHMAR = _G.EJ_GetEncounterInfo(1262),
 	SHADOW_LORD_ISKAR = _G.EJ_GetEncounterInfo(1433),
 	ARCHIMONDE = _G.EJ_GetEncounterInfo(1438),
+	MAGMADAR = _G.EJ_GetEncounterInfo(1520),
+	SULFURON_HARBINGER = _G.EJ_GetEncounterInfo(1525),
+	GOLEMAGG_THE_INCINERATOR = _G.EJ_GetEncounterInfo(1526),
+	RAZORGORE_THE_UNTAMED = _G.EJ_GetEncounterInfo(1529),
+	BROODLORD_LASHLAYER = _G.EJ_GetEncounterInfo(1531),
+	CHROMAGGUS = _G.EJ_GetEncounterInfo(1535),
+	VISCIDUS = _G.EJ_GetEncounterInfo(1548),
+	THE_TWIN_EMPERORS = _G.EJ_GetEncounterInfo(1549),
+	ONYXIA = _G.EJ_GetEncounterInfo(1651),
 
 }
 
