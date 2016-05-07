@@ -53,6 +53,7 @@ function addon:InitHeirloom()
 
 	local heirloom
 
+-- Warlords of Draenor
 	-- Polished Helm of Valor -- 122245
 	heirloom = AddHeirloom(122245, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
@@ -454,6 +455,12 @@ function addon:InitHeirloom()
 	heirloom = AddHeirloom(128318, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MISC)
 	heirloom:AddGarrisonMission(686)
+
+-- Legion
+	-- Spear of Rethu - 131733
+	heirloom = AddHeirloom(131733, V.LEGION, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.PROFESSION)
+	heirloom:AddProfession(F.ARCHAEOLOGY)
 
 	self.InitHeirloom = nil
 
