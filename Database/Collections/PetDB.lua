@@ -4977,7 +4977,7 @@ function addon:InitCritters()
 	pet = AddPet(90214, V.WOD, Q.RARE)
 	pet:SetItemID(122115)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
-	pet:AddMobDrop(25165, 25166)
+	pet:AddMobDrop(25165)
 
 	-- K'ute -- 90215
 	pet = AddPet(90215, V.WOD, Q.RARE)
