@@ -145,6 +145,7 @@ private.GAME_VERSION_NAMES = {
 	"CATA",
 	"MOP",
 	"WOD",
+	"LEGION",
 }
 
 private.GAME_VERSIONS = GenerateLookup_ID(private.GAME_VERSION_NAMES)

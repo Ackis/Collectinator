@@ -39,6 +39,7 @@ local EXPANSION_FRAMES = {
 	["expansion3"]	= true,
 	["expansion4"]	= true,
 	["expansion5"]	= true,
+	["expansion6"]	= true,
 }
 
 local CATEGORY_TOOLTIP = {
@@ -487,6 +488,7 @@ function private.InitializeFilterPanel()
 			expansion3	= { tt = ExpansionDesc(_G.EXPANSION_NAME3),	text = _G.EXPANSION_NAME3,	row = 4, col = 1 },
 			expansion4	= { tt = ExpansionDesc(_G.EXPANSION_NAME4),	text = _G.EXPANSION_NAME4,	row = 5, col = 1 },
 			expansion5 	= { tt = ExpansionDesc(_G.EXPANSION_NAME5),	text = _G.EXPANSION_NAME5,	row = 6, col = 1 },
+			expansion6	= { tt = ExpansionDesc(_G.EXPANSION_NAME6), text = _G.EXPANSION_NAME6,	row = 7, col = 1 },
 		}
 
 		local version_panel = _G.CreateFrame("Frame", nil, obtain_frame)
@@ -638,6 +640,7 @@ function private.InitializeFilterPanel()
 			expansion3	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME3),
 			expansion4	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME4),
 			expansion5  	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME5),
+			expansion6	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME6),
 		}
 		-------------------------------------------------------------------------------
 		-- This manages the WoW expansion reputation filter menu panel
@@ -729,12 +732,16 @@ function private.InitializeFilterPanel()
 		local expansion5 = rep_frame:CreateExpansionButton("Glues-WOW-WoDLogo", "expansion5")
 		expansion5:SetPoint("TOP", expansion4, "BOTTOM", 0, 0)
 
+		local expansion6 = rep_frame:CreateExpansionButton("Glues-WOW-LegionLogo", "expansion6")
+		expansion6:SetPoint("TOP", expansion5, "BOTTOM", 0, 0)
+
 		rep_frame.toggle_expansion0 = expansion0
 		rep_frame.toggle_expansion1 = expansion1
 		rep_frame.toggle_expansion2 = expansion2
 		rep_frame.toggle_expansion3 = expansion3
 		rep_frame.toggle_expansion4 = expansion4
 		rep_frame.toggle_expansion5 = expansion5
+		rep_frame.toggle_expansion6 = expansion6
 	end	-- do
 
 	-------------------------------------------------------------------------------
@@ -1099,6 +1106,51 @@ function private.InitializeFilterPanel()
 		expansion5_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
 	end	-- do-block
 
+-------------------------------------------------------------------------------
+	-- Create FilterPanel.rep.expansion6, and set its scripts.
+	-------------------------------------------------------------------------------
+	do
+		local expansion6_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
+		expansion6_frame:SetWidth(200)
+		expansion6_frame:SetHeight(FILTERMENU_HEIGHT)
+		expansion6_frame:EnableMouse(true)
+		expansion6_frame:EnableKeyboard(true)
+		expansion6_frame:SetMovable(false)
+		expansion6_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
+		expansion6_frame:Hide()
+
+		FilterPanel.rep.expansion6 = expansion6_frame
+
+		-------------------------------------------------------------------------------
+		-- Create the Reputation toggle and CheckButtons
+		-------------------------------------------------------------------------------
+		local function DisabledText(text)
+			return SetTextColor(private.BASIC_COLORS["grey"], text)
+		end
+
+		local expansion6_buttons = {
+			arakkoa			= { tt = ReputationDesc(FN.ARAKKOA_OUTCASTS),		text = FN.ARAKKOA_OUTCASTS,		row = 2,	col = 1 },
+
+		}
+		private.GenerateCheckBoxes(expansion6_frame, expansion6_buttons)
+
+		local expansion6_toggle = _G.CreateFrame("Button", nil, expansion6_frame)
+		expansion6_toggle:SetWidth(105)
+		expansion6_toggle:SetHeight(20)
+		expansion6_toggle:SetNormalFontObject("QuestTitleFont")
+		expansion6_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		expansion6_toggle:SetText(_G.REPUTATION .. ":")
+		expansion6_toggle:SetPoint("TOPLEFT", expansion6_frame, "TOPLEFT", -2, -7)
+		expansion6_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(expansion6_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
+
+		expansion6_toggle.buttons = expansion6_buttons
+		expansion6_toggle.frame = expansion6_frame
+
+		expansion6_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
+	end	-- do-block
+
 	-------------------------------------------------------------------------------
 	-- Miscellaneous Filter Menu
 	-------------------------------------------------------------------------------
@@ -1122,6 +1174,7 @@ function private.InitializeFilterPanel()
 	local expansion3 = FilterPanel.rep.expansion3
 	local expansion4 = FilterPanel.rep.expansion4
 	local expansion5 = FilterPanel.rep.expansion5
+	local expansion6 = FilterPanel.rep.expansion6
 
 	FilterPanel.value_map = {
 		------------------------------------------------------------------------------------------------
@@ -1142,6 +1195,7 @@ function private.InitializeFilterPanel()
 		expansion3		= { cb = FilterPanel.obtain.expansion3,		svroot = filters.obtain },
 		expansion4		= { cb = FilterPanel.obtain.expansion4,		svroot = filters.obtain },
 		expansion5		= { cb = FilterPanel.obtain.expansion5,		svroot = filters.obtain },
+		expansion6		= { cb = FilterPanel.obtain.expansion6,		svroot = filters.obtain },
 		mobdrop			= { cb = FilterPanel.obtain.mobdrop,		svroot = filters.obtain },
 		pvp			= { cb = FilterPanel.obtain.pvp,		svroot = filters.obtain },
 		quest			= { cb = FilterPanel.obtain.quest,		svroot = filters.obtain },

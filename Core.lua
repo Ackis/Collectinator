@@ -232,6 +232,7 @@ function addon:OnInitialize()
 					expansion3 = true,
 					expansion4 = true,
 					expansion5 = true,
+					expansion6 = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Quality Filters
