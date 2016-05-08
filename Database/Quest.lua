@@ -167,10 +167,15 @@ function addon:InitQuest()
 	AddQuest(37287,	Z.SPIRES_OF_ARAK,			39.4,	61.6,	"Alliance")
 	AddQuest(37292,	Z.SPIRES_OF_ARAK,			40.0,	42.6,	"Horde")
 	AddQuest(37307,	Z.LUNARFALL,				37.2,	36.4,	"Alliance")
+	AddQuest(37736,	Z.AZSUNA,				00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(37959,	Z.AZSUNA,				00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(38237,	Z.AZSUNA,				00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(38299,	Z.LUNARFALL,				00.0,	00.0,	"Alliance")
 	AddQuest(38300,	Z.FROSTWALL,				00.0,	00.0,	"Horde")
 	AddQuest(38428, Z.TANAAN_JUNGLE,			31.1,	67.1,	"Neutral")
 	AddQuest(40904,	Z.HELLFIRE_CITADEL,			00.0,	00.0,	"Neutral")
+	AddQuest(42722,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
+
 
 	self.InitQuest = nil
 end

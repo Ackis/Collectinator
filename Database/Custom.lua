@@ -117,6 +117,7 @@ function addon:InitCustom()
 	AddCustom("FISHING_TOURNAMENT")
 	AddCustom("GURUBASHI_ARENA",	Z.STRANGLETHORN_VALE)
 	AddCustom("NETHAERA_LIGHT",	Z.DALARAN_NORTHREND)
+	AddCustom("CLASS_HALL")
 
 
 
