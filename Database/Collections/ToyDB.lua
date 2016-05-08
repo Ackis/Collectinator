@@ -1106,6 +1106,7 @@ function addon:InitToys()
 	toy = AddToy(115503, V.WOD, Q.UNCOMMON)
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(36380)
+	toy:AddProfession(PROF.JEWELCRAFTING)
 
 	-- Treessassin's Guise -- 115506
 	toy = AddToy(115506, V.WOD, Q.RARE)
