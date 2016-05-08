@@ -315,7 +315,7 @@ local INSTANCE_LOCATIONS = {
 		y = 0,
 	},
 	[Z.THE_VIOLET_HOLD] = {
-		zone = NORTHREND_IDNUMS[Z.DALARAN],
+		zone = NORTHREND_IDNUMS[Z.DALARAN_NORTHREND],
 		continent = 4,
 		x = 66.78,
 		y = 68.19,

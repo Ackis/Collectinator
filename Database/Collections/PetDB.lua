@@ -887,7 +887,7 @@ function addon:InitCritters()
 	pet:SetItemID(43698)
 	pet:SetSpellID(59250)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOP, F.PROFESSION)
-	pet:AddWorldDrop(Z.DALARAN)
+	pet:AddWorldDrop(Z.DALARAN_NORTHREND)
 	pet:AddProfession(PROF.FISHING)
 
 	-- Tickbird Hatchling -- 32589

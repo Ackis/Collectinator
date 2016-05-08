@@ -85,8 +85,8 @@ function addon:InitQuest()
 	AddQuest(13702,	Z.ICECROWN,				76.6,	19.2,	"Alliance") -- Quest IDs 13702, 13732-13735
 	AddQuest(13736,	Z.ICECROWN,				76.6,	24.4,	"Horde") -- Quest IDs 13736-13740
 	AddQuest(13906,	Z.UNGORO_CRATER,			71.4,	73.8,	"Horde")
-	AddQuest(13959,	Z.DALARAN,				 0.0,	 0.0,	"Neutral")
-	AddQuest(13960,	Z.DALARAN,				 0.0,	 0.0,	"Neutral")
+	AddQuest(13959,	Z.DALARAN_NORTHREND,			 0.0,	 0.0,	"Neutral")
+	AddQuest(13960,	Z.DALARAN_NORTHREND,			 0.0,	 0.0,	"Neutral")
 	AddQuest(14392,	Z.AZSHARA,				67.0,	20.4,	"Horde")
 	AddQuest(24915,	Z.ICECROWN_CITADEL,			 0.0,	 0.0,	"Neutral")
 	AddQuest(24917,	Z.ICECROWN_CITADEL,			 0.0,	 0.0,	"Neutral")
