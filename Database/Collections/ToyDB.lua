@@ -787,7 +787,7 @@ function addon:InitToys()
 	toy:AddVendor(55143)
 
 	-- Chain Pet Leash -- 89139
-	toy = AddToy(88802, V.MOP, Q.COMMON)
+	toy = AddToy(89139, V.MOP, Q.COMMON)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("PET_SUPPLY_BAGS")
 
