@@ -235,8 +235,8 @@ function addon:InitVendor()
 	AddVendor(97140,	L["First Arcanist Thalyssra"],	Z.SURAMAR,			 0.0,	 0.0,	"Neutral") -- Needs updating loc & NPC ID
 	AddVendor(98685,	L["Cupri"],			Z.SHATTRATH_CITY,		54.4,	39.0,	"Neutral")
 	AddVendor(98690,	L["Auzin"],			Z.DALARAN_BROKENISLES,		50.4,	46.1,	"Neutral")
-	AddVendor(98723,	L["Tiffy Trapspring"]},		Z.DALARAN_BROKENISLES,		59.4,	40.0,	"Alliance")
-	AddVendor(98724,	L["Giada Goldleash"]},		Z.DALARAN_BROKENISLES,		58.3,	37.7,	"Horde")
+	AddVendor(98723,	L["Tiffy Trapspring"],		Z.DALARAN_BROKENISLES,		59.4,	40.0,	"Alliance")
+	AddVendor(98724,	L["Giada Goldleash"],		Z.DALARAN_BROKENISLES,		58.3,	37.7,	"Horde")
 	AddVendor(101759,	L["Kiatke"],			Z.STORMWIND_CITY,		76.0,	17.6,	"Alliance")
 	AddVendor(101760,	L["Kiatke"],			Z.ORGRIMMAR,			52.0,	41.6,	"Horde") -- Blizzard needs to stop having the same NPC id in multiple places, not actual ID
 	AddVendor(103961,	L["Marin Bladewing"],		Z.AZSUNA,			 0.0,	 0.0,	"Neutral") -- Needs updating
