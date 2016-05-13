@@ -41,6 +41,7 @@ private.COLLECTABLE_TEXTURES = {
     MOUNT = [[Interface\AddOns\Collectinator\Images\MountPortrait]],
     TOY  = [[Interface\ICONS\TRADE_ARCHAEOLOGY_CHESTOFTINYGLASSANIMALS]],
     HEIRLOOM = [[Interface\ICONS\INV_MISC_ENGGIZMOS_19]],
+    WARDROBE = [[Interface\ICONS\INV_MISC_ENGGIZMOS_19]],
 }
 
 -------------------------------------------------------------------------------
@@ -65,6 +66,7 @@ private.ORDERED_COLLECTIONS = {
 	"CRITTER", -- 2
 	"TOY", -- 3
 	"HEIRLOOM", -- 4
+	"WARDROBE", -- 5
 }
 
 private.COLLECTION_TYPE_IDS = GenerateLookup_ID(private.ORDERED_COLLECTIONS)
@@ -269,7 +271,12 @@ private.REP_FLAGS_WORD2 = {
 -------------------------------------------------------------------------------
 private.REP_FLAGS_WORD3 = {
 	THE_SABERSTALKERS		= 0x00000001,	-- 1
-
+	VALAJAR				= 0x00000002,	-- 2
+	COURT_OF_FARONDIS		= 0x00000004,	-- 3
+	THE_WARDENS			= 0x00000008,	-- 4
+	DREAMWEAVERS			= 0x00000010,	-- 5
+	THE_NIGHTFALLEN			= 0x00000020,	-- 6
+	HIGHMOUNTAIN_TRIBE		= 0x00000040,	-- 7
 }
 
 
