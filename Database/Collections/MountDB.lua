@@ -2634,7 +2634,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	mount:AddZoneLocations(Z.TOWNLONG_STEPPES, nil, "36.6:85.6")
 	mount:AddZoneLocations(Z.DREAD_WASTES, nil, "47.2:61.6")
-	mount:AddZoneLocations(Z.KUN_LAI_SUMMIT, nil, "75.0:67.6")
+--	mount:AddZoneLocations(Z.KUN_LAI_SUMMIT, nil, "75.0:67.6")
 	mount:AddZoneLocations(Z.THE_JADE_FOREST, nil, "52.6:19.0")
 
 	-- Slate Primordial Direhorn -- 138425
@@ -2643,7 +2643,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	mount:AddZoneLocations(Z.TOWNLONG_STEPPES, nil, "36.6:85.6")
 	mount:AddZoneLocations(Z.DREAD_WASTES, nil, "47.2:61.6")
-	mount:AddZoneLocations(Z.KUN_LAI_SUMMIT, nil, "75.0:67.6")
+--	mount:AddZoneLocations(Z.KUN_LAI_SUMMIT, nil, "75.0:67.6")
 	mount:AddZoneLocations(Z.THE_JADE_FOREST, nil, "52.6:19.0")
 
 	-- Jade Primordial Direhorn -- 138426
@@ -2652,7 +2652,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	mount:AddZoneLocations(Z.TOWNLONG_STEPPES, nil, "36.6:85.6")
 	mount:AddZoneLocations(Z.DREAD_WASTES, nil, "47.2:61.6")
-	mount:AddZoneLocations(Z.KUN_LAI_SUMMIT, nil, "75.0:67.6")
+--	mount:AddZoneLocations(Z.KUN_LAI_SUMMIT, nil, "75.0:67.6")
 	mount:AddZoneLocations(Z.THE_JADE_FOREST, nil, "52.6:19.0")
 
 	-- Bone-White Primal Raptor -- 138640
