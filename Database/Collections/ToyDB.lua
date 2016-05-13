@@ -1017,6 +1017,11 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	toy:AddProfession(PROF.ENGINEERING)
 
+	-- Findle's Loot-A-Rang -- 109167
+	toy = AddToy(109167, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
 	-- World Shrinker -- 109183
 	toy = AddToy(109183, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
@@ -1149,18 +1154,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddVendor(85484)
 
-	-- Burning Defender's Medallion -- 116440
-	toy = AddToy(116440, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
-	toy:AddWorldEvent("MIDSUMMER_FIRE_FESTIVAL")
-	toy:AddCustom("CITY")
-
-	-- Scroll of Storytelling -- 116456
-	toy = AddToy(116456, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.WORLD_EVENTS)
-	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
-	toy:AddQuest(6983, 7043)
-
 	-- Silver-Plated Turkey Shooter -- 116400
 	toy = AddToy(116400, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
@@ -1178,6 +1171,12 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
 	toy:AddWorldEvent("MIDSUMMER_FIRE_FESTIVAL")
 	toy:AddCustom("CITY")
+
+	-- Scroll of Storytelling -- 116456
+	toy = AddToy(116456, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.WORLD_EVENTS)
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+	toy:AddQuest(6983, 7043)
 
 	-- True Love Prism -- 116651
 	toy = AddToy(116651, V.WOD, Q.RARE)
@@ -1716,6 +1715,15 @@ function addon:InitToys()
 	toy = AddToy(129045, V.LEGION, Q.COMMON)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(92152)
+
+	-- Shoe Shine Kit -- 129055  -- Needs updating
+	toy = AddToy(129055, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Dalaran Disc -- 129057
+	toy = AddToy(129057, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(96483)
 
 	-- Faintly Glowing Flagon of Mead -- 129113
 	toy = AddToy(129113, V.LEGION, Q.RARE)
