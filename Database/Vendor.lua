@@ -232,6 +232,7 @@ function addon:InitVendor()
 	AddVendor(95471,	L["Trader Darakk"],		Z.FROSTWALL,			 0.0,	 0.0,	"Horde")
 	AddVendor(95650,	L["Skoller"],			Z.TANAAN_JUNGLE,		55.1,	75.0,	"Neutral")
 	AddVendor(96014,	L["Shadow Hunter Denjai"],	Z.TANAAN_JUNGLE,		61.6,	45.6,	"Horde")
+	AddVendor(96483,	L["Jepetto Joybuzz"],		Z.DALARAN_BROKENISLES,		44.6,	46.0,	"Neutral")
 	AddVendor(97140,	L["First Arcanist Thalyssra"],	Z.SURAMAR,			 0.0,	 0.0,	"Neutral") -- Needs updating loc & NPC ID
 	AddVendor(98685,	L["Cupri"],			Z.SHATTRATH_CITY,		54.4,	39.0,	"Neutral")
 	AddVendor(98690,	L["Auzin"],			Z.DALARAN_BROKENISLES,		50.4,	46.1,	"Neutral")
