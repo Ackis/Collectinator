@@ -632,7 +632,7 @@ do
 			for index = 1, #mount_ids do
 				local mount_id = mount_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(mount_names[mount_id], mount_id))
-				private.TextDump:AddLine(("mount = AddMount(%d, V.LEGION, Q.COMMON)\n"):format(mount_id))
+				private.TextDump:AddLine(("mount = AddMount(%d, V.LEGION, Q.EPIC)\n"):format(mount_id))
 			end
 			local dump_lines = private.TextDump:Lines()
 
@@ -680,7 +680,7 @@ do
 			for index = 1, #toy_ids do
 				local toy_id = toy_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(toy_names[toy_id], toy_id))
-				private.TextDump:AddLine(("toy = AddToy(%d, V.LEGION, Q.COMMON)"):format(toy_id))
+				private.TextDump:AddLine(("toy = AddToy(%d, V.LEGION, Q.RARE)"):format(toy_id))
 				private.TextDump:AddLine(("toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)\n"))
 			end
 			local dump_lines = private.TextDump:Lines()
