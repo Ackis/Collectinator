@@ -1099,7 +1099,7 @@ function addon:InitToys()
 
 	-- Permanent Time Bubble -- 115472
 	toy = AddToy(115472, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALIANCE, F.IBOP, F.VENDOR, F.DRAENORCOMMON2)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.DRAENORCOMMON2)
 	toy:AddRepVendor(FAC.COUNCIL_OF_EXARCHS, REP.HONORED, 85932)
 
 	-- Blazing Diamond Pendant -- 115503
@@ -1553,8 +1553,8 @@ function addon:InitToys()
 	toy:AddMobDrop(91093)
 
 	-- Sassy Imp -- 127655
-	toy = AddToy(127665, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy = AddToy(127655, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(90429)
 
 	-- Ghostly Iron Buccaneer's Hat -- 127659
@@ -1803,7 +1803,7 @@ function addon:InitToys()
 	toy:AddRepVendor(FAC.DREAMWEAVERS, REP.REVERED, 106901)
 
 	-- Waywatcher's Boon -- 130249
-	toy = AddToy(130194, V.LEGION, Q.RARE)
+	toy = AddToy(130249, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	toy:AddZoneLocations(Z.VALSHARAH, nil, "0:0") -- Needs updating
 
