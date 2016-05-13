@@ -202,6 +202,7 @@ L["FLEX"] = "Only available from Flex version of this boss."
 L["FONT_SIZE_DESC"] = "Changes the size of the fonts for Collectinator."
 L["Faldoc Stonefaith"] = true
 L["Fedryen Swiftspear"] = true
+L["First Arcanist Thalyssra"] = true
 L["Flamescale Broodling"] = true
 L["Flik"] = true
 L["Foreboding Flame"] = true
