@@ -611,7 +611,7 @@ do
 			local mount_ids = {}
 
 			for index = 1, num_mounts do
-				local mount_name, mount_id, icon, is_active, is_usable, source_type, is_favorite, is_faction_specific, faction, hide_on_char, is_collected = _G.C_MountJournal.GetMountInfo(index)
+				local mount_name, mount_id, icon, is_active, is_usable, source_type, is_favorite, is_faction_specific, faction, hide_on_char, is_collected = _G.C_MountJournal.GetDisplayedMountInfo(index)
 				local mount = mounts[mount_id]
 
 				if mount then
