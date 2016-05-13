@@ -632,7 +632,7 @@ do
 			for index = 1, #mount_ids do
 				local mount_id = mount_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(mount_names[mount_id], mount_id))
-				private.TextDump:AddLine(("mount = AddMount(%d, V.WOD, Q.COMMON)\n"):format(mount_id))
+				private.TextDump:AddLine(("mount = AddMount(%d, V.LEGION, Q.COMMON)\n"):format(mount_id))
 			end
 			local dump_lines = private.TextDump:Lines()
 
@@ -680,7 +680,7 @@ do
 			for index = 1, #toy_ids do
 				local toy_id = toy_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(toy_names[toy_id], toy_id))
-				private.TextDump:AddLine(("toy = AddToy(%d, V.WOD, Q.COMMON)"):format(toy_id))
+				private.TextDump:AddLine(("toy = AddToy(%d, V.LEGION, Q.COMMON)"):format(toy_id))
 				private.TextDump:AddLine(("toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)\n"))
 			end
 			local dump_lines = private.TextDump:Lines()
@@ -727,7 +727,7 @@ do
 			for index = 1, #heirloom_ids do
 				local heirloom_id = heirloom_ids[index]
 				private.TextDump:AddLine(("-- %s -- %d"):format(heirloom_names[heirloom_id], heirloom_id))
-				private.TextDump:AddLine(("heirloom = AddHeirloom(%d, V.WOD, Q.ARTIFACT)"):format(heirloom_id))
+				private.TextDump:AddLine(("heirloom = AddHeirloom(%d, V.LEGION, Q.ARTIFACT)"):format(heirloom_id))
 				private.TextDump:AddLine(("heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)\n"))
 			end
 			local dump_lines = private.TextDump:Lines()
