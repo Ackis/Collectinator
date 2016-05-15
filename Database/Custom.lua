@@ -118,7 +118,7 @@ function addon:InitCustom()
 	AddCustom("GURUBASHI_ARENA",	Z.STRANGLETHORN_VALE)
 	AddCustom("NETHAERA_LIGHT",	Z.DALARAN_NORTHREND)
 	AddCustom("CLASS_HALL")
-
+	AddCustom("PRESTIGE")
 
 
 	self.InitCustom = nil

@@ -118,6 +118,7 @@ function addon:InitMob()
 	AddMob(48522,	L["Defias Pirate"],			Z.THE_DEADMINES,		 0.0,  0.0)
 	AddMob(49822,	L["Jadefang"],				Z.DEEPHOLM,			61.2, 22.6)
 	AddMob(50005,	L["Poseidus"],				Z.VASHJIR,			 0.0,  0.0)
+	AddMob(50052,	L["Burgy Blackheart"],			Z.SHIMMERING_EXPANSE,		56.8, 70.6)
 	AddMob(50062,	L["Aeonaxx"],				Z.DEEPHOLM,			 0.0,  0.0)
 	AddMob(50245,	L["Dormus the Camel-Hoarder"],		Z.FERALAS,			69.6, 73.2)
 	AddMob(50336,	L["Yorik Sharpeye"],			Z.VALE_OF_ETERNAL_BLOSSOMS,	87.8, 44.6)
@@ -257,6 +258,9 @@ function addon:InitMob()
 	AddMob(98284,	L["Gondar"],				Z.TANAAN_JUNGLE,		80.0, 56.0)
 	AddMob(98285,	L["Smashum Grabb"],			Z.TANAAN_JUNGLE,		88.0, 55.0)
 	AddMob(103961,	L["Marin Bladewing"],			Z.AZSUNA,			 0.0,  0.0) -- Needs updating
+	AddMob(108715,	L["Ol' Eary"],				Z.BROKEN_ISLES,			 0.0,  0.0) -- Needs updating
+	AddMob(111573,	L["Kosumoth the Hungering"],		Z.BROKEN_ISLES,			 0.0,  0.0) -- Needs updating
+	AddMob(112315,	L["Dread Infiltrator"],			Z.BROKEN_ISLES,			 0.0,  0.0) -- Needs updating
 
 	self.InitMob = nil
 end

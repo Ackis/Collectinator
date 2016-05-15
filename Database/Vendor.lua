@@ -105,6 +105,8 @@ function addon:InitVendor()
 	AddVendor(29716,	L["Clockwork Assistant"],	Z.DALARAN_NORTHREND,		44.8,	46.2,	"Neutral")
 	AddVendor(29744,	L["Rork Sharpchin"],		Z.THE_STORM_PEAKS,		28.8,	74.0,	"Alliance")
 	AddVendor(30472,	L["Olut Alegut"],		Z.THE_STORM_PEAKS,		37.0,	49.6,	"Horde")
+	AddVendor(31031,	L["Misensi"],			Z.DALARAN_NORTHREND,		70.2,	37.2,	"Horde")
+	AddVendor(31032,	L["Derek Odds"],		Z.DALARAN_NORTHREND,		41.6,	64.8,	"Alliance")
 	AddVendor(31910,	L["Geen"],			Z.SHOLAZAR_BASIN,		54.6, 	56.2,	"Neutral")
 	AddVendor(31911,	L["Tanak"],			Z.SHOLAZAR_BASIN,		55.0,	69.0,	"Neutral")
 	AddVendor(31916,	L["Tanaika"],			Z.HOWLING_FJORD,		25.4,	58.6,	"Neutral")
@@ -123,6 +125,7 @@ function addon:InitVendor()
 	AddVendor(33555,	L["Eliza Killian"],		Z.ICECROWN,			76.4,	24.0,	"Horde")
 	AddVendor(33556,	L["Doru Thunderhorn"],		Z.ICECROWN,			76.2,	24.4,	"Horde")
 	AddVendor(33557,	L["Trellis Morningsun"],	Z.ICECROWN,			76.2,	23.8,	"Horde")
+	AddVendor(33595,	L["Mera Mistrunner"],		Z.ICECROWN,			72.4,	20.8,	"Neutral")
 	AddVendor(33650,	L["Rillie Spindlenut"],		Z.ICECROWN,			76.4,	19.6,	"Alliance")
 	AddVendor(33653,	L["Rook Hawkfist"],		Z.ICECROWN,			76.2,	19.2,	"Alliance")
 	AddVendor(33657,	L["Irisee"],			Z.ICECROWN,			76.2,	19.2,	"Alliance")
@@ -238,6 +241,7 @@ function addon:InitVendor()
 	AddVendor(98690,	L["Auzin"],			Z.DALARAN_BROKENISLES,		50.4,	46.1,	"Neutral")
 	AddVendor(98723,	L["Tiffy Trapspring"],		Z.DALARAN_BROKENISLES,		59.4,	40.0,	"Alliance")
 	AddVendor(98724,	L["Giada Goldleash"],		Z.DALARAN_BROKENISLES,		58.3,	37.7,	"Horde")
+	AddVendor(99574,	L["Slyhoof the Shameless Shaman"],	Z.HIGHMOUNTAIN,		0.0,	0.0,	"Neutral") -- Needs updating
 	AddVendor(101759,	L["Kiatke"],			Z.STORMWIND_CITY,		76.0,	17.6,	"Alliance")
 	AddVendor(101760,	L["Kiatke"],			Z.ORGRIMMAR,			52.0,	41.6,	"Horde") -- Blizzard needs to stop having the same NPC id in multiple places, not actual ID
 	AddVendor(103961,	L["Marin Bladewing"],		Z.AZSUNA,			 0.0,	 0.0,	"Neutral") -- Needs updating
@@ -248,6 +252,7 @@ function addon:InitVendor()
 	AddVendor(107326,	L["Draemus"],			Z.DALARAN_BROKENISLES,		58.9,	38.9,	"Neutral")
 	AddVendor(107376,	L["Veridis Fallon"],		Z.AZSUNA,			 0.0,	 0.0,	"Neutral") -- Needs updating
 	AddVendor(108468,	L["The Mad Merchant"],		Z.DALARAN_BROKENISLES,		43.3,	47.3,	"Neutral")
+	AddVendor(108825,	L["Conjurer Margoss"],		Z.DALARAN_BROKENISLES,		 0.0,	 0.0,	"Neutral") -- Needs updating
 
 	self.InitVendor = nil
 end
