@@ -88,6 +88,7 @@ private.PLAYER_RACE_FILENAMES = {
 	Draenei = true,
 	Worgen = true,
 	Pandaren = true,
+	DemonHunter = true,
 }
 
 -------------------------------------------------------------------------------
@@ -277,6 +278,7 @@ private.REP_FLAGS_WORD3 = {
 	DREAMWEAVERS			= 0x00000010,	-- 5
 	THE_NIGHTFALLEN			= 0x00000020,	-- 6
 	HIGHMOUNTAIN_TRIBE		= 0x00000040,	-- 7
+	CONJURER_MARGOSS		= 0x00000080,	-- 8
 }
 
 
@@ -301,6 +303,7 @@ private.FLAG_MEMBERS = {
 	--"class1",
 	"reputation1",
 	"reputation2",
+--	"reputation3",
 	"item1",
 }
 
@@ -521,6 +524,7 @@ private.FACTION_IDS = {
 	THE_WARDENS = 1894,
 	COURT_OF_FARONDIS = 1900,
 	VALAJAR = 1948,
+	CONJURER_MARGOSS = 1975,
 
 }
 
@@ -652,6 +656,7 @@ do
 		KELPTHAR_FOREST = _G.GetMapNameByID(610),
 		GILNEAS_CITY = _G.GetMapNameByID(611),
 		VASHJIR = _G.GetMapNameByID(613),
+		SHIMMERING_EXPANSE = _G.GetMapNameByID(615),
 		DEEPHOLM = _G.GetMapNameByID(640),
 		THE_CAPE_OF_STRANGLETHORN = _G.GetMapNameByID(673),
 		RUINS_OF_GILNEAS = _G.GetMapNameByID(684),
@@ -704,6 +709,7 @@ do
 		MAGISTERS_TERRACE = _G.GetMapNameByID(798),
 		KARAZHAN = _G.GetMapNameByID(799),
 		FIRELANDS = _G.GetMapNameByID(800),
+		THE_JADE_FOREST = _G.GetMapNameByID(806),
 		VALLEY_OF_THE_FOUR_WINDS = _G.GetMapNameByID(807),
 		KUN_LAI_SUMMIT = _G.GetMapNameByID(809),
 		TOWNLONG_STEPPES = _G.GetMapNameByID(810),
@@ -758,6 +764,7 @@ do
 		HIGHMOUNTAIN = _G.GetMapNameByID(1024),
 		SURAMAR = _G.GetMapNameByID(1033),
 		AZSUNA = _G.GetMapNameByID(1053),
+		KUN_LAI_SUMMIT = _G.GetMapNameByID(1058),
 		-------------------------------------------------------------------------------
 		-- Continents
 		-------------------------------------------------------------------------------
