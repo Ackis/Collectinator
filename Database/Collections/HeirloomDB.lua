@@ -40,6 +40,7 @@ local REP = private.REP_LEVELS
 local FAC = private.FACTION_IDS
 local V = private.GAME_VERSIONS
 local Z = private.ZONE_NAMES
+local PROF = private.LOCALIZED_PROFESSION_NAMES
 
 --------------------------------------------------------------------------------------------------------------------
 -- Initialize!
@@ -373,7 +374,7 @@ function addon:InitHeirloom()
 	-- Dread Pirate Ring -- 122529
 	heirloom = AddHeirloom(122529, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.PROFESSION)
-	heirloom:AddProfession("FISHING")
+	heirloom:AddProfession(PROF.FISHING)
 	heirloom:AddCustom("FISHING_TOURNAMENT")
 
 	-- Inherited Mark of Tyranny -- 122530
@@ -460,7 +461,7 @@ function addon:InitHeirloom()
 	-- Spear of Rethu - 131733
 	heirloom = AddHeirloom(131733, V.LEGION, Q.ARTIFACT)
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.PROFESSION)
-	heirloom:AddProfession(F.ARCHAEOLOGY)
+	heirloom:AddProfession(PROF.ARCHAEOLOGY)
 
 	self.InitHeirloom = nil
 
