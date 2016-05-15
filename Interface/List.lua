@@ -779,7 +779,13 @@ function private.InitializeListFrame()
 			progress_bar:SetMinMaxValues(0, max_value)
 			progress_bar:SetValue(cur_value)
 
-			local percentage = cur_value >= 1 and cur_value or cur_value / max_value * 100
+			local percentage
+
+			if cur_value == 0 or max_value == 0 then
+				percentage = 0
+			else
+				percentage = cur_value / max_value * 100
+			end
 
 			if (math.floor(percentage) < 101) and cur_value >= 0 and max_value >= 0 then
 				local results = _G.SINGLE_PAGE_RESULTS_TEMPLATE:format(collectable_count)
