@@ -3303,17 +3303,195 @@ function addon:InitMounts()
 	mount:AddWorldEvent("TIMEWALKING")
 	mount:AddCustom("TIMEREAVER")
 
+-- Legion
+--[[
+	-- Demonic Gladiator's Infernal -- 171827  -- Needs updating
+	mount = AddMount(171827, V.LEGION, Q.RARE)
+	mount:SetItemID(137575)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+
+	-- Cruel Gladiator's Infernal -- 171840  -- Needs updating
+	mount = AddMount(171840, V.LEGION, Q.EPIC)
+	mount:SetItemID(137576)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+
+	-- Llothien Prowler -- 171850   -- Needs updating
+	mount = AddMount(171850, V.LEGION, Q.EPIC)
+	mount:SetItemID(137573)
+	mount:AddFilters(F.ALLIANCE, F.HORDE)
+
+	-- Grove Defiler -- 193007
+	mount = AddMount(193007, V.LEGION, Q.EPIC)
+	mount:SetItemID(141216)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(11180)
+
+	-- Prestigious War Steed -- 193695   -- Needs updating
+	mount = AddMount(193695, V.LEGION, Q.EPIC)
+	mount:SetItemID(129280)
+	mount:AddFilters(F.ALLIANCE, F.PVP)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddCustom("PRESTIGE")
+
+	-- Spirit of Eche'ro -- 196681
+	mount = AddMount(196681, V.LEGION, Q.EPIC)
+	mount:SetItemID(131734)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	mount:AddProfession(PROF.ARCHAEOLOGY)
+
+	-- Felsaber -- 200175  -- Needs updating
+	mount = AddMount(200175, V.LEGION, Q.EPIC)
+--	mount:SetItemID(131734)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.DEMONHUNTER)
+
+	-- Prestigious War Wolf -- 204166   -- Needs updating
+	mount = AddMount(204166, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.HORDE, F.PVP)
+	mount:SetRequiredFaction("Horde")
+	mount:AddCustom("PRESTIGE")
+
+	-- Bloodfang Widow -- 213115
+	mount = AddMount(213115, V.LEGION, Q.EPIC)
+	mount:SetItemID(137570)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(108468)
+
+	-- Vindictive Gladiator's Infernal -- 213134  -- Needs updating
+	mount = AddMount(213134, V.LEGION, Q.EPIC)
+
+	-- Fel Core Hound -- 213209
+	mount = AddMount(213209, V.LEGION, Q.EPIC)
+	mount:SetItemID(137686)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	mount:AddProfession(PROF.BLACKSMITHING)
+
+	-- Fearless Gladiator's Infernal -- 213349  -- Needs updating
+	mount = AddMount(213349, V.LEGION, Q.EPIC)
+	mount:SetItemID(137615)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+
+	-- Ferocious Gladiator's Infernal -- 213350  -- Needs updating
+	mount = AddMount(213350, V.LEGION, Q.EPIC)
+	mount:SetItemID(137614)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+
+	-- Brinedeep Bottom-Feeder -- 214791
+	mount = AddMount(214791, V.LEGION, Q.EPIC)
+	mount:SetItemID(138811)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.CONJURER_MARGOSS)
+	mount:AddProfession(PROF.FISHING)
+	mount:AddRepVendor(FAC.CONJURER_MARGOSS, REP.HONORED, 108825)
+
+	-- Long-Forgotten Hippogryph -- 215159  -- Needs updating
+	mount = AddMount(215159, V.LEGION, Q.EPIC)
+
+	-- Ratstallion -- 215558
+	mount = AddMount(215558, V.LEGION, Q.EPIC)
+	mount:SetItemID(138387)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(11066)
+
+	-- Prestigious Bronze Courser -- 2222202
+	mount = AddMount(2222202, V.LEGION, Q.EPIC)
+	mount:SetItemID(140228)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+	mount:AddCustom("PRESTIGE")
+
+	-- Prestigious Royal Courser -- 2222236
+	mount = AddMount(2222236, V.LEGION, Q.EPIC)
+	mount:SetItemID(140230)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+	mount:AddCustom("PRESTIGE")
+
+	-- Prestigious Forest Courser -- 2222237
+	mount = AddMount(2222237, V.LEGION, Q.EPIC)
+	mount:SetItemID(140232)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+	mount:AddCustom("PRESTIGE")
+
+	-- Prestigious Ivory Courser -- 2222238
+	mount = AddMount(2222238, V.LEGION, Q.EPIC)
+	mount:SetItemID(140233)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+	mount:AddCustom("PRESTIGE")
+
+	-- Prestigious Azure Courser -- 2222240
+	mount = AddMount(2222240, V.LEGION, Q.EPIC)
+	mount:SetItemID(140408)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+	mount:AddCustom("PRESTIGE")
+
+	-- Prestigious Midnight Courser -- 2222241
+	mount = AddMount(2222241, V.LEGION, Q.EPIC)
+	mount:SetItemID(140407)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+	mount:AddCustom("PRESTIGE")
+
+	-- Fathom Dweller -- 223018
+	mount = AddMount(223018, V.LEGION, Q.EPIC)
+	mount:SetItemID(138201)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(111573)
+
+	-- Vicious War Trike -- 223354
+	mount = AddMount(223354, V.LEGION, Q.EPIC)
+	mount:SetItemID(140354)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(73151)
+
+	-- Vicious Gilnean Warhorse -- 223341
+	mount = AddMount(223341, V.LEGION, Q.EPIC)
+	mount:SetItemID(140353)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddVendor(73190)
+
+	-- Vicious Warstrider -- 223363
+	mount = AddMount(223363, V.LEGION, Q.EPIC)
+	mount:SetItemID(140348)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(73151)
+
+	-- Vicious War Elekk -- 223578
+	mount = AddMount(223578, V.LEGION, Q.EPIC)
+	mount:SetItemID(140350)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddVendor(73190)
+
+	-- Mechanized Lumber Extractor -- 223814
+	mount = AddMount(223814, V.LEGION, Q.EPIC)
+	mount:SetItemID(140500)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(11176)
+
+	-- Leyfeather Hippogryph -- 225765
+	mount = AddMount(225765, V.LEGION, Q.EPIC)
+	mount:SetItemID(141217)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(11163)
+
+
 -- Mounts which are duplicates, or are really temporary mounts
 -- Added to stop the debug popups. BAD BLIZZARD
 	-- Swift Brown Steed -- 58819
 	mount = AddMount(58819, V.WOD, Q.COMMON)
+
+	-- Black Polar Bear -- 59572
+	mount = AddMount(59572, V.LEGION, Q.COMMON)
+
+
+	-- Blue Skeletal Warhorse -- 64656
+	mount = AddMount(64656, V.LEGION, Q.COMMON)
 
 	-- Argent Warhorse -- 66907
 	mount = AddMount(66907, V.WOD, Q.COMMON)
 
 	-- Furious Ashhide Mushan -- 148626
 	mount = AddMount(148626, V.WOD, Q.COMMON)
-
+]]--
 	self.InitMounts = nil
 end
 
