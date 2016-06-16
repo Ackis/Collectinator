@@ -239,8 +239,8 @@ function addon:InitMob()
 	AddMob(91093,	L["Bramblefell"],			Z.TANAAN_JUNGLE,		40.0, 69.8)
 	AddMob(91227,	L["Remnant of the Blood Moon"],		Z.TANAAN_JUNGLE,		22.2, 50.8)
 	AddMob(91331,	BN.ARCHIMONDE,				Z.HELLFIRE_CITADEL,		 0.0,  0.0)
-	AddMob(91892,	L["Thane Irglov the Merciless"],	Z.STORMHEIM,			 0.0,  0.0) -- Needs updating
-	AddMob(92152,	L["Whitewater Typhoon"],		Z.STORMHEIM,			 0.0,  0.0) -- Needs updating
+	AddMob(91892,	L["Thane Irglov the Merciless"],	Z.STORMHEIM,			41.4, 71.6)
+	AddMob(92152,	L["Whitewater Typhoon"],		Z.STORMHEIM,			36.2, 51.8)
 	AddMob(92180,	L["Seersei"],				Z.VALSHARAH,			41.0, 80.0)
 	AddMob(93076,	L["Captain Ironbeard"],			Z.TANAAN_JUNGLE,		36.0, 80.0)
 	AddMob(95044,	L["Terrorfist"],			Z.TANAAN_JUNGLE,		15.4, 63.4)
@@ -248,7 +248,8 @@ function addon:InitMob()
 	AddMob(95054,	L["Vengeance"],				Z.TANAAN_JUNGLE,		32.4, 74.0)
 	AddMob(95056,	L["Doomroller"],			Z.TANAAN_JUNGLE,		47.0, 52.6)
 	AddMob(95067,	BN.SHADOW_LORD_ISKAR,			Z.HELLFIRE_CITADEL,		 0.0,  0.0)
-	AddMob(95221,	L["Mad Henryk"],			Z.VALSHARAH,			 0.0,  0.0) -- Needs updating
+	AddMob(95221,	L["Mad Henryk"],			Z.VALSHARAH,			47.0, 57.6)
+	AddMob(96410,	L["Majestic Elderhorn"],		Z.HIGHMOUNTAIN,			46.8, 32.8)
 	AddMob(96536,	L["Salty Dreg"],			Z.SHADOWMOON_VALLEY_DRAENOR,	41.0, 78.0)
 	AddMob(96637,	L["Boneship Reveler"],			Z.SHADOWMOON_VALLEY_DRAENOR,	41.0, 78.0)
 	AddMob(98198,	L["Rukdug"],				Z.NAGRAND_DRAENOR,		25.9, 34.8)
@@ -257,7 +258,6 @@ function addon:InitMob()
 	AddMob(98283,	L["Drakum"],				Z.TANAAN_JUNGLE,		83.0, 43.0)
 	AddMob(98284,	L["Gondar"],				Z.TANAAN_JUNGLE,		80.0, 56.0)
 	AddMob(98285,	L["Smashum Grabb"],			Z.TANAAN_JUNGLE,		88.0, 55.0)
-	AddMob(103961,	L["Marin Bladewing"],			Z.AZSUNA,			 0.0,  0.0) -- Needs updating
 	AddMob(108715,	L["Ol' Eary"],				Z.BROKEN_ISLES,			 0.0,  0.0) -- Needs updating
 	AddMob(111573,	L["Kosumoth the Hungering"],		Z.BROKEN_ISLES,			 0.0,  0.0) -- Needs updating
 	AddMob(112315,	L["Dread Infiltrator"],			Z.BROKEN_ISLES,			 0.0,  0.0) -- Needs updating
