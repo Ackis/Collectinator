@@ -3304,7 +3304,7 @@ function addon:InitMounts()
 	mount:AddCustom("TIMEREAVER")
 
 -- Legion
---[[
+
 	-- Demonic Gladiator's Infernal -- 171827  -- Needs updating
 	mount = AddMount(171827, V.LEGION, Q.RARE)
 	mount:SetItemID(137575)
@@ -3341,7 +3341,6 @@ function addon:InitMounts()
 
 	-- Felsaber -- 200175  -- Needs updating
 	mount = AddMount(200175, V.LEGION, Q.EPIC)
---	mount:SetItemID(131734)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.DEMONHUNTER)
 
 	-- Prestigious War Wolf -- 204166   -- Needs updating
@@ -3358,6 +3357,8 @@ function addon:InitMounts()
 
 	-- Vindictive Gladiator's Infernal -- 213134  -- Needs updating
 	mount = AddMount(213134, V.LEGION, Q.EPIC)
+	mount:SetItemID(137574)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
 
 	-- Fel Core Hound -- 213209
 	mount = AddMount(213209, V.LEGION, Q.EPIC)
@@ -3491,7 +3492,7 @@ function addon:InitMounts()
 
 	-- Furious Ashhide Mushan -- 148626
 	mount = AddMount(148626, V.WOD, Q.COMMON)
-]]--
+
 	self.InitMounts = nil
 end
 

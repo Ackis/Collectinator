@@ -1701,7 +1701,6 @@ function addon:InitToys()
 	toy:AddVendor(101759, 101760)
 
 -- Legion
---[[
 	-- Sternfathom's Pet Journal -- 122681
 	toy = AddToy(122681, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
@@ -1793,7 +1792,7 @@ function addon:InitToys()
 	-- Syxsehnz Rod -- 130157
 	toy = AddToy(130157, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.THE_WARDENS)
-	toy:AddRepVendor(FAC.THE_WARDENS, REP.HONORED, 103961)
+	toy:AddRepVendor(FAC.THE_WARDENS, REP.HONORED, 107379)
 
 	-- Path of Elothir -- 130158
 	toy = AddToy(130158, V.LEGION, Q.RARE)
@@ -1818,7 +1817,7 @@ function addon:InitToys()
 	-- Trapped Treasure Chest Kit -- 130191
 	toy = AddToy(130191, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.THE_WARDENS)
-	toy:AddRepVendor(FAC.THE_WARDENS, REP.HONORED, 103961)
+	toy:AddRepVendor(FAC.THE_WARDENS, REP.HONORED, 107379)
 
 	-- Silver Gilnean Brooch -- 130194
 	toy = AddToy(130194, V.LEGION, Q.RARE)
@@ -1828,7 +1827,7 @@ function addon:InitToys()
 	-- Legion Pocket Portal -- 130199
 	toy = AddToy(130199, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.VALSHARAH, nil, "0:0") -- Needs updating
+	toy:AddZoneLocations(Z.VALSHARAH, nil, "60.7:32.7") -- Needs updating
 
 	-- Never Ending Toy Chest -- 130209
 	toy = AddToy(130209, V.LEGION, Q.RARE)
@@ -1848,7 +1847,7 @@ function addon:InitToys()
 	-- Waywatcher's Boon -- 130249
 	toy = AddToy(130249, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.VALSHARAH, nil, "0:0") -- Needs updating
+	toy:AddZoneLocations(Z.VALSHARAH, nil, "58.2:69.8") -- Needs updating
 
 	-- JewelCraft -- 130251
 	toy = AddToy(130251, V.LEGION, Q.EPIC)
@@ -1882,6 +1881,16 @@ function addon:InitToys()
 	toy = AddToy(131814, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.HIGHMOUNTAIN_TRIBE)
 	toy:AddRepVendor(FAC.HIGHMOUNTAIN_TRIBE, REP.FRIENDLY, 106902)
+
+	-- Majestic Elderhorn Hoof -- 131900
+	toy = AddToy(131900, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(96410)
+
+	-- Critter Hand Cannon -- 131933
+	toy = AddToy(131933, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(39656)
 
 	-- Blingtron's Circuit Design Tutorial -- 132518
 	toy = AddToy(132518, V.LEGION, Q.RARE)
@@ -1994,11 +2003,16 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddVendor(96483)
 
+	-- Sparklepony XL -- 138202
+	toy = AddToy(138202, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(55278)
+
 	-- Slightly-Chewed Insult Book -- 138415
 	toy = AddToy(138415, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.WORLD_EVENTS)
 	toy:AddMobDrop(108715)
---	toy:AddWorldEvent("PIRATES_DAY")
+	toy:AddWorldEvent("PIRATES_DAY")
 
 	-- Waterspeaker's Totem -- 138490
 	toy = AddToy(138490, V.LEGION, Q.RARE)
@@ -2082,7 +2096,39 @@ function addon:InitToys()
 	-- Fal'dorei Egg -- 140780 -- Needs updating
 	toy = AddToy(140780, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
---]]
+
+	-- Ley Spider Eggs -- 140786 -- Needs updating
+	toy = AddToy(140786, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Ancient Mana Basin -- 141296 -- Needs updating
+	toy = AddToy(141296, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Arcano-Shower -- 141297 -- Needs updating
+	toy = AddToy(141297, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Displacer Meditation Stone -- 141298 -- Needs updating
+	toy = AddToy(141298, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Kal'dorei Light Globe -- 141299 -- Needs updating
+	toy = AddToy(141299, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Magi Focusing Crystal -- 141300 -- Needs updating
+	toy = AddToy(141300, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Unstable Powder Box -- 141301 -- Needs updating
+	toy = AddToy(141301, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Wisp in a Bottle -- 141306 -- Needs updating
+	toy = AddToy(141306, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
 --[[  Didn't actually make it into the ToyBox panel
 	-- Murloc Costume -- 33079
 	--	toy = AddToy(33079, V.WOD, Q.COMMON)
