@@ -88,7 +88,6 @@ private.PLAYER_RACE_FILENAMES = {
 	Draenei = true,
 	Worgen = true,
 	Pandaren = true,
-	DemonHunter = true,
 }
 
 -------------------------------------------------------------------------------
