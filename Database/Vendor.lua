@@ -167,6 +167,7 @@ function addon:InitVendor()
 	AddVendor(53882,	L["Varlan Highbough"],		Z.MOLTEN_FRONT,			44.6,	88.6,	"Neutral")
 	AddVendor(55103,	L["Galissa Sundew"],		Z.DARKMOON_ISLAND,		52.6,	88.4,	"Neutral")
 	AddVendor(55143,	L["Sally Fizzlefury"],		Z.VALLEY_OF_THE_FOUR_WINDS,	16.0,	83.0,	"Neutral")
+	AddVendor(55278,	L["Boomie Sparks"],		Z.DARKMOON_ISLAND,		48.6,	72.6,	"Neutral")
 	AddVendor(55285,	L["Astrid Langstrump"],		Z.DARNASSUS,			48.6,	22.2,	"Neutral")
 	AddVendor(55305,	L["Carl Goodup"],		Z.DARKMOON_ISLAND,		49.8,	85.6,	"Neutral")
 	AddVendor(56335,	L["Daenrand Dawncrest"],	Z.DARKMOON_ISLAND,		47.6,	66.7,	"Neutral")
@@ -244,13 +245,13 @@ function addon:InitVendor()
 	AddVendor(99574,	L["Slyhoof the Shameless Shaman"],	Z.HIGHMOUNTAIN,		0.0,	0.0,	"Neutral") -- Needs updating
 	AddVendor(101759,	L["Kiatke"],			Z.STORMWIND_CITY,		76.0,	17.6,	"Alliance")
 	AddVendor(101760,	L["Kiatke"],			Z.ORGRIMMAR,			52.0,	41.6,	"Horde") -- Blizzard needs to stop having the same NPC id in multiple places, not actual ID
-	AddVendor(103961,	L["Marin Bladewing"],		Z.AZSUNA,			 0.0,	 0.0,	"Neutral") -- Needs updating
 	AddVendor(106887,	L["Cravitz Lorent"],		Z.DALARAN_BROKENISLES,		51.0,	38.0,	"Neutral")
 	AddVendor(106901,	L["Sylvia Hartshorn"],		Z.VALSHARAH,			 0.0,	 0.0,	"Neutral") -- Needs updating
 	AddVendor(106902,	L["Ransa Greyfeather"],		Z.HIGHMOUNTAIN,			 0.0,	 0.0,	"Neutral") -- Needs updating
 	AddVendor(106904,	L["Valdemar Stormseeker"],	Z.STORMHEIM,			 0.0,	 0.0,	"Neutral") -- Needs updating
 	AddVendor(107326,	L["Draemus"],			Z.DALARAN_BROKENISLES,		58.9,	38.9,	"Neutral")
 	AddVendor(107376,	L["Veridis Fallon"],		Z.AZSUNA,			 0.0,	 0.0,	"Neutral") -- Needs updating
+	AddVendor(107379,	L["Marin Bladewing"],		Z.AZSUNA,			 0.0,	 0.0,	"Neutral")
 	AddVendor(108468,	L["The Mad Merchant"],		Z.DALARAN_BROKENISLES,		43.3,	47.3,	"Neutral")
 	AddVendor(108825,	L["Conjurer Margoss"],		Z.DALARAN_BROKENISLES,		 0.0,	 0.0,	"Neutral") -- Needs updating
 
