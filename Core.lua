@@ -699,7 +699,7 @@ do
 			local heirloom_names = {}
 
 			for index = 1, num_heirlooms  do
-				local itemID = _G.C_Heirloom.GetHeirloomItemIDFromIndex(index)
+				local itemID = _G.C_Heirloom.GetHeirloomItemIDFromDisplayedIndex(index)
 
 				if itemID > -1 then
 					local heirloomName, _, _, icon = _G.C_Heirloom.GetHeirloomInfo(itemID)
