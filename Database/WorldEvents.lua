@@ -50,7 +50,7 @@ function addon:InitWorldEvents()
 	AddWorldEvent("PILGRIMS_BOUNTY", _G.GetCategoryInfo(14981))
 	AddWorldEvent("DARKMOON_FAIRE", _G.GetCategoryInfo(15101))
 	AddWorldEvent("WANDERERS_FESTIVAL", L["Wanderer's Festival"])
---	AddWorldEvent("PIRATES_DAY", L["Pirate's Day"])
+	AddWorldEvent("PIRATES_DAY", L["Pirate's Day"])
 
 	local achievement_id, achievement_name = _G.GetAchievementInfo(8820)
 	AddWorldEvent("WOW_10TH_ANNIVERSARY", achievement_name)
