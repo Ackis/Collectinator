@@ -81,16 +81,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	toy:AddProfession(PROF.ENGINEERING)
 
-	-- Dimensional Ripper - Everlook -- 18984
-	toy = AddToy(18984, V.ORIG, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
-
-	-- Ultrasafe Transporter: Gadgetzan -- 18986
-	toy = AddToy(18986, V.ORIG, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
-
 	-- Elune's Lantern -- 21540
 	toy = AddToy(21540, V.ORIG, Q.UNCOMMON)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
@@ -100,16 +90,6 @@ function addon:InitToys()
 -- The Burning Crusade
 	-- Crashin' Thrashin' Robot -- 23767
 	toy = AddToy(23767, V.TBC, Q.UNCOMMON)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
-
-	-- Dimensional Ripper - Area 52 -- 30542
-	toy = AddToy(30542, V.TBC, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
-
-	-- Ultrasafe Transporter: Toshley's Station -- 30544
-	toy = AddToy(30544, V.TBC, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	toy:AddProfession(PROF.ENGINEERING)
 
@@ -132,11 +112,6 @@ function addon:InitToys()
 	toy = AddToy(32782, V.TBC, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(21838)
-
-	-- Murloc Costume -- 33079
-	toy = AddToy(33079, V.TBC, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
-	toy:AddCustom("BLIZZCON")
 
 	-- Goblin Gumbo Kettle -- 33219
 	toy = AddToy(33219, V.TBC, Q.RARE)
@@ -218,11 +193,6 @@ function addon:InitToys()
 	toy = AddToy(38578, V.WOTLK, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
 	toy:AddCustom("TCG", "BMAH")
-
-	-- MOLL-E -- 40768
-	toy = AddToy(40768, V.WOTLK, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
 
 	-- Gnomish X-Ray Specs -- 40895
 	toy = AddToy(40895, V.WOTLK, Q.RARE)
@@ -336,18 +306,8 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddVendor(34885)
 
-	-- Wormhole Generator: Northrend -- 48933
-	toy = AddToy(48933, V.WOTLK, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
-
 	-- Perpetual Purple Firework -- 49703
 	toy = AddToy(49703, V.WOTLK, Q.EPIC)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")
-
-	-- Carved Ogre Idol -- 49704
-	toy = AddToy(49704, V.WOTLK, Q.EPIC)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
 	toy:AddCustom("TCG")
 
@@ -387,17 +347,7 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddVendor(29478, 29716, 52358, 52809)
 
-	-- Ethereal Portal -- 54452
-	toy = AddToy(54452, V.WOTLK, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")
-
 -- Cataclysm
-	-- Gnomish Gravity Well -- 40727
-	toy = AddToy(40727, V.CATA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
-
 	-- MiniZep Controller -- 46709
 	toy = AddToy(46709, V.CATA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
@@ -408,11 +358,6 @@ function addon:InitToys()
 	toy = AddToy(53057, V.CATA, Q.COMMON)
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(14392)
-
-	-- Loot-A-Rang -- 60854
-	toy = AddToy(60854, V.CATA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
 
 	-- Tol Barad Searchlight -- 63141
 	toy = AddToy(63141, V.CATA, Q.RARE)
@@ -601,16 +546,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(30930)
 
-	-- Anglers Fishing Raft -- 85500
-	toy = AddToy(85500, V.MOP, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, FAC.THE_ANGLERS)
-	toy:AddRepVendor(FAC.THE_ANGLERS, REP.REVERED, 63721)
-
-	-- Ancient Pandaren Fishing Charm -- 85973
-	toy = AddToy(85973, V.MOP, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.VALLEY_OF_THE_FOUR_WINDS, nil, "46.1:29.1")
-
 	-- Battle Horn -- 86565
 	toy = AddToy(86565, V.MOP, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
@@ -695,16 +630,6 @@ function addon:InitToys()
 	toy = AddToy(86596, V.MOP, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(7274)
-
-	-- Blingtron 4000 -- 87214
-	toy = AddToy(87214, V.MOP, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
-
-	-- Wormhole Generator: Pandaria -- 87215
-	toy = AddToy(87215, V.MOP, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
 
 	-- Honorary Brewmaster Keg -- 87528
 	toy = AddToy(87528, V.MOP, Q.RARE)
@@ -860,11 +785,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(7499)
 
-	-- Dark Portal -- 93672
-	toy = AddToy(93672, V.MOP, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
-	toy:AddCustom("TCG")
-
 	-- Kirin Tor Beacon -- 95567
 	toy = AddToy(95567, V.MOP, Q.COMMON)
 	toy:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
@@ -968,7 +888,6 @@ function addon:InitToys()
 	toy:AddWorldEvent("DARKMOON_FAIRE")
 
 -- Warlords of Draenor
-
 	-- Crashin' Thrashin' Roller Controller -- 108631
 	toy = AddToy(108631, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
@@ -1036,16 +955,6 @@ function addon:InitToys()
 	toy = AddToy(111476, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(78867)
-
-	-- Blingtron 5000 -- 111821
-	toy = AddToy(111821, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
-
-	-- Wormhole Centrifuge -- 112059
-	toy = AddToy(112059, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
-	toy:AddProfession(PROF.ENGINEERING)
 
 	-- Nightmarish Hitching Post -- 112324
 	toy = AddToy(112324, V.WOD, Q.EPIC)
@@ -1272,11 +1181,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("INN")
 
-	-- Archmage Vargoth's Spare Staff -- 118191
-	toy = AddToy(118191, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddGarrisonMission(330)
-
 	-- Petrification Stone -- 118221
 	toy = AddToy(118221, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
@@ -1442,10 +1346,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(81330)
 
-	-- Barrel of Bandanas -- 120857
-	toy = AddToy(120857, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.ROGUE)
-	toy:AddVendor(83006)
 
 	-- Cursed Feather of Ikzan -- 122117
 	toy = AddToy(122117, V.WOD, Q.RARE)
@@ -1494,17 +1394,6 @@ function addon:InitToys()
 	toy:AddAchievement(9761)
 	toy:AddWorldEvent("DARKMOON_FAIRE")
 
-	-- Tune-o-tron Micro -- 122187
-	toy = AddToy(122187, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.IBOP, F.ACHIEVEMENT)
-	toy:SetRequiredFaction("Alliance")
-	toy:AddAchievement(9912)
-
-	-- Rukhmar's Sacred Memory -- 122283
-	toy = AddToy(122283, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
-	toy:AddRepVendor(FAC.ORDER_OF_THE_AWAKENED, REP.REVERED, 95424, 95425)
-
 	-- Trans-Dimensional Bird Whistle -- 122293
 	toy = AddToy(122293, V.WOD, Q.EPIC)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
@@ -1518,7 +1407,7 @@ function addon:InitToys()
 
 	-- Fandral's Seed Pouch -- 122304
 	toy = AddToy(122304, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.DRUID)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(52571)
 
 	-- S.E.L.F.I.E. Camera MkII -- 122674
@@ -1692,36 +1581,34 @@ function addon:InitToys()
 
 	-- Gurboggle's Gleaming Bauble -- 133511
 	toy = AddToy(133511, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
 	toy:AddVendor(101759, 101760)
 
 	-- Tosselwrench's Mega-Accurate Simulation Viewfinder -- 133542
 	toy = AddToy(133542, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
 	toy:AddVendor(101759, 101760)
 
 -- Legion
 	-- Sternfathom's Pet Journal -- 122681
 	toy = AddToy(122681, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.AZSUNA, nil, "0:0") -- Needs updating
+	toy:AddZoneLocations(Z.AZSUNA, nil, "49.4:45.4")
 
 	-- Leylight Brazier -- 128536
 	toy = AddToy(128536, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
 	toy:AddProfession(PROF.ENCHANTING)
 
-	-- Whitewater Tsunami -- 129045
-	toy = AddToy(129045, V.LEGION, Q.COMMON)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
-	toy:AddMobDrop(92152)
-
 	-- Shoe Shine Kit -- 129055  -- Needs updating
-	toy = AddToy(129055, V.WOD, Q.RARE)
+	toy = AddToy(129055, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.DALARAN_BROKENISLES, nil, "0:0")
 
 	-- Dalaran Disc -- 129057
-	toy = AddToy(129057, V.WOD, Q.RARE)
+	toy = AddToy(129057, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddVendor(96483)
 
@@ -1787,7 +1674,7 @@ function addon:InitToys()
 	-- The "Devilsaur" Lunchbox -- 130151
 	toy = AddToy(130151, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.VALSHARAH, nil, "63.4:71.3") -- Needs updating
+	toy:AddZoneLocations(Z.VALSHARAH, nil, "63.4:71.3")
 
 	-- Syxsehnz Rod -- 130157
 	toy = AddToy(130157, V.LEGION, Q.RARE)
@@ -1819,11 +1706,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.THE_WARDENS)
 	toy:AddRepVendor(FAC.THE_WARDENS, REP.HONORED, 107379)
 
-	-- Silver Gilnean Brooch -- 130194
-	toy = AddToy(130194, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.VALSHARAH, nil, "37.0:66.0")
-
 	-- Legion Pocket Portal -- 130199
 	toy = AddToy(130199, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
@@ -1843,11 +1725,6 @@ function addon:InitToys()
 	toy = AddToy(130232, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.DREAMWEAVERS)
 	toy:AddRepVendor(FAC.DREAMWEAVERS, REP.REVERED, 106901)
-
-	-- Waywatcher's Boon -- 130249
-	toy = AddToy(130249, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.VALSHARAH, nil, "58.2:69.8") -- Needs updating
 
 	-- JewelCraft -- 130251
 	toy = AddToy(130251, V.LEGION, Q.EPIC)
@@ -1947,57 +1824,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	toy:AddZoneLocations(Z.TIMELESS_ISLE, nil, "40.4:92.3")
 
-	-- "Guy Incognito" Costume -- 134831
-	toy = AddToy(134831, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
-	toy:AddWorldEvent("DARKMOON_FAIRE")
-	toy:AddVendor(85484)
-
-	-- Familiar Stone -- 136846
-	toy = AddToy(136846, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MAGE)
-	toy:AddCustom("CLASS_HALL")
-
-	-- Nature's Beacon -- 136849
-	toy = AddToy(136849, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.DRUID)
-	toy:AddCustom("CLASS_HALL")
-
-	-- Hunter's Call -- 136855
-	toy = AddToy(136855, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.HUNTER)
-	toy:AddCustom("CLASS_HALL")
-
-	-- Scarlet Confessional Book -- 136927
-	toy = AddToy(136927, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PRIEST)
-	toy:AddCustom("CLASS_HALL")
-
-	-- Thaumaturgist's Orb -- 136928
-	toy = AddToy(136928, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PRIEST)
-	toy:AddCustom("CLASS_HALL")
-
-	-- Raging Elemental Stone -- 136934
-	toy = AddToy(136934, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SHAMAN)
-	toy:AddVendor(18072)
-
-	-- Tadpole Cloudseeder -- 136935
-	toy = AddToy(136935, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SHAMAN)
-	toy:AddVendor(18072)
-
-	-- Vol'jin's Serpent Totem -- 136937
-	toy = AddToy(136937, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SHAMAN)
-	toy:AddVendor(18072)
-
-	-- Dalaran Initiates' Pin -- 137294
-	toy = AddToy(137294, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MAGE)
-	toy:AddVendor(28715)
-
 	-- Soft Foam Sword -- 137663
 	toy = AddToy(137663, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
@@ -2013,11 +1839,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.WORLD_EVENTS)
 	toy:AddMobDrop(108715)
 	toy:AddWorldEvent("PIRATES_DAY")
-
-	-- Waterspeaker's Totem -- 138490
-	toy = AddToy(138490, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SHAMAN)
-	toy:AddVendor(18072)
 
 	-- Mystical Frost Hat -- 138873
 	toy = AddToy(138873, V.LEGION, Q.RARE)
@@ -2046,7 +1867,7 @@ function addon:InitToys()
 
 	-- Suspicious Crate -- 139587
 	toy = AddToy(139587, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ROGUE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("CLASS_HALL")
 
 	-- Emerald Winds -- 139773
@@ -2054,9 +1875,9 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(10774)
 
-	-- Stormforged Vrykul Horn -- 140160
+	-- Stormforged Vrykul Horn -- 140160 -- Needs updating
 	toy = AddToy(140160, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("CLASS_HALL")
 
 	-- Narcissa's Mirror -- 140231
@@ -2068,6 +1889,11 @@ function addon:InitToys()
 	toy = AddToy(140309, V.LEGION, Q.EPIC)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddVendor(108468)
+
+	-- Crab Shank -- 140314 -- Needs updating
+	toy = AddToy(140314, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(107846)
 
 	-- Mobile Telemancy Beacon -- 140324
 	toy = AddToy(140324, V.LEGION, Q.RARE)
@@ -2089,54 +1915,256 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(112315)
 
-	-- Falanaar Echo -- 140779 -- Needs updating
-	toy = AddToy(140779, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-
 	-- Fal'dorei Egg -- 140780 -- Needs updating
 	toy = AddToy(140780, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
 
 	-- Ley Spider Eggs -- 140786 -- Needs updating
 	toy = AddToy(140786, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
 
 	-- Ancient Mana Basin -- 141296 -- Needs updating
 	toy = AddToy(141296, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
 
 	-- Arcano-Shower -- 141297 -- Needs updating
 	toy = AddToy(141297, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
 
-	-- Displacer Meditation Stone -- 141298 -- Needs updating
+	-- Displacer Meditation Stone -- 141298
 	toy = AddToy(141298, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
 
 	-- Kal'dorei Light Globe -- 141299 -- Needs updating
 	toy = AddToy(141299, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
 
 	-- Magi Focusing Crystal -- 141300 -- Needs updating
 	toy = AddToy(141300, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
 
 	-- Unstable Powder Box -- 141301 -- Needs updating
 	toy = AddToy(141301, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
 
 	-- Wisp in a Bottle -- 141306 -- Needs updating
 	toy = AddToy(141306, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
 
---[[  Didn't actually make it into the ToyBox panel
-	-- Murloc Costume -- 33079
-	--	toy = AddToy(33079, V.WOD, Q.COMMON)
+	-- Berglrgl Perrgl Girggrlf -- 141879
+	toy = AddToy(141879, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddQuest(41143)
+
+
+--[[ Retired with Legion
+
+	-- Carved Ogre Idol -- 49704
+	toy = AddToy(49704, V.WOTLK, Q.EPIC)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
+
+	-- Ethereal Portal -- 54452
+	toy = AddToy(54452, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
+
+	-- Anglers Fishing Raft -- 85500
+	toy = AddToy(85500, V.MOP, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, FAC.THE_ANGLERS)
+	toy:AddRepVendor(FAC.THE_ANGLERS, REP.REVERED, 63721)
+
+	-- Ancient Pandaren Fishing Charm -- 85973
+	toy = AddToy(85973, V.MOP, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.VALLEY_OF_THE_FOUR_WINDS, nil, "46.1:29.1")
 
 	-- Mini Mana Bomb -- 89205
 	toy = AddToy(89205, V.WOD, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(7468)
+
+	-- Dark Portal -- 93672
+	toy = AddToy(93672, V.MOP, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
+	toy:AddCustom("TCG")
+
+	-- Archmage Vargoth's Spare Staff -- 118191
+	toy = AddToy(118191, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddGarrisonMission(330)
+
+	-- Tune-o-tron Micro -- 122187
+	toy = AddToy(122187, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.ACHIEVEMENT)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddAchievement(9912)
+
+	-- Rukhmar's Sacred Memory -- 122283
+	toy = AddToy(122283, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddRepVendor(FAC.ORDER_OF_THE_AWAKENED, REP.REVERED, 95424, 95425)
+
+]]
+
+--[[  Didn't actually make it into the ToyBox panel
+	-- Murloc Costume -- 33079
+	toy = AddToy(33079, V.TBC, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	toy:AddCustom("BLIZZCON")
+
+	-- Barrel of Bandanas -- 120857
+	toy = AddToy(120857, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.ROGUE)
+	toy:AddVendor(83006)
+
+	-- Whitewater Tsunami -- 129045
+	toy = AddToy(129045, V.LEGION, Q.COMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(92152)
+
+	-- Silver Gilnean Brooch -- 130194
+	toy = AddToy(130194, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.VALSHARAH, nil, "37.0:66.0")
+
+	-- Waywatcher's Boon -- 130249
+	toy = AddToy(130249, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.VALSHARAH, nil, "58.2:69.8")
+
+	-- "Guy Incognito" Costume -- 134831
+	toy = AddToy(134831, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddWorldEvent("DARKMOON_FAIRE")
+	toy:AddVendor(85484)
+
+	-- Raging Elemental Stone -- 136934
+	toy = AddToy(136934, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SHAMAN)
+	toy:AddVendor(18072)
+
+	-- Tadpole Cloudseeder -- 136935
+	toy = AddToy(136935, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SHAMAN)
+	toy:AddVendor(18072)
+
+	-- Vol'jin's Serpent Totem -- 136937
+	toy = AddToy(136937, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SHAMAN)
+	toy:AddVendor(18072)
+
+	-- Familiar Stone -- 136846
+	toy = AddToy(136846, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MAGE)
+	toy:AddCustom("CLASS_HALL")
+
+	-- Nature's Beacon -- 136849
+	toy = AddToy(136849, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.DRUID)
+	toy:AddCustom("CLASS_HALL")
+
+	-- Hunter's Call -- 136855
+	toy = AddToy(136855, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.HUNTER)
+	toy:AddCustom("CLASS_HALL")
+
+	-- Scarlet Confessional Book -- 136927
+	toy = AddToy(136927, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PRIEST)
+	toy:AddCustom("CLASS_HALL")
+
+	-- Thaumaturgist's Orb -- 136928
+	toy = AddToy(136928, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PRIEST)
+	toy:AddCustom("CLASS_HALL")
+
+	-- Dalaran Initiates' Pin -- 137294
+	toy = AddToy(137294, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MAGE)
+	toy:AddVendor(28715)
+
+	-- Waterspeaker's Totem -- 138490
+	toy = AddToy(138490, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.SHAMAN)
+	toy:AddVendor(18072)
+
+	-- Falanaar Echo -- 140779 -- Needs updating
+	toy = AddToy(140779, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+
+ENGINEERING
+
+	-- Dimensional Ripper - Everlook -- 18984
+	toy = AddToy(18984, V.ORIG, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Ultrasafe Transporter: Gadgetzan -- 18986
+	toy = AddToy(18986, V.ORIG, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Dimensional Ripper - Area 52 -- 30542
+	toy = AddToy(30542, V.TBC, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Ultrasafe Transporter: Toshley's Station -- 30544
+	toy = AddToy(30544, V.TBC, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- MOLL-E -- 40768
+	toy = AddToy(40768, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Wormhole Generator: Northrend -- 48933
+	toy = AddToy(48933, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Gnomish Gravity Well -- 40727
+	toy = AddToy(40727, V.CATA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Loot-A-Rang -- 60854
+	toy = AddToy(60854, V.CATA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Blingtron 4000 -- 87214
+	toy = AddToy(87214, V.MOP, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Wormhole Generator: Pandaria -- 87215
+	toy = AddToy(87215, V.MOP, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Blingtron 5000 -- 111821
+	toy = AddToy(111821, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Wormhole Centrifuge -- 112059
+	toy = AddToy(112059, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
 
 ]]--
 
