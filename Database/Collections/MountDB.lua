@@ -3211,7 +3211,7 @@ function addon:InitMounts()
 	-- Felsteel Annihilator -- 182912
 	mount = AddMount(182912, V.WOD, Q.EPIC)
 	mount:SetItemID(123890)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID)
 	mount:AddMobDrop(91331)
 
 	-- Corrupted Dreadwing -- 183117
@@ -3245,6 +3245,16 @@ function addon:InitMounts()
 	mount:SetItemID(128277)
 	mount:Retire()
 
+	-- Wild Gladiator's Felblood Gronnling -- 189043  -- Season 17 (Warlords 2)
+	mount = AddMount(189043, V.WOD, Q.EPIC)
+	mount:SetItemID(128281)
+	mount:Retire()
+
+	-- Warmongering Gladiator's Felblood Gronnling -- 189044  -- Season 18 (Warlords 3)
+	mount = AddMount(189044, V.WOD, Q.EPIC)
+	mount:SetItemID(128282)
+	mount:Retire()
+
 	-- Coalfist Gronnling -- 189364
 	mount = AddMount(189364, V.WOD, Q.EPIC)
 	mount:SetItemID(128311)
@@ -3260,7 +3270,7 @@ function addon:InitMounts()
 	-- Grove Warden -- 189999
 	mount = AddMount(189999, V.WOD, Q.EPIC)
 	mount:SetItemID(128422)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID)
 	mount:AddMobDrop(91331)
 	mount:AddCustom("HEROIC", "MYTHIC")
 
@@ -3304,34 +3314,24 @@ function addon:InitMounts()
 	mount:AddCustom("TIMEREAVER")
 
 -- Legion
-
-	-- Demonic Gladiator's Infernal -- 171827  -- Needs updating
+	-- Hellfire Infernal -- 171827
 	mount = AddMount(171827, V.LEGION, Q.RARE)
 	mount:SetItemID(137575)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID)
+	mount:AddCustom("MYTHIC")
+	mount:AddMobDrop(105503)
 
-	-- Cruel Gladiator's Infernal -- 171840  -- Needs updating
-	mount = AddMount(171840, V.LEGION, Q.EPIC)
-	mount:SetItemID(137576)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
-
-	-- Llothien Prowler -- 171850   -- Needs updating
+	-- Llothien Prowler -- 171850
 	mount = AddMount(171850, V.LEGION, Q.EPIC)
 	mount:SetItemID(137573)
-	mount:AddFilters(F.ALLIANCE, F.HORDE)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(44058)
 
 	-- Grove Defiler -- 193007
 	mount = AddMount(193007, V.LEGION, Q.EPIC)
 	mount:SetItemID(141216)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(11180)
-
-	-- Prestigious War Steed -- 193695   -- Needs updating
-	mount = AddMount(193695, V.LEGION, Q.EPIC)
-	mount:SetItemID(129280)
-	mount:AddFilters(F.ALLIANCE, F.PVP)
-	mount:SetRequiredFaction("Alliance")
-	mount:AddCustom("PRESTIGE")
 
 	-- Spirit of Eche'ro -- 196681
 	mount = AddMount(196681, V.LEGION, Q.EPIC)
@@ -3341,13 +3341,8 @@ function addon:InitMounts()
 
 	-- Felsaber -- 200175  -- Needs updating
 	mount = AddMount(200175, V.LEGION, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.DEMONHUNTER)
-
-	-- Prestigious War Wolf -- 204166   -- Needs updating
-	mount = AddMount(204166, V.LEGION, Q.EPIC)
-	mount:AddFilters(F.HORDE, F.PVP)
-	mount:SetRequiredFaction("Horde")
-	mount:AddCustom("PRESTIGE")
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetRequiredClass("DEMONHUNTER")
 
 	-- Bloodfang Widow -- 213115
 	mount = AddMount(213115, V.LEGION, Q.EPIC)
@@ -3355,10 +3350,11 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	mount:AddVendor(108468)
 
-	-- Vindictive Gladiator's Infernal -- 213134  -- Needs updating
+	-- Felblaze Infernal -- 213134  -- Needs updating
 	mount = AddMount(213134, V.LEGION, Q.EPIC)
 	mount:SetItemID(137574)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID)
+	mount:AddMobDrop(105503)
 
 	-- Fel Core Hound -- 213209
 	mount = AddMount(213209, V.LEGION, Q.EPIC)
@@ -3366,15 +3362,11 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
 	mount:AddProfession(PROF.BLACKSMITHING)
 
-	-- Fearless Gladiator's Infernal -- 213349  -- Needs updating
-	mount = AddMount(213349, V.LEGION, Q.EPIC)
-	mount:SetItemID(137615)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
-
-	-- Ferocious Gladiator's Infernal -- 213350  -- Needs updating
-	mount = AddMount(213350, V.LEGION, Q.EPIC)
-	mount:SetItemID(137614)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+	-- Great Northern Elderhorn -- 213339
+	mount = AddMount(213339, V.LEGION, Q.EPIC)
+	mount:SetItemID(129962)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	mount:AddProfession(PROF.LEATHERWORKING)
 
 	-- Brinedeep Bottom-Feeder -- 214791
 	mount = AddMount(214791, V.LEGION, Q.EPIC)
@@ -3385,48 +3377,15 @@ function addon:InitMounts()
 
 	-- Long-Forgotten Hippogryph -- 215159  -- Needs updating
 	mount = AddMount(215159, V.LEGION, Q.EPIC)
+	mount:SetItemID(138258)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddZoneLocations(Z.AZSUNA, nil, "0:0")
 
 	-- Ratstallion -- 215558
 	mount = AddMount(215558, V.LEGION, Q.EPIC)
 	mount:SetItemID(138387)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(11066)
-
-	-- Prestigious Bronze Courser -- 2222202
-	mount = AddMount(2222202, V.LEGION, Q.EPIC)
-	mount:SetItemID(140228)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
-	mount:AddCustom("PRESTIGE")
-
-	-- Prestigious Royal Courser -- 2222236
-	mount = AddMount(2222236, V.LEGION, Q.EPIC)
-	mount:SetItemID(140230)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
-	mount:AddCustom("PRESTIGE")
-
-	-- Prestigious Forest Courser -- 2222237
-	mount = AddMount(2222237, V.LEGION, Q.EPIC)
-	mount:SetItemID(140232)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
-	mount:AddCustom("PRESTIGE")
-
-	-- Prestigious Ivory Courser -- 2222238
-	mount = AddMount(2222238, V.LEGION, Q.EPIC)
-	mount:SetItemID(140233)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
-	mount:AddCustom("PRESTIGE")
-
-	-- Prestigious Azure Courser -- 2222240
-	mount = AddMount(2222240, V.LEGION, Q.EPIC)
-	mount:SetItemID(140408)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
-	mount:AddCustom("PRESTIGE")
-
-	-- Prestigious Midnight Courser -- 2222241
-	mount = AddMount(2222241, V.LEGION, Q.EPIC)
-	mount:SetItemID(140407)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
-	mount:AddCustom("PRESTIGE")
 
 	-- Fathom Dweller -- 223018
 	mount = AddMount(223018, V.LEGION, Q.EPIC)
@@ -3474,6 +3433,38 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(11163)
 
+	-- Arcadian War Turtle -- 227956
+	mount = AddMount(227956, V.LEGION, Q.EPIC)
+	mount:SetItemID(141713)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(107109)
+
+
+-- Legion Seasons 1-4 mounts - Not available
+	-- Vindictive Gladiator's Storm Dragon -- 227986
+	mount = AddMount(227986, V.LEGION, Q.EPIC)
+	mount:SetItemID(141843)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.PVP)
+	mount:AddAchievement(11011)
+
+	-- Fearless Gladiator's Storm Dragon -- 227988
+	mount = AddMount(227988, V.LEGION, Q.EPIC)
+	mount:SetItemID(141844)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP)
+	mount:AddAchievement(11013)
+
+	-- Cruel Gladiator's Storm Dragon -- 227989
+	mount = AddMount(227989, V.LEGION, Q.EPIC)
+	mount:SetItemID(141845)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP)
+	mount:AddAchievement(11038)
+
+	-- Ferocious Gladiator's Storm Dragon -- 227991
+	mount = AddMount(227991, V.LEGION, Q.EPIC)
+	mount:SetItemID(141846)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP)
+	mount:AddAchievement(11061)
+
 
 -- Mounts which are duplicates, or are really temporary mounts
 -- Added to stop the debug popups. BAD BLIZZARD
@@ -3482,7 +3473,6 @@ function addon:InitMounts()
 
 	-- Black Polar Bear -- 59572
 	mount = AddMount(59572, V.LEGION, Q.COMMON)
-
 
 	-- Blue Skeletal Warhorse -- 64656
 	mount = AddMount(64656, V.LEGION, Q.COMMON)
@@ -3498,15 +3488,25 @@ end
 
 --[[
 
-	-- Wild Gladiator's Felblood Gronnling -- 189043  -- Season 17 (Warlords 2)
-	mount = AddMount(189043, V.WOD, Q.EPIC)
-	mount:SetItemID(128281)
-	mount:Retire()
+	-- Prestigious War Steed -- 193695   -- Needs updating
+	mount = AddMount(193695, V.LEGION, Q.EPIC)
+	mount:SetItemID(129280)
+	mount:AddFilters(F.ALLIANCE, F.PVP)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddCustom("PRESTIGE")
 
-	-- Warmongering Gladiator's Felblood Gronnling -- 189044  -- Season 18 (Warlords 3)
-	mount = AddMount(189044, V.WOD, Q.EPIC)
-	mount:SetItemID(128282)
-	mount:Retire()
+
+	-- Prestigious Bronze Courser -- 2222202
+	mount = AddMount(2222202, V.LEGION, Q.EPIC)
+	mount:SetItemID(140228)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+	mount:AddCustom("PRESTIGE")
+
+	-- Prestigious Ivory Courser -- 2222238
+	mount = AddMount(2222238, V.LEGION, Q.EPIC)
+	mount:SetItemID(140233)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
+	mount:AddCustom("PRESTIGE")
 
 
 -- Black Polar Bear -- 59572
