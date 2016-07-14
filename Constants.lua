@@ -513,18 +513,18 @@ private.FACTION_IDS = {
 	SHATARI_DEFENSE = 1710,
 	STEAMWHEEDLE_PRESERVATION_SOCIETY = 1711,
 	COUNCIL_OF_EXARCHS = 1731,
-	HIGHMOUNTAIN_TRIBE = 1828,
 	HAND_OF_THE_PROPHET = 1847,
 	VOLJINS_HEADHUNTERS = 1848,
 	ORDER_OF_THE_AWAKENED = 1849,
 	THE_SABERSTALKERS = 1850,
+	--Legion
+	HIGHMOUNTAIN_TRIBE = 1828,
 	THE_NIGHTFALLEN = 1859,
 	DREAMWEAVERS = 1883,
 	THE_WARDENS = 1894,
 	COURT_OF_FARONDIS = 1900,
 	VALAJAR = 1948,
 	CONJURER_MARGOSS = 1975,
-
 }
 
 private.FACTION_STRINGS = {}
@@ -764,6 +764,8 @@ do
 		SURAMAR = _G.GetMapNameByID(1033),
 		AZSUNA = _G.GetMapNameByID(1053),
 		KUN_LAI_SUMMIT = _G.GetMapNameByID(1058),
+		THE_NIGHTHOLD = _G.GetMapNameByID(1088),
+
 		-------------------------------------------------------------------------------
 		-- Continents
 		-------------------------------------------------------------------------------
@@ -873,6 +875,7 @@ private.BOSS_NAMES = {
 	THE_LICH_KING = _G.EJ_GetEncounterInfo(1636),
 	YOGG_SARON = _G.EJ_GetEncounterInfo(1649),
 	ONYXIA = _G.EJ_GetEncounterInfo(1651),
+	GULDAN = _G.EJ_GetEncounterInfo(1737),
 
 }
 
