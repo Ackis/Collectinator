@@ -258,6 +258,8 @@ function addon:InitMob()
 	AddMob(98283,	L["Drakum"],				Z.TANAAN_JUNGLE,		83.0, 43.0)
 	AddMob(98284,	L["Gondar"],				Z.TANAAN_JUNGLE,		80.0, 56.0)
 	AddMob(98285,	L["Smashum Grabb"],			Z.TANAAN_JUNGLE,		88.0, 55.0)
+	AddMob(105503,	BN.GULDAN,				Z.THE_NIGHTHOLD,		63.9, 85.8)
+	AddMob(107846,	L["Pinchshank"],			Z.SURAMAR,			 0.0,  0.0) -- Needs updating
 	AddMob(108715,	L["Ol' Eary"],				Z.BROKEN_ISLES,			 0.0,  0.0) -- Needs updating
 	AddMob(111573,	L["Kosumoth the Hungering"],		Z.BROKEN_ISLES,			 0.0,  0.0) -- Needs updating
 	AddMob(112315,	L["Dread Infiltrator"],			Z.BROKEN_ISLES,			 0.0,  0.0) -- Needs updating

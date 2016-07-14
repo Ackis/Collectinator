@@ -156,6 +156,8 @@ function addon:InitVendor()
 	AddVendor(51503,	L["Randah Songhorn"],		Z.THUNDER_BLUFF,		37.6,	62.8,	"Horde")
 	AddVendor(51504,	L["Velia Moonbow"],		Z.DARNASSUS,			64.6,	37.6,	"Alliance")
 	AddVendor(51512,	L["Mirla Silverblaze"],		Z.DALARAN_NORTHREND,		52.6,	56.6,	"Neutral")
+	AddVendor(52030,	L["Liliana Emberfrost"],	Z.STORMWIND_CITY,		74.3,	67.8,	"Alliance")
+	AddVendor(52036,	L["Galra"],			Z.ORGRIMMAR,			38.0,	70.8,	"Horde")
 	AddVendor(52268,	L["Riha"],			Z.SHATTRATH_CITY,		58.6,	46.6,	"Neutral")
 	AddVendor(52358,	L["Craggle Wobbletop"],		Z.STORMWIND_CITY,		57.6,	73.4,	"Alliance")
 	AddVendor(52809,	L["Blax Bottlerocket"],		Z.ORGRIMMAR,			58.8,	59.6,	"Horde")
@@ -249,11 +251,13 @@ function addon:InitVendor()
 	AddVendor(106901,	L["Sylvia Hartshorn"],		Z.VALSHARAH,			 0.0,	 0.0,	"Neutral") -- Needs updating
 	AddVendor(106902,	L["Ransa Greyfeather"],		Z.HIGHMOUNTAIN,			 0.0,	 0.0,	"Neutral") -- Needs updating
 	AddVendor(106904,	L["Valdemar Stormseeker"],	Z.STORMHEIM,			 0.0,	 0.0,	"Neutral") -- Needs updating
+	AddVendor(107109,	L["Xur'ios"],			Z.DALARAN_BROKENISLES,		48.8,	13.6,	"Neutral")
 	AddVendor(107326,	L["Draemus"],			Z.DALARAN_BROKENISLES,		58.9,	38.9,	"Neutral")
 	AddVendor(107376,	L["Veridis Fallon"],		Z.AZSUNA,			 0.0,	 0.0,	"Neutral") -- Needs updating
-	AddVendor(107379,	L["Marin Bladewing"],		Z.AZSUNA,			 0.0,	 0.0,	"Neutral")
+	AddVendor(107379,	L["Marin Bladewing"],		Z.AZSUNA,			 0.0,	 0.0,	"Neutral") -- Needs updating
 	AddVendor(108468,	L["The Mad Merchant"],		Z.DALARAN_BROKENISLES,		43.3,	47.3,	"Neutral")
 	AddVendor(108825,	L["Conjurer Margoss"],		Z.DALARAN_BROKENISLES,		 0.0,	 0.0,	"Neutral") -- Needs updating
+	AddVendor(113843,	L["Kieule"],			Z.SURAMAR,			 0.0,	 0.0,	"Neutral") -- Needs updating
 
 	self.InitVendor = nil
 end

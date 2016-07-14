@@ -180,8 +180,9 @@ function addon:InitQuest()
 	AddQuest(38428, Z.TANAAN_JUNGLE,			31.1,	67.1,	"Neutral")
 	AddQuest(39656,	Z.HIGHMOUNTAIN,				55.8,	56.2,	"Neutral") -- Needs updating
 	AddQuest(40904,	Z.HELLFIRE_CITADEL,			00.0,	00.0,	"Neutral")
+	AddQuest(41143,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(42722,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
-
+	AddQuest(44058,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
 
 	self.InitQuest = nil
 end
