@@ -128,7 +128,7 @@ do
 		["Warlock"] = "WARLOCK",
 		["Warrior"] = "WARRIOR",
 		["Monk"] = "MONK",
-		["Demon Hunter"] = "DEMONHUNTER"
+		["Demon Hunter"] = "DEMONHUNTER",
 	}
 
 	local ORDERED_CLASS_TYPES = {
@@ -143,7 +143,7 @@ do
 		"Warlock",
 		"Warrior",
 		"Monk",
-		"Demon Hunter"
+		"Demon Hunter",
 	}
 
 	local FS = private.FILTER_STRINGS
