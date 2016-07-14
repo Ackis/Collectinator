@@ -253,16 +253,16 @@ function addon:InitHeirloom()
 	-- Inherited Insignia of the Horde -- 122370
 	heirloom = AddHeirloom(122370, V.WOD, Q.ARTIFACT)
 	heirloom:AddFilters(F.HORDE, F.IBOA)
-	heirloom:AddVendor(6566)
+	heirloom:AddVendor(6566, 52036)
 
 	-- Inherited Insignia of the Alliance -- 122371
 	heirloom = AddHeirloom(122371, V.WOD, Q.ARTIFACT)
-	heirloom:AddFilters(F.ALLIANCE, F.IBOA)
-	heirloom:AddVendor(6294)
+	heirloom:AddFilters(F.ALLIANCE, F.IBOA, F.PVP)
+	heirloom:AddVendor(6294, 52030)
 
 	-- Strengthened Stockade Pauldrons -- 122372
 	heirloom = AddHeirloom(122372, V.WOD, Q.ARTIFACT)
-	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.PVP)
 	heirloom:AddVendor(6294, 6566)
 
 	-- Pristine Lightforge Spaulders -- 122373
@@ -379,7 +379,7 @@ function addon:InitHeirloom()
 
 	-- Inherited Mark of Tyranny -- 122530
 	heirloom = AddHeirloom(122530, V.WOD, Q.ARTIFACT)
-	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.PVP)
 	heirloom:AddVendor(6294, 6566)
 
 	-- Eternal Talisman of Evasion -- 122662
@@ -458,10 +458,10 @@ function addon:InitHeirloom()
 	heirloom:AddGarrisonMission(686)
 
 -- Legion
-	-- Spear of Rethu - 131733
-	heirloom = AddHeirloom(131733, V.LEGION, Q.ARTIFACT)
-	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.PROFESSION)
-	heirloom:AddProfession(PROF.ARCHAEOLOGY)
+	-- Eagletalon Spear -- 140773
+	heirloom = AddHeirloom(140773, V.LEGION, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
+	heirloom:AddVendor(6294, 6566)
 
 	self.InitHeirloom = nil
 
