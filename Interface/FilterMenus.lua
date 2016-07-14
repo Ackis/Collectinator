@@ -1129,8 +1129,13 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion6_buttons = {
-			arakkoa			= { tt = ReputationDesc(FN.ARAKKOA_OUTCASTS),		text = FN.ARAKKOA_OUTCASTS,		row = 2,	col = 1 },
-
+			thenightfallen		= { tt = ReputationDesc(FN.THE_NIGHTFALLEN),		text = FN.THE_NIGHTFALLEN,		row = 2,	col = 1 },
+			courtoffarondis		= { tt = ReputationDesc(FN.COURT_OF_FARONDIS),		text = FN.COURT_OF_FARONDIS,		row = 3,	col = 1 },
+			thewardens		= { tt = ReputationDesc(FN.THE_WARDENS),		text = FN.THE_WARDENS,			row = 4,	col = 1 },
+			dreamweavers		= { tt = ReputationDesc(FN.DREAMWEAVERS),		text = FN.DREAMWEAVERS,			row = 5,	col = 1 },
+			highmountaintribe	= { tt = ReputationDesc(FN.HIGHMOUNTAIN_TRIBE),		text = FN.HIGHMOUNTAIN_TRIBE,		row = 6,	col = 1 },
+			valarjar		= { tt = ReputationDesc(FN.VALAJAR),			text = FN.VALAJAR,			row = 7,	col = 1 },
+			conjurermargoss		= { tt = ReputationDesc(FN.CONJURER_MARGOSS),		text = FN.CONJURER_MARGOSS,		row = 8,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion6_frame, expansion6_buttons)
 
@@ -1308,6 +1313,16 @@ function private.InitializeFilterPanel()
 		arakkoa			= { cb = expansion5.arakkoa,			svroot = filters.rep },
 		awakened		= { cb = expansion5.awakened,			svroot = filters.rep },
 		saberstalkers		= { cb = expansion5.saberstalkers,		svroot = filters.rep },
+		------------------------------------------------------------------------------------------------
+		-- Legion Rep Options
+		------------------------------------------------------------------------------------------------
+		thenightfallen		= { cb = expansion6.thenightfallen,		svroot = filters.rep },
+		courtoffarondis		= { cb = expansion6.courtoffarondis,		svroot = filters.rep },
+		thewardens		= { cb = expansion6.thewardens,			svroot = filters.rep },
+		dreamweavers		= { cb = expansion6.dreamweavers,		svroot = filters.rep },
+		highmountaintribe 	= { cb = expansion6.highmountaintribe,		svroot = filters.rep },
+		valarjar		= { cb = expansion6.valarjar,			svroot = filters.rep },
+		conjurermargoss		= { cb = expansion6.conjurermargoss,		svroot = filters.rep },
 	}
 	private.InitializeFilterPanel = nil
 end

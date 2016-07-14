@@ -321,7 +321,14 @@ function addon:OnInitialize()
 					steamwheedle = true,
 					arakkoa = true,
 					awakened = true,
-					saberstalkers = true
+					saberstalkers = true,
+					thenightfallen = true,
+					courtoffarondis	= true,
+					thewardens = true,
+					dreamweavers = true,
+					highmountaintribe = true,
+					valarjar = true,
+					conjurermargoss = true,
 				},
 				-- Populated later via CONSTANTS
 				item = {
