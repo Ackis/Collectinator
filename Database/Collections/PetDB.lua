@@ -43,11 +43,11 @@ do
 		local TextDump = private.TextDump
 
 		-- Reset all flags so the scan will actually work
-		pet_journal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_COLLECTED, true)
-		pet_journal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_FAVORITES, false)
-		pet_journal.SetFlagFilter(_G.LE_PET_JOURNAL_FLAG_NOT_COLLECTED, true)
-		pet_journal.AddAllPetTypesFilter()
-		pet_journal.AddAllPetSourcesFilter()
+		pet_journal.SetFilterChecked(_G.LE_PET_JOURNAL_FILTER_COLLECTED, true)
+		pet_journal.SetFilterChecked(_G.LE_PET_JOURNAL_FILTER_FAVORITES, false)
+		pet_journal.SetFilterChecked(_G.LE_PET_JOURNAL_FILTER_NOT_COLLECTED, true)
+		pet_journal.SetAllPetTypesChecked(true)
+		pet_journal.SetAllPetSourcesChecked(true)
 		pet_journal.ClearSearchFilter()
 
 		table.wipe(known_pets)
@@ -89,7 +89,7 @@ do
 		for index = 1, #pet_ids do
 			local pet_id = pet_ids[index]
 			TextDump:AddLine(("-- %s -- %d"):format(pet_names[pet_id], pet_id))
-			TextDump:AddLine(("pet = AddPet(%d, V.WOD, Q.COMMON)\n"):format(pet_id))
+			TextDump:AddLine(("pet = AddPet(%d, V.LEGION, Q.COMMON)\n"):format(pet_id))
 		end
 
 		local dump_lines = TextDump:Lines()
