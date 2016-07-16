@@ -54,8 +54,8 @@ function addon:InitWardrobe()
 
 	local wardrobe
 
-	appearance = AddAppearance(155, V.LEGION, Q.RARE)
-	appearance:AddFilters(F.HORDE, F.PVP)
+	wardrobe = AddWardrobe(155, V.LEGION, Q.RARE)
+	wardrobe:AddFilters(F.HORDE, F.PVP)
 
 	self.InitWardrobe = nil
 
