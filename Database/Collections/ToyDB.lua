@@ -1619,7 +1619,7 @@ function addon:InitToys()
 
 	-- Kvaldir Raiding Horn -- 129111  -- Needs updating
 	toy = AddToy(129111, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 
 	-- Faintly Glowing Flagon of Mead -- 129113
 	toy = AddToy(129113, V.LEGION, Q.RARE)
@@ -1914,6 +1914,7 @@ function addon:InitToys()
 	toy = AddToy(140363, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(112315)
+	toy:AddWorldEvent("LEGION_INVASION")
 
 	-- Fal'dorei Egg -- 140780 -- Needs updating
 	toy = AddToy(140780, V.LEGION, Q.RARE)
