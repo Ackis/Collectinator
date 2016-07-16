@@ -700,7 +700,7 @@ do
 		end,
 
 		[private.COLLECTION_TYPE_IDS.HEIRLOOM] = function(collectable_type, heirlooms)
-			local num_heirlooms = _G.C_Heirloom.GetNumHeirlooms()
+			local num_heirlooms = _G.C_Heirloom.GetNumDisplayedHeirlooms()
 			local heirloom_ids = {}
 			local heirloom_item_ids = {}
 			local heirloom_names = {}
