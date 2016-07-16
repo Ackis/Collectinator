@@ -1346,7 +1346,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(81330)
 
-
 	-- Cursed Feather of Ikzan -- 122117
 	toy = AddToy(122117, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
@@ -1946,11 +1945,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
 
-	-- Magi Focusing Crystal -- 141300 -- Needs updating
-	toy = AddToy(141300, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
-
 	-- Unstable Powder Box -- 141301 -- Needs updating
 	toy = AddToy(141301, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
@@ -2014,6 +2008,11 @@ function addon:InitToys()
 	toy = AddToy(122283, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddRepVendor(FAC.ORDER_OF_THE_AWAKENED, REP.REVERED, 95424, 95425)
+
+	-- Magi Focusing Crystal -- 141300 -- Needs updating
+	toy = AddToy(141300, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
 
 ]]
 
