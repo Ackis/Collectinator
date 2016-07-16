@@ -3239,7 +3239,7 @@ function addon:InitMounts()
 	mount:SetItemID(127140)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(10149)
-
+--[[
 	-- Primal Gladiator's Felblood Gronnling -- 186828  -- Season 16 (Warlords 1)
 	mount = AddMount(186828, V.WOD, Q.EPIC)
 	mount:SetItemID(128277)
@@ -3254,7 +3254,7 @@ function addon:InitMounts()
 	mount = AddMount(189044, V.WOD, Q.EPIC)
 	mount:SetItemID(128282)
 	mount:Retire()
-
+]]--
 	-- Coalfist Gronnling -- 189364
 	mount = AddMount(189364, V.WOD, Q.EPIC)
 	mount:SetItemID(128311)
@@ -3333,6 +3333,13 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(11180)
 
+	-- Prestigious War Steed -- 193695   -- Needs updating
+	mount = AddMount(193695, V.LEGION, Q.EPIC)
+	mount:SetItemID(129280)
+	mount:AddFilters(F.ALLIANCE, F.PVP)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddCustom("PRESTIGE")
+
 	-- Spirit of Eche'ro -- 196681
 	mount = AddMount(196681, V.LEGION, Q.EPIC)
 	mount:SetItemID(131734)
@@ -3343,6 +3350,13 @@ function addon:InitMounts()
 	mount = AddMount(200175, V.LEGION, Q.EPIC)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	mount:SetRequiredClass("DEMONHUNTER")
+
+	-- Prestigious War Wolf -- 204166
+	mount = AddMount(204166, V.LEGION, Q.EPIC)
+	--mount:SetItemID(129280)
+	mount:AddFilters(F.HORDE, F.PVP)
+	mount:SetRequiredFaction("Horde")
+	mount:AddCustom("PRESTIGE")
 
 	-- Bloodfang Widow -- 213115
 	mount = AddMount(213115, V.LEGION, Q.EPIC)
@@ -3356,7 +3370,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID)
 	mount:AddMobDrop(105503)
 
-	-- Fel Core Hound -- 213209
+	-- Steelbound Devourer -- 213209
 	mount = AddMount(213209, V.LEGION, Q.EPIC)
 	mount:SetItemID(137686)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
@@ -3393,19 +3407,19 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(111573)
 
-	-- Vicious War Trike -- 223354
-	mount = AddMount(223354, V.LEGION, Q.EPIC)
-	mount:SetItemID(140354)
-	mount:SetRequiredFaction("Horde")
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
-	mount:AddVendor(73151)
-
 	-- Vicious Gilnean Warhorse -- 223341
 	mount = AddMount(223341, V.LEGION, Q.EPIC)
 	mount:SetItemID(140353)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
 	mount:AddVendor(73190)
+
+	-- Vicious War Trike -- 223354
+	mount = AddMount(223354, V.LEGION, Q.EPIC)
+	mount:SetItemID(140354)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(73151)
 
 	-- Vicious Warstrider -- 223363
 	mount = AddMount(223363, V.LEGION, Q.EPIC)
@@ -3439,7 +3453,27 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	mount:AddVendor(107109)
 
+-- Mounts which are duplicates, or are really temporary mounts
+-- Added to stop the debug popups. BAD BLIZZARD
+	-- Swift Brown Steed -- 58819
+	mount = AddMount(58819, V.WOD, Q.COMMON)
 
+	-- Black Polar Bear -- 59572
+	mount = AddMount(59572, V.LEGION, Q.COMMON)
+
+	-- Blue Skeletal Warhorse -- 64656
+	mount = AddMount(64656, V.LEGION, Q.COMMON)
+
+	-- Argent Warhorse -- 66907
+	mount = AddMount(66907, V.WOD, Q.COMMON)
+
+	-- Furious Ashhide Mushan -- 148626
+	mount = AddMount(148626, V.WOD, Q.COMMON)
+
+	self.InitMounts = nil
+end
+
+--[[
 -- Legion Seasons 1-4 mounts - Not available
 	-- Vindictive Gladiator's Storm Dragon -- 227986
 	mount = AddMount(227986, V.LEGION, Q.EPIC)
@@ -3464,49 +3498,7 @@ function addon:InitMounts()
 	mount:SetItemID(141846)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP)
 	mount:AddAchievement(11061)
-
-
--- Mounts which are duplicates, or are really temporary mounts
--- Added to stop the debug popups. BAD BLIZZARD
-	-- Swift Brown Steed -- 58819
-	mount = AddMount(58819, V.WOD, Q.COMMON)
-
-	-- Black Polar Bear -- 59572
-	mount = AddMount(59572, V.LEGION, Q.COMMON)
-
-	-- Blue Skeletal Warhorse -- 64656
-	mount = AddMount(64656, V.LEGION, Q.COMMON)
-
-	-- Argent Warhorse -- 66907
-	mount = AddMount(66907, V.WOD, Q.COMMON)
-
-	-- Furious Ashhide Mushan -- 148626
-	mount = AddMount(148626, V.WOD, Q.COMMON)
-
-	self.InitMounts = nil
-end
-
---[[
-
-	-- Prestigious War Steed -- 193695   -- Needs updating
-	mount = AddMount(193695, V.LEGION, Q.EPIC)
-	mount:SetItemID(129280)
-	mount:AddFilters(F.ALLIANCE, F.PVP)
-	mount:SetRequiredFaction("Alliance")
-	mount:AddCustom("PRESTIGE")
-
-
-	-- Prestigious Bronze Courser -- 2222202
-	mount = AddMount(2222202, V.LEGION, Q.EPIC)
-	mount:SetItemID(140228)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
-	mount:AddCustom("PRESTIGE")
-
-	-- Prestigious Ivory Courser -- 2222238
-	mount = AddMount(2222238, V.LEGION, Q.EPIC)
-	mount:SetItemID(140233)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.PVP)
-	mount:AddCustom("PRESTIGE")
+]]
 
 
 -- Black Polar Bear -- 59572
@@ -3542,11 +3534,3 @@ end
 -- mount:AddFilters(F.ALLIANCE, F.HORDE)
 
 
-
-
-
--- 6.1 mounts
-
-
-
-]]--
