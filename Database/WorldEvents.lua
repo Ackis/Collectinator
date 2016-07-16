@@ -51,7 +51,9 @@ function addon:InitWorldEvents()
 	AddWorldEvent("DARKMOON_FAIRE", _G.GetCategoryInfo(15101))
 	AddWorldEvent("WANDERERS_FESTIVAL", L["Wanderer's Festival"])
 	AddWorldEvent("PIRATES_DAY", L["Pirate's Day"])
-	AddWorldEvent("LEGION_INVASION", L["Legion Invasion"])
+
+	local spell_name = _G.GetSpellInfo(217514)
+	AddWorldEvent("LEGION_INVASION", spell_name)
 
 	local achievement_id, achievement_name = _G.GetAchievementInfo(8820)
 	AddWorldEvent("WOW_10TH_ANNIVERSARY", achievement_name)
