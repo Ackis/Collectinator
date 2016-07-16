@@ -5169,6 +5169,517 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
 	pet:AddCustom("OVERWATCHCE")
 
+-- Legion
+	-- Ash'ana -- 17254
+	pet = AddPet(17254, V.LEGION, Q.RARE)
+	pet:SetItemID(23712)
+	pet:SetSpellID(30152)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.DREAMWEAVERS)
+	pet:AddRepVendor(FAC.DREAMWEAVERS, REP.REVERED, 106901)
+
+	-- River Calf -- 79730
+	pet = AddPet(79730, V.LEGION, Q.RARE)
+	pet:SetItemID(140274)
+	pet:SetSpellID(223110)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(107326)
+
+	-- Autumnal Sproutling -- 83584
+	pet = AddPet(83584, V.LEGION, Q.RARE)
+	pet:SetItemID(113569)
+	pet:SetSpellID(167389)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(107326)
+
+	-- Echo Batling -- 88542
+	pet = AddPet(88542, V.LEGION, Q.COMMON, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.HIGHMOUNTAIN, "25", "47.8:71.2", "39.2:44.2")
+
+	-- Enchanted Cauldron -- 96403
+	pet = AddPet(96403, V.LEGION, Q.RARE)
+	pet:SetItemID(128533)
+	pet:SetSpellID(191071)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.ENCHANTING)
+
+	-- Enchanted Torch -- 96404
+	pet = AddPet(96404, V.LEGION, Q.RARE)
+	pet:SetItemID(128534)
+	pet:SetSpellID(191072)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.ENCHANTING)
+
+	-- Enchanted Pen -- 96405
+	pet = AddPet(96405, V.LEGION, Q.RARE)
+	pet:SetItemID(128535)
+	pet:SetSpellID(191073)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.ENCHANTING)
+
+	-- Grumpy -- 96622
+	pet = AddPet(96622, V.LEGION, Q.RARE)
+	pet:SetItemID(128354)
+	pet:SetSpellID(186299)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(39015)
+
+	-- Ashmaw Cub -- 96649
+	pet = AddPet(96649, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(38889)
+
+	-- Albatross Chick -- 97018
+	pet = AddPet(97018, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.AZSUNA, "25", "0:0")
+	pet:AddZoneLocations(Z.STORMHEIM, "25", "0:0")
+
+	-- Fledgling Kingfeather -- 97076
+	pet = AddPet(97076, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.AZSUNA, "25", "0:0")
+
+	-- Fledgling Oliveback -- 97078
+	pet = AddPet(97078, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.AZSUNA, "25", "0:0")
+
+	-- Skyhorn Nestling -- 97079
+	pet = AddPet(97079, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(39305)
+
+	-- Golden Eaglet -- 97080
+	pet = AddPet(97080, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMHEIM, "25", "0:0")
+
+	-- Long-Eared Owl -- 97118
+	pet = AddPet(97118, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMHEIM, "25", "0:0")
+	pet:AddZoneLocations(Z.HIGHMOUNTAIN, "25", "40.6:16.2")
+
+	-- Northern Hawk Owl -- 97126
+	pet = AddPet(97126, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.HIGHMOUNTAIN, "25", "57.2:71.6", "52.4:78.4", "53.6:81.4")
+
+	-- Nightwatch Swooper -- 97127
+	pet = AddPet(97127, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(107326)
+
+	-- Fledgling Warden Owl -- 97128
+	pet = AddPet(97128, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.THE_WARDENS)
+	pet:AddRepVendor(FAC.THE_WARDENS, REP.REVERED, 107379)
+
+	-- Extinguished Eye -- 97174
+	pet = AddPet(97174, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.THE_NIGHTFALLEN)
+	pet:AddRepVendor(FAC.THE_NIGHTFALLEN, REP.REVERED, 97140)
+
+	-- Hateful Eye -- 97178
+	pet = AddPet(97178, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("CLASS_HALL")
+
+	-- Eye of Inquisition -- 97179
+	pet = AddPet(97179, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(101878)
+
+	-- Stormborne Whelpling -- 97205
+	pet = AddPet(97205, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(91795)
+
+	-- Dream Whelpling -- 97206
+	pet = AddPet(97206, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.THE_EMERALD_NIGHTMARE, "25", "0:0")
+
+	-- Emmigosa -- 97207
+	pet = AddPet(97207, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(38015)
+
+	-- Burrow Spiderling -- 97236
+	pet = AddPet(97236, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.HIGHMOUNTAIN, "25", "43.4:24.2")
+
+	-- Nursery Spider -- 97238
+	pet = AddPet(97238, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(96479)
+
+	-- Juvenile Scuttleback -- 97283
+	pet = AddPet(97283, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.AZSUNA, "25", "49.2:47.6", "51.8:59.6", "46.8:59.0", "42.0:63.4")
+
+	-- Olivetail Hare -- 97294
+	pet = AddPet(97294, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.AZSUNA, "25", "64.6:22.0", "51.6:29.0")
+
+	-- Felspider -- 97323
+	pet = AddPet(97323, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.AZSUNA, "25", "40.2:45.2", "38.8:50.0", "37.0:55.8")
+
+	-- Shimmering Aquafly -- 97511
+	pet = AddPet(97511, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VALSHARAH, "25", "53.6:79.6", "53.0:82.6")
+
+	-- Terror Larva -- 97531
+	pet = AddPet(97531, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VALSHARAH, "25", "67.6:53.6", "66.2:44.8", "56.6:37.6", "62.4:48.2")
+
+	-- Slithering Brownscale -- 97542
+	pet = AddPet(97542, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VALSHARAH, "25", "57.0:79.6")
+	pet:AddZoneLocations(Z.AZSUNA, "25", "65.0:46.0", "49.0:73.6")
+	pet:AddZoneLocations(Z.STORMHEIM, "25", "35.6:37.2", "43.0:54.8")
+
+	-- Vale Flitter -- 97547
+	pet = AddPet(97547, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VALSHARAH, "25", "56.2:74.2", "57.2:78.0")
+
+	-- Auburn Ringtail -- 97555
+	pet = AddPet(97555, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VALSHARAH, "25", "50.0:41.0", "51.0:77.0", "61.2:72.8")
+
+	-- Spring Strider -- 97559
+	pet = AddPet(97559, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VALSHARAH, "25", "0:0") -- Needs updating
+
+	-- Black-Footed Fox Kit -- 97741
+	pet = AddPet(97741, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VALSHARAH, "25", "48.2:67.0", "39.8:47.0", "39.2:73.4")
+	pet:AddZoneLocations(Z.STORMHEIM, "25", "59.8:53.2")
+
+	-- Mist Fox Kit -- 97743
+	pet = AddPet(97743, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.HIGHMOUNTAIN, "25", "41.8:28.2", "30.2:39.4")
+	pet:AddZoneLocations(Z.STORMHEIM, "25", "48.4:35.4")
+
+	-- Rose Taipan -- 97840
+	pet = AddPet(97840, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMHEIM, "25", "63.6:59.2", "52.8:54.2", "50.8:52.8")
+
+	-- Tiny Apparition -- 97952
+	pet = AddPet(97952, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMHEIM, "25", "0:0") -- Needs updating
+
+	-- Crispin -- 98077
+	pet = AddPet(98077, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(97203)
+
+	-- Bleakwater Jelly -- 98116
+	pet = AddPet(98116, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(97630)
+
+	-- Sewer-Pipe Jelly -- 98128
+	pet = AddPet(98128, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(97364)
+
+	-- Plump Jelly -- 98132
+	pet = AddPet(98132, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(107326)
+
+	-- Ridgeback Piglet -- 98172
+	pet = AddPet(98172, V.LEGION, Q.UNCOMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.ALCHEMY)
+
+	-- Thaumaturgical Piglet -- 98183
+	pet = AddPet(98183, V.LEGION, Q.UNCOMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.ALCHEMY)
+
+	-- Fel Piglet -- 98185
+	pet = AddPet(98185, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(107326)
+
+	-- Hog-Nosed Bat -- 98192
+	pet = AddPet(98192, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.HIGHMOUNTAIN, "25", "0:0") -- Needs updating
+
+	-- Spiketail Beaver -- 98211
+	pet = AddPet(98211, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.HIGHMOUNTAIN, "25", "41.6:52.8", "39.2:48.2", "40.0:63.4", "47.4:67.4")
+
+	-- Erudite Manafiend -- 98385
+	pet = AddPet(98385, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.HIGHMOUNTAIN, "25", "41.6:52.8", "39.2:48.2", "40.0:63.4", "47.4:67.4")
+
+	-- Eldritch Manafiend -- 98386
+	pet = AddPet(98386, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.AZSUNA, "25", "58.6:16.8", "57.2:17.8")
+
+	-- Coralback Fiddler -- 98428
+	pet = AddPet(98428, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.HIGHMOUNTAIN, "25", "27.2:34.2")
+
+	-- Mudshell Conch -- 98446
+	pet = AddPet(98446, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.HIGHMOUNTAIN, "25", "49.0:12.8", "42.2:10.4")
+
+	-- Broot -- 98463
+	pet = AddPet(98463, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:SetRequiredClass("Druid")
+	pet:AddCustom("CLASS_HALL")
+
+	-- Dust Bunny -- 98506
+	pet = AddPet(98506, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.DALARAN_BROKENISLES, "25", "54.2:40.0", "50.6:66.0", "40.6:52.6", "61.6:23.6")
+
+	-- Thistleleaf Adventurer -- 99389
+	pet = AddPet(99389, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)
+	pet:AddQuest(42170)
+
+	-- Fetid Waveling -- 99394
+	pet = AddPet(99394, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(94485)
+
+	-- Risen Saber Kitten -- 99403
+	pet = AddPet(99403, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(92965)
+
+	-- Alarm-o-Bot -- 99425
+	pet = AddPet(99425, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(107326)
+
+	-- Knockoff Blingtron -- 99505
+	pet = AddPet(99505, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("BLINGTRON_6000")
+
+	-- Vicious Broodling -- 99513
+	pet = AddPet(99513, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.SURAMAR, "25", "0:0") -- Needs updating
+
+	-- Leyline Broodling -- 99526  -- Needs updating
+	pet = AddPet(99526, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+
+	-- Crystalline Broodling -- 99527
+	pet = AddPet(99527, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.SURAMAR, "25", "20.0:39.8", "24.0:43.2", "21.0:49.0", "22.8:40.0")
+
+	-- Thornclaw Broodling -- 99528
+	pet = AddPet(99528, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.SURAMAR, "25", "35.8:72.8")
+
+	-- Baby Elderhorn -- 106152
+	pet = AddPet(106152, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.HIGHMOUNTAIN_TRIBE)
+	pet:AddRepVendor(FAC.HIGHMOUNTAIN_TRIBE, REP.REVERED, 106902)
+
+	-- Sunborne Val'kyr -- 106181
+	pet = AddPet(106181, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VALAJAR)
+	pet:AddRepVendor(FAC.VALAJAR, REP.REVERED, 106904)
+
+	-- Trigger -- 106210
+	pet = AddPet(106210, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.ENGINEERING)
+
+	-- Wyrmy Tunkins -- 106232
+	pet = AddPet(106232, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.ARCHAEOLOGY)
+
+	-- Celestial Calf -- 106270
+	pet = AddPet(106270, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(108468)
+
+	-- Felbat Pup -- 106278
+	pet = AddPet(106278, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("LEGION_INVASION")
+
+	-- Corgi Pup -- 106283
+	pet = AddPet(106283, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(110334, 110035)
+
+	-- Zoom -- 107206
+	pet = AddPet(107206, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(10626)
+
+	-- Pygmy Owl -- 108568
+	pet = AddPet(108568, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MOB_DROP)
+	pet:AddMobDrop(92117)
+
+	-- Sting Ray Pup -- 109216
+	pet = AddPet(109216, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddRepVendor(FAC.CONJURER_MARGOSS, REP.REVERED, 108825)
+
+	-- Young Mutant Warturtle -- 110666
+	pet = AddPet(110666, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.DALARAN_BROKENISLES, "25", "59.6:61.8", "54.8:58.6", "58.0:57.8")
+
+	-- Gleamhoof Fawn -- 110741
+	pet = AddPet(110741, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VALSHARAH, "25", "53.0:71.4", "52.8:64.0", "55.6:74.8", "56.6:59.4")
+
+	-- Coastal Sandpiper -- 110826
+	pet = AddPet(110826, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.AZSUNA, "25", "60.2:38.6", "58.6:41.0", "49.8:41.0")
+
+	-- Blind Rat -- 111158
+	pet = AddPet(111158, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.DALARAN_BROKENISLES, "25", "56.4:62.4")
+
+	-- Stormstruck Beaver -- 111172
+	pet = AddPet(111172, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMHEIM, "25", "0:0")
+
+	-- Alliance Enthusiast -- 111202
+	pet = AddPet(111202, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.PVP)
+	pet:AddCustom("PRESTIGE")
+
+	-- Horde Fanatic -- 111296
+	pet = AddPet(111296, V.LEGION, Q.RARE)
+	pet:AddFilters(F.HORDE, F.IBOP, F.PVP)
+	pet:AddCustom("PRESTIGE")
+
+	-- Lurking Owl Kitten -- 111421
+	pet = AddPet(111421, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(41197)
+
+	-- Untethered Wyrmling -- 111423
+	pet = AddPet(111423, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(42837)
+
+	-- Transmutant -- 111425
+	pet = AddPet(111425, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.ALCHEMY)
+
+	-- Hungering Claw -- 111984
+	pet = AddPet(111984, V.LEGION, Q.EPIC)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(111573)
+
+	-- Nightmare Whelpling -- 112015
+	pet = AddPet(112015, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(111573)
+
+	-- Firebat Pup -- 112132
+	pet = AddPet(112132, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddGarrisonMission(1387)
+
+	-- Corgnelius -- 112144
+	pet = AddPet(112144, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddGarrisonMission(1386)
+
+	-- Lagan -- 112167
+	pet = AddPet(112167, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(10412)
+
+	-- Court Scribe -- 112728
+	pet = AddPet(112728, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COURT_OF_FARONDIS)
+	pet:AddRepVendor(FAC.COURT_OF_FARONDIS, REP.REVERED, 107376)
+
+	-- Nightmare Lasher -- 112798
+	pet = AddPet(112798, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:SetRequiredClass("Druid")
+	pet:AddCustom("CLASS_HALL")
+
+	-- Nightmare Treant -- 112945
+	pet = AddPet(112945, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(9696)
+
+	-- Benax -- 113136
+	pet = AddPet(113136, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(111197)
+
+	-- Squirky -- 113440
+	pet = AddPet(113440, V.LEGION, Q.COMMON)
+
+	-- Wonderous Wisdomball -- 113827
+	pet = AddPet(113827, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(44412)
+
+	-- Rescued Fawn -- 113855
+	pet = AddPet(113855, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(11233)
+
+	-- Snowfang -- 114063
+	pet = AddPet(114063, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:SetRequiredClass("Shaman")
+	pet:AddCustom("CLASS_HALL")
+
+
+-- Pets not actually in game or are NPC/legendary
+	-- Muffin -- 65344
+	pet = AddPet(65344, V.LEGION, Q.COMMON)
+
+	-- Salad -- 91337
+	pet = AddPet(91337, V.LEGION, Q.COMMON)
+
+	-- Mal -- 91340
+	pet = AddPet(91340, V.LEGION, Q.COMMON)
+
 	self.InitCritters = nil
 
 	LPJ:RegisterCallback("PetListUpdated", private.UpdatePetList)
