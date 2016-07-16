@@ -229,6 +229,7 @@ function addon:InitVendor()
 	AddVendor(88493,	L["Mimi Wizzlebub"],		Z.WARSPEAR,			53.8,	60.8,	"Horde")
 	AddVendor(88779,	L["Benjamin Brode"],		Z.DRAENOR,			 0.0,	 0.0,	"Neutral")
 	AddVendor(90974,	L["Vindicator Krethos"],	Z.TANAAN_JUNGLE,		58.4,	60.4,	"Alliance")
+	AddVendor(92489,	L["Mei Francis"],		Z.DALARAN_BROKENISLES,		57.5,	42.1,	"Neutral")
 	AddVendor(92805,	L["Z'tenga the Walker"],	Z.TANAAN_JUNGLE,		55.2,	74.8,	"Neutral")
 	AddVendor(94512,	L["Tiffy Trapspring"],		Z.LUNARFALL,			 0.0,	 0.0,	"Alliance")
 	AddVendor(94516,	L["Giada Goldleash"],		Z.FROSTWALL,			 0.0,	 0.0,	"Horde")
@@ -238,26 +239,30 @@ function addon:InitVendor()
 	AddVendor(95471,	L["Trader Darakk"],		Z.FROSTWALL,			 0.0,	 0.0,	"Horde")
 	AddVendor(95650,	L["Skoller"],			Z.TANAAN_JUNGLE,		55.1,	75.0,	"Neutral")
 	AddVendor(96014,	L["Shadow Hunter Denjai"],	Z.TANAAN_JUNGLE,		61.6,	45.6,	"Horde")
+	AddVendor(96479,	L["Breanni"],			Z.DALARAN_BROKENISLES,		58.4,	39.1,	"Neutral")
 	AddVendor(96483,	L["Jepetto Joybuzz"],		Z.DALARAN_BROKENISLES,		44.6,	46.0,	"Neutral")
-	AddVendor(97140,	L["First Arcanist Thalyssra"],	Z.SURAMAR,			 0.0,	 0.0,	"Neutral") -- Needs updating loc & NPC ID
+	AddVendor(97140,	L["First Arcanist Thalyssra"],	Z.SURAMAR,			37.0,	46.2,	"Neutral")
+	AddVendor(97364,	L["Laura Malley"],		Z.DALARAN_BROKENISLES,		58.6,	58.6,	"Neutral")
 	AddVendor(98685,	L["Cupri"],			Z.SHATTRATH_CITY,		54.4,	39.0,	"Neutral")
 	AddVendor(98690,	L["Auzin"],			Z.DALARAN_BROKENISLES,		50.4,	46.1,	"Neutral")
 	AddVendor(98723,	L["Tiffy Trapspring"],		Z.DALARAN_BROKENISLES,		59.4,	40.0,	"Alliance")
 	AddVendor(98724,	L["Giada Goldleash"],		Z.DALARAN_BROKENISLES,		58.3,	37.7,	"Horde")
-	AddVendor(99574,	L["Slyhoof the Shameless Shaman"],	Z.HIGHMOUNTAIN,		0.0,	0.0,	"Neutral") -- Needs updating
+	AddVendor(99574,	L["Slyhoof the Shameless Shaman"],	Z.THUNDER_TOTEM,	60.8,	59.6,	"Neutral")
 	AddVendor(101759,	L["Kiatke"],			Z.STORMWIND_CITY,		76.0,	17.6,	"Alliance")
 	AddVendor(101760,	L["Kiatke"],			Z.ORGRIMMAR,			52.0,	41.6,	"Horde") -- Blizzard needs to stop having the same NPC id in multiple places, not actual ID
 	AddVendor(106887,	L["Cravitz Lorent"],		Z.DALARAN_BROKENISLES,		51.0,	38.0,	"Neutral")
-	AddVendor(106901,	L["Sylvia Hartshorn"],		Z.VALSHARAH,			 0.0,	 0.0,	"Neutral") -- Needs updating
-	AddVendor(106902,	L["Ransa Greyfeather"],		Z.HIGHMOUNTAIN,			 0.0,	 0.0,	"Neutral") -- Needs updating
-	AddVendor(106904,	L["Valdemar Stormseeker"],	Z.STORMHEIM,			 0.0,	 0.0,	"Neutral") -- Needs updating
+	AddVendor(106901,	L["Sylvia Hartshorn"],		Z.VALSHARAH,			54.6,	73.2,	"Neutral")
+	AddVendor(106902,	L["Ransa Greyfeather"],		Z.THUNDER_TOTEM,		38.8,	46.8,	"Neutral")
+	AddVendor(106904,	L["Valdemar Stormseeker"],	Z.STORMHEIM,			60.2,	51.2,	"Neutral")
 	AddVendor(107109,	L["Xur'ios"],			Z.DALARAN_BROKENISLES,		48.8,	13.6,	"Neutral")
 	AddVendor(107326,	L["Draemus"],			Z.DALARAN_BROKENISLES,		58.9,	38.9,	"Neutral")
-	AddVendor(107376,	L["Veridis Fallon"],		Z.AZSUNA,			 0.0,	 0.0,	"Neutral") -- Needs updating
-	AddVendor(107379,	L["Marin Bladewing"],		Z.AZSUNA,			 0.0,	 0.0,	"Neutral") -- Needs updating
+	AddVendor(107376,	L["Veridis Fallon"],		Z.AZSUNA,			46.8,	41.4,	"Neutral")
+	AddVendor(107379,	L["Marin Bladewing"],		Z.AZSUNA,			48.2,	73.8,	"Neutral")
 	AddVendor(108468,	L["The Mad Merchant"],		Z.DALARAN_BROKENISLES,		43.3,	47.3,	"Neutral")
 	AddVendor(108825,	L["Conjurer Margoss"],		Z.DALARAN_BROKENISLES,		 0.0,	 0.0,	"Neutral") -- Needs updating
-	AddVendor(113843,	L["Kieule"],			Z.SURAMAR,			 0.0,	 0.0,	"Neutral") -- Needs updating
+	AddVendor(110334,	L["Historian Llore"],		Z.STORMWIND_CITY,		 0.0,	 0.0,	"Alliance") -- Needs updating
+	AddVendor(110035,	L["Historian Ju'pa"],		Z.ORGRIMMAR,			 0.0,	 0.0,	"Horde") -- Needs updating
+	AddVendor(113843,	L["Kieule"],			Z.SURAMAR,			50.4,	53.0,	"Neutral")
 
 	self.InitVendor = nil
 end

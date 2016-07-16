@@ -173,16 +173,24 @@ function addon:InitQuest()
 	AddQuest(37307,	Z.LUNARFALL,				37.2,	36.4,	"Alliance")
 	AddQuest(37736,	Z.AZSUNA,				00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(37959,	Z.AZSUNA,				00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(38015,	Z.AZSUNA,				00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(38237,	Z.AZSUNA,				00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(38299,	Z.LUNARFALL,				00.0,	00.0,	"Alliance")
 	AddQuest(38300,	Z.FROSTWALL,				00.0,	00.0,	"Horde")
 	AddQuest(38317,	Z.STORMHEIM,				00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(38428, Z.TANAAN_JUNGLE,			31.1,	67.1,	"Neutral")
+	AddQuest(38889,	Z.VALSHARAH,				53.0,	57.0,	"Neutral")
+	AddQuest(39015,	Z.VALSHARAH,				00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(39305,	Z.HIGHMOUNTAIN,				49.4,	39.2,	"Neutral")
 	AddQuest(39656,	Z.HIGHMOUNTAIN,				55.8,	56.2,	"Neutral") -- Needs updating
 	AddQuest(40904,	Z.HELLFIRE_CITADEL,			00.0,	00.0,	"Neutral")
 	AddQuest(41143,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(41197,	Z.SURAMAR,				29.0,	33.0,	"Neutral")
+	AddQuest(42170,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(42722,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(42837,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(44058,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(44412,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral") -- Needs updating
 
 	self.InitQuest = nil
 end
