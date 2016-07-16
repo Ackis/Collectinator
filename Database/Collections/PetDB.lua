@@ -1095,14 +1095,6 @@ function addon:InitCritters()
 	pet:AddVendor(33554)
 	pet:AddCustom("CHAMPION_SEALS", "BMAH")
 
-	-- Withers -- 34278
-	pet = AddPet(34278, V.CATA, Q.COMMON)
-	pet:SetItemID(46325)
-	pet:SetSpellID(65046)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOP)
-	pet:AddQuest(13570)
-	pet:AddVendor(33980)
-
 	-- Calico Cat -- 34364
 	pet = AddPet(34364, V.WOTLK, Q.COMMON)
 	pet:SetItemID(46398)
@@ -1131,13 +1123,6 @@ function addon:InitCritters()
 	pet:AddRepVendor(FAC.THE_SILVER_COVENANT, REP.EXALTED, 34881)
 	pet:AddRepVendor(FAC.THE_SUNREAVERS, REP.EXALTED, 34772)
 	pet:AddCustom("CHAMPION_SEALS", "BMAH")
-
-	-- Macabre Marionette -- 34770
-	pet = AddPet(34770, V.MOP, Q.RARE)
-	pet:SetItemID(46831)
-	pet:SetSpellID(66175)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.QUEST, F.IBOP)
-	pet:AddWorldEvent("DAY_OF_THE_DEAD")
 
 	-- Jade Tiger -- 34930
 	pet = AddPet(34930, V.WOTLK, Q.RARE)
@@ -1301,6 +1286,14 @@ function addon:InitCritters()
 	pet:AddQuest(6983, 7043)
 
 -- Cataclysm
+	-- Withers -- 34278
+	pet = AddPet(34278, V.CATA, Q.COMMON)
+	pet:SetItemID(46325)
+	pet:SetSpellID(65046)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.QUEST, F.IBOP)
+	pet:AddQuest(13570)
+	pet:AddVendor(33980)
+
 	-- Celestial Dragon -- 40624
 	pet = AddPet(40624, V.CATA, Q.RARE)
 	pet:SetItemID(54810)
@@ -1813,6 +1806,13 @@ function addon:InitCritters()
 	pet:AddCustom("STORE")
 
 -- Mists of Pandaria
+	-- Macabre Marionette -- 34770
+	pet = AddPet(34770, V.MOP, Q.RARE)
+	pet:SetItemID(46831)
+	pet:SetSpellID(66175)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.QUEST, F.IBOP)
+	pet:AddWorldEvent("DAY_OF_THE_DEAD")
+
 	-- Eye of the Legion -- 59020
 	pet = AddPet(59020, V.MOP, Q.RARE)
 	pet:SetItemID(79744)
