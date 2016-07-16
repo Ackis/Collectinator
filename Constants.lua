@@ -760,11 +760,14 @@ do
 		STORMHEIM = _G.GetMapNameByID(1017),
 		VALSHARAH = _G.GetMapNameByID(1018),
 		BROKEN_SHORE = _G.GetMapNameByID(1021),
+		HELHEIM = _G.GetMapNameByID(1022),
 		HIGHMOUNTAIN = _G.GetMapNameByID(1024),
 		SURAMAR = _G.GetMapNameByID(1033),
 		AZSUNA = _G.GetMapNameByID(1053),
 		KUN_LAI_SUMMIT = _G.GetMapNameByID(1058),
+		THUNDER_TOTEM = _G.GetMapNameByID(1080),
 		THE_NIGHTHOLD = _G.GetMapNameByID(1088),
+		THE_EMERALD_NIGHTMARE = _G.GetMapNameByID(1094),
 
 		-------------------------------------------------------------------------------
 		-- Continents
@@ -875,6 +878,7 @@ private.BOSS_NAMES = {
 	THE_LICH_KING = _G.EJ_GetEncounterInfo(1636),
 	YOGG_SARON = _G.EJ_GetEncounterInfo(1649),
 	ONYXIA = _G.EJ_GetEncounterInfo(1651),
+	DRAGONS_OF_NIGHTMARE = _G.EJ_GetEncounterInfo(1704),
 	GULDAN = _G.EJ_GetEncounterInfo(1737),
 
 }
