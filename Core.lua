@@ -627,7 +627,7 @@ do
 					if is_collected then
 						mount:AddState("KNOWN")
 					end
-				elseif not hide_on_char and not mount_names[mount_id] then
+				elseif mount_name amd not hide_on_char and not mount_names[mount_id] then
 					mount_names[mount_id] = mount_name or _G.UNKNOWN
 					mount_ids[#mount_ids + 1] = mount_id
 				end
