@@ -1141,7 +1141,8 @@ function addon:InitCritters()
 	pet:SetItemID(48126)
 	pet:SetSpellID(67420)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.IBOE)
-	pet:AddWorldDrop(Z.NORTHERN_STRANGLETHORN, Z.THE_CAPE_OF_STRANGLETHORN)
+	pet:AddZoneLocations(Z.NORTHERN_STRANGLETHORN, nil, "67.2:31.4")
+	pet:AddWorldDrop(Z.THE_CAPE_OF_STRANGLETHORN)
 
 	-- Deviate Hatchling -- 35395
 	pet = AddPet(35395, V.WOTLK, Q.COMMON)
@@ -3996,7 +3997,7 @@ function addon:InitCritters()
 	pet = AddPet(73011, V.MOP, Q.RARE)
 	pet:SetItemID(103670)
 	pet:SetSpellID(147124)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.MISC)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	pet:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- Droplet of Y'Shaarj -- 73350
@@ -4458,7 +4459,7 @@ function addon:InitCritters()
 	pet = AddPet(85284, V.WOD, Q.RARE)
 	pet:SetItemID(115483)
 	pet:SetSpellID(170292)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE, F.PROFESSION)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	pet:AddProfession(PROF.ENGINEERING)
 	pet:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
