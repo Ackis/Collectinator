@@ -36,66 +36,67 @@ local SEASON = private.SEASON
 --------------------------------------------------------------------------------------------------------------------
 
 do
-	local known_pets = {}
+	local knownPets = {}
 
 	function private.UpdatePetList()
-		local pet_journal = _G.C_PetJournal
+		local petJournal = _G.C_PetJournal
 		local TextDump = private.TextDump
 
 		-- Reset all flags so the scan will actually work
-		pet_journal.SetFilterChecked(_G.LE_PET_JOURNAL_FILTER_COLLECTED, true)
-		pet_journal.SetFilterChecked(_G.LE_PET_JOURNAL_FILTER_FAVORITES, false)
-		pet_journal.SetFilterChecked(_G.LE_PET_JOURNAL_FILTER_NOT_COLLECTED, true)
-		pet_journal.SetAllPetTypesChecked(true)
-		pet_journal.SetAllPetSourcesChecked(true)
-		pet_journal.ClearSearchFilter()
+		petJournal.SetFilterChecked(_G.LE_PET_JOURNAL_FILTER_COLLECTED, true)
+		petJournal.SetFilterChecked(_G.LE_PET_JOURNAL_FILTER_FAVORITES, false)
+		petJournal.SetFilterChecked(_G.LE_PET_JOURNAL_FILTER_NOT_COLLECTED, true)
+		petJournal.SetAllPetTypesChecked(true)
+		petJournal.SetAllPetSourcesChecked(true)
+		petJournal.ClearSearchFilter()
 
-		table.wipe(known_pets)
+		table.wipe(knownPets)
 
-		local pet_list = private.collectable_list["CRITTER"]
-		for index, pet_id in LPJ:IteratePetIDs() do
-			local _, _, _, _, _, _, _, _, _, _, creature_id = _G.C_PetJournal.GetPetInfoByPetID(pet_id)
-			local pet = pet_list[creature_id]
+		local petList = private.collectable_list.CRITTER
+		for index, petID in LPJ:IteratePetIDs() do
+			local _, _, _, _, _, _, _, _, _, _, creatureID = _G.C_PetJournal.GetPetInfoByPetID(petID)
+			local pet = petList[creatureID]
 
 			if pet then
 				pet:AddState("KNOWN")
-				known_pets[creature_id] = true
+				knownPets[creatureID] = true
 			end
 		end
-		local num_pets = pet_journal.GetNumPets()
-		local pet_names = {}
-		local pet_ids = {}
+		local numPets = petJournal.GetNumPets()
+		local petNams = {}
+		local petIDs = {}
 
-		for pet_index = 1, num_pets do
-			local pet_id, _, _, _, _, _, _, name, icon, pet_type, creature_id, source_text, description, is_wild, can_battle = _G.C_PetJournal.GetPetInfoByIndex(pet_index, false)
-			local pet = pet_list[creature_id]
+		for petIndex = 1, numPets do
+			local petID, _, _, _, _, _, _, name, icon, petType, creatureID, sourceText, description, isWild, canBattle = _G.C_PetJournal.GetPetInfoByIndex(petIndex, false)
+			local pet = petList[creatureID]
 
 			if pet then
-				if not known_pets[creature_id] then
+				if not knownPets[creatureID] then
 					pet:RemoveState("KNOWN")
 				end
+
 				pet:SetIcon(icon)
 				pet:SetDescription(description)
 				pet:SetName(name)
-			elseif not pet_names[creature_id] then
-				pet_names[creature_id] = name or _G.UNKNOWN
-				pet_ids[#pet_ids + 1] = creature_id
+			elseif not petNams[creatureID] then
+				petNams[creatureID] = name or _G.UNKNOWN
+				petIDs[#petIDs + 1] = creatureID
 			end
 		end
-		table.sort(pet_ids)
+
+		table.sort(petIDs)
 
 		--@debug@
 		TextDump:Clear()
-		for index = 1, #pet_ids do
-			local pet_id = pet_ids[index]
-			TextDump:AddLine(("-- %s -- %d"):format(pet_names[pet_id], pet_id))
-			TextDump:AddLine(("pet = AddPet(%d, V.LEGION, Q.COMMON)\n"):format(pet_id))
+		for index = 1, #petIDs do
+			local petID = petIDs[index]
+			TextDump:AddLine(("-- %s -- %d"):format(petNams[petID], petID))
+			TextDump:AddLine(("pet = AddPet(%d, V.LEGION, Q.COMMON)\n"):format(petID))
 		end
 
-		local dump_lines = TextDump:Lines()
-
-		if dump_lines > 0 then
-			TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
+		local dumpLines = TextDump:Lines()
+		if dumpLines > 0 then
+			TextDump:InsertLine(1, ("Untracked: %d\n"):format(dumpLines / 2))
 			TextDump:Display()
 		end
 		--@end-debug@
