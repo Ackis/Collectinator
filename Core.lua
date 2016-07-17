@@ -654,7 +654,7 @@ do
 			private.UpdatePetList()
 		end,
 		[private.COLLECTION_TYPE_IDS.TOY] = function(collectable_type, toys)
-			local num_toys = _G.C_ToyBox.GetNumTotalDisplayedToys()
+			local num_toys = _G.C_ToyBox.GetNumToys()
 			local toy_ids = {}
 			local toy_item_ids = {}
 			local toy_names = {}
