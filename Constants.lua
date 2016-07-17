@@ -142,6 +142,16 @@ for index = 1, #private.GAME_VERSION_NAMES do
 	private.EXPANSION_FILTERS[index] = ("expansion%d"):format(index - 1)
 end
 
+private.EXPANSION_LOGOS = {
+	[_G.LE_EXPANSION_CLASSIC] = { texture = [[Interface\Glues\Common\Glues-WoW-ClassicLogo]] },
+	[_G.LE_EXPANSION_BURNING_CRUSADE] = { texture = [[Interface\Glues\Common\Glues-WoW-BCLogo]] },
+	[_G.LE_EXPANSION_WRATH_OF_THE_LICH_KING] = { texture = [[Interface\Glues\Common\Glues-WoW-WotLKLogo]] },
+	[_G.LE_EXPANSION_CATACLYSM] = { texture = [[Interface\Glues\Common\Glues-WoW-CCLogo]] },
+	[_G.LE_EXPANSION_MISTS_OF_PANDARIA] = { texture = [[Interface\Glues\Common\Glues-WoW-MPLogo]] },
+	[_G.LE_EXPANSION_WARLORDS_OF_DRAENOR] = { texture = [[Interface\Glues\Common\GLUES-WOW-WODLOGO]] },
+	[_G.LE_EXPANSION_LEGION] = { atlas = "Glues-WoW-LegionLogo" },
+}
+
 -------------------------------------------------------------------------------
 -- Common filter bitfield word 1.
 -------------------------------------------------------------------------------

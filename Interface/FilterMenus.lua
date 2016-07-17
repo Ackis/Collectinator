@@ -633,15 +633,11 @@ function private.InitializeFilterPanel()
 	do
 		local rep_frame = FilterPanel:CreateSubMenu("rep")
 
-		local EXPANSION_TOOLTIP = {
-			expansion0	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME0),
-			expansion1	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME1),
-			expansion2	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME2),
-			expansion3	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME3),
-			expansion4	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME4),
-			expansion5  	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME5),
-			expansion6	= L["EXPANSION_FILTER_FORMAT"]:format(_G.EXPANSION_NAME6),
-		}
+		local EXPANSION_TOOLTIPS = {}
+		for expansionIndex = 1, #private.GAME_VERSION_NAMES do
+			EXPANSION_TOOLTIPS[("expansion%d"):format(expansionIndex - 1)] = L["EXPANSION_FILTER_FORMAT"]:format(_G[("EXPANSION_NAME%d"):format(expansionIndex - 1)])
+		end
+
 		-------------------------------------------------------------------------------
 		-- This manages the WoW expansion reputation filter menu panel
 		-------------------------------------------------------------------------------
@@ -673,17 +669,19 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Generic function to create expansion buttons.
 		-------------------------------------------------------------------------------
-		function rep_frame:CreateExpansionButton(texture, expansion)
+		function rep_frame:CreateExpansionButton(expansionIndex)
+			local expansionString = ("expansion%d"):format(expansionIndex)
 			local cButton = _G.CreateFrame("CheckButton", nil, self)
 			cButton:SetWidth(110)
 			cButton:SetHeight(50)
 			cButton:SetChecked(false)
 			cButton:SetScript("OnClick", function(self, button, down)
-				ToggleExpansionMenu(expansion)
+				ToggleExpansionMenu(expansionString)
 			end)
 
 			local iconTex = cButton:CreateTexture(nil, "BORDER")
-			iconTex:SetTexture(([[Interface\Glues\Common\%s]]):format(texture))
+			private.SetExpansionLogo(iconTex, expansionIndex)
+
 			iconTex:SetWidth(110)
 			iconTex:SetHeight(50)
 			iconTex:SetAllPoints(cButton)
@@ -706,7 +704,7 @@ function private.InitializeFilterPanel()
 			cButton:SetCheckedTexture(checkedTexture)
 
 			-- And throw up a tooltip
-			SetTooltipScripts(cButton, EXPANSION_TOOLTIP[expansion])
+			SetTooltipScripts(cButton, EXPANSION_TOOLTIPS[expansionString])
 
 			return cButton
 		end
@@ -714,34 +712,19 @@ function private.InitializeFilterPanel()
 		-------------------------------------------------------------------------------
 		-- Create the expansion toggles.
 		-------------------------------------------------------------------------------
-		local expansion0 = rep_frame:CreateExpansionButton("Glues-WoW-Logo", "expansion0")
-		expansion0:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 2, -10)
+		local expansion_buttons = {}
+		for expansionIndex = 1, #private.GAME_VERSION_NAMES do
+			local expansion_button = rep_frame:CreateExpansionButton(expansionIndex - 1)
+			expansion_buttons[#expansion_buttons + 1] = expansion_button
 
-		local expansion1 = rep_frame:CreateExpansionButton("GLUES-WOW-BCLOGO", "expansion1")
-		expansion1:SetPoint("TOP", expansion0, "BOTTOM", 0, 0)
+			if expansionIndex == 1 then
+				expansion_button:SetPoint("TOPLEFT", FilterPanel.rep, "TOPLEFT", 2, -10)
+			else
+				expansion_button:SetPoint("TOP", expansion_buttons[expansionIndex - 1], "BOTTOM", 0, 0)
+			end
 
-		local expansion2 = rep_frame:CreateExpansionButton("Glues-WOW-WotlkLogo", "expansion2")
-		expansion2:SetPoint("TOP", expansion1, "BOTTOM", 0, 0)
-
-		local expansion3 = rep_frame:CreateExpansionButton("Glues-WOW-CCLogo", "expansion3")
-		expansion3:SetPoint("TOP", expansion2, "BOTTOM", 0, 0)
-
-		local expansion4 = rep_frame:CreateExpansionButton("Glues-WOW-MPLogo", "expansion4")
-		expansion4:SetPoint("TOP", expansion3, "BOTTOM", 0, 0)
-
-		local expansion5 = rep_frame:CreateExpansionButton("Glues-WOW-WoDLogo", "expansion5")
-		expansion5:SetPoint("TOP", expansion4, "BOTTOM", 0, 0)
-
-		local expansion6 = rep_frame:CreateExpansionButton("Glues-WOW-LegionLogo", "expansion6")
-		expansion6:SetPoint("TOP", expansion5, "BOTTOM", 0, 0)
-
-		rep_frame.toggle_expansion0 = expansion0
-		rep_frame.toggle_expansion1 = expansion1
-		rep_frame.toggle_expansion2 = expansion2
-		rep_frame.toggle_expansion3 = expansion3
-		rep_frame.toggle_expansion4 = expansion4
-		rep_frame.toggle_expansion5 = expansion5
-		rep_frame.toggle_expansion6 = expansion6
+			rep_frame["toggle_expansion" .. expansionIndex - 1] = expansion_button
+		end
 	end	-- do
 
 	-------------------------------------------------------------------------------
