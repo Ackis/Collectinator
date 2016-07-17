@@ -612,39 +612,40 @@ do
 
 	local COLLECTABLE_SCAN_FUNCS = {
 		[private.COLLECTION_TYPE_IDS.MOUNT] = function(collectable_type, mounts)
-			local num_mounts = _G.C_MountJournal.GetNumMounts()
+			local mountIDs = _G.C_MountJournal.GetMountIDs()
 
-			local mount_names = {}
-			local mount_ids = {}
+			local unknownNPCNames = {}
+			local unknownNPCIDs = {}
 
-			for index = 1, num_mounts do
-				local mount_name, mount_id, icon, is_active, is_usable, source_type, is_favorite, is_faction_specific, faction, hide_on_char, is_collected = _G.C_MountJournal.GetDisplayedMountInfo(index)
-				local mount = mounts[mount_id]
+			for mountIDIndex = 1, #mountIDs do
+				local npcName, npcID, iconPath, isActive, _, _, is_faction_specific, faction, hide_on_char, is_collected = _G.C_MountJournal.GetMountInfoByID(mountIDs[mountIDIndex])
+				local mount = mounts[npcID]
 
 				if mount then
-					mount:SetIcon(icon)
-					mount:SetName(mount_name)
+					mount:SetIcon(iconPath)
+					mount:SetName(npcName)
 					if is_collected then
 						mount:AddState("KNOWN")
 					end
-				elseif mount_name and not hide_on_char and not mount_names[mount_id] then
-					mount_names[mount_id] = mount_name or _G.UNKNOWN
-					mount_ids[#mount_ids + 1] = mount_id
+				elseif npcName and not hide_on_char and not unknownNPCNames[npcID] then
+					unknownNPCNames[npcID] = npcName or _G.UNKNOWN
+					unknownNPCIDs[#unknownNPCIDs + 1] = npcID
 				end
 			end
-			table.sort(mount_ids)
+
+			table.sort(unknownNPCIDs)
 
 			--@debug@
 			private.TextDump:Clear()
-			for index = 1, #mount_ids do
-				local mount_id = mount_ids[index]
-				private.TextDump:AddLine(("-- %s -- %d"):format(mount_names[mount_id], mount_id))
-				private.TextDump:AddLine(("mount = AddMount(%d, V.LEGION, Q.EPIC)\n"):format(mount_id))
+			for index = 1, #unknownNPCIDs do
+				local npcID = unknownNPCIDs[index]
+				private.TextDump:AddLine(("-- %s -- %d"):format(unknownNPCNames[npcID], npcID))
+				private.TextDump:AddLine(("mount = AddMount(%d, V.LEGION, Q.EPIC)\n"):format(npcID))
 			end
-			local dump_lines = private.TextDump:Lines()
 
-			if dump_lines > 0 then
-				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
+			local dumpLines = private.TextDump:Lines()
+			if dumpLines > 0 then
+				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dumpLines / 2))
 				private.TextDump:Display()
 			end
 		--@end-debug@
