@@ -766,8 +766,12 @@ do
 		search_box:SetText("")
 		_G.PetJournal_OnSearchTextChanged(search_box)
 
-		COLLECTABLE_SCAN_FUNCS[current_panel](collectable_type, collectables)
 		private.Player:UpdateReputations()
+
+		local func = COLLECTABLE_SCAN_FUNCS[current_panel]
+		if func then
+			func(collectable_type, collectables)
+		end
 
 		-------------------------------------------------------------------------------
 		-- Everything is ready - display the GUI or dump the list to text.
