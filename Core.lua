@@ -700,47 +700,45 @@ do
 		end,
 
 		[private.COLLECTION_TYPE_IDS.HEIRLOOM] = function(collectable_type, heirlooms)
-			local num_heirlooms = _G.C_Heirloom.GetNumDisplayedHeirlooms()
-			local heirloom_ids = {}
-			local heirloom_item_ids = {}
-			local heirloom_names = {}
+			local itemIDs = _G.C_Heirloom.GetHeirloomItemIDs()
+			local unknownHeirloomIDs = {}
+			local unknownHeirloomNames = {}
 
-			for index = 1, num_heirlooms  do
-				local itemID = _G.C_Heirloom.GetHeirloomItemIDFromDisplayedIndex(index)
+			for itemIDIndex = 1, #itemIDs do
+				local itemID = itemIDs[itemIDIndex]
 
-				if itemID > -1 then
-					local heirloomName, _, _, icon = _G.C_Heirloom.GetHeirloomInfo(itemID)
-					local heirloom = heirlooms[itemID]
+				local heirloomName, _, _, icon = _G.C_Heirloom.GetHeirloomInfo(itemID)
+				local heirloom = heirlooms[itemID]
 
-					if heirloom then
-						heirloom:SetIcon(icon)
-						heirloom:SetItemID(itemID)
-						heirloom:SetName(heirloomName)
+				if heirloom then
+					heirloom:SetIcon(icon)
+					heirloom:SetItemID(itemID)
+					heirloom:SetName(heirloomName)
 
-						if _G.C_Heirloom.PlayerHasHeirloom(itemID) then
-							heirloom:AddState("KNOWN")
-						end
-					else
-						heirloom_ids[#heirloom_ids + 1] = itemID
-						heirloom_item_ids[itemID] = itemID
-						heirloom_names[itemID] = heirloomName or _G.UNKNOWN
+					if _G.C_Heirloom.PlayerHasHeirloom(itemID) then
+						heirloom:AddState("KNOWN")
 					end
+				else
+					unknownHeirloomIDs[#unknownHeirloomIDs + 1] = itemID
+					unknownHeirloomNames[itemID] = heirloomName or _G.UNKNOWN
 				end
+
 			end
-			table.sort(heirloom_ids)
+
+			table.sort(unknownHeirloomIDs)
 
 			--@debug@
 			private.TextDump:Clear()
-			for index = 1, #heirloom_ids do
-				local heirloom_id = heirloom_ids[index]
-				private.TextDump:AddLine(("-- %s -- %d"):format(heirloom_names[heirloom_id], heirloom_id))
-				private.TextDump:AddLine(("heirloom = AddHeirloom(%d, V.LEGION, Q.ARTIFACT)"):format(heirloom_id))
+			for itemIDIndex = 1, #unknownHeirloomIDs do
+				local itemID = unknownHeirloomIDs[itemIDIndex]
+				private.TextDump:AddLine(("-- %s -- %d"):format(unknownHeirloomNames[itemID], itemID))
+				private.TextDump:AddLine(("heirloom = AddHeirloom(%d, V.LEGION, Q.ARTIFACT)"):format(itemID))
 				private.TextDump:AddLine(("heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)\n"))
 			end
-			local dump_lines = private.TextDump:Lines()
 
-			if dump_lines > 0 then
-				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
+			local dumpLines = private.TextDump:Lines()
+			if dumpLines > 0 then
+				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dumpLines / 2))
 				private.TextDump:Display()
 			end
 		--@end-debug@
