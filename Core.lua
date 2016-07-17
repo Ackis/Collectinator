@@ -756,15 +756,11 @@ do
 
 		local collectables = private.collectable_list[collectable_type]
 
-		if not collectables then
-			addon:Debug("Error, %s table not made.", collectable_type)
-			return
-		end
-
 		for id, collectable in pairs(collectables) do
 			collectable:RemoveState("RELEVANT")
 			collectable:RemoveState("VISIBLE")
 		end
+
 		local search_box = _G.PetJournalSearchBox
 		search_box:ClearFocus()
 		search_box:SetText("")

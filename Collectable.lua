@@ -26,7 +26,13 @@ local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 local A = private.ACQUIRE_TYPES
 
-private.collectable_list = {}
+local collectable_list = {}
+private.collectable_list = collectable_list
+
+for categoryIndex = 1, #private.ORDERED_COLLECTIONS do
+	collectable_list[private.ORDERED_COLLECTIONS[categoryIndex]] = {}
+end
+
 private.num_category_collectables = {}
 
 do
@@ -94,10 +100,6 @@ local CATEGORY_METATABLES = {
 }
 
 function addon:AddCollectable(collectable_id, collectable_type, genesis, quality)
-	if not private.collectable_list[collectable_type] then
-		private.collectable_list[collectable_type] = {}
-	end
-
 	if not addon.db.profile.exclusionlist[collectable_type] then
 		addon.db.profile.exclusionlist[collectable_type] = {}
 	end
