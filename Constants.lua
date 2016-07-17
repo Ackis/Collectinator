@@ -1,19 +1,3 @@
---[[
-************************************************************************
-Constants.lua
-Constants used within Collectinator
-************************************************************************
-File date: @file-date-iso@
-File hash: @file-abbreviated-hash@
-Project hash: @project-abbreviated-hash@
-Project version: @project-version@
-************************************************************************
-Please see http://www.wowace.com/addons/collectinator/ for more information.
-************************************************************************
-This source code is released under All Rights Reserved.
-************************************************************************
-]]--
-
 -------------------------------------------------------------------------------
 -- Upvalued Lua API
 -------------------------------------------------------------------------------
@@ -231,38 +215,38 @@ private.REP_FLAGS_WORD1 = {
 -- Reputation filter bitfield word 2.
 -------------------------------------------------------------------------------
 private.REP_FLAGS_WORD2 = {
-	THE_ASHEN_VERDICT		= 0x00000001,	-- 1
-	CATACOMMON1			= 0x00000002,	-- 2  -- Wildhammer Clan / Dragonmaw Clan
-	CATACOMMON2			= 0x00000004,	-- 3  -- Baradin's Wardens / Hellscream's Reach
-	GUARDIANS_OF_HYJAL		= 0x00000008,	-- 4
-	RAMKAHEN			= 0x00000010,	-- 5
-	THE_EARTHEN_RING		= 0x00000020,	-- 6
-	THERAZANE			= 0x00000040,	-- 7
-	GOLDEN_LOTUS			= 0x00000080,	-- 8
-	ORDER_OF_THE_CLOUD_SERPENT	= 0x00000100,	-- 9
-	PANDACOMMON2			= 0x00000200,	-- 10 -- Forest Hozen / Pearlfin Jinu
-	SHADO_PAN			= 0x00000400,	-- 11
-	THE_ANGLERS			= 0x00000800,	-- 12
-	THE_AUGUST_CELESTIALS		= 0x00001000,	-- 13
-	THE_BREWMASTERS			= 0x00002000,	-- 14
-	THE_KLAXXI			= 0x00004000,	-- 15
-	THE_LOREWALKERS			= 0x00008000,	-- 16
-	THE_TILLERS			= 0x00010000,	-- 17
-	THE_BLACK_PRINCE		= 0x00020000,	-- 18
-	SHANG_XIS_ACADEMY		= 0x00040000,	-- 19
-	PANDACOMMON1			= 0x00080000,	-- 20 -- Huojin Pandaren / Tushui Pandaren
-	GUILD				= 0x00100000,	-- 21
-	NETHERWING			= 0x00200000,	-- 22
-	BRAWLERS			= 0x00400000,	-- 23 -- Bizmo's Brawlpub / Brawl'gar Arena
-	PANDACOMMON3			= 0x00800000,	-- 24 -- Kirin Tor Offensive / Sunreaver Onslaught
-	EMPEROR_SHAOHAO			= 0x01000000,	-- 25
+	THE_ASHEN_VERDICT			= 0x00000001,	-- 1
+	CATACOMMON1				= 0x00000002,	-- 2  -- Wildhammer Clan / Dragonmaw Clan
+	CATACOMMON2				= 0x00000004,	-- 3  -- Baradin's Wardens / Hellscream's Reach
+	GUARDIANS_OF_HYJAL			= 0x00000008,	-- 4
+	RAMKAHEN				= 0x00000010,	-- 5
+	THE_EARTHEN_RING			= 0x00000020,	-- 6
+	THERAZANE				= 0x00000040,	-- 7
+	GOLDEN_LOTUS				= 0x00000080,	-- 8
+	ORDER_OF_THE_CLOUD_SERPENT		= 0x00000100,	-- 9
+	PANDACOMMON2				= 0x00000200,	-- 10 -- Forest Hozen / Pearlfin Jinu
+	SHADO_PAN				= 0x00000400,	-- 11
+	THE_ANGLERS				= 0x00000800,	-- 12
+	THE_AUGUST_CELESTIALS			= 0x00001000,	-- 13
+	THE_BREWMASTERS				= 0x00002000,	-- 14
+	THE_KLAXXI				= 0x00004000,	-- 15
+	THE_LOREWALKERS				= 0x00008000,	-- 16
+	THE_TILLERS				= 0x00010000,	-- 17
+	THE_BLACK_PRINCE			= 0x00020000,	-- 18
+	SHANG_XIS_ACADEMY			= 0x00040000,	-- 19
+	PANDACOMMON1				= 0x00080000,	-- 20 -- Huojin Pandaren / Tushui Pandaren
+	GUILD					= 0x00100000,	-- 21
+	NETHERWING				= 0x00200000,	-- 22
+	BRAWLERS				= 0x00400000,	-- 23 -- Bizmo's Brawlpub / Brawl'gar Arena
+	PANDACOMMON3				= 0x00800000,	-- 24 -- Kirin Tor Offensive / Sunreaver Onslaught
+	EMPEROR_SHAOHAO				= 0x01000000,	-- 25
 	STEAMWHEEDLE_PRESERVATION_SOCIETY	= 0x02000000,	-- 26
-	DRAENORCOMMON1			= 0x04000000,	-- 27 -- Wrynn's Vanguard /  Vol'jin's Spear
-	DRAENORCOMMON2			= 0x08000000,	-- 28 -- Council of Exarchs / Frostwolf Orcs
-	DRAENORCOMMON3			= 0x10000000,	-- 29 -- Shatari Defense / Laughing Skull Orcs
-	DRAENORCOMMON4			= 0x20000000,	-- 30 -- Hand of the Prophet / Voljins Headhunters
-	ORDER_OF_THE_AWAKENED		= 0x40000000,	-- 31
-	ARAKKOA_OUTCASTS		= 0x80000000,	-- 32
+	DRAENORCOMMON1				= 0x04000000,	-- 27 -- Wrynn's Vanguard /  Vol'jin's Spear
+	DRAENORCOMMON2				= 0x08000000,	-- 28 -- Council of Exarchs / Frostwolf Orcs
+	DRAENORCOMMON3				= 0x10000000,	-- 29 -- Shatari Defense / Laughing Skull Orcs
+	DRAENORCOMMON4				= 0x20000000,	-- 30 -- Hand of the Prophet / Voljins Headhunters
+	ORDER_OF_THE_AWAKENED			= 0x40000000,	-- 31
+	ARAKKOA_OUTCASTS			= 0x80000000,	-- 32
 
 }
 
