@@ -608,8 +608,6 @@ end
 -- Collection Scanning Functions
 -------------------------------------------------------------------------------
 do
-	local UNKNOWN_PET_FORMAT = "%s: %d"
-
 	local COLLECTABLE_SCAN_FUNCS = {
 		[private.COLLECTION_TYPE_IDS.MOUNT] = function(collectable_type, mounts)
 			local mountIDs = _G.C_MountJournal.GetMountIDs()
