@@ -5650,8 +5650,9 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	pet:AddMobDrop(111197)
 
-	-- Squirky -- 113440
+	-- Squirky -- 113440  -- Needs updating
 	pet = AddPet(113440, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 
 	-- Wonderous Wisdomball -- 113827
 	pet = AddPet(113827, V.LEGION, Q.RARE)
