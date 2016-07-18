@@ -748,11 +748,11 @@ do
 	-- Causes a scan of the relevant collectable type to be conducted. Function called when the scan button is clicked.
 	-- Parses Collections and displays output
 	function addon:Scan(textdump, is_refresh)
-		local current_panel = _G.PanelTemplates_GetSelectedTab(_G.CollectionsJournal)
-		local collectable_type = private.ORDERED_COLLECTIONS[current_panel]
-		addon:InitializeCollection(collectable_type)
+		local currentPanelID = _G.PanelTemplates_GetSelectedTab(_G.CollectionsJournal)
+		local collectionID = private.ORDERED_COLLECTIONS[currentPanelID]
+		addon:InitializeCollection(collectionID)
 
-		local collectables = private.collectable_list[collectable_type]
+		local collectables = private.collectable_list[collectionID]
 
 		for id, collectable in pairs(collectables) do
 			collectable:RemoveState("RELEVANT")
@@ -766,9 +766,9 @@ do
 
 		private.Player:UpdateReputations()
 
-		local func = COLLECTABLE_SCAN_FUNCS[current_panel]
+		local func = COLLECTABLE_SCAN_FUNCS[currentPanelID]
 		if func then
-			func(collectable_type, collectables)
+			func(collectionID, collectables)
 		end
 
 		-------------------------------------------------------------------------------
@@ -780,7 +780,7 @@ do
 			if private.InitializeFrame then
 				private.InitializeFrame()
 			end
-			self.Frame:Display(private.ORDERED_COLLECTIONS[current_panel])
+			self.Frame:Display(private.ORDERED_COLLECTIONS[currentPanelID])
 		end
 	end
 end
