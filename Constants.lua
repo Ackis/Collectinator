@@ -21,8 +21,8 @@ private.PLAYER_NAME = _G.UnitName("player")
 private.REALM_NAME = _G.GetRealmName()
 
 private.COLLECTABLE_TEXTURES = {
-    CRITTER = [[Interface\AddOns\Collectinator\Images\CritterPortrait]],
-    MOUNT = [[Interface\AddOns\Collectinator\Images\MountPortrait]],
+    CRITTER = [[Interface\Icons\PetJournalPortrait]],
+    MOUNT = [[Interface\Icons\MountJournalPortrait]],
     TOY  = [[Interface\ICONS\TRADE_ARCHAEOLOGY_CHESTOFTINYGLASSANIMALS]],
     HEIRLOOM = [[Interface\ICONS\INV_MISC_ENGGIZMOS_19]],
     WARDROBE = [[Interface\ICONS\inv_chest_cloth_17]],

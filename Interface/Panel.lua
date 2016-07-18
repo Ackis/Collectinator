@@ -441,10 +441,8 @@ function private.InitializeFrame()
 	end)
 
 	function collection_cycler:SetTexture(collectable_type)
-		_G.SetPortraitToTexture(
-            "Collectinator_CollectionButtonPortrait",
-            private.COLLECTABLE_TEXTURES[private.ORDERED_COLLECTIONS[collectable_type]] or [[Interface\ICONS\INV_Mushroom_11]]
-        )
+		_G.SetPortraitToTexture("Collectinator_CollectionButtonPortrait",
+			private.COLLECTABLE_TEXTURES[private.ORDERED_COLLECTIONS[collectable_type]] or [[Interface\ICONS\INV_Mushroom_11]])
 	end
 
 	-------------------------------------------------------------------------------
