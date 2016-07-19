@@ -3529,8 +3529,8 @@ function addon:InitMounts()
 end
 
 
--- Mounts that are NPC mounts, never made it in game, and need to go away
-local MOUNT_NPCID_BLACKLIST = {
+-- Mounts that should never show in a dump due to being NPC mounts or being removed from/never making it into the game.
+local MOUNT_SPELLID_BLACKLIST = {
 	[459] = true,		[468] = true,		[578] = true,		[579] = true,		[581] = true,
 	[6896] = true,		[8980] = true,		[10795] = true,		[15780] = true, 	[18363] = true,
 	[25863] = true,		[26655] = true,		[28828] = true,		[33630] = true,		[44317] = true,
@@ -3549,20 +3549,20 @@ function private.UpdateMountList()
 	local unknownNPCIDs = {}
 
 	for mountIDIndex = 1, #mountIDs do
-		local npcName, npcID, iconPath, isActive, _, _, is_faction_specific, faction, hide_on_char, is_collected = _G.C_MountJournal.GetMountInfoByID(mountIDs[mountIDIndex])
+		local creatureName, spellID, iconPath, isActive, isUsable, sourceType, isFavorite, isFactionSpecific, faction, hideOnChar, isCollected = _G.C_MountJournal.GetMountInfoByID(mountIDs[mountIDIndex])
 
-		if not MOUNT_NPCID_BLACKLIST[npcID] then
-			local mount = private.collectable_list.MOUNT[npcID]
+		if not MOUNT_SPELLID_BLACKLIST[spellID] then
+			local mount = private.collectable_list.MOUNT[spellID]
 
 			if mount then
 				mount:SetIcon(iconPath)
-				mount:SetName(npcName)
-				if is_collected then
+				mount:SetName(creatureName)
+				if isCollected then
 					mount:AddState("KNOWN")
 				end
-			elseif npcName and not hide_on_char and not unknownNPCNames[npcID] then
-				unknownNPCNames[npcID] = npcName or _G.UNKNOWN
-				unknownNPCIDs[#unknownNPCIDs + 1] = npcID
+			elseif creatureName and not hideOnChar and not unknownNPCNames[spellID] then
+				unknownNPCNames[spellID] = creatureName or _G.UNKNOWN
+				unknownNPCIDs[#unknownNPCIDs + 1] = spellID
 			end
 		end
 	end
