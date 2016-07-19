@@ -3517,128 +3517,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP)
 	mount:AddAchievement(11061)
 
--- Mounts which are duplicates, temporary mounts, or never made it in game
--- Added to stop the debug popups. BAD BLIZZARD
-
-	-- Gray Wolf -- 459
-	mount = AddMount(459, V.LEGION, Q.EPIC)
-
-	-- White Stallion -- 468
-	mount = AddMount(468, V.LEGION, Q.EPIC)
-
-	-- Black Wolf -- 578
-	mount = AddMount(578, V.LEGION, Q.EPIC)
-
-	-- Red Wolf -- 579
-	mount = AddMount(579, V.LEGION, Q.EPIC)
-
-	-- Winter Wolf -- 581
-	mount = AddMount(581, V.LEGION, Q.EPIC)
-
-	-- Black Ram -- 6896
-	mount = AddMount(6896, V.LEGION, Q.EPIC)
-
-	-- Skeletal Horse -- 8980
-	mount = AddMount(8980, V.LEGION, Q.EPIC)
-
-	-- Ivory Raptor -- 10795
-	mount = AddMount(10795, V.LEGION, Q.EPIC)
-
-	-- Green Mechanostrider -- 15780
-	mount = AddMount(15780, V.LEGION, Q.EPIC)
-
-	-- Riding Kodo -- 18363
-	mount = AddMount(18363, V.LEGION, Q.EPIC)
-
-	-- Black Qiraji Battle Tank -- 25863
-	mount = AddMount(25863, V.LEGION, Q.EPIC)
-
-	-- Black Qiraji Battle Tank -- 26655
-	mount = AddMount(26655, V.LEGION, Q.EPIC)
-
-	-- Nether Drake -- 28828
-	mount = AddMount(28828, V.LEGION, Q.EPIC)
-
-	-- Blue Mechanostrider -- 33630
-	mount = AddMount(33630, V.LEGION, Q.EPIC)
-
-	-- Merciless Nether Drake -- 44317
-	mount = AddMount(44317, V.LEGION, Q.EPIC)
-
-	-- Swift Zhevra -- 48954
-	mount = AddMount(48954, V.LEGION, Q.EPIC)
-
-	-- Brewfest Riding Kodo -- 49378
-	mount = AddMount(49378, V.LEGION, Q.EPIC)
-
-	-- Swift Spectral Gryphon -- 55164
-	mount = AddMount(55164, V.LEGION, Q.EPIC)
-
-	-- Swift Brown Steed -- 58819
-	mount = AddMount(58819, V.WOD, Q.COMMON)
-
-	-- Black Polar Bear -- 59572
-	mount = AddMount(59572, V.LEGION, Q.COMMON)
-
-	-- Grand Caravan Mammoth -- 60136
-	mount = AddMount(60136, V.LEGION, Q.EPIC)
-
-	-- Grand Caravan Mammoth -- 60140
-	mount = AddMount(60140, V.LEGION, Q.EPIC)
-
-	-- Black Dragonhawk Mount -- 62048
-	mount = AddMount(62048, V.LEGION, Q.EPIC)
-
-	-- Blue Skeletal Warhorse -- 64656
-	mount = AddMount(64656, V.LEGION, Q.COMMON)
-
-	-- Magic Rooster -- 66122
-	mount = AddMount(66122, V.LEGION, Q.EPIC)
-
-	-- Magic Rooster -- 66123
-	mount = AddMount(66123, V.LEGION, Q.EPIC)
-
-	-- Magic Rooster -- 66124
-	mount = AddMount(66124, V.LEGION, Q.EPIC)
-
-	-- Argent Warhorse -- 66907
-	mount = AddMount(66907, V.WOD, Q.COMMON)
-
-	-- White Riding Yak -- 123182
-	mount = AddMount(123182, V.LEGION, Q.EPIC)
-
-	-- Black Riding Yak -- 127209
-	mount = AddMount(127209, V.LEGION, Q.EPIC)
-
-	-- Brown Riding Yak -- 127213
-	mount = AddMount(127213, V.LEGION, Q.EPIC)
-
-	-- Furious Ashhide Mushan -- 148626
-	mount = AddMount(148626, V.WOD, Q.COMMON)
-
-	-- Felsteed -- 148970
-	mount = AddMount(148970, V.LEGION, Q.EPIC)
-
-	-- Dreadsteed -- 148972
-	mount = AddMount(148972, V.LEGION, Q.EPIC)
-
-	-- Swift Spectral Rylak -- 194046
-	mount = AddMount(194046, V.LEGION, Q.EPIC)
-
-	-- Predatory Bloodgazer -- 213158
-	mount = AddMount(213158, V.LEGION, Q.EPIC)
-
-	-- Snowfeather Hunter -- 213163
-	mount = AddMount(213163, V.LEGION, Q.EPIC)
-
-	-- Brilliant Direbeak -- 213164
-	mount = AddMount(213164, V.LEGION, Q.EPIC)
-
-	-- Viridian Sharptalon -- 213165
-	mount = AddMount(213165, V.LEGION, Q.EPIC)
-
-	-- Fel Bat (Test) -- 215545
-	mount = AddMount(215545, V.LEGION, Q.EPIC)
+-- Unknown mounts
 
 	-- Fierce Gladiator's Storm Dragon -- 227994
 	mount = AddMount(227994, V.LEGION, Q.EPIC)
@@ -3650,7 +3529,17 @@ function addon:InitMounts()
 end
 
 
+-- Mounts that are NPC mounts, never made it in game, and need to go away
 local MOUNT_NPCID_BLACKLIST = {
+	[459] = true,		[468] = true,		[578] = true,		[579] = true,		[581] = true,
+	[6896] = true,		[8980] = true,		[10795] = true,		[15780] = true, 	[18363] = true,
+	[25863] = true,		[26655] = true,		[28828] = true,		[33630] = true,		[44317] = true,
+	[48954] = true,		[49378] = true,		[55164] = true,		[58819] = true,		[59572] = true,
+	[60136] = true,		[60140] = true,		[62048] = true,		[64656] = true,		[66122] = true,
+	[66123] = true,		[66124] = true,		[66907] = true,		[123182] = true,	[127209] = true,
+	[127213] = true,	[148626] = true,	[148970] = true,	[148972] = true,	[194046] = true,
+	[213158] = true,	[213163] = true,	[213164] = true,	[213165] = true,	[215545] = true,
+
 }
 
 function private.UpdateMountList()
