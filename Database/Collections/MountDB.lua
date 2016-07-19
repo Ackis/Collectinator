@@ -3536,9 +3536,10 @@ local MOUNT_NPCID_BLACKLIST = {
 	[25863] = true,		[26655] = true,		[28828] = true,		[33630] = true,		[44317] = true,
 	[48954] = true,		[49378] = true,		[55164] = true,		[58819] = true,		[59572] = true,
 	[60136] = true,		[60140] = true,		[62048] = true,		[64656] = true,		[66122] = true,
-	[66123] = true,		[66124] = true,		[66907] = true,		[123182] = true,	[127209] = true,
-	[127213] = true,	[148626] = true,	[148970] = true,	[148972] = true,	[194046] = true,
-	[213158] = true,	[213163] = true,	[213164] = true,	[213165] = true,	[215545] = true,
+	[66123] = true,		[66124] = true,		[66907] = true,		[123182] = true,	[127165] = true,
+	[127209] = true,	[127213] = true,	[148626] = true,	[148970] = true,	[148972] = true,
+	[194046] = true,	[213158] = true,	[213163] = true,	[213164] = true,	[213165] = true,
+	[215545] = true,
 
 }
 
