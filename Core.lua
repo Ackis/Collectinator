@@ -464,51 +464,6 @@ function addon:OnInitialize()
 		TOY = addon.InitToys,
 		HEIRLOOM = addon.InitHeirloom,
 	}
-
-	-------------------------------------------------------------------------------
-	-- Hook GameTooltip so we can show information on mobs that drop/sell/train
-	-------------------------------------------------------------------------------
---Tooltip shit can come later
---[[
-	_G.GameTooltip:HookScript("OnTooltipSetUnit", function(self)
-		if not addon.db.profile.collections_in_tooltips then
-			return
-		end
-		local name, tooltip_unit = self:GetUnit()
-
-		if not tooltip_unit or not _G.UnitGUID(tooltip_unit) then
-			return
-		end
-		local id_num = private.MobGUIDToIDNum(_G.UnitGUID(tooltip_unit))
-		local unit = private.mob_list[id_num] or private.vendor_list[id_num] or private.trainer_list[id_num]
-
-		if not unit or not unit.item_list then
-			return
-		end
-		local player = private.Player
-		local count = 0
-
-		for spell_id in pairs(unit.item_list) do
-			local collection = private.recipe_list[spell_id]
-			local recipe_prof = _G.GetSpellInfo(recipe.profession)
-
-			if player.scanned_professions[recipe_prof] then
-				local skill_level = player.professions[recipe_prof]
-
-				if (_G.IsShiftKeyDown() or (not recipe:HasState("KNOWN"))) and player:HasCollectableFaction(recipe) then
-					local _, _, _, hex = _G.GetItemQualityColor(recipe.quality)
-
-					self:AddLine(("%s: |c%s%s|r (%d)"):format(recipe.profession, hex, recipe.name, recipe.skill_level))
-					count = count + 1
-				end
-			end
-
-			if count >= addon.db.profile.max_collections_in_tooltips then
-				break
-			end
-		end
-	end)
-]]--
 end
 
 --- Function run when the addon is enabled.  Registers events and pre-loads certain variables.
