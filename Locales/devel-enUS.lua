@@ -430,6 +430,7 @@ L["Provisioner Nasela"] = true
 L["Pugg"] = true
 L["QUALITY_GENERAL_DESC"] = "Include %s quality recipe items in the scan."
 L["Quartermaster Brazie"] = true
+L["Quartermaster Miranda Breechlock"] = true
 L["Quackenbush"] = true
 L["Quivering Filth"] = true
 L["RECRUIT"] = "Available via Recruit-A-Friend."

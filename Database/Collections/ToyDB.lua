@@ -1841,6 +1841,12 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	toy:AddZoneLocations(Z.TIMELESS_ISLE, nil, "40.4:92.3")
 
+	-- Thaumaturgist's Orb -- 136928
+	toy = AddToy(136928, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(11536)
+	toy:SetRequiredClass("Priest")
+
 	-- Soft Foam Sword -- 137663
 	toy = AddToy(137663, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
@@ -2101,10 +2107,7 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PRIEST)
 	toy:AddCustom("CLASS_HALL")
 
-	-- Thaumaturgist's Orb -- 136928
-	toy = AddToy(136928, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PRIEST)
-	toy:AddCustom("CLASS_HALL")
+
 
 	-- Dalaran Initiates' Pin -- 137294
 	toy = AddToy(137294, V.LEGION, Q.RARE)
