@@ -661,7 +661,7 @@ do
 
 	-- Causes a scan of the relevant collectable type to be conducted. Function called when the scan button is clicked.
 	-- Parses Collections and displays output
-	function addon:Scan(textdump, is_refresh)
+	function addon:Scan()
 		local currentPanelID = _G.PanelTemplates_GetSelectedTab(_G.CollectionsJournal)
 		local collectionID = private.ORDERED_COLLECTIONS[currentPanelID]
 		addon:InitializeCollection(collectionID)
@@ -685,16 +685,10 @@ do
 			func(collectionID, collectables)
 		end
 
-		-------------------------------------------------------------------------------
-		-- Everything is ready - display the GUI or dump the list to text.
-		-------------------------------------------------------------------------------
-		if textdump then
-			--self:DisplayTextDump(profession_recipes, current_panel)
-		else
-			if private.InitializeFrame then
-				private.InitializeFrame()
-			end
-			self.Frame:Display(private.ORDERED_COLLECTIONS[currentPanelID])
+		if private.InitializeFrame then
+			private.InitializeFrame()
 		end
+
+		self.Frame:Display(private.ORDERED_COLLECTIONS[currentPanelID])
 	end
 end
