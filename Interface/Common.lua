@@ -44,20 +44,22 @@ do
 	local collectable_list
 	local sorted_collectables = addon.sorted_collectables
 
-	local function Sort_NameAsc(a, b)
+	local function Sort_NameAsc(aID, bID)
 		--@alpha@
-		if not collectable_list[a].name then
-			addon:Debug("Collectable ID %d does not have a name.", a)
+		if not collectable_list[aID].name then
+			addon:Debug("Collectable ID %d does not have a name.", aID)
 		end
-		if not collectable_list[b].name then
-			addon:Debug("Collectable ID %d does not have a name.", b)
+
+		if not collectable_list[bID].name then
+			addon:Debug("Collectable ID %d does not have a name.", bID)
 		end
 		--@end-alpha@
-		return collectable_list[a].name < collectable_list[b].name
+
+		return collectable_list[aID]:GetName() < collectable_list[bID]:GetName()
 	end
 
-	local function Sort_NameDesc(a, b)
-		return collectable_list[a].name > collectable_list[b].name
+	local function Sort_NameDesc(aID, bID)
+		return collectable_list[aID]:GetName() > collectable_list[bID]:GetName()
 	end
 
 	local COLLECTABLE_SORT_FUNCS = {

@@ -118,10 +118,15 @@ function addon:AddCollectable(collectable_id, collectable_type, genesis, quality
 		genesis = private.GAME_VERSION_NAMES[genesis],
 		quality = quality,
 		description = "",
-		name = _G.UNKNOWN,
+		name = nil,
 		flags = {},
 		acquire_data = {},
 	}, CATEGORY_METATABLES[collectable_type] or collectable_meta)
+
+	-- Total hack for now.
+	if collectable_type == "TOY" then
+		local itemName = _G.GetItemInfo(collectable_id)
+	end
 
 	collectable_list[collectable_id] = collectable
 	private.num_category_collectables[collectable_type] = (private.num_category_collectables[collectable_type] or 0) + 1
@@ -165,6 +170,26 @@ end
 
 function pet_prototype:Weather()
 	return self.weather
+end
+
+-------------------------------------------------------------------------------
+-- Toy methods.
+-------------------------------------------------------------------------------
+function toy_prototype:GetName()
+	self.name = self.name or _G.GetItemInfo(self.id)
+
+	return self.name
+end
+
+function toy_prototype:Icon()
+	if self.icon then
+		return self.icon
+	end
+
+	local _, _, _, _, texture = _G.GetItemInfoInstant(self.id)
+	self:SetIcon(texture)
+
+	return self.icon
 end
 
 -------------------------------------------------------------------------------
@@ -357,20 +382,21 @@ do
 	end
 end -- do-block
 
-do
-	local UNKNOWN_FORMAT = _G.UNKNOWN .. " %d"
+function collectable_prototype:GetName()
+	return self.name or ("%s - %d"):format(_G.UNKNOWN, self.id)
+end
 
-	function collectable_prototype:GetDisplayName()
-		local _, _, _, quality_color = _G.GetItemQualityColor(self.quality)
-		local has_faction = private.Player:HasProperRepLevel(self.acquire_data[A.REPUTATION])
-		local display_name = ("|c%s%s|r"):format(quality_color, self.name or UNKNOWN_FORMAT:format(self.id))
+function collectable_prototype:GetDisplayName()
+	local _, _, _, quality_color = _G.GetItemQualityColor(self.quality)
+	local has_faction = private.Player:HasProperRepLevel(self.acquire_data[A.REPUTATION])
+	local display_name = ("|c%s%s|r"):format(quality_color, self:GetName())
 
-		if addon.db.profile.exclusionlist[self.id] then
-			display_name = ("** %s **"):format(display_name)
-		end
-		return display_name
+	if addon.db.profile.exclusionlist[self.id] then
+		display_name = ("** %s **"):format(display_name)
 	end
-end -- do-block
+
+	return display_name
+end
 
 function collectable_prototype:SetMiscFilterType(filter_type)
 	if not private.COLLECTION_FILTER_TYPES[filter_type:upper()] then
