@@ -81,6 +81,16 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	toy:AddProfession(PROF.ENGINEERING)
 
+	-- Dimensional Ripper - Everlook -- 18984
+	toy = AddToy(18984, V.ORIG, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Ultrasafe Transporter: Gadgetzan -- 18986
+	toy = AddToy(18986, V.ORIG, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
 	-- Elune's Lantern -- 21540
 	toy = AddToy(21540, V.ORIG, Q.UNCOMMON)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
@@ -90,6 +100,16 @@ function addon:InitToys()
 -- The Burning Crusade
 	-- Crashin' Thrashin' Robot -- 23767
 	toy = AddToy(23767, V.TBC, Q.UNCOMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Dimensional Ripper - Area 52 -- 30542
+	toy = AddToy(30542, V.TBC, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Ultrasafe Transporter: Toshley's Station -- 30544
+	toy = AddToy(30544, V.TBC, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
 	toy:AddProfession(PROF.ENGINEERING)
 
@@ -193,6 +213,11 @@ function addon:InitToys()
 	toy = AddToy(38578, V.WOTLK, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
 	toy:AddCustom("TCG", "BMAH")
+
+	-- MOLL-E -- 40768
+	toy = AddToy(40768, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
 
 	-- Gnomish X-Ray Specs -- 40895
 	toy = AddToy(40895, V.WOTLK, Q.RARE)
@@ -306,6 +331,11 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddVendor(34885)
 
+	-- Wormhole Generator: Northrend -- 48933
+	toy = AddToy(48933, V.WOTLK, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
 	-- Perpetual Purple Firework -- 49703
 	toy = AddToy(49703, V.WOTLK, Q.EPIC)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.TCG)
@@ -348,6 +378,11 @@ function addon:InitToys()
 	toy:AddVendor(29478, 29716, 52358, 52809)
 
 -- Cataclysm
+	-- Gnomish Gravity Well -- 40727
+	toy = AddToy(40727, V.CATA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
 	-- MiniZep Controller -- 46709
 	toy = AddToy(46709, V.CATA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
@@ -358,6 +393,11 @@ function addon:InitToys()
 	toy = AddToy(53057, V.CATA, Q.COMMON)
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(14392)
+
+	-- Loot-A-Rang -- 60854
+	toy = AddToy(60854, V.CATA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
 
 	-- Tol Barad Searchlight -- 63141
 	toy = AddToy(63141, V.CATA, Q.RARE)
@@ -630,6 +670,16 @@ function addon:InitToys()
 	toy = AddToy(86596, V.MOP, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(7274)
+
+	-- Blingtron 4000 -- 87214
+	toy = AddToy(87214, V.MOP, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Wormhole Generator: Pandaria -- 87215
+	toy = AddToy(87215, V.MOP, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
 
 	-- Honorary Brewmaster Keg -- 87528
 	toy = AddToy(87528, V.MOP, Q.RARE)
@@ -973,6 +1023,16 @@ function addon:InitToys()
 	toy = AddToy(111476, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(78867)
+
+	-- Blingtron 5000 -- 111821
+	toy = AddToy(111821, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
+
+	-- Wormhole Centrifuge -- 112059
+	toy = AddToy(112059, V.WOD, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ENGINEERING)
 
 	-- Nightmarish Hitching Post -- 112324
 	toy = AddToy(112324, V.WOD, Q.EPIC)
