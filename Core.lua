@@ -566,52 +566,8 @@ do
 			private.UpdatePetList()
 		end,
 		[private.COLLECTION_TYPE_IDS.TOY] = function(collectable_type, toys)
-			local num_toys = _G.C_ToyBox.GetNumToys()
-			local toy_ids = {}
-			local toy_item_ids = {}
-			local toy_names = {}
-
-			for index = 1, num_toys  do
-				local toy_id = _G.C_ToyBox.GetToyFromIndex(index)
-
-				if toy_id > -1 then
-					local itemID, toyName, icon = _G.C_ToyBox.GetToyInfo(toy_id)
-					local toy = toys[toy_id]
-
-					if toy then
-						toy:SetIcon(icon)
-						toy:SetItemID(itemID)
-						toy:SetName(toyName)
-
-						if _G.PlayerHasToy(toy_id) then
-							toy:AddState("KNOWN")
-						end
-					else
-						toy_ids[#toy_ids + 1] = toy_id
-						toy_item_ids[toy_id] = itemID
-						toy_names[toy_id] = toyName or _G.UNKNOWN
-					end
-				end
-			end
-			table.sort(toy_ids)
-
-			--@debug@
-			private.TextDump:Clear()
-			for index = 1, #toy_ids do
-				local toy_id = toy_ids[index]
-				private.TextDump:AddLine(("-- %s -- %d"):format(toy_names[toy_id], toy_id))
-				private.TextDump:AddLine(("toy = AddToy(%d, V.LEGION, Q.RARE)"):format(toy_id))
-				private.TextDump:AddLine(("toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)\n"))
-			end
-			local dump_lines = private.TextDump:Lines()
-
-			if dump_lines > 0 then
-				private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(dump_lines / 2))
-				private.TextDump:Display()
-			end
-		--@end-debug@
+			private.UpdateToyList(toys)
 		end,
-
 		[private.COLLECTION_TYPE_IDS.HEIRLOOM] = function(collectable_type, heirlooms)
 			local itemIDs = _G.C_Heirloom.GetHeirloomItemIDs()
 			local unknownHeirloomIDs = {}
