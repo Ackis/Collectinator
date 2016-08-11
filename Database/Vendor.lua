@@ -262,6 +262,7 @@ function addon:InitVendor()
 	AddVendor(108825,	L["Conjurer Margoss"],		Z.DALARAN_BROKENISLES,		 0.0,	 0.0,	"Neutral") -- Needs updating
 	AddVendor(110334,	L["Historian Llore"],		Z.STORMWIND_CITY,		 0.0,	 0.0,	"Alliance") -- Needs updating
 	AddVendor(110035,	L["Historian Ju'pa"],		Z.ORGRIMMAR,			 0.0,	 0.0,	"Horde") -- Needs updating
+	AddVendor(113615,	L["Ravika"],			Z.DUROTAR,			55.4,	11.3,	"Horde")
 	AddVendor(113843,	L["Kieule"],			Z.SURAMAR,			50.4,	53.0,	"Neutral")
 
 	self.InitVendor = nil

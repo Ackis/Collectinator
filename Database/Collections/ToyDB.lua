@@ -805,6 +805,18 @@ function addon:InitToys()
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(32589)
 
+	-- Whole-Body Shrinka' -- 97919
+	toy = AddToy(97919, V.MOP, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	toy:SetRequiredFaction("Horde")
+	toy:AddVendor(113615)
+
+	-- Sen'jin Spirit Drum -- 97942
+	toy = AddToy(97942, V.MOP, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	toy:SetRequiredFaction("Horde")
+	toy:AddVendor(113615)
+
 	-- Darkmoon Seesaw -- 97994
 	toy = AddToy(97994, V.MOP, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
@@ -819,6 +831,12 @@ function addon:InitToys()
 	toy = AddToy(98136, V.MOP, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MOB_DROP)
 	toy:AddMobDrop(68220)
+
+	-- Xan'tish's Flute -- 98552
+	toy = AddToy(98552, V.MOP, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	toy:SetRequiredFaction("Horde")
+	toy:AddVendor(113615)
 
 	-- Moonfang Shroud -- 101571
 	toy = AddToy(101571, V.MOP, Q.RARE)
