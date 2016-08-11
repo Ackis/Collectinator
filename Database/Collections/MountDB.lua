@@ -3104,6 +3104,7 @@ function addon:InitMounts()
 	mount:SetItemID(116791)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(8898)
+	mount:Retire()
 
 	-- Sunhide Gronnling -- 171849
 	mount = AddMount(171849, V.WOD, Q.EPIC)
