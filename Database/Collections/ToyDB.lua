@@ -906,13 +906,13 @@ function addon:InitToys()
 	toy = AddToy(97919, V.MOP, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	toy:SetRequiredFaction("Horde")
-	toy:AddVendor(113615)
+	toy:Retire()
 
 	-- Sen'jin Spirit Drum -- 97942
 	toy = AddToy(97942, V.MOP, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	toy:SetRequiredFaction("Horde")
-	toy:AddVendor(113615)
+	toy:Retire()
 
 	-- Darkmoon Seesaw -- 97994
 	toy = AddToy(97994, V.MOP, Q.RARE)
@@ -933,7 +933,7 @@ function addon:InitToys()
 	toy = AddToy(98552, V.MOP, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	toy:SetRequiredFaction("Horde")
-	toy:AddVendor(113615)
+	toy:Retire()
 
 	-- Moonfang Shroud -- 101571
 	toy = AddToy(101571, V.MOP, Q.RARE)

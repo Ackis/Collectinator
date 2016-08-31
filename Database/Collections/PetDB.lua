@@ -5530,7 +5530,7 @@ function addon:InitCritters()
 	-- Felbat Pup -- 106278
 	pet = AddPet(106278, V.LEGION, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
-	pet:AddWorldEvent("LEGION_INVASION")
+	pet:Retire()
 
 	-- Corgi Pup -- 106283
 	pet = AddPet(106283, V.LEGION, Q.RARE)
