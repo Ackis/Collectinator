@@ -2032,7 +2032,7 @@ function addon:InitToys()
 	-- Soft Foam Sword -- 137663
 	toy = AddToy(137663, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
-	toy:AddVendor(96483)
+	toy:AddVendor(29478, 96483)
 
 	-- Sparklepony XL -- 138202
 	toy = AddToy(138202, V.LEGION, Q.RARE)
