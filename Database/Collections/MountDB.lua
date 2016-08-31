@@ -3275,9 +3275,7 @@ function addon:InitMounts()
 	-- Grove Warden -- 189999
 	mount = AddMount(189999, V.WOD, Q.EPIC)
 	mount:SetItemID(128422)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID)
-	mount:AddMobDrop(91331)
-	mount:AddCustom("HEROIC", "MYTHIC")
+	mount:Retire()
 
 	-- Bristling Hellboar -- 190690
 	mount = AddMount(190690, V.WOD, Q.RARE)
