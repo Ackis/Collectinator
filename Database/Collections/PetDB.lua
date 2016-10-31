@@ -5194,6 +5194,15 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.DREAMWEAVERS)
 	pet:AddRepVendor(FAC.DREAMWEAVERS, REP.REVERED, 106901)
 
+	-- Noblegarden Bunny -- 33975
+	pet = AddPet(33975, V.LEGION, Q.RARE)
+	pet:SetItemID(141532)
+	pet:SetSpellID(227113)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS, F.IBOE)
+	pet:AddWorldEvent("NOBLEGARDEN")
+	pet:AddVendor(32836, 32837)
+	pet:AddCustom("NOBLE_VENDOR")
+
 	-- River Calf -- 79730
 	pet = AddPet(79730, V.LEGION, Q.RARE)
 	pet:SetItemID(140274)
@@ -5686,6 +5695,126 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	pet:SetRequiredClass("Shaman")
 	pet:AddCustom("CLASS_HALL")
+
+	-- Igneous Flameling -- 114543
+	pet = AddPet(114543, V.LEGION, Q.RARE)
+	pet:SetItemID(141714)
+	pet:SetSpellID(227964)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS, F.IBOE)
+	pet:AddWorldEvent("MIDSUMMER_FIRE_FESTIVAL")
+	pet:AddVendor(26123, 26124)
+	pet:AddCustom("CITY")
+
+	-- Dreadmaw -- 115135
+	pet = AddPet(115135, V.LEGION, Q.RARE)
+	pet:SetItemID(142083)
+	pet:SetSpellID(229090)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(34797)
+
+	-- Snobold Runt -- 115136
+	pet = AddPet(115136, V.LEGION, Q.RARE)
+	pet:SetItemID(142084)
+	pet:SetSpellID(229091)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(34797)
+
+	-- Nerubian Swarmer -- 115137
+	pet = AddPet(115137, V.LEGION, Q.RARE)
+	pet:SetItemID(142085)
+	pet:SetSpellID(229092)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(34564)
+
+	-- Magma Rageling -- 115138
+	pet = AddPet(115138, V.LEGION, Q.RARE)
+	pet:SetItemID(142086)
+	pet:SetSpellID(229093)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(33118)
+
+	-- Ironbound Proto-Whelp -- 115139
+	pet = AddPet(115139, V.LEGION, Q.RARE)
+	pet:SetItemID(142087)
+	pet:SetSpellID(229094)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(33186)
+
+	-- Runeforged Servitor -- 115140
+	pet = AddPet(115140, V.LEGION, Q.RARE)
+	pet:SetItemID(142088)
+	pet:SetSpellID(229095)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(32867)
+
+	-- Sanctum Cub -- 115141
+	pet = AddPet(115141, V.LEGION, Q.RARE)
+	pet:SetItemID(142089)
+	pet:SetSpellID(229096)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(33515)
+
+	-- Winter Rageling -- 115142
+	pet = AddPet(115142, V.LEGION, Q.RARE)
+	pet:SetItemID(142090)
+	pet:SetSpellID(229097)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(32845)
+
+	-- Snaplasher -- 115143
+	pet = AddPet(115143, V.LEGION, Q.RARE)
+	pet:SetItemID(142091)
+	pet:SetSpellID(229098)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(32906)
+
+	-- G0-R41-0N Ultratonk -- 115144
+	pet = AddPet(115144, V.LEGION, Q.COMMON)
+
+	-- Creeping Tentacle -- 115145
+	pet = AddPet(115145, V.LEGION, Q.COMMON)
+
+	-- Boneshard -- 115146
+	pet = AddPet(115146, V.LEGION, Q.COMMON)
+
+	-- Blood Boil -- 115147
+	pet = AddPet(115147, V.LEGION, Q.COMMON)
+
+	-- Blightbreath -- 115148
+	pet = AddPet(115148, V.LEGION, Q.COMMON)
+
+	-- Soulbroken Whelpling -- 115149
+	pet = AddPet(115149, V.LEGION, Q.COMMON)
+
+	-- Drudge Ghoul -- 115150
+	pet = AddPet(115150, V.LEGION, Q.COMMON)
+
+	-- Wicked Soul -- 115152
+	pet = AddPet(115152, V.LEGION, Q.COMMON)
+
+	-- Stardust -- 115158
+	pet = AddPet(115158, V.LEGION, Q.COMMON)
+
+	-- Snowfeather Hatchling -- 115784
+	pet = AddPet(115784, V.LEGION, Q.COMMON)
+
+	-- Direbeak Hatchling -- 115785
+	pet = AddPet(115785, V.LEGION, Q.COMMON)
+
+	-- Sharptalon Hatchling -- 115786
+	pet = AddPet(115786, V.LEGION, Q.COMMON)
+
+	-- Bloodgazer Hatchling -- 115787
+	pet = AddPet(115787, V.LEGION, Q.COMMON)
+
+	-- Dutiful Squire -- 115918
+	pet = AddPet(115918, V.LEGION, Q.COMMON)
+
+	-- Dutiful Gruntling -- 115919
+	pet = AddPet(115919, V.LEGION, Q.COMMON)
+
+	-- Albino Buzzard -- 116080
+	pet = AddPet(116080, V.LEGION, Q.COMMON)
 
 
 -- Pets not actually in game or are NPC/legendary
