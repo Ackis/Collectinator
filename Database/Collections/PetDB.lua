@@ -110,8 +110,10 @@ function addon:InitCritters()
 	end
 	local pet
 
+	-------------------------------------------------------------------------------
+	-- Classic
+	-------------------------------------------------------------------------------
 
--- Classic
 	-- Mechanical Squirrel -- 2671
 	pet = AddPet(2671, V.ORIG, Q.COMMON)
 	pet:SetItemID(4401)
@@ -577,7 +579,10 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.IBOE)
 	pet:AddVendor(20980)
 
--- The Burning Crusade
+	-------------------------------------------------------------------------------
+	-- The Burning Crusade
+	-------------------------------------------------------------------------------
+
 	-- Yellow Moth -- 21008
 	pet = AddPet(21008, V.TBC, Q.COMMON)
 	pet:SetItemID(29903)
@@ -846,7 +851,10 @@ function addon:InitCritters()
 	pet:SetSpellID(51851)
 	pet:Retire()
 
--- Wrath of the Lich King
+	-------------------------------------------------------------------------------
+	-- Wrath of the Lich King
+	-------------------------------------------------------------------------------
+
 	-- Frosty -- 28883
 	pet = AddPet(28883, V.WOTLK, Q.RARE)
 	pet:SetItemID(39286)
@@ -1284,7 +1292,10 @@ function addon:InitCritters()
 	pet:AddVendor(29478, 29716, 52358, 52809)
 	pet:AddQuest(6983, 7043)
 
--- Cataclysm
+	-------------------------------------------------------------------------------
+	-- Cataclysm
+	-------------------------------------------------------------------------------
+
 	-- Withers -- 34278
 	pet = AddPet(34278, V.CATA, Q.COMMON)
 	pet:SetItemID(46325)
@@ -1804,7 +1815,10 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
 	pet:AddCustom("STORE")
 
--- Mists of Pandaria
+	-------------------------------------------------------------------------------
+	-- Mists of Pandaria
+	-------------------------------------------------------------------------------
+
 	-- Macabre Marionette -- 34770
 	pet = AddPet(34770, V.MOP, Q.RARE)
 	pet:SetItemID(46831)
@@ -4186,7 +4200,9 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
 	pet:AddCustom("DIABLOCE")
 
--- Warlords of Draenor
+	-------------------------------------------------------------------------------
+	-- Warlords of Draenor
+	-------------------------------------------------------------------------------
 
 	-- Zeradar -- 71655
 	pet = AddPet(71655, V.WOD, Q.RARE)
@@ -5167,7 +5183,10 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
 	pet:AddCustom("OVERWATCHCE")
 
--- Legion
+	-------------------------------------------------------------------------------
+	-- Legion.
+	-------------------------------------------------------------------------------
+
 	-- Ash'ana -- 17254
 	pet = AddPet(17254, V.LEGION, Q.RARE)
 	pet:SetItemID(23712)
