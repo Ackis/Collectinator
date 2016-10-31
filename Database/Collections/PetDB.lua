@@ -750,7 +750,7 @@ function addon:InitCritters()
 	pet:SetItemID(34424)
 	pet:SetSpellID(54187)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	pet:AddQuest(6983, 7043, 29478, 29716, 52358, 52809)
+	pet:AddQuest(6983, 7043)
 
 	-- Tiny Sporebat -- 25062
 	pet = AddPet(25062, V.TBC, Q.RARE)
