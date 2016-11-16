@@ -107,11 +107,6 @@ function private.ItemLinkToID(item_link)
 	return tonumber(id)
 end
 
--- This wrapper exists primarily because Blizzard keeps changing how NPC ID numbers are extracted from GUIDs, and fixing it in one place is less error-prone.
-function private.MobGUIDToIDNum(guid)
-	return tonumber(guid:sub(6, 10), 16)
-end
-
 -------------------------------------------------------------------------------
 -- Text dumping functions
 -------------------------------------------------------------------------------
@@ -208,45 +203,6 @@ do
 		end
 		TextDump:Display()
 	end
-
-	--[=[
-		private.ZONE_NAME_LIST = {}
-
-		local old_GetMapNameByID = _G.GetMapNameByID
-		local function My_GetMapNameByID(id_num)
-			if not id_num then
-				return
-			end
-			local Z = private.ZONE_NAME_LIST
-			local name = old_GetMapNameByID(id_num)
-
-			if not name then
-				return
-			end
-			Z[name] = id_num
-			return name
-		end
-		_G.GetMapNameByID = My_GetMapNameByID
-
-	function addon:DumpCapturedZones()
-		table.wipe(output)
-		TextDump:AddLine("private.ZONE_NAMES = {")
-		local sorted_zones = {}
-		for name, idnum in pairs(private.ZONE_NAME_LIST) do
-			sorted_zones[#sorted_zones + 1] = name
-		end
-		table.sort(sorted_zones, function(a, b)
-			return private.ZONE_NAME_LIST[a] < private.ZONE_NAME_LIST[b]
-		end)
-
-		for index = 1, #sorted_zones do
-			local zone_id = private.ZONE_NAME_LIST[sorted_zones[index]]
-			TextDump:AddLine(("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(sorted_zones[index]), zone_id))
-		end
-		TextDump:AddLine("}\n")
-		TextDump:Display()
-	end
---]=]
 
 	function addon:DumpBossIDs(name)
 		for index = 1, 10000 do
