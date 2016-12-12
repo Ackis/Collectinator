@@ -265,7 +265,7 @@ private.REP_FLAGS_WORD2 = {
 -------------------------------------------------------------------------------
 private.REP_FLAGS_WORD3 = {
 	THE_SABERSTALKERS		= 0x00000001,	-- 1
-	VALAJAR				= 0x00000002,	-- 2
+	VALARJAR			= 0x00000002,	-- 2
 	COURT_OF_FARONDIS		= 0x00000004,	-- 3
 	THE_WARDENS			= 0x00000008,	-- 4
 	DREAMWEAVERS			= 0x00000010,	-- 5
@@ -517,7 +517,7 @@ private.FACTION_IDS = {
 	DREAMWEAVERS = 1883,
 	THE_WARDENS = 1894,
 	COURT_OF_FARONDIS = 1900,
-	VALAJAR = 1948,
+	VALARJAR = 1948,
 	CONJURER_MARGOSS = 1975,
 }
 

@@ -588,7 +588,7 @@ function private.InitializeListFrame()
 		local REP3 = private.REP_FLAGS_WORD3
 		local REP_FILTERS_3 = {
 			[REP3.THE_SABERSTALKERS] 		= "saberstalkers",
-			[REP3.VALAJAR]				= "valajar",
+			[REP3.VALARJAR]				= "valarjar",
 			[REP3.COURT_OF_FARONDIS]		= "courtoffarondis",
 			[REP3.THE_WARDENS]			= "thewardens",
 			[REP3.DREAMWEAVERS]			= "dreamweavers",

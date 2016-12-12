@@ -5537,8 +5537,8 @@ function addon:InitCritters()
 
 	-- Sunborne Val'kyr -- 106181
 	pet = AddPet(106181, V.LEGION, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VALAJAR)
-	pet:AddRepVendor(FAC.VALAJAR, REP.REVERED, 106904)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VALARJAR)
+	pet:AddRepVendor(FAC.VALARJAR, REP.REVERED, 106904)
 
 	-- Trigger -- 106210
 	pet = AddPet(106210, V.LEGION, Q.RARE)

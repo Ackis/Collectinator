@@ -1116,7 +1116,7 @@ function private.InitializeFilterPanel()
 			thewardens		= { tt = ReputationDesc(FN.THE_WARDENS),		text = FN.THE_WARDENS,			row = 4,	col = 1 },
 			dreamweavers		= { tt = ReputationDesc(FN.DREAMWEAVERS),		text = FN.DREAMWEAVERS,			row = 5,	col = 1 },
 			highmountaintribe	= { tt = ReputationDesc(FN.HIGHMOUNTAIN_TRIBE),		text = FN.HIGHMOUNTAIN_TRIBE,		row = 6,	col = 1 },
-			valarjar		= { tt = ReputationDesc(FN.VALAJAR),			text = FN.VALAJAR,			row = 7,	col = 1 },
+			valarjar		= { tt = ReputationDesc(FN.VALARJAR),			text = FN.VALARJAR,			row = 7,	col = 1 },
 			conjurermargoss		= { tt = ReputationDesc(FN.CONJURER_MARGOSS),		text = FN.CONJURER_MARGOSS,		row = 8,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion6_frame, expansion6_buttons)

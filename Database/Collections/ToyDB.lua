@@ -1774,8 +1774,8 @@ function addon:InitToys()
 
 	-- Death's Door Charm -- 129149
 	toy = AddToy(129149, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VALAJAR)
-	toy:AddRepVendor(FAC.VALAJAR, REP.REVERED, 106904)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VALARJAR)
+	toy:AddRepVendor(FAC.VALARJAR, REP.REVERED, 106904)
 
 	-- Barcle-Encrusted Gem -- 129165
 	toy = AddToy(129165, V.LEGION, Q.RARE)
