@@ -3102,8 +3102,7 @@ function addon:InitMounts()
 	-- Challenger's War Yeti -- 171848
 	mount = AddMount(171848, V.WOD, Q.RARE)
 	mount:SetItemID(116791)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
-	mount:AddAchievement(8898)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	mount:Retire()
 
 	-- Sunhide Gronnling -- 171849
