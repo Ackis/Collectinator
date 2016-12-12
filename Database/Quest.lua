@@ -185,6 +185,7 @@ function addon:InitQuest()
 	AddQuest(39656,	Z.HIGHMOUNTAIN,				55.8,	56.2,	"Neutral") -- Needs updating
 	AddQuest(40904,	Z.HELLFIRE_CITADEL,			00.0,	00.0,	"Neutral")
 	AddQuest(41143,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(41188,	Z.THUNDER_TOTEM,			45.8,	44.6,	"Neutral")
 	AddQuest(41197,	Z.SURAMAR,				29.0,	33.0,	"Neutral")
 	AddQuest(42170,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(42722,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating

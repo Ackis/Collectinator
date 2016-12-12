@@ -463,6 +463,11 @@ function addon:InitHeirloom()
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
 	heirloom:AddVendor(6294, 6566)
 
+	-- Spear of Rethu -- 131733
+	heirloom = AddHeirloom(131733, V.LEGION, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
+	heirloom:AddQuest(41188)
+
 	self.InitHeirloom = nil
 
 end
