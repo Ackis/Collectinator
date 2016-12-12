@@ -3350,7 +3350,7 @@ function addon:InitMounts()
 
 	-- Felsaber -- 200175  -- Needs updating
 	mount = AddMount(200175, V.LEGION, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:SetRequiredClass("DEMONHUNTER")
 
 	-- Prestigious War Wolf -- 204166
@@ -3366,7 +3366,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	mount:AddVendor(108468)
 
-	-- Felblaze Infernal -- 213134  -- Needs updating
+	-- Felblaze Infernal -- 213134
 	mount = AddMount(213134, V.LEGION, Q.EPIC)
 	mount:SetItemID(137574)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID)
@@ -3514,6 +3514,36 @@ function addon:InitMounts()
 	mount:SetItemID(141846)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP)
 	mount:AddAchievement(11061)
+
+	-- Darkwater Skate -- 228919
+	mount = AddMount(228919, V.LEGION, Q.EPIC)
+	mount:SetItemID(142398)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS, F.IBOP)
+	mount:AddVendor(55103)
+	mount:AddWorldEvent("DARKMOON_FAIRE")
+
+	-- Midnight -- 229499
+	mount = AddMount(229499, V.LEGION, Q.EPIC)
+	mount:SetItemID(142236)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.IBOP)
+	mount:AddMobDrop(15550)
+
+	-- Ivory Hawkstrider -- 230401
+	mount = AddMount(230401, V.LEGION, Q.EPIC)
+	mount:SetItemID(142369)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.VENDOR, F.IBOP, F.TALONS_VENGEANCE)
+	mount:AddRepVendor(FAC.TALONS_VENGEANCE, REP.EXALTED, 115887)
+
+	-- Arcanist's Manasaber -- 230987 -- Needs updating
+	mount = AddMount(230987, V.LEGION, Q.EPIC)
+	mount:SetItemID(142436)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
+
+	-- Smoldering Ember Wyrm -- 231428
+	mount = AddMount(231428, V.LEGION, Q.EPIC)
+	mount:SetItemID(142552)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOP)
+	mount:AddMobDrop(114895)
 
 -- Unknown mounts
 

@@ -2184,6 +2184,117 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	toy:AddQuest(41143)
 
+-- 7.1 Toys
+	-- Bom'bay's Color-Seein' Sauce -- 97921
+	toy = AddToy(97921, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP)
+	toy:AddVendor(2795)
+
+	-- Grizzlesnout's Fang -- 129965
+	toy = AddToy(129965, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
+	toy:AddVendor(98690)
+
+	-- Mother's Skinning Knife -- 130102
+	toy = AddToy(130102, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(40149)
+	toy:AddProfession(PROF.SKINNING)
+
+	-- Set of Matches -- 141649
+	toy = AddToy(141649, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
+	toy:AddWorldEvent("MIDSUMMER_FIRE_FESTIVAL")
+	toy:AddCustom("CITY")
+
+	-- Mote of Light -- 141862
+	toy = AddToy(141862, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(107109)
+
+	-- Big Red Raygun -- 142265
+	toy = AddToy(142265, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(15552)
+
+	-- Love Boat -- 142341
+	toy = AddToy(142341, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
+	toy:AddWorldEvent("LOVE_IS_IN_THE_AIR")
+	toy:AddCustom("CITY")
+
+	-- Purple Blossom -- 142494
+	toy = AddToy(142494, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(45008)
+	toy:AddCustom("HATCHLING_CHAIN")
+
+	-- Fake Teeth -- 142495
+	toy = AddToy(142495, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(44982)
+	toy:AddCustom("HATCHLING_CHAIN")
+
+	-- Dirty Spoon -- 142496
+	toy = AddToy(142496, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(45007)
+	toy:AddCustom("HATCHLING_CHAIN")
+
+	-- Tiny Pack -- 142497
+	toy = AddToy(142497, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(44959)
+	toy:AddCustom("HATCHLING_CHAIN")
+
+	-- Crate of Bobbers: Can of Worms -- 142528
+	toy = AddToy(142528, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddWorldDrop(Z.BROKEN_ISLES)
+
+	-- Crate of Bobbers: Cat Head -- 142529
+	toy = AddToy(142529, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddWorldDrop(Z.BROKEN_ISLES)
+
+	-- Crate of Bobbers: Tugboat -- 142530
+	toy = AddToy(142530, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddWorldDrop(Z.BROKEN_ISLES)
+
+	-- Crate of Bobbers: Squeaky Duck -- 142531
+	toy = AddToy(142531, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.CONJURER_MARGOSS)
+	toy:AddRepVendor(FAC.CONJURER_MARGOSS, REP.FRIENDLY, 108825)
+
+	-- Crate of Bobbers: Murloc Head -- 142532
+	toy = AddToy(142532, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.CONJURER_MARGOSS)
+	toy:AddRepVendor(FAC.CONJURER_MARGOSS, REP.FRIENDLY, 108825)
+
+	-- Memory Cube -- 142536 -- Needs updating
+	toy = AddToy(142536, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Skull of Corruption -- 143544 --Needs updating
+	toy = AddToy(143544, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Mrgrglhjorn -- 143660
+	toy = AddToy(143660, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(11427)
+
+	-- Crate of Bobbers: Wooden Pepe -- 143662
+	toy = AddToy(143662, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddWorldDrop(Z.BROKEN_ISLES)
+
 
 --[[  Didn't actually make it into the ToyBox panel
 

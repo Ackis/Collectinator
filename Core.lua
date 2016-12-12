@@ -313,6 +313,7 @@ function addon:OnInitialize()
 					highmountaintribe = true,
 					valarjar = true,
 					conjurermargoss = true,
+					talonsvengeance = true,
 				},
 				-- Populated later via CONSTANTS
 				item = {

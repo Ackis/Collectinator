@@ -5608,11 +5608,13 @@ function addon:InitCritters()
 	-- Alliance Enthusiast -- 111202
 	pet = AddPet(111202, V.LEGION, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.IBOP, F.PVP)
+	pet:SetRequiredFaction("Alliance")
 	pet:AddCustom("PRESTIGE")
 
 	-- Horde Fanatic -- 111296
 	pet = AddPet(111296, V.LEGION, Q.RARE)
 	pet:AddFilters(F.HORDE, F.IBOP, F.PVP)
+	pet:SetRequiredFaction("Horde")
 	pet:AddCustom("PRESTIGE")
 
 	-- Lurking Owl Kitten -- 111421
@@ -5680,6 +5682,11 @@ function addon:InitCritters()
 	pet = AddPet(113440, V.LEGION, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 
+	-- Mischief -- 113527
+	pet = AddPet(113527, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	pet:AddCustom("STORE")
+
 	-- Wonderous Wisdomball -- 113827
 	pet = AddPet(113827, V.LEGION, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
@@ -5689,6 +5696,22 @@ function addon:InitCritters()
 	pet = AddPet(113855, V.LEGION, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	pet:AddAchievement(11233)
+
+	-- Knight-Captain Murky -- 113983
+	pet = AddPet(113983, V.LEGION, Q.RARE)
+	pet:SetItemID(141894)
+	pet:SetSpellID(227052)
+	pet:AddFilters(F.HORDE, F.IBOP, F.MISC)
+	pet:SetRequiredFaction("Alliance")
+	pet:AddCustom("BLIZZCON")
+
+	-- Legionnaire Murky -- 113984
+	pet = AddPet(113984, V.LEGION, Q.RARE)
+	pet:SetItemID(141895)
+	pet:SetSpellID(227051)
+	pet:AddFilters(F.HORDE, F.IBOP, F.MISC)
+	pet:SetRequiredFaction("Horde")
+	pet:AddCustom("BLIZZCON")
 
 	-- Snowfang -- 114063
 	pet = AddPet(114063, V.LEGION, Q.RARE)
@@ -5769,53 +5792,110 @@ function addon:InitCritters()
 	pet:AddMobDrop(32906)
 
 	-- G0-R41-0N Ultratonk -- 115144
-	pet = AddPet(115144, V.LEGION, Q.COMMON)
+	pet = AddPet(115144, V.LEGION, Q.RARE)
+	pet:SetItemID(142092)
+	pet:SetSpellID(229099)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(33350)
 
 	-- Creeping Tentacle -- 115145
-	pet = AddPet(115145, V.LEGION, Q.COMMON)
+	pet = AddPet(115145, V.LEGION, Q.RARE)
+	pet:SetItemID(142093)
+	pet:SetSpellID(229100)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(33288)
 
 	-- Boneshard -- 115146
-	pet = AddPet(115146, V.LEGION, Q.COMMON)
+	pet = AddPet(115146, V.LEGION, Q.RARE)
+	pet:SetItemID(142094)
+	pet:SetSpellID(229101)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(36612)
 
 	-- Blood Boil -- 115147
-	pet = AddPet(115147, V.LEGION, Q.COMMON)
+	pet = AddPet(115147, V.LEGION, Q.RARE)
+	pet:SetItemID(142095)
+	pet:SetSpellID(229102)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(37813)
 
 	-- Blightbreath -- 115148
-	pet = AddPet(115148, V.LEGION, Q.COMMON)
+	pet = AddPet(115148, V.LEGION, Q.RARE)
+	pet:SetItemID(142096)
+	pet:SetSpellID(229103)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(36678)
 
 	-- Soulbroken Whelpling -- 115149
-	pet = AddPet(115149, V.LEGION, Q.COMMON)
+	pet = AddPet(115149, V.LEGION, Q.RARE)
+	pet:SetItemID(142097)
+	pet:SetSpellID(229104)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(36853)
 
 	-- Drudge Ghoul -- 115150
-	pet = AddPet(115150, V.LEGION, Q.COMMON)
+	pet = AddPet(115150, V.LEGION, Q.RARE)
+	pet:SetItemID(142098)
+	pet:SetSpellID(229105)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(36597)
 
 	-- Wicked Soul -- 115152
-	pet = AddPet(115152, V.LEGION, Q.COMMON)
+	pet = AddPet(115152, V.LEGION, Q.RARE)
+	pet:SetItemID(142099)
+	pet:SetSpellID(229106)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.RAID)
+	pet:AddMobDrop(36597)
 
 	-- Stardust -- 115158
-	pet = AddPet(115158, V.LEGION, Q.COMMON)
+	pet = AddPet(115158, V.LEGION, Q.RARE)
+	pet:SetItemID(142100)
+	pet:SetSpellID(229110)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP, F.QUEST)
+	pet:AddQuest(44767)
 
 	-- Snowfeather Hatchling -- 115784
-	pet = AddPet(115784, V.LEGION, Q.COMMON)
+	pet = AddPet(115784, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("HATCHLING")
 
 	-- Direbeak Hatchling -- 115785
-	pet = AddPet(115785, V.LEGION, Q.COMMON)
+	pet = AddPet(115785, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("HATCHLING")
 
 	-- Sharptalon Hatchling -- 115786
-	pet = AddPet(115786, V.LEGION, Q.COMMON)
+	pet = AddPet(115786, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("HATCHLING")
 
 	-- Bloodgazer Hatchling -- 115787
-	pet = AddPet(115787, V.LEGION, Q.COMMON)
+	pet = AddPet(115787, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("HATCHLING")
 
 	-- Dutiful Squire -- 115918
-	pet = AddPet(115918, V.LEGION, Q.COMMON)
+	pet = AddPet(115918, V.LEGION, Q.RARE)
+	pet:SetItemID(142379)
+	pet:SetSpellID(230443)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.PVP)
+	pet:SetRequiredFaction("Alliance")
+	pet:AddCustom("PRESTIGE")
 
 	-- Dutiful Gruntling -- 115919
-	pet = AddPet(115919, V.LEGION, Q.COMMON)
+	pet = AddPet(115919, V.LEGION, Q.RARE)
+	pet:SetItemID(142380)
+	pet:SetSpellID(230444)
+	pet:AddFilters(F.HORDE, F.IBOP, F.PVP)
+	pet:SetRequiredFaction("Horde")
+	pet:AddCustom("PRESTIGE")
 
 	-- Albino Buzzard -- 116080
-	pet = AddPet(116080, V.LEGION, Q.COMMON)
-
+	pet = AddPet(116080, V.LEGION, Q.RARE)
+	pet:SetItemID(142448)
+	pet:SetSpellID(231017)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)
+	pet:AddQuest(45083)
 
 -- Pets not actually in game or are NPC/legendary
 	-- Muffin -- 65344

@@ -488,7 +488,7 @@ function private.InitializeFilterPanel()
 			expansion3	= { tt = ExpansionDesc(_G.EXPANSION_NAME3),	text = _G.EXPANSION_NAME3,	row = 4, col = 1 },
 			expansion4	= { tt = ExpansionDesc(_G.EXPANSION_NAME4),	text = _G.EXPANSION_NAME4,	row = 5, col = 1 },
 			expansion5 	= { tt = ExpansionDesc(_G.EXPANSION_NAME5),	text = _G.EXPANSION_NAME5,	row = 6, col = 1 },
-			expansion6	= { tt = ExpansionDesc(_G.EXPANSION_NAME6), text = _G.EXPANSION_NAME6,	row = 7, col = 1 },
+			expansion6	= { tt = ExpansionDesc(_G.EXPANSION_NAME6),	text = _G.EXPANSION_NAME6,	row = 7, col = 1 },
 		}
 
 		local version_panel = _G.CreateFrame("Frame", nil, obtain_frame)
@@ -1118,6 +1118,7 @@ function private.InitializeFilterPanel()
 			highmountaintribe	= { tt = ReputationDesc(FN.HIGHMOUNTAIN_TRIBE),		text = FN.HIGHMOUNTAIN_TRIBE,		row = 6,	col = 1 },
 			valarjar		= { tt = ReputationDesc(FN.VALARJAR),			text = FN.VALARJAR,			row = 7,	col = 1 },
 			conjurermargoss		= { tt = ReputationDesc(FN.CONJURER_MARGOSS),		text = FN.CONJURER_MARGOSS,		row = 8,	col = 1 },
+			talonsvengeance		= { tt = ReputationDesc(FN.TALONS_VENGEANCE),		text = FN.TALONS_VENGEANCE,		row = 9,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion6_frame, expansion6_buttons)
 

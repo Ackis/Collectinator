@@ -120,7 +120,8 @@ function addon:InitCustom()
 	AddCustom("NETHAERA_LIGHT",	Z.DALARAN_NORTHREND)
 	AddCustom("CLASS_HALL")
 	AddCustom("PRESTIGE")
-
+	AddCustom("HATCHLING",		Z.BROKEN_ISLES)
+	AddCustom("HATCHLING_CHAIN",	Z.BROKEN_ISLES)
 
 	self.InitCustom = nil
 end

@@ -183,6 +183,7 @@ function addon:InitQuest()
 	AddQuest(39015,	Z.VALSHARAH,				00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(39305,	Z.HIGHMOUNTAIN,				49.4,	39.2,	"Neutral")
 	AddQuest(39656,	Z.HIGHMOUNTAIN,				55.8,	56.2,	"Neutral") -- Needs updating
+	AddQuest(40149,	Z.STORMHEIM,				45.6,	25.6,	"Neutral")
 	AddQuest(40904,	Z.HELLFIRE_CITADEL,			00.0,	00.0,	"Neutral")
 	AddQuest(41143,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(41188,	Z.THUNDER_TOTEM,			45.8,	44.6,	"Neutral")
@@ -192,6 +193,12 @@ function addon:InitQuest()
 	AddQuest(42837,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(44058,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
 	AddQuest(44412,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(44767,	Z.THE_STORM_PEAKS,			41.4,	24.4,	"Neutral")
+	AddQuest(44959,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral")
+	AddQuest(44982,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral")
+	AddQuest(45007,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral")
+	AddQuest(45008,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral")
+	AddQuest(45083,	Z.NORTHERN_BARRENS,			63.6,	35.8,	"Neutral")
 
 	self.InitQuest = nil
 end

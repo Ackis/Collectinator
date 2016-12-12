@@ -595,6 +595,7 @@ function private.InitializeListFrame()
 			[REP3.THE_NIGHTFALLEN]			= "thenightfallen",
 			[REP3.HIGHMOUNTAIN_TRIBE]		= "highmoutaintribe",
 			[REP3.CONJURER_MARGOSS]			= "conjurermargoss",
+			[REP3.TALONS_VENGEANCE]			= "talonsvengeance",
 		}
 
 		-- Returns true if any of the filter flags are turned on.

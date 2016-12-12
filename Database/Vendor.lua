@@ -45,6 +45,7 @@ function addon:InitVendor()
 	AddVendor(1263,		L["Yarlyn Amberstill"],		Z.DUN_MOROGH,			70.6,	49.0,	"Alliance")
 	AddVendor(1460,		L["Unger Statforth"],		Z.WETLANDS,			9.2,	56.6,	"Alliance")
 	AddVendor(2663,		L["Narkk"],			Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	69.2,	"Neutral")
+	AddVendor(2795,		L["Lenny \"Fingers\" McCoy"],	Z.STORMWIND_CITY,		73.2,	58.4,	"Alliance")
 	AddVendor(3362,		L["Ogunaro Wolfrunner"],	Z.ORGRIMMAR,			61.0,	35.2,	"Horde")
 	AddVendor(3685,		L["Harb Clawhoof"],		Z.MULGORE,			47.6,	58.0,	"Horde")
 	AddVendor(4730,		L["Lelanai"],			Z.DARNASSUS,			42.6,	32.8,	"Alliance")
@@ -267,6 +268,7 @@ function addon:InitVendor()
 	AddVendor(110035,	L["Historian Ju'pa"],		Z.ORGRIMMAR,			 0.0,	 0.0,	"Horde") -- Needs updating
 	AddVendor(113615,	L["Ravika"],			Z.DUROTAR,			55.4,	11.3,	"Horde")
 	AddVendor(113843,	L["Kieule"],			Z.SURAMAR,			50.4,	53.0,	"Neutral")
+	AddVendor(115887,	L["Trinket"],			Z.HIGHMOUNTAIN,			32.4,	66.8,	"Neutral")
 
 	self.InitVendor = nil
 end
