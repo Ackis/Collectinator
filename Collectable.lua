@@ -176,7 +176,7 @@ end
 function toy_prototype:GetName()
 	self.name = self.name or _G.GetItemInfo(self.id)
 
-	return self.name
+	return self.name or _G.UNKNOWN
 end
 
 function toy_prototype:Icon()
