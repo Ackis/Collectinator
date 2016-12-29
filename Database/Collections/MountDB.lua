@@ -3106,7 +3106,6 @@ function addon:InitMounts()
 	mount:AddFilters(F.HORDE, F.IBOA, F.ACHIEVEMENT)
 	mount:SetRequiredFaction("Horde")
 	mount:AddAchievement(9909)
-	mount:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- Chauffeured Mekgineer's Chopper -- 179245
 	mount = AddMount(179245, V.WOD, Q.ARTIFACT)
@@ -3114,7 +3113,6 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.IBOA, F.ACHIEVEMENT)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddAchievement(9909)
-	mount:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- Voidtalon of the Dark Star --179478
 	mount = AddMount(179478, V.WOD, Q.EPIC)
