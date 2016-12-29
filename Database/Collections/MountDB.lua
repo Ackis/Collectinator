@@ -320,7 +320,6 @@ function addon:InitMounts()
 	mount:SetItemID(13335)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
 	mount:AddMobDrop(45412)
-	mount:AddCustom("BMAH")
 
 	-- Gray Kodo - 18989
 	mount = AddMount(18989, V.ORIG, Q.RARE) -- Item: 15277
@@ -886,7 +885,6 @@ function addon:InitMounts()
 	mount:SetItemID(30480)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(15550)
-	mount:AddCustom("BMAH")
 
 	-- Swift Nether Drake - 37015  -- Season 1
 	mount = AddMount(37015, V.TBC, Q.EPIC) -- Item: 30609
@@ -962,14 +960,13 @@ function addon:InitMounts()
 	mount:SetItemID(32458)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(19622)
-	mount:AddCustom("BMAH")
 
 	-- Raven Lord - 41252
 	mount = AddMount(41252, V.TBC, Q.EPIC) -- Item: 32768
 	mount:SetItemID(32768)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
 	mount:AddMobDrop(23035)
-	mount:AddCustom("HEROIC", "BMAH")
+	mount:AddCustom("HEROIC")
 
 	-- Onyx Netherwing Drake - 41513
 	mount = AddMount(41513, V.TBC, Q.EPIC) -- Item: 32857
@@ -1082,7 +1079,6 @@ function addon:InitMounts()
 	mount:SetItemID(35513)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
 	mount:AddMobDrop(24664)
-	mount:AddCustom("BMAH")
 
 	-- The Horseman's Reins - 48025
 	mount = AddMount(48025, V.TBC, Q.EPIC) -- Item: 37012
@@ -1135,7 +1131,6 @@ function addon:InitMounts()
 	mount:SetItemID(43962)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	mount:AddQuest(13422, 13423, 13424, 13425)
-	mount:AddCustom("BMAH")
 
 	-- Winged Steed of the Ebon Blade - 54729
 	mount = AddMount(54729, V.WOTLK, Q.EPIC) -- Item: 40775
@@ -1167,14 +1162,12 @@ function addon:InitMounts()
 	mount:SetItemID(43592)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(28859)
-	mount:AddCustom("BMAH")
 
 	-- Blue Drake - 59568
 	mount = AddMount(59568, V.WOTLK, Q.EPIC) -- Item: 43953
 	mount:SetItemID(43953)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(28859)
-	mount:AddCustom("BMAH")
 
 	-- Bronze Drake - 59569
 	mount = AddMount(59569, V.WOTLK, Q.EPIC) -- Item: 43951
@@ -1258,7 +1251,6 @@ function addon:InitMounts()
 	mount:SetItemID(44151)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
 	mount:AddMobDrop(26693)
-	mount:AddCustom("BMAH")
 
 	-- Time-Lost Proto-Drake - 60002
 	mount = AddMount(60002, V.WOTLK, Q.EPIC) -- Item: 44168
@@ -1337,7 +1329,7 @@ function addon:InitMounts()
 	mount = AddMount(61294, V.WOTLK, Q.EPIC) -- Item: 44707
 	mount:SetItemID(44707)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	mount:AddCustom("MYSTERIOUS_EGG", "BMAH")
+	mount:AddCustom("MYSTERIOUS_EGG")
 
 	-- Magnificent Flying Carpet - 61309
 	mount = AddMount(61309, V.WOTLK, Q.EPIC) -- Item: 44558
@@ -1492,7 +1484,6 @@ function addon:InitMounts()
 	mount:SetItemID(49636)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(33288)
-	mount:AddCustom("BMAH")
 
 	 -- Argent Hippogryph - 63844
 	mount = AddMount(63844, V.WOTLK, Q.EPIC) -- Item: 45725
@@ -1721,7 +1712,6 @@ function addon:InitMounts()
 	mount:SetItemID(49636)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(10184)
-	mount:AddCustom("BMAH")
 
 	-- Sunwalker Kodo -- 69820
 	mount = AddMount(69820, V.CATA, Q.COMMON)
@@ -1896,21 +1886,18 @@ function addon:InitMounts()
 	mount:SetItemID(63041)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
 	mount:AddMobDrop(46753)
-	mount:AddCustom("BMAH")
 
 	-- Drake of the North Wind -- 88742
 	mount = AddMount(88742, V.CATA, Q.EPIC) -- Item: 63040
 	mount:SetItemID(63040)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
 	mount:AddMobDrop(43873)
-	mount:AddCustom("BMAH")
 
 	-- Vitreous Stone Drake -- 88746
 	mount = AddMount(88746, V.CATA, Q.EPIC) -- Item: 63043
 	mount:SetItemID(63043)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.IBOP)
 	mount:AddMobDrop(43214)
-	mount:AddCustom("BMAH")
 
 	-- Brown Riding Camel -- 88748
 	mount = AddMount(88748, V.CATA, Q.EPIC) -- Item: 63044
@@ -2008,7 +1995,6 @@ function addon:InitMounts()
 	mount:SetItemID(69224)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
 	mount:AddMobDrop(52409)
-	mount:AddCustom("BMAH")
 
 	-- Felfire Hawk -- 97501
 	mount = AddMount(97501, V.WOD, Q.EPIC) -- Item: 69226
@@ -2067,7 +2053,6 @@ function addon:InitMounts()
 	mount:SetItemID(71665)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
 	mount:AddMobDrop(52530)
-	mount:AddCustom("BMAH")
 
 	-- Swift Shorestrider -- 101573
 	mount = AddMount(101573, V.CATA, Q.EPIC) -- Item: 71718
@@ -2162,7 +2147,6 @@ function addon:InitMounts()
 	mount:SetItemID(77067)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
 	mount:AddMobDrop(56173)
-	mount:AddCustom("BMAH")
 
 	-- Twilight Harbinger -- 107844
 	mount = AddMount(107844, V.CATA, Q.EPIC) -- Item: 77068
@@ -2175,14 +2159,13 @@ function addon:InitMounts()
 	mount:SetItemID(77069)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
 	mount:AddMobDrop(56173)
-	mount:AddCustom("BMAH", "HEROIC")
+	mount:AddCustom("HEROIC")
 
 	-- Experiment 12-B -- 110039
 	mount = AddMount(110039, V.CATA, Q.EPIC) -- Item: 78919
 	mount:SetItemID(78919)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
 	mount:AddMobDrop(55294)
-	mount:AddCustom("BMAH")
 
 	-- Heart of the Aspects -- 110051
 	mount = AddMount(110051, V.CATA, Q.EPIC) -- Item: 78924
@@ -2343,7 +2326,6 @@ function addon:InitMounts()
 	mount:SetItemID(87771)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(60491)
-	mount:AddCustom("BMAH")
 
 	-- Heavenly Crimson Cloud Serpent -- 127161
 	mount = AddMount(127161, V.MOP, Q.EPIC)
@@ -2362,7 +2344,6 @@ function addon:InitMounts()
 	mount:SetItemID(87777)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(60410)
-	mount:AddCustom("BMAH")
 
 	-- Azure Riding Crane -- 127174
 	mount = AddMount(127174, V.MOP, Q.EPIC) -- Item: 87781
@@ -2527,7 +2508,6 @@ function addon:InitMounts()
 	mount:SetItemID(89783)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(62346)
-	mount:AddCustom("BMAH")
 
 	-- Pandaren Kite -- 130985
 	mount = AddMount(130985, V.MOP, Q.EPIC)
@@ -2691,14 +2671,12 @@ function addon:InitMounts()
 	mount:SetItemID(95057)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(69099)
-	mount:AddCustom("BMAH")
 
 	-- Clutch of Ji-Kun -- 139448
 	mount = AddMount(139448, V.MOP, Q.EPIC)
 	mount:SetItemID(95059)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(69712)
-	mount:AddCustom("BMAH")
 
 	-- Armored Bloodwing -- 139595
 	mount = AddMount(139595, V.MOP, Q.EPIC)
@@ -2782,7 +2760,7 @@ function addon:InitMounts()
 	mount:SetItemID(104253)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID)
 	mount:AddMobDrop(71865)
-	mount:AddCustom("MYTHIC", "BMAH")
+	mount:AddCustom("MYTHIC")
 
 	-- Ashhide Mushan Beast -- 148428
 	mount = AddMount(148428, V.MOP, Q.EPIC)
