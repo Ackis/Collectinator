@@ -78,7 +78,7 @@ function addon:InitMounts()
 	-- Timber Wolf -- 580
 	mount = AddMount(580, V.ORIG, Q.RARE) -- Item: 1132
 	mount:SetItemID(1132)
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.VENDOR, F.IBOP)
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(3362)
 
@@ -588,13 +588,13 @@ function addon:InitMounts()
 	-- Swift Zulian Tiger - 24252
 	mount = AddMount(24252, V.ORIG, Q.EPIC) -- Item: 19902
 	mount:SetItemID(19902)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddCustom("BMAH")
 
 	-- Swift Razzashi Raptor - 24242
 	mount = AddMount(24242, V.ORIG, Q.EPIC) -- Item: 19872
 	mount:SetItemID(19872)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddCustom("BMAH")
 
 	-- Blue Qiraji Battle Tank -- 25953
@@ -629,7 +629,7 @@ function addon:InitMounts()
 	-- Riding Turtle - 30174
 	mount = AddMount(30174, V.ORIG, Q.EPIC) -- Item: 23720
 	mount:SetItemID(23720)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOP, F.MISC)
 	mount:AddCustom("TCG", "BMAH")
 
 	-- Charger (Horde) -- 34767
@@ -1071,7 +1071,7 @@ function addon:InitMounts()
 	-- X-51 Nether-Rocket X-TREME-- 46199
 	mount = AddMount(46199, V.TBC, Q.EPIC) -- Item: 49286
 	mount:SetItemID(49286)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE, F.MISC)
 	mount:AddCustom("TCG", "BMAH")
 
 	-- Swift White Hawkstrider - 46628
@@ -1261,7 +1261,7 @@ function addon:InitMounts()
 	 -- Plagued Proto-Drake - 60021
 	mount = AddMount(60021, V.WOTLK, Q.EPIC) -- Item: 44175
 	mount:SetItemID(44175)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddCustom("BMAH")
 
 	-- Violet Proto-Drake - 60024
@@ -1785,7 +1785,7 @@ function addon:InitMounts()
 	-- Wooly White Rhino -- 74918
 	mount = AddMount(74918, V.WOTLK, Q.EPIC) -- Item: 54068
 	mount:SetItemID(54068)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.TCG, F.IBOE, F.MISC)
 	mount:AddCustom("TCG", "BMAH")
 
 	-- Frosty Flying Carpet - 75596
@@ -2674,7 +2674,7 @@ function addon:InitMounts()
 	-- Clutch of Ji-Kun -- 139448
 	mount = AddMount(139448, V.MOP, Q.EPIC)
 	mount:SetItemID(95059)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(69712)
 
 	-- Armored Bloodwing -- 139595
@@ -2842,7 +2842,7 @@ function addon:InitMounts()
 	-- Core Hound -- 170347
 	mount = AddMount(170347, V.WOD, Q.EPIC)
 	mount:SetItemID(115484)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddCustom("BMAH")
 
 	-- Gorestrider Gronnling -- 171436
