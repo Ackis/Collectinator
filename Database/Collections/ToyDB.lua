@@ -1763,10 +1763,6 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(38317)
 
-	-- Kvaldir Raiding Horn -- 129111  -- Needs updating
-	toy = AddToy(129111, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-
 	-- Faintly Glowing Flagon of Mead -- 129113
 	toy = AddToy(129113, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
@@ -2305,6 +2301,11 @@ function addon:InitToys()
 	-- Falanaar Echo -- 140779 -- Needs updating
 	toy = AddToy(140779, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Kvaldir Raiding Horn -- 129111
+	toy = AddToy(129111, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+
 ]]--
 
 	self.InitToys = nil
