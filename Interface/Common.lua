@@ -44,11 +44,11 @@ do
 	local function Sort_NameAsc(aID, bID)
 		--@alpha@
 		if not collectable_list[aID].name then
-			addon:Debug("Collectable ID %d does not have a name.", aID)
+--			addon:Debug("Collectable ID %d does not have a name.", aID)
 		end
 
 		if not collectable_list[bID].name then
-			addon:Debug("Collectable ID %d does not have a name.", bID)
+--			addon:Debug("Collectable ID %d does not have a name.", bID)
 		end
 		--@end-alpha@
 
