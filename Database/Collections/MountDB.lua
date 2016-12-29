@@ -1753,7 +1753,6 @@ function addon:InitMounts()
 	mount:SetItemID(50818)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
 	mount:AddMobDrop(36597)
-	mount:AddCustom("BMAH")
 
 	-- Crimson Deathcharger - 73313
 	mount = AddMount(73313, V.WOTLK, Q.EPIC) -- Item: 52200
