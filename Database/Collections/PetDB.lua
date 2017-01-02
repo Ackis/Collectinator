@@ -5897,6 +5897,32 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)
 	pet:AddQuest(45083)
 
+	-- Trashy -- 117371
+	pet = AddPet(117371, V.LEGION, Q.RARE)
+	pet:SetItemID(143842)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.CONJURER_MARGOSS)
+	pet:AddRepVendor(FAC.CONJURER_MARGOSS, REP.HONORED, 108825)
+
+	-- Infinite Hatchling -- 118060
+	pet = AddPet(118060, V.LEGION, Q.RARE)
+	pet:SetItemID(143953)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("TIMEWALKING")
+	pet:AddVendor(118828)
+
+	-- Paradox Spirit -- 118063
+	pet = AddPet(118063, V.LEGION, Q.RARE)
+	pet:SetItemID(143954)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("TIMEWALKING")
+	pet:AddVendor(118828)
+
+	-- Tylarr Gronnden -- 119040
+	pet = AddPet(119040, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BRAWLERS)
+	pet:AddRepVendor(FAC.BRAWLGAR_ARENA, REP.EXALTED, 68364)
+	pet:AddRepVendor(FAC.BIZMOS_BRAWLPUB, REP.EXALTED, 68363)
+
 -- Pets not actually in game or are NPC/legendary
 	-- Muffin -- 65344
 	pet = AddPet(65344, V.LEGION, Q.COMMON)

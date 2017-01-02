@@ -2295,6 +2295,35 @@ function addon:InitToys()
 	toy:AddProfession(PROF.FISHING)
 	toy:AddWorldDrop(Z.BROKEN_ISLES)
 
+	-- Dragon Head Costume -- 143827
+	toy = AddToy(143827, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("LUNAR_FESTIVAL")
+	toy:AddVendor(15909)
+
+	-- Dragon Body Costume -- 143828
+	toy = AddToy(143828, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("LUNAR_FESTIVAL")
+	toy:AddVendor(15909)
+
+	-- Dragon Tail Costume -- 143829
+	toy = AddToy(143829, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("LUNAR_FESTIVAL")
+	toy:AddVendor(15909)
+
+	-- Sturdy Love Fool -- 144339
+	toy = AddToy(144339, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
+	toy:AddWorldEvent("LOVE_IS_IN_THE_AIR")
+	toy:AddCustom("CITY")
+
+	-- Portable Yak Wash -- 144393
+	toy = AddToy(144393, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
+	toy:AddVendor(118828)
 
 --[[  Didn't actually make it into the ToyBox panel
 

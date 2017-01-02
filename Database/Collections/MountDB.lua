@@ -2744,7 +2744,7 @@ function addon:InitMounts()
 	mount = AddMount(142641, V.MOP, Q.EPIC)
 	mount:SetItemID(98405)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	mount:AddVendor(68363, 68364)
+	mount:Retire()
 
 	-- Enchanted Fey Dragon -- 142878
 	mount = AddMount(142878, V.MOP, Q.EPIC)
@@ -3544,6 +3544,13 @@ function addon:InitMounts()
 	mount:SetItemID(142552)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.INSTANCE, F.IBOP)
 	mount:AddMobDrop(114895)
+
+	-- Brawler's Burly Basilisk -- 230844
+	mount = AddMount(230844, V.LEGION, Q.EPIC)
+	mount:SetItemID(142403)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BRAWLERS)
+	mount:AddRepVendor(FAC.BRAWLGAR_ARENA, REP.EXALTED, 68364)
+	mount:AddRepVendor(FAC.BIZMOS_BRAWLPUB, REP.EXALTED, 68363)
 
 -- Unknown mounts
 

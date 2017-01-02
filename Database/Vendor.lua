@@ -74,6 +74,7 @@ function addon:InitVendor()
 	AddVendor(14846,	L["Lhara"],			Z.DARKMOON_ISLAND,		48.6,	69.8,	"Neutral")
 	AddVendor(14860,	L["Flik"],			Z.DARKMOON_ISLAND,		59.6,	68.0,	"Neutral")
 	AddVendor(15864,	L["Valadar Starsong"],		Z.MOONGLADE,			54.0,	35.0,	"Neutral")
+	AddVendor(15909,	L["Fariel Starsong"],		Z.MOONGLADE,			54.0,	35.0,	"Neutral")
 	AddVendor(16264,	L["Winaestra"],			Z.EVERSONG_WOODS,		61.0,	54.6,	"Horde")
 	AddVendor(16860,	L["Jilanne"],			Z.EVERSONG_WOODS,		44.8,	71.6,	"Horde")
 	AddVendor(17584,	L["Torallius the Pack Handler"],Z.THE_EXODAR,			81.6,	52.6,	"Alliance")
@@ -269,6 +270,7 @@ function addon:InitVendor()
 	AddVendor(113615,	L["Ravika"],			Z.DUROTAR,			55.4,	11.3,	"Horde")
 	AddVendor(113843,	L["Kieule"],			Z.SURAMAR,			50.4,	53.0,	"Neutral")
 	AddVendor(115887,	L["Trinket"],			Z.HIGHMOUNTAIN,			32.4,	66.8,	"Neutral")
+	AddVendor(118828,	L["Mistweaver Xia"],		Z.TIMELESS_ISLE,		 0.0,	 0.0,	"Neutral") -- Needs updating
 
 	self.InitVendor = nil
 end
