@@ -2276,6 +2276,16 @@ function addon:InitToys()
 	toy = AddToy(142536, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 
+	-- Tome of Town Portal -- 143542
+	toy = AddToy(143542, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("DIABLO_20th_EVENT")
+
+	-- Twelve-String Guitar -- 143543
+	toy = AddToy(143543, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("DIABLO_20th_EVENT")
+
 	-- Skull of Corruption -- 143544 --Needs updating
 	toy = AddToy(143544, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)

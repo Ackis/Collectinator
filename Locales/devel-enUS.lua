@@ -129,6 +129,7 @@ L["Crafticus Mindbender"] = true
 L["Craggle Wobbletop"] = true
 L["Cravitz Lorent"] = true
 L["Cupri"] = true
+L["DIABLO_20th_EVENT"] = "Available for 1 week for the Diablo 20th anniversary event."
 L["DIABLOCE"] = "Available via the Diablo 3 Collector's Edition."
 L["DISGUSTING_JAR"] = "Chance at this collectable from Disgusting Jar every 3 days."
 L["DISPLAY_EXCLUSION_DESC"] = "Display collectables that are in the exclusion list."
