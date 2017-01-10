@@ -284,7 +284,6 @@ function addon:InitMob()
 	AddMob(108715,	L["Ol' Eary"],				Z.BROKEN_ISLES,			38.0, 65.0)
 	AddMob(111197,	L["Anax"],				Z.SURAMAR,			34.8, 51.4)
 	AddMob(111573,	L["Kosumoth the Hungering"],		Z.BROKEN_ISLES,			48.0, 48.6)
-	AddMob(112315,	L["Dread Infiltrator"],			Z.EASTERN_KINGDOMS,		 0.0,  0.0)
 	AddMob(114895,	BB.Nightbane,				Z.KARAZHAN,			 0.0,  0.0)
 
 	self.InitMob = nil

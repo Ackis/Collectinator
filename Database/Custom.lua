@@ -123,6 +123,7 @@ function addon:InitCustom()
 	AddCustom("PRESTIGE")
 	AddCustom("HATCHLING",		Z.BROKEN_ISLES)
 	AddCustom("HATCHLING_CHAIN",	Z.BROKEN_ISLES)
+	AddCustom("WITHERED_ARMY")
 
 	self.InitCustom = nil
 end

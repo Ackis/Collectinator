@@ -3301,8 +3301,8 @@ function addon:InitMounts()
 	-- Llothien Prowler -- 171850
 	mount = AddMount(171850, V.LEGION, Q.EPIC)
 	mount:SetItemID(137573)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
-	mount:AddQuest(44058)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("WITHERED_ARMY")
 
 	-- Grove Defiler -- 193007
 	mount = AddMount(193007, V.LEGION, Q.EPIC)
@@ -3310,12 +3310,12 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(11180)
 
-	-- Prestigious War Steed -- 193695   -- Needs updating
+	-- Prestigious War Steed -- 193695
 	mount = AddMount(193695, V.LEGION, Q.EPIC)
 	mount:SetItemID(129280)
 	mount:AddFilters(F.ALLIANCE, F.PVP)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddCustom("PRESTIGE")
+	mount:AddAchievement(11474)
 
 	-- Spirit of Eche'ro -- 196681
 	mount = AddMount(196681, V.LEGION, Q.EPIC)
@@ -3330,10 +3330,10 @@ function addon:InitMounts()
 
 	-- Prestigious War Wolf -- 204166
 	mount = AddMount(204166, V.LEGION, Q.EPIC)
-	--mount:SetItemID(129280)
+	mount:SetItemID(143864)
 	mount:AddFilters(F.HORDE, F.PVP)
 	mount:SetRequiredFaction("Horde")
-	mount:AddCustom("PRESTIGE")
+	mount:AddAchievement(11474)
 
 	-- Bloodfang Widow -- 213115
 	mount = AddMount(213115, V.LEGION, Q.EPIC)
@@ -3369,7 +3369,7 @@ function addon:InitMounts()
 	-- Long-Forgotten Hippogryph -- 215159  -- Needs updating
 	mount = AddMount(215159, V.LEGION, Q.EPIC)
 	mount:SetItemID(138258)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
 	mount:AddZoneLocations(Z.AZSUNA, nil, "0:0")
 
 	-- Ratstallion -- 215558

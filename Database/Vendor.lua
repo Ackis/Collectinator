@@ -264,8 +264,8 @@ function addon:InitVendor()
 	AddVendor(107379,	L["Marin Bladewing"],		Z.AZSUNA,			48.2,	73.8,	"Neutral")
 	AddVendor(108468,	L["The Mad Merchant"],		Z.DALARAN_BROKENISLES,		43.3,	47.3,	"Neutral")
 	AddVendor(108825,	L["Conjurer Margoss"],		Z.DALARAN_BROKENISLES,		 0.0,	 0.0,	"Neutral") -- Needs updating
-	AddVendor(110334,	L["Historian Llore"],		Z.STORMWIND_CITY,		 0.0,	 0.0,	"Alliance") -- Needs updating
-	AddVendor(110035,	L["Historian Ju'pa"],		Z.ORGRIMMAR,			 0.0,	 0.0,	"Horde") -- Needs updating
+	AddVendor(110034,	L["Historian Llore"],		Z.STORMWIND_CITY,		84.6,	25.0,	"Alliance")
+	AddVendor(110035,	L["Historian Ju'pa"],		Z.ORGRIMMAR,			36.6,	74.6,	"Horde")
 	AddVendor(113615,	L["Ravika"],			Z.DUROTAR,			55.4,	11.3,	"Horde")
 	AddVendor(113843,	L["Kieule"],			Z.SURAMAR,			50.4,	53.0,	"Neutral")
 	AddVendor(115887,	L["Trinket"],			Z.HIGHMOUNTAIN,			32.4,	66.8,	"Neutral")
