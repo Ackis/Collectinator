@@ -100,7 +100,7 @@ function addon:InitQuest()
 	AddQuest(28748,	Z.HILLSBRAD_FOOTHILLS,			33.6,	49.2,	"Neutral")
 	AddQuest(29034,	Z.WINTERSPRING,				46.6,	17.6,	"Alliance")
 	AddQuest(29155,	Z.NORTHERN_STRANGLETHORN,		41.0,	73.0,	"Alliance")
-	AddQuest(29208,	Z.NORTHERN_STRANGLETHORN,		0.0,	0.0,	"Neutral")
+	AddQuest(29208,	Z.ZULGURUB,				61.2,	81.4,	"Neutral")
 	AddQuest(29253,	Z.NORTHERN_STRANGLETHORN,		41.0,	73.0,	"Horde")
 	AddQuest(29267, Z.NORTHERN_STRANGLETHORN,		76.0,	66.6,	"Alliance")
 	AddQuest(29268, Z.NORTHERN_STRANGLETHORN,		76.0,	66.6,	"Horde")
@@ -129,20 +129,20 @@ function addon:InitQuest()
 	AddQuest(31277,	Z.TOWNLONG_STEPPES,			41.0,	60.2,	"Neutral")
 	AddQuest(31810,	Z.THE_JADE_FOREST,			57.6,	44.8,	"Neutral")
 	AddQuest(31811,	Z.THE_JADE_FOREST,			57.6,	44.8,	"Neutral")
-	AddQuest(32399,	Z.KRASARANG_WILDS,			00.0,	00.0,	"Horde")
+	AddQuest(32399,	Z.KUN_LAI_SUMMIT,			55.8,	34.0,	"Horde")
 	AddQuest(32175,	Z.DARKMOON_ISLAND,			47.8,	62.6,	"Neutral")
-	AddQuest(32428,	Z.VALLEY_OF_THE_FOUR_WINDS,		00.0,	00.0,	"Neutral")
+	AddQuest(32428,	Z.VALE_OF_ETERNAL_BLOSSOMS,		00.0,	00.0,	"Neutral") -- Same questid for both cities/factions
 	AddQuest(32434,	Z.TOWNLONG_STEPPES,			57.0,	42.2,	"Neutral")
 	AddQuest(32439,	Z.DREAD_WASTES,				61.2,	87.4,	"Neutral")
 	AddQuest(32440,	Z.THE_JADE_FOREST,			28.8,	36.0,	"Neutral")
 	AddQuest(32441,	Z.KUN_LAI_SUMMIT,			64.8,	93.6,	"Neutral")
-	AddQuest(32455,	Z.KRASARANG_WILDS,			00.0,	00.0,	"Alliance")
+	AddQuest(32455,	Z.KRASARANG_WILDS,			87.6,	33.0,	"Alliance")
 	AddQuest(32589,	Z.ISLE_OF_THUNDER,			32.6,	35.4,	"Horde")
 	AddQuest(32599,	Z.ISLE_OF_THUNDER,			63.2,	72.2,	"Alliance")
-	AddQuest(32603,	Z.VALE_OF_ETERNAL_BLOSSOMS,		00.0,	00.0,	"Neutral")
-	AddQuest(32604,	Z.VALE_OF_ETERNAL_BLOSSOMS,		00.0,	00.0,	"Neutral")
-	AddQuest(32616,	Z.ISLE_OF_GIANTS,			00.0,	00.0,	"Neutral")
-	AddQuest(32617,	Z.ISLE_OF_GIANTS,			00.0,	00.0,	"Neutral")
+	AddQuest(32603,	Z.VALE_OF_ETERNAL_BLOSSOMS,		00.0,	00.0,	"Neutral") -- Same questid for both cities/factions
+	AddQuest(32604,	Z.VALE_OF_ETERNAL_BLOSSOMS,		00.0,	00.0,	"Neutral") -- Same questid for both cities/factions
+	AddQuest(32616,	Z.ISLE_OF_GIANTS,			32.6,	54.4,	"Neutral")
+	AddQuest(32617,	Z.ISLE_OF_GIANTS,			32.6,	54.4,	"Neutral")
 	AddQuest(32680,	Z.TOWNLONG_STEPPES,			50.8,	73.2,	"Horde")
 	AddQuest(32681,	Z.TOWNLONG_STEPPES,			49.8,	69.0,	"Alliance")
 	AddQuest(32985,	Z.FROSTWALL,				00.0,	00.0,	"Horde")
@@ -155,8 +155,8 @@ function addon:InitQuest()
 	AddQuest(36380,	Z.FROSTFIRE_RIDGE,			20.0,	56.4,	"Horde")
 	AddQuest(36471,	Z.DARKMOON_ISLAND,			47.4,	62.2,	"Neutral")
 	AddQuest(36982,	Z.LUNARFALL,				00.0,	00.0,	"Alliance")
-	AddQuest(36940,	Z.BLASTED_LANDS,			00.0,	00.0,	"Horde")
-	AddQuest(36941,	Z.BLASTED_LANDS,			00.0,	00.0,	"Alliance")
+	AddQuest(36940,	Z.BLASTED_LANDS,			48.6,	31.8,	"Horde")
+	AddQuest(36941,	Z.BLASTED_LANDS,			52.0,	28.6,	"Alliance")
 	AddQuest(36994,	Z.LUNARFALL,				00.0,	00.0,	"Alliance")
 	AddQuest(37004,	Z.LUNARFALL,				00.0,	00.0,	"Alliance")
 	AddQuest(37013,	Z.LUNARFALL,				00.0,	00.0,	"Alliance")
@@ -171,33 +171,32 @@ function addon:InitQuest()
 	AddQuest(37287,	Z.SPIRES_OF_ARAK,			39.4,	61.6,	"Alliance")
 	AddQuest(37292,	Z.SPIRES_OF_ARAK,			40.0,	42.6,	"Horde")
 	AddQuest(37307,	Z.LUNARFALL,				37.2,	36.4,	"Alliance")
-	AddQuest(37736,	Z.AZSUNA,				00.0,	00.0,	"Neutral") -- Needs updating
-	AddQuest(37959,	Z.AZSUNA,				00.0,	00.0,	"Neutral") -- Needs updating
-	AddQuest(38015,	Z.AZSUNA,				00.0,	00.0,	"Neutral") -- Needs updating
-	AddQuest(38237,	Z.AZSUNA,				00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(37736,	Z.AZSUNA,				53.0,	37.0,	"Neutral")
+	AddQuest(37959,	Z.AZSUNA,				53.8,	16.8,	"Neutral")
+	AddQuest(38015,	Z.AZSUNA,				49.8,	26.6,	"Neutral")
+	AddQuest(38237,	Z.AZSUNA,				63.0,	51.4,	"Neutral")
 	AddQuest(38299,	Z.LUNARFALL,				00.0,	00.0,	"Alliance")
 	AddQuest(38300,	Z.FROSTWALL,				00.0,	00.0,	"Horde")
-	AddQuest(38317,	Z.STORMHEIM,				00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(38317,	Z.STORMHEIM,				35.0,	33.4,	"Horde")
 	AddQuest(38428, Z.TANAAN_JUNGLE,			31.1,	67.1,	"Neutral")
 	AddQuest(38889,	Z.VALSHARAH,				53.0,	57.0,	"Neutral")
-	AddQuest(39015,	Z.VALSHARAH,				00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(39015,	Z.VALSHARAH,				38.6,	65.6,	"Neutral")
 	AddQuest(39305,	Z.HIGHMOUNTAIN,				49.4,	39.2,	"Neutral")
-	AddQuest(39656,	Z.HIGHMOUNTAIN,				55.8,	56.2,	"Neutral") -- Needs updating
+	AddQuest(39656,	Z.HIGHMOUNTAIN,				57.6,	56.6,	"Neutral")
 	AddQuest(40149,	Z.STORMHEIM,				45.6,	25.6,	"Neutral")
 	AddQuest(40904,	Z.HELLFIRE_CITADEL,			00.0,	00.0,	"Neutral")
-	AddQuest(41143,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(41143,	Z.SURAMAR,				15.2,	51.8,	"Neutral")
 	AddQuest(41188,	Z.THUNDER_TOTEM,			45.8,	44.6,	"Neutral")
 	AddQuest(41197,	Z.SURAMAR,				29.0,	33.0,	"Neutral")
-	AddQuest(42170,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral") -- Needs updating
-	AddQuest(42722,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
-	AddQuest(42837,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
-	AddQuest(44058,	Z.SURAMAR,				00.0,	00.0,	"Neutral") -- Needs updating
-	AddQuest(44412,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral") -- Needs updating
+	AddQuest(42170,	Z.VALSHARAH,				00.0,	00.0,	"Neutral")
+	AddQuest(42722,	Z.SURAMAR,				44.2,	73.0,	"Neutral")
+	AddQuest(42837,	Z.SURAMAR,				60.6,	56.4,	"Neutral")
+	AddQuest(44412,	Z.DALARAN_BROKENISLES,			28.8,	48.4,	"Neutral")
 	AddQuest(44767,	Z.THE_STORM_PEAKS,			41.4,	24.4,	"Neutral")
-	AddQuest(44959,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral")
-	AddQuest(44982,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral")
-	AddQuest(45007,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral")
-	AddQuest(45008,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral")
+	AddQuest(44959,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral") -- Hatchling quest
+	AddQuest(44982,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral") -- Hatchling quest
+	AddQuest(45007,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral") -- Hatchling quest
+	AddQuest(45008,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral") -- Hatchling quest
 	AddQuest(45083,	Z.NORTHERN_BARRENS,			63.6,	35.8,	"Neutral")
 
 	self.InitQuest = nil

@@ -1888,7 +1888,7 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
 	toy:AddProfession(PROF.ARCHAEOLOGY)
 
-	-- Rocfeather Skyhorn Kite -- 131811  -- Needs updating
+	-- Rocfeather Skyhorn Kite -- 131811
 	toy = AddToy(131811, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	toy:AddZoneLocations(Z.HIGHMOUNTAIN, nil, "50:58")
@@ -2067,12 +2067,12 @@ function addon:InitToys()
 	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddVendor(23605)
 
-	-- Disposable Winter Veil Suits -- 139337 -- Needs updating
+	-- Disposable Winter Veil Suits -- 139337
 	toy = AddToy(139337, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
 	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
-	-- Suspicious Crate -- 139587 -- Needs updating
+	-- Suspicious Crate -- 139587
 	toy = AddToy(139587, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:SetRequiredClass("Rogue")
@@ -2083,9 +2083,10 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(10774)
 
-	-- Stormforged Vrykul Horn -- 140160 -- Needs updating
+	-- Stormforged Vrykul Horn -- 140160
 	toy = AddToy(140160, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:SetRequiredClass("Warrior")
 	toy:AddCustom("CLASS_HALL")
 
 	-- Narcissa's Mirror -- 140231
@@ -2098,7 +2099,7 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddVendor(108468)
 
-	-- Crab Shank -- 140314 -- Needs updating
+	-- Crab Shank -- 140314
 	toy = AddToy(140314, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	toy:AddMobDrop(107846)
@@ -2120,9 +2121,9 @@ function addon:InitToys()
 
 	-- Pocket Fel Spreader -- 140363
 	toy = AddToy(140363, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
-	toy:AddMobDrop(112315)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	toy:AddWorldEvent("LEGION_INVASION")
+	toy:Retire()
 
 	-- Lava Fountain -- 140632
 	toy = AddToy(140632, V.LEGION, Q.RARE)
@@ -2130,50 +2131,50 @@ function addon:InitToys()
 	toy:SetRequiredClass("Shaman")
 	toy:AddCustom("CLASS_HALL")
 
-	-- Fal'dorei Egg -- 140780 -- Needs updating
+	-- Fal'dorei Egg -- 140780
 	toy = AddToy(140780, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("WITHERED_ARMY")
 
-	-- Ley Spider Eggs -- 140786 -- Needs updating
+	-- Ley Spider Eggs -- 140786
 	toy = AddToy(140786, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("WITHERED_ARMY")
 
-	-- Ancient Mana Basin -- 141296 -- Needs updating
+	-- Ancient Mana Basin -- 141296
 	toy = AddToy(141296, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("WITHERED_ARMY")
 
-	-- Arcano-Shower -- 141297 -- Needs updating
+	-- Arcano-Shower -- 141297
 	toy = AddToy(141297, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("WITHERED_ARMY")
 
-	-- Displacer Meditation Stone -- 141298 -- Needs updating
+	-- Displacer Meditation Stone -- 141298
 	toy = AddToy(141298, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("WITHERED_ARMY")
 
-	-- Kal'dorei Light Globe -- 141299 -- Needs updating
+	-- Kal'dorei Light Globe -- 141299
 	toy = AddToy(141299, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("WITHERED_ARMY")
 
-	-- Magi Focusing Crystal -- 141300 -- Needs updating
+	-- Magi Focusing Crystal -- 141300
 	toy = AddToy(141300, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("WITHERED_ARMY")
 
-	-- Unstable Powder Box -- 141301 -- Needs updating
+	-- Unstable Powder Box -- 141301
 	toy = AddToy(141301, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("WITHERED_ARMY")
 
-	-- Wisp in a Bottle -- 141306 -- Needs updating
+	-- Wisp in a Bottle -- 141306
 	toy = AddToy(141306, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.SURAMAR, nil, "0:0")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("WITHERED_ARMY")
 
 	-- Berglrgl Perrgl Girggrlf -- 141879
 	toy = AddToy(141879, V.LEGION, Q.RARE)
@@ -2276,9 +2277,26 @@ function addon:InitToys()
 	toy = AddToy(142536, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 
-	-- Skull of Corruption -- 143544 --Needs updating
+	-- Tome of Town Portal -- 142542
+	toy = AddToy(142542, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(11395)
+
+	-- Wand of Simulated Life -- 143534
+	toy = AddToy(143534, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddZoneLocations(Z.DALARAN_BROKENISLES, nil, "47.4:41.1")
+
+	-- Twelve-String Guitar -- 143543
+	toy = AddToy(143543, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(11395)
+
+	-- Skull of Corruption -- 143544
 	toy = AddToy(143544, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:SetRequiredClass("DEMONHUNTER")
+	toy:AddWorldDrop(Z.THE_NIGHTHOLD)
 
 	-- Mrgrglhjorn -- 143660
 	toy = AddToy(143660, V.LEGION, Q.RARE)
@@ -2327,7 +2345,7 @@ function addon:InitToys()
 	toy = AddToy(134831, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 
-	-- Falanaar Echo -- 140779 -- Needs updating
+	-- Falanaar Echo -- 140779
 	toy = AddToy(140779, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 

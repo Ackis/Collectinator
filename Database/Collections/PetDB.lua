@@ -1586,6 +1586,7 @@ function addon:InitCritters()
 	pet:SetSpellID(97779)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
 	pet:AddQuest(29208)
+	pet:AddCustom("HEROIC")
 
 	-- Legs -- 53048
 	pet = AddPet(53048, V.CATA, Q.COMMON)
@@ -5123,11 +5124,12 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.THE_SABERSTALKERS)
 	pet:AddRepVendor(FAC.THE_SABERSTALKERS, REP.REVERED, 92805)
 
-	-- Grumpling -- 97229   -- Needs updating
+	-- Grumpling -- 97229
 	pet = AddPet(97229, V.WOD, Q.UNCOMMON)
 	pet:SetItemID(128770)
 	pet:SetSpellID(191967)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddZoneLocations(Z.NAGRAND_DRAENOR, nil, "45.0:27.0")
 	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
 	-- Spectral Spinner -- 97324
@@ -5386,7 +5388,7 @@ function addon:InitCritters()
 	-- Spring Strider -- 97559
 	pet = AddPet(97559, V.LEGION, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
-	pet:AddZoneLocations(Z.VALSHARAH, "25", "0:0") -- Needs updating
+	pet:AddZoneLocations(Z.VALSHARAH, "25", "49.0:68.4", "46.4:70.6", "43.4:70.8")
 
 	-- Black-Footed Fox Kit -- 97741
 	pet = AddPet(97741, V.LEGION, Q.COMMON)
@@ -5408,7 +5410,7 @@ function addon:InitCritters()
 	-- Tiny Apparition -- 97952
 	pet = AddPet(97952, V.LEGION, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
-	pet:AddZoneLocations(Z.STORMHEIM, "25", "0:0") -- Needs updating
+	pet:AddZoneLocations(Z.STORMHEIM, "25", "57.4:36.0", "57.8:45.0", "54.2:43.0")
 
 	-- Crispin -- 98077
 	pet = AddPet(98077, V.LEGION, Q.COMMON)
@@ -5448,7 +5450,7 @@ function addon:InitCritters()
 	-- Hog-Nosed Bat -- 98192
 	pet = AddPet(98192, V.LEGION, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
-	pet:AddZoneLocations(Z.HIGHMOUNTAIN, "25", "0:0") -- Needs updating
+	pet:AddZoneLocations(Z.HIGHMOUNTAIN, "25", "53.6:35.6", "48.4:36.8", "50.8:33.6", "49.6:36.6")
 
 	-- Spiketail Beaver -- 98211
 	pet = AddPet(98211, V.LEGION, Q.COMMON)
@@ -5514,11 +5516,13 @@ function addon:InitCritters()
 	-- Vicious Broodling -- 99513
 	pet = AddPet(99513, V.LEGION, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.BATTLE_PET)
-	pet:AddZoneLocations(Z.SURAMAR, "25", "0:0") -- Needs updating
+	pet:AddZoneLocations(Z.SURAMAR, "25", "38.0:70.4", "35.6:79.2", "28.8:65.2", "32.4:75.8")
 
-	-- Leyline Broodling -- 99526  -- Needs updating
+	-- Leyline Broodling -- 99526
 	pet = AddPet(99526, V.LEGION, Q.RARE)
+	pet:SetItemID(136914)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("WITHERED_ARMY")
 
 	-- Crystalline Broodling -- 99527
 	pet = AddPet(99527, V.LEGION, Q.COMMON)
@@ -5563,7 +5567,7 @@ function addon:InitCritters()
 	-- Corgi Pup -- 106283
 	pet = AddPet(106283, V.LEGION, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
-	pet:AddVendor(110334, 110035)
+	pet:AddVendor(110034, 110035)
 
 	-- Zoom -- 107206
 	pet = AddPet(107206, V.LEGION, Q.RARE)
@@ -5678,9 +5682,9 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	pet:AddMobDrop(111197)
 
-	-- Squirky -- 113440  -- Needs updating
+	-- Squirky -- 113440  -- Needs updating - March of the Tadpoles
 	pet = AddPet(113440, V.LEGION, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
 
 	-- Mischief -- 113527
 	pet = AddPet(113527, V.LEGION, Q.RARE)

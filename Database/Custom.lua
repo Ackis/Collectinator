@@ -55,6 +55,7 @@ function addon:InitCustom()
 	AddCustom("MOUNTAIN_DEW")
 	AddCustom("RECRUIT")
 	AddCustom("OLYMPICS")
+	AddCustom("DIABLO_20th_EVENT")
 
 -- Purchases
 	AddCustom("TCG",		Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	71.6)
@@ -122,6 +123,7 @@ function addon:InitCustom()
 	AddCustom("PRESTIGE")
 	AddCustom("HATCHLING",		Z.BROKEN_ISLES)
 	AddCustom("HATCHLING_CHAIN",	Z.BROKEN_ISLES)
+	AddCustom("WITHERED_ARMY")
 
 	self.InitCustom = nil
 end
