@@ -601,25 +601,25 @@ function addon:InitMounts()
 	mount = AddMount(25953, V.ORIG, Q.RARE) -- Item: 21218
 	mount:SetItemID(21218)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.WORLD_DROP)
-	mount:AddWorldDrop(Z.AHNQIRAJ_THE_FALLEN_KINGDOM)
+	mount:AddWorldDrop(Z.AHNQIRAJ)
 
 	-- Red Qiraji Battle Tank -- 26054
 	mount = AddMount(26054, V.ORIG, Q.RARE) -- Item: 21321
 	mount:SetItemID(21321)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.WORLD_DROP)
-	mount:AddWorldDrop(Z.AHNQIRAJ_THE_FALLEN_KINGDOM)
+	mount:AddWorldDrop(Z.AHNQIRAJ)
 
 	-- Yellow Qiraji Battle Tank -- 26055
 	mount = AddMount(26055, V.ORIG, Q.RARE) -- Item: 21324
 	mount:SetItemID(21324)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.WORLD_DROP)
-	mount:AddWorldDrop(Z.AHNQIRAJ_THE_FALLEN_KINGDOM)
+	mount:AddWorldDrop(Z.AHNQIRAJ)
 
 	-- Green Qiraji Battle Tank -- 26056
 	mount = AddMount(26056, V.ORIG, Q.RARE) -- Item: 21323
 	mount:SetItemID(21323)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.WORLD_DROP)
-	mount:AddWorldDrop(Z.AHNQIRAJ_THE_FALLEN_KINGDOM)
+	mount:AddWorldDrop(Z.AHNQIRAJ)
 
 	-- Black Qiraji Resonating Crystal - 26656
 	mount = AddMount(26656, V.ORIG, Q.LEGENDARY) -- Item: 21176

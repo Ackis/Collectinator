@@ -248,7 +248,7 @@ local INSTANCE_LOCATIONS = {
 		x = 26.75,
 		y = 11.60,
 	},
-	[Z.AHNQIRAJ_THE_FALLEN_KINGDOM] = {
+	[Z.AHNQIRAJ] = {
 		zone = KALIMDOR_IDNUMS[Z.SILITHUS],
 		continent = 1,
 		x = 0,
