@@ -3470,7 +3470,7 @@ function addon:InitMounts()
 	mount = AddMount(227986, V.LEGION, Q.EPIC)
 	mount:SetItemID(141843)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.PVP)
-	mount:AddAchievement(11011)
+	mount:Retire()
 
 	-- Fearless Gladiator's Storm Dragon -- 227988
 	mount = AddMount(227988, V.LEGION, Q.EPIC)
