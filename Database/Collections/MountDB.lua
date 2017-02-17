@@ -3527,6 +3527,11 @@ function addon:InitMounts()
 	mount:AddRepVendor(FAC.BRAWLGAR_ARENA, REP.EXALTED, 68364)
 	mount:AddRepVendor(FAC.BIZMOS_BRAWLPUB, REP.EXALTED, 68363)
 
+	-- Primal Flamesaber -- 232405
+	mount = AddMount(232405, V.LEGION, Q.EPIC)
+	mount:SetItemID(143631)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	mount:AddCustom("FOR_AZEROTH")
 -- Unknown mounts
 
 	-- Fierce Gladiator's Storm Dragon -- 227994

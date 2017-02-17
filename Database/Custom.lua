@@ -56,6 +56,7 @@ function addon:InitCustom()
 	AddCustom("RECRUIT")
 	AddCustom("OLYMPICS")
 	AddCustom("DIABLO_20th_EVENT")
+	AddCustom("FOR_AZEROTH")
 
 -- Purchases
 	AddCustom("TCG",		Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	71.6)

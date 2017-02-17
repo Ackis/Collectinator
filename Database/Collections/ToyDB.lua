@@ -1738,6 +1738,12 @@ function addon:InitToys()
 	toy:AddVendor(101759, 101760)
 
 -- Legion
+
+	-- Golden Hearthstone Card: Lord Jaraxxus -- 119211
+	toy = AddToy(119211, V.LEGION, Q.COMMON)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddMobDrop(105503)
+
 	-- Sternfathom's Pet Journal -- 122681
 	toy = AddToy(122681, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
@@ -2273,9 +2279,10 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.CONJURER_MARGOSS)
 	toy:AddRepVendor(FAC.CONJURER_MARGOSS, REP.FRIENDLY, 108825)
 
-	-- Memory Cube -- 142536 -- Needs updating
+	-- Memory Cube -- 142536
 	toy = AddToy(142536, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddMobDrop(104415)
 
 	-- Tome of Town Portal -- 142542
 	toy = AddToy(142542, V.LEGION, Q.RARE)
@@ -2296,7 +2303,7 @@ function addon:InitToys()
 	toy = AddToy(143544, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	toy:SetRequiredClass("DEMONHUNTER")
-	toy:AddWorldDrop(Z.THE_NIGHTHOLD)
+	toy:AddMobDrop(105503)
 
 	-- Mrgrglhjorn -- 143660
 	toy = AddToy(143660, V.LEGION, Q.RARE)

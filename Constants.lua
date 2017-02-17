@@ -883,6 +883,7 @@ private.BOSS_NAMES = {
 	HODIR = _G.EJ_GetEncounterInfo(1644),
 	FREYA = _G.EJ_GetEncounterInfo(1646),
 	DRAGONS_OF_NIGHTMARE = _G.EJ_GetEncounterInfo(1704),
+	CHRONOMATIC_ANOMALY = _G.EJ_GetEncounterInfo(1725),
 	GULDAN = _G.EJ_GetEncounterInfo(1737),
 
 }
