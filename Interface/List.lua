@@ -1081,6 +1081,7 @@ function private.InitializeListFrame()
 	-- Mobs can be in instances, raids, or specific mob related drops.
 	local function ExpandMobData(entry_index, entry_type, parent_entry, id_num, collectable, hide_location, hide_type)
 		local mob = private.mob_list[id_num]
+--		local difficulty = private.mob_difficulty[difficulty]
 		local entry = CreateListEntry(entry_type, parent_entry, collectable)
 		entry:SetNPCID(id_num)
 		entry:SetText("%s%s %s",
@@ -1093,6 +1094,10 @@ function private.InitializeListFrame()
 
 		local coord_text = ""
 
+--		if mob.difficulty ~= "" then
+--			difficulty_text = SetTextColor(CATEGORY_COLORS["coords"], mob.difficulty)
+--		end
+
 		if mob.coord_x ~= 0 and mob.coord_y ~= 0 then
 			coord_text = SetTextColor(CATEGORY_COLORS["coords"], COORD_FORMAT:format(mob.coord_x, mob.coord_y))
 		end
@@ -1104,6 +1109,7 @@ function private.InitializeListFrame()
 		entry = CreateListEntry(entry_type, parent_entry, collectable)
 		entry:SetNPCID(id_num)
 		entry:SetText("%s%s%s %s",
+--			difficulty_text,
 			PADDING,
 			PADDING,
 			hide_location and "" or SetTextColor(CATEGORY_COLORS["location"], mob.location),
