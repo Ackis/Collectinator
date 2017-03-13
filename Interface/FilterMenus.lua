@@ -1306,6 +1306,7 @@ function private.InitializeFilterPanel()
 		highmountaintribe 	= { cb = expansion6.highmountaintribe,		svroot = filters.rep },
 		valarjar		= { cb = expansion6.valarjar,			svroot = filters.rep },
 		conjurermargoss		= { cb = expansion6.conjurermargoss,		svroot = filters.rep },
+		talonsvengeance 	= { cb = expansion6.talonsvengeance,		svroot = filters.rep },
 	}
 	private.InitializeFilterPanel = nil
 end
