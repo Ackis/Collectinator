@@ -51,6 +51,7 @@ function addon:InitWorldEvents()
 	AddWorldEvent("DARKMOON_FAIRE", _G.GetCategoryInfo(15101))
 	AddWorldEvent("WANDERERS_FESTIVAL", L["Wanderer's Festival"])
 	AddWorldEvent("PIRATES_DAY", L["Pirate's Day"])
+	AddWorldEvent("MARCH_OF_TADPOLES", L["March of The Tadpoles"])
 
 	local spell_name = _G.GetSpellInfo(217514)
 	AddWorldEvent("LEGION_INVASION", spell_name)

@@ -3325,8 +3325,9 @@ function addon:InitMounts()
 
 	-- Felsaber -- 200175  -- Needs updating
 	mount = AddMount(200175, V.LEGION, Q.EPIC)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:SetRequiredClass("DEMONHUNTER")
+	mount:AddCustom("DEMONHUNTER_STARTER")
 
 	-- Prestigious War Wolf -- 204166
 	mount = AddMount(204166, V.LEGION, Q.EPIC)
@@ -3370,7 +3371,7 @@ function addon:InitMounts()
 	mount = AddMount(215159, V.LEGION, Q.EPIC)
 	mount:SetItemID(138258)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
-	mount:AddZoneLocations(Z.AZSUNA, nil, "0:0")
+	mount:AddZoneLocations(Z.AZSUNA, nil, "29.90:26.55", "30.30:23.95")
 
 	-- Ratstallion -- 215558
 	mount = AddMount(215558, V.LEGION, Q.EPIC)
@@ -3509,10 +3510,11 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.VENDOR, F.IBOP, F.TALONS_VENGEANCE)
 	mount:AddRepVendor(FAC.TALONS_VENGEANCE, REP.EXALTED, 115887)
 
-	-- Arcanist's Manasaber -- 230987 -- Needs updating
+	-- Arcanist's Manasaber -- 230987
 	mount = AddMount(230987, V.LEGION, Q.EPIC)
 	mount:SetItemID(142436)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
+	mount:AddQuest(45372)
 
 	-- Smoldering Ember Wyrm -- 231428
 	mount = AddMount(231428, V.LEGION, Q.EPIC)

@@ -125,6 +125,8 @@ function addon:InitCustom()
 	AddCustom("HATCHLING",		Z.BROKEN_ISLES)
 	AddCustom("HATCHLING_CHAIN",	Z.BROKEN_ISLES)
 	AddCustom("WITHERED_ARMY")
+	AddCustom("DEMONHUNTER_STARTER")
+
 
 	self.InitCustom = nil
 end

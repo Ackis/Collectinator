@@ -198,6 +198,7 @@ function addon:InitQuest()
 	AddQuest(45007,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral") -- Hatchling quest
 	AddQuest(45008,	Z.DALARAN_BROKENISLES,			00.0,	00.0,	"Neutral") -- Hatchling quest
 	AddQuest(45083,	Z.NORTHERN_BARRENS,			63.6,	35.8,	"Neutral")
+	AddQuest(45372,	Z.SURAMAR,				37.0,	46.6,	"Neutral")
 
 	self.InitQuest = nil
 end

@@ -5644,7 +5644,7 @@ function addon:InitCritters()
 	-- Nightmare Whelpling -- 112015
 	pet = AddPet(112015, V.LEGION, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
-	pet:AddMobDrop(111573)
+	pet:AddMobDrop(102679)
 
 	-- Firebat Pup -- 112132
 	pet = AddPet(112132, V.LEGION, Q.RARE)
@@ -5684,7 +5684,9 @@ function addon:InitCritters()
 
 	-- Squirky -- 113440  -- Needs updating - March of the Tadpoles
 	pet = AddPet(113440, V.LEGION, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.MISC)
+	pet:AddWorldEvent("MARCH_OF_TADPOLES")
+	pet:AddZoneLocations(Z.AZSUNA, "25", "0:0")
 
 	-- Mischief -- 113527
 	pet = AddPet(113527, V.LEGION, Q.RARE)
@@ -5922,7 +5924,7 @@ function addon:InitCritters()
 	pet:AddVendor(118828)
 
 	-- Tylarr Gronnden -- 119040
-	pet = AddPet(119040, V.LEGION, Q.COMMON)
+	pet = AddPet(119040, V.LEGION, Q.RARE)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BRAWLERS)
 	pet:AddRepVendor(FAC.BRAWLGAR_ARENA, REP.EXALTED, 68364)
 	pet:AddRepVendor(FAC.BIZMOS_BRAWLPUB, REP.EXALTED, 68363)
