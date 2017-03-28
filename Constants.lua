@@ -274,6 +274,7 @@ private.REP_FLAGS_WORD3 = {
 	HIGHMOUNTAIN_TRIBE		= 0x00000040,	-- 7
 	CONJURER_MARGOSS		= 0x00000080,	-- 8
 	TALONS_VENGEANCE		= 0x00000100,	-- 9
+	ARMIES_OF_LEGIONFALL		= 0x00000200,	-- 10
 }
 
 
@@ -522,6 +523,7 @@ private.FACTION_IDS = {
 	BRAWLGAR_ARENA = 2010,
 	BIZMOS_BRAWLPUB = 2011,
 	TALONS_VENGEANCE = 2018,
+	ARMIES_OF_LEGIONFALL = 2045,
 }
 
 private.FACTION_STRINGS = {}
@@ -765,6 +767,7 @@ do
 		THUNDER_TOTEM = _G.GetMapNameByID(1080),
 		THE_NIGHTHOLD = _G.GetMapNameByID(1088),
 		THE_EMERALD_NIGHTMARE = _G.GetMapNameByID(1094),
+		TOMB_OF_SARGERAS = _G.GetMapNameByID(1147),
 
 		-------------------------------------------------------------------------------
 		-- Continents
@@ -885,6 +888,7 @@ private.BOSS_NAMES = {
 	DRAGONS_OF_NIGHTMARE = _G.EJ_GetEncounterInfo(1704),
 	CHRONOMATIC_ANOMALY = _G.EJ_GetEncounterInfo(1725),
 	GULDAN = _G.EJ_GetEncounterInfo(1737),
+	MISTRESS_SASSZINE = _G.EJ_GetEncounterInfo(1861),
 
 }
 

@@ -286,6 +286,8 @@ function addon:InitMob()
 	AddMob(111197,	L["Anax"],				Z.SURAMAR,			34.8, 51.4)
 	AddMob(111573,	L["Kosumoth the Hungering"],		Z.BROKEN_ISLES,			48.0, 48.6)
 	AddMob(114895,	BB.Nightbane,				Z.KARAZHAN,			 0.0,  0.0)
+	AddMob(115767,	BN.MISTRESS_SASSZINE,			Z.TOMB_OF_SARGERAS,		 0.0,  0.0)
+	AddMob(119629,	L["Lord Hel'Nurath"],			Z.BROKEN_SHORE,			45.0, 51.3)
 
 	self.InitMob = nil
 end

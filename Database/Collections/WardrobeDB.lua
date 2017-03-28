@@ -45,3 +45,52 @@ function addon:InitWardrobe()
 	self.InitWardrobe = nil
 
 end
+
+function private.UpdateWardrobeList(wardrobes)
+	local wardrobeCount = _G.C_TransmogCollection.GetNumTransmogSources()
+	local wardrobeIDs = {}
+	local wardrobeItemIDs = {}
+	local wardrobeNames = {}
+
+	for index = 1, wardrobeCount do
+		local wardrobeID = _G.C_ToyBox.GetToyFromIndex(index)
+
+		if wardrobeID > -1 then
+			local itemID, toyName, icon = _G.C_ToyBox.GetToyInfo(toyID)
+			local toy = toys[toyID]
+
+			if toy then
+				toy:SetIcon(icon)
+				toy:SetItemID(itemID)
+				toy:SetName(toyName)
+
+				if _G.PlayerHasToy(toyID) then
+					toy:AddState("KNOWN")
+				end
+			else
+				toyIDs[#toyIDs + 1] = toyID
+				toyItemIDs[toyID] = itemID
+				toyNames[toyID] = toyName or ("%s_%d"):format(_G.UNKNOWN, toyID)
+			end
+		end
+	end
+
+	table.sort(toyIDs)
+
+	--@debug@
+	private.TextDump:Clear()
+	for index = 1, #toyIDs do
+		local toyID = toyIDs[index]
+
+		private.TextDump:AddLine(("-- %s -- %d"):format(toyNames[toyID], toyID))
+		private.TextDump:AddLine(("toy = AddToy(%d, V.LEGION, Q.RARE)"):format(toyID))
+		private.TextDump:AddLine(("toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)\n"))
+	end
+
+	local lineCount = private.TextDump:Lines()
+	if lineCount > 0 then
+		private.TextDump:InsertLine(1, ("Untracked: %d\n"):format(lineCount / 2))
+		private.TextDump:Display()
+	end
+	--@end-debug@
+end

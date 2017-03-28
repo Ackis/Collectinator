@@ -1857,7 +1857,7 @@ function addon:InitToys()
 	-- Legion Pocket Portal -- 130199
 	toy = AddToy(130199, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.VALSHARAH, nil, "60.7:32.7") -- Needs updating
+	toy:AddRepVendor(FAC.ARMIES_OF_LEGIONFALL, REP.EXALTED, 120898)
 
 	-- Never Ending Toy Chest -- 130209
 	toy = AddToy(130209, V.LEGION, Q.RARE)
@@ -2345,6 +2345,46 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
 	toy:AddWorldEvent("TIMEWALKING")
 	toy:AddVendor(118828)
+
+
+-- 7.2
+	-- Champion's Salute -- 143727
+	toy = AddToy(143727, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("CLASS_HALL")
+
+	-- A Tiny Set of Warglaives -- 147537
+	toy = AddToy(147537, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:SetRequiredClass("Death Knight")
+	toy:AddCustom("LEGION_ASCENDED")
+
+	-- Legion Invasion Simulator -- 147708
+	toy = AddToy(147708, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddRepVendor(FAC.ARMIES_OF_LEGIONFALL, REP.EXALTED, 120898)
+
+	-- Magical Saucer -- 147832
+	toy = AddToy(147832, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:SetRequiredClass("Mage")
+	toy:AddCustom("LEGION_ASCENDED")
+
+	-- Akazamzarak's Spare Hat -- 147838
+	toy = AddToy(147838, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:SetRequiredClass("Mage")
+	toy:AddCustom("CLASS_HALL")
+
+	-- Sira's Extra Cloak -- 147843
+	toy = AddToy(147843, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("WARDENS_CACHE")
+
+	-- Pilfered Sweeper -- 147867 -- Needs updating
+	toy = AddToy(147867, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
 
 --[[  Didn't actually make it into the ToyBox panel
 

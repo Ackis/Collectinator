@@ -314,6 +314,7 @@ function addon:OnInitialize()
 					valarjar = true,
 					conjurermargoss = true,
 					talonsvengeance = true,
+					armiesoflegionfall = true,
 				},
 				-- Populated later via CONSTANTS
 				item = {

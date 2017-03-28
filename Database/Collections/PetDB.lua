@@ -5903,6 +5903,33 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)
 	pet:AddQuest(45083)
 
+	-- Crackers -- 116871
+	pet = AddPet(116871, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:SetRequiredClass("Rogue")
+	pet:AddCustom("CLASS_HALL")
+
+	-- Everliving Spore -- 117180
+	pet = AddPet(117180, V.LEGION, Q.RARE)
+	pet:SetItemID(143756)
+	pet:SetSpellID(233331)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)
+	pet:AddQuest(45539)
+
+	-- Cavern Moccasin -- 117182
+	pet = AddPet(117182, V.LEGION, Q.UNCOMMON)
+	pet:SetItemID(143754)
+	pet:SetSpellID(233333)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)
+	pet:AddQuest(45539)
+
+	-- Young Venomfang -- 117184
+	pet = AddPet(117184, V.LEGION, Q.COMMON)
+	pet:SetItemID(143755)
+	pet:SetSpellID(233335)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.QUEST)
+	pet:AddQuest(45539)
+
 	-- Trashy -- 117371
 	pet = AddPet(117371, V.LEGION, Q.RARE)
 	pet:SetItemID(143842)
@@ -5928,6 +5955,51 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BRAWLERS)
 	pet:AddRepVendor(FAC.BRAWLGAR_ARENA, REP.EXALTED, 68364)
 	pet:AddRepVendor(FAC.BIZMOS_BRAWLPUB, REP.EXALTED, 68363)
+
+	-- Blood Whelpling -- 119498
+	pet = AddPet(119498, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:SetRequiredClass("DEATHKNIGHT")
+	pet:AddCustom("LEGION_ASCENDED")
+
+	-- Frost Whelpling -- 119499
+	pet = AddPet(119499, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:SetRequiredClass("DEATHKNIGHT")
+	pet:AddCustom("LEGION_ASCENDED")
+
+	-- Unholy Whelpling -- 119500
+	pet = AddPet(119500, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:SetRequiredClass("DEATHKNIGHT")
+	pet:AddCustom("LEGION_ASCENDED")
+
+	-- Scraps -- 120397  -- Needs updating
+	pet = AddPet(120397, V.LEGION, Q.RARE)
+	pet:SetItemID(146953)
+	pet:SetSpellID(240064)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MISC)
+	pet:AddZoneLocations(Z.BROKEN_SHORE, nil, "0:0")
+
+	-- Ban-Fu, Cub of Ban-Lu -- 120830
+	pet = AddPet(120830, V.LEGION, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:SetRequiredClass("MONK")
+	pet:AddCustom("LEGION_ASCENDED")
+
+	-- Son of Skum -- 121317
+	pet = AddPet(121317, V.LEGION, Q.RARE)
+	pet:SetItemID(147543)
+	pet:SetSpellID(242047)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(11765)
+
+	-- Orphaned Felbat -- 121715 -- Needs updating
+	pet = AddPet(121715, V.LEGION, Q.RARE)
+	pet:SetItemID(147841)
+	pet:SetSpellID(243136)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("LEGIONFALL_CACHE")
 
 -- Pets not actually in game or are NPC/legendary
 	-- Muffin -- 65344

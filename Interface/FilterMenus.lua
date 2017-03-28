@@ -1119,6 +1119,7 @@ function private.InitializeFilterPanel()
 			valarjar		= { tt = ReputationDesc(FN.VALARJAR),			text = FN.VALARJAR,			row = 7,	col = 1 },
 			conjurermargoss		= { tt = ReputationDesc(FN.CONJURER_MARGOSS),		text = FN.CONJURER_MARGOSS,		row = 8,	col = 1 },
 			talonsvengeance		= { tt = ReputationDesc(FN.TALONS_VENGEANCE),		text = FN.TALONS_VENGEANCE,		row = 9,	col = 1 },
+			armiesoflegionfall	= { tt = ReputationDesc(FN.ARMIES_OF_LEGIONFALL),	text = FN.ARMIES_OF_LEGIONFALL,		row = 10,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion6_frame, expansion6_buttons)
 
@@ -1307,6 +1308,7 @@ function private.InitializeFilterPanel()
 		valarjar		= { cb = expansion6.valarjar,			svroot = filters.rep },
 		conjurermargoss		= { cb = expansion6.conjurermargoss,		svroot = filters.rep },
 		talonsvengeance 	= { cb = expansion6.talonsvengeance,		svroot = filters.rep },
+		armiesoflegionfall 	= { cb = expansion6.armiesoflegionfall,		svroot = filters.rep },
 	}
 	private.InitializeFilterPanel = nil
 end

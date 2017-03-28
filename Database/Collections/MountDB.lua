@@ -3534,6 +3534,231 @@ function addon:InitMounts()
 	mount:SetItemID(143631)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
 	mount:AddCustom("FOR_AZEROTH")
+
+-- 7.2 mounts
+	-- Archmage's Prismatic Disc -- 229376
+	mount = AddMount(229376, V.LEGION, Q.EPIC)
+	mount:SetItemID(142223)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Mage")
+	mount:AddCustom("LEGION_PATHFINDER_MOUNT")
+
+	-- High Priest's Lightsworn Seeker -- 229377
+	mount = AddMount(229377, V.LEGION, Q.EPIC)
+	mount:SetItemID(142224)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Priest")
+	mount:AddCustom("LEGION_PATHFINDER_MOUNT")
+
+	-- Ban-Lu, Grandmaster's Companion -- 229385
+	mount = AddMount(229385, V.LEGION, Q.EPIC)
+	mount:SetItemID(142225)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Monk")
+	mount:AddCustom("LEGION_PATHFINDER_MOUNT")
+
+	-- Huntmaster's Loyal Wolfhawk -- 229386
+	mount = AddMount(229386, V.LEGION, Q.EPIC)
+	mount:SetItemID(142227)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Hunter")
+	mount:AddCustom("LEGION_PATHFINDER_MOUNT")
+
+	-- Deathlord's Vilebrood Vanquisher -- 229387
+	mount = AddMount(229387, V.LEGION, Q.EPIC)
+	mount:SetItemID(142231)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Death Knight")
+	mount:AddCustom("LEGION_PATHFINDER_MOUNT")
+
+	-- Battlelord's Bloodthirsty War Wyrm -- 229388
+	mount = AddMount(229388, V.LEGION, Q.EPIC)
+	mount:SetItemID(142232)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Warrior")
+	mount:AddCustom("LEGION_PATHFINDER_MOUNT")
+
+	-- Slayer's Felbroken Shrieker -- 229417
+	mount = AddMount(229417, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Demon Hunter")
+	mount:AddCustom("LEGION_PATHFINDER_MOUNT")
+
+	-- Huntmaster's Fierce Wolfhawk -- 229438
+	mount = AddMount(229438, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Hunter")
+	mount:AddCustom("LEGION_ASCENDED")
+
+	-- Huntmaster's Dire Wolfhawk -- 229439
+	mount = AddMount(229439, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Hunter")
+	mount:AddCustom("LEGION_ASCENDED")
+
+	-- Vicious War Bear -- 229486
+	mount = AddMount(229486, V.LEGION, Q.EPIC)
+	mount:SetItemID(142235)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(73151)
+
+	-- Vicious War Bear -- 229487
+	mount = AddMount(229487, V.LEGION, Q.EPIC)
+	mount:SetItemID(142234)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP)
+	mount:AddVendor(73190)
+
+	-- Vicious War Lion -- 229512
+	mount = AddMount(229512, V.LEGION, Q.EPIC)
+	mount:SetItemID(142237)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP)
+	mount:AddVendor(73190)
+
+	-- Vicious War Scorpion -- 230988
+	mount = AddMount(230988, V.LEGION, Q.EPIC)
+	mount:SetItemID(142437)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(73151)
+
+	-- Shadowblade's Murderous Omen -- 231434
+	mount = AddMount(231434, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Rogue")
+	mount:AddCustom("LEGION_PATHFINDER_MOUNT")
+
+	-- Highlord's Golden Charger -- 231435
+	mount = AddMount(231435, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Paladin")
+	mount:AddCustom("LEGION_PATHFINDER_MOUNT")
+
+	-- Archdruid's Lunarwing Form -- 231437
+	mount = AddMount(231437, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Druid")
+	mount:AddCustom("LEGION_PATHFINDER_MOUNT")
+
+	-- Farseer's Raging Tempest -- 231442
+	mount = AddMount(231442, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Shaman")
+	mount:AddCustom("LEGION_PATHFINDER_MOUNT")
+
+	-- Shadowblade's Lethal Omen -- 231523
+	mount = AddMount(231523, V.LEGION, Q.EPIC)
+	mount:SetItemID(143492)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
+	mount:AddVendor(121282)
+
+	-- Shadowblade's Baneful Omen -- 231524
+	mount = AddMount(231524, V.LEGION, Q.EPIC)
+	mount:SetItemID(143491)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
+	mount:AddVendor(121282)
+
+	-- Shadowblade's Crimson Omen -- 231525
+	mount = AddMount(231525, V.LEGION, Q.EPIC)
+	mount:SetItemID(143490)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
+	mount:AddVendor(121282)
+
+	-- Highlord's Vengeful Charger -- 231587
+	mount = AddMount(231587, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Paladin")
+	mount:AddCustom("LEGION_ASCENDED")
+
+	-- Highlord's Vigilant Charger -- 231588
+	mount = AddMount(231588, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Paladin")
+	mount:AddCustom("LEGION_ASCENDED")
+
+	-- Highlord's Valorous Charger -- 231589
+	mount = AddMount(231589, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Paladin")
+	mount:AddCustom("LEGION_ASCENDED")
+
+	-- Netherlord's Chaotic Dreadsteed -- 232412
+	mount = AddMount(232412, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Warlock")
+	mount:AddCustom("LEGION_PATHFINDER_MOUNT")
+
+	-- Abyss Worm -- 232519
+	mount = AddMount(232519, V.LEGION, Q.EPIC)
+	mount:SetItemID(143643)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(115767)
+
+	-- Vicious War Turtle -- 232523
+	mount = AddMount(232523, V.LEGION, Q.EPIC)
+	mount:SetItemID(143648)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP)
+	mount:AddVendor(73190)
+
+	-- Vicious War Turtle -- 232525
+	mount = AddMount(232525, V.LEGION, Q.EPIC)
+	mount:SetItemID(143649)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(73151)
+
+	-- Leywoven Flying Carpet -- 233364
+	mount = AddMount(233364, V.LEGION, Q.EPIC)
+	mount:SetItemID(143764)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("NIGHTFALLEN_CACHE")
+
+	-- Netherlord's Brimstone Dreadsteed -- 238452
+	mount = AddMount(238452, V.LEGION, Q.EPIC)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:SetRequiredClass("Warlock")
+	mount:AddCustom("LEGION_ASCENDED")
+
+	-- Netherlord's Accursed Dreadsteed -- 238454
+	mount = AddMount(238454, V.LEGION, Q.EPIC)
+	mount:SetItemID(142233)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:SetRequiredClass("Warlock")
+	mount:AddMobDrop(119629)
+
+	-- Highmountain Elderhorn -- 242874
+	mount = AddMount(242874, V.LEGION, Q.EPIC)
+	mount:SetItemID(147807)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("HIGHMOUNTAIN_CACHE")
+
+	-- Wild Dreamrunner -- 242875
+	mount = AddMount(242875, V.LEGION, Q.EPIC)
+	mount:SetItemID(147804)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("DREAMWEAVER_CACHE")
+
+	-- Cloudwing Hippogryph -- 242881
+	mount = AddMount(242881, V.LEGION, Q.EPIC)
+	mount:SetItemID(147806)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("FARONDIS_CACHE")
+
+	-- Valarjar Stormwing -- 242882
+	mount = AddMount(242882, V.LEGION, Q.EPIC)
+	mount:SetItemID(147805)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("VALARJAR_CACHE")
+
+	-- Riddler's Mind-Worm -- 243025 -- Needs updating
+	mount = AddMount(243025, V.LEGION, Q.EPIC)
+	mount:SetItemID(147835)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,F.IBOP)
+
+
 -- Unknown mounts
 
 	-- Fierce Gladiator's Storm Dragon -- 227994
