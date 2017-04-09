@@ -5249,7 +5249,7 @@ function addon:InitCritters()
 	pet:SetItemID(128354)
 	pet:SetSpellID(186299)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
-	pet:AddQuest(39015)
+	pet:AddZoneLocations(Z.VALSHARAH, nil, "38.6:65.6")
 
 	-- Ashmaw Cub -- 96649
 	pet = AddPet(96649, V.LEGION, Q.RARE)
