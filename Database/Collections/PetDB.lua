@@ -5253,8 +5253,10 @@ function addon:InitCritters()
 
 	-- Ashmaw Cub -- 96649
 	pet = AddPet(96649, V.LEGION, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
-	pet:AddQuest(38889)
+	pet:SetItemID(128690)
+	pet:SetSpellID(191425)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddZoneLocations(Z.VALSHARAH, nil, "52.8:87.4")
 
 	-- Albatross Chick -- 97018
 	pet = AddPet(97018, V.LEGION, Q.COMMON)
