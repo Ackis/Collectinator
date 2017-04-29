@@ -126,6 +126,8 @@ function addon:InitCustom()
 	AddCustom("HATCHLING_CHAIN",	Z.BROKEN_ISLES)
 	AddCustom("WITHERED_ARMY")
 	AddCustom("DEMONHUNTER_STARTER")
+	AddCustom("GRUMPUS")
+	AddCustom("RIDDLER_MINDWORM")
 
 	AddCustom("LEGION_PATHFINDER_MOUNT",	Z.DALARAN_BROKENISLES)
 	AddCustom("LEGION_ASCENDED",	Z.DALARAN_BROKENISLES)
@@ -137,6 +139,7 @@ function addon:InitCustom()
 	AddCustom("FARONDIS_CACHE",	Z.AZSUNA)
 	AddCustom("VALARJAR_CACHE",	Z.STORMHEIM)
 	AddCustom("LEGIONFALL_CACHE",	Z.BROKEN_SHORE)
+	AddCustom("CURIOUS_WYRMTONGUE",	Z.BROKEN_SHORE)
 
 	self.InitCustom = nil
 end

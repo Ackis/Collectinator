@@ -272,7 +272,6 @@ function addon:InitVendor()
 	AddVendor(115887,	L["Trinket"],			Z.HIGHMOUNTAIN,			32.4,	66.8,	"Neutral")
 	AddVendor(118828,	L["Mistweaver Xia"],		Z.TIMELESS_ISLE,		43.0,	55.0,	"Neutral")
 	AddVendor(120898,	L["Warmage Kath'leen"],		Z.BROKEN_SHORE,			44.4,	62.2,	"Neutral")
-	AddVendor(121282,	L["Zan Shivsproket"],		Z.DALARAN_BROKENISLES,		 0.0,	 0.0,	"Neutral") -- Needs updating
 
 	self.InitVendor = nil
 end

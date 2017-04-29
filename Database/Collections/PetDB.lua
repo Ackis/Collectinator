@@ -5684,11 +5684,9 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	pet:AddMobDrop(111197)
 
-	-- Squirky -- 113440  -- Needs updating - March of the Tadpoles
+	-- Squirky -- 113440  -- Needs updating
 	pet = AddPet(113440, V.LEGION, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.MISC)
-	pet:AddWorldEvent("MARCH_OF_TADPOLES")
-	pet:AddZoneLocations(Z.AZSUNA, "25", "0:0")
 
 	-- Mischief -- 113527
 	pet = AddPet(113527, V.LEGION, Q.RARE)
@@ -5976,12 +5974,12 @@ function addon:InitCritters()
 	pet:SetRequiredClass("DEATHKNIGHT")
 	pet:AddCustom("LEGION_ASCENDED")
 
-	-- Scraps -- 120397  -- Needs updating
+	-- Scraps -- 120397
 	pet = AddPet(120397, V.LEGION, Q.RARE)
 	pet:SetItemID(146953)
 	pet:SetSpellID(240064)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MISC)
-	pet:AddZoneLocations(Z.BROKEN_SHORE, nil, "0:0")
+	pet:AddCustom("CURIOUS_WYRMTONGUE")
 
 	-- Ban-Fu, Cub of Ban-Lu -- 120830
 	pet = AddPet(120830, V.LEGION, Q.RARE)
@@ -5996,7 +5994,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	pet:AddAchievement(11765)
 
-	-- Orphaned Felbat -- 121715 -- Needs updating
+	-- Orphaned Felbat -- 121715
 	pet = AddPet(121715, V.LEGION, Q.RARE)
 	pet:SetItemID(147841)
 	pet:SetSpellID(243136)

@@ -3264,11 +3264,12 @@ function addon:InitMounts()
 	mount:AddRepVendor(FAC.VOLJINS_HEADHUNTERS, REP.EXALTED, 96014)
 	mount:AddRepVendor(FAC.HAND_OF_THE_PROPHET, REP.EXALTED, 90974)
 
-	-- Minion of Grumpus -- 191314  -- Needs updating
+	-- Minion of Grumpus -- 191314
 	mount = AddMount(191314, V.WOD, Q.EPIC)
 	mount:SetItemID(128671)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.MISC)
 	mount:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+	mount:AddCustom("GRUMPUS")
 
 	-- Soaring Skyterror -- 191633
 	mount = AddMount(191633, V.WOD, Q.EPIC)
@@ -3323,7 +3324,7 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
 	mount:AddProfession(PROF.ARCHAEOLOGY)
 
-	-- Felsaber -- 200175  -- Needs updating
+	-- Felsaber -- 200175
 	mount = AddMount(200175, V.LEGION, Q.EPIC)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:SetRequiredClass("DEMONHUNTER")
@@ -3651,20 +3652,23 @@ function addon:InitMounts()
 	-- Shadowblade's Lethal Omen -- 231523
 	mount = AddMount(231523, V.LEGION, Q.EPIC)
 	mount:SetItemID(143492)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
-	mount:AddVendor(121282)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MISC)
+	mount:SetRequiredClass("Rogue")
+	mount:AddCustom("LEGION_ASCENDED")
 
 	-- Shadowblade's Baneful Omen -- 231524
 	mount = AddMount(231524, V.LEGION, Q.EPIC)
 	mount:SetItemID(143491)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
-	mount:AddVendor(121282)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MISC)
+	mount:SetRequiredClass("Rogue")
+	mount:AddCustom("LEGION_ASCENDED")
 
 	-- Shadowblade's Crimson Omen -- 231525
 	mount = AddMount(231525, V.LEGION, Q.EPIC)
 	mount:SetItemID(143490)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
-	mount:AddVendor(121282)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MISC)
+	mount:SetRequiredClass("Rogue")
+	mount:AddCustom("LEGION_ASCENDED")
 
 	-- Highlord's Vengeful Charger -- 231587
 	mount = AddMount(231587, V.LEGION, Q.EPIC)
@@ -3753,10 +3757,11 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddCustom("VALARJAR_CACHE")
 
-	-- Riddler's Mind-Worm -- 243025 -- Needs updating
+	-- Riddler's Mind-Worm -- 243025
 	mount = AddMount(243025, V.LEGION, Q.EPIC)
 	mount:SetItemID(147835)
-	mount:AddFilters(F.ALLIANCE, F.HORDE,F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE,F.IBOP, F.MISC, F.RAID, F.INSTANCE)
+	mount:AddCustom("RIDDLER_MINDWORM")
 
 
 -- Unknown mounts

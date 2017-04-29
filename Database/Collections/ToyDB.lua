@@ -2381,9 +2381,10 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("WARDENS_CACHE")
 
-	-- Pilfered Sweeper -- 147867 -- Needs updating
+	-- Pilfered Sweeper -- 147867
 	toy = AddToy(147867, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("CURIOUS_WYRMTONGUE")
 
 
 --[[  Didn't actually make it into the ToyBox panel
