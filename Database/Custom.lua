@@ -139,7 +139,7 @@ function addon:InitCustom()
 	AddCustom("FARONDIS_CACHE",	Z.AZSUNA)
 	AddCustom("VALARJAR_CACHE",	Z.STORMHEIM)
 	AddCustom("LEGIONFALL_CACHE",	Z.BROKEN_SHORE)
-	AddCustom("CURIOUS_WYRMTONGUE",	Z.BROKEN_SHORE)
+	AddCustom("CURIOUS_WYRMTONGUE",	Z.BROKEN_SHORE,			47.8,	67.4)
 
 	self.InitCustom = nil
 end
