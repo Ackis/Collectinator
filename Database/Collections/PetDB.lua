@@ -4778,7 +4778,7 @@ function addon:InitCritters()
 	pet:SetItemID(127703)
 	pet:SetSpellID(187383)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
-	pet:AddVendor(94512, 94516)
+	pet:AddVendor(94512, 94516, 98723, 98724)
 
 	-- Royal Moth -- 88417
 	pet = AddPet(88417, V.WOD, Q.COMMON)
@@ -4837,7 +4837,7 @@ function addon:InitCritters()
 	pet:SetItemID(127704)
 	pet:SetSpellID(187384)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
-	pet:AddVendor(94512, 94516)
+	pet:AddVendor(94512, 94516, 98723, 98724)
 
 	-- Mudback Calf -- 88571
 	pet = AddPet(88571, V.WOD, Q.COMMON)
@@ -4868,7 +4868,7 @@ function addon:InitCritters()
 	pet:SetItemID(127701)
 	pet:SetSpellID(187376)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
-	pet:AddVendor(94512, 94516)
+	pet:AddVendor(94512, 94516, 98723, 98724)
 
 	-- Shadow Sporebat -- 88576
 	pet = AddPet(88576, V.WOD, Q.COMMON)
@@ -5037,7 +5037,7 @@ function addon:InitCritters()
 	pet:SetItemID(127705)
 	pet:SetSpellID(184481)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.VENDOR)
-	pet:AddVendor(94512, 94516)
+	pet:AddVendor(94512, 94516, 98723, 98724)
 
 	-- Cinder Pup -- 93143
 	pet = AddPet(93143, V.WOD, Q.RARE)

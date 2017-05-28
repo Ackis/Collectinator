@@ -1620,17 +1620,17 @@ function addon:InitToys()
 	-- Spirit Wand -- 127695
 	toy = AddToy(127695, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
-	toy:AddVendor(94512, 94516)
+	toy:AddVendor(94512, 94516, 98723, 98724)
 
 	-- Magic Pet Mirror -- 127696
 	toy = AddToy(127696, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
-	toy:AddVendor(94512, 94516)
+	toy:AddVendor(94512, 94516, 98723, 98724)
 
 	-- Indestructible Bone -- 127707
 	toy = AddToy(127707, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
-	toy:AddVendor(94512, 94516)
+	toy:AddVendor(94512, 94516, 98723, 98724)
 
 	-- Throbbing Blood Orb -- 127709
 	toy = AddToy(127709, V.WOD, Q.RARE)
