@@ -2386,6 +2386,58 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("CURIOUS_WYRMTONGUE")
 
+	-- Lingering Wyrmtongue Essence -- 142452
+	toy = AddToy(142452, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddVendor(120076)
+
+	-- Adopted Puppy Crate -- 144072
+	toy = AddToy(144072, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
+	toy:AddVendor(118828)
+
+	-- Melia Globespanner's Guide to Kalimdor -- 150743
+	toy = AddToy(150743, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddVendor(6294)
+
+	-- Threadbare Kalimdor Flightmap -- 150744
+	toy = AddToy(150744, V.LEGION, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Horde")
+	toy:AddVendor(6566)
+
+	-- Aged Eastern Kingdoms Flightmap -- 150745
+	toy = AddToy(150745, V.LEGION, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Horde")
+	toy:AddVendor(6566)
+
+	-- Bran's Travel Guide to the Eastern Kingdoms -- 150746
+	toy = AddToy(150746, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddVendor(6294)
+
+	-- Fractured Necrolyte Skull -- 151016
+	toy = AddToy(151016, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
+	toy:AddVendor(98685)
+
+	-- Verdant Throwing Sphere -- 151184
+	toy = AddToy(151184, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
+	toy:AddVendor(98685)
+
+	-- Blight Boar Microphone -- 151265
+	toy = AddToy(151265, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("DARKMOON_FAIRE")
+	toy:AddMobDrop(122899)
 
 --[[  Didn't actually make it into the ToyBox panel
 

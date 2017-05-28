@@ -6001,6 +6001,48 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	pet:AddCustom("LEGIONFALL_CACHE")
 
+	-- Pocket Cannon -- 119794
+	pet = AddPet(119794, V.LEGION, Q.RARE)
+	pet:SetItemID(150739)
+	pet:SetSpellID(244345)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddVendor(119390)
+
+	-- Tricorne -- 122612
+	pet = AddPet(122612, V.LEGION, Q.UNCOMMON)
+	pet:SetItemID(150741)
+	pet:SetSpellID(244440)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddVendor(119390)
+
+	-- Foe Reaper 0.9 -- 122629
+	pet = AddPet(122629, V.LEGION, Q.COMMON)
+	pet:SetItemID(150742)
+	pet:SetSpellID(244466)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddVendor(119390)
+
+	-- Sneaky Marmot -- 124389
+	pet = AddPet(124389, V.LEGION, Q.UNCOMMON)
+	pet:SetItemID(151569)
+	pet:SetSpellID(247123)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("PICKPOCKET")
+
+	-- Mining Monkey -- 124589
+	pet = AddPet(124589, V.LEGION, Q.RARE)
+	pet:SetItemID(151632)
+	pet:SetSpellID(247452)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(11856)
+
+	-- Dig Rat -- 124594
+	pet = AddPet(124594, V.LEGION, Q.UNCOMMON)
+	pet:SetItemID(151633)
+	pet:SetSpellID(247474)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("PICKPOCKET")
+
 -- Pets not actually in game or are NPC/legendary
 	-- Muffin -- 65344
 	pet = AddPet(65344, V.LEGION, Q.COMMON)
@@ -6010,6 +6052,10 @@ function addon:InitCritters()
 
 	-- Mal -- 91340
 	pet = AddPet(91340, V.LEGION, Q.COMMON)
+
+	-- Test Dragon Pet -- 123329
+	pet = AddPet(123329, V.LEGION, Q.COMMON)
+
 
 	self.InitCritters = nil
 
