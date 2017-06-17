@@ -275,6 +275,7 @@ private.REP_FLAGS_WORD3 = {
 	CONJURER_MARGOSS		= 0x00000080,	-- 8
 	TALONS_VENGEANCE		= 0x00000100,	-- 9
 	ARMIES_OF_LEGIONFALL		= 0x00000200,	-- 10
+	ILYSSIA_OF_THE_WATERS		= 0x00000400,	-- 11
 }
 
 
@@ -524,6 +525,7 @@ private.FACTION_IDS = {
 	BIZMOS_BRAWLPUB = 2011,
 	TALONS_VENGEANCE = 2018,
 	ARMIES_OF_LEGIONFALL = 2045,
+	ILYSSIA_OF_THE_WATERS = 2097,
 }
 
 private.FACTION_STRINGS = {}
@@ -768,6 +770,7 @@ do
 		THE_NIGHTHOLD = _G.GetMapNameByID(1088),
 		THE_EMERALD_NIGHTMARE = _G.GetMapNameByID(1094),
 		TOMB_OF_SARGERAS = _G.GetMapNameByID(1147),
+		THE_DEATHS_OF_CHROMIE = _G.GetMapNameByID(1177),
 
 		-------------------------------------------------------------------------------
 		-- Continents

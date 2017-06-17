@@ -140,6 +140,8 @@ function addon:InitCustom()
 	AddCustom("VALARJAR_CACHE",	Z.STORMHEIM)
 	AddCustom("LEGIONFALL_CACHE",	Z.BROKEN_SHORE)
 	AddCustom("CURIOUS_WYRMTONGUE",	Z.BROKEN_SHORE,			47.8,	67.4)
+	AddCustom("CHROMIE",		Z.THE_DEATHS_OF_CHROMIE)
+	AddCustom("SUN_DARTER",		Z.WINTERSPRING)
 
 	self.InitCustom = nil
 end

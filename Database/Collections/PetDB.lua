@@ -6043,6 +6043,34 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	pet:AddCustom("PICKPOCKET")
 
+	-- Sun Darter Hatchling -- 61087
+	pet = AddPet(61087, V.LEGION, Q.RARE)
+	pet:SetItemID(142223)
+	--pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MISC)
+	pet:AddCustom("SUN_DARTER")
+
+	-- Micronax -- 63724
+	pet = AddPet(63724, V.LEGION, Q.RARE)
+	pet:SetItemID(101426)
+	pet:SetSpellID(249870)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(11763)
+
+	-- Bronze Proto-Whelp -- 124858
+	pet = AddPet(124858, V.LEGION, Q.RARE)
+	pet:SetItemID(101426)
+	pet:SetSpellID(248025)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC, F.INSTANCE)
+	pet:AddCustom("CHROMIE")
+
+	-- Ageless Bronze Drake -- 124944
+	pet = AddPet(124944, V.LEGION, Q.RARE)
+	pet:SetItemID(151828)
+	pet:SetSpellID(248240)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC, F.INSTANCE)
+	pet:AddCustom("CHROMIE")
+
 -- Pets not actually in game or are NPC/legendary
 	-- Muffin -- 65344
 	pet = AddPet(65344, V.LEGION, Q.COMMON)

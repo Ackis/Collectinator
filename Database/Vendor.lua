@@ -267,10 +267,14 @@ function addon:InitVendor()
 	AddVendor(108825,	L["Conjurer Margoss"],		Z.DALARAN_BROKENISLES,		23.9, 	 7.3,	"Neutral")
 	AddVendor(110034,	L["Historian Llore"],		Z.STORMWIND_CITY,		84.6,	25.0,	"Alliance")
 	AddVendor(110035,	L["Historian Ju'pa"],		Z.ORGRIMMAR,			36.6,	74.6,	"Horde")
+	AddVendor(112064,	L["Dolse Shimmersong"],		Z.SURAMAR,			51.2,	49.8,	"Neutral")
 	AddVendor(113615,	L["Ravika"],			Z.DUROTAR,			55.4,	11.3,	"Horde")
 	AddVendor(113843,	L["Kieule"],			Z.SURAMAR,			50.4,	53.0,	"Neutral")
 	AddVendor(115887,	L["Trinket"],			Z.HIGHMOUNTAIN,			32.4,	66.8,	"Neutral")
 	AddVendor(118828,	L["Mistweaver Xia"],		Z.TIMELESS_ISLE,		43.0,	55.0,	"Neutral")
+	AddVendor(119390,	L["Marcus \"Bagman\" Brown"],	Z.WESTFALL,			0.0,	0.0,	"Neutral") -- Needs updating
+	AddVendor(120076,	L["Treasure Master Iks'reeged"],Z.BROKEN_SHORE,			47.9,	67.4,	"Neutral")
+	AddVendor(120266,	L["Ilyssia of the Waters"],	Z.AZSUNA,			43.2,	40.6,	"Neutral")
 	AddVendor(120898,	L["Warmage Kath'leen"],		Z.BROKEN_SHORE,			44.4,	62.2,	"Neutral")
 
 	self.InitVendor = nil

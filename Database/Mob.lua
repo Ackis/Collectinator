@@ -288,6 +288,7 @@ function addon:InitMob()
 	AddMob(114895,	BB.Nightbane,				Z.KARAZHAN,			 0.0,  0.0)
 	AddMob(115767,	BN.MISTRESS_SASSZINE,			Z.TOMB_OF_SARGERAS,		 0.0,  0.0)
 	AddMob(119629,	L["Lord Hel'Nurath"],			Z.BROKEN_SHORE,			45.0, 51.3)
+	AddMob(122899,	L["Death Metal Knight"],		Z.DARKMOON_ISLAND,		 0.0,  0.0) -- Needs updating
 
 	self.InitMob = nil
 end

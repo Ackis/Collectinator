@@ -1822,7 +1822,7 @@ function addon:InitToys()
 	-- The "Devilsaur" Lunchbox -- 130151
 	toy = AddToy(130151, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.VALSHARAH, nil, "63.4:71.3")
+	toy:AddVendor(112064)
 
 	-- Syxsehnz Rod -- 130157
 	toy = AddToy(130157, V.LEGION, Q.RARE)
@@ -2438,6 +2438,33 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.WORLD_EVENTS)
 	toy:AddWorldEvent("DARKMOON_FAIRE")
 	toy:AddMobDrop(122899)
+
+-- 7.2.5
+	-- Honorable Pennant -- 134026
+	toy = AddToy(134026, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.MISC)
+	toy:AddCustom("PRESTIGE")
+
+	-- Prestigious Pennant -- 134031
+	toy = AddToy(134031, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.MISC)
+	toy:AddCustom("PRESTIGE")
+
+	-- Elite Pennant -- 134032
+	toy = AddToy(134032, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.MISC)
+	toy:AddCustom("PRESTIGE")
+
+	-- Esteemed Pennant -- 134034
+	toy = AddToy(134034, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.MISC)
+	toy:AddCustom("PRESTIGE")
+
+	-- Enchanted Bobber -- 147308
+	toy = AddToy(147308, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.PROFESSION)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddVendor(FAC.ILYSSIA_OF_THE_WATERS, REP.EXALTED, 120266)
 
 --[[  Didn't actually make it into the ToyBox panel
 
