@@ -2460,12 +2460,13 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.MISC)
 	toy:AddCustom("PRESTIGE")
 
+--[[ Cuz Blizz hotfixed it out
 	-- Enchanted Bobber -- 147308
 	toy = AddToy(147308, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.PROFESSION)
 	toy:AddProfession(PROF.FISHING)
 	toy:AddVendor(FAC.ILYSSIA_OF_THE_WATERS, REP.EXALTED, 120266)
-
+]]--
 --[[  Didn't actually make it into the ToyBox panel
 
 	-- "Guy Incognito" Costume -- 134831
