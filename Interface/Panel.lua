@@ -298,8 +298,6 @@ function private.InitializeFrame()
 				self.filter_reset:Hide()
 				self.filter_menu:Hide()
 
-				_G.PlaySound("igCharacterInfoClose")
-
 				self:SetWidth(self.normal_width)
 				self:SetHitRectInsets(0, 35, 0, 53)
 				self:SetClampRectInsets(0, -35, 0, 53)
@@ -336,8 +334,6 @@ function private.InitializeFrame()
 					MainPanel.filter_menu:Show()
 				end
 				MainPanel.filter_reset:Show()
-
-				_G.PlaySound("igCharacterInfoOpen")
 
 				self:SetWidth(self.expanded_width)
 				self:SetHitRectInsets(0, 90, 0, 53)
@@ -421,23 +417,9 @@ function private.InitializeFrame()
 
 		MainPanel.current_collectable_type = current_index
 
-		local is_shown = addon.scan_button:GetParent():IsVisible()
-		local sfx
-
-		_G.PlaySound("igCharacterNPCSelect")
-
-		-- If not shown, save the current sound effects setting then set it to 0.
-		if not is_shown then
-			sfx = tonumber(_G.GetCVar("Sound_EnableSFX"))
-			_G.SetCVar("Sound_EnableSFX", 0)
-		end
-
 		_G.CollectionsJournal_SetTab(_G.CollectionsJournal, MainPanel.current_collectable_type)
 		addon:Scan()
 
-		if not is_shown then
-			_G.SetCVar("Sound_EnableSFX", sfx)
-		end
 	end)
 
 	function collection_cycler:SetTexture(collectable_type)

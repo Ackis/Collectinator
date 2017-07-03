@@ -52,7 +52,7 @@ local function Tab_OnClick(self, button, down)
 	MainPanel.current_tab = MainPanel.tabs[id_num]
 
 	MainPanel.list_frame:Update(nil, false)
-	_G.PlaySound("igCharacterInfoTab")
+
 end
 
 local function CreateTab(id_num, text, ...)
