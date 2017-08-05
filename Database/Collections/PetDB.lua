@@ -862,12 +862,14 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.COLLECTORS_EDITION)
 	pet:AddCustom("CE")
 
+--[[  Removed from cache/UI for some reason
 	-- Mini Tyrael -- 29089
 	pet = AddPet(29089, V.TBC, Q.RARE)
 	pet:SetItemID(39656)
 	pet:SetSpellID(53082)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
 	pet:AddCustom("WWI")
+]]--
 
 	-- Ghostly Skull -- 29147
 	pet = AddPet(29147, V.WOTLK, Q.RARE)
@@ -3482,12 +3484,14 @@ function addon:InitCritters()
 	pet:AddQuest(32428, 32441)
 	pet:AddCustom("PETTAMER")
 
+--[[  Removed from cache/UI for some reason
 	-- Spectral Cub -- 68502
 	pet = AddPet(68502, V.MOP, Q.RARE)
 	pet:SetItemID(90953)
 	pet:SetSpellID(132759)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
 	pet:AddCustom("CHINA")
+--]]
 
 	-- Sumprush Rodent -- 68506
 	pet = AddPet(68506, V.MOP, Q.COMMON)

@@ -1529,12 +1529,6 @@ function addon:InitToys()
 	toy:AddAchievement(9761)
 	toy:AddWorldEvent("DARKMOON_FAIRE")
 
-	-- Tune-o-tron Micro -- 122187
-	toy = AddToy(122187, V.WOD, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.IBOP, F.ACHIEVEMENT)
-	toy:SetRequiredFaction("Alliance")
-	toy:AddAchievement(9912)
-
 	-- Rukhmar's Sacred Memory -- 122283
 	toy = AddToy(122283, V.WOD, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
