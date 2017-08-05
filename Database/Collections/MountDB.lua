@@ -3763,6 +3763,11 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE,F.IBOP, F.MISC, F.RAID, F.INSTANCE)
 	mount:AddCustom("RIDDLER_MINDWORM")
 
+	-- Luminous Starseeker -- 243512
+	mount = AddMount(243512, V.LEGION, Q.EPIC)
+	mount:SetItemID(147901)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOA)
+	mount:AddCustom("STORE")
 
 -- Unknown mounts
 

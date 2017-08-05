@@ -6008,6 +6008,12 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 	pet:AddVendor(119390)
 
+	-- Twilight -- 122033
+	pet = AddPet(122033, V.LEGION, Q.RARE)
+	pet:SetItemID(147900)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
+	pet:AddCustom("STORE")
+
 	-- Tricorne -- 122612
 	pet = AddPet(122612, V.LEGION, Q.UNCOMMON)
 	pet:SetItemID(150741)
