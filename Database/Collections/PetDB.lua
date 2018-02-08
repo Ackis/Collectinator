@@ -5711,7 +5711,7 @@ function addon:InitCritters()
 	pet = AddPet(113983, V.LEGION, Q.RARE)
 	pet:SetItemID(141894)
 	pet:SetSpellID(227052)
-	pet:AddFilters(F.HORDE, F.IBOP, F.MISC)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.MISC)
 	pet:SetRequiredFaction("Alliance")
 	pet:AddCustom("BLIZZCON")
 
