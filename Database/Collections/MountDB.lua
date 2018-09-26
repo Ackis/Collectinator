@@ -3492,6 +3492,18 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP)
 	mount:AddAchievement(11061)
 
+	-- Fierce Gladiator's Storm Dragon -- 227994
+	mount = AddMount(227994, V.LEGION, Q.EPIC)
+	mount:SetItemID(141847)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP)
+	mount:AddAchievement(12045)
+
+	-- Demonic Gladiator's Storm Dragon -- 227995
+	mount = AddMount(227995, V.LEGION, Q.EPIC)
+	mount:SetItemID(141848)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP)
+	mount:AddAchievement(12167)
+
 	-- Darkwater Skate -- 228919
 	mount = AddMount(228919, V.LEGION, Q.EPIC)
 	mount:SetItemID(142398)
@@ -3769,13 +3781,247 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOA)
 	mount:AddCustom("STORE")
 
+-- 7.3 mounts
+
+	-- Darkspore Mana Ray -- 235764
+	mount = AddMount(235764, V.LEGION, Q.EPIC)
+	mount:SetItemID(152843)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddCustom("FEL-SPOTTED_EGG")
+
+	-- Lightforged Warframe -- 239013
+	mount = AddMount(239013, V.LEGION, Q.EPIC)
+	mount:SetItemID(152788)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ARMY_OF_THE_LIGHT)
+	mount:AddRepVendor(FAC.ARMY_OF_THE_LIGHT, REP.EXALTED, 127120)
+
+	-- Sable Ruinstrider -- 242305
+	mount = AddMount(242305, V.LEGION, Q.EPIC)
+	mount:SetItemID(152791)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ARGUSSIAN_REACH)
+	mount:AddRepVendor(FAC.ARGUSSIAN_REACH, REP.EXALTED, 127151)
+
+	-- Vicious War Fox -- 242896
+	mount = AddMount(242896, V.LEGION, Q.EPIC)
+	mount:SetItemID(152870)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddVendor(73190)
+
+	-- Vicious War Fox -- 242897
+	mount = AddMount(242897, V.LEGION, Q.EPIC)
+	mount:SetItemID(152869)
+	mount:AddFilters(F.HORDE, F.VENDOR, F.IBOP, F.PVP)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(73151)
+
+	-- Shackled Ur'zul -- 243651
+	mount = AddMount(243651, V.LEGION, Q.EPIC)
+	mount:SetItemID(152789)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID)
+	mount:AddMobDrop(124828)
+	mount:AddCustom("MYTHIC")
+
+	-- Vile Fiend -- 243652
+	mount = AddMount(243652, V.LEGION, Q.EPIC)
+	mount:SetItemID(152790)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(127288)
+
+	-- Stormwind Skychaser -- 245723
+	mount = AddMount(245723, V.LEGION, Q.EPIC)
+	mount:SetItemID(151618)
+	mount:AddFilters(F.ALLIANCE, F.IBOA, F.PROMO)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddCustom("BLIZZCON")
+
+	-- Orgrimmar Interceptor -- 245725
+	mount = AddMount(245725, V.LEGION, Q.EPIC)
+	mount:SetItemID(151617)
+	mount:AddFilters(F.HORDE, F.IBOA, F.PROMO)
+	mount:SetRequiredFaction("Horde")
+	mount:AddCustom("BLIZZCON")
+
+	-- Lucid Nightmare -- 247402
+	mount = AddMount(247402, V.LEGION, Q.EPIC)
+	mount:SetItemID(151623)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("PUZZLERS_DESIRE")
+
+	-- Darkmoon Dirigible -- 247448
+	mount = AddMount(247448, V.LEGION, Q.EPIC)
+	mount:SetItemID(153485)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS, F.IBOP)
+	mount:AddVendor(14846)
+	mount:AddWorldEvent("DARKMOON_FAIRE")
+
+	-- Amethyst Ruinstrider -- 253004
+	mount = AddMount(253004, V.LEGION, Q.EPIC)
+	mount:SetItemID(152794)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.ARGUSSIAN_REACH)
+	mount:AddRepVendor(FAC.ARGUSSIAN_REACH, REP.EXALTED, 127151)
+
+	-- Beryl Ruinstrider -- 253005
+	mount = AddMount(253005, V.LEGION, Q.EPIC)
+	mount:SetItemID(152795)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.ARGUSSIAN_REACH)
+	mount:AddRepVendor(FAC.ARGUSSIAN_REACH, REP.EXALTED, 127151)
+
+	-- Russet Ruinstrider -- 253006
+	mount = AddMount(253006, V.LEGION, Q.EPIC)
+	mount:SetItemID(152793)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.ARGUSSIAN_REACH)
+	mount:AddRepVendor(FAC.ARGUSSIAN_REACH, REP.EXALTED, 127151)
+
+	-- Cerulean Ruinstrider -- 253007
+	mount = AddMount(253007, V.LEGION, Q.EPIC)
+	mount:SetItemID(152797)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.ARGUSSIAN_REACH)
+	mount:AddRepVendor(FAC.ARGUSSIAN_REACH, REP.EXALTED, 127151)
+
+	-- Umber Ruinstrider -- 253008
+	mount = AddMount(253008, V.LEGION, Q.EPIC)
+	mount:SetItemID(152796)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.REPUTATION, F.ARGUSSIAN_REACH)
+	mount:AddRepVendor(FAC.ARGUSSIAN_REACH, REP.EXALTED, 127151)
+
+	-- Maddened Chaosrunner -- 253058
+	mount = AddMount(253058, V.LEGION, Q.EPIC)
+	mount:SetItemID(152814)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(126852)
+
+	-- Antoran Gloomhound -- 253087
+	mount = AddMount(253087, V.LEGION, Q.EPIC)
+	mount:SetItemID(152815)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(11987)
+
+	-- Antoran Charhound -- 253088
+	mount = AddMount(253088, V.LEGION, Q.EPIC)
+	mount:SetItemID(152816)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:AddMobDrop(126915)
+
+	-- Vibrant Mana Ray -- 253106
+	mount = AddMount(253106, V.LEGION, Q.EPIC)
+	mount:SetItemID(152842)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("FEL-SPOTTED_EGG")
+
+	-- Lambent Mana Ray -- 253107
+	mount = AddMount(253107, V.LEGION, Q.EPIC)
+	mount:SetItemID(152844)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(126867)
+
+	-- Felglow Mana Ray -- 253108
+	mount = AddMount(253108, V.LEGION, Q.EPIC)
+	mount:SetItemID(152841)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("FEL-SPOTTED_EGG")
+
+	-- Scintillating Mana Ray -- 253109
+	mount = AddMount(253109, V.LEGION, Q.EPIC)
+	mount:SetItemID(152840)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("FEL-SPOTTED_EGG")
+
+	-- Violet Spellwing -- 253639
+	mount = AddMount(253639, V.LEGION, Q.EPIC)
+	mount:SetItemID(152901)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:AddMobDrop(124828)
+	mount:AddCustom("HEROIC")
+
+	-- Biletooth Gnasher -- 253660
+	mount = AddMount(253660, V.LEGION, Q.EPIC)
+	mount:SetItemID(152903)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(126040, 126199)
+
+	-- Crimson Slavermaw -- 253661
+	mount = AddMount(253661, V.LEGION, Q.EPIC)
+	mount:SetItemID(152905)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(122958)
+
+	-- Acid Belcher -- 253662
+	mount = AddMount(253662, V.LEGION, Q.EPIC)
+	mount:SetItemID(152904)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(126912)
+
+	-- Pond Nettle -- 253711
+	mount = AddMount(253711, V.LEGION, Q.EPIC)
+	mount:SetItemID(152912)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	mount:AddProfession(PROF.FISHING)
+
+	-- Glorious Felcrusher -- 254069
+	mount = AddMount(254069, V.LEGION, Q.EPIC)
+	mount:SetItemID(153042)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("ARMYOFTHELIGHT_CACHE")
+
+	-- Blessed Felcrusher -- 254258
+	mount = AddMount(254258, V.LEGION, Q.EPIC)
+	mount:SetItemID(153043)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("ARMYOFTHELIGHT_CACHE")
+
+	-- Avenging Felcrusher -- 254259
+	mount = AddMount(254259, V.LEGION, Q.EPIC)
+	mount:SetItemID(153044)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("ARMYOFTHELIGHT_CACHE")
+
+	-- Bleakhoof Ruinstrider -- 254260
+	mount = AddMount(254260, V.LEGION, Q.EPIC)
+	mount:SetItemID(153041)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(12103)
+
+	-- Seabraid Stallion -- 255695
+	mount = AddMount(255695, V.LEGION, Q.EPIC)
+	mount:SetItemID(153539)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	mount:AddCustom("CE")
+
+	-- Lightforged Felcrusher -- 258022
+	mount = AddMount(258022, V.LEGION, Q.EPIC)
+	mount:SetItemID(155656)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(12451)
+
+	-- Highmountain Thunderhoof -- 258060
+	mount = AddMount(258060, V.LEGION, Q.EPIC)
+	mount:SetItemID(155662)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(12245)
+
+	-- Nightborne Manasaber -- 258845
+	mount = AddMount(258845, V.LEGION, Q.EPIC)
+	mount:SetItemID(156487)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(12244)
+
+	-- Starcursed Voidstrider -- 259202
+	mount = AddMount(259202, V.LEGION, Q.EPIC)
+	mount:SetItemID(156486)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(12242)
+
+	-- Shu-zen, the Divine Sentinel -- 259395
+	mount = AddMount(259395, V.LEGION, Q.EPIC)
+	mount:SetItemID(156564)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOA)
+	mount:AddCustom("STORE")
+
+
 -- Unknown mounts
 
-	-- Fierce Gladiator's Storm Dragon -- 227994
-	mount = AddMount(227994, V.LEGION, Q.EPIC)
 
-	-- Demonic Gladiator's Storm Dragon -- 227995
-	mount = AddMount(227995, V.LEGION, Q.EPIC)
 
 	self.InitMounts = nil
 end

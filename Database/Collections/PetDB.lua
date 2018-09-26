@@ -5209,6 +5209,13 @@ function addon:InitCritters()
 	pet:AddVendor(32836, 32837)
 	pet:AddCustom("NOBLE_VENDOR")
 
+	-- Sun Darter Hatchling -- 61087
+	pet = AddPet(61087, V.LEGION, Q.RARE)
+	pet:SetItemID(142223)
+	--pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MISC)
+	pet:AddCustom("SUN_DARTER")
+
 	-- River Calf -- 79730
 	pet = AddPet(79730, V.LEGION, Q.RARE)
 	pet:SetItemID(140274)
@@ -5978,6 +5985,13 @@ function addon:InitCritters()
 	pet:SetRequiredClass("DEATHKNIGHT")
 	pet:AddCustom("LEGION_ASCENDED")
 
+	-- Pocket Cannon -- 119794
+	pet = AddPet(119794, V.LEGION, Q.RARE)
+	pet:SetItemID(150739)
+	pet:SetSpellID(244345)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddVendor(119390)
+
 	-- Scraps -- 120397
 	pet = AddPet(120397, V.LEGION, Q.RARE)
 	pet:SetItemID(146953)
@@ -6004,13 +6018,6 @@ function addon:InitCritters()
 	pet:SetSpellID(243136)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	pet:AddCustom("LEGIONFALL_CACHE")
-
-	-- Pocket Cannon -- 119794
-	pet = AddPet(119794, V.LEGION, Q.RARE)
-	pet:SetItemID(150739)
-	pet:SetSpellID(244345)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	pet:AddVendor(119390)
 
 	-- Twilight -- 122033
 	pet = AddPet(122033, V.LEGION, Q.RARE)
@@ -6053,13 +6060,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	pet:AddCustom("PICKPOCKET")
 
-	-- Sun Darter Hatchling -- 61087
-	pet = AddPet(61087, V.LEGION, Q.RARE)
-	pet:SetItemID(142223)
-	--pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MISC)
-	pet:AddCustom("SUN_DARTER")
-
 	-- Micronax -- 63724
 	pet = AddPet(63724, V.LEGION, Q.RARE)
 	pet:SetItemID(101426)
@@ -6080,6 +6080,304 @@ function addon:InitCritters()
 	pet:SetSpellID(248240)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC, F.INSTANCE)
 	pet:AddCustom("CHROMIE")
+
+	-- Dibbler -- 117340
+	pet = AddPet(117340, V.LEGION, Q.RARE)
+	pet:SetItemID(151645)
+	pet:SetSpellID(233647)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("LEPROUS_PET_SUPPLY_BAG")
+
+	-- Naxxy -- 117341
+	pet = AddPet(117341, V.LEGION, Q.RARE)
+	pet:SetItemID(151269)
+	pet:SetSpellID(233649)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS, F.IBOE)
+	pet:AddWorldEvent("HALLOWS_END")
+	pet:AddVendor(53728, 53757)
+
+	-- Shadow -- 123650
+	pet = AddPet(123650, V.LEGION, Q.RARE)
+	pet:SetItemID(151234)
+	pet:SetSpellID(246105)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
+	pet:AddCustom("STORE")
+
+	-- Ghost Shark -- 126579
+	pet = AddPet(126579, V.LEGION, Q.RARE)
+	pet:SetItemID(152555)
+	pet:SetSpellID(251191)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.ILYSSIA_OF_THE_WATERS)
+	pet:AddRepVendor(FAC.ILYSSIA_OF_THE_WATERS, REP.EXALTED, 120266)
+
+	-- Tinytron -- 127850
+	pet = AddPet(127850, V.LEGION, Q.RARE)
+	pet:SetItemID(152966)
+	pet:SetSpellID(253788)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(42178)
+
+	-- Discarded Experiment -- 127852
+	pet = AddPet(127852, V.LEGION, Q.RARE)
+	pet:SetItemID(152967)
+	pet:SetSpellID(253790)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(41378)
+
+	-- Rattlejaw -- 127853
+	pet = AddPet(127853, V.LEGION, Q.RARE)
+	pet:SetItemID(152968)
+	pet:SetSpellID(253799)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(41376)
+
+	-- Twilight Clutch-Sister -- 127857
+	pet = AddPet(127857, V.LEGION, Q.RARE)
+	pet:SetItemID(152969)
+	pet:SetSpellID(253805)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(45992)
+
+	-- Bound Stream -- 127858
+	pet = AddPet(127858, V.LEGION, Q.RARE)
+	pet:SetItemID(152970)
+	pet:SetSpellID(253809)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(43735)
+
+	-- Faceless Minion -- 127859
+	pet = AddPet(127859, V.LEGION, Q.RARE)
+	pet:SetItemID(152972)
+	pet:SetSpellID(253813)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(43324)
+
+	-- Zephyrian Prince -- 127862
+	pet = AddPet(127862, V.LEGION, Q.RARE)
+	pet:SetItemID(152973)
+	pet:SetSpellID(253816)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(46753)
+
+	-- Drafty -- 127863
+	pet = AddPet(127863, V.LEGION, Q.RARE)
+	pet:SetItemID(152974)
+	pet:SetSpellID(253818)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(45871)
+
+	-- Blazehound -- 127947
+	pet = AddPet(127947, V.LEGION, Q.RARE)
+	pet:SetItemID(152975)
+	pet:SetSpellID(253916)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(53691)
+
+	-- Cinderweb Recluse -- 127948
+	pet = AddPet(127948, V.LEGION, Q.RARE)
+	pet:SetItemID(152976)
+	pet:SetSpellID(253918)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(52498)
+
+	-- Surger -- 127950
+	pet = AddPet(127950, V.LEGION, Q.RARE)
+	pet:SetItemID(152977)
+	pet:SetSpellID(253924)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(53494)
+
+	-- Infernal Pyreclaw -- 127951
+	pet = AddPet(127951, V.LEGION, Q.RARE)
+	pet:SetItemID(152978)
+	pet:SetSpellID(253925)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(52571)
+
+	-- Faceless Mindlasher -- 127952
+	pet = AddPet(127952, V.LEGION, Q.RARE)
+	pet:SetItemID(152979)
+	pet:SetSpellID(253926)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(55312)
+
+	-- Corrupted Blood -- 127953
+	pet = AddPet(127953, V.LEGION, Q.RARE)
+	pet:SetItemID(152980)
+	pet:SetSpellID(253927)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(53879)
+
+	-- Unstable Tendril -- 127954
+	pet = AddPet(127954, V.LEGION, Q.RARE)
+	pet:SetItemID(152981)
+	pet:SetSpellID(253928)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(56173)
+
+	-- Amalgam of Destruction -- 127956
+	pet = AddPet(127956, V.LEGION, Q.RARE)
+	pet:SetItemID(152963)
+	pet:SetSpellID(253929)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(12079)
+
+	-- Cross Gazer -- 128118
+	pet = AddPet(128118, V.LEGION, Q.RARE)
+	pet:SetItemID(153026)
+	pet:SetSpellID(254196)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(128134)
+
+	-- Orphaned Marsuul -- 128119
+	pet = AddPet(128119, V.LEGION, Q.RARE)
+	pet:SetItemID(153027)
+	pet:SetSpellID(254197)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION)
+	pet:AddRepVendor(FAC.ARGUSSIAN_REACH, REP.HONORED, 127151)
+
+	-- Fel Lasher -- 128137
+	pet = AddPet(128137, V.LEGION, Q.RARE)
+	pet:SetItemID(153045)
+	pet:SetSpellID(254271)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.HERBALISM)
+
+	-- Felclaw Marsuul -- 128146
+	pet = AddPet(128146, V.LEGION, Q.RARE)
+	pet:SetItemID(153040)
+	pet:SetSpellID(254255)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(12100)
+
+	-- Globe Yeti -- 128156
+	pet = AddPet(128156, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET, F.WORLD_EVENTS)
+	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+	pet:AddZoneLocations(Z.IRONFORGE, "1-3", "29.2:63.8")
+	pet:AddZoneLocations(Z.ORGRIMMAR, "1-3", "49.2:54.2")
+
+	-- Docile Skyfin -- 128157
+	pet = AddPet(128157, V.LEGION, Q.RARE)
+	pet:SetItemID(153054)
+	pet:SetSpellID(254295)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("FEL-SPOTTED_EGG")
+
+	-- Fel-Afflicted Skyfin -- 128158
+	pet = AddPet(128158, V.LEGION, Q.RARE)
+	pet:SetItemID(153055)
+	pet:SetSpellID(254296)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("FEL-SPOTTED_EGG")
+
+	-- Grasping Manifestation -- 128159
+	pet = AddPet(128159, V.LEGION, Q.RARE)
+	pet:SetItemID(153056)
+	pet:SetSpellID(254297)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(126887)
+
+	-- Fossorial Bile Larva -- 128160
+	pet = AddPet(128160, V.LEGION, Q.RARE)
+	pet:SetItemID(153057)
+	pet:SetSpellID(254298)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.SKINNING)
+
+	-- Bile Larva -- 128162
+	pet = AddPet(128162, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.KROKUUN, "25", "41.6:63.6", "60.6:68.8", "63.4:42.4", "52.0:65.6")
+
+	-- Antoran Bile Larva -- 128163
+	pet = AddPet(128163, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.ANTORAN_WASTES, "25", "70.6:37.0", "62.0:38.0", "56.8:54.4", "57.8:26.8")
+
+	-- Bilescourge -- 128164
+	pet = AddPet(128164, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.KROKUUN, "25", "61.4:43.8", "57.4:72.6", "33.6:63.0", "46.0:48.4")
+
+	-- Flickering Argunite -- 128166
+	pet = AddPet(128166, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.KROKUUN, "25", "33.0:76.6", "30.8:69.4", "35.2:56.0", "41.0:60.6")
+
+	-- Skyfin Juvenile -- 128167
+	pet = AddPet(128167, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MACAREE, "25", "33.0:76.6", "30.8:69.4", "35.2:56.0", "41.0:60.6")
+
+	-- Voidstalker Runt -- 128168
+	pet = AddPet(128168, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MACAREE, "25", "42.0:71.8", "34.2:59.4", "28.6:34.2", "22.0:43.4")
+
+	-- Warpstalker Runt -- 128170
+	pet = AddPet(128170, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MACAREE, "25", "43.0:67.8", "48.6:61.0", "55.8:76.0", "52.2:81.8")
+
+	-- Void Shardling -- 128171
+	pet = AddPet(128171, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MACAREE, "25", "38.6:61.8", "34.0:63.6", "42.4:46.6", "44.2:51.0")
+
+	-- Arcane Gorger -- 128172
+	pet = AddPet(128172, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MACAREE, "25", "59.0:65.4", "67.6:52.8", "64.0:46.4", "59.8:48.8")
+
+	-- Pygmy Marsuul -- 128173
+	pet = AddPet(128173, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MACAREE, "25", "59.6:67.8", "70.2:39.4", "68.6:52.2", "50.8:56.6")
+
+	-- Felcrazed Wyrm -- 128174
+	pet = AddPet(128174, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MACAREE, "25", "60.0:38.8", "56.4:38.6", "54.2:25.8", "61.6:23.8")
+
+	-- Antoran Bilescourge -- 128175
+	pet = AddPet(128175, V.LEGION, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MACAREE, "25", "70.8:47.8", "75.6:58.6", "53.6:36.2", "71.6:44.4")
+
+	-- Rebellious Imp -- 128388
+	pet = AddPet(128388, V.LEGION, Q.RARE)
+	pet:SetItemID(153252)
+	pet:SetSpellID(254749)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(127705)
+
+	-- Uuna -- 128396
+	pet = AddPet(128396, V.LEGION, Q.RARE)
+	pet:SetItemID(153195)
+	pet:SetSpellID(254763)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(127581)
+
+	-- Tottle -- 129049
+	pet = AddPet(129049, V.LEGION, Q.RARE)
+	pet:SetItemID(153541)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	pet:AddCustom("CE")
+
+	-- Mailemental -- 132366
+	pet = AddPet(132366, V.LEGION, Q.RARE)
+	pet:SetItemID(156721)
+	pet:SetSpellID(260887)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(12439)
+
+
+	-- Silithid Mini-Tank -- 133064
+	pet = AddPet(133064, V.LEGION, Q.COMMON)
+
+
+
 
 -- Pets not actually in game or are NPC/legendary
 	-- Muffin -- 65344

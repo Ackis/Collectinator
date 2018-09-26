@@ -315,6 +315,16 @@ function addon:OnInitialize()
 					conjurermargoss = true,
 					talonsvengeance = true,
 					armiesoflegionfall = true,
+					corbyn = true,
+					keeper_raynae = true,
+					ilyssia_of_the_waters = true,
+					akule_riverhorn = true,
+					impus = true,
+					akule_riverhorn = true,
+					shaleth = true,
+					argussian_reach = true,
+					armyofthelight = true,
+
 				},
 				-- Populated later via CONSTANTS
 				item = {

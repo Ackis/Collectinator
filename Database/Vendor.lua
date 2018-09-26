@@ -272,10 +272,18 @@ function addon:InitVendor()
 	AddVendor(113843,	L["Kieule"],			Z.SURAMAR,			50.4,	53.0,	"Neutral")
 	AddVendor(115887,	L["Trinket"],			Z.HIGHMOUNTAIN,			32.4,	66.8,	"Neutral")
 	AddVendor(118828,	L["Mistweaver Xia"],		Z.TIMELESS_ISLE,		43.0,	55.0,	"Neutral")
-	AddVendor(119390,	L["Marcus \"Bagman\" Brown"],	Z.WESTFALL,			0.0,	0.0,	"Neutral") -- Needs updating
+	AddVendor(119390,	L["Marcus \"Bagman\" Brown"],	Z.WESTFALL,			41.6,	71.2,	"Neutral")
 	AddVendor(120076,	L["Treasure Master Iks'reeged"],Z.BROKEN_SHORE,			47.9,	67.4,	"Neutral")
 	AddVendor(120266,	L["Ilyssia of the Waters"],	Z.AZSUNA,			43.2,	40.6,	"Neutral")
+	AddVendor(120456,	L["Keeper Raynae"],		Z.VALSHARAH,			53.4,	72.8,	"Neutral")
+	AddVendor(120457,	L["Akule Riverhorn"],		Z.THUNDER_TOTEM,		32.6,	41.2,	"Neutral")
+	AddVendor(120458,	L["Corbyn"],			Z.STORMHEIM,			90.6,	10.6,	"Neutral")
+	AddVendor(120459,	L["Sha'leth"],			Z.SURAMAR,			50.6,	49.2,	"Neutral")
+	AddVendor(120460,	L["Impus"],			Z.BROKEN_SHORE,			34.2,	50.0,	"Neutral")
 	AddVendor(120898,	L["Warmage Kath'leen"],		Z.BROKEN_SHORE,			44.4,	62.2,	"Neutral")
+	AddVendor(127120,	L["Vindicator Jaelaana"],	Z.MACAREE,			51.2,	91.6,	"Neutral")
+	AddVendor(127151,	L["Toraan the Revered"],	Z.KROKUUN,			63.8,	89.6,	"Neutral")
+	AddVendor(128134,	L["Orix the All-Seer"],		Z.ANTORAN_WASTES,		60.2,	45.4,	"Neutral")
 
 	self.InitVendor = nil
 end

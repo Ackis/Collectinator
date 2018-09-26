@@ -597,6 +597,14 @@ function private.InitializeListFrame()
 			[REP3.CONJURER_MARGOSS]			= "conjurermargoss",
 			[REP3.TALONS_VENGEANCE]			= "talonsvengeance",
 			[REP3.ARMIES_OF_LEGIONFALL]		= "armiesoflegionfall",
+			[REP3.ILYSSIA_OF_THE_WATERS]		= "ilyssia_of_the_waters",
+			[REP3.CORBYN]				= "corbyn",
+			[REP3.KEEPER_RAYNAE]			= "keeper_raynae",
+			[REP3.IMPUS]				= "impus",
+			[REP3.AKULE_RIVERHORN]			= "akule_riverhorn",
+			[REP3.SHALETH]				= "shaleth",
+			[REP3.ARGUSSIAN_REACH]			= "argussian_reach",
+			[REP3.ARMY_OF_THE_LIGHT]		= "armyofthelight",
 		}
 
 		-- Returns true if any of the filter flags are turned on.

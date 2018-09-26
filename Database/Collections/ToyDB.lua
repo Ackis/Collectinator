@@ -2454,13 +2454,171 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.MISC)
 	toy:AddCustom("PRESTIGE")
 
---[[ Cuz Blizz hotfixed it out
+	-- Vrykul Toy Boat Kit -- 129367
+	toy = AddToy(129367, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.VALARJAR)
+	toy:AddRepVendor(FAC.VALARJAR, REP.HONORED, 106904)
+
+	-- Carved Wooden Helm -- 147307
+	toy = AddToy(147307, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.REPUTATION, F.CORBYN)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddRepVendor(FAC.CORBYN, REP.EXALTED, 120458)
+
 	-- Enchanted Bobber -- 147308
 	toy = AddToy(147308, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP, F.PROFESSION)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.REPUTATION, F.ILYSSIA_OF_THE_WATERS)
 	toy:AddProfession(PROF.FISHING)
-	toy:AddVendor(FAC.ILYSSIA_OF_THE_WATERS, REP.EXALTED, 120266)
-]]--
+	toy:AddRepVendor(FAC.ILYSSIA_OF_THE_WATERS, REP.EXALTED, 120266)
+
+	-- Face of the Forest -- 147309
+	toy = AddToy(147309, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.REPUTATION, F.KEEPER_RAYNAE)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddRepVendor(FAC.KEEPER_RAYNAE, REP.EXALTED, 120456)
+
+	-- Floating Totem -- 147310
+	toy = AddToy(147310, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.REPUTATION, F.AKULE_RIVERHORN)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddRepVendor(FAC.AKULE_RIVERHORN, REP.EXALTED, 120457)
+
+	-- Replica Gondola -- 147311
+	toy = AddToy(147311, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.REPUTATION, F.SHALETH)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddRepVendor(FAC.SHALETH, REP.EXALTED, 120459)
+
+	-- Demon Noggin -- 147312
+	toy = AddToy(147312, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.REPUTATION, F.IMPUS)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddRepVendor(FAC.IMPUS, REP.EXALTED, 120460)
+
+	-- Horse Tail Costume -- 151270
+	toy = AddToy(151270, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
+	toy:AddVendor(53728, 53757)
+	toy:AddWorldEvent("HALLOWS_END")
+
+	-- Horse Head Costume -- 151271
+	toy = AddToy(151271, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
+	toy:AddVendor(53728, 53757)
+	toy:AddWorldEvent("HALLOWS_END")
+
+	-- 7.3 - 7.3.5
+
+	-- Doomsayer's Robes -- 134831
+	toy = AddToy(134831, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Hearthstation -- 151343
+	toy = AddToy(151343, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.WORLD_EVENTS)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+
+	-- Hearthstation -- 151344
+	toy = AddToy(151344, V.LEGION, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:SetRequiredFaction("Horde")
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+
+	-- Toy Weapon Set -- 151348
+	toy = AddToy(151348, V.LEGION, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:SetRequiredFaction("Horde")
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+
+	-- Toy Weapon Set -- 151349
+	toy = AddToy(151349, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.WORLD_EVENTS)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
+
+	-- Trawler Totem -- 152556
+	toy = AddToy(152556, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.REPUTATION, F.AKULE_RIVERHORN)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddRepVendor(FAC.AKULE_RIVERHORN, REP.REVERED, 120457)
+
+	-- Corbyn's Beacon -- 152574
+	toy = AddToy(152574, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION, F.REPUTATION, F.CORBYN)
+	toy:AddProfession(PROF.FISHING)
+	toy:AddRepVendor(FAC.CORBYN, REP.HONORED, 120458)
+
+	-- Crystalline Campfire -- 153039
+	toy = AddToy(153039, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ARGUSSIAN_REACH)
+	toy:AddRepVendor(FAC.ARGUSSIAN_REACH, REP.HONORED, 127151)
+
+	-- Spire of Spite -- 153124
+	toy = AddToy(153124, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(123464)
+
+	-- Micro-Artillery Controller -- 153126
+	toy = AddToy(153126, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(126338)
+
+	-- Blue Conservatory Scroll -- 153179
+	toy = AddToy(153179, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(126900)
+
+	-- Yellow Conservatory Scroll -- 153180
+	toy = AddToy(153180, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(126900)
+
+	-- Red Conservatory Scroll -- 153181
+	toy = AddToy(153181, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(126900)
+
+	-- Holy Lightsphere -- 153182
+	toy = AddToy(153182, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("ARMYOFTHELIGHT_CACHE")
+
+	-- Barrier Generator -- 153183
+	toy = AddToy(153183, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(126865, 126866)
+
+	-- Baarut the Brisk -- 153193
+	toy = AddToy(153193, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(126862)
+
+	-- Legion Communication Orb -- 153194
+	toy = AddToy(153194, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(127703)
+
+	-- All-Seer's Eye -- 153204
+	toy = AddToy(153204, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(128134)
+
+	-- S.F.E. Interceptor -- 153253
+	toy = AddToy(153253, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(127700)
+
+	-- Sightless Eye -- 153293
+	toy = AddToy(153293, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(127706)
+
+	-- Katy's Stampwhistle -- 156833
+	toy = AddToy(156833, V.LEGION, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(12439)
+
 --[[  Didn't actually make it into the ToyBox panel
 
 	-- "Guy Incognito" Costume -- 134831

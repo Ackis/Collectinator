@@ -1120,6 +1120,14 @@ function private.InitializeFilterPanel()
 			conjurermargoss		= { tt = ReputationDesc(FN.CONJURER_MARGOSS),		text = FN.CONJURER_MARGOSS,		row = 8,	col = 1 },
 			talonsvengeance		= { tt = ReputationDesc(FN.TALONS_VENGEANCE),		text = FN.TALONS_VENGEANCE,		row = 9,	col = 1 },
 			armiesoflegionfall	= { tt = ReputationDesc(FN.ARMIES_OF_LEGIONFALL),	text = FN.ARMIES_OF_LEGIONFALL,		row = 10,	col = 1 },
+			corbyn 			= { tt = ReputationDesc(FN.CORBYN),			text = FN.CORBYN,			row = 11,	col = 1 },
+			keeper_raynae		= { tt = ReputationDesc(FN.KEEPER_RAYNAE),		text = FN.KEEPER_RAYNAE,		row = 12,	col = 1 },
+			ilyssia_of_the_waters	= { tt = ReputationDesc(FN.ILYSSIA_OF_THE_WATERS),	text = FN.ILYSSIA_OF_THE_WATERS,	row = 13,	col = 1 },
+			impus			= { tt = ReputationDesc(FN.IMPUS),			text = FN.IMPUS,			row = 14,	col = 1 },
+			akule_riverhorn		= { tt = ReputationDesc(FN.AKULE_RIVERHORN),		text = FN.AKULE_RIVERHORN,		row = 15,	col = 1 },
+			shaleth			= { tt = ReputationDesc(FN.SHALETH),			text = FN.SHALETH,			row = 16,	col = 1 },
+			argussian_reach		= { tt = ReputationDesc(FN.ARGUSSIAN_REACH),		text = FN.ARGUSSIAN_REACH,		row = 17,	col = 1 },
+			armyofthelight		= { tt = ReputationDesc(FN.ARMY_OF_THE_LIGHT),		text = FN.ARMY_OF_THE_LIGHT,		row = 18,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion6_frame, expansion6_buttons)
 
@@ -1309,6 +1317,15 @@ function private.InitializeFilterPanel()
 		conjurermargoss		= { cb = expansion6.conjurermargoss,		svroot = filters.rep },
 		talonsvengeance 	= { cb = expansion6.talonsvengeance,		svroot = filters.rep },
 		armiesoflegionfall 	= { cb = expansion6.armiesoflegionfall,		svroot = filters.rep },
+		corbyn 			= { cb = expansion6.corbyn,			svroot = filters.rep },
+		keeper_raynae		= { cb = expansion6.keeper_raynae,		svroot = filters.rep },
+		ilyssia_of_the_waters	= { cb = expansion6.ilyssia_of_the_waters,	svroot = filters.rep },
+		impus			= { cb = expansion6.impus,			svroot = filters.rep },
+		akule_riverhorn		= { cb = expansion6.akule_riverhorn,		svroot = filters.rep },
+		shaleth			= { cb = expansion6.shaleth,			svroot = filters.rep },
+		argussian_reach		= { cb = expansion6.argussian_reach,		svroot = filters.rep },
+		armyofthelight 		= { cb = expansion6.armyofthelight,		svroot = filters.rep },
 	}
+
 	private.InitializeFilterPanel = nil
 end

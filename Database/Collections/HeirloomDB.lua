@@ -468,6 +468,12 @@ function addon:InitHeirloom()
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
 	heirloom:AddQuest(41188)
 
+	-- Man'ari Training Amulet -- 153130
+	heirloom = AddHeirloom(153130, V.LEGION, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
+	heirloom:AddGarrisonMission(1785)
+
+
 	self.InitHeirloom = nil
 
 end
