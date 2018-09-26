@@ -703,8 +703,10 @@ do
 		OLD_HILLSBRAD_FOOTHILLS = _G.C_Map.GetMapInfo(274).name,
 		LOST_CITY_OF_THE_TOLVIR = _G.C_Map.GetMapInfo(277).name,
 		WAILING_CAVERNS = _G.C_Map.GetMapInfo(279).name,
+		BLACKWING_DESCENT = _G.C_Map.GetMapInfo(285).name,
 		BLACKWING_LAIR = _G.C_Map.GetMapInfo(287).name,
 		THE_DEADMINES = _G.C_Map.GetMapInfo(291).name,
+		THE_BASTION_OF_TWILIGHT = _G.C_Map.GetMapInfo(294).name,
 		RAZORFEN_DOWNS = _G.C_Map.GetMapInfo(300).name,
 		SCARLET_MONASTERY = _G.C_Map.GetMapInfo(302).name,
 		SHADOWFANG_KEEP = _G.C_Map.GetMapInfo(310).name,
@@ -791,6 +793,7 @@ do
 		KROKUUN = _G.C_Map.GetMapInfo(830).name,
 		MACAREE = _G.C_Map.GetMapInfo(882).name,
 		ANTORAN_WASTES = _G.C_Map.GetMapInfo(885).name,
+		ANTORUS__THE_BURNING_THRONE = _G.C_Map.GetMapInfo(909).name,
 
 		-------------------------------------------------------------------------------
 		-- Continents
