@@ -6419,226 +6419,218 @@ function addon:InitCritters()
 	pet:AddQuest(50818)
 
 	-- Filthy Slime -- 139049
-	pet = AddPet(139049, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(139049, V.BFA, Q.RARE)
+	pet:SetItemID(160704)
+	pet:SetSpellID(273184)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+--	pet:AddMobDrop()
+	pet:AddCustom("MYTHIC")
 
 	-- Poda -- 139073
-	pet = AddPet(139073, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(139073, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(158464)
+	pet:SetSpellID(273195)
+	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(51574)
 
 	-- Smoochums -- 139081
-	pet = AddPet(139081, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(139081, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(160708)
+	pet:SetSpellID(273215)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(142197)
 
 	-- Guardian Cobra Hatchling -- 139252
-	pet = AddPet(139252, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(139252, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(160847)
+	pet:SetSpellID(273839)
+	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(50818)
 
 	-- Vengeful Chicken -- 139372
-	pet = AddPet(139372, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(139372, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(160940)
+	pet:SetSpellID(273869)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(50990)
 
 	-- Lil' Tika -- 139622
-	pet = AddPet(139622, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(139622, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(161016)
+	pet:SetSpellID(274202)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(132097)
 
 	-- Direhorn Hatchling -- 139744
-	pet = AddPet(139744, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(139744, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(161080)
+	pet:SetSpellID(274348)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.ARCHAEOLOGY)
 
 	-- Taptaf -- 139770
-	pet = AddPet(139770, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(139770, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(161081)
+	pet:SetSpellID(274353)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(52061)
 
 	-- Restored Revenant -- 139782
-	pet = AddPet(139782, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(139782, V.BFA, Q.RARE)
+	pet:SetItemID(161089)
+	pet:SetSpellID(274380)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.ARCHAEOLOGY)
 
 	-- Miimii -- 140125
-	pet = AddPet(140125, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(140125, V.BFA, Q.RARE)
+	pet:SetItemID(161214)
+	pet:SetSpellID(274776)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(12723)
 
 	-- Baa'l -- 141941
-	pet = AddPet(141941, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(141941, V.BFA, Q.RARE)
+	pet:SetItemID(162578)
+	pet:SetSpellID(277461)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.CUSTOM)
+	pet:AddCustom("HIDDEN_SECRETS_KULTIRAS")
 
 	-- Shadowback Crawler -- 143031
 	pet = AddPet(143031, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMSONG_VALLEY, "25", "75:39.6", "71:33")
 
 	-- River Frog -- 143032
 	pet = AddPet(143032, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMSONG_VALLEY, "25", "66.0:45.8", "64.6:34.2", "60:30.8", "50.4:33.4", "32.6:60")
 
 	-- Freshwater Crawler -- 143033
 	pet = AddPet(143033, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMSONG_VALLEY, "25", "64.4:65.8")
 
 	-- Vale Marmot -- 143034
 	pet = AddPet(143034, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMSONG_VALLEY, "25", "61.6:31.4", "67.0:63.2", "32.2:63.4", "50.0:38.6")
 
 	-- Valley Chicken -- 143035
 	pet = AddPet(143035, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMSONG_VALLEY, "25", "44.0:64.2", "58.4:70.6")
 
 	-- Sandyback Crawler -- 143036
 	pet = AddPet(143036, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMSONG_VALLEY, "25", "51.6:24.8", "73.0:50.6", "65.0:50.8", "65.6:57.0")
 
 	-- River Otter -- 143037
 	pet = AddPet(143037, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMSONG_VALLEY, "25", "36.2:73.8", "63.0:31.2", "51.0:34.8")
+	pet:AddZoneLocations(Z.DRUSTVAR, "25", "31.0:45.6", "35.0:40.2", "35.0:46.2")
 
 	-- Honey Bee -- 143038
 	pet = AddPet(143038, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.STORMSONG_VALLEY, "25", "73.6:67.8", "44.8:60.6", "50.6:50.4")
+	pet:AddZoneLocations(Z.DRUSTVAR, "25", "59.8:15.2")
+	pet:AddZoneLocations(Z.TIRIGARDE_SOUND, "25", "38.2:33.4")
 
 	-- Parasitic Boarfly -- 143039
 	pet = AddPet(143039, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.TIRIGARDE_SOUND, "25", "55.8:16.0", "58.0:14.6", "55.6:18.0")
 
 	-- Shack Crab -- 143040
 	pet = AddPet(143040, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.TIRIGARDE_SOUND, "25", "40.8:30.8", "30.0:28.8", "74.6:49.2", "54.4:53.4", "69.2:20.6")
 
 	-- Inland Croaker -- 143041
 	pet = AddPet(143041, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.TIRIGARDE_SOUND, "25", "77.4:57.2", "70.2:20.2", "62.0:17.8", "69.6:13.0")
 
 	-- Giant Woodworm -- 143042
 	pet = AddPet(143042, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.TIRIGARDE_SOUND, "25", "56.0:18.0", "86.4:80.8", "55.6:35.2", "81.2:73.2")
 
 	-- Shore Butterfly -- 143043
 	pet = AddPet(143043, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.ZULDAZAR, "25", "54.6:88.4", "59.2:75.6", "60.2:83.0", "55.0:92.6")
 
 	-- Barrier Hermit -- 143044
 	pet = AddPet(143044, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.ZULDAZAR, "25", "57.4:86.2", "67.8:76.2", "58.4:96.8", "58.6:75.0")
 
 	-- Coastal Scuttler -- 143045
 	pet = AddPet(143045, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.DRUSTVAR, "25", "28.0:73.2", "27.6:71.0", "26.4:73.4")
 
 	-- Golden Beetle -- 143046
 	pet = AddPet(143046, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.ZULDAZAR, "25", "39.8:42.8", "40.4:35.8", "42.8:36.0", "43.0:39.8")
 
 	-- Bloodfever Tarantula -- 143047
 	pet = AddPet(143047, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZMIR, "25", "35.2:49.4", "29.6:68.8", "37.2:64.8", "34.0:40.6")
 
 	-- Elusive Skimmer -- 143048
 	pet = AddPet(143048, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZMIR, "25", "38.4:86.4", "47.8:82.8", "31.6:79.8", "61.6:63.8")
 
 	-- Leafy Flutterwing -- 143049
 	pet = AddPet(143049, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.ZULDAZAR, "25", "44.4:77.4", "79.2:46.2", "72.2:31.0", "77.8:13.8")
 
 	-- Young Sand Sifter -- 143050
 	pet = AddPet(143050, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZMIR, "25", "30.6:29.8", "83.0:25.6", "50.8:21.4", "78.2:51.6")
+	pet:AddZoneLocations(Z.VOLDUN, "25", "68.8:35.6")
 
 	-- Sticky Oozeling -- 143051
 	pet = AddPet(143051, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZMIR, "25", "19.0:51.0", "23.8:59.6", "23.6:54.0", "25.2:43.6")
 
 	-- Returned Hatchling -- 143052
 	pet = AddPet(143052, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZMIR, "25", "31.8:61.6", "29.6:57.6", "31.2:54.6","33.2:56.2")
 
 	-- Glutted Bleeder -- 143053
 	pet = AddPet(143053, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZMIR, "25", "33.4:47.2", "53.8:70.2", "47.2:62.4", "54.2:59.8")
 
 	-- Spectral Raven -- 143054
 	pet = AddPet(143054, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZMIR, "25", "39.8:34.6", "36.0:27.0", "37.6:22.0", "42.6:25.2")
 
 	-- Boghopper -- 143055
 	pet = AddPet(143055, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZMIR, "25", "30.6:39.8", "43.2:86.6", "80.2:47.4", "76.2:52.2")
 
 	-- Hermit Crab -- 143056
 	pet = AddPet(143056, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.VOLDUN, "25", "30.8:58.0", "24.8:65.0", "61.6:18.8", "41.8:24.6")
+	pet:AddZoneLocations(Z.TIRAGARDE_SOUND, "25", "62.2:34.0", "58.4:73.6", "76.0:47.6", "89.6:49.4")
+	pet:AddZoneLocations(Z.STORMSONG_VALLEY, "25", "72.2:50.0", "65.4:49.8", "65.2:16.0", "70.6:12.2")
 
 	-- Coastal Bounder -- 143057
 	pet = AddPet(143057, V.BFA, Q.COMMON)
