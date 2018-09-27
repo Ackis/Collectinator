@@ -1150,6 +1150,51 @@ function private.InitializeFilterPanel()
 		expansion6_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
 	end	-- do-block
 
+-------------------------------------------------------------------------------
+	-- Create FilterPanel.rep.expansion7, and set its scripts.
+	-------------------------------------------------------------------------------
+	do
+		local expansion7_frame = _G.CreateFrame("Frame", nil, FilterPanel.rep)
+		expansion7_frame:SetWidth(200)
+		expansion7_frame:SetHeight(FILTERMENU_HEIGHT)
+		expansion7_frame:EnableMouse(true)
+		expansion7_frame:EnableKeyboard(true)
+		expansion7_frame:SetMovable(false)
+		expansion7_frame:SetPoint("TOPRIGHT", FilterPanel, "TOPRIGHT", 0, 0)
+		expansion7_frame:Hide()
+
+		FilterPanel.rep.expansion7 = expansion7_frame
+
+		-------------------------------------------------------------------------------
+		-- Create the Reputation toggle and CheckButtons
+		-------------------------------------------------------------------------------
+		local function DisabledText(text)
+			return SetTextColor(private.BASIC_COLORS["grey"], text)
+		end
+
+		local expansion7_buttons = {
+--			thenightfallen		= { tt = ReputationDesc(FN.THE_NIGHTFALLEN),		text = FN.THE_NIGHTFALLEN,		row = 2,	col = 1 },
+
+		}
+		private.GenerateCheckBoxes(expansion7_frame, expansion7_buttons)
+
+		local expansion7_toggle = _G.CreateFrame("Button", nil, expansion7_frame)
+		expansion7_toggle:SetWidth(105)
+		expansion7_toggle:SetHeight(20)
+		expansion7_toggle:SetNormalFontObject("QuestTitleFont")
+		expansion7_toggle:SetHighlightFontObject("QuestTitleFontBlackShadow")
+		expansion7_toggle:SetText(_G.REPUTATION .. ":")
+		expansion7_toggle:SetPoint("TOPLEFT", expansion7_frame, "TOPLEFT", -2, -7)
+		expansion7_toggle:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+		private.SetTooltipScripts(expansion7_toggle, L["GROUP_TOGGLE_FORMAT"]:format(_G.REPUTATION))
+
+		expansion7_toggle.buttons = expansion7_buttons
+		expansion7_toggle.frame = expansion7_frame
+
+		expansion7_toggle:SetScript("OnClick", ToggleExpansionCheckBoxes)
+	end	-- do-block
+
 	-------------------------------------------------------------------------------
 	-- Miscellaneous Filter Menu
 	-------------------------------------------------------------------------------
@@ -1174,6 +1219,7 @@ function private.InitializeFilterPanel()
 	local expansion4 = FilterPanel.rep.expansion4
 	local expansion5 = FilterPanel.rep.expansion5
 	local expansion6 = FilterPanel.rep.expansion6
+	local expansion7 = FilterPanel.rep.expansion7
 
 	FilterPanel.value_map = {
 		------------------------------------------------------------------------------------------------
@@ -1195,6 +1241,7 @@ function private.InitializeFilterPanel()
 		expansion4		= { cb = FilterPanel.obtain.expansion4,		svroot = filters.obtain },
 		expansion5		= { cb = FilterPanel.obtain.expansion5,		svroot = filters.obtain },
 		expansion6		= { cb = FilterPanel.obtain.expansion6,		svroot = filters.obtain },
+		expansion7		= { cb = FilterPanel.obtain.expansion7,		svroot = filters.obtain },
 		mobdrop			= { cb = FilterPanel.obtain.mobdrop,		svroot = filters.obtain },
 		pvp			= { cb = FilterPanel.obtain.pvp,		svroot = filters.obtain },
 		quest			= { cb = FilterPanel.obtain.quest,		svroot = filters.obtain },
@@ -1327,6 +1374,9 @@ function private.InitializeFilterPanel()
 		shaleth			= { cb = expansion6.shaleth,			svroot = filters.rep },
 		argussian_reach		= { cb = expansion6.argussian_reach,		svroot = filters.rep },
 		armyofthelight 		= { cb = expansion6.armyofthelight,		svroot = filters.rep },
+		------------------------------------------------------------------------------------------------
+		-- Battle for Azeroth Rep Options
+		------------------------------------------------------------------------------------------------
 	}
 
 	private.InitializeFilterPanel = nil
