@@ -6375,9 +6375,12 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	pet:AddAchievement(12439)
 
-
 	-- Silithid Mini-Tank -- 133064
-	pet = AddPet(133064, V.LEGION, Q.COMMON)
+	pet = AddPet(133064, V.LEGION, Q.RARE)
+	pet:SetItemID(156851)
+	pet:SetSpellID(261755)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(132578, 132580, 132584)
 
 
 

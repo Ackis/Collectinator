@@ -322,6 +322,9 @@ function addon:InitMob()
 	AddMob(127703,	L["Doomcaster Suprax"],			Z.ANTORAN_WASTES,		58.2, 12.6)
 	AddMob(127705,	L["Mother Rosula"],			Z.ANTORAN_WASTES,		66.6, 17.8)
 	AddMob(127706,	L["Rezira the Seer"],			Z.ANTORAN_WASTES,		65.0, 82.6)
+	AddMob(132578,	L["Qroshekx"],				Z.SILITHUS,			59.6, 13.2)
+	AddMob(132580,	L["Ssinkrix"],				Z.SILITHUS,			54.6, 79.6)
+	AddMob(132584,	L["Xaarshej"],				Z.SILITHUS,			29.6, 35.8)
 
 	self.InitMob = nil
 end
