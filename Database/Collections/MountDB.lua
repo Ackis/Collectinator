@@ -4072,7 +4072,9 @@ function private.UpdateMountList()
 	for index = 1, #unknownNPCIDs do
 		local npcID = unknownNPCIDs[index]
 		private.TextDump:AddLine(("-- %s -- %d"):format(unknownNPCNames[npcID], npcID))
-		private.TextDump:AddLine(("mount = AddMount(%d, V.LEGION, Q.EPIC)\n"):format(npcID))
+		private.TextDump:AddLine(("mount = AddMount(%d, V.BFA, Q.EPIC)"):format(npcID))
+		private.TextDump:AddLine(("mount:SetItemID()"))
+		private.TextDump:AddLine(("mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)\n"))
 	end
 
 	local dumpLines = private.TextDump:Lines()

@@ -2676,7 +2676,7 @@ function private.UpdateToyList(toys)
 		local toyID = toyIDs[index]
 
 		private.TextDump:AddLine(("-- %s -- %d"):format(toyNames[toyID], toyID))
-		private.TextDump:AddLine(("toy = AddToy(%d, V.LEGION, Q.RARE)"):format(toyID))
+		private.TextDump:AddLine(("toy = AddToy(%d, V.BFA, Q.RARE)"):format(toyID))
 		private.TextDump:AddLine(("toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)\n"))
 	end
 

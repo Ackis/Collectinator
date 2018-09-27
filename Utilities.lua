@@ -182,11 +182,36 @@ do
 
 	function addon:DumpZones(name)
 		for index = 1, 100000 do
-			local zone_name = _G.GetMapNameByID(index)
+			local zone_name = _G.C_Map.GetMapInfo(index).name
 
 			if zone_name and zone_name:lower():find(name:lower()) then
-				TextDump:AddLine(("%s = _G.GetMapNameByID(%d),"):format(TableKeyFormat(zone_name), index))
+				TextDump:AddLine(("%s = _G.C_Map.GetMapInfo(%d).name,"):format(TableKeyFormat(zone_name), index))
 			end
+		end
+		TextDump:Display()
+	end
+
+	function addon:DumpZones2(input)
+		TextDump:Clear()
+
+		if type(input) == "number" then
+			local zone_name = _G.C_Map.GetMapInfo(input).name
+
+			if zone_name then
+				TextDump:AddLine(("%s = _G.C_Map.GetMapInfo(%d).name,"):format(TableKeyFormat(zone_name), input))
+			end
+		else
+			for index = 1, 100000 do
+				local zone_name = _G.C_Map.GetMapInfo(index).name
+
+				if zone_name and zone_name:lower():find(input:lower()) then
+					TextDump:AddLine(("%s = _G.C_Map.GetMapInfo(%d).name,"):format(TableKeyFormat(zone_name), index))
+				end
+			end
+		end
+
+		if TextDump:Lines() == 0 then
+			TextDump:AddLine("Nothing to display.")
 		end
 		TextDump:Display()
 	end

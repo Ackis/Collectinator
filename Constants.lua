@@ -83,7 +83,7 @@ private.PROFESSION_SPELL_IDS = {
 	COOKING		= 2550,
 	ENCHANTING	= 7411,
 	ENGINEERING	= 4036,
-	FIRSTAID	= 3273,
+--	FIRSTAID	= 3273,
 	FISHING		= 131474,
 	INSCRIPTION	= 45357,
 	JEWELCRAFTING	= 25229,
@@ -133,6 +133,7 @@ private.GAME_VERSION_NAMES = {
 	"MOP",
 	"WOD",
 	"LEGION",
+	"BFA",
 }
 
 private.GAME_VERSIONS = GenerateLookup_ID(private.GAME_VERSION_NAMES)
@@ -151,6 +152,7 @@ private.EXPANSION_LOGOS = {
 	[_G.LE_EXPANSION_MISTS_OF_PANDARIA] = { texture = [[Interface\Glues\Common\Glues-WoW-MPLogo]] },
 	[_G.LE_EXPANSION_WARLORDS_OF_DRAENOR] = { texture = [[Interface\Glues\Common\GLUES-WOW-WODLOGO]] },
 	[_G.LE_EXPANSION_LEGION] = { atlas = "Glues-WoW-LegionLogo" },
+	[_G.LE_EXPANSION_BATTLE_FOR_AZEROTH] = { atlas = "Glues-WoW-LegionLogo" }, -- Needs updating
 }
 
 -------------------------------------------------------------------------------
@@ -795,6 +797,9 @@ do
 		ANTORAN_WASTES = _G.C_Map.GetMapInfo(885).name,
 		ANTORUS__THE_BURNING_THRONE = _G.C_Map.GetMapInfo(909).name,
 
+		VOLDUN = _G.C_Map.GetMapInfo(864).name,
+
+
 		-------------------------------------------------------------------------------
 		-- Continents
 		-------------------------------------------------------------------------------
@@ -806,6 +811,7 @@ do
 		PANDARIA = _G.C_Map.GetMapInfo(424).name,
 		DRAENOR = _G.C_Map.GetMapInfo(572).name,
 		BROKEN_ISLES = _G.C_Map.GetMapInfo(619).name,
+		ARGUS = _G.C_Map.GetMapInfo(905).name,
 	}
 end
 

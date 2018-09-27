@@ -91,7 +91,10 @@ do
 		for index = 1, #petIDs do
 			local petID = petIDs[index]
 			TextDump:AddLine(("-- %s -- %d"):format(petNams[petID], petID))
-			TextDump:AddLine(("pet = AddPet(%d, V.LEGION, Q.COMMON)\n"):format(petID))
+			TextDump:AddLine(("pet = AddPet(%d, V.BFA, Q.COMMON)"):format(petID))
+			TextDump:AddLine(("pet:SetItemID()"))
+			TextDump:AddLine(("pet:SetSpellID()"))
+			TextDump:AddLine(("pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)\n"))
 		end
 
 		local dumpLines = TextDump:Lines()

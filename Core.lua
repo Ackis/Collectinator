@@ -217,6 +217,7 @@ function addon:OnInitialize()
 					expansion4 = true,
 					expansion5 = true,
 					expansion6 = true,
+					expansion7 = true,
 				},
 				-------------------------------------------------------------------------------
 				-- Quality Filters
@@ -613,7 +614,7 @@ do
 			for itemIDIndex = 1, #unknownHeirloomIDs do
 				local itemID = unknownHeirloomIDs[itemIDIndex]
 				private.TextDump:AddLine(("-- %s -- %d"):format(unknownHeirloomNames[itemID], itemID))
-				private.TextDump:AddLine(("heirloom = AddHeirloom(%d, V.LEGION, Q.ARTIFACT)"):format(itemID))
+				private.TextDump:AddLine(("heirloom = AddHeirloom(%d, V.BFA, Q.ARTIFACT)"):format(itemID))
 				private.TextDump:AddLine(("heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)\n"))
 			end
 

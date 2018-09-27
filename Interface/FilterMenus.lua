@@ -40,6 +40,7 @@ local EXPANSION_FRAMES = {
 	["expansion4"]	= true,
 	["expansion5"]	= true,
 	["expansion6"]	= true,
+	["expansion7"]	= true,
 }
 
 local CATEGORY_TOOLTIP = {
@@ -489,6 +490,7 @@ function private.InitializeFilterPanel()
 			expansion4	= { tt = ExpansionDesc(_G.EXPANSION_NAME4),	text = _G.EXPANSION_NAME4,	row = 5, col = 1 },
 			expansion5 	= { tt = ExpansionDesc(_G.EXPANSION_NAME5),	text = _G.EXPANSION_NAME5,	row = 6, col = 1 },
 			expansion6	= { tt = ExpansionDesc(_G.EXPANSION_NAME6),	text = _G.EXPANSION_NAME6,	row = 7, col = 1 },
+			expansion7	= { tt = ExpansionDesc(_G.EXPANSION_NAME7),	text = _G.EXPANSION_NAME7,	row = 8, col = 1 },
 		}
 
 		local version_panel = _G.CreateFrame("Frame", nil, obtain_frame)
