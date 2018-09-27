@@ -146,6 +146,7 @@ function addon:InitCustom()
 	AddCustom("CURIOUS_WYRMTONGUE",	Z.BROKEN_SHORE,			47.8,	67.4)
 	AddCustom("CHROMIE",		Z.THE_DEATHS_OF_CHROMIE)
 	AddCustom("SUN_DARTER",		Z.WINTERSPRING)
+	AddCustom("FRANCOIS",		Z.TIRAGARDE_SOUND,		52.8,	31.1)
 
 	self.InitCustom = nil
 end

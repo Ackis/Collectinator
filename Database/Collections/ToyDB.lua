@@ -2619,6 +2619,176 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(12439)
 
+
+-- Battle for Azeroth
+
+	-- Zandalari Effigy Amulet -- 156649
+	toy = AddToy(156649, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Spitzy -- 156871
+	toy = AddToy(156871, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Overtuned Corgi Goggles -- 158149
+	toy = AddToy(158149, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Haw'li's Hot & Spicy Chili -- 159749
+	toy = AddToy(159749, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Desert Flute -- 159753
+	toy = AddToy(159753, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Echoes of Rezan -- 160509
+	toy = AddToy(160509, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Croak Crock -- 160740
+	toy = AddToy(160740, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Dance of the Dead -- 160751
+	toy = AddToy(160751, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Hot Buttered Popcorn -- 162539
+	toy = AddToy(162539, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Toy Armor Set -- 162642
+	toy = AddToy(162642, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Toy Armor Set -- 162643
+	toy = AddToy(162643, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Greatfather Winter's Hearthstone -- 162973
+	toy = AddToy(162973, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Headless Horseman's Hearthstone -- 163045
+	toy = AddToy(163045, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Cursed Spyglass -- 163200
+	toy = AddToy(163200, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Gnoll Targetting Barrel -- 163201
+	toy = AddToy(163201, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Party Totem -- 163210
+	toy = AddToy(163210, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Akunda's Firesticks -- 163211
+	toy = AddToy(163211, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Dead Ringer -- 163463
+	toy = AddToy(163463, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Lucille's Sewing Needle -- 163607
+	toy = AddToy(163607, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Laser Pointer -- 163697
+	toy = AddToy(163697, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Tiny Mechanical Mouse -- 163704
+	toy = AddToy(163704, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Imaginary Gun -- 163705
+	toy = AddToy(163705, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Brazier Cap -- 163713
+	toy = AddToy(163713, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Foul Belly -- 163735
+	toy = AddToy(163735, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Spectral Visage -- 163736
+	toy = AddToy(163736, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Syndicate Mask -- 163738
+	toy = AddToy(163738, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Drust Ritual Knife -- 163740
+	toy = AddToy(163740, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Magic Fun Rock -- 163741
+	toy = AddToy(163741, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Heartsbane Grimoire -- 163742
+	toy = AddToy(163742, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Coldrage's Cooler -- 163744
+	toy = AddToy(163744, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Witherbark Gong -- 163745
+	toy = AddToy(163745, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Kovork Kostume -- 163750
+	toy = AddToy(163750, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Molok Morion -- 163775
+	toy = AddToy(163775, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Oomgut Ritual Drum -- 163795
+	toy = AddToy(163795, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Toy Siege Tower -- 163828
+	toy = AddToy(163828, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Toy War Machine -- 163829
+	toy = AddToy(163829, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Whiskerwax Candle -- 163924
+	toy = AddToy(163924, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Glorious Pennant -- 164310
+	toy = AddToy(164310, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Enchanted Soup Stone -- 164373
+	toy = AddToy(164373, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Magic Monkey Banana -- 164374
+	toy = AddToy(164374, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Bad Mojo Banana -- 164375
+	toy = AddToy(164375, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+
+
+
 --[[  Didn't actually make it into the ToyBox panel
 
 	-- "Guy Incognito" Costume -- 134831

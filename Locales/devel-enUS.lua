@@ -226,6 +226,7 @@ L["FISHING_TOURNAMENT"] = "Random reward from the Stranglethorn Fishing Tourname
 L["FLEX"] = "Only available from Flex version of this boss."
 L["FONT_SIZE_DESC"] = "Changes the size of the fonts for Collectinator."
 L["FOR_AZEROTH"] = "Available from the Heroes of the Storm 'For Azeroth' promotion that runs from February 14 to March 26, 2017."
+L["FRANCOIS"] = "Have 1,000,000 gold in your inventory, and visit Francois in Tiragarde Sound in Northwington Estate at 52.8, 31.1. Ignores you if you have less gold in inventory."
 L["Faldoc Stonefaith"] = true
 L["Fariel Starsong"] = true
 L["Fedryen Swiftspear"] = true

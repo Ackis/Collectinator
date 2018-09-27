@@ -200,6 +200,8 @@ function addon:InitQuest()
 	AddQuest(45083,	Z.NORTHERN_BARRENS,			63.6,	35.8,	"Neutral")
 	AddQuest(45372,	Z.SURAMAR,				37.0,	46.6,	"Neutral")
 	AddQuest(45539,	Z.DALARAN_BROKENISLES,			59.4,	39.6,	"Neutral")
+	AddQuest(50818,	Z.VOLDUN,				29.0,	54.6,	"Horde")
+	AddQuest(50934,	Z.NAZMIR,				66.8,	42.0,	"Horde")
 
 	self.InitQuest = nil
 end

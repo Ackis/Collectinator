@@ -4018,6 +4018,194 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOA)
 	mount:AddCustom("STORE")
 
+-- Battle for Azeroth
+
+	-- Frostshard Infernal -- 213350
+	mount = AddMount(213350, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Dune Scavenger -- 237286
+	mount = AddMount(237286, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Obsidian Krolusk -- 239049
+	mount = AddMount(239049, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Leaping Veinseeker -- 243795
+	mount = AddMount(243795, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Bloodgorged Crawg -- 250735
+	mount = AddMount(250735, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Squawks -- 254811
+	mount = AddMount(254811, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Sharkbait -- 254813
+	mount = AddMount(254813, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Admiralty Stallion -- 259213
+	mount = AddMount(259213, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Dapple Gray -- 260172
+	mount = AddMount(260172, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Smoky Charger -- 260173
+	mount = AddMount(260173, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Terrified Pack Mule -- 260174
+	mount = AddMount(260174, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Goldenmane -- 260175
+	mount = AddMount(260175, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Vicious War Basilisk -- 261433
+	mount = AddMount(261433, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Mecha-Mogul Mk2 -- 261437
+	mount = AddMount(261437, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Mighty Caravan Brutosaur -- 264058
+	mount = AddMount(264058, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Tomb Stalker -- 266058
+	mount = AddMount(266058, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Darkforge Ram -- 270562
+	mount = AddMount(270562, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Dawnforge Ram -- 270564
+	mount = AddMount(270564, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Vicious War Riverbeast -- 272481
+	mount = AddMount(272481, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- The Dreadwake -- 272770
+	mount = AddMount(272770, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Underrot Crawg -- 273541
+	mount = AddMount(273541, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Teldrassil Hippogryph -- 274610
+	mount = AddMount(274610, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Great Sea Ray -- 278803
+	mount = AddMount(278803, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Surf Jelly -- 278979
+	mount = AddMount(278979, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Conquerer's Scythemaw -- 279454
+	mount = AddMount(279454, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Highland Mustang -- 279456
+	mount = AddMount(279456, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Twilight Avenger -- 279466
+	mount = AddMount(279466, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Craghorn Chasm-Leaper -- 279467
+	mount = AddMount(279467, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Qinsho's Eternal Hound -- 279469
+	mount = AddMount(279469, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Palehide Direhorn -- 279474
+	mount = AddMount(279474, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Swift Albino Raptor -- 279569
+	mount = AddMount(279569, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Lil' Donkey -- 279608
+	mount = AddMount(279608, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Skullripper -- 279611
+	mount = AddMount(279611, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Witherbark Direwing -- 279868
+	mount = AddMount(279868, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Frenzied Feltalon -- 280729
+	mount = AddMount(280729, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Pureheart Courser -- 280730
+	mount = AddMount(280730, V.BFA, Q.EPIC)
+	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+
+
+
+
+
+
 
 -- Unknown mounts
 

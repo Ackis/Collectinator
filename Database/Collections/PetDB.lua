@@ -6382,6 +6382,737 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	pet:AddMobDrop(132578, 132580, 132584)
 
+	-------------------------------------------------------------------------------
+	-- Battle for Azeroth.
+	-------------------------------------------------------------------------------
+	-- Hearthy -- 117343
+	pet = AddPet(117343, V.BFA, Q.EPIC)
+	pet:SetItemID(163218)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(12958)
+
+	-- Dart -- 131644
+	pet = AddPet(131644, V.BFA, Q.RARE)
+	pet:SetItemID(156566)
+	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(50934)
+
+	-- Francois -- 134406
+	pet = AddPet(134406, V.BFA, Q.RARE)
+	pet:SetItemID(158077)
+	pet:SetSpellID(264001)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("FRANCOIS")
+
+	-- Cap'n Crackers -- 138741
+	pet = AddPet(138741, V.BFA, Q.RARE)
+	pet:SetItemID(160588)
+	pet:SetSpellID(272772)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
+	pet:AddCustom("STORE")
+
+	-- Spawn of Merektha -- 138964
+	pet = AddPet(138964, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(160847)
+	pet:SetSpellID(273839)
+	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(50818)
+
+	-- Filthy Slime -- 139049
+	pet = AddPet(139049, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Poda -- 139073
+	pet = AddPet(139073, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Smoochums -- 139081
+	pet = AddPet(139081, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Guardian Cobra Hatchling -- 139252
+	pet = AddPet(139252, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Vengeful Chicken -- 139372
+	pet = AddPet(139372, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Lil' Tika -- 139622
+	pet = AddPet(139622, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Direhorn Hatchling -- 139744
+	pet = AddPet(139744, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Taptaf -- 139770
+	pet = AddPet(139770, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Restored Revenant -- 139782
+	pet = AddPet(139782, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Miimii -- 140125
+	pet = AddPet(140125, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Baa'l -- 141941
+	pet = AddPet(141941, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Shadowback Crawler -- 143031
+	pet = AddPet(143031, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- River Frog -- 143032
+	pet = AddPet(143032, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Freshwater Crawler -- 143033
+	pet = AddPet(143033, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Vale Marmot -- 143034
+	pet = AddPet(143034, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Valley Chicken -- 143035
+	pet = AddPet(143035, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Sandyback Crawler -- 143036
+	pet = AddPet(143036, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- River Otter -- 143037
+	pet = AddPet(143037, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Honey Bee -- 143038
+	pet = AddPet(143038, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Parasitic Boarfly -- 143039
+	pet = AddPet(143039, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Shack Crab -- 143040
+	pet = AddPet(143040, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Inland Croaker -- 143041
+	pet = AddPet(143041, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Giant Woodworm -- 143042
+	pet = AddPet(143042, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Shore Butterfly -- 143043
+	pet = AddPet(143043, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Barrier Hermit -- 143044
+	pet = AddPet(143044, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Coastal Scuttler -- 143045
+	pet = AddPet(143045, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Golden Beetle -- 143046
+	pet = AddPet(143046, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Bloodfever Tarantula -- 143047
+	pet = AddPet(143047, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Elusive Skimmer -- 143048
+	pet = AddPet(143048, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Leafy Flutterwing -- 143049
+	pet = AddPet(143049, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Young Sand Sifter -- 143050
+	pet = AddPet(143050, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Sticky Oozeling -- 143051
+	pet = AddPet(143051, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Returned Hatchling -- 143052
+	pet = AddPet(143052, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Glutted Bleeder -- 143053
+	pet = AddPet(143053, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Spectral Raven -- 143054
+	pet = AddPet(143054, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Boghopper -- 143055
+	pet = AddPet(143055, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Hermit Crab -- 143056
+	pet = AddPet(143056, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Coastal Bounder -- 143057
+	pet = AddPet(143057, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Rooter -- 143142
+	pet = AddPet(143142, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Brutus -- 143160
+	pet = AddPet(143160, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Abyssal Eel -- 143175
+	pet = AddPet(143175, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Seabreeze Bumblebee -- 143176
+	pet = AddPet(143176, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Corlain Falcon -- 143177
+	pet = AddPet(143177, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Drustvar Piglet -- 143178
+	pet = AddPet(143178, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Frenzied Cottontail -- 143179
+	pet = AddPet(143179, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Bilefang Skitterer -- 143181
+	pet = AddPet(143181, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Greatwing Macaw -- 143184
+	pet = AddPet(143184, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Mechanical Prairie Dog -- 143188
+	pet = AddPet(143188, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Wicker Pup -- 143189
+	pet = AddPet(143189, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Tiny Direhorn -- 143191
+	pet = AddPet(143191, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Zandalari Shinchomper -- 143193
+	pet = AddPet(143193, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Bloodfeaster Larva -- 143194
+	pet = AddPet(143194, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Tragg the Curious -- 143195
+	pet = AddPet(143195, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Lil' Ben'fon -- 143196
+	pet = AddPet(143196, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Ranishu Runt -- 143197
+	pet = AddPet(143197, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Child of Jani -- 143198
+	pet = AddPet(143198, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Swamp Toad -- 143199
+	pet = AddPet(143199, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Accursed Hexxer -- 143200
+	pet = AddPet(143200, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Saurolisk Hatchling -- 143202
+	pet = AddPet(143202, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Blue Flitter -- 143203
+	pet = AddPet(143203, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Freshwater Pincher -- 143204
+	pet = AddPet(143204, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Crimson Frog -- 143205
+	pet = AddPet(143205, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Barnacled Hermit Crab -- 143206
+	pet = AddPet(143206, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Sandstinger Wasp -- 143207
+	pet = AddPet(143207, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Cou'pa -- 143209
+	pet = AddPet(143209, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Carnivorous Lasher -- 143211
+	pet = AddPet(143211, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Azeriti -- 143214
+	pet = AddPet(143214, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Lost Platysaur -- 143360
+	pet = AddPet(143360, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Baby Crawg -- 143374
+	pet = AddPet(143374, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Dreadtick Leecher -- 143464
+	pet = AddPet(143464, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Fuzzy Creepling -- 143499
+	pet = AddPet(143499, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Aldrusian Sproutling -- 143503
+	pet = AddPet(143503, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Voidwiggler -- 143507
+	pet = AddPet(143507, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Teeny Titan Orb -- 143515
+	pet = AddPet(143515, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Scabby -- 143533
+	pet = AddPet(143533, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Ragepeep -- 143563
+	pet = AddPet(143563, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Foulfeather -- 143564
+	pet = AddPet(143564, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Azerite Puddle -- 143611
+	pet = AddPet(143611, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Fozling -- 143627
+	pet = AddPet(143627, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Squawkling -- 143628
+	pet = AddPet(143628, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Bumbles -- 143730
+	pet = AddPet(143730, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Lil' Siege Tower -- 143738
+	pet = AddPet(143738, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Lil' War Machine -- 143739
+	pet = AddPet(143739, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Scuttle -- 143794
+	pet = AddPet(143794, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Captain Nibs -- 143795
+	pet = AddPet(143795, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Barnaby -- 143796
+	pet = AddPet(143796, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Poro -- 143797
+	pet = AddPet(143797, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Octopode Fry -- 143798
+	pet = AddPet(143798, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Inky -- 143799
+	pet = AddPet(143799, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Sparkleshell Sandcrawler -- 143801
+	pet = AddPet(143801, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Kindleweb Spiderling -- 143802
+	pet = AddPet(143802, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Craghoof Kid -- 143803
+	pet = AddPet(143803, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- False Knucklebump -- 143804
+	pet = AddPet(143804, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Tinder Pup -- 143805
+	pet = AddPet(143805, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Sandshell Chitterer -- 143806
+	pet = AddPet(143806, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Deathsting Scorpid -- 143807
+	pet = AddPet(143807, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Thistlebrush Bud -- 143808
+	pet = AddPet(143808, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Giggling Flame -- 143809
+	pet = AddPet(143809, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Laughing Stonekin -- 143810
+	pet = AddPet(143810, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Playful Frostkin -- 143811
+	pet = AddPet(143811, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Mischievous Zephyr -- 143812
+	pet = AddPet(143812, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Littlehoof -- 143813
+	pet = AddPet(143813, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Snapper -- 143814
+	pet = AddPet(143814, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Sunscale Hatchling -- 143815
+	pet = AddPet(143815, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Bloodstone Tunneler -- 143816
+	pet = AddPet(143816, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Snort -- 143817
+	pet = AddPet(143817, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Muskflank Calfling -- 143818
+	pet = AddPet(143818, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Juvenile Brineshell -- 143819
+	pet = AddPet(143819, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Kunchong Hatchling -- 143820
+	pet = AddPet(143820, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Coldlight Surfrunner -- 143821
+	pet = AddPet(143821, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Voru'kar Leecher -- 143822
+	pet = AddPet(143822, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Gearspring Hopper -- 143957
+	pet = AddPet(143957, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Bloodfeaster Larva -- 143958
+	pet = AddPet(143958, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Slippy -- 143959
+	pet = AddPet(143959, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Bucketshell -- 144004
+	pet = AddPet(144004, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Sir Snips -- 144005
+	pet = AddPet(144005, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 
 
 
