@@ -797,9 +797,17 @@ do
 		ANTORAN_WASTES = _G.C_Map.GetMapInfo(885).name,
 		ANTORUS__THE_BURNING_THRONE = _G.C_Map.GetMapInfo(909).name,
 
+		-- BFA
+		ZULDAZAR = _G.C_Map.GetMapInfo(862).name,
+		NAZMIR = _G.C_Map.GetMapInfo(863).name,
 		VOLDUN = _G.C_Map.GetMapInfo(864).name,
+		TIRAGARDE_SOUND = _G.C_Map.GetMapInfo(895).name,
+		DRUSTVAR = _G.C_Map.GetMapInfo(896).name,
+		STORMSONG_VALLEY = _G.C_Map.GetMapInfo(942).name,
+		BORALUS = _G.C_Map.GetMapInfo(1161).name,
+		DAZARALOR = _G.C_Map.GetMapInfo(1163).name,
 
-
+		WAYCREST_MANOR = _G.C_Map.GetMapInfo(1015).name,
 		-------------------------------------------------------------------------------
 		-- Continents
 		-------------------------------------------------------------------------------
@@ -812,6 +820,8 @@ do
 		DRAENOR = _G.C_Map.GetMapInfo(572).name,
 		BROKEN_ISLES = _G.C_Map.GetMapInfo(619).name,
 		ARGUS = _G.C_Map.GetMapInfo(905).name,
+		ZANDALAR = _G.C_Map.GetMapInfo(875).name,
+		KUL_TIRAS = _G.C_Map.GetMapInfo(876).name,
 	}
 end
 

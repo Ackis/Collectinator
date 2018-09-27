@@ -6493,7 +6493,7 @@ function addon:InitCritters()
 	pet = AddPet(141941, V.BFA, Q.RARE)
 	pet:SetItemID(162578)
 	pet:SetSpellID(277461)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.CUSTOM)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	pet:AddCustom("HIDDEN_SECRETS_KULTIRAS")
 
 	-- Shadowback Crawler -- 143031
@@ -6537,27 +6537,27 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.STORMSONG_VALLEY, "25", "73.6:67.8", "44.8:60.6", "50.6:50.4")
 	pet:AddZoneLocations(Z.DRUSTVAR, "25", "59.8:15.2")
-	pet:AddZoneLocations(Z.TIRIGARDE_SOUND, "25", "38.2:33.4")
+	pet:AddZoneLocations(Z.TIRAGARDE_SOUND, "25", "38.2:33.4")
 
 	-- Parasitic Boarfly -- 143039
 	pet = AddPet(143039, V.BFA, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddZoneLocations(Z.TIRIGARDE_SOUND, "25", "55.8:16.0", "58.0:14.6", "55.6:18.0")
+	pet:AddZoneLocations(Z.TIRAGARDE_SOUND, "25", "55.8:16.0", "58.0:14.6", "55.6:18.0")
 
 	-- Shack Crab -- 143040
 	pet = AddPet(143040, V.BFA, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddZoneLocations(Z.TIRIGARDE_SOUND, "25", "40.8:30.8", "30.0:28.8", "74.6:49.2", "54.4:53.4", "69.2:20.6")
+	pet:AddZoneLocations(Z.TIRAGARDE_SOUND, "25", "40.8:30.8", "30.0:28.8", "74.6:49.2", "54.4:53.4", "69.2:20.6")
 
 	-- Inland Croaker -- 143041
 	pet = AddPet(143041, V.BFA, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddZoneLocations(Z.TIRIGARDE_SOUND, "25", "77.4:57.2", "70.2:20.2", "62.0:17.8", "69.6:13.0")
+	pet:AddZoneLocations(Z.TIRAGARDE_SOUND, "25", "77.4:57.2", "70.2:20.2", "62.0:17.8", "69.6:13.0")
 
 	-- Giant Woodworm -- 143042
 	pet = AddPet(143042, V.BFA, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
-	pet:AddZoneLocations(Z.TIRIGARDE_SOUND, "25", "56.0:18.0", "86.4:80.8", "55.6:35.2", "81.2:73.2")
+	pet:AddZoneLocations(Z.TIRAGARDE_SOUND, "25", "56.0:18.0", "86.4:80.8", "55.6:35.2", "81.2:73.2")
 
 	-- Shore Butterfly -- 143043
 	pet = AddPet(143043, V.BFA, Q.COMMON)
