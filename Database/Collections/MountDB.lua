@@ -4032,6 +4032,13 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
 	mount:AddWorldDrop(Z.VOLDUN, Z.ZULDAZAR)
 
+	-- Alabaster Hyena -- 237287
+	mount = AddMount(237287, V.BFA, Q.EPIC)
+	mount:SetItemID(161773)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON2)
+	mount:AddRepVendor(FAC.VOLDUNAI, REP.EXALTED, 135804)
+
 	-- Obsidian Krolusk -- 239049
 	mount = AddMount(239049, V.BFA, Q.EPIC)
 	mount:SetItemID(161215)
@@ -4062,6 +4069,13 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(126983)
 	mount:AddCustom("MYTHIC")
+
+	-- Gilded Ravasaur -- 255696
+	mount = AddMount(255696, V.BFA, Q.EPIC)
+	mount:SetItemID(153540)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	mount:AddCustom("CE")
 
 	-- Admiralty Stallion -- 259213
 	mount = AddMount(259213, V.BFA, Q.EPIC)
@@ -4103,6 +4117,13 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP)
 	mount:AddVendor(73190)
 
+	-- Vicious War Basilisk -- 261434
+	mount = AddMount(261434, V.BFA, Q.EPIC)
+	mount:SetItemID(163121)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:AddVendor(73151)
+
 	-- Mecha-Mogul Mk2 -- 261437
 	mount = AddMount(261437, V.BFA, Q.EPIC)
 	mount:SetItemID(161134)
@@ -4122,6 +4143,13 @@ function addon:InitMounts()
 	mount:AddMobDrop(136160)
 	mount:AddCustom("MYTHIC")
 
+	-- Vicious War Clefthoof -- 270560
+	mount = AddMount(270560, V.BFA, Q.EPIC)
+	mount:SetItemID(163124)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:AddVendor(73151)
+
 	-- Darkforge Ram -- 270562
 	mount = AddMount(270562, V.BFA, Q.EPIC)
 --	mount:SetItemID()
@@ -4133,6 +4161,13 @@ function addon:InitMounts()
 --	mount:SetItemID()
 	mount:SetRequiredClass("PALADIN")
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Undercity Plaguebat -- 272472
+	mount = AddMount(272472, V.BFA, Q.EPIC)
+	mount:SetItemID(163128)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(52981)
 
 	-- Vicious War Riverbeast -- 272481
 	mount = AddMount(272481, V.BFA, Q.EPIC)
@@ -4161,6 +4196,20 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
 	mount:AddQuest(53310)
 
+	-- Cobalt Pterrordax -- 275837
+	mount = AddMount(275837, V.BFA, Q.EPIC)
+	mount:SetItemID(161665)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON4)
+	mount:AddRepVendor(FAC.ZANDALARI_EMPIRE, REP.EXALTED, 131287)
+
+	-- Expedition Bloodswarmer -- 275841
+	mount = AddMount(275841, V.BFA, Q.EPIC)
+	mount:SetItemID(161774)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON3)
+	mount:AddRepVendor(FAC.TALANJIS_EXPEDITION, REP.EXALTED, 135459)
+
 	-- Great Sea Ray -- 278803
 	mount = AddMount(278803, V.BFA, Q.EPIC)
 	mount:SetItemID(163131)
@@ -4185,6 +4234,13 @@ function addon:InitMounts()
 	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.MOB_DROP)
 	mount:AddMobDrop(142741)
+
+	-- Broken Highland Mustang -- 279457
+	mount = AddMount(279457, V.BFA, Q.EPIC)
+	mount:SetItemID(163578)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(142739)
 
 	-- Twilight Avenger -- 279466
 	mount = AddMount(279466, V.BFA, Q.EPIC)
