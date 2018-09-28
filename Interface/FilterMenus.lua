@@ -751,6 +751,10 @@ function private.InitializeFilterPanel()
 	local Exarchs_Frostwolf_Text = isAlliance and FN.COUNCIL_OF_EXARCHS or FN.FROSTWOLF_ORCS
 	local Shatari_Laughing_Text = isAlliance and FN.SHATARI_DEFENSE or FN.LAUGHING_SKULL_ORCS
 	local Prophet_Voljin_Text = isAlliance and FN.HAND_OF_THE_PROPHET or FN.VOLJINS_HEADHUNTERS
+	local 7th_Honorbound_Text = isAlliance and FN.7TH_LEGION or FN.THE_HONORBOUND
+	local Embers_Voldunai_Text = isAlliance and FN.ORDER_OF_EMBERS or FN.VOLDUNAI
+	local Proudmoore_Talanji_Text = isAlliance and FN.PROUDMOORE_ADMIRALTY or FN.TALANJIS_EXPEDITION
+	local Storm_Zandalari_Text = isAlliance and FN.STORMS_WAKE or FN.ZANDALARI_EMPIRE
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -1173,8 +1177,12 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion7_buttons = {
---			thenightfallen		= { tt = ReputationDesc(FN.THE_NIGHTFALLEN),		text = FN.THE_NIGHTFALLEN,		row = 2,	col = 1 },
-
+			championsofazeroth	= { tt = ReputationDesc(FN.CHAMPIONS_OF_AZEROTH),	text = FN.CHAMPIONS_OF_AZEROTH,		row = 1,	col = 1 },
+			tortollanseekers	= { tt = ReputationDesc(FN.TORTOLLAN_SEEKERS),		text = FN.TORTOLLAN_SEEKERS,		row = 2,	col = 1 },
+			bfacommon1		= { tt = ReputationDesc(7th_Honorbound_Text),		text = 7th_Honorbound_Text,		row = 3,	col = 1 },
+			bfacommon2		= { tt = ReputationDesc(Embers_Voldunai_Text),		text = Embers_Voldunai_Text,		row = 4,	col = 1 },
+			bfacommon3		= { tt = ReputationDesc(Proudmoore_Talanji_Text),	text = Proudmoore_Talanji_Text,		row = 5,	col = 1 },
+			bfacommon4		= { tt = ReputationDesc(Storm_Zandalari_Text),		text = Storm_Zandalari_Text,		row = 6,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion7_frame, expansion7_buttons)
 
@@ -1377,6 +1385,13 @@ function private.InitializeFilterPanel()
 		------------------------------------------------------------------------------------------------
 		-- Battle for Azeroth Rep Options
 		------------------------------------------------------------------------------------------------
+		championsofazeroth	= { cb = expansion7.championsofazeroth,		svroot = filters.rep },
+		tortollanseekers	= { cb = expansion7.tortollanseekers,		svroot = filters.rep },
+		bfacommon1		= { cb = expansion7.bfacommon1,			svroot = filters.rep },
+		bfacommon2		= { cb = expansion7.bfacommon2,			svroot = filters.rep },
+		bfacommon3		= { cb = expansion7.bfacommon3,			svroot = filters.rep },
+		bfacommon4		= { cb = expansion7.bfacommon4,			svroot = filters.rep },
+
 	}
 
 	private.InitializeFilterPanel = nil

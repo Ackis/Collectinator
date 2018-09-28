@@ -325,7 +325,12 @@ function addon:OnInitialize()
 					shaleth = true,
 					argussian_reach = true,
 					armyofthelight = true,
-
+					champsionsofazeroth = true,
+					tortollanseekers = true,
+					bfacommon1 = true,
+					bfacommon2 = true,
+					bfacommon3 = true,
+					bfacommon4 = true,
 				},
 				-- Populated later via CONSTANTS
 				item = {
