@@ -605,12 +605,12 @@ function private.InitializeListFrame()
 			[REP3.SHALETH]				= "shaleth",
 			[REP3.ARGUSSIAN_REACH]			= "argussian_reach",
 			[REP3.ARMY_OF_THE_LIGHT]		= "armyofthelight",
-			[REP3.CHAMPIONS_OF_AZEROTH]		= "championsofazeroth"
-			[REP3.TORTOLLAN_SEEKERS]		= "tortollanseekers"
-			[REP3.BFACOMMON1]			= "bfacommon1"
-			[REP3.BFACOMMON2]			= "bfacommon2"
-			[REP3.BFACOMMON3]			= "bfacommon3"
-			[REP3.BFACOMMON4]			= "bfacommon4"
+			[REP3.CHAMPIONS_OF_AZEROTH]		= "championsofazeroth",
+			[REP3.TORTOLLAN_SEEKERS]		= "tortollanseekers",
+			[REP3.BFACOMMON1]			= "bfacommon1",
+			[REP3.BFACOMMON2]			= "bfacommon2",
+			[REP3.BFACOMMON3]			= "bfacommon3",
+			[REP3.BFACOMMON4]			= "bfacommon4",
 		}
 
 		-- Returns true if any of the filter flags are turned on.
