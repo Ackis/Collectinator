@@ -4066,18 +4066,21 @@ function addon:InitMounts()
 	-- Admiralty Stallion -- 259213
 	mount = AddMount(259213, V.BFA, Q.EPIC)
 	mount:SetItemID(161911)
+	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON3)
 	mount:AddRepVendor(FAC.PROUDMOORE_ADMIRALTY, REP.EXALTED, 135808)
 
 	-- Dapple Gray -- 260172
 	mount = AddMount(260172, V.BFA, Q.EPIC)
 	mount:SetItemID(161912)
+	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON4)
 	mount:AddRepVendor(FAC.STORMS_WAKE, REP.EXALTED, 135800)
 
 	-- Smoky Charger -- 260173
 	mount = AddMount(260173, V.BFA, Q.EPIC)
 	mount:SetItemID(161910)
+	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON2)
 	mount:AddRepVendor(FAC.ORDER_OF_EMBERS, REP.EXALTED, 135815)
 
