@@ -325,6 +325,15 @@ function addon:InitMob()
 	AddMob(132578,	L["Qroshekx"],				Z.SILITHUS,			59.6, 13.2)
 	AddMob(132580,	L["Ssinkrix"],				Z.SILITHUS,			54.6, 79.6)
 	AddMob(132584,	L["Xaarshej"],				Z.SILITHUS,			29.6, 35.8)
+	AddMob(141668,	L["Echo of Myzrael"],			Z.ARATHI_HIGHLANDS,		58.0, 35.0)
+	AddMob(142433,	L["Fozruk"],				Z.ARATHI_HIGHLANDS,		60.8, 32.6)
+	AddMob(142435,	L["Plaguefeather"],			Z.ARATHI_HIGHLANDS,		37.2, 65.0)
+	AddMob(142436,	L["Ragebeak"],				Z.ARATHI_HIGHLANDS,		18.6, 27.8)
+	AddMob(142438,	L["Venomarus"],				Z.ARATHI_HIGHLANDS,		57.0, 54.6)
+	AddMob(142440,	L["Yogursa"],				Z.ARATHI_HIGHLANDS,		14.6, 37.0)
+	AddMob(142508,	L["Branchlord Aldrus"],			Z.ARATHI_HIGHLANDS,		22.4, 20.2)
+	AddMob(142688,	L["Darbel Montrose"],			Z.ARATHI_HIGHLANDS,		50.6, 36.8)
+	AddMob(412716,	L["Man-Hunter Rog"],			Z.ARATHI_HIGHLANDS,		52.0, 76.6)
 
 	self.InitMob = nil
 end
