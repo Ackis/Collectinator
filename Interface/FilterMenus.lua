@@ -1177,12 +1177,12 @@ function private.InitializeFilterPanel()
 		end
 
 		local expansion7_buttons = {
-			championsofazeroth	= { tt = ReputationDesc(FN.CHAMPIONS_OF_AZEROTH),	text = FN.CHAMPIONS_OF_AZEROTH,		row = 1,	col = 1 },
-			tortollanseekers	= { tt = ReputationDesc(FN.TORTOLLAN_SEEKERS),		text = FN.TORTOLLAN_SEEKERS,		row = 2,	col = 1 },
-			bfacommon1		= { tt = ReputationDesc(Seventhth_Honorbound_Text),	text = Seventhth_Honorbound_Text,	row = 3,	col = 1 },
-			bfacommon2		= { tt = ReputationDesc(Embers_Voldunai_Text),		text = Embers_Voldunai_Text,		row = 4,	col = 1 },
-			bfacommon3		= { tt = ReputationDesc(Proudmoore_Talanji_Text),	text = Proudmoore_Talanji_Text,		row = 5,	col = 1 },
-			bfacommon4		= { tt = ReputationDesc(Storm_Zandalari_Text),		text = Storm_Zandalari_Text,		row = 6,	col = 1 },
+			championsofazeroth	= { tt = ReputationDesc(FN.CHAMPIONS_OF_AZEROTH),	text = FN.CHAMPIONS_OF_AZEROTH,		row = 2,	col = 1 },
+			tortollanseekers	= { tt = ReputationDesc(FN.TORTOLLAN_SEEKERS),		text = FN.TORTOLLAN_SEEKERS,		row = 3,	col = 1 },
+			bfacommon1		= { tt = ReputationDesc(Seventhth_Honorbound_Text),	text = Seventhth_Honorbound_Text,	row = 4,	col = 1 },
+			bfacommon2		= { tt = ReputationDesc(Embers_Voldunai_Text),		text = Embers_Voldunai_Text,		row = 5,	col = 1 },
+			bfacommon3		= { tt = ReputationDesc(Proudmoore_Talanji_Text),	text = Proudmoore_Talanji_Text,		row = 6,	col = 1 },
+			bfacommon4		= { tt = ReputationDesc(Storm_Zandalari_Text),		text = Storm_Zandalari_Text,		row = 7,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion7_frame, expansion7_buttons)
 
