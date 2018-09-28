@@ -6663,7 +6663,7 @@ function addon:InitCritters()
 	pet = AddPet(143176, V.BFA, Q.UNCOMMON)
 	pet:SetItemID(163490)
 --	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.STORMS_WAKE)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON4)
 	pet:AddRepVendor(FAC.STORMS_WAKE, REP.REVERED, 135800)
 
 	-- Corlain Falcon -- 143177
