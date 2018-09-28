@@ -824,7 +824,10 @@ do
 		BORALUS = _G.C_Map.GetMapInfo(1161).name,
 		DAZARALOR = _G.C_Map.GetMapInfo(1163).name,
 
+		FREEHOLD = _G.C_Map.GetMapInfo(936).name,
+		KINGS_REST = _G.C_Map.GetMapInfo(1004).name,
 		WAYCREST_MANOR = _G.C_Map.GetMapInfo(1015).name,
+		THE_UNDERROT = _G.C_Map.GetMapInfo(1042).name,
 		-------------------------------------------------------------------------------
 		-- Continents
 		-------------------------------------------------------------------------------
@@ -948,6 +951,9 @@ private.BOSS_NAMES = {
 	CHRONOMATIC_ANOMALY = _G.EJ_GetEncounterInfo(1725),
 	GULDAN = _G.EJ_GetEncounterInfo(1737),
 	MISTRESS_SASSZINE = _G.EJ_GetEncounterInfo(1861),
+	HARLAN_SWEETE = _G.EJ_GetEncounterInfo(2095),
+	UNBOUND_ABOMINATION = _G.EJ_GetEncounterInfo(2158),
+	DAZAR,_THE_FIRST_KING = _G.EJ_GetEncounterInfo(2172),
 
 }
 

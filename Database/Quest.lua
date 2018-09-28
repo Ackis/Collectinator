@@ -205,6 +205,7 @@ function addon:InitQuest()
 	AddQuest(50990,	Z.WAYCREST_MANOR,			0.0,	0.0,	"Neutral")
 	AddQuest(51574,	Z.VOLDUN,				56.8,	50.4,	"Horde")
 	AddQuest(52061,	Z.DRUSTVAR,				65.0,	83.2,	"Neutral")
+	AddQuest(53310,	Z.STORMWIND_CITY,			85.6,	31.8,	"Alliance")
 
 	self.InitQuest = nil
 end

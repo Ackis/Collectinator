@@ -4022,190 +4022,225 @@ function addon:InitMounts()
 
 	-- Frostshard Infernal -- 213350
 	mount = AddMount(213350, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(137614)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(12931, 12932)
 
 	-- Dune Scavenger -- 237286
 	mount = AddMount(237286, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163576)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	mount:AddWorldDrop(Z.VOLDUN, Z.ZULDAZAR)
 
 	-- Obsidian Krolusk -- 239049
 	mount = AddMount(239049, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(161215)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(12812)
 
 	-- Leaping Veinseeker -- 243795
 	mount = AddMount(243795, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163575)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	mount:AddWorldDrop(Z.NAZMIR)
 
 	-- Bloodgorged Crawg -- 250735
 	mount = AddMount(250735, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163216)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(12806)
 
 	-- Squawks -- 254811
 	mount = AddMount(254811, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163586)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("ISLAND_EXPEDITIONS")
 
 	-- Sharkbait -- 254813
 	mount = AddMount(254813, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(159842)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(126983)
+	mount:AddCustom("MYTHIC")
 
 	-- Admiralty Stallion -- 259213
 	mount = AddMount(259213, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(161911)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON3)
+	mount:AddRepVendor(FAC.PROUDMOORE_ADMIRALTY, REP.EXALTED, 135808)
 
 	-- Dapple Gray -- 260172
 	mount = AddMount(260172, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(161912)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON4)
+	mount:AddRepVendor(FAC.STORMS_WAKE, REP.EXALTED, 135800)
 
 	-- Smoky Charger -- 260173
 	mount = AddMount(260173, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(161910)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON2)
+	mount:AddRepVendor(FAC.ORDER_OF_EMBERS, REP.EXALTED, 135815)
 
 	-- Terrified Pack Mule -- 260174
 	mount = AddMount(260174, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163574)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_DROP)
+	mount:AddWorldDrop(Z.DRUSTVAR)
 
 	-- Goldenmane -- 260175
 	mount = AddMount(260175, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163573)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.WORLD_DROP)
+	mount:AddWorldDrop(Z.STORMSONG_VALLEY)
 
 	-- Vicious War Basilisk -- 261433
 	mount = AddMount(261433, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163122)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP)
+	mount:AddVendor(73190)
 
 	-- Mecha-Mogul Mk2 -- 261437
 	mount = AddMount(261437, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(161134)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession(PROF.ENGINEERING)
 
 	-- Mighty Caravan Brutosaur -- 264058
 	mount = AddMount(264058, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163042)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(125879, 142691)
 
 	-- Tomb Stalker -- 266058
 	mount = AddMount(266058, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(159921)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(136160)
+	mount:AddCustom("MYTHIC")
 
 	-- Darkforge Ram -- 270562
 	mount = AddMount(270562, V.BFA, Q.EPIC)
-	mount:SetItemID()
+--	mount:SetItemID()
+	mount:SetRequiredClass("PALADIN")
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 
 	-- Dawnforge Ram -- 270564
 	mount = AddMount(270564, V.BFA, Q.EPIC)
-	mount:SetItemID()
+--	mount:SetItemID()
+	mount:SetRequiredClass("PALADIN")
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 
 	-- Vicious War Riverbeast -- 272481
 	mount = AddMount(272481, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163123)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP)
+	mount:AddVendor(73190)
 
 	-- The Dreadwake -- 272770
 	mount = AddMount(272770, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(160589)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.STORE)
+	mount:AddCustom("STORE")
 
 	-- Underrot Crawg -- 273541
 	mount = AddMount(273541, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(160829)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(133007)
+	mount:AddCustom("MYTHIC")
 
 	-- Teldrassil Hippogryph -- 274610
 	mount = AddMount(274610, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163127)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	mount:AddQuest(53310)
 
 	-- Great Sea Ray -- 278803
 	mount = AddMount(278803, V.BFA, Q.EPIC)
-	mount:SetItemID()
+	mount:SetItemID(163131)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
 
 	-- Surf Jelly -- 278979
 	mount = AddMount(278979, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163131)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession(PROF.FISHING)
 
 	-- Conquerer's Scythemaw -- 279454
 	mount = AddMount(279454, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163577)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(12604, 12605)
 
 	-- Highland Mustang -- 279456
 	mount = AddMount(279456, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163579)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(142741)
 
 	-- Twilight Avenger -- 279466
 	mount = AddMount(279466, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163584)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("ISLAND_EXPEDITIONS")
 
 	-- Craghorn Chasm-Leaper -- 279467
 	mount = AddMount(279467, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163583)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("ISLAND_EXPEDITIONS")
 
 	-- Qinsho's Eternal Hound -- 279469
 	mount = AddMount(279469, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163582)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("ISLAND_EXPEDITIONS")
 
 	-- Palehide Direhorn -- 279474
 	mount = AddMount(279474, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163589)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(125879, 142691)
 
 	-- Swift Albino Raptor -- 279569
 	mount = AddMount(279569, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163644)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(142709)
 
 	-- Lil' Donkey -- 279608
 	mount = AddMount(279608, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163646)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(142423)
 
 	-- Skullripper -- 279611
 	mount = AddMount(279611, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163645)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(142437)
 
 	-- Witherbark Direwing -- 279868
 	mount = AddMount(279868, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163706)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(142692)
 
 	-- Frenzied Feltalon -- 280729
 	mount = AddMount(280729, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetItemID(163981)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(12933, 12934)
 
 	-- Pureheart Courser -- 280730
 	mount = AddMount(280730, V.BFA, Q.EPIC)
-	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-
-
-
-
-
-
-
+	mount:SetItemID(163982)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(12866)
 
 -- Unknown mounts
 
