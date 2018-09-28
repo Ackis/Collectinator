@@ -6944,7 +6944,7 @@ function addon:InitCritters()
 	pet:SetItemID(163778)
 	pet:SetSpellID(280185)
 	pet:AddFilters(F.ALLIANCE, F.IBOP, F.BFACOMMON1)
-	pet:AddRepVendor(FAC.7TH_LEGION, REP.REVERED, 135446)
+	pet:AddRepVendor(FAC.SEVENTH_LEGION, REP.REVERED, 135446)
 
 	-- Lil' War Machine -- 143739
 	pet = AddPet(143739, V.BFA, Q.RARE)
