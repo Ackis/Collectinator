@@ -216,14 +216,14 @@ do
 		TextDump:Display()
 	end
 
-	function addon:DumpReps()
+	function addon:DumpReps(name)
 		TextDump:Clear()
 
-		for index = 1, 1500 do
+		for index = 1, 3000 do
 			local rep_name = _G.GetFactionInfoByID(index)
 
-			if rep_name and private.FACTION_STRINGS[index] then
-				TextDump:AddLine(("[\"%s\"] = _G.GetFactionInfoByID(%d),"):format(TableKeyFormat(rep_name), index))
+			if rep_name and (not name or rep_name:lower():find(name:lower())) then
+				TextDump:AddLine(("%s = %d,"):format(TableKeyFormat(rep_name), index))
 			end
 		end
 		TextDump:Display()
