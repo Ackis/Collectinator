@@ -4161,13 +4161,14 @@ function addon:InitMounts()
 	-- Great Sea Ray -- 278803
 	mount = AddMount(278803, V.BFA, Q.EPIC)
 	mount:SetItemID(163131)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
+	mount:AddProfession(PROF.FISHING)
 
 	-- Surf Jelly -- 278979
 	mount = AddMount(278979, V.BFA, Q.EPIC)
 	mount:SetItemID(163131)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.PROFESSION)
-	mount:AddProfession(PROF.FISHING)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("ISLAND_EXPEDITIONS")
 
 	-- Conquerer's Scythemaw -- 279454
 	mount = AddMount(279454, V.BFA, Q.EPIC)
