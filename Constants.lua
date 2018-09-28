@@ -953,7 +953,7 @@ private.BOSS_NAMES = {
 	MISTRESS_SASSZINE = _G.EJ_GetEncounterInfo(1861),
 	HARLAN_SWEETE = _G.EJ_GetEncounterInfo(2095),
 	UNBOUND_ABOMINATION = _G.EJ_GetEncounterInfo(2158),
-	DAZAR,_THE_FIRST_KING = _G.EJ_GetEncounterInfo(2172),
+	DAZAR_THE_FIRST_KING = _G.EJ_GetEncounterInfo(2172),
 
 }
 
