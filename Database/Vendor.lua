@@ -285,6 +285,7 @@ function addon:InitVendor()
 	AddVendor(127151,	L["Toraan the Revered"],	Z.KROKUUN,			63.8,	89.6,	"Neutral")
 	AddVendor(128134,	L["Orix the All-Seer"],		Z.ANTORAN_WASTES,		60.2,	45.4,	"Neutral")
 	AddVendor(132097,	L["Happy Holaua"],		Z.DAZARALOR,			56.0,	32.2,	"Neutral")
+	AddVendor(136674,	L["Madeline Netley"],		Z.STORMSONG_VALLEY,		31.6,	67.2,	"Alliance")
 	AddVendor(142197,	L["Nigel Rifthold"],		Z.DRUSTVAR,			52.2,	31.6,	"Neutral")
 
 	self.InitVendor = nil

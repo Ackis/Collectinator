@@ -6634,27 +6634,30 @@ function addon:InitCritters()
 
 	-- Coastal Bounder -- 143057
 	pet = AddPet(143057, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.TIRAGARDE_SOUND, "25", "80.8:23.4")
+	pet:AddZoneLocations(Z.NAZMIR, "25", "30.8:34.6", "33.2:37.4")
 
 	-- Rooter -- 143142
-	pet = AddPet(143142, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(143142, V.BFA, Q.RARE)
+	pet:SetItemID(163220)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(12992)
 
 	-- Brutus -- 143160
-	pet = AddPet(143160, V.BFA, Q.COMMON)
-	pet:SetItemID()
-	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet = AddPet(143160, V.BFA, Q.RARE)
+	pet:SetItemID(163244)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(12996)
 
 	-- Abyssal Eel -- 143175
-	pet = AddPet(143175, V.BFA, Q.COMMON)
+	pet = AddPet(143175, V.BFA, Q.UNCOMMON)
 	pet:SetItemID()
 	pet:SetSpellID()
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	pet:AddVendor(136674)
 
 	-- Seabreeze Bumblebee -- 143176
 	pet = AddPet(143176, V.BFA, Q.COMMON)

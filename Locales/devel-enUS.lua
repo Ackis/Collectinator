@@ -374,6 +374,7 @@ L["MYSTERIOUS_EGG"] = "Chance at this collectable from Mysterious Egg every 3 da
 L["MYTHIC"] = "Available from the Mythic version of this boss."
 L["Maaria"] = true
 L["Mad Henryk"] = true
+L["Madeline Netley"] = true
 L["Main Filter Options"] = true
 L["Main Options"] = true
 L["Majestic Elderhorn"] = true
