@@ -2042,7 +2042,7 @@ function addon:InitMounts()
 	-- Vicious War Wolf -- 100333
 	mount = AddMount(100333, V.CATA, Q.EPIC) -- Item: 70910
 	mount:SetItemID(70910)
-	mount:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.PVP, F.ACHIEVEMENT, F.VENDOR)
 	mount:SetRequiredFaction("Horde")
 	mount:AddAchievement(5325, 5326, 5824)
 	mount:AddVendor(73151)
@@ -3012,7 +3012,7 @@ function addon:InitMounts()
 	mount = AddMount(171834, V.WOD, Q.EPIC)
 	mount:SetItemID(116777)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP)
 	mount:AddVendor(73190)
 
 	-- Garn Steelmaw -- 171836
@@ -3178,7 +3178,7 @@ function addon:InitMounts()
 	mount = AddMount(171835, V.WOD, Q.EPIC)
 	mount:SetItemID(116778)
 	mount:SetRequiredFaction("Horde")
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
 	mount:AddVendor(73151)
 
 	-- Warsong Direfang -- 171837
@@ -3203,14 +3203,14 @@ function addon:InitMounts()
 	mount = AddMount(183889, V.WOD, Q.EPIC)
 	mount:SetItemID(124089)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP)
 	mount:AddVendor(73190)
 
 	-- Vicious War Kodo -- 185052
 	mount = AddMount(185052, V.WOD, Q.EPIC)
 	mount:SetItemID(124540)
 	mount:SetRequiredFaction("Horde")
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
 	mount:AddVendor(73151)
 
 	-- Infernal Direwolf -- 186305
@@ -3426,28 +3426,28 @@ function addon:InitMounts()
 	mount = AddMount(223341, V.LEGION, Q.EPIC)
 	mount:SetItemID(140353)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP)
 	mount:AddVendor(73190)
 
 	-- Vicious War Trike -- 223354
 	mount = AddMount(223354, V.LEGION, Q.EPIC)
 	mount:SetItemID(140354)
 	mount:SetRequiredFaction("Horde")
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
 	mount:AddVendor(73151)
 
 	-- Vicious Warstrider -- 223363
 	mount = AddMount(223363, V.LEGION, Q.EPIC)
 	mount:SetItemID(140348)
 	mount:SetRequiredFaction("Horde")
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
 	mount:AddVendor(73151)
 
 	-- Vicious War Elekk -- 223578
 	mount = AddMount(223578, V.LEGION, Q.EPIC)
 	mount:SetItemID(140350)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP)
 	mount:AddVendor(73190)
 
 	-- Mechanized Lumber Extractor -- 223814
@@ -3613,7 +3613,7 @@ function addon:InitMounts()
 	mount = AddMount(229486, V.LEGION, Q.EPIC)
 	mount:SetItemID(142235)
 	mount:SetRequiredFaction("Horde")
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
 	mount:AddVendor(73151)
 
 	-- Vicious War Bear -- 229487
@@ -3634,7 +3634,7 @@ function addon:InitMounts()
 	mount = AddMount(230988, V.LEGION, Q.EPIC)
 	mount:SetItemID(142437)
 	mount:SetRequiredFaction("Horde")
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
 	mount:AddVendor(73151)
 
 	-- Shadowblade's Murderous Omen -- 231434
@@ -3723,7 +3723,7 @@ function addon:InitMounts()
 	mount = AddMount(232525, V.LEGION, Q.EPIC)
 	mount:SetItemID(143649)
 	mount:SetRequiredFaction("Horde")
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
 	mount:AddVendor(73151)
 
 	-- Leywoven Flying Carpet -- 233364

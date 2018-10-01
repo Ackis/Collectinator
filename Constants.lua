@@ -954,6 +954,8 @@ private.BOSS_NAMES = {
 	HARLAN_SWEETE = _G.EJ_GetEncounterInfo(2095),
 	UNBOUND_ABOMINATION = _G.EJ_GetEncounterInfo(2158),
 	DAZAR_THE_FIRST_KING = _G.EJ_GetEncounterInfo(2172),
+	THE_LIONS_ROAR = _G.EJ_GetEncounterInfo(2212),
+	DOOMS_HOWL = _G.EJ_GetEncounterInfo(2213),
 
 }
 

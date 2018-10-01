@@ -2624,169 +2624,229 @@ function addon:InitToys()
 
 	-- Zandalari Effigy Amulet -- 156649
 	toy = AddToy(156649, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("ZAND_AMULET")
 
 	-- Spitzy -- 156871
 	toy = AddToy(156871, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(49285)
 
 	-- Overtuned Corgi Goggles -- 158149
 	toy = AddToy(158149, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(12827)
 
 	-- Haw'li's Hot & Spicy Chili -- 159749
 	toy = AddToy(159749, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(129597)
 
 	-- Desert Flute -- 159753
 	toy = AddToy(159753, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Horde")
+	toy:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON2)
+	toy:AddRepVendor(FAC.VOLDUNAI, REP.HONORED, 135804)
 
 	-- Echoes of Rezan -- 160509
 	toy = AddToy(160509, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(50855, 50957)
 
 	-- Croak Crock -- 160740
 	toy = AddToy(160740, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ARCHAEOLOGY)
 
 	-- Dance of the Dead -- 160751
 	toy = AddToy(160751, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	toy:AddProfession(PROF.ARCHAEOLOGY)
+
+	-- Gem of Acquiescence -- 161342
+	toy = AddToy(161342, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("HIDDEN_SECRETS_KULTIRAS")
 
 	-- Hot Buttered Popcorn -- 162539
 	toy = AddToy(162539, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(14845)
 
-	-- Toy Armor Set -- 162642
+	-- Toy Armor Set -- 162642a
 	toy = AddToy(162642, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Horde")
+	toy:AddFilters(F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL") -- Needs updating with quest id
 
 	-- Toy Armor Set -- 162643
 	toy = AddToy(162643, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL") -- Needs updating with quest id
 
 	-- Greatfather Winter's Hearthstone -- 162973
 	toy = AddToy(162973, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL") -- Needs updating with quest id
 
 	-- Headless Horseman's Hearthstone -- 163045
 	toy = AddToy(163045, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("HALLOWS_END") -- Needs updating with quest id
 
 	-- Cursed Spyglass -- 163200
 	toy = AddToy(163200, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON3)
+	toy:AddRepVendor(FAC.PROUDMOORE_ADMIRALTY, REP.REVERED, 135808)
 
 	-- Gnoll Targetting Barrel -- 163201
 	toy = AddToy(163201, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON3)
+	toy:AddRepVendor(FAC.PROUDMOORE_ADMIRALTY, REP.HONORED, 135808)
 
 	-- Party Totem -- 163210
 	toy = AddToy(163210, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Horde")
+	toy:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON4)
+	toy:AddRepVendor(FAC.ZANDALARI_EMPIRE, REP.REVERED, 131287)
 
 	-- Akunda's Firesticks -- 163211
 	toy = AddToy(163211, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Horde")
+	toy:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON2)
+	toy:AddRepVendor(FAC.VOLDUNAI, REP.HONORED, 135804)
 
 	-- Dead Ringer -- 163463
 	toy = AddToy(163463, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON2)
+	toy:AddRepVendor(FAC.ORDER_OF_EMBERS, REP.REVERED, 135815)
+
+	-- Lucille's Handkerchief -- 163603
+	toy = AddToy(163603, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	toy:AddCustom("HIDDEN_SECRETS_KULTIRAS")
 
 	-- Lucille's Sewing Needle -- 163607
 	toy = AddToy(163607, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	toy:AddQuest(49804)
 
 	-- Laser Pointer -- 163697
 	toy = AddToy(163697, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(12936)
 
 	-- Tiny Mechanical Mouse -- 163704
 	toy = AddToy(163704, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(132097, 136674)
 
 	-- Imaginary Gun -- 163705
 	toy = AddToy(163705, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(132097, 136674)
 
 	-- Brazier Cap -- 163713
 	toy = AddToy(163713, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(142662)
 
 	-- Foul Belly -- 163735
 	toy = AddToy(163735, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(142686)
 
 	-- Spectral Visage -- 163736
 	toy = AddToy(163736, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(142725)
 
 	-- Syndicate Mask -- 163738
 	toy = AddToy(163738, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(142690)
 
 	-- Drust Ritual Knife -- 163740
 	toy = AddToy(163740, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddZoneLocations(Z.DRUSTVAR, nil, "33.7:71.7")
 
 	-- Magic Fun Rock -- 163741
 	toy = AddToy(163741, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(142683)
 
 	-- Heartsbane Grimoire -- 163742
 	toy = AddToy(163742, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddZoneLocations(Z.DRUSTVAR, nil, "44.2:27.7")
 
 	-- Coldrage's Cooler -- 163744
 	toy = AddToy(163744, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(142112)
 
 	-- Witherbark Gong -- 163745
 	toy = AddToy(163745, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(142682)
 
 	-- Kovork Kostume -- 163750
 	toy = AddToy(163750, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(142684)
 
 	-- Molok Morion -- 163775
 	toy = AddToy(163775, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(141942)
 
 	-- Oomgut Ritual Drum -- 163795
 	toy = AddToy(163795, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("ISLAND_EXPEDITIONS")
 
 	-- Toy Siege Tower -- 163828
 	toy = AddToy(163828, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(138122)
 
 	-- Toy War Machine -- 163829
 	toy = AddToy(163829, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:SetRequiredFaction("Horde")
+	toy:AddFilters(F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(137374)
 
 	-- Whiskerwax Candle -- 163924
 	toy = AddToy(163924, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("ISLAND_EXPEDITIONS")
 
 	-- Glorious Pennant -- 164310
 	toy = AddToy(164310, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(12912)
 
 	-- Enchanted Soup Stone -- 164373
 	toy = AddToy(164373, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("ISLAND_EXPEDITIONS")
 
 	-- Magic Monkey Banana -- 164374
 	toy = AddToy(164374, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("ISLAND_EXPEDITIONS")
 
 	-- Bad Mojo Banana -- 164375
 	toy = AddToy(164375, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-
-
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("ISLAND_EXPEDITIONS")
 
 
 --[[  Didn't actually make it into the ToyBox panel
@@ -2802,6 +2862,39 @@ function addon:InitToys()
 	-- Kvaldir Raiding Horn -- 129111
 	toy = AddToy(129111, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+
+	-- Weary Spirit Binding -- 163206
+	toy = AddToy(163206, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON2)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddRepVendor(FAC.ORDER_OF_EMBERS, REP.REVERED, 135815)
+
+	-- Vulpera Scrapper's Armor -- 163565
+	toy = AddToy(163565, V.BFA, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON2)
+	toy:SetRequiredFaction("Horde")
+	toy:AddRepVendor(FAC.VOLDUNAI, REP.REVERED, 135804)
+
+	-- Vulpera Battle Banner -- 163566
+	toy = AddToy(163566, V.BFA, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON2)
+	toy:SetRequiredFaction("Horde")
+	toy:AddRepVendor(FAC.VOLDUNAI, REP.REVERED, 135804)
+
+	-- Yaungol Oil Stove -- 164371
+	toy = AddToy(164371, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Jinyu Light Globe -- 164372
+	toy = AddToy(164372, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Regenerating Banana Bunch -- 164377
+	toy = AddToy(164377, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("ISLAND_EXPEDITIONS")
 
 ]]--
 

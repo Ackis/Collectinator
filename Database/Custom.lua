@@ -149,6 +149,7 @@ function addon:InitCustom()
 	AddCustom("SUN_DARTER",		Z.WINTERSPRING)
 	AddCustom("FRANCOIS",		Z.TIRAGARDE_SOUND,		52.8,	31.1)
 	AddCustom("ISLAND_EXPEDITIONS")
+	AddCustom("ZAND_AMULET",	Z.DAZARALOR)
 
 	self.InitCustom = nil
 end
