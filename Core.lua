@@ -440,7 +440,7 @@ function addon:OnInitialize()
 		_G.GameTooltip:Hide()
 	end)
 
-	-- Remove this if Wardrobe support is ever added.
+--[[	-- Remove this if Wardrobe support is ever added.
 	do
 		_G.WardrobeCollectionFrame:HookScript("OnShow", function()
 			scan_button:Hide()
@@ -450,7 +450,7 @@ function addon:OnInitialize()
 			scan_button:Show()
 		end)
 	end
-
+]]--
 	self:SetupOptions()
 
 	-- Register slash commands
@@ -465,6 +465,7 @@ function addon:OnInitialize()
 		MOUNT = addon.InitMounts,
 		TOY = addon.InitToys,
 		HEIRLOOM = addon.InitHeirloom,
+		WARDROBE = addon.InitWardrobe,
 	}
 end
 
@@ -585,6 +586,9 @@ do
 		end,
 		[private.COLLECTION_TYPE_IDS.TOY] = function(collectable_type, toys)
 			private.UpdateToyList(toys)
+		end,
+		[private.COLLECTION_TYPE_IDS.WARDROBE] = function(collectable_type, wardrobes)
+			private.UpdateWardrobeList(wardrobes)
 		end,
 		[private.COLLECTION_TYPE_IDS.HEIRLOOM] = function(collectable_type, heirlooms)
 			local itemIDs = _G.C_Heirloom.GetHeirloomItemIDs()
