@@ -2828,6 +2828,18 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("ISLAND_EXPEDITIONS")
 
+	-- Orgrimmar Hero's War Banner -- 163986
+	toy = AddToy(163986, V.BFA, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.PROMO)
+	toy:SetRequiredFaction("Horde")
+	toy:AddCustom("BLIZZCON")
+
+	-- Stormwind Champion's War Banner -- 163987
+	toy = AddToy(163987, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.PROMO)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddCustom("BLIZZCON")
+
 	-- Glorious Pennant -- 164310
 	toy = AddToy(164310, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
