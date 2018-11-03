@@ -6411,6 +6411,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOP)
 	pet:AddCustom("STORE")
 
+	-- Whomper -- 138742
+	pet = AddPet(138742, V.BFA, Q.RARE)
+	pet:SetItemID(160587)
+	pet:SetSpellID(272771)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	pet:AddCustom("STORE")
+
 	-- Spawn of Merektha -- 138964
 	pet = AddPet(138964, V.BFA, Q.UNCOMMON)
 	pet:SetItemID(160847)
