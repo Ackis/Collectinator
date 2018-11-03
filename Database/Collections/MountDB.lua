@@ -3292,6 +3292,13 @@ function addon:InitMounts()
 	mount:AddCustom("TIMEREAVER")
 
 -- Legion
+	-- Yu'lei, Daughter of Jade -- 127165
+	mount = AddMount(127165, V.LEGION, Q.EPIC)
+	mount:SetItemID(87775)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
+	mount:AddVendor(118828)
+	mount:AddWorldEvent("TIMEWALKING")
+
 	-- Hellfire Infernal -- 171827
 	mount = AddMount(171827, V.LEGION, Q.RARE)
 	mount:SetItemID(137575)
@@ -3348,6 +3355,30 @@ function addon:InitMounts()
 	mount:SetItemID(137574)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID)
 	mount:AddMobDrop(105503)
+
+	-- Predatory Bloodgazer -- 213158
+	mount = AddMount(213158, V.LEGION, Q.EPIC)
+	mount:SetItemID(137577)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("FALCOSAUR")
+
+	-- Snowfeather Hunter -- 213163
+	mount = AddMount(213163, V.LEGION, Q.EPIC)
+	mount:SetItemID(137578)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("FALCOSAUR")
+
+	-- Brilliant Direbeak -- 213164
+	mount = AddMount(213164, V.LEGION, Q.EPIC)
+	mount:SetItemID(137579)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("FALCOSAUR")
+
+	-- Viridian Sharptalon -- 213165
+	mount = AddMount(213165, V.LEGION, Q.EPIC)
+	mount:SetItemID(137580)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("FALCOSAUR")
 
 	-- Steelbound Devourer -- 213209
 	mount = AddMount(213209, V.LEGION, Q.EPIC)
@@ -4312,15 +4343,15 @@ end
 
 -- Mounts that should never show in a dump due to being NPC mounts or being removed from/never making it into the game.
 local MOUNT_SPELLID_BLACKLIST = {
-	[459] = true,		[468] = true,		[578] = true,		[579] = true,		[581] = true,
-	[6896] = true,		[8980] = true,		[10795] = true,		[15780] = true, 	[18363] = true,
-	[25863] = true,		[26655] = true,		[28828] = true,		[33630] = true,		[44317] = true,
-	[48954] = true,		[49378] = true,		[55164] = true,		[58819] = true,		[59572] = true,
-	[60136] = true,		[60140] = true,		[62048] = true,		[64656] = true,		[66122] = true,
-	[66123] = true,		[66124] = true,		[66907] = true,		[123182] = true,	[127165] = true,
-	[127209] = true,	[127213] = true,	[148626] = true,	[148970] = true,	[148972] = true,
-	[194046] = true,	[213158] = true,	[213163] = true,	[213164] = true,	[213165] = true,
-	[215545] = true,
+--	[459] = true,		[468] = true,		[578] = true,		[579] = true,		[581] = true,
+--	[6896] = true,		[8980] = true,		[10795] = true,		[15780] = true, 	[18363] = true,
+--	[25863] = true,		[26655] = true,		[28828] = true,		[33630] = true,		[44317] = true,
+--	[48954] = true,		[49378] = true,		[55164] = true,		[58819] = true,		[59572] = true,
+--	[60136] = true,		[60140] = true,		[62048] = true,		[64656] = true,		[66122] = true,
+--	[66123] = true,		[66124] = true,		[66907] = true,		[123182] = true,	[127165] = true,
+--	[127209] = true,	[127213] = true,	[148626] = true,	[148970] = true,	[148972] = true,
+--	[194046] = true,	[213158] = true,	[213163] = true,	[213164] = true,	[213165] = true,
+--	[215545] = true,
 
 }
 
