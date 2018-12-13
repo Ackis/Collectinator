@@ -4193,13 +4193,15 @@ function addon:InitMounts()
 	mount = AddMount(270562, V.BFA, Q.EPIC)
 --	mount:SetItemID()
 	mount:SetRequiredClass("PALADIN")
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP)
 
 	-- Dawnforge Ram -- 270564
 	mount = AddMount(270564, V.BFA, Q.EPIC)
 --	mount:SetItemID()
 	mount:SetRequiredClass("PALADIN")
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP)
 
 	-- Undercity Plaguebat -- 272472
 	mount = AddMount(272472, V.BFA, Q.EPIC)
@@ -4340,6 +4342,176 @@ function addon:InitMounts()
 	mount:SetItemID(163982)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	mount:AddAchievement(12866)
+
+-- 8.1
+
+	-- Reins of the Onyx War Hyena -- 237288 -- Needs Updating
+	mount = AddMount(237288, V.BFA, Q.EPIC)
+	mount:SetItemID(166417)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP)
+	mount:AddVendor(73151, 73190)
+
+	-- Green Marsh Hopper -- 259740 -- Needs Updating
+	mount = AddMount(259740, V.BFA, Q.EPIC)
+	mount:SetItemID(163183)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(148810)
+
+	-- The Hivemind -- 261395 -- Needs Updating
+	mount = AddMount(261395, V.BFA, Q.EPIC)
+	mount:SetItemID(156798)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("SECRETDISCORD")
+
+	-- Siltwing Albatross -- 266925
+	mount = AddMount(266925, V.BFA, Q.EPIC)
+	mount:SetItemID(166745)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(148922, 148923)
+
+	-- Meat Wagon -- 281554
+	mount = AddMount(281554, V.BFA, Q.EPIC)
+	mount:SetItemID(164571)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(13196)
+
+	-- Vicious Black Warsaber -- 281887
+	mount = AddMount(281887, V.BFA, Q.EPIC)
+	mount:SetItemID(165019)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR, F.PVP)
+	mount:AddVendor(73190)
+
+	-- Vicious Black Bonesteed -- 281890
+	mount = AddMount(281890, V.BFA, Q.EPIC)
+	mount:SetItemID(165020)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:AddVendor(73151)
+
+	-- Blackpaw -- 288438
+	mount = AddMount(288438, V.BFA, Q.EPIC)
+	mount:SetItemID(166428)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(145272, 149652)
+
+	-- Ashenvale Chimaera -- 288495
+	mount = AddMount(288495, V.BFA, Q.EPIC)
+	mount:SetItemID(166432)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(148787)
+
+	-- Frightened Kodo -- 288499
+	mount = AddMount(288499, V.BFA, Q.EPIC)
+	mount:SetItemID(166433)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(148790)
+
+	-- Umber Nightsaber -- 288503
+	mount = AddMount(288503, V.BFA, Q.EPIC)
+	mount:SetItemID(166434)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddMobDrop(147701, 148037)
+
+	-- Kaldorei Nightsaber -- 288505
+	mount = AddMount(288505, V.BFA, Q.EPIC)
+	mount:SetItemID(166437)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOP)
+	mount:AddMobDrop(149661, 149663)
+
+--[[	-- Sandy Nightsaber -- 288506
+	mount = AddMount(288506, V.BFA, Q.EPIC)
+	mount:SetItemID(166436)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+]]--
+	-- Blue Marsh Hopper -- 288587
+	mount = AddMount(288587, V.BFA, Q.EPIC)
+	mount:SetItemID(166442)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(148810)
+
+	-- Yellow Marsh Hopper -- 288589
+	mount = AddMount(288589, V.BFA, Q.EPIC)
+	mount:SetItemID(166443)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(148810)
+
+	-- Saltwater Seahorse -- 288711
+	mount = AddMount(288711, V.BFA, Q.EPIC)
+	mount:SetItemID(166471)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(148922, 148923)
+
+	-- Stonehide Elderhorn -- 288712
+	mount = AddMount(288712, V.BFA, Q.EPIC)
+	mount:SetItemID(166470)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Bloodthirsty Dreadwing -- 288714
+	mount = AddMount(288714, V.BFA, Q.EPIC)
+	mount:SetItemID(166469)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(148924)
+
+	-- Bloodgorged Hunter -- 288720
+	mount = AddMount(288720, V.BFA, Q.EPIC)
+	mount:SetItemID(166468)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Island Thunderscale -- 288721
+	mount = AddMount(288721, V.BFA, Q.EPIC)
+	mount:SetItemID(166467)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Risen Mare -- 288722
+	mount = AddMount(288722, V.BFA, Q.EPIC)
+	mount:SetItemID(166466)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Rubyshell Krolusk -- 288735
+	mount = AddMount(288735, V.BFA, Q.EPIC)
+	mount:SetItemID(166464)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Horde")
+	mount:AddVendor(148924)
+
+	-- Azureshell Krolusk -- 288736
+	mount = AddMount(288736, V.BFA, Q.EPIC)
+	mount:SetItemID(166465)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Alliance")
+	mount: AddVendor(148927)
+
+	-- Priestess' Moonsaber -- 288740
+	mount = AddMount(288740, V.BFA, Q.EPIC)
+	mount:SetItemID(166463)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	mount:SetRequiredFaction("Alliance")
+	mount: AddVendor(148927)
+
+	-- G.M.O.D. -- 289083
+	mount = AddMount(289083, V.BFA, Q.EPIC)
+	mount:SetItemID(166518)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(144838)
+
+	-- Dazar'alor Windreaver -- 289101
+	mount = AddMount(289101, V.BFA, Q.EPIC)
+	mount:SetItemID(166539)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(13315)
+
+	-- Glacial Tidestorm -- 289555
+	mount = AddMount(289555, V.BFA, Q.EPIC)
+	mount:SetItemID(166705)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(149684)
+	mount:AddCustom("MYTHIC")
 
 -- Unknown mounts
 

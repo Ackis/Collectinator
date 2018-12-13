@@ -308,6 +308,12 @@ function addon:InitVendor()
 	AddVendor(142065,	L["Dana Pull"],			Z.BORALUS,			50.6,	45.8,	"Neutral")
 	AddVendor(142197,	L["Nigel Rifthold"],		Z.DRUSTVAR,			52.2,	31.6,	"Neutral")
 	AddVendor(142691,	L["Tricky Nick"],		Z.BORALUS,			56.7,	46.3,	"Alliance")
+	AddVendor(147070,	L["Micro Zoox"],		Z.NEW_TINKERTOWN,		31.1,	71.4,	"Neutral")
+	AddVendor(148810,	L["Gottum"],			Z.NAZMIR,			70.8,	56.5,	"Neutral")
+	AddVendor(148922,	L["Captain Klarisa"],		Z.BORALUS,			66.1,	32.3,	"Alliance")
+	AddVendor(148923,	L["Captain Zen'taga"],		Z.DAZARALOR,			44.4,   94.4,	"Horde")
+	AddVendor(148924,	L["Provisioner Mukra"],		Z.DAZARALOR,			0.0, 0.0,	"Horde")
+	AddVendor(148927,	L["Provisioner Stoutforge"],	Z.BORALUS,			0.0, 0.0,	"Alliance")
 
 	self.InitVendor = nil
 end

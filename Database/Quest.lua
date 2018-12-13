@@ -227,6 +227,7 @@ function addon:InitQuest()
 	AddQuest(52061,	Z.DRUSTVAR,				65.0,	83.2,	"Neutral")
 	AddQuest(52981,	Z.DARKSHORE,				52.2,	22.4,	"Horde")
 	AddQuest(53310,	Z.STORMWIND_CITY,			85.6,	31.8,	"Alliance")
+	AddQuest(54176,	Z.TIRAGARDE_SOUND,			0.0,	0.0,	"Alliance") -- Needs updating
 
 	self.InitQuest = nil
 end

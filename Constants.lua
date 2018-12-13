@@ -823,7 +823,7 @@ do
 		DRUSTVAR = _G.C_Map.GetMapInfo(896).name,
 		STORMSONG_VALLEY = _G.C_Map.GetMapInfo(942).name,
 		BORALUS = _G.C_Map.GetMapInfo(1161).name,
-		DAZARALOR = _G.C_Map.GetMapInfo(1163).name,
+		DAZARALOR = _G.C_Map.GetMapInfo(1165).name,
 
 		FREEHOLD = _G.C_Map.GetMapInfo(936).name,
 		KINGS_REST = _G.C_Map.GetMapInfo(1004).name,
@@ -961,6 +961,9 @@ private.BOSS_NAMES = {
 	DAZAR_THE_FIRST_KING = _G.EJ_GetEncounterInfo(2172),
 	THE_LIONS_ROAR = _G.EJ_GetEncounterInfo(2212),
 	DOOMS_HOWL = _G.EJ_GetEncounterInfo(2213),
+	CONCLAVE_OF_THE_CHOSEN = _G.EJ_GetEncounterInfo(2330),
+	HIGH_TINKER_MEKKATORQUE = _G.EJ_GetEncounterInfo(2334),
+	LADY_JAINA_PROUDMOORE = _G.EJ_GetEncounterInfo(2343),
 
 }
 

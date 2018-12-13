@@ -2862,6 +2862,162 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	toy:AddCustom("ISLAND_EXPEDITIONS")
 
+-- 8.1
+
+	-- Rhan'ka's Escape Plan -- 164983
+	toy = AddToy(164983, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+
+	-- Lunar Elder's Hearthstone -- 165669
+	toy = AddToy(165669, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("LUNAR_FESTIVAL")
+
+	-- Peddlefeet's Lovely Hearthstone -- 165670
+	toy = AddToy(165670, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("LOVE_IS_IN_THE_AIR")
+
+	-- Blue Dragon Head Costume -- 165671
+	toy = AddToy(165671, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.VENDOR)
+	toy:AddWorldEvent("LUNAR_FESTIVAL")
+	toy:AddVendor(15909)
+
+	-- Blue Dragon Body Costume -- 165672
+	toy = AddToy(165672, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.VENDOR)
+	toy:AddWorldEvent("LUNAR_FESTIVAL")
+	toy:AddVendor(15909)
+
+	-- Blue Dragon Tail Costume -- 165673
+	toy = AddToy(165673, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.VENDOR)
+	toy:AddWorldEvent("LUNAR_FESTIVAL")
+	toy:AddVendor(15909)
+
+	-- Green Dragon Head Costume -- 165674
+	toy = AddToy(165674, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.VENDOR)
+	toy:AddWorldEvent("LUNAR_FESTIVAL")
+	toy:AddVendor(15909)
+
+	-- Green Dragon Body Costume -- 165675
+	toy = AddToy(165675, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.VENDOR)
+	toy:AddWorldEvent("LUNAR_FESTIVAL")
+	toy:AddVendor(15909)
+
+	-- Green Dragon Tail Costume -- 165676
+	toy = AddToy(165676, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.VENDOR)
+	toy:AddWorldEvent("LUNAR_FESTIVAL")
+	toy:AddVendor(15909)
+
+	-- Worn Cloak -- 165791
+	toy = AddToy(165791, V.BFA, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+
+	-- Citizens Brigade Whistle -- 166247
+	toy = AddToy(166247, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP)
+	toy:AddAchievement(13285)
+
+	-- For da Blood God! -- 166308
+	toy = AddToy(166308, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Gnarlwood Waveboard -- 166461
+	toy = AddToy(166461, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	toy:AddVendor(148922)
+
+	-- Dark Ranger's Spare Cowl -- 166544
+	toy = AddToy(166544, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Cranky Crab -- 166662
+	toy = AddToy(166662, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	toy:AddVendor(148922)
+
+	-- Hand Anchor -- 166663
+	toy = AddToy(166663, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	toy:AddVendor(148922)
+
+	-- Brynja's Beacon -- 166678
+	toy = AddToy(166678, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Warbeast Kraal Dinner Bell -- 166701
+	toy = AddToy(166701, V.BFA, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP)
+
+	-- Proudmoore Music Box -- 166702
+	toy = AddToy(166702, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP)
+
+	-- Goldtusk Inn Breakfast Buffet -- 166703
+	toy = AddToy(166703, V.BFA, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP)
+
+	-- Bowl of Glowing Pufferfish -- 166704
+	toy = AddToy(166704, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Blight Bomber -- 166743
+	toy = AddToy(166743, V.BFA, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(148924)
+
+	-- Glaive Tosser -- 166744
+	toy = AddToy(166744, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	toy:AddVendor(148927)
+
+	-- Narassin's Soul Gem -- 166784
+	toy = AddToy(166784, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+
+	-- Detoxified Blight Grenade -- 166785
+	toy = AddToy(166785, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Twiddle Twirler: Sentinel's Glaive -- 166787
+	toy = AddToy(166787, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+--	toy:AddMobDrop() Ral'esh
+
+	-- Twiddle Twirler: Shredder Blade -- 166788
+	toy = AddToy(166788, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Highborne Memento -- 166790
+	toy = AddToy(166790, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Bewitching Tea Set -- 166808
+	toy = AddToy(166808, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP)
+
+	-- Kojo's Master Matching Set -- 166851
+	toy = AddToy(166851, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Azerite Firework Launcher -- 166877
+	toy = AddToy(166877, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Rallying War Banner -- 166879
+	toy = AddToy(166879, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Meerah's Jukebox -- 166880
+	toy = AddToy(166880, V.BFA, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP)
+
+
 
 --[[  Didn't actually make it into the ToyBox panel
 

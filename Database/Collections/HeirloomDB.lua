@@ -473,6 +473,57 @@ function addon:InitHeirloom()
 	heirloom:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA)
 	heirloom:AddGarrisonMission(1785)
 
+-- BFA 8.1
+
+	-- Cloak of Hardened Steel -- 166752
+	heirloom = AddHeirloom(166752, V.BFA, Q.ARTIFACT)
+	heirloom:AddFilters(F.HORDE, F.IBOA)
+	heirloom:AddVendor(148924)
+
+	-- Bolstering War Horn -- 166753
+	heirloom = AddHeirloom(166753, V.BFA, Q.ARTIFACT)
+	heirloom:AddFilters(F.HORDE, F.IBOA)
+	heirloom:AddVendor(148924)
+
+	-- Battle Hymnal -- 166754
+	heirloom = AddHeirloom(166754, V.BFA, Q.ARTIFACT)
+	heirloom:AddFilters(F.HORDE, F.IBOA)
+	heirloom:AddVendor(148924)
+
+	-- Dusk Powder -- 166755
+	heirloom = AddHeirloom(166755, V.BFA, Q.ARTIFACT)
+	heirloom:AddFilters(F.HORDE, F.IBOA)
+	heirloom:AddVendor(148924)
+
+	-- Enchanted Warscroll -- 166756
+	heirloom = AddHeirloom(166756, V.BFA, Q.ARTIFACT)
+	heirloom:AddFilters(F.HORDE, F.IBOA)
+	heirloom:AddVendor(148924)
+
+	-- Enchanted Warscroll -- 166766
+	heirloom = AddHeirloom(166766, V.BFA, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.IBOA)
+	heirloom:AddVendor(148927)
+
+	-- Dusk Powder -- 166767
+	heirloom = AddHeirloom(166767, V.BFA, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.IBOA)
+	heirloom:AddVendor(148927)
+
+	-- Battle Hymnal -- 166768
+	heirloom = AddHeirloom(166768, V.BFA, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.IBOA)
+	heirloom:AddVendor(148927)
+
+	-- Bolstering War Horn -- 166769
+	heirloom = AddHeirloom(166769, V.BFA, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.IBOA)
+	heirloom:AddVendor(148927)
+
+	-- Cloak of Hardened Steel -- 166770
+	heirloom = AddHeirloom(166770, V.BFA, Q.ARTIFACT)
+	heirloom:AddFilters(F.ALLIANCE, F.IBOA)
+	heirloom:AddVendor(148927)
 
 	self.InitHeirloom = nil
 

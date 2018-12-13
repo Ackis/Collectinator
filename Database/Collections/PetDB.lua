@@ -7192,6 +7192,294 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.IBOP, F.ACHIEVEMENT, F.PVP)
 	pet:AddAchievement(12916)
 
+-- 8.1
+	-- Enchanted Tiki Mask -- 139743
+	pet = AddPet(139743, V.BFA, Q.RARE)
+	pet:SetItemID(152878)
+	pet:SetSpellID(285644)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.ENCHANTING)
+
+	-- Redridge Tarantula -- 147221
+	pet = AddPet(147221, V.BFA, Q.RARE)
+	pet:SetItemID(165722)
+	pet:SetSpellID(165722)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(147222)
+
+	-- Spawn of Krag'wa -- 147585
+	pet = AddPet(147585, V.BFA, Q.RARE)
+	pet:SetItemID(165848)
+	pet:SetSpellID(286484)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(144747)
+	pet:AddCustom("MYTHIC")
+
+	-- Child of Pa'ku -- 147586
+	pet = AddPet(147586, V.BFA, Q.RARE)
+	pet:SetItemID(165846)
+	pet:SetSpellID(286483)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(144747)
+	pet:AddCustom("NORMAL", "HEROIC", "MYTHIC")
+
+	-- Thunder Lizard Runt -- 147587
+	pet = AddPet(147587, V.BFA, Q.RARE)
+	pet:SetItemID(165847)
+	pet:SetSpellID(286482)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(144747)
+	pet:AddCustom("NORMAL", "HEROIC", "MYTHIC")
+
+	-- Mechantula -- 147619
+	pet = AddPet(147619, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(165849)
+	pet:SetSpellID(286478)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	pet:AddProfession(PROF.ENGINEERING)
+
+	-- Mechanical Cockroach -- 147671
+	pet = AddPet(147671, V.BFA, Q.COMMON)
+	pet:SetItemID(165854)
+	pet:SetSpellID(286574)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(147070)
+
+	-- Leper Rat -- 147679
+	pet = AddPet(147679, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(165855)
+	pet:SetSpellID(286576)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(147070)
+
+	-- Alarm-O-Dog -- 147692
+	pet = AddPet(147692, V.BFA, Q.RARE)
+	pet:SetItemID(165857)
+	pet:SetSpellID(286582)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(147070)
+
+	-- Mini Spider Tank -- 147838
+	pet = AddPet(147838, V.BFA, Q.RARE)
+	pet:SetItemID(165894)
+	pet:SetSpellID(286790)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(13269)
+
+	-- Wicker Wraith -- 147884
+	pet = AddPet(147884, V.BFA, Q.RARE)
+	pet:SetItemID(165907)
+	pet:SetSpellID(286837)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(13279)
+
+	-- Baby Zandalari Raptor -- 148517
+	pet = AddPet(148517, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.ZULDAZAR, "25", "69.0:39.0")
+
+	-- Dasher -- 148520
+	pet = AddPet(148520, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(166345)
+	pet:SetSpellID(287997)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(149147)
+
+	-- Trecker -- 148524 -- Needs updating
+	pet = AddPet(148524, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(166346)
+	pet:SetSpellID(288006)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+
+	-- Tanzil -- 148525
+	pet = AddPet(148525, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(166347)
+	pet:SetSpellID(288009)
+	pet:AddFilters(F.HORDE, F.IBOP)
+
+	-- Proper Parrot -- 148542
+	pet = AddPet(148542, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(166358)
+	pet:SetSpellID(288054)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddQuest(54176)
+
+	-- Darkshore Sentinel -- 148781 -- Needs updating
+	pet = AddPet(148781, V.BFA, Q.RARE)
+	pet:SetItemID(166449)
+	pet:SetSpellID(288486)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(148037, 149141)
+
+	-- Gust of Cyclarus -- 148784
+	pet = AddPet(148784, V.BFA, Q.RARE)
+	pet:SetItemID(166448)
+	pet:SetSpellID(288582)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(148784)
+
+	-- Detective Ray -- 148825
+	pet = AddPet(148825, V.BFA, Q.RARE)
+	pet:SetItemID(166451)
+	pet:SetSpellID(288592)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(147260)
+
+	-- Hydrath Droplet -- 148841
+	pet = AddPet(148841, V.BFA, Q.RARE)
+	pet:SetItemID(166451)
+	pet:SetSpellID(288592)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(147240)
+
+	-- Everburning Treant -- 148843
+	pet = AddPet(148843, V.BFA, Q.RARE)
+	pet:SetItemID(166453)
+	pet:SetSpellID(288597)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(147664, 147758)
+
+	-- Void Jelly -- 148844
+	pet = AddPet(148844, V.BFA, Q.RARE)
+	pet:SetItemID(166454)
+	pet:SetSpellID(148844)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(147897)
+
+	-- Zur'aj the Depleted -- 148846 -- Needs updating
+	pet = AddPet(148846, V.BFA, Q.RARE)
+	pet:SetItemID(166455)
+	pet:SetSpellID(288600)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(147942)
+
+	-- Baby Stonehide -- 148976
+	pet = AddPet(148976, V.BFA, Q.RARE)
+	pet:SetItemID(166486)
+	pet:SetSpellID(288867)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Leatherwing Screecher -- 148979
+	pet = AddPet(148979, V.BFA, Q.RARE)
+	pet:SetItemID(166487)
+	pet:SetSpellID(288868)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Rotting Ghoul -- 148981
+	pet = AddPet(148981, V.BFA, Q.RARE)
+	pet:SetItemID(166488)
+	pet:SetSpellID(288870)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Needleback Pup -- 148982
+	pet = AddPet(148982, V.BFA, Q.RARE)
+	pet:SetItemID(166489)
+	pet:SetSpellID(288875)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Shadefeather Hatchling -- 148984
+	pet = AddPet(148984, V.BFA, Q.RARE)
+	pet:SetItemID(166492)
+	pet:SetSpellID(288889)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Albino Duskwatcher -- 148985
+	pet = AddPet(148985, V.BFA, Q.RARE)
+	pet:SetItemID(166491)
+	pet:SetSpellID(288890)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(148922, 148923)
+
+	-- Firesting Buzzer -- 148988
+	pet = AddPet(148988, V.BFA, Q.RARE)
+	pet:SetItemID(166493)
+	pet:SetSpellID(288895)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Lord Woofington -- 148989
+	pet = AddPet(148989, V.BFA, Q.RARE)
+	pet:SetItemID(166494)
+	pet:SetSpellID(288901)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Tonguelasher -- 148990
+	pet = AddPet(148990, V.BFA, Q.RARE)
+	pet:SetItemID(166495)
+	pet:SetSpellID(288910)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Scritches -- 148991
+	pet = AddPet(148991, V.BFA, Q.RARE)
+	pet:SetItemID(166498)
+	pet:SetSpellID(288914)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Thunderscale Whelpling -- 148995
+	pet = AddPet(148995, V.BFA, Q.RARE)
+	pet:SetItemID(166499)
+	pet:SetSpellID(288916)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Crimson Octopode -- 148997
+	pet = AddPet(148997, V.BFA, Q.RARE)
+	pet:SetItemID(166500)
+	pet:SetSpellID(288919)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(148922, 148923)
+
+	-- Nightwreathed Watcher -- 149205 -- Needs updating
+	pet = AddPet(149205, V.BFA, Q.RARE)
+	pet:SetItemID(166528)
+	pet:SetSpellID(289359)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+
+	-- Rebuilt Gorilla Bot -- 149348
+	pet = AddPet(149348, V.BFA, Q.RARE)
+	pet:SetItemID(166715)
+	pet:SetSpellID(289604)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+
+	-- Rebuilt Mechanical Spider -- 149361
+	pet = AddPet(149361, V.BFA, Q.RARE)
+	pet:SetItemID(166723)
+	pet:SetSpellID(289605)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+
+	-- Albatross Hatchling -- 149363
+	pet = AddPet(149363, V.BFA, Q.RARE)
+	pet:SetItemID(166714)
+	pet:SetSpellID(289606)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+
+	-- Crimson Bat Pup -- 149372
+	pet = AddPet(149372, V.BFA, Q.RARE)
+	pet:SetItemID(166716)
+	pet:SetSpellID(289622)
+	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+
+	-- Cobalt Raven -- 149375
+	pet = AddPet(149375, V.BFA, Q.RARE)
+	pet:SetItemID(166718)
+	pet:SetSpellID(289629)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+
+	-- Violet Abyssal Eel -- 149376
+	pet = AddPet(149376, V.BFA, Q.RARE)
+	pet:SetItemID(166719)
+	pet:SetSpellID(289633)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
 
 
 -- Pets not actually in game or are NPC/legendary
@@ -7206,7 +7494,6 @@ function addon:InitCritters()
 
 	-- Test Dragon Pet -- 123329
 	pet = AddPet(123329, V.LEGION, Q.COMMON)
-
 
 	self.InitCritters = nil
 
