@@ -2668,7 +2668,7 @@ function addon:InitToys()
 	-- Gem of Acquiescence -- 161342
 	toy = AddToy(161342, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	toy:AddCustom("HIDDEN_SECRETS_KULTIRAS")
+	toy:AddCustom("SECRETDISCORD")
 
 	-- Hot Buttered Popcorn -- 162539
 	toy = AddToy(162539, V.BFA, Q.RARE)
@@ -2730,7 +2730,7 @@ function addon:InitToys()
 	-- Lucille's Handkerchief -- 163603
 	toy = AddToy(163603, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
-	toy:AddCustom("HIDDEN_SECRETS_KULTIRAS")
+	toy:AddCustom("SECRETDISCORD")
 
 	-- Lucille's Sewing Needle -- 163607
 	toy = AddToy(163607, V.BFA, Q.RARE)

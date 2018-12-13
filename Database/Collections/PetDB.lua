@@ -5217,7 +5217,7 @@ function addon:InitCritters()
 	pet:SetItemID(142223)
 	--pet:SetSpellID()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOA, F.MISC)
-	pet:AddCustom("SUN_DARTER")
+	pet:AddCustom("SECRETDISCORD")
 
 	-- River Calf -- 79730
 	pet = AddPet(79730, V.LEGION, Q.RARE)
@@ -6502,7 +6502,7 @@ function addon:InitCritters()
 	pet:SetItemID(162578)
 	pet:SetSpellID(277461)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	pet:AddCustom("HIDDEN_SECRETS_KULTIRAS")
+	pet:AddCustom("SECRETDISCORD")
 
 	-- Shadowback Crawler -- 143031
 	pet = AddPet(143031, V.BFA, Q.COMMON)
@@ -6721,7 +6721,7 @@ function addon:InitCritters()
 	pet:SetItemID(163497)
 --	pet:SetSpellID()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	pet:AddCustom("HIDDEN_SECRETS_KULTIRAS")
+	pet:AddCustom("SECRETDISCORD")
 
 	-- Tiny Direhorn -- 143191
 	pet = AddPet(143191, V.BFA, Q.UNCOMMON)

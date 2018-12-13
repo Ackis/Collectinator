@@ -3809,7 +3809,7 @@ function addon:InitMounts()
 	mount = AddMount(243025, V.LEGION, Q.EPIC)
 	mount:SetItemID(147835)
 	mount:AddFilters(F.ALLIANCE, F.HORDE,F.IBOP, F.MISC, F.RAID, F.INSTANCE)
-	mount:AddCustom("RIDDLER_MINDWORM")
+	mount:AddCustom("SECRETDISCORD")
 
 	-- Luminous Starseeker -- 243512
 	mount = AddMount(243512, V.LEGION, Q.EPIC)
@@ -3882,7 +3882,7 @@ function addon:InitMounts()
 	mount = AddMount(247402, V.LEGION, Q.EPIC)
 	mount:SetItemID(151623)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	mount:AddCustom("PUZZLERS_DESIRE")
+	mount:AddCustom("SECRETDISCORD")
 
 	-- Darkmoon Dirigible -- 247448
 	mount = AddMount(247448, V.LEGION, Q.EPIC)
