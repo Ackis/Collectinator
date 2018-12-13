@@ -2372,8 +2372,9 @@ function addon:InitToys()
 
 	-- Sira's Extra Cloak -- 147843
 	toy = AddToy(147843, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	toy:AddCustom("WARDENS_CACHE")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	toy:AddQuest(46749)
+	toy:AddCustom("EXALTEDCACHE")
 
 	-- Pilfered Sweeper -- 147867
 	toy = AddToy(147867, V.LEGION, Q.RARE)
@@ -2581,8 +2582,9 @@ function addon:InitToys()
 
 	-- Holy Lightsphere -- 153182
 	toy = AddToy(153182, V.LEGION, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	toy:AddCustom("ARMYOFTHELIGHT_CACHE")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	toy:AddQuest(48977)
+	toy:AddCustom("EXALTEDCACHE")
 
 	-- Barrier Generator -- 153183
 	toy = AddToy(153183, V.LEGION, Q.RARE)

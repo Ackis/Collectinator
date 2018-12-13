@@ -3760,8 +3760,9 @@ function addon:InitMounts()
 	-- Leywoven Flying Carpet -- 233364
 	mount = AddMount(233364, V.LEGION, Q.EPIC)
 	mount:SetItemID(143764)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	mount:AddCustom("NIGHTFALLEN_CACHE")
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	mount:AddQuest(46748)
+	mount:AddCustom("EXALTEDCACHE")
 
 	-- Netherlord's Brimstone Dreadsteed -- 238452
 	mount = AddMount(238452, V.LEGION, Q.EPIC)
@@ -3779,26 +3780,30 @@ function addon:InitMounts()
 	-- Highmountain Elderhorn -- 242874
 	mount = AddMount(242874, V.LEGION, Q.EPIC)
 	mount:SetItemID(147807)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	mount:AddCustom("HIGHMOUNTAIN_CACHE")
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	mount:AddQuest(46743)
+	mount:AddCustom("EXALTEDCACHE")
 
 	-- Wild Dreamrunner -- 242875
 	mount = AddMount(242875, V.LEGION, Q.EPIC)
 	mount:SetItemID(147804)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	mount:AddCustom("DREAMWEAVER_CACHE")
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	mount:AddQuest(46747)
+	mount:AddCustom("EXALTEDCACHE")
 
 	-- Cloudwing Hippogryph -- 242881
 	mount = AddMount(242881, V.LEGION, Q.EPIC)
 	mount:SetItemID(147806)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	mount:AddCustom("FARONDIS_CACHE")
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	mount:AddQuest(46745)
+	mount:AddCustom("EXALTEDCACHE")
 
 	-- Valarjar Stormwing -- 242882
 	mount = AddMount(242882, V.LEGION, Q.EPIC)
 	mount:SetItemID(147805)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	mount:AddCustom("VALARJAR_CACHE")
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	mount:AddQuest(46746)
+	mount:AddCustom("EXALTEDCACHE")
 
 	-- Riddler's Mind-Worm -- 243025
 	mount = AddMount(243025, V.LEGION, Q.EPIC)
@@ -3992,20 +3997,23 @@ function addon:InitMounts()
 	-- Glorious Felcrusher -- 254069
 	mount = AddMount(254069, V.LEGION, Q.EPIC)
 	mount:SetItemID(153042)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	mount:AddCustom("ARMYOFTHELIGHT_CACHE")
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	mount:AddQuest(48977)
+	mount:AddCustom("EXALTEDCACHE")
 
 	-- Blessed Felcrusher -- 254258
 	mount = AddMount(254258, V.LEGION, Q.EPIC)
 	mount:SetItemID(153043)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	mount:AddCustom("ARMYOFTHELIGHT_CACHE")
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	mount:AddQuest(48977)
+	mount:AddCustom("EXALTEDCACHE")
 
 	-- Avenging Felcrusher -- 254259
 	mount = AddMount(254259, V.LEGION, Q.EPIC)
 	mount:SetItemID(153044)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	mount:AddCustom("ARMYOFTHELIGHT_CACHE")
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	mount:AddQuest(48977)
+	mount:AddCustom("EXALTEDCACHE")
 
 	-- Bleakhoof Ruinstrider -- 254260
 	mount = AddMount(254260, V.LEGION, Q.EPIC)

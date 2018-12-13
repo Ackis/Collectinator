@@ -6019,8 +6019,9 @@ function addon:InitCritters()
 	pet = AddPet(121715, V.LEGION, Q.RARE)
 	pet:SetItemID(147841)
 	pet:SetSpellID(243136)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	pet:AddCustom("LEGIONFALL_CACHE")
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	pet:AddQuest(46777)
+	pet:AddCustom("EXALTEDCACHE")
 
 	-- Twilight -- 122033
 	pet = AddPet(122033, V.LEGION, Q.RARE)
