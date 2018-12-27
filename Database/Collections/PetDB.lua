@@ -1816,6 +1816,7 @@ function addon:InitCritters()
 	pet:SetItemID(46831)
 	pet:SetSpellID(66175)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.QUEST, F.IBOP)
+	pet:AddQuest(14166)
 	pet:AddWorldEvent("DAY_OF_THE_DEAD")
 
 	-- Eye of the Legion -- 59020
@@ -4605,7 +4606,7 @@ function addon:InitCritters()
 	pet = AddPet(86715, V.WOD, Q.RARE)
 	pet:SetItemID(118101)
 	pet:SetSpellID(173532)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MISC)
 	pet:AddCustom("TANAAN_PET_DAILY")
 
 	-- Crimson Spore -- 86716
@@ -5701,7 +5702,7 @@ function addon:InitCritters()
 	pet = AddPet(113983, V.LEGION, Q.RARE)
 	pet:SetItemID(141894)
 	pet:SetSpellID(227052)
-	pet:AddFilters(F.ALLIANCE, F.IBOP, F.MISC)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.PROMO)
 	pet:SetRequiredFaction("Alliance")
 	pet:AddCustom("BLIZZCON")
 
@@ -5709,7 +5710,7 @@ function addon:InitCritters()
 	pet = AddPet(113984, V.LEGION, Q.RARE)
 	pet:SetItemID(141895)
 	pet:SetSpellID(227051)
-	pet:AddFilters(F.HORDE, F.IBOP, F.MISC)
+	pet:AddFilters(F.HORDE, F.IBOP, F.PROMO)
 	pet:SetRequiredFaction("Horde")
 	pet:AddCustom("BLIZZCON")
 
@@ -5879,7 +5880,7 @@ function addon:InitCritters()
 	pet:SetItemID(142379)
 	pet:SetSpellID(230443)
 	pet:AddFilters(F.ALLIANCE, F.IBOP, F.PVP, F.MISC)
-	pet:SetRequiredFaction("Alliance", F.MISC)
+	pet:SetRequiredFaction("Alliance")
 	pet:AddCustom("PRESTIGE")
 
 	-- Dutiful Gruntling -- 115919
@@ -6000,8 +6001,7 @@ function addon:InitCritters()
 	pet:SetItemID(147841)
 	pet:SetSpellID(243136)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
-	pet:AddQuest(46777)
-	pet:AddCustom("EXALTEDCACHE")
+	pet:AddQuest(46802)
 
 	-- Twilight -- 122033
 	pet = AddPet(122033, V.LEGION, Q.RARE)
