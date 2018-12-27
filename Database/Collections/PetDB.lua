@@ -3032,13 +3032,13 @@ function addon:InitCritters()
 
 	-- Shore Crawler -- 63097
 	pet = AddPet(63097, V.MOP, Q.COMMON)
-	pet:AddFilters(F.HORDE, F.IBOP)
+	pet:AddFilters(F.HORDE, F.IBOP, F.TRAINER)
 	pet:AddTrainer(63086, 63626)
 
 	-- Gilnean Raven -- 63098
 	pet = AddPet(63098, V.MOP, Q.COMMON)
 	pet:SetSpellID(123214)
-	pet:AddFilters(F.ALLIANCE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.TRAINER)
 	pet:AddTrainer(63596, 63070, 63014, 63083)
 
 	-- Amethyst Spiderling -- 63288
@@ -3768,7 +3768,7 @@ function addon:InitCritters()
 	pet = AddPet(70154, V.MOP, Q.COMMON)
 	pet:SetItemID(94573)
 	pet:SetSpellID(139153)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MOB_DROP)
 	pet:AddMobDrop(69983, 70013)
 
 	-- Tiny Red Carp -- 70257
@@ -3995,6 +3995,7 @@ function addon:InitCritters()
 	pet:SetItemID(103670)
 	pet:SetSpellID(147124)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddProfession(PROF.ENGINEERING)
 	pet:AddCustom("BLINGTRON_4000", "BLINGTRON_5000")
 
 	-- Droplet of Y'Shaarj -- 73350
@@ -4888,7 +4889,7 @@ function addon:InitCritters()
 
 	-- Nethaera's Light -- 88814
 	pet = AddPet(88814, V.WOD, Q.COMMON)
-	pet:AddFilters(F.ALLIANCE, F.HORDE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MISC)
 	pet:AddCustom("NETHAERA_LIGHT")
 
 	-- Trunks -- 88830
@@ -5013,7 +5014,7 @@ function addon:InitCritters()
 
 	-- Fel Pup -- 91823
 	pet = AddPet(91823, V.WOD, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	pet:AddMobDrop(90434)
 
 	-- Lost Netherpup -- 93142
@@ -5034,14 +5035,14 @@ function addon:InitCritters()
 	pet = AddPet(93352, V.WOD, Q.RARE)
 	pet:SetItemID(127754)
 	pet:SetSpellID(187555)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MISC)
 	pet:AddCustom("TANAAN_PET_DAILY")
 
 	-- Nightmare Bell -- 93483
 	pet = AddPet(93483, V.WOD, Q.RARE)
 	pet:SetItemID(127753)
 	pet:SetSpellID(185055)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOE, F.MISC)
 	pet:AddCustom("TANAAN_PET_DAILY")
 
 	-- Ghostshell Crab -- 93808
@@ -5246,7 +5247,7 @@ function addon:InitCritters()
 	pet = AddPet(96649, V.LEGION, Q.RARE)
 	pet:SetItemID(128690)
 	pet:SetSpellID(191425)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.VALSHARAH, nil, "52.8:87.4")
 
 	-- Albatross Chick -- 97018
@@ -5604,13 +5605,13 @@ function addon:InitCritters()
 
 	-- Alliance Enthusiast -- 111202
 	pet = AddPet(111202, V.LEGION, Q.RARE)
-	pet:AddFilters(F.ALLIANCE, F.IBOP, F.PVP)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.PVP, F.MISC)
 	pet:SetRequiredFaction("Alliance")
 	pet:AddCustom("PRESTIGE")
 
 	-- Horde Fanatic -- 111296
 	pet = AddPet(111296, V.LEGION, Q.RARE)
-	pet:AddFilters(F.HORDE, F.IBOP, F.PVP)
+	pet:AddFilters(F.HORDE, F.IBOP, F.PVP, F.MISC)
 	pet:SetRequiredFaction("Horde")
 	pet:AddCustom("PRESTIGE")
 
@@ -5675,12 +5676,14 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	pet:AddMobDrop(111197)
 
-	-- Squirky -- 113440  -- Needs updating
+	-- Squirky -- 113440
 	pet = AddPet(113440, V.LEGION, Q.COMMON)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.MISC)
+	pet:AddZoneLocations(Z.AZSUNA, "25", "18.8:20.8")
 
 	-- Mischief -- 113527
 	pet = AddPet(113527, V.LEGION, Q.RARE)
+	pet:SetItemID(141893)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
 	pet:AddCustom("STORE")
 
@@ -5875,15 +5878,15 @@ function addon:InitCritters()
 	pet = AddPet(115918, V.LEGION, Q.RARE)
 	pet:SetItemID(142379)
 	pet:SetSpellID(230443)
-	pet:AddFilters(F.ALLIANCE, F.IBOP, F.PVP)
-	pet:SetRequiredFaction("Alliance")
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.PVP, F.MISC)
+	pet:SetRequiredFaction("Alliance", F.MISC)
 	pet:AddCustom("PRESTIGE")
 
 	-- Dutiful Gruntling -- 115919
 	pet = AddPet(115919, V.LEGION, Q.RARE)
 	pet:SetItemID(142380)
 	pet:SetSpellID(230444)
-	pet:AddFilters(F.HORDE, F.IBOP, F.PVP)
+	pet:AddFilters(F.HORDE, F.IBOP, F.PVP, F.MISC)
 	pet:SetRequiredFaction("Horde")
 	pet:AddCustom("PRESTIGE")
 
@@ -5930,7 +5933,7 @@ function addon:InitCritters()
 	-- Infinite Hatchling -- 118060
 	pet = AddPet(118060, V.LEGION, Q.RARE)
 	pet:SetItemID(143953)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.VENDOR)
 	pet:AddWorldEvent("TIMEWALKING")
 	pet:AddVendor(118828)
 
@@ -5969,7 +5972,7 @@ function addon:InitCritters()
 	pet = AddPet(119794, V.LEGION, Q.RARE)
 	pet:SetItemID(150739)
 	pet:SetSpellID(244345)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	pet:AddVendor(119390)
 
 	-- Scraps -- 120397
@@ -6010,14 +6013,14 @@ function addon:InitCritters()
 	pet = AddPet(122612, V.LEGION, Q.UNCOMMON)
 	pet:SetItemID(150741)
 	pet:SetSpellID(244440)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	pet:AddVendor(119390)
 
 	-- Foe Reaper 0.9 -- 122629
 	pet = AddPet(122629, V.LEGION, Q.COMMON)
 	pet:SetItemID(150742)
 	pet:SetSpellID(244466)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	pet:AddVendor(119390)
 
 	-- Sneaky Marmot -- 124389
