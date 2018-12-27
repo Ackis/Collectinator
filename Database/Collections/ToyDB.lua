@@ -2867,6 +2867,7 @@ function addon:InitToys()
 	-- Rhan'ka's Escape Plan -- 164983
 	toy = AddToy(164983, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(129354)
 
 	-- Lunar Elder's Hearthstone -- 165669
 	toy = AddToy(165669, V.BFA, Q.RARE)
@@ -2917,15 +2918,17 @@ function addon:InitToys()
 	-- Worn Cloak -- 165791
 	toy = AddToy(165791, V.BFA, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(54108)
 
 	-- Citizens Brigade Whistle -- 166247
 	toy = AddToy(166247, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.ACHIEVEMENT)
 	toy:AddAchievement(13285)
 
 	-- For da Blood God! -- 166308
 	toy = AddToy(166308, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(54460)
 
 	-- Gnarlwood Waveboard -- 166461
 	toy = AddToy(166461, V.BFA, Q.RARE)
@@ -2934,7 +2937,8 @@ function addon:InitToys()
 
 	-- Dark Ranger's Spare Cowl -- 166544
 	toy = AddToy(166544, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(54043)
 
 	-- Cranky Crab -- 166662
 	toy = AddToy(166662, V.BFA, Q.RARE)
@@ -2948,23 +2952,28 @@ function addon:InitToys()
 
 	-- Brynja's Beacon -- 166678
 	toy = AddToy(166678, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(54050)
 
 	-- Warbeast Kraal Dinner Bell -- 166701
 	toy = AddToy(166701, V.BFA, Q.RARE)
-	toy:AddFilters(F.HORDE, F.IBOP)
+	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(54462)
 
 	-- Proudmoore Music Box -- 166702
 	toy = AddToy(166702, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	toy:AddQuest(54458)
 
 	-- Goldtusk Inn Breakfast Buffet -- 166703
 	toy = AddToy(166703, V.BFA, Q.RARE)
-	toy:AddFilters(F.HORDE, F.IBOP)
+	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(54461)
 
 	-- Bowl of Glowing Pufferfish -- 166704
 	toy = AddToy(166704, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(54451)
 
 	-- Blight Bomber -- 166743
 	toy = AddToy(166743, V.BFA, Q.RARE)
@@ -2979,43 +2988,52 @@ function addon:InitToys()
 	-- Narassin's Soul Gem -- 166784
 	toy = AddToy(166784, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(147708)
 
 	-- Detoxified Blight Grenade -- 166785
 	toy = AddToy(166785, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(148031)
 
 	-- Twiddle Twirler: Sentinel's Glaive -- 166787
 	toy = AddToy(166787, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
---	toy:AddMobDrop() Ral'esh
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(148025)
 
 	-- Twiddle Twirler: Shredder Blade -- 166788
 	toy = AddToy(166788, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(148103, 149141)
 
 	-- Highborne Memento -- 166790
 	toy = AddToy(166790, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(147435, 147845)
 
 	-- Bewitching Tea Set -- 166808
 	toy = AddToy(166808, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	toy:AddQuest(54456)
 
 	-- Kojo's Master Matching Set -- 166851
 	toy = AddToy(166851, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(54451)
 
 	-- Azerite Firework Launcher -- 166877
 	toy = AddToy(166877, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(54453)
 
 	-- Rallying War Banner -- 166879
 	toy = AddToy(166879, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(54454, 54455)
 
 	-- Meerah's Jukebox -- 166880
 	toy = AddToy(166880, V.BFA, Q.RARE)
-	toy:AddFilters(F.HORDE, F.IBOP)
+	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(54461)
 
 
 
