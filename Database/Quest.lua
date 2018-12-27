@@ -227,7 +227,22 @@ function addon:InitQuest()
 	AddQuest(52061,	Z.DRUSTVAR,				65.0,	83.2,	"Neutral")
 	AddQuest(52981,	Z.DARKSHORE,				52.2,	22.4,	"Horde")
 	AddQuest(53310,	Z.STORMWIND_CITY,			85.6,	31.8,	"Alliance")
-	AddQuest(54176,	Z.TIRAGARDE_SOUND,			0.0,	0.0,	"Alliance") -- Needs updating
+	AddQuest(54043,	Z.DARKSHORE,				51.8,	21.6,	"Horde")
+	AddQuest(54050,	Z.DARKSHORE,				54.6,	20.8,	"Horde")
+	AddQuest(54108,	Z.SWAMP_OF_SORROWS,			80.8,	78.4,	"Horde")
+	AddQuest(54176,	Z.TIRAGARDE_SOUND,			83.0,	49.6,	"Alliance")
+	AddQuest(54272, Z.VOLDUN,				42.2,	41.7,	"Alliance")
+	AddQuest(54273,	Z.VOLDUN,				41.3,	43.2,	"Horde")
+	AddQuest(54451,	Z.STORMSONG_VALLEY,			40.4,	36.4,	"Neutral") -- Emissary - Tortollan
+	AddQuest(54453,	Z.SILITHUS,				42.2,	44.2,	"Neutral") -- Emissary - Champions of Azeroth
+	AddQuest(54454,	Z.BORALUS,				69.2,	25.0,	"Alliance") -- Emissary - 7th Legion
+	AddQuest(54455,	Z.ZULDAZAR,				58.0,	62.6,	"Horde") -- Emissary - Honorbound
+	AddQuest(54456,	Z.DRUSTVAR,				37.8,	49.0,	"Alliance") -- Emissary - Order of Embers
+	AddQuest(54457,	Z.STORMSONG_VALLEY,			59.2,	69.4,	"Alliance") -- Emissary - Storm's Wake
+	AddQuest(54458,	Z.BORALUS,				67.6,	21.8,	"Alliance") -- Emissary
+	AddQuest(54460, Z.NAZMIR,				39.0,	79.4,	"Horde") -- Emissary
+	AddQuest(54461,	Z.VOLDUN,				56.6,	49.8,	"Horde") -- Emissary
+	AddQuest(54462,	Z.DAZARALOR,				65.6,	72.4,	"Horde") -- Emissary
 
 	self.InitQuest = nil
 end

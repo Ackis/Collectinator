@@ -825,6 +825,7 @@ do
 		BORALUS = _G.C_Map.GetMapInfo(1161).name,
 		DAZARALOR = _G.C_Map.GetMapInfo(1165).name,
 
+		TOL_DAGOR = _G.C_Map.GetMapInfo(974).name,
 		FREEHOLD = _G.C_Map.GetMapInfo(936).name,
 		KINGS_REST = _G.C_Map.GetMapInfo(1004).name,
 		WAYCREST_MANOR = _G.C_Map.GetMapInfo(1015).name,
