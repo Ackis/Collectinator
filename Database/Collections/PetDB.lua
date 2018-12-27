@@ -1518,7 +1518,7 @@ function addon:InitCritters()
 	pet:SetSpellID(95786)
 	pet:SetRequiredFaction("Alliance")
 	pet:AddFilters(F.ALLIANCE, F.STORE, F.IBOP)
-	pet:AddCustom("WEBSTORE")
+	pet:AddCustom("STORE")
 
 	-- Tiny Flamefly -- 51632
 	pet = AddPet(51632, V.CATA, Q.COMMON)
@@ -1541,7 +1541,7 @@ function addon:InitCritters()
 	pet:SetSpellID(95909)
 	pet:SetRequiredFaction("Horde")
 	pet:AddFilters(F.HORDE, F.STORE, F.IBOP)
-	pet:AddCustom("WEBSTORE")
+	pet:AddCustom("STORE")
 
 	-- Panther Cub -- 52226
 	pet = AddPet(52226, V.CATA, Q.COMMON)
