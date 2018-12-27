@@ -62,7 +62,6 @@ function addon:InitCustom()
 	AddCustom("TCG",		Z.THE_CAPE_OF_STRANGLETHORN,	42.6,	71.6)
 	AddCustom("STORE")
 	AddCustom("PLUSHIE")
-	AddCustom("WEBSTORE")
 
 -- World Events
 	AddCustom("CITY")
