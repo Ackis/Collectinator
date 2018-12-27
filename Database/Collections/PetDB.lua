@@ -425,8 +425,8 @@ function addon:InitCritters()
 	pet = AddPet(15358, V.ORIG, Q.RARE)
 	pet:SetItemID(30360)
 	pet:SetSpellID(24988)
-	-- Murki -- 15361
-	pet = AddPet(15361, V.ORIG, Q.RARE)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.COLLECTORS_EDITION)
+	pet:AddCustom("CE")
 	pet:Retire()
 
 	-- Disgusting Oozeling -- 15429
