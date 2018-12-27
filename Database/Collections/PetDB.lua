@@ -6411,7 +6411,7 @@ function addon:InitCritters()
 	pet:SetItemID(160704)
 	pet:SetSpellID(273184)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
---	pet:AddMobDrop()
+	pet:AddMobDrop(135448)
 	pet:AddCustom("MYTHIC")
 
 	-- Poda -- 139073
@@ -7255,7 +7255,6 @@ function addon:InitCritters()
 
 	-- Baby Zandalari Raptor -- 148517
 	pet = AddPet(148517, V.BFA, Q.COMMON)
---	pet:SetItemID()
 	pet:SetSpellID()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP, F.BATTLE_PET)
 	pet:AddZoneLocations(Z.ZULDAZAR, "25", "69.0:39.0")
@@ -7267,26 +7266,28 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	pet:AddMobDrop(149147)
 
-	-- Trecker -- 148524 -- Needs updating
+	-- Trecker -- 148524
 	pet = AddPet(148524, V.BFA, Q.UNCOMMON)
 	pet:SetItemID(166346)
 	pet:SetSpellID(288006)
 	pet:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	pet:AddVendor(148927)
 
 	-- Tanzil -- 148525
 	pet = AddPet(148525, V.BFA, Q.UNCOMMON)
 	pet:SetItemID(166347)
 	pet:SetSpellID(288009)
-	pet:AddFilters(F.HORDE, F.IBOP)
+	pet:AddFilters(F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(148924)
 
 	-- Proper Parrot -- 148542
 	pet = AddPet(148542, V.BFA, Q.UNCOMMON)
 	pet:SetItemID(166358)
 	pet:SetSpellID(288054)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	pet:AddQuest(54176)
 
-	-- Darkshore Sentinel -- 148781 -- Needs updating
+	-- Darkshore Sentinel -- 148781
 	pet = AddPet(148781, V.BFA, Q.RARE)
 	pet:SetItemID(166449)
 	pet:SetSpellID(288486)
@@ -7328,7 +7329,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
 	pet:AddMobDrop(147897)
 
-	-- Zur'aj the Depleted -- 148846 -- Needs updating
+	-- Zur'aj the Depleted -- 148846
 	pet = AddPet(148846, V.BFA, Q.RARE)
 	pet:SetItemID(166455)
 	pet:SetSpellID(288600)
@@ -7419,47 +7420,54 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	pet:AddVendor(148922, 148923)
 
-	-- Nightwreathed Watcher -- 149205 -- Needs updating
+	-- Nightwreathed Watcher -- 149205
 	pet = AddPet(149205, V.BFA, Q.RARE)
 	pet:SetItemID(166528)
 	pet:SetSpellID(289359)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(148147, 149662)
 
 	-- Rebuilt Gorilla Bot -- 149348
 	pet = AddPet(149348, V.BFA, Q.RARE)
 	pet:SetItemID(166715)
 	pet:SetSpellID(289604)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	pet:AddQuest(54272)
 
 	-- Rebuilt Mechanical Spider -- 149361
 	pet = AddPet(149361, V.BFA, Q.RARE)
 	pet:SetItemID(166723)
 	pet:SetSpellID(289605)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(54273)
 
 	-- Albatross Hatchling -- 149363
 	pet = AddPet(149363, V.BFA, Q.RARE)
 	pet:SetItemID(166714)
 	pet:SetSpellID(289606)
 	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	pet:AddQuest(54458)
 
 	-- Crimson Bat Pup -- 149372
 	pet = AddPet(149372, V.BFA, Q.RARE)
 	pet:SetItemID(166716)
 	pet:SetSpellID(289622)
 	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(54460)
 
 	-- Cobalt Raven -- 149375
 	pet = AddPet(149375, V.BFA, Q.RARE)
 	pet:SetItemID(166718)
 	pet:SetSpellID(289629)
 	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	pet:AddQuest(54456)
 
 	-- Violet Abyssal Eel -- 149376
 	pet = AddPet(149376, V.BFA, Q.RARE)
 	pet:SetItemID(166719)
 	pet:SetSpellID(289633)
 	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	pet:AddQuest(54457)
 
 
 -- Pets not actually in game or are NPC/legendary
