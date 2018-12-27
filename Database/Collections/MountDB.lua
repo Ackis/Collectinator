@@ -4513,6 +4513,12 @@ function addon:InitMounts()
 	mount:AddMobDrop(149684)
 	mount:AddCustom("MYTHIC")
 
+	-- Vulpine Familiar -- 290133
+	mount = AddMount(290133, V.BFA, Q.EPIC)
+	mount:SetItemID(166775)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	mount:AddCustom("STORE")
+
 -- Unknown mounts
 
 
