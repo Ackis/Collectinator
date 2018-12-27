@@ -407,18 +407,6 @@ function addon:InitCritters()
 	pet:AddVendor(8401)
 	pet:AddTrainer(63086, 63067, 63626, 63061)
 
-	-- Tiny Green Dragon -- 14755
-	pet = AddPet(14755, V.WOTLK, Q.RARE)
-	pet:SetItemID(19055)
-	pet:SetSpellID(23531)
-	pet:Retire()
-
-	-- Tiny Red Dragon -- 14756
-	pet = AddPet(14756, V.WOTLK, Q.RARE)
-	pet:SetItemID(19054)
-	pet:SetSpellID(23530)
-	pet:Retire()
-
 	-- Jubling -- 14878
 	pet = AddPet(14878, V.ORIG, Q.COMMON)
 	pet:SetItemID(19450)
@@ -437,8 +425,6 @@ function addon:InitCritters()
 	pet = AddPet(15358, V.ORIG, Q.RARE)
 	pet:SetItemID(30360)
 	pet:SetSpellID(24988)
-	pet:Retire()
-
 	-- Murki -- 15361
 	pet = AddPet(15361, V.ORIG, Q.RARE)
 	pet:Retire()
@@ -3486,15 +3472,6 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP)
 	pet:AddQuest(32428, 32441)
 	pet:AddCustom("PETTAMER")
-
---[[  Removed from cache/UI for some reason
-	-- Spectral Cub -- 68502
-	pet = AddPet(68502, V.MOP, Q.RARE)
-	pet:SetItemID(90953)
-	pet:SetSpellID(132759)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
-	pet:AddCustom("CHINA")
---]]
 
 	-- Sumprush Rodent -- 68506
 	pet = AddPet(68506, V.MOP, Q.COMMON)
