@@ -7463,7 +7463,7 @@ function addon:InitCritters()
 
 
 -- Pets not actually in game or are NPC/legendary
-	-- Muffin -- 65344
+--[[	-- Muffin -- 65344
 	pet = AddPet(65344, V.LEGION, Q.COMMON)
 
 	-- Salad -- 91337
@@ -7474,6 +7474,33 @@ function addon:InitCritters()
 
 	-- Test Dragon Pet -- 123329
 	pet = AddPet(123329, V.LEGION, Q.COMMON)
+]]--
+--[[ Chinese promotion removed
+	-- Murki -- 15361
+	pet = AddPet(15361, V.ORIG, Q.RARE)
+	pet:Retire()
+
+	-- Tiny Green Dragon -- 14755
+	pet = AddPet(14755, V.WOTLK, Q.RARE)
+	pet:SetItemID(19055)
+	pet:SetSpellID(23531)
+	pet:Retire()
+
+	-- Tiny Red Dragon -- 14756
+	pet = AddPet(14756, V.WOTLK, Q.RARE)
+	pet:SetItemID(19054)
+	pet:SetSpellID(23530)
+	pet:Retire()
+
+	-- Spectral Cub -- 68502
+	pet = AddPet(68502, V.MOP, Q.RARE)
+	pet:SetItemID(90953)
+	pet:SetSpellID(132759)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddCustom("CHINA")
+
+]]
+
 
 	self.InitCritters = nil
 
