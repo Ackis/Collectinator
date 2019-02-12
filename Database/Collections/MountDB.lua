@@ -4195,6 +4195,7 @@ function addon:InitMounts()
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.IBOP)
+	mount:AddTrainer(927, 928, 1232, 5148, 5149, 5491, 17844, 49793, 50023, 50160)
 
 	-- Dawnforge Ram -- 270564
 	mount = AddMount(270564, V.BFA, Q.EPIC)
@@ -4202,6 +4203,7 @@ function addon:InitMounts()
 	mount:SetRequiredClass("PALADIN")
 	mount:SetRequiredFaction("Horde")
 	mount:AddFilters(F.HORDE, F.IBOP)
+	mount:AddTrainer(16681, 20406, 23128, 44725, 50012, 50150)
 
 	-- Undercity Plaguebat -- 272472
 	mount = AddMount(272472, V.BFA, Q.EPIC)
