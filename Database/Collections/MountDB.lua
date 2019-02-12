@@ -4521,6 +4521,12 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
 	mount:AddCustom("STORE")
 
+	-- Hogrus, Swine of Good Fortune -- 290134
+	mount = AddMount(290134, V.BFA, Q.EPIC)
+	mount:SetItemID(166774)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	mount:AddCustom("STORE")
+
 -- Unknown mounts
 
 
