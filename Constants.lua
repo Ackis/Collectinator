@@ -830,6 +830,8 @@ do
 		KINGS_REST = _G.C_Map.GetMapInfo(1004).name,
 		WAYCREST_MANOR = _G.C_Map.GetMapInfo(1015).name,
 		THE_UNDERROT = _G.C_Map.GetMapInfo(1042).name,
+		SIEGE_OF_BORALUS = _G.C_Map.GetMapInfo(1162).name,
+		BATTLE_OF_DAZARALOR = _G.C_Map.GetMapInfo(1352).name,
 		-------------------------------------------------------------------------------
 		-- Continents
 		-------------------------------------------------------------------------------
