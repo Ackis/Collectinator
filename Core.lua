@@ -440,7 +440,7 @@ function addon:OnInitialize()
 		_G.GameTooltip:Hide()
 	end)
 
---[[	-- Remove this if Wardrobe support is ever added.
+	-- Remove this if Wardrobe support is ever added.
 	do
 		_G.WardrobeCollectionFrame:HookScript("OnShow", function()
 			scan_button:Hide()
@@ -450,7 +450,7 @@ function addon:OnInitialize()
 			scan_button:Show()
 		end)
 	end
-]]--
+
 	self:SetupOptions()
 
 	-- Register slash commands
