@@ -129,6 +129,7 @@ function addon:InitCustom()
 	AddCustom("GRUMPUS")
 	AddCustom("FEL-SPOTTED_EGG")
 	AddCustom("FALCOSAUR")
+	AddCustom("BRUCE")
 
 	AddCustom("SECRETDISCORD")
 

@@ -421,6 +421,7 @@ function addon:InitCritters()
 	pet:SetSpellID(24696)
 	pet:Retire()
 
+--[[	Isn't showing in panel
 	-- Lurky -- 15358
 	pet = AddPet(15358, V.ORIG, Q.RARE)
 	pet:SetItemID(30360)
@@ -428,7 +429,7 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.COLLECTORS_EDITION)
 	pet:AddCustom("CE")
 	pet:Retire()
-
+]]--
 	-- Disgusting Oozeling -- 15429
 	pet = AddPet(15429, V.ORIG, Q.COMMON)
 	pet:SetItemID(20769)
@@ -472,11 +473,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.WORLD_EVENTS, F.IBOE)
 	pet:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
+--[[	Isn't showing in panel
 	-- Gurky -- 16069
 	pet = AddPet(16069, V.ORIG, Q.RARE)
 	pet:SetItemID(22114)
 	pet:SetSpellID(27241)
 	pet:Retire()
+]]--
 
 	-- Peddlefeet -- 16085
 	pet = AddPet(16085, V.ORIG, Q.COMMON)
@@ -493,11 +496,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE)
 	pet:AddZoneLocations(Z.BOREAN_TUNDRA, nil, "55.0:88.0")
 
+--[[	Isn't showing in panel
 	-- Poley -- 16456
 	pet = AddPet(16456, V.ORIG, Q.COMMON)
 	pet:SetItemID(22781)
 	pet:SetSpellID(28505)
 	pet:Retire()
+]]--
 
 	-- Speedy -- 16547
 	pet = AddPet(16547, V.ORIG, Q.COMMON)
@@ -651,11 +656,13 @@ function addon:InitCritters()
 	pet:AddVendor(23710, 24495, 27478, 27489)
 	pet:AddQuest(11117, 11431)
 
+--[[	Isn't showing in panel
 	-- Lucky -- 23198
 	pet = AddPet(23198, V.TBC, Q.RARE)
 	pet:SetItemID(32498)
 	pet:SetSpellID(40405)
 	pet:Retire()
+]]--
 
 	-- Willy -- 23231
 	pet = AddPet(23231, V.TBC, Q.RARE)
@@ -814,11 +821,13 @@ function addon:InitCritters()
 	pet:SetSpellID(48406)
 	pet:Retire()
 
+--[[	Isn't showing in panel
 	-- Essence of Competition -- 27346
 	pet = AddPet(27346, V.TBC, Q.UNCOMMON)
 	pet:SetItemID(37298)
 	pet:SetSpellID(48408)
 	pet:Retire()
+]]--
 
 	-- Ethereal Soul-Trader -- 27914
 	pet = AddPet(27914, V.TBC, Q.RARE)
@@ -1079,11 +1088,13 @@ function addon:InitCritters()
 	pet:AddQuest(13959)
 	pet:AddWorldEvent("CHILDRENS_WEEK")
 
+--[[	Isn't showing in panel
 	-- Murkimus the Gladiator -- 33578
 	pet = AddPet(33578, V.WOTLK, Q.RARE)
 	pet:SetItemID(46892)
 	pet:SetSpellID(63318)
 	pet:Retire()
+]]--
 
 	-- Sen'jin Fetish -- 33810
 	pet = AddPet(33810, V.WOTLK, Q.RARE)
@@ -1184,11 +1195,13 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.IBOE)
 	pet:AddMobDrop(29334)
 
+--[[	Isn't showing in panel
 	-- Onyx Panther -- 35468
 	pet = AddPet(35468, V.WOTLK, Q.RARE)
 	pet:SetItemID(48527)
 	pet:SetSpellID(67527)
 	pet:Retire()
+]]--
 
 	-- Tuskarr Kite -- 36482
 	pet = AddPet(36482, V.WOTLK, Q.EPIC)
@@ -7469,6 +7482,150 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
 	pet:AddQuest(54457)
 
+-- 8.1.5
+
+	-- Horse Balloon -- 145946
+	pet = AddPet(145946, V.BFA, Q.RARE)
+	pet:SetItemID(164969)
+	pet:SetSpellID(283740)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("DARKMOON_FAIRE")
+	pet:AddVendor(55305)
+
+	-- Murloc Balloon -- 145947
+	pet = AddPet(145947, V.BFA, Q.RARE)
+	pet:SetItemID(164971)
+	pet:SetSpellID(283741)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("DARKMOON_FAIRE")
+	pet:AddVendor(55305)
+
+	-- Wolf Balloon -- 145948
+	pet = AddPet(145948, V.BFA, Q.COMMON)
+	pet:SetItemID(283744)
+	pet:SetSpellID(164970)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("DARKMOON_FAIRE")
+	pet:AddVendor(55305)
+
+	-- Feathers -- 147583
+	pet = AddPet(147583, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(165845)
+	pet:SetSpellID(286474)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	pet:AddQuest(53820, 53821)
+
+	-- Mr. Crabs -- 150098
+	pet = AddPet(150098, V.BFA, Q.RARE)
+	pet:SetItemID(167008)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("CHILDRENS_WEEK")
+
+	-- Beakbert -- 150119
+	pet = AddPet(150119, V.BFA, Q.RARE)
+	pet:SetItemID(167010)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("CHILDRENS_WEEK")
+
+	-- Froglet -- 150120
+	pet = AddPet(150120, V.BFA, Q.RARE)
+	pet:SetItemID(167011)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("CHILDRENS_WEEK")
+
+	-- Scaley -- 150126
+	pet = AddPet(150126, V.BFA, Q.RARE)
+	pet:SetItemID(167009)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("CHILDRENS_WEEK")
+
+	-- Stoneclaw -- 150354
+	pet = AddPet(150354, V.BFA, Q.RARE)
+	pet:SetItemID(167047)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(60047)
+
+	-- Wayward Spirit -- 150356
+	pet = AddPet(150356, V.BFA, Q.RARE)
+	pet:SetItemID(167048)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(60143)
+
+	-- Comet -- 150357
+	pet = AddPet(150357, V.BFA, Q.RARE)
+	pet:SetItemID(167049)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(60410)
+
+	-- Baoh-Xi -- 150360
+	pet = AddPet(150360, V.BFA, Q.RARE)
+	pet:SetItemID(167050)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(60399)
+
+	-- Azure Windseeker -- 150365
+	pet = AddPet(150365, V.BFA, Q.RARE)
+	pet:SetItemID(167051)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(62442)
+
+	-- Spirit of the Spring -- 150372
+	pet = AddPet(150372, V.BFA, Q.RARE)
+	pet:SetItemID(167052)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(62983)
+
+	-- Kor'thik Swarmling -- 150374
+	pet = AddPet(150374, V.BFA, Q.RARE)
+	pet:SetItemID(167058)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(62980)
+
+	-- Amberglow Stinger -- 150375
+	pet = AddPet(150375, V.BFA, Q.RARE)
+	pet:SetItemID(167053)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(62543)
+
+	-- Spawn of Garalon -- 150377
+	pet = AddPet(150377, V.BFA, Q.RARE)
+	pet:SetItemID(167054)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(62164)
+
+	-- Living Amber -- 150380
+	pet = AddPet(150380, V.BFA, Q.RARE)
+	pet:SetItemID(167055)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(62511)
+
+	-- Ravenous Prideling -- 150381
+	pet = AddPet(150381, V.BFA, Q.RARE)
+	pet:SetItemID(167056)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(62837)
+
+	-- Happiness -- 150385
+	pet = AddPet(150385, V.BFA, Q.RARE)
+	pet:SetItemID(167057)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(13469)
 
 -- Pets not actually in game or are NPC/legendary
 --[[	-- Muffin -- 65344

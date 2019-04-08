@@ -368,6 +368,7 @@ do
 		class1 = private.CLASS_FLAGS_WORD1,
 		reputation1 = private.REP_FLAGS_WORD1,
 		reputation2 = private.REP_FLAGS_WORD2,
+		reputation3 = private.REP_FLAGS_WORD3,
 		item1 = private.ITEM_FLAGS_WORD1,
 	}
 

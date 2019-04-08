@@ -678,6 +678,10 @@ function private.InitializeListFrame()
 				return false
 			end
 
+			if not HasEnabledFlag(REP_FILTERS_3, collectable.flags.reputation3, filter_db.rep) then
+				return false
+			end
+
 			------------------------------------------------------------------------------------------------
 			-- Stage 2
 			-- loop through nonexclusive (soft filters) flags until one is true

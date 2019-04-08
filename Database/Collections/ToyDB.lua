@@ -3035,6 +3035,48 @@ function addon:InitToys()
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(54461)
 
+-- 8.1.5
+	-- Noble Gardener's Hearthstone -- 165802
+	toy = AddToy(165802, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS, F.IBOP)
+	toy:AddWorldEvent("NOBLEGARDEN")
+	toy:AddVendor(32836, 32837)
+	toy:AddCustom("NOBLE_VENDOR")
+
+	-- Fire Eater's Hearthstone -- 166746
+	toy = AddToy(166746, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS, F.IBOP)
+	toy:AddWorldEvent("MIDSUMMER_FIRE_FESTIVAL")
+	toy:AddVendor(26123, 26124)
+	toy:AddCustom("CITY")
+
+	-- Brewfest Reveler's Hearthstone -- 166747
+	toy = AddToy(166747, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS, F.IBOP)
+	toy:AddVendor(23710, 24495)
+	toy:AddWorldEvent("BREWFEST")
+
+	-- Transmorpher Beacon -- 166779
+	toy = AddToy(166779, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	toy:AddCustom("STORE")
+
+	-- Apexis Focusing Shard -- 168012
+	toy = AddToy(168012, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
+	toy:AddVendor(151955, 151987)
+
+	-- Banner of the Burning Blade -- 168014
+	toy = AddToy(168014, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
+	toy:AddVendor(151955, 151987)
+
+	-- Twitching Eyeball -- 168123
+	toy = AddToy(168123, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
 
 
 --[[  Didn't actually make it into the ToyBox panel

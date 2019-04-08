@@ -315,6 +315,8 @@ function addon:InitVendor()
 	AddVendor(148923,	L["Captain Zen'taga"],		Z.DAZARALOR,			44.4,   94.4,	"Horde")
 	AddVendor(148924,	L["Provisioner Mukra"],		Z.DAZARALOR,			0.0, 0.0,	"Horde")
 	AddVendor(148927,	L["Provisioner Stoutforge"],	Z.BORALUS,			0.0, 0.0,	"Alliance")
+	AddVendor(151955,	L["Tempra"],			Z.STORMSHIELD,			0.0, 0.0,	"Alliance")
+	AddVendor(151987,	L["Kronnus"],			Z.WARSPEAR,			0.0, 0.0, 	"Horde")
 
 	self.InitVendor = nil
 end

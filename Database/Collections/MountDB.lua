@@ -4527,6 +4527,49 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
 	mount:AddCustom("STORE")
 
+-- 8.1.5
+	-- Bruce -- 289639
+	mount = AddMount(289639, V.BFA, Q.EPIC)
+	mount:SetItemID(166724)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BRAWLERS)
+	mount:AddCustom("BRUCE")
+
+	-- Crusader's Direhorn -- 290608
+	mount = AddMount(290608, V.BFA, Q.EPIC)
+--	mount:SetItemID()
+	mount:AddFilters(F.HORDE)
+	mount:SetRequiredClass("PALADIN")
+--	mount:SetRequiredRaces("Human", "Dwarf")
+
+	-- Beastlord's Irontusk -- 294568
+	mount = AddMount(294568, V.BFA, Q.EPIC)
+	mount:SetItemID(167894)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	mount:AddWorldEvent("TIMEWALKING")
+	mount:AddVendor(151955, 151987)
+
+	-- Beastlord's Warwolf -- 294569
+	mount = AddMount(294569, V.BFA, Q.EPIC)
+	mount:SetItemID(167895)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	mount:AddWorldEvent("TIMEWALKING")
+	mount:AddVendor(151955, 151987)
+
+	-- Ironclad Frostclaw -- 295386
+	mount = AddMount(295386, V.BFA, Q.EPIC)
+	mount:SetItemID(168056)
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.ACHIEVEMENT)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddAchievement(13517)
+
+	-- Bloodflank Charger -- 295387
+	mount = AddMount(295387, V.BFA, Q.EPIC)
+	mount:SetItemID(168055)
+	mount:AddFilters(F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:SetRequiredFaction("Horde")
+	mount:AddAchievement(13517)
+
+
 -- Unknown mounts
 
 

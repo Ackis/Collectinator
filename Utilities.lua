@@ -230,6 +230,7 @@ do
 	end
 
 	function addon:DumpBossIDs(name)
+		TextDump:Clear()
 		for index = 1, 10000 do
 			local boss_name = _G.EJ_GetEncounterInfo(index)
 
