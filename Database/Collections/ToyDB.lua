@@ -3075,8 +3075,8 @@ function addon:InitToys()
 
 	-- Twitching Eyeball -- 168123
 	toy = AddToy(168123, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(53765, 53766)
 
 
 --[[  Didn't actually make it into the ToyBox panel
