@@ -1751,7 +1751,7 @@ function addon:InitToys()
 	-- Shoe Shine Kit -- 129055  -- Needs updating
 	toy = AddToy(129055, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
-	toy:AddZoneLocations(Z.DALARAN_BROKENISLES, nil, "0:0")
+	toy:AddZoneLocations(Z.DALARAN_BROKENISLES, nil, "44.8:47.3")
 
 	-- Dalaran Disc -- 129057
 	toy = AddToy(129057, V.LEGION, Q.RARE)
@@ -2374,7 +2374,6 @@ function addon:InitToys()
 	toy = AddToy(147843, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
 	toy:AddQuest(46749)
-	toy:AddCustom("EXALTEDCACHE")
 
 	-- Pilfered Sweeper -- 147867
 	toy = AddToy(147867, V.LEGION, Q.RARE)
@@ -2584,7 +2583,6 @@ function addon:InitToys()
 	toy = AddToy(153182, V.LEGION, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
 	toy:AddQuest(48977)
-	toy:AddCustom("EXALTEDCACHE")
 
 	-- Barrier Generator -- 153183
 	toy = AddToy(153183, V.LEGION, Q.RARE)
@@ -2679,23 +2677,23 @@ function addon:InitToys()
 	toy = AddToy(162642, V.BFA, Q.RARE)
 	toy:SetRequiredFaction("Horde")
 	toy:AddFilters(F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
-	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL") -- Needs updating with quest id
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
 	-- Toy Armor Set -- 162643
 	toy = AddToy(162643, V.BFA, Q.RARE)
 	toy:SetRequiredFaction("Alliance")
 	toy:AddFilters(F.ALLIANCE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
-	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL") -- Needs updating with quest id
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
 	-- Greatfather Winter's Hearthstone -- 162973
 	toy = AddToy(162973, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
-	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL") -- Needs updating with quest id
+	toy:AddWorldEvent("FEAST_OF_WINTER_VEIL")
 
 	-- Headless Horseman's Hearthstone -- 163045
 	toy = AddToy(163045, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.QUEST, F.IBOP, F.WORLD_EVENTS)
-	toy:AddWorldEvent("HALLOWS_END") -- Needs updating with quest id
+	toy:AddWorldEvent("HALLOWS_END")
 
 	-- Cursed Spyglass -- 163200
 	toy = AddToy(163200, V.BFA, Q.RARE)
@@ -2918,56 +2916,64 @@ function addon:InitToys()
 	-- Worn Cloak -- 165791
 	toy = AddToy(165791, V.BFA, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:SetRequiredFaction("Horde")
 	toy:AddQuest(54108)
 
 	-- Citizens Brigade Whistle -- 166247
 	toy = AddToy(166247, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.IBOP, F.ACHIEVEMENT)
+	toy:SetRequiredFaction("Alliance")
 	toy:AddAchievement(13285)
 
 	-- For da Blood God! -- 166308
 	toy = AddToy(166308, V.BFA, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:SetRequiredFaction("Horde")
 	toy:AddQuest(54460)
 
 	-- Gnarlwood Waveboard -- 166461
 	toy = AddToy(166461, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
-	toy:AddVendor(148922)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(148922, 148923)
 
 	-- Dark Ranger's Spare Cowl -- 166544
 	toy = AddToy(166544, V.BFA, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:SetRequiredFaction("Horde")
 	toy:AddQuest(54043)
 
 	-- Cranky Crab -- 166662
 	toy = AddToy(166662, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
-	toy:AddVendor(148922)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(148922, 148923)
 
 	-- Hand Anchor -- 166663
 	toy = AddToy(166663, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
-	toy:AddVendor(148922)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(148922, 148923)
 
 	-- Brynja's Beacon -- 166678
 	toy = AddToy(166678, V.BFA, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:SetRequiredFaction("Horde")
 	toy:AddQuest(54050)
 
 	-- Warbeast Kraal Dinner Bell -- 166701
 	toy = AddToy(166701, V.BFA, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:SetRequiredFaction("Horde")
 	toy:AddQuest(54462)
 
 	-- Proudmoore Music Box -- 166702
 	toy = AddToy(166702, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	toy:SetRequiredFaction("Alliance")
 	toy:AddQuest(54458)
 
 	-- Goldtusk Inn Breakfast Buffet -- 166703
 	toy = AddToy(166703, V.BFA, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:SetRequiredFaction("Horde")
 	toy:AddQuest(54461)
 
 	-- Bowl of Glowing Pufferfish -- 166704
@@ -3013,13 +3019,15 @@ function addon:InitToys()
 	-- Bewitching Tea Set -- 166808
 	toy = AddToy(166808, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	toy:SetRequiredFaction("Alliance")
 	toy:AddQuest(54456)
 
+--[[ Not yet implemented
 	-- Kojo's Master Matching Set -- 166851
 	toy = AddToy(166851, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(54451)
-
+]]--
 	-- Azerite Firework Launcher -- 166877
 	toy = AddToy(166877, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
@@ -3033,6 +3041,7 @@ function addon:InitToys()
 	-- Meerah's Jukebox -- 166880
 	toy = AddToy(166880, V.BFA, Q.RARE)
 	toy:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	toy:SetRequiredFaction("Horde")
 	toy:AddQuest(54461)
 
 -- 8.1.5
@@ -3078,6 +3087,105 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(53765, 53766)
 
+--8.2
+
+	-- Pearl of the Abyss -- 166782
+	toy = AddToy(166782, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("UNKNOWN_COLLECT")
+
+	-- Mechagonian Sawblades -- 167931
+	toy = AddToy(167931, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(152007)
+
+	-- Hyper-Compressed Ocean -- 168016
+	toy = AddToy(168016, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	toy:AddAchievement(13502)
+
+	-- Ocean Simulator -- 168824
+	toy = AddToy(168824, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("UNKNOWN_COLLECT")
+
+	-- Holographic Digitalization Hearthstone -- 168907
+	toy = AddToy(168907, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(150359)
+
+	-- Alliance War Banner -- 169275
+	toy = AddToy(169275, V.BFA, Q.RARE)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	toy:AddVendor(154653)
+
+	-- Alliance War Standard -- 169278
+	toy = AddToy(169278, V.BFA, Q.RARE)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
+	toy:AddVendor(154653)
+
+	-- Judgment of Mechagon -- 169347
+	toy = AddToy(169347, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("UNKNOWN_COLLECT")
+
+	-- Heart of a Champion -- 169768
+	toy = AddToy(169768, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(55752)
+
+	-- Azeroth Mini Collection: Mechagon -- 169796
+	toy = AddToy(169796, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	toy:AddCustom("UNKNOWN_COLLECT")
+
+	-- Brewfest Chowdown Trophy -- 169865
+	toy = AddToy(169865, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS, F.IBOP)
+	toy:AddVendor(23710, 24495)
+	toy:AddWorldEvent("BREWFEST")
+
+	-- Shadescale -- 170187
+	toy = AddToy(170187, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(152552)
+
+	-- Shirakess Warning Sign -- 170196
+	toy = AddToy(170196, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(154148)
+
+	-- Eternal Palace Dining Set -- 170198
+	toy = AddToy(170198, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	toy:AddWorldDrop(Z.NAZJATAR)
+
+	-- Zanj'ir Weapon Rack -- 170199
+	toy = AddToy(170199, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	toy:AddWorldDrop(Z.NAZJATAR)
+
+	-- Flopping Fish -- 170203
+	toy = AddToy(170203, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(53982, 55976)
+
+	-- Symbol of Gral -- 170204
+	toy = AddToy(170204, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	toy:AddVendor(153509, 153512)
+
+	-- Jar of Sunwarmed Sand -- 170380
+	toy = AddToy(170380, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.MISC)
+	toy:AddCustom("UNKNOWN_COLLECT")
+
+	-- Underlight Sealamp -- 170476
+	toy = AddToy(170476, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	toy:AddWorldDrop(Z.NAZJATAR)
 
 --[[  Didn't actually make it into the ToyBox panel
 

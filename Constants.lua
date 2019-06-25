@@ -69,6 +69,7 @@ private.PLAYER_RACE_FILENAMES = {
 	Troll = true,
 	Goblin = true,
 	BloodElf = true,
+	Undead = true,
 	Draenei = true,
 	Worgen = true,
 	Pandaren = true,
@@ -292,6 +293,8 @@ private.REP_FLAGS_WORD3 = {
 	BFACOMMON2			= 0x00400000,	-- 23 -- Order of Embers / Voldunai
 	BFACOMMON3			= 0x00800000,	-- 24 -- Proudmoore Admiralty / Talanji's Expedition
 	BFACOMMON4			= 0x01000000,	-- 25 -- Storm's Wake / Zandalari Empire
+	BFACOMMON5			= 0x02000000,	-- 26 -- Ankoan / Unshackled
+	RUSTBOLT_RESISTANCE		= 0x04000000,	-- 27
 }
 
 
@@ -560,7 +563,9 @@ private.FACTION_IDS = {
 	STORMS_WAKE = 2162,
 	TORTOLLAN_SEEKERS = 2163,
 	CHAMPIONS_OF_AZEROTH = 2164,
-
+	UNSHACKLED = 2373,
+	RUSTBOLT_RESISTANCE = 2391,
+	ANKOAN = 2400,
 }
 
 private.FACTION_STRINGS = {}
@@ -833,6 +838,10 @@ do
 		THE_UNDERROT = _G.C_Map.GetMapInfo(1042).name,
 		SIEGE_OF_BORALUS = _G.C_Map.GetMapInfo(1162).name,
 		BATTLE_OF_DAZARALOR = _G.C_Map.GetMapInfo(1352).name,
+		NAZJATAR = _G.C_Map.GetMapInfo(1355).name,
+		MECHAGON_ISLAND = _G.C_Map.GetMapInfo(1462).name,
+		OPERATION_MECHAGON = _G.C_Map.GetMapInfo(1490).name,
+		THE_ETERNAL_PALACE = _G.C_Map.GetMapInfo(1512).name,
 		-------------------------------------------------------------------------------
 		-- Continents
 		-------------------------------------------------------------------------------
@@ -976,8 +985,14 @@ private.BOSS_NAMES = {
 	THE_LIONS_ROAR = _G.EJ_GetEncounterInfo(2212),
 	DOOMS_HOWL = _G.EJ_GetEncounterInfo(2213),
 	CONCLAVE_OF_THE_CHOSEN = _G.EJ_GetEncounterInfo(2330),
+	KING_MECHAGON = _G.EJ_GetEncounterInfo(2331),
 	HIGH_TINKER_MEKKATORQUE = _G.EJ_GetEncounterInfo(2334),
 	LADY_JAINA_PROUDMOORE = _G.EJ_GetEncounterInfo(2343),
+	BLACKWATER_BEHEMOTH = _G.EJ_GetEncounterInfo(2347),
+	ZAQUL_HARBINGER_OF_NYALOTHA = _G.EJ_GetEncounterInfo(2349),
+	LADY_ASHVANE = _G.EJ_GetEncounterInfo(2354),
+	HK_8_AERIAL_OPPRESSION_UNIT = _G.EJ_GetEncounterInfo(2355),
+	QUEEN_AZSHARA = _G.EJ_GetEncounterInfo(2361),
 
 }
 

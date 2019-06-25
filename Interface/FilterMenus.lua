@@ -755,6 +755,7 @@ function private.InitializeFilterPanel()
 	local Embers_Voldunai_Text = isAlliance and FN.ORDER_OF_EMBERS or FN.VOLDUNAI
 	local Proudmoore_Talanji_Text = isAlliance and FN.PROUDMOORE_ADMIRALTY or FN.TALANJIS_EXPEDITION
 	local Storm_Zandalari_Text = isAlliance and FN.STORMS_WAKE or FN.ZANDALARI_EMPIRE
+	local Ankoan_Unshackled_Text = isAlliance and FN.ANKOAN or FN.UNSHACKLED
 
 	-- Used for the tooltip of every reputation checkbox.
 	local function ReputationDesc(text)
@@ -1183,6 +1184,8 @@ function private.InitializeFilterPanel()
 			bfacommon2		= { tt = ReputationDesc(Embers_Voldunai_Text),		text = Embers_Voldunai_Text,		row = 5,	col = 1 },
 			bfacommon3		= { tt = ReputationDesc(Proudmoore_Talanji_Text),	text = Proudmoore_Talanji_Text,		row = 6,	col = 1 },
 			bfacommon4		= { tt = ReputationDesc(Storm_Zandalari_Text),		text = Storm_Zandalari_Text,		row = 7,	col = 1 },
+			bfacommon5		= { tt = ReputationDesc(Ankoan_Unshackled_Text),	text = Ankoan_Unshackled_Text,		row = 8,	col = 1 },
+			rustboltresistance 	= { tt = ReputationDesc(FN.RUSTBOLT_RESISTANCE),	text = FN.RUSTBOLT_RESISTANCE,		row = 9,	col = 1 },
 		}
 		private.GenerateCheckBoxes(expansion7_frame, expansion7_buttons)
 
@@ -1391,6 +1394,8 @@ function private.InitializeFilterPanel()
 		bfacommon2		= { cb = expansion7.bfacommon2,			svroot = filters.rep },
 		bfacommon3		= { cb = expansion7.bfacommon3,			svroot = filters.rep },
 		bfacommon4		= { cb = expansion7.bfacommon4,			svroot = filters.rep },
+		bfacommon5		= { cb = expansion7.bfacommon5,			svroot = filters.rep },
+		rustboltresistance	= { cb = expansion7.rustboltresistance,		svroot = filters.rep },
 
 	}
 

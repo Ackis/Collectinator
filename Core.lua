@@ -331,6 +331,8 @@ function addon:OnInitialize()
 					bfacommon2 = true,
 					bfacommon3 = true,
 					bfacommon4 = true,
+					bfacommon5 = true,
+					rustboltresistance = true,
 				},
 				-- Populated later via CONSTANTS
 				item = {

@@ -35,7 +35,7 @@
 ## Author: Ackis, Torhal, Pompy, Ressy
 ## X-Donate: http://www.wowace.com/addons/collectinator/
 
-## Interface: 80000
+## Interface: 80200
 ## Version: @project-version@
 ## X-Revision: @project-abbreviated-hash@
 ## X-Date: @file-date-iso@
@@ -53,6 +53,8 @@
 
 ## X-WoWI-ID: 15154
 ## SavedVariables: COLLECTINATORDB2
+
+## X-LoadOn-Slash: /col
 
 #@no-lib-strip@
 # Libraries

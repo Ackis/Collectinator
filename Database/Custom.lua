@@ -130,6 +130,9 @@ function addon:InitCustom()
 	AddCustom("FEL-SPOTTED_EGG")
 	AddCustom("FALCOSAUR")
 	AddCustom("BRUCE")
+	AddCustom("SCRYING_STONE",	Z.NAZJATAR)
+	AddCustom("SNOWSOFT_NIBBLER",	Z.MECHAGON_ISLAND)
+	AddCustom("OOX-35",		Z.MECHAGON_ISLAND)
 
 	AddCustom("SECRETDISCORD")
 
@@ -139,11 +142,12 @@ function addon:InitCustom()
 
 	AddCustom("EXALTEDCACHE")
 
-
 	AddCustom("CHROMIE",		Z.THE_DEATHS_OF_CHROMIE)
 	AddCustom("FRANCOIS",		Z.TIRAGARDE_SOUND,		52.8,	31.1)
 	AddCustom("ISLAND_EXPEDITIONS")
 	AddCustom("ZAND_AMULET",	Z.DAZARALOR)
+
+	AddCustom("UNKNOWN_COLLECT")
 
 	self.InitCustom = nil
 end

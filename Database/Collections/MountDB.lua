@@ -3399,7 +3399,7 @@ function addon:InitMounts()
 	mount:AddProfession(PROF.FISHING)
 	mount:AddRepVendor(FAC.CONJURER_MARGOSS, REP.HONORED, 108825)
 
-	-- Long-Forgotten Hippogryph -- 215159  -- Needs updating
+	-- Long-Forgotten Hippogryph -- 215159
 	mount = AddMount(215159, V.LEGION, Q.EPIC)
 	mount:SetItemID(138258)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
@@ -3762,7 +3762,6 @@ function addon:InitMounts()
 	mount:SetItemID(143764)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
 	mount:AddQuest(46748)
-	mount:AddCustom("EXALTEDCACHE")
 
 	-- Netherlord's Brimstone Dreadsteed -- 238452
 	mount = AddMount(238452, V.LEGION, Q.EPIC)
@@ -3782,28 +3781,24 @@ function addon:InitMounts()
 	mount:SetItemID(147807)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
 	mount:AddQuest(46743)
-	mount:AddCustom("EXALTEDCACHE")
 
 	-- Wild Dreamrunner -- 242875
 	mount = AddMount(242875, V.LEGION, Q.EPIC)
 	mount:SetItemID(147804)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
 	mount:AddQuest(46747)
-	mount:AddCustom("EXALTEDCACHE")
 
 	-- Cloudwing Hippogryph -- 242881
 	mount = AddMount(242881, V.LEGION, Q.EPIC)
 	mount:SetItemID(147806)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
 	mount:AddQuest(46745)
-	mount:AddCustom("EXALTEDCACHE")
 
 	-- Valarjar Stormwing -- 242882
 	mount = AddMount(242882, V.LEGION, Q.EPIC)
 	mount:SetItemID(147805)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
 	mount:AddQuest(46746)
-	mount:AddCustom("EXALTEDCACHE")
 
 	-- Riddler's Mind-Worm -- 243025
 	mount = AddMount(243025, V.LEGION, Q.EPIC)
@@ -3999,21 +3994,18 @@ function addon:InitMounts()
 	mount:SetItemID(153042)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
 	mount:AddQuest(48977)
-	mount:AddCustom("EXALTEDCACHE")
 
 	-- Blessed Felcrusher -- 254258
 	mount = AddMount(254258, V.LEGION, Q.EPIC)
 	mount:SetItemID(153043)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
 	mount:AddQuest(48977)
-	mount:AddCustom("EXALTEDCACHE")
 
 	-- Avenging Felcrusher -- 254259
 	mount = AddMount(254259, V.LEGION, Q.EPIC)
 	mount:SetItemID(153044)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST, F.MISC)
 	mount:AddQuest(48977)
-	mount:AddCustom("EXALTEDCACHE")
 
 	-- Bleakhoof Ruinstrider -- 254260
 	mount = AddMount(254260, V.LEGION, Q.EPIC)
@@ -4347,19 +4339,19 @@ function addon:InitMounts()
 
 -- 8.1
 
-	-- Reins of the Onyx War Hyena -- 237288 -- Needs Updating
+	-- Reins of the Onyx War Hyena -- 237288
 	mount = AddMount(237288, V.BFA, Q.EPIC)
 	mount:SetItemID(166417)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PVP)
 	mount:AddVendor(73151, 73190)
 
-	-- Green Marsh Hopper -- 259740 -- Needs Updating
+	-- Green Marsh Hopper -- 259740
 	mount = AddMount(259740, V.BFA, Q.EPIC)
 	mount:SetItemID(163183)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	mount:AddVendor(148810)
 
-	-- The Hivemind -- 261395 -- Needs Updating
+	-- The Hivemind -- 261395
 	mount = AddMount(261395, V.BFA, Q.EPIC)
 	mount:SetItemID(156798)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
@@ -4569,9 +4561,190 @@ function addon:InitMounts()
 	mount:SetRequiredFaction("Horde")
 	mount:AddAchievement(13517)
 
+-- 8.2
+	-- Spectral Pterrorwing -- 244712
+	mount = AddMount(244712, V.BFA, Q.EPIC)
+	mount:SetItemID(161664)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON4)
+	mount:AddRepVendor(FAC.ZANDALARI_EMPIRE, REP.EXALTED, 131287)
+
+	-- Captured Swampstalker -- 275838
+	mount = AddMount(275838, V.BFA, Q.EPIC)
+	mount:SetItemID(161666)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON3)
+	mount:AddRepVendor(FAC.TALANJIS_EXPEDITION, REP.EXALTED, 135459)
+
+	-- Voldunai Dunescraper -- 275840
+	mount = AddMount(275840, V.BFA, Q.EPIC)
+	mount:SetItemID(161667)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON2)
+	mount:AddRepVendor(FAC.VOLDUNAI, REP.EXALTED, 135804)
+
+	-- Xiwyllag ATV -- 256123
+	mount = AddMount(256123, V.BFA, Q.EPIC)
+	mount:SetItemID(153594)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROFESSION)
+	mount:AddProfession(PROF.ENGINEERING, PROF.BLACKSMITHING)
+
+	-- Dusky Waycrest Gryphon -- 275859
+	mount = AddMount(275859, V.BFA, Q.EPIC)
+	mount:SetItemID(161908)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON2)
+	mount:AddRepVendor(FAC.ORDER_OF_EMBERS, REP.EXALTED, 135815)
+
+	-- Stormsong Coastwatcher -- 275866
+	mount = AddMount(275866, V.BFA, Q.EPIC)
+	mount:SetItemID(161909)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON4)
+	mount:AddRepVendor(FAC.STORMS_WAKE, REP.EXALTED, 135800)
+
+	-- Proudmoore Sea Scout -- 275868
+	mount = AddMount(275868, V.BFA, Q.EPIC)
+	mount:SetItemID(161879)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON3)
+	mount:AddRepVendor(FAC.PROUDMOORE_ADMIRALTY, REP.EXALTED, 135808)
+
+	-- Wonderwing 2.0 -- 290328
+	mount = AddMount(290328, V.BFA, Q.EPIC)
+	mount:SetItemID(169162)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(13250)
+
+	-- Aerial Unit R-21/X -- 290718
+	mount = AddMount(290718, V.BFA, Q.EPIC)
+	mount:SetItemID(168330)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.INSTANCE)
+	mount:AddMobDrop(155438)
+
+	-- Rusty Mechanocrawler -- 291492
+	mount = AddMount(291492, V.BFA, Q.EPIC)
+	mount:SetItemID(168823)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	mount:AddWorldDrop(Z.MECHAGON_ISLAND)
+
+	-- Unshackled Waveray -- 291538
+	mount = AddMount(291538, V.BFA, Q.EPIC)
+	mount:SetItemID(167170)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON5)
+	mount:AddRepVendor(FAC.UNSHACKLED, REP.EXALTED, 153512)
+
+	-- Ankoan Waveray -- 292407
+	mount = AddMount(292407, V.BFA, Q.EPIC)
+	mount:SetItemID(167167)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON5)
+	mount:AddRepVendor(FAC.ANKOAN, REP.EXALTED, 153509)
+
+	-- Azshari Bloatray -- 292419
+	mount = AddMount(292419, V.BFA, Q.EPIC)
+	mount:SetItemID(167171)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.ACHIEVEMENT)
+	mount:AddAchievement(13687)
+
+	-- Royal Snapdragon -- 294038
+	mount = AddMount(294038, V.BFA, Q.EPIC)
+	mount:SetItemID(169198)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	mount:AddWorldDrop(Z.NAZJATAR)
+
+	-- Snapback Scuttler -- 294039
+	mount = AddMount(294039, V.BFA, Q.EPIC)
+	mount:SetItemID(169194)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(13638)
+
+	-- X-995 Mechanocat -- 294143
+	mount = AddMount(294143, V.BFA, Q.EPIC)
+	mount:SetItemID(167751)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(150359)
+
+	-- Mechacycle Model W -- 296788
+	mount = AddMount(296788, V.BFA, Q.EPIC)
+	mount:SetItemID(168329)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	mount:AddAchievement(13541)
+
+	-- Junkheap Drifter -- 297157
+	mount = AddMount(297157, V.BFA, Q.EPIC)
+	mount:SetItemID(168370)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(152182)
+
+	-- Child of Torcali -- 297560
+	mount = AddMount(297560, V.BFA, Q.EPIC)
+	mount:SetItemID(168408)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(55798)
+
+	-- Mechagon Peacekeeper -- 299158
+	mount = AddMount(299158, V.BFA, Q.EPIC)
+	mount:SetItemID(168826)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.RAID)
+	mount:AddMobDrop(155157)
+
+	-- Scrapforged Mechaspider -- 299159
+	mount = AddMount(299159, V.BFA, Q.EPIC)
+	mount:SetItemID(168827)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	mount:AddQuest(55622)
+
+	-- Rustbolt Resistor -- 299170
+	mount = AddMount(299170, V.BFA, Q.EPIC)
+	mount:SetItemID(168829)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.RUSTBOLT_RESISTANCE)
+	mount:AddRepVendor(FAC.RUSTBOLT_RESISTANCE, REP.EXALTED, 150716)
+
+	-- Snapdragon Kelpstalker -- 300146
+	mount = AddMount(300146, V.BFA, Q.EPIC)
+	mount:SetItemID(169199)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST)
+	mount:AddCustom("UNKNOWN_COLLECT")
+--	mount:AddQuest() --Needs updating
+
+	-- Deepcoral Snapdragon -- 300147
+	mount = AddMount(300147, V.BFA, Q.EPIC)
+	mount:SetItemID(169200)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
+	mount:AddCustom("UNKNOWN_COLLECT")
+--	mount:AddQuest() --Needs updating
+
+	-- Silent Glider -- 300149
+	mount = AddMount(300149, V.BFA, Q.EPIC)
+	mount:SetItemID(169163)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddMobDrop(152290)
+
+	-- Fabious -- 300150
+	mount = AddMount(300150, V.BFA, Q.EPIC)
+	mount:SetItemID(169201)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddCustom("UNKNOWN_COLLECT")
+--	mount:AddMobDrop()
+
+	-- Inkscale Deepseeker -- 300151
+	mount = AddMount(300151, V.BFA, Q.EPIC)
+	mount:SetItemID(169203)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(154652, 154653)
+
+	-- Crimson Tidestallion -- 300153
+	mount = AddMount(300153, V.BFA, Q.EPIC)
+	mount:SetItemID(169202)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	mount:AddVendor(152084)
+
 -- Unknown mounts
-
-
 
 	self.InitMounts = nil
 end

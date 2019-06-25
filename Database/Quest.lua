@@ -232,6 +232,7 @@ function addon:InitQuest()
 	AddQuest(53766,	Z.DAZARALOR,				0.0,	0.0,	"Horde")
 	AddQuest(53820,	Z.BORALUS,				0.0, 	0.0, 	"Alliance")
 	AddQuest(53821,	Z.DAZARALOR,				44.8,	89.88,	"Horde")
+	AddQuest(53982,	Z.NAZJATAR,				0.0,	0.0,	"Horde") --Needs updating
 	AddQuest(54043,	Z.DARKSHORE,				51.8,	21.6,	"Horde")
 	AddQuest(54050,	Z.DARKSHORE,				54.6,	20.8,	"Horde")
 	AddQuest(54108,	Z.SWAMP_OF_SORROWS,			80.8,	78.4,	"Horde")
@@ -248,6 +249,10 @@ function addon:InitQuest()
 	AddQuest(54460, Z.NAZMIR,				39.0,	79.4,	"Horde") -- Emissary
 	AddQuest(54461,	Z.VOLDUN,				56.6,	49.8,	"Horde") -- Emissary
 	AddQuest(54462,	Z.DAZARALOR,				65.6,	72.4,	"Horde") -- Emissary
+	AddQuest(55622,	Z.MECHAGON_ISLAND,			0.0,	0.0,	"Neutral") --Needs updating
+	AddQuest(55752,	Z.SILITHUS,				42.2,	44.2,	"Neutral")
+	AddQuest(55798,	Z.ZULDAZAR,				0.0,	0.0,	"Horde") --Needs updating
+	AddQuest(55976,	Z.NAZJATAR,				40.0,	54.2,	"Alliance")
 
 	self.InitQuest = nil
 end

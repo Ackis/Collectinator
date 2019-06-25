@@ -6424,8 +6424,7 @@ function addon:InitCritters()
 	pet:SetItemID(160704)
 	pet:SetSpellID(273184)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
-	pet:AddMobDrop(135448)
-	pet:AddCustom("MYTHIC")
+	pet:AddCustom("SECRETDISCORD")
 
 	-- Poda -- 139073
 	pet = AddPet(139073, V.BFA, Q.UNCOMMON)
@@ -7626,6 +7625,548 @@ function addon:InitCritters()
 --	pet:SetSpellID()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	pet:AddAchievement(13469)
+
+-- 8.2
+
+	-- Slimy Sea Slug -- 151631
+	pet = AddPet(151631, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Slimy Hermit Crab -- 151632
+	pet = AddPet(151632, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Slimy Darkhunter -- 151651
+	pet = AddPet(151651, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Slimy Octopode -- 151673
+	pet = AddPet(151673, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Slimy Fangtooth -- 151696
+	pet = AddPet(151696, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Slimy Eel -- 151697
+	pet = AddPet(151697, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Slimy Otter -- 151700
+	pet = AddPet(151700, V.BFA, Q.COMMON)
+	pet:SetItemID()
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+
+	-- Ghostly Whelpling -- 154165
+	pet = AddPet(154165, V.BFA, Q.COMMON)
+	pet:SetItemID(169205)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Minimancer -- 154445
+	pet = AddPet(154445, V.BFA, Q.RARE)
+	pet:SetItemID(169670)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(13627)
+
+	-- Adventurous Hopling -- 154693
+	pet = AddPet(154693, V.BFA, Q.COMMON)
+	pet:SetItemID(169322)
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddCustom("ISLAND_EXPEDITIONS")
+
+	-- Sandclaw Pincher -- 154697
+	pet = AddPet(154697, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZJATAR, "25", "0:0")
+
+	-- Sandclaw Sunshell -- 154702
+	pet = AddPet(154702, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZJATAR, "25", "0:0")
+
+	-- Glimmershell Scuttler -- 154704
+	pet = AddPet(154704, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZJATAR, "25", "0:0")
+
+	-- Chitterspine Skitterling -- 154706
+	pet = AddPet(154706, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZJATAR, "25", "0:0")
+
+	-- Hissing Chitterspine -- 154708
+	pet = AddPet(154708, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZJATAR, "25", "0:0")
+
+	-- Great Sea Albatross -- 154710
+	pet = AddPet(154710, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZJATAR, "25", "0:0")
+
+	-- Deeptide Fingerling -- 154712
+	pet = AddPet(154712, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZJATAR, "25", "0:0")
+
+	-- Bloodseeker -- 154714
+	pet = AddPet(154714, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZJATAR, "25", "0:0")
+
+	-- Spireshell Snail -- 154716
+	pet = AddPet(154716, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZJATAR, "25", "0:0")
+
+	-- Blackchasm Crawler -- 154718
+	pet = AddPet(154718, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.THE_ETERNAL_PALACE, "25", "0:0")
+
+	-- Chitterspine Deepstalker -- 154720
+	pet = AddPet(154720, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.THE_ETERNAL_PALACE, "25", "0:0")
+
+	-- Trench Slug -- 154722
+	pet = AddPet(154722, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.THE_ETERNAL_PALACE, "25", "0:0")
+
+	-- Muck Slug -- 154724
+	pet = AddPet(154724, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZJATAR, "25", "41.7:45.7")
+
+	-- Rustyroot Snooter -- 154767
+	pet = AddPet(154767, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MECHAGON_ISLAND, "25", "76.5:39.6")
+
+	-- Duskytooth Snooter -- 154769
+	pet = AddPet(154769, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MECHAGON_ISLAND, "25", "77.1:41.0")
+
+	-- Junkheap Roach -- 154771
+	pet = AddPet(154771, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MECHAGON_ISLAND, "25", "71.4:27.6")
+
+	-- Experimental Roach -- 154773
+	pet = AddPet(154773, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MECHAGON_ISLAND, "25", "67.4:34.8")
+
+	-- Fleeting Frog -- 154775
+	pet = AddPet(154775, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MECHAGON_ISLAND, "25", "74.8:35.6")
+
+	-- Yellow Junkhopper -- 154777
+	pet = AddPet(154777, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MECHAGON_ISLAND, "25", "39.0:44.1")
+
+	-- Motorized Croaker -- 154779
+	pet = AddPet(154779, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MECHAGON_ISLAND, "25", "77.5:57.3")
+
+	-- Copper Hopper -- 154781
+	pet = AddPet(154781, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.OPERATION_MECHAGON, "25", "0:0")
+	pet:AddCustom("MYTHIC")
+
+	-- Rustbolt Clucker -- 154783
+	pet = AddPet(154783, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MECHAGON_ISLAND, "25", "73.8:35.0", "70:36", "72.0:33.8")
+
+	-- Mechagon Marmot -- 154785
+	pet = AddPet(154785, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MECHAGON_ISLAND, "25", "71.5:21.9")
+
+	-- Specimen 97 -- 154787
+	pet = AddPet(154787, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MECHAGON_ISLAND, "25", "59.8:26.1")
+
+	-- Alloyed Alleyrat -- 154789
+	pet = AddPet(154789, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.OPERATION_MECHAGON, "25", "0:0")
+	pet:AddCustom("MYTHIC")
+
+	-- Scrapyard Tunneler -- 154791
+	pet = AddPet(154791, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MECHAGON_ISLAND, nil, "0:0")
+
+	-- H4ND-EE -- 154794
+	pet = AddPet(154794, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.OPERATION_MECHAGON, nil, "0:0")
+
+	-- Clanking Scrapsorter -- 154796
+	pet = AddPet(154796, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.OPERATION_MECHAGON, "25", "0:0")
+	pet:AddCustom("MYTHIC")
+
+	-- Malfunctioning Microbot -- 154798
+	pet = AddPet(154798, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.MECHAGON_ISLAND, "25", "65.1:49.2", "66.6:36.4")
+
+	-- Twilight Whelpling -- 154803
+	pet = AddPet(154803, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.TWILIGHT_HIGHLANDS, "25", "0:0")
+
+	-- Abyssal Slitherling -- 154814
+	pet = AddPet(154814, V.BFA, Q.COMMON)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.BATTLE_PET)
+	pet:AddZoneLocations(Z.NAZJATAR, "25", "46.9:65.7", "49.0:86.2", "39.8:64.6")
+
+	-- Zanj'ir Poker -- 154819
+	pet = AddPet(154819, V.BFA, Q.RARE)
+	pet:SetItemID(169348)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID)
+	pet:AddMobDrop(54853)
+
+	-- Murgle -- 154820
+	pet = AddPet(154820, V.BFA, Q.RARE)
+	pet:SetItemID(169371)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(152323)
+
+	-- Necrofin Tadpole -- 154821
+	pet = AddPet(154821, V.BFA, Q.RARE)
+	pet:SetItemID(169372)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(152712)
+
+	-- Kelpfin -- 154822
+	pet = AddPet(154822, V.BFA, Q.RARE)
+	pet:SetItemID(169349)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(13695)
+
+	-- Glittering Diamondshell -- 154823
+	pet = AddPet(154823, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169350)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(152795)
+
+	-- Sandclaw Nestseeker -- 154824
+	pet = AddPet(154824, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169351)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("SCRYING_STONE")
+
+	-- Pearlescent Glimmershell -- 154825
+	pet = AddPet(154825, V.BFA, Q.RARE)
+	pet:SetItemID(169352)
+	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(153509, 153512)
+
+	-- Lustrous Glimmershell -- 154826
+	pet = AddPet(154826, V.BFA, Q.RARE)
+	pet:SetItemID(169353)
+	pet:SetRequiredFaction("Horde")
+	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST, F.MISC)
+	pet:AddCustom("UNKNOWN_COLLECT")
+--	pet:AddQuest()  -- Needs updating
+
+	-- Brilliant Glimmershell -- 154827
+	pet = AddPet(154827, V.BFA, Q.RARE)
+	pet:SetItemID(169354)
+	pet:SetRequiredFaction("Alliance")
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST, F.MISC)
+	pet:AddCustom("UNKNOWN_COLLECT")
+--	pet:AddQuest()  -- Needs updating
+
+	-- Chitterspine Needler -- 154828
+	pet = AddPet(154828, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169355)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(152465)
+
+	-- Caverndark Nightmare -- 154829
+	pet = AddPet(154829, V.BFA, Q.RARE)
+	pet:SetItemID(169356)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(152464)
+
+	-- Chitterspine Devourer -- 154830
+	pet = AddPet(154830, V.BFA, Q.RARE)
+	pet:SetItemID(169357)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(154652, 154653)
+
+	-- Lightless Ambusher -- 154831
+	pet = AddPet(154831, V.BFA, Q.RARE)
+	pet:SetItemID(169358)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	pet:AddMobDrop(153142)
+
+	-- Spawn of Nalaada -- 154832
+	pet = AddPet(154832, V.BFA, Q.RARE)
+	pet:SetItemID(169359)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(152555)
+
+	-- Mindlost Bloodfrenzy -- 154833
+	pet = AddPet(154833, V.BFA, Q.RARE)
+	pet:SetItemID(169360)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	pet:AddMobDrop(154833)
+
+	-- Daggertooth Frenzy -- 154834
+	pet = AddPet(154834, V.BFA, Q.RARE)
+	pet:SetItemID(169361)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(152756)
+
+	-- Nameless Octopode -- 154835
+	pet = AddPet(154835, V.BFA, Q.RARE)
+	pet:SetItemID(169362)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	pet:AddMobDrop(150859)
+
+	-- Amethyst Softshell -- 154836
+	pet = AddPet(154836, V.BFA, Q.RARE)
+	pet:SetItemID(169363)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(152794)
+
+	-- Prismatic Softshell -- 154837
+	pet = AddPet(154837, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169364)
+	pet:SetRequiredFaction("Alliance")
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON4)
+	pet:AddRepVendor(FAC.ANKOAN, REP.EXALTED, 154140)
+
+	-- Damplight Slug -- 154838
+	pet = AddPet(154838, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169365)
+	pet:SetRequiredFaction("Horde")
+	pet:AddFilters(F.HORDE, F.IBOP, F.REPUTATION, F.BFACOMMON4)
+	pet:AddRepVendor(FAC.UNSHACKLED, REP.EXALTED, 154002)
+
+	-- Wriggler -- 154839
+	pet = AddPet(154839, V.BFA, Q.RARE)
+	pet:SetItemID(169366)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(144644)
+
+	-- Seafury -- 154840
+	pet = AddPet(154840, V.BFA, Q.RARE)
+	pet:SetItemID(169367)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(152681)
+
+	-- Stormwrath -- 154841
+	pet = AddPet(154841, V.BFA, Q.RARE)
+	pet:SetItemID(169368)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(152682)
+
+	-- Sandkeep -- 154842
+	pet = AddPet(154842, V.BFA, Q.RARE)
+	pet:SetItemID(169369)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("SCRYING_STONE")
+
+	-- Scalebrood Hydra -- 154843
+	pet = AddPet(154843, V.BFA, Q.RARE)
+	pet:SetItemID(169370)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	pet:AddWorldDrop(Z.NAZJATAR)
+
+	-- Brinestone Algan -- 154845
+	pet = AddPet(154845, V.BFA, Q.RARE)
+	pet:SetItemID(169373)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(150191)
+
+	-- Budding Algan -- 154846
+	pet = AddPet(154846, V.BFA, Q.RARE)
+	pet:SetItemID(169374)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(150583)
+
+	-- Coral Lashling -- 154847
+	pet = AddPet(154847, V.BFA, Q.RARE)
+	pet:SetItemID(169375)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(149653)
+
+	-- Skittering Eel -- 154848
+	pet = AddPet(154848, V.BFA, Q.RARE)
+	pet:SetItemID(169376)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(150468)
+
+	-- Drowned Hatchling -- 154849
+	pet = AddPet(154849, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169377)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(154860)
+
+	-- Golden Snorf -- 154850
+	pet = AddPet(154850, V.BFA, Q.RARE)
+	pet:SetItemID(169378)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.INSTANCE, F.MOB_DROP)
+	pet:AddMobDrop(155438)
+
+	-- Snowsoft Nibbler -- 154851
+	pet = AddPet(154851, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169379)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("SNOWSOFT_NIBBLER")
+
+	-- Mustyfur Snooter -- 154852
+	pet = AddPet(154852, V.BFA, Q.RARE)
+	pet:SetItemID(169380)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.RUSTBOLT_RESISTANCE)
+	pet:AddRepVendor(FAC.RUSTBOLT_RESISTANCE, REP.HONORED, 150716)
+
+	-- OOX-35/MG -- 154853
+	pet = AddPet(154853, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169381)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("OOX-35")
+
+	-- Lost Robogrip -- 154854
+	pet = AddPet(154854, V.BFA, Q.RARE)
+	pet:SetItemID(169382)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(151933)
+
+	-- Utility Mechanoclaw -- 154855
+	pet = AddPet(154855, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169383)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(150359)
+
+	-- Microbot XD -- 154856
+	pet = AddPet(154856, V.BFA, Q.RARE)
+	pet:SetItemID(169384)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(150359)
+
+	-- Microbot 8D -- 154857
+	pet = AddPet(154857, V.BFA, Q.RARE)
+	pet:SetItemID(169385)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(155157)
+
+	-- Bonebiter -- 154893
+	pet = AddPet(154893, V.BFA, Q.RARE)
+	pet:SetItemID(169392)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(152001)
+
+	-- Arachnoid Skitterbot -- 154894
+	pet = AddPet(154894, V.BFA, Q.RARE)
+	pet:SetItemID(169393)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(151672)
+
+	-- Echoing Oozeling -- 154904
+	pet = AddPet(154904, V.BFA, Q.RARE)
+	pet:SetItemID(169396)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	pet:AddCustom("UNKNOWN_COLLECT")
+
+	-- Gruesome Belcher -- 155240
+	pet = AddPet(155240, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169679)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(150987)
+
+	-- Ziggy -- 155244
+	pet = AddPet(155244, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169678)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(150987)
+
+	-- Crypt Fiend -- 155246
+	pet = AddPet(155246, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169677)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(150987)
+
+	-- Shrieker -- 155248
+	pet = AddPet(155248, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(169676)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
+	pet:AddVendor(150987)
+
+	-- Irradiated Elementaling -- 155579
+	pet = AddPet(155579, V.BFA, Q.RARE)
+	pet:SetItemID(169879)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	pet:AddWorldDrop(Z.MECHAGON_ISLAND)
+
+	-- Spraybot 0D -- 155600
+	pet = AddPet(155600, V.BFA, Q.RARE)
+	pet:SetItemID(169886)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(152113)
+
+	-- Armored Vaultbot -- 155829
+	pet = AddPet(155829, V.BFA, Q.COMMON)
+	pet:SetItemID(170072)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
+	pet:AddWorldDrop(Z.MECHAGON_ISLAND)
+
+	-- Burnout -- 155865
+	pet = AddPet(155865, V.BFA, Q.COMMON)
+	pet:SetItemID(170102)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
+	pet:AddAchievement(13766)
 
 -- Pets not actually in game or are NPC/legendary
 --[[	-- Muffin -- 65344

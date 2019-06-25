@@ -176,6 +176,7 @@ function addon:InitMob()
 	AddMob(53494,	BN.BALEROC__THE_GATEKEEPER,		Z.FIRELANDS,			0.0, 0.0)
 	AddMob(53691,	BN.SHANNOX,				Z.FIRELANDS,			0.0, 0.0)
 	AddMob(53879,	BN.SPINE_OF_DEATHWING,			Z.DRAGON_SOUL,			0.0, 0.0)
+	AddMob(54853,	BN.QUEEN_AZSHARA,			Z.THE_ETERNAL_PALACE,		0.0, 0.0)
 	AddMob(55294,	BN.ULTRAXION,				Z.DRAGON_SOUL,			0.0, 0.0)
 	AddMob(55312,	BN.YORSAHJ_THE_UNSLEEPING,		Z.DRAGON_SOUL,			0.0, 0.0)
 	AddMob(56173,	BN.MADNESS_OF_DEATHWING,		Z.DRAGON_SOUL,			0.0, 0.0)
@@ -367,6 +368,7 @@ function addon:InitMob()
 	AddMob(142716,	L["Man-Hunter Rog"],			Z.ARATHI_HIGHLANDS,		52.0, 76.6)
 	AddMob(142725,	L["Horrific Apparition"],		Z.ARATHI_HIGHLANDS,		26.8, 32.4)
 	AddMob(142741,	L["Doomrider Helgrim"],			Z.ARATHI_HIGHLANDS,		53.8, 57.2)
+	AddMob(144644,	L["Mirecrawler"],			Z.NAZJATAR,			37.2, 13.2)
 	AddMob(144747,	BN.CONCLAVE_OF_THE_CHOSEN,		Z.BATTLE_OF_DAZARALOR,		0.0, 0.0)
 	AddMob(144838,	BN.HIGH_TINKER_MEKKATORQUE,		Z.BATTLE_OF_DAZARALOR,		0.0, 0.0)
 	AddMob(145272,	L["Blackpaw"],				Z.DARKSHORE,			49.5, 25.1)
@@ -392,10 +394,38 @@ function addon:InitMob()
 	AddMob(149141,	L["Burninator Mark V"],			Z.DARKSHORE,			41.5, 76.7)
 	AddMob(149147,	L["N'chala the Egg Thief"],		Z.ZULDAZAR,			69.0, 37.0)
 	AddMob(149652,	L["Agathe Wyrmwood"],			Z.DARKSHORE,			49.4, 24.8)
+	AddMob(149653,	L["Carnivorous Lasher"],		Z.NAZJATAR,			54.8, 42.0)
 	AddMob(149661,	L["Croz Bloodrage"],			Z.DARKSHORE,			50.6, 32.4)
 	AddMob(149662,	L["Grimhorn"],				Z.DARKSHORE,			50.6, 32.4)
 	AddMob(149663,	L["Shadowclaw"],			Z.DARKSHORE,			39.8, 32.8)
 	AddMob(149684,	BN.LADY_JAINA_PROUDMOORE,		Z.BATTLE_OF_DAZARALOR,		0.0, 0.0)
+	AddMob(150468,	L["Vor'koth"],				Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(150583,	L["Rockweed Shambler"],			Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(150859,	BN.ZAQUL_HARBINGER_OF_NYALOTHA,		Z.THE_ETERNAL_PALACE,		0.0, 0.0)
+	AddMob(150191,	L["Avarius"],				Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(151672,	L["Mecharantula"],			Z.MECHAGON_ISLAND,		87.4, 21.6)
+	AddMob(151933,	L["Malfunctioning Beastbot"],		Z.NAZJATAR,			62.0, 42.6)
+	AddMob(152001,	L["Bonepicker"],			Z.MECHAGON_ISLAND,		66.4, 23.4)
+	AddMob(152007,	L["Killsaw"],				Z.MECHAGON_ISLAND,		50.2, 48.4)
+	AddMob(152182,	L["Rustfeather"],			Z.MECHAGON_ISLAND,		65.7, 78.3)
+	AddMob(152113,	L["The Kleptoboss"],			Z.MECHAGON_ISLAND,		68.5, 53.5)
+	AddMob(152290,	L["Soundless"],				Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(152323,	L["King Gakula"],			Z.NAZJATAR,			28.8, 29.0)
+	AddMob(152464,	L["Caverndark Terror"],			Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(152465,	L["Needlespine"],			Z.NAZJATAR,			45.6, 25.6)
+	AddMob(152552,	L["Shassera"],				Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(152555,	L["Elderspawn Nalaada"],		Z.NAZJATAR,			52.2, 74.0)
+	AddMob(152681,	L["Prince Typhonus"],			Z.NAZJATAR,			43.0, 87.6)
+	AddMob(152682,	L["Prince Vortran"],			Z.NAZJATAR,			43.0, 75.8)
+	AddMob(152712,	L["Blindlight"],			Z.NAZJATAR,			37.4, 82.2)
+	AddMob(152756,	L["Daggertooth Terror"],		Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(152794,	L["Amethyst Spireshell"],		Z.NAZJATAR,			72.2, 36.2)
+	AddMob(152795,	L["Sandclaw Stoneshell"],		Z.NAZJATAR,			77.2, 45.4)
+	AddMob(153142,	BN.LADY_ASHVANE,			Z.THE_ETERNAL_PALACE,		0.0, 0.0)
+	AddMob(154148,	L["Tidemistress Leth'sindra"],		Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(154833,	BN.BLACKWATER_BEHEMOTH,			Z.THE_ETERNAL_PALACE,		0.0, 0.0)
+	AddMob(155157,	BN.HK_8_AERIAL_OPPRESSION_UNIT,		Z.OPERATION_MECHAGON,		0.0, 0.0)
+	AddMob(155438,	BN.KING_MECHAGON,			Z.OPERATION_MECHAGON,		0.0, 0.0)
 
 	self.InitMob = nil
 end

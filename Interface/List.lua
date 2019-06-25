@@ -611,6 +611,8 @@ function private.InitializeListFrame()
 			[REP3.BFACOMMON2]			= "bfacommon2",
 			[REP3.BFACOMMON3]			= "bfacommon3",
 			[REP3.BFACOMMON4]			= "bfacommon4",
+			[REP3.BFACOMMON5]			= "bfacommon5",
+			[REP3.RUSTBOLT_RESISTANCE]		= "rustboltresistance",
 		}
 
 		-- Returns true if any of the filter flags are turned on.
