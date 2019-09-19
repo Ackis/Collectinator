@@ -4610,6 +4610,12 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.REPUTATION, F.BFACOMMON3)
 	mount:AddRepVendor(FAC.PROUDMOORE_ADMIRALTY, REP.EXALTED, 135808)
 
+	-- Sylverian Dreamer -- 290132
+	mount = AddMount(290132, V.BFA, Q.EPIC)
+	mount:SetItemID(166776)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.STORE)
+	mount:AddCustom("STORE")
+
 	-- Wonderwing 2.0 -- 290328
 	mount = AddMount(290328, V.BFA, Q.EPIC)
 	mount:SetItemID(169162)
@@ -4707,17 +4713,15 @@ function addon:InitMounts()
 	mount = AddMount(300146, V.BFA, Q.EPIC)
 	mount:SetItemID(169199)
 	mount:SetRequiredFaction("Horde")
-	mount:AddFilters(F.HORDE, F.IBOP, F.QUEST)
-	mount:AddCustom("UNKNOWN_COLLECT")
---	mount:AddQuest() --Needs updating
+	mount:AddFilters(F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("NAZJATAR_BODYGUARDS")
 
 	-- Deepcoral Snapdragon -- 300147
 	mount = AddMount(300147, V.BFA, Q.EPIC)
 	mount:SetItemID(169200)
 	mount:SetRequiredFaction("Alliance")
-	mount:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST)
-	mount:AddCustom("UNKNOWN_COLLECT")
---	mount:AddQuest() --Needs updating
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.MISC)
+	mount:AddCustom("NAZJATAR_BODYGUARDS")
 
 	-- Silent Glider -- 300149
 	mount = AddMount(300149, V.BFA, Q.EPIC)
@@ -4728,9 +4732,8 @@ function addon:InitMounts()
 	-- Fabious -- 300150
 	mount = AddMount(300150, V.BFA, Q.EPIC)
 	mount:SetItemID(169201)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
-	mount:AddCustom("UNKNOWN_COLLECT")
---	mount:AddMobDrop()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
+	mount:AddCustom("FABIOUS")
 
 	-- Inkscale Deepseeker -- 300151
 	mount = AddMount(300151, V.BFA, Q.EPIC)
@@ -4743,6 +4746,12 @@ function addon:InitMounts()
 	mount:SetItemID(169202)
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	mount:AddVendor(152084)
+
+	-- Alabaster Stormtalon -- 302361
+	mount = AddMount(302361, V.BFA, Q.EPIC)
+--	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOA, F.COLLECTORS_EDITION)
+	mount:AddCustom("STORE", "CE")
 
 -- Unknown mounts
 

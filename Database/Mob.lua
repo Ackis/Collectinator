@@ -399,30 +399,31 @@ function addon:InitMob()
 	AddMob(149662,	L["Grimhorn"],				Z.DARKSHORE,			50.6, 32.4)
 	AddMob(149663,	L["Shadowclaw"],			Z.DARKSHORE,			39.8, 32.8)
 	AddMob(149684,	BN.LADY_JAINA_PROUDMOORE,		Z.BATTLE_OF_DAZARALOR,		0.0, 0.0)
-	AddMob(150468,	L["Vor'koth"],				Z.NAZJATAR,			0.0, 0.0) --Needs updating
-	AddMob(150583,	L["Rockweed Shambler"],			Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(150468,	L["Vor'koth"],				Z.NAZJATAR,			48.2, 24.2)
+	AddMob(150583,	L["Rockweed Shambler"],			Z.NAZJATAR,			78.0, 38.0)
 	AddMob(150859,	BN.ZAQUL_HARBINGER_OF_NYALOTHA,		Z.THE_ETERNAL_PALACE,		0.0, 0.0)
-	AddMob(150191,	L["Avarius"],				Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(150191,	L["Avarius"],				Z.NAZJATAR,			36.8, 11.6)
 	AddMob(151672,	L["Mecharantula"],			Z.MECHAGON_ISLAND,		87.4, 21.6)
 	AddMob(151933,	L["Malfunctioning Beastbot"],		Z.NAZJATAR,			62.0, 42.6)
 	AddMob(152001,	L["Bonepicker"],			Z.MECHAGON_ISLAND,		66.4, 23.4)
 	AddMob(152007,	L["Killsaw"],				Z.MECHAGON_ISLAND,		50.2, 48.4)
 	AddMob(152182,	L["Rustfeather"],			Z.MECHAGON_ISLAND,		65.7, 78.3)
 	AddMob(152113,	L["The Kleptoboss"],			Z.MECHAGON_ISLAND,		68.5, 53.5)
-	AddMob(152290,	L["Soundless"],				Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(152290,	L["Soundless"],				Z.NAZJATAR,			58.6, 50.2)
 	AddMob(152323,	L["King Gakula"],			Z.NAZJATAR,			28.8, 29.0)
-	AddMob(152464,	L["Caverndark Terror"],			Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(152464,	L["Caverndark Terror"],			Z.NAZJATAR,			40.8, 7.3)
 	AddMob(152465,	L["Needlespine"],			Z.NAZJATAR,			45.6, 25.6)
-	AddMob(152552,	L["Shassera"],				Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(152552,	L["Shassera"],				Z.NAZJATAR,			64.2, 7.2)
 	AddMob(152555,	L["Elderspawn Nalaada"],		Z.NAZJATAR,			52.2, 74.0)
 	AddMob(152681,	L["Prince Typhonus"],			Z.NAZJATAR,			43.0, 87.6)
 	AddMob(152682,	L["Prince Vortran"],			Z.NAZJATAR,			43.0, 75.8)
 	AddMob(152712,	L["Blindlight"],			Z.NAZJATAR,			37.4, 82.2)
-	AddMob(152756,	L["Daggertooth Terror"],		Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(152756,	L["Daggertooth Terror"],		Z.NAZJATAR,			72.6, 26.6)
 	AddMob(152794,	L["Amethyst Spireshell"],		Z.NAZJATAR,			72.2, 36.2)
 	AddMob(152795,	L["Sandclaw Stoneshell"],		Z.NAZJATAR,			77.2, 45.4)
 	AddMob(153142,	BN.LADY_ASHVANE,			Z.THE_ETERNAL_PALACE,		0.0, 0.0)
-	AddMob(154148,	L["Tidemistress Leth'sindra"],		Z.NAZJATAR,			0.0, 0.0) --Needs updating
+	AddMob(154148,	L["Tidemistress Leth'sindra"],		Z.NAZJATAR,			66.0, 22.6)
+	AddMob(154225,	L["The Rusty Prince"],			Z.NAZJATAR,			58.0, 59.0)
 	AddMob(154833,	BN.BLACKWATER_BEHEMOTH,			Z.THE_ETERNAL_PALACE,		0.0, 0.0)
 	AddMob(155157,	BN.HK_8_AERIAL_OPPRESSION_UNIT,		Z.OPERATION_MECHAGON,		0.0, 0.0)
 	AddMob(155438,	BN.KING_MECHAGON,			Z.OPERATION_MECHAGON,		0.0, 0.0)

@@ -7906,7 +7906,7 @@ function addon:InitCritters()
 	-- Pearlescent Glimmershell -- 154825
 	pet = AddPet(154825, V.BFA, Q.RARE)
 	pet:SetItemID(169352)
-	pet:SetSpellID()
+--	pet:SetSpellID()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	pet:AddVendor(153509, 153512)
 
@@ -7915,16 +7915,14 @@ function addon:InitCritters()
 	pet:SetItemID(169353)
 	pet:SetRequiredFaction("Horde")
 	pet:AddFilters(F.HORDE, F.IBOP, F.QUEST, F.MISC)
-	pet:AddCustom("UNKNOWN_COLLECT")
---	pet:AddQuest()  -- Needs updating
+	pet:AddCustom("NAZJATAR_BODYGUARDS")
 
 	-- Brilliant Glimmershell -- 154827
 	pet = AddPet(154827, V.BFA, Q.RARE)
 	pet:SetItemID(169354)
 	pet:SetRequiredFaction("Alliance")
 	pet:AddFilters(F.ALLIANCE, F.IBOP, F.QUEST, F.MISC)
-	pet:AddCustom("UNKNOWN_COLLECT")
---	pet:AddQuest()  -- Needs updating
+	pet:AddCustom("NAZJATAR_BODYGUARDS")
 
 	-- Chitterspine Needler -- 154828
 	pet = AddPet(154828, V.BFA, Q.UNCOMMON)
@@ -8118,7 +8116,7 @@ function addon:InitCritters()
 	pet = AddPet(154904, V.BFA, Q.RARE)
 	pet:SetItemID(169396)
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	pet:AddCustom("UNKNOWN_COLLECT")
+	pet:AddCustom("REC_RIG")
 
 	-- Gruesome Belcher -- 155240
 	pet = AddPet(155240, V.BFA, Q.UNCOMMON)

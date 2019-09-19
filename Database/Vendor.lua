@@ -327,7 +327,8 @@ function addon:InitVendor()
 	AddVendor(154140,	L["Speaker Utia"],		Z.NAZJATAR,			38.0,	55.6,	"Alliance")
 	AddVendor(154652,	L["Dazzerian"],			Z.NAZJATAR,			48.6,	60.8,	"Horde") -- PvP vendor
 	AddVendor(154653,	L["Crafticus Mindbender"],	Z.NAZJATAR,			38.1,	55.4,	"Alliance") -- PvP vendor
-	AddVendor(154860,	L["Feylana the Handler"],	Z.NAZJATAR,			0.0,	0.0,	"Neutral")  --Needs updating
+	AddVendor(154860,	L["Feylana the Handler"],	Z.NAZJATAR,			73.8,	46.0,	"Neutral")
+	AddVendor(155944,	L["Otela"],			Z.TANARIS,			0.0,	0.0, 	"Neutral") -- CoT Timewalking vendor
 
 	self.InitVendor = nil
 end

@@ -146,6 +146,9 @@ function addon:InitCustom()
 	AddCustom("FRANCOIS",		Z.TIRAGARDE_SOUND,		52.8,	31.1)
 	AddCustom("ISLAND_EXPEDITIONS")
 	AddCustom("ZAND_AMULET",	Z.DAZARALOR)
+	AddCustom("FABIOUS",		Z.NAZJATAR)
+	AddCustom("NAZJATAR_BODYGUARDS",	Z.NAZJATAR)
+	AddCustom("REC_RIG",		Z.MECHAGON_ISLAND)
 
 	AddCustom("UNKNOWN_COLLECT")
 

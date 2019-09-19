@@ -3089,11 +3089,6 @@ function addon:InitToys()
 
 --8.2
 
-	-- Pearl of the Abyss -- 166782
-	toy = AddToy(166782, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	toy:AddCustom("UNKNOWN_COLLECT")
-
 	-- Mechagonian Sawblades -- 167931
 	toy = AddToy(167931, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
@@ -3107,12 +3102,17 @@ function addon:InitToys()
 	-- Ocean Simulator -- 168824
 	toy = AddToy(168824, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	toy:AddCustom("UNKNOWN_COLLECT")
+	toy:AddCustom("SCRYING_STONE")
 
 	-- Holographic Digitalization Hearthstone -- 168907
 	toy = AddToy(168907, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	toy:AddVendor(150359)
+
+	-- Rustbolt Banner -- 169108
+	toy = AddToy(169108, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.REPUTATION, F.RUSTBOLT_RESISTANCE)
+	toy:AddRepVendor(FAC.RUSTBOLT_RESISTANCE, REP.REVERED, 150716)
 
 	-- Alliance War Banner -- 169275
 	toy = AddToy(169275, V.BFA, Q.RARE)
@@ -3128,8 +3128,8 @@ function addon:InitToys()
 
 	-- Judgment of Mechagon -- 169347
 	toy = AddToy(169347, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	toy:AddCustom("UNKNOWN_COLLECT")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	toy:AddMobDrop(154225)
 
 	-- Heart of a Champion -- 169768
 	toy = AddToy(169768, V.BFA, Q.RARE)
@@ -3138,14 +3138,26 @@ function addon:InitToys()
 
 	-- Azeroth Mini Collection: Mechagon -- 169796
 	toy = AddToy(169796, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
-	toy:AddCustom("UNKNOWN_COLLECT")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(56572)
 
 	-- Brewfest Chowdown Trophy -- 169865
 	toy = AddToy(169865, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.VENDOR, F.WORLD_EVENTS, F.IBOP)
 	toy:AddVendor(23710, 24495)
 	toy:AddWorldEvent("BREWFEST")
+
+	-- Book of the Unshackled -- 170154
+	toy = AddToy(170154, V.BFA, Q.RARE)
+	toy:AddFilters(F.HORDE, F.IBOP, F.MISC)
+	toy:SetRequiredFaction("Horde")
+	toy:AddCustom("NAZJATAR_BODYGUARDS")
+
+	-- Carved Ankoan Charm -- 170155
+	toy = AddToy(170155, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.IBOP, F.MISC)
+	toy:SetRequiredFaction("Alliance")
+	toy:AddCustom("NAZJATAR_BODYGUARDS")
 
 	-- Shadescale -- 170187
 	toy = AddToy(170187, V.BFA, Q.RARE)
@@ -3179,13 +3191,19 @@ function addon:InitToys()
 
 	-- Jar of Sunwarmed Sand -- 170380
 	toy = AddToy(170380, V.BFA, Q.RARE)
-	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.MISC)
-	toy:AddCustom("UNKNOWN_COLLECT")
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR, F.WORLD_EVENTS)
+	toy:AddWorldEvent("TIMEWALKING")
+	toy:AddVendor(155944)
 
 	-- Underlight Sealamp -- 170476
 	toy = AddToy(170476, V.BFA, Q.RARE)
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_DROP)
 	toy:AddWorldDrop(Z.NAZJATAR)
+
+	-- Memento of the Deeps -- 170469
+	toy = AddToy(170469, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
+	toy:AddQuest(53982, 55976)
 
 --[[  Didn't actually make it into the ToyBox panel
 

@@ -232,7 +232,7 @@ function addon:InitQuest()
 	AddQuest(53766,	Z.DAZARALOR,				0.0,	0.0,	"Horde")
 	AddQuest(53820,	Z.BORALUS,				0.0, 	0.0, 	"Alliance")
 	AddQuest(53821,	Z.DAZARALOR,				44.8,	89.88,	"Horde")
-	AddQuest(53982,	Z.NAZJATAR,				0.0,	0.0,	"Horde") --Needs updating
+	AddQuest(53982,	Z.NAZJATAR,				50.8,	65.2,	"Horde") -- Emissary - Unshackled
 	AddQuest(54043,	Z.DARKSHORE,				51.8,	21.6,	"Horde")
 	AddQuest(54050,	Z.DARKSHORE,				54.6,	20.8,	"Horde")
 	AddQuest(54108,	Z.SWAMP_OF_SORROWS,			80.8,	78.4,	"Horde")
@@ -249,10 +249,12 @@ function addon:InitQuest()
 	AddQuest(54460, Z.NAZMIR,				39.0,	79.4,	"Horde") -- Emissary
 	AddQuest(54461,	Z.VOLDUN,				56.6,	49.8,	"Horde") -- Emissary
 	AddQuest(54462,	Z.DAZARALOR,				65.6,	72.4,	"Horde") -- Emissary
-	AddQuest(55622,	Z.MECHAGON_ISLAND,			0.0,	0.0,	"Neutral") --Needs updating
+	AddQuest(55348,	Z.MECHAGON_ISLAND,			74.0,	36.8,	"Neutral") -- Emissary - Rustbolt
+	AddQuest(55622,	Z.MECHAGON_ISLAND,			71.4,	38.6,	"Neutral")
 	AddQuest(55752,	Z.SILITHUS,				42.2,	44.2,	"Neutral")
-	AddQuest(55798,	Z.ZULDAZAR,				0.0,	0.0,	"Horde") --Needs updating
-	AddQuest(55976,	Z.NAZJATAR,				40.0,	54.2,	"Alliance")
+	AddQuest(55798,	Z.ZULDAZAR,				68.2,	41.6,	"Horde")
+	AddQuest(55976,	Z.NAZJATAR,				40.0,	54.2,	"Alliance") -- Emissary - Ankoan
+	AddQuest(56572,	Z.MECHAGON_ISLAND,			70.2,	32.8,	"Neutral") -- Toys like us
 
 	self.InitQuest = nil
 end
