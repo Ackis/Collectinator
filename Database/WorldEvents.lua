@@ -59,5 +59,8 @@ function addon:InitWorldEvents()
 	local achievement_id, achievement_name = _G.GetAchievementInfo(8820)
 	AddWorldEvent("WOW_10TH_ANNIVERSARY", achievement_name)
 
+	local achievement_id, achievement_name = _G.GetAchievementInfo(13917)
+	AddWorldEvent("WOW_15TH_ANNIVERSARY", achievement_name)
+
 	self.InitWorldEvents = nil
 end

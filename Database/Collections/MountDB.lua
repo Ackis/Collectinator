@@ -1196,16 +1196,18 @@ function addon:InitMounts()
 	-- Black War Mammoth - 59785
 	mount = AddMount(59785, V.WOTLK, Q.EPIC) -- Item: 43956
 	mount:SetItemID(43956)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.PVP, F.MISC)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddVendor(32294)
+	mount:AddCustom("BMAH")
 
 	-- Black War Mammoth - 59788
 	mount = AddMount(59788, V.WOTLK, Q.EPIC) -- Item: 44077
 	mount:SetItemID(44077)
-	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP)
+	mount:AddFilters(F.HORDE, F.IBOP, F.VENDOR, F.PVP, F.MISC)
 	mount:SetRequiredFaction("Horde")
 	mount:AddVendor(32296)
+	mount:AddCustom("BMAH")
 
 	-- Wooly Mammoth -- 59791
 	mount = AddMount(59793, V.WOTLK, Q.EPIC) -- Item: 44231
@@ -1360,16 +1362,18 @@ function addon:InitMounts()
 	-- Grand Black War Mammoth - 61465
 	mount = AddMount(61465, V.WOTLK, Q.EPIC) -- Item: 43959
 	mount:SetItemID(43959)
-	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.RAID)
+	mount:AddFilters(F.ALLIANCE, F.VENDOR, F.IBOP, F.RAID, F.MISC)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddMobDrop(31125, 33993, 35013, 38433)
+	mount:AddCustom("BMAH")
 
 	-- Grand Black War Mammoth - Horde - 61467
 	mount = AddMount(61467, V.WOTLK, Q.EPIC) -- Item: 44083
 	mount:SetItemID(44083)
-	mount:AddFilters(F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:AddFilters(F.HORDE, F.IBOP, F.RAID, F.MOB_DROP, F.MISC)
 	mount:SetRequiredFaction("Horde")
 	mount:AddMobDrop(31125, 33993, 35013, 38433)
+	mount:AddCustom("BMAH")
 
 	-- Grand Ice Mammoth - 61469
 	mount = AddMount(61469, V.WOTLK, Q.EPIC) -- Item: 44086
@@ -1968,14 +1972,16 @@ function addon:InitMounts()
 	-- Armored Razzashi Raptor -- 96491
 	mount = AddMount(96491, V.CATA, Q.EPIC) -- Item: 68823
 	mount:SetItemID(68823)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.IBOP, F.MISC)
 	mount:AddMobDrop(52151)
+	mount:AddCustom("BMAH")
 
 	-- Swift Zulian Panther -- 96499
 	mount = AddMount(96499, V.CATA, Q.EPIC) -- Item: 68824
 	mount:SetItemID(68824)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.INSTANCE, F.IBOP, F.MISC)
 	mount:AddMobDrop(52059)
+	mount:AddCustom("BMAH")
 
 	-- Amani Dragonhawk -- 96503
 	mount = AddMount(96503, V.CATA, Q.EPIC) -- Item: 68825
@@ -2156,15 +2162,16 @@ function addon:InitMounts()
 	-- Life-Binder's Handmaiden -- 107845
 	mount = AddMount(107845, V.CATA, Q.EPIC) -- Item: 77069
 	mount:SetItemID(77069)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP, F.MISC)
 	mount:AddMobDrop(56173)
-	mount:AddCustom("HEROIC")
+	mount:AddCustom("HEROIC", "BMAH")
 
 	-- Experiment 12-B -- 110039
 	mount = AddMount(110039, V.CATA, Q.EPIC) -- Item: 78919
 	mount:SetItemID(78919)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.MOB_DROP, F.RAID, F.IBOP, F.MISC)
 	mount:AddMobDrop(55294)
+	mount:AddCustom("BMAH")
 
 	-- Heart of the Aspects -- 110051
 	mount = AddMount(110051, V.CATA, Q.EPIC) -- Item: 78924
@@ -2594,8 +2601,9 @@ function addon:InitMounts()
 	-- Spawn of Horridon -- 136471
 	mount = AddMount(136471, V.MOP, Q.EPIC)
 	mount:SetItemID(93666)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.MISC)
 	mount:AddMobDrop(68476)
+	mount:AddCustom("BMAH")
 
 	-- Ghastly Charger's Skull -- 136505
 	mount = AddMount(136505, V.MOP, Q.EPIC)
@@ -2606,35 +2614,39 @@ function addon:InitMounts()
 	-- Cobalt Primordial Direhorn -- 138423
 	mount = AddMount(138423, V.MOP, Q.EPIC)
 	mount:SetItemID(94228)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.MISC)
 	mount:AddMobDrop(69161)
+	mount:AddCustom("BMAH")
 
 	-- Amber Primordial Direhorn -- 138424
 	mount = AddMount(138424, V.MOP, Q.EPIC)
 	mount:SetItemID(94230)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddZoneLocations(Z.TOWNLONG_STEPPES, nil, "36.6:85.6")
 	mount:AddZoneLocations(Z.DREAD_WASTES, nil, "47.2:61.6")
 	mount:AddZoneLocations(Z.KUN_LAI_SUMMIT, nil, "75.0:67.6")
 	mount:AddZoneLocations(Z.THE_JADE_FOREST, nil, "52.6:19.0")
+	mount:AddCustom("BMAH")
 
 	-- Slate Primordial Direhorn -- 138425
 	mount = AddMount(138425, V.MOP, Q.EPIC)
 	mount:SetItemID(94229)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddZoneLocations(Z.TOWNLONG_STEPPES, nil, "36.6:85.6")
 	mount:AddZoneLocations(Z.DREAD_WASTES, nil, "47.2:61.6")
 	mount:AddZoneLocations(Z.KUN_LAI_SUMMIT, nil, "75.0:67.6")
 	mount:AddZoneLocations(Z.THE_JADE_FOREST, nil, "52.6:19.0")
+	mount:AddCustom("BMAH")
 
 	-- Jade Primordial Direhorn -- 138426
 	mount = AddMount(138426, V.MOP, Q.EPIC)
 	mount:SetItemID(94231)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MISC)
 	mount:AddZoneLocations(Z.TOWNLONG_STEPPES, nil, "36.6:85.6")
 	mount:AddZoneLocations(Z.DREAD_WASTES, nil, "47.2:61.6")
 	mount:AddZoneLocations(Z.KUN_LAI_SUMMIT, nil, "75.0:67.6")
 	mount:AddZoneLocations(Z.THE_JADE_FOREST, nil, "52.6:19.0")
+	mount:AddCustom("BMAH")
 
 	-- Bone-White Primal Raptor -- 138640
 	mount = AddMount(138640, V.MOP, Q.EPIC)
@@ -2867,9 +2879,9 @@ function addon:InitMounts()
 	-- Ironhoof Destroyer -- 171621
 	mount = AddMount(171621, V.WOD, Q.EPIC)
 	mount:SetItemID(116660)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MOB_DROP, F.MISC)
 	mount:AddMobDrop(87420)
-	mount:AddCustom("MYTHIC")
+	mount:AddCustom("MYTHIC", "BMAH")
 
 	-- Mottled Meadowstomper -- 171622
 	mount = AddMount(171622, V.WOD, Q.EPIC)
@@ -2973,8 +2985,9 @@ function addon:InitMounts()
 	-- Solar Spirehawk -- 171828
 	mount = AddMount(171828, V.WOD, Q.EPIC)
 	mount:SetItemID(116771)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP, F.MISC)
 	mount:AddMobDrop(87493)
+	mount:AddCustom("BMAH")
 
 	-- Shadowmane Charger -- 171829
 	mount = AddMount(171829, V.WOD, Q.RARE)
@@ -3190,8 +3203,9 @@ function addon:InitMounts()
 	-- Felsteel Annihilator -- 182912
 	mount = AddMount(182912, V.WOD, Q.EPIC)
 	mount:SetItemID(123890)
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.RAID, F.MISC)
 	mount:AddMobDrop(91331)
+	mount:AddCustom("BMAH")
 
 	-- Corrupted Dreadwing -- 183117
 	mount = AddMount(183117, V.WOD, Q.EPIC)
@@ -4747,11 +4761,49 @@ function addon:InitMounts()
 	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.VENDOR)
 	mount:AddVendor(152084)
 
+-- 8.2.5
+
+	-- Honeyback Harvester -- 259741
+	mount = AddMount(259741, V.BFA, Q.EPIC)
+	mount:SetItemID(170069)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP)
+	mount:AddCustom("UNKNOWN_COLLECT")
+--	mount:AddQuest()
+
+	-- Obsidian Worldbreaker -- 294197
+	mount = AddMount(294197, V.BFA, Q.EPIC)
+	mount:SetItemID(172012)
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT, F.WORLD_EVENTS)
+	mount:AddWorldEvent("WOW_15TH_ANNIVERSARY")
+	mount:AddAchievement(13931)
+
 	-- Alabaster Stormtalon -- 302361
 	mount = AddMount(302361, V.BFA, Q.EPIC)
 --	mount:SetItemID()
-	mount:AddFilters(F.ALLIANCE, F.HORDE, F.STORE, F.IBOA, F.COLLECTORS_EDITION)
+	mount:AddFilters(F.ALLIANCE, F.STORE, F.IBOA, F.COLLECTORS_EDITION)
 	mount:AddCustom("STORE", "CE")
+
+	-- Alabaster Thunderwing -- 302362
+	mount = AddMount(302362, V.BFA, Q.EPIC)
+--	mount:SetItemID()
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.STORE, F.IBOA, F.COLLECTORS_EDITION)
+	mount:AddCustom("STORE", "CE")
+
+	-- Frostwolf Snarler -- 306421
+	mount = AddMount(306421, V.BFA, Q.EPIC)
+	mount:SetItemID(172023)
+	mount:SetRequiredFaction("Horde")
+	mount:AddFilters(F.HORDE, F.IBOP, F.PVP, F.ACHIEVEMENT)
+	mount:AddAchievement(13930)
+
+	-- Stormpike Battle Ram -- 308250
+	mount = AddMount(308250, V.BFA, Q.EPIC)
+	mount:SetItemID(172022)
+	mount:SetRequiredFaction("Alliance")
+	mount:AddFilters(F.ALLIANCE, F.IBOP, F.PVP, F.ACHIEVEMENT)
+	mount:AddAchievement(13928)
 
 -- Unknown mounts
 

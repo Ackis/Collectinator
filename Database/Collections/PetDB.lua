@@ -8166,6 +8166,44 @@ function addon:InitCritters()
 	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.ACHIEVEMENT)
 	pet:AddAchievement(13766)
 
+-- 8.2.5
+
+	-- Lil' Nefarian -- 151779
+	pet = AddPet(151779, V.BFA, Q.RARE)
+	pet:SetItemID(172016)
+	pet:SetSpellID(294206)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddWorldEvent("WOW_15TH_ANNIVERSARY")
+	pet:AddCustom("UNKNOWN_COLLECT")
+
+	-- Papi -- 158681
+	pet = AddPet(158681, V.BFA, Q.RARE)
+	pet:SetItemID(172491)
+	pet:SetSpellID(309516)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.MISC)
+	pet:AddCustom("HONEYBACK_HIVE")
+
+	-- Sunsoaked Flitter -- 158683
+	pet = AddPet(158683, V.BFA, Q.UNCOMMON)
+	pet:SetItemID(172492)
+	pet:SetSpellID(309519)
+	pet:AddFilters(F.ALLIANCE, F.IBOP, F.MISC)
+	pet:AddCustom("HONEYBACK_HIVE")
+
+	-- Crimson Skipper -- 158685
+	pet = AddPet(158685, V.BFA, Q.RARE)
+	pet:SetItemID(172493)
+	pet:SetSpellID(309522)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.MOB_DROP)
+	pet:AddMobDrop(154154)
+
+	-- Jenafur -- 159783
+	pet = AddPet(159783, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP)
+	pet:AddCustom("UNKNOWN_COLLECT")
+
 -- Pets not actually in game or are NPC/legendary
 --[[	-- Muffin -- 65344
 	pet = AddPet(65344, V.LEGION, Q.COMMON)
