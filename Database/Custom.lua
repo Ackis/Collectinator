@@ -39,6 +39,8 @@ function addon:InitCustom()
 
 -- Collectors Editions
 	AddCustom("CE")
+	AddCustom("CE_H")
+	AddCustom("CE_E")
 	AddCustom("STARCRAFTCE")
 	AddCustom("DIABLOCE")
 	AddCustom("OVERWATCHCE")

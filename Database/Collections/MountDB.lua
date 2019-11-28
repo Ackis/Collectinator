@@ -4798,6 +4798,12 @@ function addon:InitMounts()
 	mount:AddFilters(F.HORDE, F.IBOP, F.PVP, F.ACHIEVEMENT)
 	mount:AddAchievement(13930)
 
+	-- Ensorcelled Everwyrm -- 307932
+	mount = AddMount(307932, V.BFA, Q.EPIC)
+--	mount:SetItemID()
+	mount:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	mount:AddCustom("CE_H", "CE_E")
+
 	-- Stormpike Battle Ram -- 308250
 	mount = AddMount(308250, V.BFA, Q.EPIC)
 	mount:SetItemID(172022)

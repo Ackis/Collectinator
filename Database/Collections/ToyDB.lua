@@ -3205,6 +3205,11 @@ function addon:InitToys()
 	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.QUEST)
 	toy:AddQuest(53982, 55976)
 
+	-- Eternal Traveler's Hearthstone -- 172179
+	toy = AddToy(172179, V.BFA, Q.RARE)
+	toy:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	toy:AddCustom("CE_E")
+
 --[[  Didn't actually make it into the ToyBox panel
 
 	-- "Guy Incognito" Costume -- 134831

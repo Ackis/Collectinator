@@ -8172,9 +8172,30 @@ function addon:InitCritters()
 	pet = AddPet(151779, V.BFA, Q.RARE)
 	pet:SetItemID(172016)
 	pet:SetSpellID(294206)
-	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS)
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.WORLD_EVENTS, F.ACHIEVEMENT)
 	pet:AddWorldEvent("WOW_15TH_ANNIVERSARY")
-	pet:AddCustom("UNKNOWN_COLLECT")
+	pet:AddAchievement(13917)
+
+	-- Gillvanas -- 157715
+	pet = AddPet(157715, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID(
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddCustom("BLIZZCON")
+
+	-- Anima Wyrmling -- 157969
+	pet = AddPet(157969, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID()
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.COLLECTORS_EDITION)
+	pet:AddCustom("CE_E")
+
+	-- Finduin -- 157716
+	pet = AddPet(157716, V.BFA, Q.COMMON)
+--	pet:SetItemID()
+--	pet:SetSpellID(
+	pet:AddFilters(F.ALLIANCE, F.HORDE, F.IBOP, F.PROMO)
+	pet:AddCustom("BLIZZCON")
 
 	-- Papi -- 158681
 	pet = AddPet(158681, V.BFA, Q.RARE)
