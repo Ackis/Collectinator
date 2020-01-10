@@ -322,6 +322,7 @@ L["HATCHLING"] = "Kill the Matriarch then find the Orphaned Hatchling and feed i
 L["HATCHLING_CHAIN"] = "Obtained during the 2 week chain to raise your Hatchling to a mount."
 L["HEROIC"] = "Available from the Heroic version of this boss."
 L["HIDEPOPUP_DESC"] = "Prevents pop-ups notifying you why the scan window is empty from showing.  Pop-ups will always show for the first time after a new version has been added."
+L["HONEYBACK"] = "Available from reaching Exalted with Honeyback Harvester, getting Exalted with Honeyback Hive, and then completing the Leaving the Hive quest."
 L["HONEYBACK_HIVE"] = "Available randomly from farming Jelly for Honeyback Hive rep."
 L["Halpa"] = true
 L["Happy Holaua"] = true

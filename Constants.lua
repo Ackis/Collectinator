@@ -74,6 +74,23 @@ private.PLAYER_RACE_FILENAMES = {
 	Worgen = true,
 	Pandaren = true,
 }
+-------------------------------------------------------------------------------
+-- Player classes
+-------------------------------------------------------------------------------
+private.PLAYER_CLASS_TYPES = {
+	DK = true,
+	DRUID = true,
+	HUNTER = true,
+	MAGE = true,
+	PALADIN = true,
+	PRIEST = true,
+	SHAMAN = true,
+	ROGUE = true,
+	WARLOCK = true,
+	WARRIOR = true,
+	MONK = true,
+	DEMONHUNTER = true,
+}
 
 -------------------------------------------------------------------------------
 -- Profession data for profession made/axquired collectables.
@@ -839,8 +856,8 @@ do
 		SIEGE_OF_BORALUS = _G.C_Map.GetMapInfo(1162).name,
 		BATTLE_OF_DAZARALOR = _G.C_Map.GetMapInfo(1352).name,
 		NAZJATAR = _G.C_Map.GetMapInfo(1355).name,
-		MECHAGON_ISLAND = _G.C_Map.GetMapInfo(1462).name,
-		OPERATION_MECHAGON = _G.C_Map.GetMapInfo(1490).name,
+		MECHAGON_ISLAND = _G.C_Map.GetMapInfo(1490).name,
+		OPERATION_MECHAGON = _G.C_Map.GetMapInfo(1462).name,
 		THE_ETERNAL_PALACE = _G.C_Map.GetMapInfo(1512).name,
 		-------------------------------------------------------------------------------
 		-- Continents

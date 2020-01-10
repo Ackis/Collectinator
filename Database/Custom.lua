@@ -151,7 +151,9 @@ function addon:InitCustom()
 	AddCustom("FABIOUS",		Z.NAZJATAR)
 	AddCustom("NAZJATAR_BODYGUARDS",	Z.NAZJATAR)
 	AddCustom("REC_RIG",		Z.MECHAGON_ISLAND)
+	AddCustom("HONEYBACK",		Z.STORMSONG_VALLEY)
 	AddCustom("HONEYBACK_HIVE",	Z.STORMSONG_VALLEY)
+	AddCustom("DEFAULT")
 
 	AddCustom("UNKNOWN_COLLECT")
 

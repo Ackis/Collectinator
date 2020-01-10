@@ -4493,14 +4493,14 @@ function addon:InitMounts()
 	mount:SetItemID(166465)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
 	mount:SetRequiredFaction("Alliance")
-	mount: AddVendor(148927)
+	mount:AddVendor(148927)
 
 	-- Priestess' Moonsaber -- 288740
 	mount = AddMount(288740, V.BFA, Q.EPIC)
 	mount:SetItemID(166463)
 	mount:AddFilters(F.ALLIANCE, F.IBOP, F.VENDOR)
 	mount:SetRequiredFaction("Alliance")
-	mount: AddVendor(148927)
+	mount:AddVendor(148927)
 
 	-- G.M.O.D. -- 289083
 	mount = AddMount(289083, V.BFA, Q.EPIC)
@@ -4544,8 +4544,10 @@ function addon:InitMounts()
 	mount = AddMount(290608, V.BFA, Q.EPIC)
 --	mount:SetItemID()
 	mount:AddFilters(F.HORDE)
+	mount:SetRequiredFaction("Horde")
 	mount:SetRequiredClass("PALADIN")
---	mount:SetRequiredRaces("Human", "Dwarf")
+	mount:SetCustom("DEFAULT")
+	mount:SetRequiredRaces("Zandalari")
 
 	-- Beastlord's Irontusk -- 294568
 	mount = AddMount(294568, V.BFA, Q.EPIC)
@@ -4768,8 +4770,7 @@ function addon:InitMounts()
 	mount:SetItemID(170069)
 	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.IBOP)
-	mount:AddCustom("UNKNOWN_COLLECT")
---	mount:AddQuest()
+	mount:AddCustom("HONEYBACK")
 
 	-- Obsidian Worldbreaker -- 294197
 	mount = AddMount(294197, V.BFA, Q.EPIC)
@@ -4781,6 +4782,7 @@ function addon:InitMounts()
 	-- Alabaster Stormtalon -- 302361
 	mount = AddMount(302361, V.BFA, Q.EPIC)
 --	mount:SetItemID()
+	mount:SetRequiredFaction("Alliance")
 	mount:AddFilters(F.ALLIANCE, F.STORE, F.IBOA, F.COLLECTORS_EDITION)
 	mount:AddCustom("STORE", "CE")
 
